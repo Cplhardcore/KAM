@@ -249,7 +249,7 @@ if (_totalIvVolume >= 1) then {
         _entries pushBack ["Plasma: " + (format [localize ACELSTRING(medical_treatment,receivingIvVolume), floor _plasma]), [1, 1, 1, 1]];
     };
     if (_gelofusine > 1) then {
-        _entries pushBack ["Gelofusine: " + (format [localize ACELSTRING(medical_treatment,receivingIvVolume), floor _plasma]), [1, 1, 1, 1]];
+        _entries pushBack ["Gelofusine: " + (format [localize ACELSTRING(medical_treatment,receivingIvVolume), floor _gelofusine]), [1, 1, 1, 1]];
     };
 };
 
