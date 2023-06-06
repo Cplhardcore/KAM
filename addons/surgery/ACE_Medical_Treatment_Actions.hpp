@@ -96,6 +96,20 @@ class ACE_Medical_Treatment_Actions {
         condition = QUOTE([ARR_4(_medic, _patient, _bodyPart, 2.3)] call FUNC(openReductionCheck));
         callbackSuccess = QUOTE([ARR_4(_medic, _patient, _bodyPart, 2.3)] call FUNC(openReductionProgress));
     };
+    class Clamp: BasicBandage {
+        displayName = CSTRING(StitchIncision_Use);
+        displayNameProgress = CSTRING(StitchIncision_Action);
+        category = "surgery";
+        treatmentLocations = QGVAR(surgicalLocation);
+        allowedSelections[] = {"LeftArm", "RightArm", "LeftLeg", "RightLeg"};
+        allowSelfTreatment = 0;
+        medicRequired = QGVAR(surgicalAction_MedLevel);
+        treatmentTime = QGVAR(intermediateTime);
+        items[] = {"ACE_surgicalKit"};
+        condition = QUOTE([ARR_4(_medic, _patient, _bodyPart, 1.3)] call FUNC(openReductionCheck));
+        consumeItem = 0;
+        callbackSuccess = QUOTE([ARR_4(_medic, _patient, _bodyPart, 1.3)] call FUNC(openReductionProgress));
+    };
     class Debridement: BasicBandage {
         displayName = CSTRING(Debride_Use);
         displayNameProgress = CSTRING(Debride_Action);
