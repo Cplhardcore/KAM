@@ -27,7 +27,7 @@
 
 ["ace_treatmentSucceded", {
     params ["_medic", "_patient", "_bodyPart", "_classname"];
-    if (!local _patient) exitWith {["ace_treatmentSucceded", _this, _patient] call CBA_fnc_targetEvent};
+    
     if (_classname == "Epinephrine") then {
 
         if (ACE_Player != _patient) exitWith {};
