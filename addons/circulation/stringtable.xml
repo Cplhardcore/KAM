@@ -2088,6 +2088,56 @@
             <Japanese>交互音</Japanese>
             <German>Alternativer Ton</German>
             <Czech>Střídavý tón</Czech>
+         </Key>
+         <Key ID="STR_KAT_Medical_Treatment_Gelofusine_IV">
+            <English>Gelofusine IV (1000ml)</English>
+            <Russian>Плазма для в/в вливания (1000 мл)</Russian>
+            <Spanish>Gelofusine IV (1000ml)</Spanish>
+            <French>Gelofusine IV (1000 ml)</French>
+            <Polish>Osocze IV (1000ml)</Polish>
+            <German>Gelofusine IV (1000ml)</German>
+            <Hungarian>Vérplazma-infúzió (1000ml)</Hungarian>
+            <Italian>Gelofusine EV (1000ml)</Italian>
+            <Portuguese>Gelofusine IV (1000ml)</Portuguese>
+            <Czech>Krevní plazma (1000ml)</Czech>
+            <Japanese>血しょう IV (1000ml)</Japanese>
+            <Korean>혈장 IV (1000ml)</Korean>
+            <Chinesesimp>血浆（1000毫升）</Chinesesimp>
+            <Chinese>血漿 (1000毫升)</Chinese>
+        </Key>
+        <Key ID="STR_KAT_Medical_Treatment_Gelofusine_IV_500">
+            <English>Gelofusine IV (500ml)</English>
+            <Russian>Плазма для в/в вливания (500 мл)</Russian>
+            <Spanish>Gelofusine IV (500ml)</Spanish>
+            <French>Gelofusine IV (500 ml)</French>
+            <Polish>Osocze IV (500ml)</Polish>
+            <German>Gelofusine IV (500ml)</German>
+            <Hungarian>Vérplazma-infúzió (500ml)</Hungarian>
+            <Italian>Gelofusine EV (500ml)</Italian>
+            <Portuguese>Gelofusine IV (500ml)</Portuguese>
+            <Czech>Krevní plazma (500ml)</Czech>
+            <Japanese>血しょう IV (500ml)</Japanese>
+            <Korean>혈장 IV (500ml)</Korean>
+            <Chinesesimp>血浆（500毫升）</Chinesesimp>
+            <Chinese>點滴 (血漿 500毫升)</Chinese>
+            <Turkish>Gelofusine IV (500ml)</Turkish>
+        </Key>
+        <Key ID="STR_KAT_Medical_Treatment_Gelofusine_IV_250">
+            <English>Gelofusine IV (250ml)</English>
+            <Russian>Плазма для в/в вливания (250 мл)</Russian>
+            <Spanish>Gelofusine IV (250ml)</Spanish>
+            <French>Gelofusine IV (250 ml)</French>
+            <Polish>Osocze IV (250ml)</Polish>
+            <German>Gelofusine IV (250ml)</German>
+            <Hungarian>Vérplazma-infúzió (250ml)</Hungarian>
+            <Italian>Gelofusine EV (250ml)</Italian>
+            <Portuguese>Gelofusine IV (250ml)</Portuguese>
+            <Czech>Krevní plazma (250ml)</Czech>
+            <Japanese>血しょう IV (250ml)</Japanese>
+            <Korean>혈장 IV (250ml)</Korean>
+            <Chinesesimp>血浆（250毫升）</Chinesesimp>
+            <Chinese>點滴 (血漿 250毫升)</Chinese>
+            <Turkish>Gelofusine IV (250ml)</Turkish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_Threshold_SpO2Warning">
             <English>AED-X alarm SpO2 threshold</English>
