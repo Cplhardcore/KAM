@@ -37,7 +37,7 @@ class ACE_Medical_Treatment_Actions {
         allowSelfTreatment = 0;
         medicRequired = QGVAR(surgicalAction_MedLevel);
         treatmentTime = QGVAR(openTime);
-        items[] = {"kat_plate","ACE_suture"};
+        items[] = {"kat_plate"};
         consumeItem = 1;
         condition = QUOTE([ARR_4(_medic, _patient, _bodyPart, 3.5)] call FUNC(openReductionCheck));
         callbackSuccess = QFUNC(openReduction);
