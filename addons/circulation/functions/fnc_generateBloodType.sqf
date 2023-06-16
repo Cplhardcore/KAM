@@ -19,7 +19,6 @@
 params ["_unit","_body",["_respawned",false]];
 
 private _bloodType = "O_N";
-[QGVAR(setPreferredBloodType), [_unit], _unit] call CBA_fnc_targetEvent;
 private _playerBloodType = _unit getVariable [QGVAR(bloodTypePlayer), _bloodType];
 
 switch(GVAR(bloodTypeSetting)) do {
