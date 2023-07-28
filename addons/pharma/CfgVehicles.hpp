@@ -21,7 +21,7 @@ class CfgVehicles {
     class kat_PainkillerItem: WeaponHolder_Single_limited_item_F {
         scope = 2;
         scopeCurator = 2;
-        displayName = CSTRING(Painkillers_Box_Display);
+        displayName= CSTRING(Painkillers_Box_Display);
         author = "Katalam";
         vehicleClass = "Magazines";
         class TransportItems {
@@ -72,23 +72,6 @@ class CfgVehicles {
         class TransportMagazines: TransportMagazines {
             MACRO_ADDMAGAZINE(kat_Carbonate,15);
             MACRO_ADDMAGAZINE(kat_Painkiller,15);
-        };
-    };
-    
-    class Man;
-    class CAManBase: Man {
-        class ACE_SelfActions {
-            class ACE_Equipment {
-                class KAT_Medication {
-                    displayName = CSTRING(Medication_Action);
-                    statement = "true";
-                    showDisabled = 0;
-                    exceptions[] = {"isNotInside", "isNotSitting"};
-                    icon = QPATHTOF(ui\syringe.paa);
-                    insertChildren = QUOTE(_this call FUNC(insertChildrenSyringe));
-                    items[] = {"kat_syringe"};
-                };
-            };
         };
     };
 };
