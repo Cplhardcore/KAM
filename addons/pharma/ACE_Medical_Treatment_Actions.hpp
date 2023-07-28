@@ -279,8 +279,8 @@ class ACE_Medical_Treatment_Actions {
         callbackSuccess = QFUNC(treatmentAdvanced_Fentanyl);
         sounds[] = {};
     };
-    class FentanylSyringe: Fentanyl {
-        items[] = {"kat_fentanylSyringe"};
+    class NalbuphineSyringe: Nalbuphine {
+        items[] = {"kat_nalbuphineSyringe"};
         condition = "";
     };
     class Nalbuphine: EACA {
