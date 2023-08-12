@@ -356,4 +356,18 @@ class ACE_Medical_Treatment_Actions {
         callbackSuccess = QUOTE([ARR_2(_medic, _patient)] call FUNC(treatmentAdvanced_Dialysis));
         litter[] = {};
     };
+    class GelofusineIV: BloodIV {
+        displayName = CSTRING(Actions_Gelofusine_1000);
+        displayNameProgress = CSTRING(Transfusing_Gelofusine);
+        items[] = {"KAT_gelofusineIV"};
+        animationMedic = "AinvPknlMstpSnonWnonDnon_medic1";
+    };
+    class GelofusineIV_500: GelofusineIV {
+        displayName = CSTRING(Actions_Gelofusine_500);
+        items[] = {"KAT_gelofusineIV_500"};
+    };
+    class GelofusineIV_250: GelofusineIV {
+        displayName = CSTRING(Actions_Gelofusine_250);
+        items[] = {"KAT_gelofusineIV_250"};
+    };
 };

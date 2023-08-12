@@ -213,4 +213,33 @@ class CfgWeapons {
             mass = 0.2;
         }; 
     };
+     class kat_gelofusineIV: ACE_ItemCore {
+        scope = 2;
+        author = ECSTRING(common);
+        displayName = CSTRING(Gelofusine_IV);
+        model = QPATHTOF(data\IVBag_1000ml.p3d);
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {QPATHTOF(data\IVBag_gelofusine_1000ml_ca.paa)};
+        picture = QPATHTOF(ui\plasmaIV_ca.paa);
+        descriptionShort = CSTRING(Gelofusine_IV_Desc_Short);
+        descriptionUse = CSTRING(Gelofusine_IV_Desc_Use);
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 10;
+        };
+    };
+    class kat_gelofusineIV_500: KAT_gelofusineIV {
+        displayName = CSTRING(Gelofusine_IV_500);
+        model = QPATHTOF(data\IVBag_500ml.p3d);
+        hiddenSelectionsTextures[] = {QPATHTOF(data\IVBag_gelofusine_500ml_ca.paa)};
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 5;
+        };
+    };
+    class kat_gelofusineIV_250: KAT_gelofusineIV {
+        displayName = CSTRING(Gelofusine_IV_250);
+        model = QPATHTOF(data\IVBag_250ml.p3d);
+        hiddenSelectionsTextures[] = {QPATHTOF(data\IVBag_gelofusine_250ml_ca.paa)};
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 2.5;
+        };
 };

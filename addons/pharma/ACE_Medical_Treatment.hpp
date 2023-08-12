@@ -223,4 +223,21 @@ class ADDON {
             viscosityChange = 0;
         };
     };
+    class IV {
+        // volume is in millileters
+        volume = 1000;
+        ratio[] = {};
+        type = "Blood";
+        class GelofusineIV: BloodIV {
+            volume = 1000;
+            ratio[] = {"Blood", 1};
+            type = "Gelofusine";
+        };
+        class GelofusineIV_500: GelofusineIV {
+            volume = 500;
+        };
+        class GelofusineIV_250: GelofusineIV {
+            volume = 250;
+        };
+    };
 };

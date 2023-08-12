@@ -2870,5 +2870,32 @@
             <Portuguese>[KAM] Caixa de medicamentos</Portuguese>
             <Spanish>[KAM] Caja de medicina</Spanish>
         </Key>
+        <Key ID="STR_KAT_Medical_Treatment_Gelofusine_IV">
+            <English>Gelofusine IV (1000ml)</English>
+        </Key>
+        <Key ID="STR_KAT_Medical_Treatment_Gelofusine_IV_500">
+            <English>Gelofusine IV (500ml)</English>
+        </Key>
+        <Key ID="STR_KAT_Medical_Treatment_Gelofusine_IV_250">
+            <English>Gelofusine IV (250ml)</English>
+        </Key>
+        <Key ID="STR_KAT_Medical_Treatment_Transfusing_Gelofusine">
+            <English>Transfusing Gelofusine...</English>
+        </Key>
+        <Key ID="STR_KAT_Medical_Treatment_Actions_Gelofusine_1000">
+            <English>Give Gelofusine IV (1000ml)</English>
+        </Key>
+        <Key ID="STR_KAT_Medical_Treatment_Actions_Gelofusine_500">
+            <English>Give Gelofusine IV (500ml)</English>
+        </Key>
+        <Key ID="STR_KAT_Medical_Treatment_Actions_Gelofusine_250">
+            <English>Give Gelofusine IV (250ml)</English>
+        </Key>
+        <Key ID="STR_ACE_Medical_Treatment_Gelofusine_IV_Desc_Short">
+            <English>A volume-expanding blood supplement that also replenishes clotting factors.</English>
+        </Key>
+        <Key ID="STR_ACE_Medical_Treatment_Gelofusine_IV_Desc_Use">
+            <English>A volume-expanding blood supplement.</English>
+        </Key>
     </Package>
 </Project>
