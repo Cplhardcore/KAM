@@ -34,7 +34,7 @@ class CfgPatches {
             "kat_etomidate",
             "kat_gelofusineIV",
             "kat_gelofusineIV_500",
-            "kat_gelofusineIV_250",
+            "kat_gelofusineIV_250"
         };
         magazines[] = { };
         requiredAddons[] = {
