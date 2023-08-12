@@ -215,7 +215,7 @@ class CfgWeapons {
     };
      class kat_gelofusineIV: ACE_ItemCore {
         scope = 2;
-        author = ECSTRING(common);
+        author = CSTRING(common);
         displayName = CSTRING(Gelofusine_IV);
         model = QPATHTOF(data\IVBag_1000ml.p3d);
         hiddenSelections[] = {"camo"};
