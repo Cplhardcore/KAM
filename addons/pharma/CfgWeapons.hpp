@@ -242,4 +242,5 @@ class CfgWeapons {
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 2.5;
         };
+    };
 };
