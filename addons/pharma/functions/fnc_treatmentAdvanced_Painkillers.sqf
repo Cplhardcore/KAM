@@ -22,9 +22,11 @@
 
 params ["_medic", "_patient", "_bodyPart", "_classname", "", "_usedItem"];
 private _painkillerscount = [_patient, "Painkillers"] call ACEFUNC(medical_status,getMedicationCount);
-
+private _painSuppress = _patient getVariable [ace_medical_painSuppress, 0];
 [_patient, _classname] call ACEFUNC(medical_treatment,addToTriageCard);
 [_patient, "activity", ACELSTRING(medical_treatment,Activity_usedItem), [[_medic] call ACEFUNC(common,getName), _classname]] call ACEFUNC(medical_treatment,addToLog);
 [_patient] call EFUNC(circulation,wrongBloodTreatment);
-if (_painkillerscount > 0 && GVAR(painkillerStack)) exitWith {[_patient, "Painkillers", 90, 600, 10, 0, -5] call ace_medical_status_fnc_addMedicationAdjustment};
+if (_painkillerscount > 0 && GVAR(painkillerStack) && _painSuppress < 0.2 > 0.11) exitWith {[_patient, "Painkillers", 90, 600, 10, 0.1, -5] call ace_medical_status_fnc_addMedicationAdjustment};
+if (_painkillerscount > 0 && GVAR(painkillerStack) && _painSuppress < 0.1 > 0) exitWith {[_patient, "Painkillers", 90, 600, 10, 0.2, -5] call ace_medical_status_fnc_addMedicationAdjustment};
+if (_painkillerscount > 0 && GVAR(painkillerStack)) exitWith {[_patient, "Painkillers", 90, 600, 10, 0.3, -5] call ace_medical_status_fnc_addMedicationAdjustment};
 [QGVAR(medicationLocal), [_patient, _bodyPart, _classname], _patient] call CBA_fnc_targetEvent;
