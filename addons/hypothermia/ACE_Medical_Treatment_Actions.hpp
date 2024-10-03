@@ -4,6 +4,7 @@ class ACE_Medical_Treatment_Actions {
     class ApplyHandWarmers: BasicBandage {
         displayName = CSTRING(Use_Handwarmer);
         displayNameProgress = CSTRING(Using);
+        category = "advanced";
         condition = "true";
         treatmentLocations = 0;
         treatmentTime = 5;
