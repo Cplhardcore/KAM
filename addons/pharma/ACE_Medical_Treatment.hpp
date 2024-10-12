@@ -518,6 +518,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeTillMaxEffect = 20;
             viscosityChange = -10;
             opioidRelief = 1.2;
+            opioidEffect = 0.17;
         };
         class syringe_fentanyl_5ml_3 {
             painReduce = 1;
@@ -546,6 +547,8 @@ class ACE_ADDON(Medical_Treatment) {
             timeInSystem = 900;
             timeTillMaxEffect = 15;
             viscosityChange = 10;
+            onOverDose = "";
+            opioidEffect = 0.11;
         };
         class syringe_nalbuphine_5ml_1 {
             painReduce = 0.5;
@@ -719,7 +722,9 @@ class ACE_ADDON(Medical_Treatment) {
             timeInSystem = 300;
             timeTillMaxEffect = 60;
             viscosityChange = -10;
-            opioidRelief = 1.1;
+            onOverDose = "";
+            opioidRelief = 1.5;
+            opioidEffect = 0.17;
         };
         class syringe_fentanyl_10ml_3 {
             painReduce = 0.8;
@@ -730,6 +735,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeTillMaxEffect = 60;
             viscosityChange = -10;
             opioidRelief = 1.3;
+            opioidEffect = 0.17;
         };
         class syringe_ketamine_10ml_1 {
             painReduce = 0.6;
@@ -826,12 +832,15 @@ class ACE_ADDON(Medical_Treatment) {
             maxDoseDeviation = 3;
             incompatibleMedication[] = {};
             onOverDose = "";
+            opioidRelief = 1.3;
+            opioidEffect = 0.17;
         };
         class syringe_nitroglycerin {
             maxDose = 9;
             maxDoseDeviation = 3;
             incompatibleMedication[] = {};
             onOverDose = "";
+            opioidEffect = 0.17;
         };
         class syringe_atropineIV {
             maxDose = 9;
@@ -850,12 +859,15 @@ class ACE_ADDON(Medical_Treatment) {
             maxDoseDeviation = 3;
             incompatibleMedication[] = {};
             onOverDose = "";
+            opioidRelief = 1.5;
+            opioidEffect = 0.17;
         };
         class syringe_flumazenil {
             maxDose = 6;
             maxDoseDeviation = 3;
             incompatibleMedication[] = {};
             onOverDose = "";
+            opioidEffect = 0.17;
         };
         class syringe_lorazepam {
             maxDose = 6;

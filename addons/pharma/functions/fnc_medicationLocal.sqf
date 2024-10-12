@@ -42,16 +42,12 @@ if !(ACEGVAR(medical_treatment,advancedMedication)) exitWith {
             if !(_sedated) then {
                 [QACEGVAR(medical,WakeUp), _patient] call CBA_fnc_localEvent;
             };
-
-            [_patient, -0.15] call FUNC(alphaAction);
         };
         case "EpinephrineIV": {
             private _sedated = _patient getVariable [QEGVAR(surgery,sedated), false];
             if !(_sedated) then {
                 [QACEGVAR(medical,WakeUp), _patient] call CBA_fnc_localEvent;
             };
-
-            [_patient, -0.30] call FUNC(alphaAction);
         };
         case "Painkillers": {
             private _painSuppress = GET_PAIN_SUPPRESS(_patient);
@@ -95,6 +91,7 @@ private _incompatibleMedication = GET_ARRAY(_medicationConfig >> "incompatibleMe
 private _alphaFactor            = GET_NUMBER(_medicationConfig >> "alphaFactor",getNumber (_defaultConfig >> "alphaFactor"));
 private _maxRelief              = GET_NUMBER(_medicationConfig >> "maxRelief",getNumber (_defaultConfig >> "maxRelief"));
 private _opioidRelief           = GET_NUMBER(_medicationConfig >> "opioidRelief",getNumber (_defaultConfig >> "opioidRelief"));
+private _opioidEffect             = GET_NUMBER(_medicationConfig >> "opioidEffect",getNumber (_defaultConfig >> "opioidEffect"));
 
 private _heartRate = GET_HEART_RATE(_patient);
 private _hrIncrease = [_hrIncreaseLow, _hrIncreaseNormal, _hrIncreaseHigh] select (floor ((0 max _heartRate min 110) / 55));
@@ -111,13 +108,11 @@ if (_maxRelief > 0) then {
 
 // Adjust the medication effects and add the medication to the list
 TRACE_3("adjustments",_heartRateChange,_painReduce,_viscosityChange);
-[_patient, _className, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange] call ACEFUNC(medical_status,addMedicationAdjustment);
+[_patient, _className, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _alphaFactor, _opioidEffect] call EFUNC(vitals,addMedicationAdjustment);
 
 // Check for medication compatiblity
 [_patient, _className, _maxDose, _maxDoseDeviation, _incompatibleMedication] call ACEFUNC(medical_treatment,onMedicationUsage);
 
-//Change Alpha Factor
-[_patient, _alphaFactor] call FUNC(alphaAction);
 if ([QGVAR(AMS_Enabled)] call CBA_settings_fnc_get) then {
 
     private _medicationParts = (_className splitString "_");
@@ -138,9 +133,9 @@ if ([QGVAR(AMS_Enabled)] call CBA_settings_fnc_get) then {
         };
 
         } else {
-            diag_log format ["Unexpected _className format: %1", _className];
+        diag_log format ["Unexpected _className format: %1", _className];
         };
-    } else {
+} else {
         
     if (_className in ["Lorazepam","Ketamine","EACA","TXA","Atropine","Amiodarone","Flumazenil"]) then {
         [format ["kat_pharma_%1Local", toLower _className], [_patient, _bodyPart], _patient] call CBA_fnc_targetEvent;

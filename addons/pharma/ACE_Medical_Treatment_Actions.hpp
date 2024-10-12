@@ -16,7 +16,7 @@ class ACE_Medical_Treatment_Actions {
     class BloodIV_500: BloodIV {
         callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag; [_patient, -400, 8] call kat_pharma_fnc_fluid;";
     };
-    class BloodIV_350: BloodIV {
+    class BloodIV_250: BloodIV {
         callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag; [_patient, -200, 4] call kat_pharma_fnc_fluid;";
     };
     class SalineIV: BloodIV {
@@ -25,7 +25,7 @@ class ACE_Medical_Treatment_Actions {
     class SalineIV_500: SalineIV {
         callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag; [_patient, 350, 0] call kat_pharma_fnc_fluid;";
     };
-    class SalineIV_350: SalineIV {
+    class SalineIV_250: SalineIV {
         callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag; [_patient, 150, 0] call kat_pharma_fnc_fluid;";
     };
     class PlasmaIV: BloodIV {
@@ -34,7 +34,7 @@ class ACE_Medical_Treatment_Actions {
     class PlasmaIV_500: PlasmaIV {
         callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag; [_patient, -250, 10] call kat_pharma_fnc_fluid;";
     };
-    class PlasmaIV_350: PlasmaIV {
+    class PlasmaIV_250: PlasmaIV {
         callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag; [_patient, -100, 5] call kat_pharma_fnc_fluid;";
     };
     class Epinephrine: Morphine {
@@ -886,20 +886,20 @@ class ACE_Medical_Treatment_Actions {
         sounds[] = {};
     };
     class syringe_morphineIV_10ml_1: syringe_TXA_10ml_1 {
-        displayName = CSTRING(inject_morphine_IM_1);
-        displayNameProgress = CSTRING(injecting_morphine_IM_1);
+        displayName = CSTRING(inject_morphineIV_IM_1);
+        displayNameProgress = CSTRING(injecting_morphineIV_IM_1);
         allowedSelections[] = {"LeftArm", "RightArm", "LeftLeg", "RightLeg"};
         allowSelfTreatment = 1;
         medicRequired = QGVAR(medLvl_morphineIM);
         treatmentTime = QGVAR(treatmentTime_morphineIM);
-        items[] = {"kat_syringe_morphine_10ml_1"};
+        items[] = {"kat_syringe_morphineIV_10ml_1"};
         callbackSuccess = QFUNC(medication);
         sounds[] = {};
     };
     class syringe_morphineIV_10ml_3: syringe_morphineIV_10ml_1 {
-        displayName = CSTRING(inject_morphine_IM_3);
-        displayNameProgress = CSTRING(injecting_morphine_IM_3);
-        items[] = {"kat_syringe_morphine_10ml_3"};
+        displayName = CSTRING(inject_morphineIV_IM_3);
+        displayNameProgress = CSTRING(injecting_morphineIV_IM_3);
+        items[] = {"kat_syringe_morphineIV_10ml_3"};
         callbackSuccess = QFUNC(medication);
         sounds[] = {};
     };
