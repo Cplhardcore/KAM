@@ -723,7 +723,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeTillMaxEffect = 60;
             viscosityChange = -10;
             onOverDose = "";
-            opioidRelief = 1.5;
+            opioidRelief = 1.1;
             opioidEffect = 0.17;
         };
         class syringe_fentanyl_10ml_3 {
