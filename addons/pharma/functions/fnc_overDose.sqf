@@ -24,11 +24,11 @@ if ([QGVAR(AMS_Enabled)] call CBA_settings_fnc_get) then {
         _medicationName = _medicationParts select 1;
         [format ["kat_pharma_%1OverdoseLocal", toLower _medicationName], [_patient], _patient] call CBA_fnc_targetEvent;
         };
-    }; 
-    else {
-    private _defaultConfig = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Medication";
-    private _medicationConfig = (configFile >> "ace_medical_treatment" >> _classname);
-    private _onOverDose = getText (_medicationConfig >> "onOverDose");
+    }
+else {
+private _defaultConfig = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Medication";
+private _medicationConfig = (configFile >> "ace_medical_treatment" >> _classname);
+private _onOverDose = getText (_medicationConfig >> "onOverDose");
 
     if (isClass (_medicationConfig)) then {
         _medicationConfig = (_medicationConfig >> _classname);
