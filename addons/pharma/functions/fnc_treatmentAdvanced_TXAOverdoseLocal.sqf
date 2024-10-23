@@ -42,7 +42,7 @@ params ["_patient"];
 
                             _patient setVariable [QEGVAR(circulation,ht), _ht, true];
                             };
-                    }, [_patient], 15] call CBA_fnc_waitAndExecute
+                    }, [_patient], 15] call CBA_fnc_waitAndExecute;
                     [_idPFH] call CBA_fnc_removePerFrameHandler;
                 };
                 private _surfaceArea = (_patient getVariable [QGVAR(lungSurfaceArea), 400]) - 15;
