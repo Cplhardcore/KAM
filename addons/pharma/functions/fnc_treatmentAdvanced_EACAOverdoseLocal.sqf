@@ -19,7 +19,7 @@
  [_patient, EACAOverdose, 1, 900, "", "", -90, -0.3, "", ""] call EFUNC(vitals,addMedicationAdjustment);
 [{
     params ["_patient"];
-	private _EACAOverdoseTarget = 0;
+    private _EACAOverdoseTarget = 0;
         [{
             params ["_patient", "_idPFH"];
             if (!(alive _patient)) exitWith {
@@ -40,7 +40,7 @@
                             };
 
                             _patient setVariable [QEGVAR(circulation,ht), _ht, true];
-                        	};
+                            };
                     }, [_patient], 15] call CBA_fnc_waitAndExecute
                     [_idPFH] call CBA_fnc_removePerFrameHandler;
                 };
