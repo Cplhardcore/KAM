@@ -15,3 +15,4 @@
  * Public: No
  */
 params ["_patient"];
+[_patient, AmiodaroneOverdose, 30, 600, "", "", "", 0.2, "", ""] call EFUNC(vitals,addMedicationAdjustment);

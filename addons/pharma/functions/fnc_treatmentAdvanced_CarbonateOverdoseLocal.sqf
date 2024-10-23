@@ -16,4 +16,5 @@
  * Public: No
  */
 params ["_patient"];
+[_patient, CarbonateOverdose, 1, 30, 10, "", "", "", "", ""] call EFUNC(vitals,addMedicationAdjustment);
 
