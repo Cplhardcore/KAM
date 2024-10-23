@@ -12,7 +12,8 @@
  * None
  *
  * Example:
- * [player, leftLeg, syringe_kat_ketamine_5ml_3] call kat_pharma_fnc_treatmentAdvanced_ketamineLocal;
+ * [player, leftLeg, syringe_ketamine_5ml_3] call kat_pharma_fnc_treatmentAdvanced_ketamineLocal;
  *
  * Public: No
  */
+params ["_patient"];

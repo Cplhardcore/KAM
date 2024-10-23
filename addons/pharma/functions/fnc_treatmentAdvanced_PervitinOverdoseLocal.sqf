@@ -15,3 +15,4 @@
  *
  * Public: No
  */
+params ["_patient"];

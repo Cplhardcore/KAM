@@ -163,7 +163,7 @@
 // Defined here for easy consistency with GETVAR/SETVAR (also a list for reference)
 #define VAR_BLOOD_PRESS       QACEGVAR(medical,bloodPressure)
 #define VAR_BLOOD_VOL         QACEGVAR(medical,bloodVolume)
-#define VAR_WOUND_BLEEDING    QACEGVAR(medical,woundBleeding)
+#define VAR_WOUND_BLEEDING    QEGVAR(circulation,woundBleeding)
 #define VAR_CRDC_ARRST        QACEGVAR(medical,inCardiacArrest)
 #define VAR_HEART_RATE        QACEGVAR(medical,heartRate)
 #define VAR_PAIN              QACEGVAR(medical,pain)

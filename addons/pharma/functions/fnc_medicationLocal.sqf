@@ -105,13 +105,27 @@ if (_maxRelief > 0) then {
         _painReduce = _painReduce / 4;
     };
 };
+if ([QGVAR(AMS_Enabled)] call CBA_settings_fnc_get) then {
 
-// Adjust the medication effects and add the medication to the list
-TRACE_3("adjustments",_heartRateChange,_painReduce,_viscosityChange);
-[_patient, _className, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _alphaFactor, _opioidRelief, _opioidEffect] call EFUNC(vitals,addMedicationAdjustment);
+    private _medicationParts = (_className splitString "_");
 
-// Check for medication compatiblity
-[_patient, _className, _maxDose, _maxDoseDeviation, _incompatibleMedication] call ACEFUNC(medical_treatment,onMedicationUsage);
+    if (count _medicationParts > 3) then {
+        _medicationName = (_medicationParts select 0) + "_" + (_medicationParts select 1);
+    };
+    // Adjust the medication effects and add the medication to the list
+    TRACE_3("adjustments",_heartRateChange,_painReduce,_viscosityChange);
+    [_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _alphaFactor, _opioidRelief, _opioidEffect] call EFUNC(vitals,addMedicationAdjustment);
+
+    // Check for medication compatiblity
+    [_patient, _medicationName, _maxDose, _maxDoseDeviation, _incompatibleMedication] call ACEFUNC(medical_treatment,onMedicationUsage);
+} else {       
+    // Adjust the medication effects and add the medication to the list
+    TRACE_3("adjustments",_heartRateChange,_painReduce,_viscosityChange);
+    [_patient, _className, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _alphaFactor, _opioidRelief, _opioidEffect] call EFUNC(vitals,addMedicationAdjustment);
+
+    // Check for medication compatiblity
+    [_patient, _className, _maxDose, _maxDoseDeviation, _incompatibleMedication] call ACEFUNC(medical_treatment,onMedicationUsage);
+};
 
 if ([QGVAR(AMS_Enabled)] call CBA_settings_fnc_get) then {
 
