@@ -20,6 +20,9 @@ class CfgFunctions {
             class ivBagLocal {
                 file = QPATHTOF(functions\fnc_ivBagLocal.sqf);
             };
+            class overDose {
+                file = QPATHTOF(functions\fnc_overDose.sqf);
+            };
         };
     };
 };
