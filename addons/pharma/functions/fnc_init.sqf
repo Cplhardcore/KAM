@@ -101,7 +101,7 @@ if (GVAR(kidneyAction)) then {
     
                 if !(_kidneyPressure) then {
                     _unit setVariable [QGVAR(kidneyPressure), true, true];
-                    [_unit, "KIDNEY", 15, 1200, 30, 0, 15] call ACEFUNC(medical_status,addMedicationAdjustment);
+                    [_unit, "KIDNEY", 15, 1200, 30, 0, 15, "", "", ""] call EFUNC(vitals,addMedicationAdjustment);
                 };
             };
             default {

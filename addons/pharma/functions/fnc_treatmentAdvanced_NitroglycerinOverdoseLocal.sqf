@@ -15,6 +15,6 @@
  * Public: No
  */
  params ["_patient"];
-private _hrValue = [-40, -30, -20, 20, 30, 40];
+private _hrValue = [-20, -25, -30, -35, -40, -45, 20, 25, 30, 35, 40, 45];
 private _hrAdjust = selectRandom _hrValue;
-[_patient, NitroglycerinOverdose, 30, 1200, _hrAdjust, "", "", -0.7, "", ""] call EFUNC(vitals,addMedicationAdjustment);
+[_patient, NitroglycerinOverdose, 30, 1200, _hrAdjust, "", 75, "", "", ""] call EFUNC(vitals,addMedicationAdjustment);

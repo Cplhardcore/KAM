@@ -48,6 +48,7 @@
                 };
                 private _surfaceArea = (_patient getVariable [QGVAR(lungSurfaceArea), 400]) - 10;
                 _patient setVariable [QGVAR(lungSurfaceArea), _surfaceArea];
+                if ((random 1000) < 1) then {_patient setDamage 1;};
             };
         }, 15, [_patient]] call CBA_fnc_addPerFrameHandler;
 }, _patient, 15] call CBA_fnc_waitAndExecute;

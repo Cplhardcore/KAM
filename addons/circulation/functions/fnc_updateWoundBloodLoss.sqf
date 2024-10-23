@@ -22,13 +22,18 @@ private _tourniquets = GET_TOURNIQUETS(_unit);
 private _bodyPartBleeding = [0,0,0,0,0,0];
 {
     private _partIndex = ALL_BODY_PARTS find _x;
-    if (_tourniquets select _partIndex == 0) then {
+    if (_tourniquets select _partIndex == 1) then {
+        {
+            _x params ["", "_amountOf", "_bleeeding"];
+            _bodyPartBleeding set [_partIndex, (_bodyPartBleeding select _partIndex) + (0.05 * _amountOf * _bleeeding)];
+        } forEach _y;
+    } else {
         {
             _x params ["", "_amountOf", "_bleeeding"];
             _bodyPartBleeding set [_partIndex, (_bodyPartBleeding select _partIndex) + (_amountOf * _bleeeding)];
         } forEach _y;
     };
-} forEach GET_OPEN_WOUNDS(_unit);
+    } forEach GET_OPEN_WOUNDS(_unit);
 
 if (_bodyPartBleeding isEqualTo [0,0,0,0,0,0]) then {
     TRACE_1("updateWoundBloodLoss-none",_unit);
