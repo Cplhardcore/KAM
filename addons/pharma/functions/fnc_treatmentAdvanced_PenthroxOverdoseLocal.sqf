@@ -41,7 +41,7 @@ params ["_patient"];
                 };
                 private _surfaceArea = (_patient getVariable [QGVAR(lungSurfaceArea), 400]) - 5;
                 _patient setVariable [QGVAR(lungSurfaceArea), _surfaceArea];
-                private _respRate = _patient getVariable [VAR_BREATHING_RATE, 20];
+                private _respRate = _patient getVariable [VAR_BREATHING_RATE, 15];
                 _patient setVariable [VAR_BREATHING_RATE, (_respRate + 1), true];
                 if ((random 1000) < 1) then {_patient setDamage 1;};
         }, 20, [_patient]] call CBA_fnc_addPerFrameHandler;

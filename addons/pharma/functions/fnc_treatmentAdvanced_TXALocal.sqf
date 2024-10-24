@@ -57,7 +57,7 @@ if (_IVactual > 1) then {
 
 if (!(GVAR(coagulation)) || GVAR(coagulation_allow_TXA_script)) then {
 
-    if (_IVactual != 5) then {
+    if (_IVactual != 7) then {
 
         if ((_txaEffectiveness > 0.3) && !(_allowStack)) exitWith {};
 
