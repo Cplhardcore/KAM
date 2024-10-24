@@ -25,7 +25,6 @@
             if (!(alive _patient)) exitWith {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
-            if (floor (random 100) < GVAR(deterioratingPneumothorax_chance)) then {
                 _EACAOverdoseTarget = _EACAOverdoseTarget + 1;
                 if (_EACAOverdoseTarget > 12) exitWith {
                     if (random(100) < 25) then {
@@ -49,6 +48,5 @@
                 private _surfaceArea = (_patient getVariable [QGVAR(lungSurfaceArea), 400]) - 10;
                 _patient setVariable [QGVAR(lungSurfaceArea), _surfaceArea];
                 if ((random 1000) < 1) then {_patient setDamage 1;};
-            };
         }, 15, [_patient]] call CBA_fnc_addPerFrameHandler;
 }, _patient, 15] call CBA_fnc_waitAndExecute;
