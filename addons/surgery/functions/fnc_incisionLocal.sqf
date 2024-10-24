@@ -52,7 +52,7 @@ _patient setVariable [QGVAR(fractures), _fractureArray, true];
     };
 
     if (((GVAR(Surgery_ConsciousnessRequirement) in [0,1]) && (!(IS_UNCONSCIOUS(_patient)) || _count == 0)) || (GVAR(Surgery_ConsciousnessRequirement) == 3 && _count == 0)) exitWith {
-        [_patient, "Pain", 10, 40, 200, 0, 40  "", "", ""] call EFUNC(vitals,addMedicationAdjustment);
+        [_patient, "Pain", 10, 40, 200, 0, 40,  "", "", ""] call EFUNC(vitals,addMedicationAdjustment);
         [_patient, true] call ACEFUNC(medical,setUnconscious);
     };
 

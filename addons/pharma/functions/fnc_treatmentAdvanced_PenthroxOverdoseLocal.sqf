@@ -21,7 +21,7 @@
  */
 params ["_patient"];
 if (random 25 < 1) then {
-	private _randomValue = [3, 4];
-	private _randomRhythm = selectRandom _randomValue;
+    private _randomValue = [3, 4];
+    private _randomRhythm = selectRandom _randomValue;
     _patient setVariable [QEGVAR(circulation,cardiacArrestType), _randomRhythm];
 };
