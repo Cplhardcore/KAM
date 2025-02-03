@@ -691,9 +691,11 @@
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic">
             <English>Left Lung Status: %1</English>
+            <Japanese>左肺の状態: %1</Japanese>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_ThorasicRight">
             <English>Right Lung Status: %1</English>
+            <Japanese>右肺の状態: %1</Japanese>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Cardiac">
             <English>Cardiac Status: %1</English>
@@ -725,21 +727,27 @@
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_PTX">
             <English>Left Side Pneumothorax</English>
+            <Japanese>左側気胸</Japanese>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Right_PTX">
             <English>Right Side Pneumothorax</English>
+            <Japanese>右側気胸</Japanese>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Hemo">
             <English>Left Side Hemopneumothorax</English>
+            <Japanese>左側血気胸</Japanese>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Right_Hemo">
             <English>Right Side Hemopneumothorax</English>
+            <Japanese>右側血気胸</Japanese>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Tension">
             <English>Left Side Tension Pneumothorax</English>
+            <Japanese>左側緊張性気胸</Japanese>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Right_Tension">
             <English>Right Side Tension Pneumothorax</English>
+            <Japanese>右側緊張性気胸</Japanese>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_NoActivity">
             <English>No Activity</English>
