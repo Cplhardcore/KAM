@@ -3042,7 +3042,7 @@
         </Key>
         <Key ID="STR_KAT_Breathing_ChestTube_log">
             <English>%1 %2 the incision</English>
-            <Japanese>%1 %2 切開</Japanese>
+            <Japanese>%1 が切開部位を %2</Japanese>
         </Key>
         <Key ID="STR_KAT_Breathing_incision_log">
             <English>%1 made an chest incision</English>
@@ -3102,11 +3102,11 @@
         </Key>
         <Key ID="STR_KAT_Breathing_SPREAD">
             <English>Spread</English>
-            <Japanese>広げる</Japanese>
+            <Japanese>広げた</Japanese>
         </Key>
         <Key ID="STR_KAT_Breathing_PREPARED">
             <English>Prepared</English>
-            <Japanese>準備完了</Japanese>
+            <Japanese>準備した</Japanese>
         </Key>
         <Key ID="STR_KAT_Breathing_SETTING_ConsciousnessRequirement">
             <English>Chest Tube Consciousness Controls</English>
