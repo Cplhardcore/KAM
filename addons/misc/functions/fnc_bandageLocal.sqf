@@ -22,12 +22,23 @@ params ["_patient", "_bodyPart", "_bandage", ["_bandageEffectiveness", 1, [0]]];
 TRACE_4("bandageLocal",_patient,_bodyPart,_bandage,_bandageEffectiveness);
 _bodyPart = toLowerANSI _bodyPart;
 
+private _defaultConfig = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Bandaging";
+private _bandageConfig = _defaultConfig >> _bandage;
+private _allowRollover = GET_NUMBER(_bandageConfig >> "allowRollover",getNumber (_defaultConfig >> "allowRollover"));
+
+
 private _openWounds = GET_OPEN_WOUNDS(_patient);
 private _woundsOnPart = _openWounds getOrDefault [_bodyPart, []];
 if (_woundsOnPart isEqualTo []) exitWith {};
 
-// Figure out which injuries for this bodypart are the best choice to bandage
-private _targetWounds = [_patient, _bandage, _bodyPart, _bandageEffectiveness * ACEGVAR(medical_treatment,bandageEffectiveness)] call ACEFUNC(medical_treatment,findMostEffectiveWounds);
+if (_allowRollover == 1) then {
+    // Figure out which injuries for this bodypart are the best choice to bandage
+    private _targetWounds = [_patient, _bandage, _bodyPart, _bandageEffectiveness * ACEGVAR(medical_treatment,bandageEffectiveness)] call ACEFUNC(medical_treatment,findMostEffectiveWounds);
+} else {
+    private _totalEffectiveness = ((_bandageEffectiveness * ACEGVAR(medical_treatment,bandageEffectiveness)) min 1);
+    private _targetWounds = [_patient, _bandage, _bodyPart, _totalEffectiveness] call ACEFUNC(medical_treatment,findMostEffectiveWounds);
+}
+
 
 // Everything is patched up on this body part already
 if (count _targetWounds == 0) exitWith {};
