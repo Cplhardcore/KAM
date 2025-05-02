@@ -2,7 +2,7 @@ class CfgWeapons {
     class ItemCore;
     class ACE_ItemCore;
     class CBA_MiscItem_ItemInfo;
-    class KAT_Hemostatic_Injector: ACE_ItemCore {
+    class kat_Hemostatic_Injector: ACE_ItemCore {
         scope = 2;
         author = "Cplhardcore";
         displayName = CSTRING(Hemostat_Display);

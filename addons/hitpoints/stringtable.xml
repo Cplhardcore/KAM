@@ -90,6 +90,12 @@
             <Turkish>Triyaj Kartı</Turkish>
             <Hungarian>Orvosi lap</Hungarian>
         </Key>
+        <Key ID="STR_KAT_Hitpoints_Hemostat">
+            <English>Hemostatic Injector (CELOX)</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_Hemostat_Progress">
+            <English>Injecting Hemostatic Granules</English>
+        </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostat_Desc_Short">
             <English>Hemostatic Injector with CELOX granules</English>
         </Key>
