@@ -37,7 +37,7 @@ if (_allowRollover == 1) then {
 } else {
     private _totalEffectiveness = ((_bandageEffectiveness * ACEGVAR(medical_treatment,bandageEffectiveness)) min 1);
     private _targetWounds = [_patient, _bandage, _bodyPart, _totalEffectiveness] call ACEFUNC(medical_treatment,findMostEffectiveWounds);
-}
+};
 
 
 // Everything is patched up on this body part already

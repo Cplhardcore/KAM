@@ -60,7 +60,7 @@ private _impactFound = -1;
             _allowRollover = getNumber (_woundTreatmentConfig >> "allowRollover");
         } else {
             _allowRollover = 1
-        }
+        };
 
         if (isNumber (_woundTreatmentConfig >> "effectiveness")) then {
             _woundEffectiveness = getNumber (_woundTreatmentConfig >> "effectiveness");
