@@ -26,14 +26,8 @@ private _openWounds = GET_OPEN_WOUNDS(_patient);
 private _woundsOnPart = _openWounds getOrDefault [_bodyPart, []];
 if (_woundsOnPart isEqualTo []) exitWith {};
 
-<<<<<<< HEAD
-private _targetWounds = [_patient, _bandage, _bodyPart, _bandageEffectiveness * ACEGVAR(medical_treatment,bandageEffectiveness)] call ACEFUNC(medical_treatment,findMostEffectiveWounds);
-
-
-=======
 // Figure out which injuries for this bodypart are the best choice to bandage
 private _targetWounds = [_patient, _bandage, _bodyPart, _bandageEffectiveness * ACEGVAR(medical_treatment,bandageEffectiveness)] call ACEFUNC(medical_treatment,findMostEffectiveWounds);
->>>>>>> parent of fb39389b (yayyy)
 
 // Everything is patched up on this body part already
 if (count _targetWounds == 0) exitWith {};
