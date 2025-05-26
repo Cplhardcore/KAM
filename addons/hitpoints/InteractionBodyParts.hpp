@@ -53,7 +53,7 @@ class ACE_Torso {
     };
 };
 class ACE_ArmUpperLeft {
-    displayName = CSTRING(UpperLeftArm);
+    displayName = CSTRING(ArmUpperLeft);
     distance = MEDICAL_ACTION_DISTANCE;
     icon = QPATHTOF(ui\cross.paa);
     exceptions[] = {"isNotInside", "isNotSitting"};
@@ -63,7 +63,7 @@ class ACE_ArmUpperLeft {
     runOnHover = 1;
 };
 class ACE_ArmLeft {
-    displayName = CSTRING(LeftArm);
+    displayName = CSTRING(ArmLeft);
     distance = MEDICAL_ACTION_DISTANCE;
     icon = QPATHTOF(ui\cross.paa);
     exceptions[] = {"isNotInside", "isNotSitting"};
@@ -73,7 +73,7 @@ class ACE_ArmLeft {
     runOnHover = 1;
 };
 class ACE_ArmUpperRight {
-    displayName = CSTRING(UpperRightArm);
+    displayName = CSTRING(ArmUpperRight);
     distance = MEDICAL_ACTION_DISTANCE;
     icon = QPATHTOF(ui\cross.paa);
     exceptions[] = {"isNotInside", "isNotSitting"};
@@ -83,7 +83,7 @@ class ACE_ArmUpperRight {
     runOnHover = 1;
 };
 class ACE_ArmRight {
-    displayName = CSTRING(RightArm);
+    displayName = CSTRING(ArmRight);
     distance = MEDICAL_ACTION_DISTANCE;
     icon = QPATHTOF(ui\cross.paa);
     exceptions[] = {"isNotInside", "isNotSitting"};
@@ -93,7 +93,7 @@ class ACE_ArmRight {
     runOnHover = 1;
 };
 class ACE_LegUpperLeft {
-    displayName = CSTRING(UpperLeftLeg);
+    displayName = CSTRING(LegUpperLeft);
     distance = MEDICAL_ACTION_DISTANCE;
     icon = QPATHTOF(ui\cross.paa);
     exceptions[] = {"isNotInside", "isNotSitting"};
@@ -103,7 +103,7 @@ class ACE_LegUpperLeft {
     runOnHover = 1;
 };
 class ACE_LegLeft {
-    displayName = CSTRING(LeftLeg);
+    displayName = CSTRING(LegLeft);
     distance = MEDICAL_ACTION_DISTANCE;
     icon = QPATHTOF(ui\cross.paa);
     exceptions[] = {"isNotInside", "isNotSitting"};
@@ -113,7 +113,7 @@ class ACE_LegLeft {
     runOnHover = 1;
 };
 class ACE_LegUpperRight {
-    displayName = CSTRING(UpperRightLeg);
+    displayName = CSTRING(LegUpperRight);
     distance = MEDICAL_ACTION_DISTANCE;
     icon = QPATHTOF(ui\cross.paa);
     exceptions[] = {"isNotInside", "isNotSitting"};
@@ -123,7 +123,7 @@ class ACE_LegUpperRight {
     runOnHover = 1;
 };
 class ACE_LegRight {
-    displayName = CSTRING(RightLeg);
+    displayName = CSTRING(LegRight);
     distance = MEDICAL_ACTION_DISTANCE;
     icon = QPATHTOF(ui\cross.paa);
     exceptions[] = {"isNotInside", "isNotSitting"};

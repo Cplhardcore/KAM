@@ -20,6 +20,7 @@
 params ["_unit", "_allDamages", "_typeOfDamage"];
 TRACE_3("woundsHandlerBase",_unit,_allDamages,_typeOfDamage);
 
+
 if !(_typeOfDamage in ACEGVAR(medical_damage,damageTypeDetails)) then {
     WARNING_1("damage type %1 not found",_typeOfDamage);
     _typeOfDamage = "unknown";
@@ -117,12 +118,8 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         private _pain = _woundSize * _painMultiplier * _injuryPain;
         _painLevel = _painLevel + _pain;
 
-        _arterialRate = 1;
-        if (random 100 < GVAR(ArterialChance)) then {
-            _arterialRate  = random [1.1, 1.3, 1.6];
-            };
-        _bleeding = (_woundSize * _bleedMultiplier * _injuryBleedingRate) * _arterialRate;
-        TRACE_6("BleedingRate",_bleeding,_woundSize,_bleedMultiplier,_injuryBleedingRate,_arterialRate,GVAR(ArterialChance));
+        private _bleeding = _woundSize * _bleedMultiplier * _injuryBleedingRate;
+
         // large wounds are > LARGE_WOUND_THRESHOLD
         // medium is > LARGE_WOUND_THRESHOLD^2
         // minor is > LARGE_WOUND_THRESHOLD^3
@@ -144,7 +141,6 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         };
 
         #ifdef DEBUG_MODE_FULL
-        diag_log format["%1, damage: %2, peneration: %3, bleeding: %4, pain: %5", _bodyPart, _woundDamage toFixed 2, _woundDamage > PENETRATION_THRESHOLD, _bleeding toFixed 3, _pain toFixed 3];
         systemChat format["%1, damage: %2, peneration: %3, bleeding: %4, pain: %5", _bodyPart, _woundDamage toFixed 2, _woundDamage > PENETRATION_THRESHOLD, _bleeding toFixed 3, _pain toFixed 3];
         #endif
 
@@ -182,8 +178,8 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
             _x params ["_classID", "_oldAmountOf", "_oldBleeding", "_oldDamage"];
             if (
                     (_classComplex == _classID) &&
-                    {(_bodyPart isNotEqualTo "body") || {(_woundDamage < PENETRATION_THRESHOLD) isEqualTo (_oldDamage < PENETRATION_THRESHOLD)}} && 
-                    {(_bodyPartNToAdd > 7) || {!_causeLimping} || {(_woundDamage <= LIMPING_DAMAGE_THRESHOLD) isEqualTo (_oldDamage <= LIMPING_DAMAGE_THRESHOLD)}} // ensure limping damage is stacked correctly
+                    {(_bodyPart isNotEqualTo "body") || {(_woundDamage < PENETRATION_THRESHOLD) isEqualTo (_oldDamage < PENETRATION_THRESHOLD)}} && // penetrating body damage is handled differently
+                    {(_bodyPartNToAdd > 3) || {!_causeLimping} || {(_woundDamage <= LIMPING_DAMAGE_THRESHOLD) isEqualTo (_oldDamage <= LIMPING_DAMAGE_THRESHOLD)}} // ensure limping damage is stacked correctly
                     ) exitWith {
                 TRACE_2("merging with existing wound",_injury,_x);
                 private _newAmountOf = _oldAmountOf + 1;
@@ -216,7 +212,7 @@ if (_updateDamageEffects) then {
 if (_createdWounds) then {
     _unit setVariable [VAR_OPEN_WOUNDS, _openWounds, true];
     _unit setVariable [VAR_BODYPART_DAMAGE, _bodyPartDamage, true];
-    TRACE_1("CreatedNewWounds",_openWounds);
+
     _bodyPartVisParams call ACEFUNC(medical_engine,updateBodyPartVisuals);
 
     [QACEGVAR(medical,injured), [_unit, _painLevel]] call CBA_fnc_localEvent;

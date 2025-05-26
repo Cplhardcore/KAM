@@ -4,24 +4,12 @@ class CfgPatches {
     class ADDON    {
         name = COMPONENT_NAME;
         units[] = {};
-        weapons[] = {
-            "kat_Hemostatic_Injector",
-            "kat_Elastic_Wrap",
-            "kat_4X4_Gauze",
-            "kat_Compressed_Gauze",
-            "kat_Roller_Gauze",
-            "kat_Abdominal_Pad",
-            "kat_ETD",
-            "kat_Hemostatic_Gauze",
-            "kat_Adhesive_Bandage",
-            "kat_Burn_Dressing"
-        };
+        weapons[] = {};
         magazines[] = { };
         requiredAddons[] = {
             "kat_main",
             "ace_medical",
             "ace_medical_gui",
-            "ace_medical_treatment",
             "kat_gui",
         };
         author = "Katalam";
@@ -30,11 +18,9 @@ class CfgPatches {
         VERSION_CONFIG;
     };
 };
-#include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
+#include "CfgEventHandlers.hpp"
 #include "ACE_Medical_Injuries.hpp"
 #include "ACE_Medical_Treatment_Actions.hpp"
-#include "ACE_Medical_Treatment.hpp"
 #include "CfgFunctions.hpp"
-#include "CfgWeapons.hpp"
 

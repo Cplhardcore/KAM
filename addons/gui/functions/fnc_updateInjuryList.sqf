@@ -21,31 +21,10 @@ params ["_ctrl", "_target", "_selectionN"];
 
 private _entries = [];
 private _nonissueColor = [1, 1, 1, 0.33];
-private _wounds = GET_OPEN_WOUNDS(_target);
-private _hasExternalBleeding = false;
-
-{
-    private _bodyPart = _x;
-    private _woundList = _wounds get _bodyPart;
-
-    {
-        private _woundClassID = _x select 0;
-        private _amountOf     = _x select 1;
-
-        private _classIndex = _woundClassID / 10;
-        private _className  = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-
-        if (_amountOf > 0 && {_className != "InternalBleeding"}) exitWith {
-            _hasExternalBleeding = true;
-        };
-    } forEach _woundList;
-
-    if (_hasExternalBleeding) exitWith {};
-} forEach (keys _wounds);
 
 // Indicate if unit is bleeding at all
-if (_hasExternalBleeding && {HAS_LIMB_BLEEDING(_target,_selectionN)}) then {
-    switch (GVAR(showBleeding)) do {
+if (IS_BLEEDING(_target)) then {
+    switch (ACEGVAR(medical_gui,showBleeding)) do {
         case 1: {
         //  Just show whether the unit is bleeding at all
             _entries pushBack [localize ACELSTRING(medical_gui,Status_Bleeding), [1, 0, 0, 1]];
@@ -54,27 +33,6 @@ if (_hasExternalBleeding && {HAS_LIMB_BLEEDING(_target,_selectionN)}) then {
             // Give a qualitative description of the rate of bleeding
             private _cardiacOutput = [_target] call ACEFUNC(medical_status,getCardiacOutput);
             private _bleedRate = GET_BLOOD_LOSS(_target);
-            private _bleedRateKO = BLOOD_LOSS_KNOCK_OUT_THRESHOLD * (_cardiacOutput max 0.05);
-            // Use nonzero minimum cardiac output to prevent all bleeding showing as massive during cardiac arrest
-            switch (true) do {
-                case (_bleedRate < _bleedRateKO * BLEED_RATE_SLOW): {
-                    _entries pushBack [localize ACELSTRING(medical_gui,Bleed_Rate1), [1, 1, 0, 1]];
-                };
-                case (_bleedRate < _bleedRateKO * BLEED_RATE_MODERATE): {
-                    _entries pushBack [localize ACELSTRING(medical_gui,Bleed_Rate2), [1, 0.67, 0, 1]];
-                };
-                case (_bleedRate < _bleedRateKO * BLEED_RATE_SEVERE): {
-                    _entries pushBack [localize ACELSTRING(medical_gui,Bleed_Rate3), [1, 0.33, 0, 1]];
-                };
-                default {
-                    _entries pushBack [localize ACELSTRING(medical_gui,Bleed_Rate4), [1, 0, 0, 1]];
-                };
-            };
-        };
-        case 3: {
-            // Give a qualitative description of the rate of bleeding on a limb by limb basis
-            private _cardiacOutput = [_target] call ACEFUNC(medical_status,getCardiacOutput);
-            private _bleedRate = GET_BODY_PART_RATE(_target,_selectionN);
             private _bleedRateKO = BLOOD_LOSS_KNOCK_OUT_THRESHOLD * (_cardiacOutput max 0.05);
             // Use nonzero minimum cardiac output to prevent all bleeding showing as massive during cardiac arrest
             switch (true) do {
@@ -241,13 +199,13 @@ private _bodyPartName = [
     ELSTRING(hitpoints,Chest),
     ACELSTRING(medical_gui,Torso),
     ACELSTRING(medical_gui,LeftArm),
-    ELSTRING(hitpoints,UpperLeftArm),
+    ELSTRING(hitpoints,ArmUpperLeft),
     ACELSTRING(medical_gui,RightArm),
-    ELSTRING(hitpoints,UpperRightArm),
+    ELSTRING(hitpoints,ArmUpperRight),
     ACELSTRING(medical_gui,LeftLeg),
-    ELSTRING(hitpoints,UpperLeftLeg),
+    ELSTRING(hitpoints,LegUpperLeft),
     ACELSTRING(medical_gui,RightLeg),
-    ELSTRING(hitpoints,UpperRightLeg)
+    ELSTRING(hitpoints,LegUpperRight)
 ] select _selectionN;
 
 _entries pushBack [localize _bodyPartName, [1, 1, 1, 1]];
@@ -319,11 +277,6 @@ switch (GET_FRACTURES(_target) select _selectionN) do {
             _entries pushBack [localize ACELSTRING(medical_gui,Status_SplintApplied), [0.2, 0.2, 1, 1]];
         };
     };
-    case -2: {
-        if (ACEGVAR(medical,fractures) in [2, 3]) then { // Ignore if the splint has no effect
-            _entries pushBack [localize LSTRING(Status_SplintWrapped), [0.2, 0.2, 1, 1]];
-        };
-    };
 };
 
 [QACEGVAR(medical_gui,updateInjuryListPart), [_ctrl, _target, _selectionN, _entries, _bodyPartName]] call CBA_fnc_localEvent;
@@ -340,10 +293,10 @@ private _fnc_processWounds = {
         if (_amountOf > 0) then {
             private _classIndex = _woundClassID / 10;
             private _category   = _woundClassID % 10;
+
             private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-            if (_className in ["InternalBleeding", "Evisceration"]) exitWith {};
             private _suffix = ["Minor", "Medium", "Large"] select _category;
-            private _woundName = localize format [LSTRING(%1_%2), _className, _suffix];
+            private _woundName = localize format [ACELSTRING(medical_damage,%1_%2), _className, _suffix];
 
             private _woundDescription = if (_amountOf >= 1) then {
                 format ["%1x %2", ceil _amountOf, _woundName]

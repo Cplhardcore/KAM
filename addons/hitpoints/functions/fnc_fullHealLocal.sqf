@@ -68,6 +68,7 @@ _patient setVariable [VAR_BLOOD_PRESS, [80, 120], true];
 _patient setVariable [VAR_PERIPH_RES, DEFAULT_PERIPH_RES, true];
 _patient setVariable [VAR_SPO2, DEFAULT_SPO2, true];
 _patient setVariable [VAR_OXYGEN_DEMAND, 0, true];
+
 // IVs
 _patient setVariable [QACEGVAR(medical,ivBags), nil, true];
 
@@ -101,8 +102,6 @@ _patient setVariable [QACEGVAR(medical,triageCard), [], true];
 
 // Reset damage
 _patient setDamage 0;
-
-_patient setVariable  [VAR_BODY_BLEED_RATE, DEFAULT_BODY_BLEED_RATE_VALUES];
 
 [QACEGVAR(medical,FullHeal), _patient] call CBA_fnc_localEvent;
 _state = GET_SM_STATE(_patient);

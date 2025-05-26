@@ -10,7 +10,6 @@
  * 3: Injury index <NUMBER>
  * 4: Injury <ARRAY>
  * 5: Used Bandage type <STRING>
- * 6: New Bandage <Bool> Optional, default is true
  *
  * Return Value:
  * None
@@ -18,10 +17,10 @@
  * Public: No
  */
 
-params ["_target", "_impact", "_part", "_injuryIndex", "_injury", "_bandage", ["_isNew", true]];
+params ["_target", "_impact", "_part", "_injuryIndex", "_injury", "_bandage"];
 TRACE_6("handleBandageOpening",_target,_impact,_part,_injuryIndex,_injury,_bandage);
 
-_injury params ["_classID", "_amountOf", "_bleeding", "_damage"];
+_injury params ["_classID"];
 
 private _className = ACEGVAR(medical_damage,woundClassNamesComplex) select _classID;
 private _reopeningChance = DEFAULT_BANDAGE_REOPENING_CHANCE;
@@ -60,15 +59,24 @@ if (isClass (_config >> _className)) then {
 TRACE_5("configs",_bandage,_className,_reopeningChance,_reopeningMinDelay,_reopeningMaxDelay);
 
 private _bandagedWounds = GET_BANDAGED_WOUNDS(_target);
+private _exist = false;
+{
+    _x params ["_id", "_amountOf"];
+    if (_id == _classID) exitWith {
+        _x set [1, _amountOf + _impact];
+        _x set [2, _bandage];
+        TRACE_2("adding to existing bandagedWound",_id,_part);
+        _exist = true;
+    };
+} forEach (_bandagedWounds getOrDefault [_part, []]);
 
-if !(_isNew) then {} else {
+if (!_exist) then {
     TRACE_3("adding new bandagedWound",_classID,_part,_bandage);
     private _bandagedInjury = +_injury;
     _bandagedInjury set [1, _impact];
-    _bandagedInjury set [4, _bandage];
+    _bandagedInjury set [2, _bandage];
     (_bandagedWounds getOrDefault [_part, [], true]) pushBack _bandagedInjury;
 };
-
 
 _target setVariable [VAR_BANDAGED_WOUNDS, _bandagedWounds, true];
 
@@ -79,7 +87,7 @@ _target setVariable [VAR_BANDAGED_WOUNDS, _bandagedWounds, true];
 TRACE_1("",_reopeningChance);
 // Check if we are ever going to reopen this
 if (random 1 <= _reopeningChance * ACEGVAR(medical_treatment,woundReopenChance)) then {
-    private _delay = ((_reopeningMinDelay + random (_reopeningMaxDelay - _reopeningMinDelay)) * (4 * _bleeding));
+    private _delay = _reopeningMinDelay + random (_reopeningMaxDelay - _reopeningMinDelay);
     TRACE_1("Will open",_delay);
     [{
         params ["_target", "_impact", "_part", "_injuryIndex", "_injury"];
@@ -104,11 +112,10 @@ if (random 1 <= _reopeningChance * ACEGVAR(medical_treatment,woundReopenChance))
                     _exist = true;
                 };
             } forEach (_bandagedWounds getOrDefault [_part, []]);
-            TRACE_2("Before openWound update",_openWounds,_bandagedWounds);
+
             if (_exist) then {
                 TRACE_2("Reopening Wound",_bandagedWounds,_openWounds);
                 _selectedInjury set [1, _selAmount + _impact];
-                TRACE_3("Reopening Wound2",_selectedInjury,_impact,_selAmount);
                 _target setVariable [VAR_BANDAGED_WOUNDS, _bandagedWounds, true];
                 _target setVariable [VAR_OPEN_WOUNDS, _openWounds, true];
 
@@ -126,7 +133,6 @@ if (random 1 <= _reopeningChance * ACEGVAR(medical_treatment,woundReopenChance))
                     [_target] call EFUNC(medical_engine,updateDamageEffects);
                 };
             };
-            TRACE_2("After openWound update", _openWounds,_bandagedWounds);
         } else {
             TRACE_3("no match",_selectedInjury,_classID,_part);
         };
