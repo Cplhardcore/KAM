@@ -211,8 +211,6 @@ if (GVAR(AMS_Enabled)) then {
     [format ["kat_pharma_%1Local", toLower _className], [_patient, _bodyPart, _opioidRelief], _patient] call CBA_fnc_targetEvent;
     };
 };
-_test = typeName _classname;
-TRACE_1("type",_test);
     if (_classname == "syringe_etomidate_5ml_3") then {
         TRACE_1("etomidateeDose",_patient);
         [{
