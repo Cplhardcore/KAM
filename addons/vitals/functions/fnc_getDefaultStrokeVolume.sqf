@@ -18,7 +18,6 @@
 params ["_unit"];
 private _defaultCVP = 6;
 private _strokeVolume = 0.095;
-private _heartRate = _unit getVariable [QEGVAR(circulation,defaultHeartRate), 80];
 private _bloodPressure = [80, 120];
 
 private _fillPortion = 1 - exp (-3 * 1);
