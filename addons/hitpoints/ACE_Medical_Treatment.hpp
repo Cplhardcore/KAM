@@ -7,7 +7,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0;
             reopeningMinDelay = 120;
             reopeningMaxDelay = 200;
-
+            bandageMovementPenalty = 1;
             class Abrasion {
                 effectiveness = 3;
                 reopeningChance = 0.3;
@@ -724,7 +724,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0.1;
             reopeningMinDelay = 120;
             reopeningMaxDelay = 200;
-
+            bandageMovementPenalty = 0.8;
             class Abrasion {
                 effectiveness = 0;
                 reopeningChance = 0.1;
@@ -841,8 +841,8 @@ class ACE_Medical_Treatment {
             effectiveness = 1;
             reopeningChance = 0.7;
             reopeningMinDelay = 30;
-                reopeningMaxDelay = 90;
-
+            reopeningMaxDelay = 90;
+            bandageMovementPenalty = 1.3;
             class Abrasion {
                 effectiveness = 1;
                 reopeningChance = 0.7;
@@ -1024,7 +1024,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0.1;
             reopeningMinDelay = 1200;
             reopeningMaxDelay = 1800;
-
+            bandageMovementPenalty = 0.9;
             class Abrasion {
                 effectiveness = 1;
                 reopeningChance = 0.1;
@@ -1197,7 +1197,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0.7;
             reopeningMinDelay = 30;
             reopeningMaxDelay = 90;
-
+            bandageMovementPenalty = 1.3;
             class Abrasion {
                 effectiveness = 0.5;
                 reopeningChance = 0.7;
@@ -1379,7 +1379,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0.2;
             reopeningMinDelay = 1200;
             reopeningMaxDelay = 1800;
-
+            bandageMovementPenalty = 0.9;
             class Abrasion {
                 effectiveness = 0.5;
                 reopeningChance = 0.2;
@@ -1538,7 +1538,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0.7;
             reopeningMinDelay = 60;
             reopeningMaxDelay = 120;
-
+            bandageMovementPenalty = 1;
             class Abrasion {
                 effectiveness = 0.5;
                 reopeningChance = 0.5;
@@ -1696,7 +1696,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0.1;
             reopeningMinDelay = 1200;
             reopeningMaxDelay = 1800;
-
+            bandageMovementPenalty = 0.6;
             class Abrasion {
                 effectiveness = 0.5;
                 reopeningChance = 0.1;
@@ -1854,7 +1854,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0.2;
             reopeningMinDelay = 1200;
             reopeningMaxDelay = 1800;
-            
+            bandageMovementPenalty = 0.7;            
             class Abrasion {
                 effectiveness = 3;
                 reopeningChance = 0.2;
@@ -2013,7 +2013,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0.2;
             reopeningMinDelay = 1200;
             reopeningMaxDelay = 1800;
-            
+            bandageMovementPenalty = 0.6;
             class Abrasion {
                 effectiveness = 3;
                 reopeningChance = 0.2;
@@ -2184,7 +2184,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0.2;
             reopeningMinDelay = 600;
             reopeningMaxDelay = 1800;
-            
+            bandageMovementPenalty = 0.8;
             class Abrasion {
                 effectiveness = 3;
                 reopeningChance = 0.2;
@@ -2342,7 +2342,7 @@ class ACE_Medical_Treatment {
             reopeningChance = 0.2;
             reopeningMinDelay = 600;
             reopeningMaxDelay = 1200;
-
+            bandageMovementPenalty = 0.3;
             class Abrasion {
                 effectiveness = 1;
                 reopeningChance = 0.2;
