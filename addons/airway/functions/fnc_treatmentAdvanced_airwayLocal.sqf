@@ -68,6 +68,8 @@ if (_classname in ["Larynxtubus", "IGEL", "ETT"]) then {
     if (GVAR(capnographEnable)) then {
         [QGVAR(capnoPFH), [_patient], _patient] call CBA_fnc_targetEvent;
     };
+    [_patient, "blockRadio", "kat_airwayItem", true] call ACEFUNC(common,statusEffect_set);
+    [_patient, "blockSpeaking", "kat_airwayItem", true] call ACEFUNC(common,statusEffect_set);
 };
 [_patient, _usedItem] call ACEFUNC(medical_treatment,addToTriageCard);
 [_patient, "activity", LSTRING(airway_log), [[_medic] call ACEFUNC(common,getName), getText (configFile >> "CfgWeapons" >> _usedItem >> "displayName")]] call ACEFUNC(medical_treatment,addToLog);

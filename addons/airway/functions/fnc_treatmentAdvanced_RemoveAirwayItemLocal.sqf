@@ -36,12 +36,18 @@ if !(GVAR(ReusableAirwayItems)) exitWith {};
 switch (true) do {
     case (_item isEqualTo "Larynxtubus"): {
         [_medic, "kat_larynx"] call ACEFUNC(common,addToInventory);
+        [_patient, "blockRadio", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
+        [_patient, "blockSpeaking", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
     };
     case (_item isEqualTo "IGEL"): {
         [_medic, "kat_IGEL"] call ACEFUNC(common,addToInventory);
+        [_patient, "blockRadio", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
+        [_patient, "blockSpeaking", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
     };
     case (_item isEqualTo "ETT"): {
         [_medic, "kat_ETT"] call ACEFUNC(common,addToInventory);
+        [_patient, "blockRadio", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
+        [_patient, "blockSpeaking", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
     };
     case (_item isEqualTo "NPA"): {
         [_medic, "kat_NPA"] call ACEFUNC(common,addToInventory);
