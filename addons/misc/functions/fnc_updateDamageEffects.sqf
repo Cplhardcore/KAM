@@ -18,7 +18,10 @@
 
 params [["_unit", objNull, [objNull]]];
 if (!local _unit) exitWith { ERROR_2("updateDamageEffects: Unit not local or null [%1:%2]",_unit,typeOf _unit); };
-
+private _lastTimeUpdated = _unit getVariable [QGVAR(lastTimeUDEUpdated), 0];
+private _deltaT = (CBA_missionTime - _lastTimeUpdated) min 10;
+if (_deltaT < 2) exitWith { false }; 
+_unit setVariable [QGVAR(lastTimeUDEUpdated), CBA_missionTime];
 private _isLimping = false;
 private _hasLegSplint = false;
 private _noSprint = false;
@@ -204,25 +207,25 @@ if (_unit getVariable [QEGVAR(surgery,reboa), false]) then {
 [_unit, "forceWalk", QACEGVAR(medical,fracture), _noJog] call ACEFUNC(common,statusEffect_set);
 
 _unit setVariable [QACEGVAR(medical,isLimping), _isLimping, true];
-_unit setVariable [QGVAR(keepProne), _keepProne, true];
-if (isNil {_unit getVariable [QGVAR(keepPronePFH), nil]}) then {
-    private _pfhID = [{
-        _this params ["_args", "_pfhID"];
-        _args params ["_unit"];
-
-        if (!alive _unit || {_unit != ACE_player} || {!(_unit getVariable [QGVAR(keepProne), false])}) exitWith {
-            _pfhID call CBA_fnc_removePerFrameHandler;
-            _unit setVariable [QGVAR(keepPronePFH), nil];
-        };
-        private _state = animationState _unit;
-        TRACE_1("State",_state);
-        if ((_state find "pne") == -1) then {
-            _unit playActionNow "PlayerProne";
-            TRACE_2("State2",_state,_unit);
-
-        };
-    }, 0.05, [_unit]] call CBA_fnc_addPerFrameHandler;
-    _unit setVariable [QGVAR(keepPronePFH), _pfhID];
+if (_keepProne && !(IS_UNCONSCIOUS(_unit)) && (lifeState _unit != "INCAPACITATED")) then {
+    if (stance _unit != "PRONE") then {
+        _unit setUnconscious true;
+        [{
+            params ["_unit"];
+            _unit setUnconscious false;
+            [{
+            params ["_unit"];
+            TRACE_3("after delay",_unit,animationState _unit,lifeState _unit);
+            if (!alive _unit) exitWith {};
+            // Fix unit being in locked animation with switchMove (If unit was unloaded from a vehicle, they may be in deadstate instead of unconscious)
+            private _animation = animationState _unit;
+            if ((_animation == "unconscious" || {_animation == "deadstate" || {_animation find QGVAR(uncon_anim) != -1}}) && {lifeState _unit != "INCAPACITATED"}) then {
+                [_unit, "AmovPpneMstpSnonWnonDnon", 2] call ACEFUNC(common,doAnimation);
+                TRACE_1("forcing SwitchMove",animationState _unit);
+            };
+        }, _unit, 0.5] call CBA_fnc_waitAndExecute;
+        }, [_unit], 3] call CBA_fnc_waitAndExecute;
+    };
 };
 
 // refresh

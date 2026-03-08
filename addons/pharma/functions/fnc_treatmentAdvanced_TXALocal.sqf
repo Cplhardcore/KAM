@@ -84,10 +84,6 @@ private _fnc_txaClot = {
     if (_coagulationFactor <= 0) exitWith {};
     _bodyFluid set [5, (_coagulationFactor - _factorCountToRemove)];
     _patient setVariable [VAR_BODY_FLUID, _bodyFluid, true];
-    private _impact = _amount;
-    private _woundIndex = count _currentWounds - 1;
-    private _finalWound = _currentWounds select _woundIndex;
-    [_patient, _impact, _bodyPart, _woundIndex, _finalWound, _newBandage, false] call EFUNC(misc,handleCoagReopening);
     }, [_patient, _bodyPart, _id, _amount, _bleeding, _damage, _oldBandage, _newBandage,_factorCountToRemove], _delay] call CBA_fnc_waitAndExecute;
 };
 

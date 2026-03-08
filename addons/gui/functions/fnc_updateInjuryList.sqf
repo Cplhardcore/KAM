@@ -77,10 +77,10 @@ if (_hasExternalBleeding && (IS_BLEEDING(_target))) then {
         };
         case 3: {
             // Give a qualitative description of the rate of bleeding on a limb by limb basis
-            if (HAS_LIMB_BLEEDING(_target,_selectionN)) then {
+            if (HAS_EXTERNAL_LIMB_BLEEDING(_target,_selectionN)) then {
                 private _cardiacOutput = [_target] call EFUNC(vitals,getCardiacOutput);
 
-                private _bleedRate = GET_BODY_PART_RATE(_target,_selectionN);
+                private _bleedRate = GET_EXTERNAL_BODY_PART_RATE(_target,_selectionN);
                 private _bleedRateKO = BLOOD_LOSS_KNOCK_OUT_THRESHOLD * (_cardiacOutput max 0.05);
                 // Use nonzero minimum cardiac output to prevent all bleeding showing as massive during cardiac arrest
                 switch (true) do {
@@ -423,27 +423,34 @@ private _woundEntries = [];
 
 private _fnc_processWounds = {
     params ["_wounds", "_format", "_color"];
-
+    private _aggregated = createHashMap;
     {
         _x params ["_woundClassID", "_amountOf"];
-
         if (_amountOf > 0) then {
             private _classIndex = _woundClassID / 10;
             private _category   = _woundClassID % 10;
             private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-            if (_className in ["InternalBleeding", "Evisceration"]) exitWith {};
+            if (_className in ["InternalBleeding", "Evisceration"]) then { continue };
             private _suffix = ["Minor", "Medium", "Large"] select _category;
             private _woundName = localize format [LSTRING(%1_%2), _className, _suffix];
-
-            private _woundDescription = if (_amountOf >= 1) then {
-                format ["%1x %2", ceil _amountOf, _woundName]
-            } else {
-                format [localize ACELSTRING(medical_gui,PartialX), _woundName]
-            };
-
-            _woundEntries pushBack [format [_format, _woundDescription], _color];
+            private _current = _aggregated getOrDefault [_woundName, 0];
+            _aggregated set [_woundName, _current + _amountOf];
         };
+
     } forEach (_wounds getOrDefault [ALL_BODY_PARTS select _selectionN, []]);
+    {
+        private _woundName = _x;
+        private _amountOf = _aggregated get _x;
+
+        private _woundDescription = if (_amountOf >= 1) then {
+            format ["%1x %2", ceil _amountOf, _woundName]
+        } else {
+            format [localize ACELSTRING(medical_gui,PartialX), _woundName]
+        };
+
+        _woundEntries pushBack [format [_format, _woundDescription], _color];
+
+    } forEach keys _aggregated;
 };
 
 private _fnc_processCoagWounds = {

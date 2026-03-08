@@ -236,6 +236,8 @@ if (EGVAR(breathing,enable)) then {
 };
 
 private _woundBloodLoss = GET_BODY_BLEED_RATE(_unit);
+private _totalBloodLoss = 0;
+{ _totalBloodLoss = _totalBloodLoss + _x } forEach _woundBloodLoss;
 private _damage = GET_BODYPART_DAMAGE(_unit);
 // Vasoconstriction from Wound Blood Loss and Alpha Adjustment
 private _vasoArray = _unit getVariable [VAR_VASOCONSTRICTION, [1,1,1,1,1,1,1,1,1,1,1,1]];
@@ -298,17 +300,18 @@ switch (true) do {
     case (_spo2 < EGVAR(breathing,SpO2_unconscious)): {
         [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
     };
-    case (_woundBloodLoss > BLOOD_LOSS_KNOCK_OUT_THRESHOLD): {
+    case (_totalBloodLoss > BLOOD_LOSS_KNOCK_OUT_THRESHOLD): {
         [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
     };
-    case (_woundBloodLoss > 0): {
+    case (_totalBloodLoss > 0): {
         [QACEGVAR(medical,LoweredVitals), _unit] call CBA_fnc_localEvent;
     };
     case (_inPain): {
         [QACEGVAR(medical,LoweredVitals), _unit] call CBA_fnc_localEvent;
     };
 };
-
+[_unit] call EFUNC(misc,handleBandageOpening);
+[_unit] call EFUNC(misc,updateDamageEffects);
 #ifdef DEBUG_MODE_FULL
 private _cardiacOutput = [_unit] call ACEFUNC(medical_status,getCardiacOutput);
 if (!isPlayer _unit) then {

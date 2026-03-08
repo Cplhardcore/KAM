@@ -541,9 +541,14 @@
 #define HAS_APPLIEDPRESSURE_ON(unit,index) ((GET_APPLIEDPRESSURE(unit) select index) > 0)
 
 #define VAR_BODY_BLEED_RATE   QEGVAR(hitpoints,limbBleedRate)
+#define VAR_EXTERNAL_BODY_BLEED_RATE   QEGVAR(hitpoints,externalBleedRate)
 #define GET_BODY_BLEED_RATE(unit)   (unit getVariable [VAR_BODY_BLEED_RATE, DEFAULT_BODY_BLEED_RATE_VALUES])
 #define GET_BODY_PART_RATE(unit,index) (GET_BODY_BLEED_RATE(unit) select index)
 #define HAS_LIMB_BLEEDING(unit,index) ((GET_BODY_BLEED_RATE(unit) select index) > 0)
+
+#define GET_EXTERNAL_BODY_BLEED_RATE(unit)   (unit getVariable [VAR_EXTERNAL_BODY_BLEED_RATE, DEFAULT_BODY_BLEED_RATE_VALUES])
+#define GET_EXTERNAL_BODY_PART_RATE(unit,index) (GET_EXTERNAL_BODY_BLEED_RATE(unit) select index)
+#define HAS_EXTERNAL_LIMB_BLEEDING(unit,index) ((GET_EXTERNAL_BODY_BLEED_RATE(unit) select index) > 0)
 
 #define GET_JOINTS(unit)   (unit getVariable [VAR_JOINTS, DEFAULT_JOINT_VALUES])
 #define GET_LIMB_JOINT(unit,limbindex)   ((unit getVariable [VAR_JOINTS, DEFAULT_JOINT_VALUES]) select _limbindex)

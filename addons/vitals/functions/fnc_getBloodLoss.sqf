@@ -18,7 +18,7 @@
 params ["_unit"];
 
 private _woundBleeding = GET_BODY_BLEED_RATE(_unit);
-if (_woundBleeding == 0) exitWith {0};
+if ((selectMax _woundBleeding) == 0) exitWith {0};
 
 private _cardiacOutput = [_unit] call FUNC(getCardiacOutput);
 private _resistance = _unit getVariable [VAR_PERIPH_RES, DEFAULT_PERIPH_RES]; // can use value directly since this is sum of default and adjustments

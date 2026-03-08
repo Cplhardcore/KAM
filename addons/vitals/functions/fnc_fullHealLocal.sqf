@@ -35,6 +35,7 @@ _patient setVariable [QGVAR(ataxicDepth), 0, true];
 _patient setVariable [QGVAR(ataxicTimer), 0, true];
 _patient setVariable [QGVAR(respFatigue), 0, true];
 _patient setVariable [QGVAR(pao2_prev), 90, true];
+_patient setVariable [QGVAR(lastTimeUDEUpdated), 0, true];
 if (GVAR(enableSimpleMedical)) then {
     _patient setVariable [QGVAR(simpleMedical), true, true];
 };

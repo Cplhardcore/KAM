@@ -81,7 +81,7 @@ private _bodyExternalPartBleeding = [0,0,0,0,0,0,0,0,0,0,0,0];
         } forEach _y;
         _bodyPartBleeding set [_partIndex, _partBleeding];
         TRACE_3("updateWoundBloodLoss",_partBleeding,_bodyPartBleeding,_partIndex);
-        _unit setVariable [VAR_BODY_BLEED_RATE, _bodyExternalPartBleeding, true];
+        _unit setVariable [VAR_EXTERNAL_BODY_BLEED_RATE, _bodyExternalPartBleeding, true];
     };
 } forEach GET_OPEN_WOUNDS(_unit);
 if (selectMax _bodyPartBleeding == 0) exitWith {
@@ -93,6 +93,6 @@ if (selectMax _bodyPartBleeding == 0) exitWith {
 _bodyPartBleeding params ["_headBleeding","_neckBleeding", "_chestBleeding", "_bodyBleeding", "_leftArmBleeding","_leftUpperArmBleeding", "_rightArmBleeding","_rightUpperArmBleeding", "_leftLegBleeding","_leftUpperLegBleeding", "_rightLegBleeding", "_rightUpperLegBleeding"];
 private _bodyBleedingRate = ((_headBleeding min 0.9) + (_neckBleeding min 0.9) + (_chestBleeding min 1.0) + (_bodyBleeding min 1.0)) min 1.0;
 private _limbBleedingRate = ((_leftArmBleeding min 0.3) + (_leftUpperArmBleeding min 0.3) + (_rightArmBleeding min 0.3) + (_rightUpperArmBleeding min 0.3) + (_leftLegBleeding min 0.5) + (_leftUpperLegBleeding min 0.5) + (_rightLegBleeding min 0.5) + (_rightUpperLegBleeding min 0.5)) min 1.0;
-
+_unit setVariable [VAR_BODY_BLEED_RATE, _bodyPartBleeding, true];
 TRACE_3("updateWoundBloodLoss-bleeding",_unit,_bodyBleedingRate,_limbBleedingRate);
 _unit setVariable [VAR_WOUND_BLEEDING, _bodyBleedingRate + _limbBleedingRate, true];
