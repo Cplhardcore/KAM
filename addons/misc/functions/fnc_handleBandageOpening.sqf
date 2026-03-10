@@ -29,6 +29,7 @@ private _fnc_processWounds = {
         private _speed = if (((abs (speed _target) > 1) && (isNull objectParent _target) && !_isBeingCarried)) then {
             private _config = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Bandaging";
             private _bandageConfig = _config >> _bandage;
+            if !(isClass _bandageConfig) exitWith {1};
             private _bandageMovementPenalty = GET_NUMBER(_bandageConfig >> "bandageMovementPenalty", 1);
             (linearConversion [1, 12, (abs (speed _target)), 1, 3, true] * _bandageMovementPenalty) 
         } else {1};

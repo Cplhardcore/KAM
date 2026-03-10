@@ -67,7 +67,7 @@
     "SLIDER",
     [LLSTRING(SETTING_ArterialChance), LLSTRING(SETTING_ArterialChance_DESC)],
     [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [0, 100, 1.5, 1],
+    [0, 100, 15, 1],
     true
 ] call CBA_fnc_addSetting;
 

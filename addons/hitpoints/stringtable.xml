@@ -358,7 +358,7 @@
             <English>Arterial Bleed Chance</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_ArterialChance_DESC">
-            <English>Chance for a wound to be an arterial bleed (10% - 45% worse bleeding)</English>
+            <English>Chance for a wound to be an arterial bleed (80% - 300% worse bleeding)</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointChance">
             <English>Percent chance of an Joint Injury happening</English>

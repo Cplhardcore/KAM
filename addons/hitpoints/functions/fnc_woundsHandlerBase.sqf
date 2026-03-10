@@ -109,8 +109,23 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
             _painLevel = _painLevel + _pain;
 
             private _arterialRate = 1;
-            if (random 100 < GVAR(ArterialChance)) then {
-                _arterialRate  = random [1.1, 1.3, 1.6];
+            private _arterialChance = switch (_bodyPart) do {
+                case "neck": {0.75};
+                case "head": {0.20};
+                case "chest": {0.25};
+                case "body": {0.25};
+                case "leftarm": {0.30};
+                case "rightarm": {0.30};
+                case "leftleg": {0.30};
+                case "rightleg": {0.30};
+                case "upperleftarm": {0.40};
+                case "upperrightarm": {0.40};
+                case "upperleftleg": {0.50};
+                case "upperrightleg": {0.50};
+                default {0.1};
+            };
+            if (random 100 < (GVAR(ArterialChance) * _arterialChance)) then {
+                _arterialRate  = random [1.8, 2.3, 2.9];
             };
             private _bleeding = (_woundSize * _bleedMultiplier * _injuryBleedingRate) * _arterialRate;
             TRACE_6("BleedingRate",_bleeding,_woundSize,_bleedMultiplier,_injuryBleedingRate,_arterialRate,GVAR(ArterialChance));
@@ -177,9 +192,24 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         _painLevel = _painLevel + _pain;
 
         private _arterialRate = 1;
-        if (random 100 < GVAR(ArterialChance)) then {
-            _arterialRate  = random [1.1, 1.3, 1.6];
-            };
+        private _arterialChance = switch (_bodyPart) do {
+            case "neck": {0.75};
+            case "head": {0.20};
+            case "chest": {0.25};
+            case "body": {0.25};
+            case "leftarm": {0.30};
+            case "rightarm": {0.30};
+            case "leftleg": {0.30};
+            case "rightleg": {0.30};
+            case "upperleftarm": {0.40};
+            case "upperrightarm": {0.40};
+            case "upperleftleg": {0.50};
+            case "upperrightleg": {0.50};
+            default {0.1};
+        };
+        if (random 100 < (GVAR(ArterialChance) * _arterialChance)) then {
+            _arterialRate  = random [1.8, 2.3, 2.9];
+        };
         private _bleeding = (_woundSize * _bleedMultiplier * _injuryBleedingRate) * _arterialRate * random [0.8, 1, 1.2];;
         TRACE_6("BleedingRate",_bleeding,_woundSize,_bleedMultiplier,_injuryBleedingRate,_arterialRate,GVAR(ArterialChance));
         // large wounds are > LARGE_WOUND_THRESHOLD
