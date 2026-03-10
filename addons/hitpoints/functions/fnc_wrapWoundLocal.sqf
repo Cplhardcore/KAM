@@ -30,7 +30,7 @@ private _newBandagedWounds = [];
 private _newWrappedWounds = _wrappedWounds getOrDefault [_bodyPart, []];
 
 {
-    _x params ["_id", "_amount", "_bleeding", "_damage", "_bandage"];
+    _x params ["_id", "_amount", "_bleeding", "_damage", "_bandage", "_index", "_oldDelay"];
 
     if (_bandage in _includedTypes) then {
         // Create wrapped wound
@@ -52,6 +52,7 @@ private _newWrappedWounds = _wrappedWounds getOrDefault [_bodyPart, []];
         if (GVAR(longTermBandages)) then {
             _delay = _delay * random [3, 6, 10];
         };
+        private _delay = _delay + _oldDelay;
         private _newWound = [_newClassID, _amount, _bleeding, _damage, _newBandage, _index, _delay];
 
         TRACE_2("Wound Before/After Wrap",_x,_newWound);

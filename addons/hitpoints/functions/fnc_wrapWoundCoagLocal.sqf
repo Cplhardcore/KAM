@@ -37,13 +37,11 @@ private _newWrappedWounds = _wrappedWounds getOrDefault [_bodyPart, []];
         // Create wrapped wound
         private _newClassID = _id + 0.01;
         private _newBandage = _bandage + "_wrapped";
-        private _reopeningChance = DEFAULT_BANDAGE_REOPENING_CHANCE;
         private _reopeningMinDelay = DEFAULT_BANDAGE_REOPENING_MIN_DELAY;
         private _reopeningMaxDelay = DEFAULT_BANDAGE_REOPENING_MAX_DELAY;
         private _config = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Bandaging";
         if (isClass (_config >> _bandage)) then {
             _config = _config >> _bandage;
-            _reopeningChance = getNumber (_config >> "reopeningChance");
             _reopeningMinDelay = getNumber (_config >> "reopeningMinDelay");
             _reopeningMaxDelay = getNumber (_config >> "reopeningMaxDelay") max _reopeningMinDelay;
         } else {
@@ -53,6 +51,7 @@ private _newWrappedWounds = _wrappedWounds getOrDefault [_bodyPart, []];
         if (GVAR(longTermBandages)) then {
             _delay = _delay * random [3, 6, 10];
         };
+        private _delay = _delay + _oldDelay;
         private _newWound = [_newClassID, _amount, _bleeding, _damage, _newBandage, _index, _delay];
 
         TRACE_2("Wound Before/After Wrap",_x,_newWound);
