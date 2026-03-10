@@ -30,7 +30,7 @@ private _fnc_processWounds = {
             private _config = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Bandaging";
             private _bandageConfig = _config >> _bandage;
             private _bandageMovementPenalty = GET_NUMBER(_bandageConfig >> "bandageMovementPenalty", 1);
-            (linearConversion [1, 12, (abs (speed _target)), 1, 6, true] * _bandageMovementPenalty) 
+            (linearConversion [1, 12, (abs (speed _target)), 1, 3, true] * _bandageMovementPenalty) 
         } else {1};
         private _newDelay = _delay - (1 + (_bleeding * _occlusionLevel) * _speed);
         _wounds set [6, _newDelay];
@@ -54,11 +54,8 @@ private _fnc_processWounds = {
                     TRACE_3("Reopening Wound2",_selectedInjury,_amountOf,_selAmount);
                     _target setVariable [_variable, _bandagedWounds, true];
                     _target setVariable [VAR_OPEN_WOUNDS, _openWounds, true];
-
                     [_target] call ACEFUNC(medical_status,updateWoundBloodLoss);
-
                     private _partIndex = ALL_BODY_PARTS find _part;
-
                     // Re-add trauma and damage visuals
                     if (ACEGVAR(medical_treatment,clearTrauma) == 2) then {
                         [_target, _part, _selDamage * _amountOf] call ACEFUNC(medical_treatment,addTrauma);
