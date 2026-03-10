@@ -3,15 +3,19 @@
     <Package name="Brain">
         <Key ID="STR_KAT_Brain_cba_Name">
             <English>KAT - ADV Medical: Brain</English>
+            <Spanish>KAT- ADV Mevidal: Cerebro</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_SETTING_enable">
             <English>Enable Brain Simulation</English>
+            <Spanish>Activar simulación cerebral</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_icpreduction">
             <English>ICP Reduction Amount</English>
+            <Spanish>Reducción de presión intracraneal</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_icpreductionMult">
             <English>ICP Reduction Multiplier</English>
+            <Spanish>Multiplicador de reducción de presión intracraneal</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_cmrunconsciousthreshold">
             <English>CMR Uncon Threshold</English>
@@ -24,6 +28,7 @@
         </Key>
         <Key ID="STR_KAT_Brain_setting_concussionchance">
             <English>Concussion Chance</English>
+            <Spanish>Probabilidad de concusión</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_icpbradycardiathreshold">
             <English>ICP Bradycardia Threshold</English>
@@ -33,18 +38,23 @@
         </Key>
         <Key ID="STR_KAT_Brain_subcategory_concussions">
             <English>Concussions</English>
+            <Spanish>Concusiones</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_reversibledamageloss">
             <English>Reversible Damage Loss</English>
+            <Spanish>Pérdida de daño reversible</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_subcategory_braindeath">
             <English>Brain Death</English>
+            <Spanish>Muerte cerebral</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_necrosisticks">
             <English>Tissue Necrosis Ticks</English>
+            <Spanish>Ticks de necrosis de tejidos</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_necrosisthreshold">
             <English>Necrosis Threshold</English>
+            <Spanish>Aumento de la necrosis</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_necrosisincrease">
             <English>Necrosis Increase Amount</English>
@@ -64,6 +74,5 @@
         <Key ID="STR_KAT_Brain_check_icp_output_log">
             <English>Measuring Optic Nerve Sheath</English>
         </Key>
-        
     </Package>
 </Project>
