@@ -50,7 +50,7 @@ switch (true) do {
         _patient setVariable [QGVAR(visualizationActive), false, true];
     };
     case (_usedItem isEqualTo "kat_NPA"): {
-        _patient setVariable [QGVAR(airwayStatus), [1, 0, 0], true];
+        _patient setVariable [QGVAR(airwayStatus), [2, 0, 0], true];
     };
     case (_usedItem isEqualTo "kat_guedel"): {
         _patient setVariable [QGVAR(airwayStatus), [1, 0, 0], true];
