@@ -53,7 +53,6 @@ private _prevMAP = GET_MAP(_unit);
 if (_icp > 25 && _prevMAP < 70) then {
     _resistance = _resistance * linearConversion [25, 40, _icp, 1.1, 1.4, true];
 };
-private _average = 0;
 
 private _vasoconstriction = 0;
 {

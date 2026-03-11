@@ -21,7 +21,6 @@ params ["_unit", "_deltaT", "_syncValues"];
 
 private _bloodLoss = GET_BODY_BLEED_RATE(_unit);
 private _exBloodLoss = GET_EXTERNAL_BODY_BLEED_RATE(_unit);
-private _internalBleeding = GET_INTERNAL_BLEEDING(_unit);
 private _bloodPressure = GET_BLOOD_PRESSURE(_unit);
 private _vasoconstriction = GET_VASOCONSTRICTION(_unit);
 private _ECP = GET_BODY_FLUID_ECP(_unit);

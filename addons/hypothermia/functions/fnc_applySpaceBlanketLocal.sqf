@@ -26,7 +26,7 @@ if (GET_BLOOD_VOLUME_LITERS(_patient) > 4) then {
 [{
     params ["_args", "_idPFH"];
     _args params ["_patient"];
-    private _isBeingCarried = _target call ACEFUNC(common,isBeingCarried);
+    private _isBeingCarried = _patient call ACEFUNC(common,isBeingCarried);
     if (!alive _patient || (abs (speed _patient) > 6 && isNull objectParent _patient && !_isBeingCarried)) exitWith {
         [_idPFH] call CBA_fnc_removePerFrameHandler;
         _patient setVariable [QGVAR(spaceBlanket), false, true];
