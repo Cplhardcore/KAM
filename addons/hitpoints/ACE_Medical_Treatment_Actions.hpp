@@ -42,8 +42,16 @@ class ACE_Medical_Treatment_Actions {
         displayNameProgress = CSTRING(Burn_Dressing_Progress);
         icon = QPATHTOF(ui\Burn_Dressing.paa);
         condition = QFUNC(canBurnBandage);
-        callbackSuccess = QFUNC(burnDressing);
         items[] = {"kat_Burn_Dressing"};
+        treatmentTime = 3;
+    };
+    class Bruise_Dressing: BasicBandage {
+        displayName = CSTRING(Bruise_Dressing);
+        displayNameProgress = CSTRING(Bruise_Dressing_Progress);
+        icon = QPATHTOF(ui\Elastic_Wrap.paa);
+        condition = QFUNC(canBruiseBandage);
+        items[] = {"kat_Elastic_Wrap", "kat_Roller_Gauze"};
+        treatmentTime = 5;
     };
     class Abdominal_Pad: BasicBandage {
         displayName = CSTRING(Abdominal_Pad);

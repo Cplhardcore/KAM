@@ -28,7 +28,7 @@ private _canBandage = false;
     private _classIndex = _woundClassID / 10;
     private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
 
-    if ((_className isEqualTo "ThermalBurn") && (_amountOf > 0))  exitWith {
+    if ((_className isEqualTo "Contusion") && (_amountOf > 0))  exitWith {
         _canBandage = true;
     };
 } forEach _wounds;

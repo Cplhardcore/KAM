@@ -27,8 +27,8 @@ private _woundsOnPart = _openWounds getOrDefault [_bodyPart, []];
 if (_woundsOnPart isEqualTo []) exitWith {};
 
 // Figure out which injuries for this bodypart are the best choice to bandage
-private _targetWounds = [_patient, _bandage, _bodyPart, _bandageEffectiveness * ACEGVAR(medical_treatment,bandageEffectiveness)] call ACEFUNC(medical_treatment,findMostEffectiveWounds);
-
+private _targetWounds = [_patient, _bandage, _bodyPart, _bandageEffectiveness * ACEGVAR(medical_treatment,bandageEffectiveness)] call FUNC(findMostEffectiveWounds);
+systemChat str _targetWounds;
 // Everything is patched up on this body part already
 if (count _targetWounds == 0) exitWith {};
 
@@ -93,29 +93,58 @@ private _clearConditionCache = false;
         if (random 1 >= _reopeningChance * ACEGVAR(medical_treatment,woundReopenChance)) then {
             _delay = _delay * random [1.5, 2, 2.5];
         };
-        private _bandagedWounds = GET_BANDAGED_WOUNDS(_patient);
-        private _exist = false;
-        {
-            _x params ["_id", "_amountOf", "", "", "_oldBandage", "", "_oldDelay"];
-            if ((_id == _classID) && (_oldBandage == _bandage) && (_oldDelay == _delay)) exitWith {
-                _x set [1, _amountOf + _impact];
-                TRACE_2("adding to existing bandagedWound",_id,_bodyPart);
-                _exist = true;
+        private _classIndex = _classID / 10;
+        private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+        if (_className isNotEqualTo "Contusion") then {
+            private _bandagedWounds = GET_BANDAGED_WOUNDS(_patient);
+            private _exist = false;
+            {
+                _x params ["_id", "_amountOf", "", "", "_oldBandage", "", "_oldDelay"];
+                if ((_id == _classID) && (_oldBandage == _bandage) && (_oldDelay == _delay)) exitWith {
+                    _x set [1, _amountOf + _impact];
+                    TRACE_2("adding to existing bandagedWound",_id,_bodyPart);
+                    _exist = true;
+                };
+            } forEach (_bandagedWounds getOrDefault [_bodyPart, []]);
+
+            if (!_exist) then {
+                TRACE_2("adding new bandagedWound",_classID,_bodyPart);
+                private _bandagedInjury = +_wound;
+                _bandagedInjury set [1, _impact];
+                _bandagedInjury set [4, _bandage];
+                _bandagedInjury set [5, _woundIndex];
+                _bandagedInjury set [6, _delay];
+                (_bandagedWounds getOrDefault [_bodyPart, [], true]) pushBack _bandagedInjury;
             };
-        } forEach (_bandagedWounds getOrDefault [_bodyPart, []]);
-
-        if (!_exist) then {
-            TRACE_2("adding new bandagedWound",_classID,_bodyPart);
-            private _bandagedInjury = +_wound;
-            _bandagedInjury set [1, _impact];
-            _bandagedInjury set [4, _bandage];
-            _bandagedInjury set [5, _woundIndex];
-            _bandagedInjury set [6, _delay];
-            (_bandagedWounds getOrDefault [_bodyPart, [], true]) pushBack _bandagedInjury;
-        };
 
 
-        _patient setVariable [VAR_BANDAGED_WOUNDS, _bandagedWounds, true];
+            _patient setVariable [VAR_BANDAGED_WOUNDS, _bandagedWounds, true];
+        } else {
+            private _wrappedWounds = GET_WRAPPED_WOUNDS(_patient);
+            private _exist = false;
+            {
+                _x params ["_id", "_amountOf", "", "", "_oldBandage", "", "_oldDelay"];
+                if ((_id == _classID) && (_oldBandage == _bandage) && (_oldDelay == _delay)) exitWith {
+                    _x set [1, _amountOf + _impact];
+                    TRACE_2("adding to existing bandagedWound",_id,_bodyPart);
+                    _exist = true;
+                };
+            } forEach (_wrappedWounds getOrDefault [_bodyPart, []]);
+
+            if (!_exist) then {
+                TRACE_2("adding new bandagedWound",_classID,_bodyPart);
+                private _bandagedInjury = +_wound;
+                _bandagedInjury set [1, _impact];
+                _bandagedInjury set [4, _bandage];
+                _bandagedInjury set [5, _woundIndex];
+                _bandagedInjury set [6, _delay];
+                (_wrappedWounds getOrDefault [_bodyPart, [], true]) pushBack _bandagedInjury;
+            };
+
+
+            _patient setVariable [VAR_WRAPPED_WOUNDS, _wrappedWounds, true];
+        }
+        
         
     };
 } forEach _targetWounds;

@@ -273,6 +273,12 @@
         <Key ID="STR_KAT_Hitpoints_Burn_Dressing_Progress">
             <English>Applying Burn Dressing</English>
         </Key>
+        <Key ID="STR_KAT_Hitpoints_Bruise_Dressing">
+            <English>Wrap Bruises</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_Bruise_Dressing_Progress">
+            <English>Wrapping Bruises</English>
+        </Key>
         <Key ID="STR_KAT_Hitpoints_InternalBleeding_Minor">
             <English>Light Bruising</English>
         </Key>

@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: kymckay, LinkIsGrim
@@ -33,7 +34,7 @@ if (isClass (_config >> _bandage)) then {
         _effectiveness = getNumber (_config >> "effectiveness");
     };
 };
-
+TRACE_1("findMostEffectiveness",_effectiveness);
 // Iterate over open wounds to find the most effective target
 private _openWounds = GET_OPEN_WOUNDS(_patient) getOrDefault [_bodyPart, []];
 if (_openWounds isEqualTo []) exitWith {_foundWounds};
@@ -42,7 +43,7 @@ private _wound = EMPTY_WOUND;
 private _woundIndex = -1;
 private _effectivenessFound = -1;
 private _impactFound = -1;
-
+TRACE_1("findMostEffectiveness2",_openWounds);
 {
     // Ignore iterated wounds
     if (_x in _foundWounds) then {continue};
@@ -71,7 +72,8 @@ private _impactFound = -1;
     _woundEffectiveness = _woundEffectiveness * _bandageRemaining;
 
     // Track most effective found so far
-    if ((_woundEffectiveness * _amountOf * _bleeding) > (_effectivenessFound * (_wound select 1) * (_wound select 2))) then {
+    private _bleedWeight = [0.01, _bleeding] select (_bleeding > 0);
+    if ((_woundEffectiveness * _amountOf * _bleedWeight) > (_effectivenessFound * (_wound select 1) * (if ((_wound select 2) > 0) then {(_wound select 2)} else {0.01}))) then {
         _effectivenessFound = _woundEffectiveness;
         _impactFound = _amountOf min _effectivenessFound;
         _woundIndex = _forEachIndex;
