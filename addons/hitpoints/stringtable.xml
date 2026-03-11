@@ -648,5 +648,11 @@
         <Key ID="STR_KAT_Hitpoints_SETTING_EffectDamageThreshold_DESC">
             <English>When damage is above this level, certain actions/treatments will fail and IV fluids will not flow</English>
         </Key>
+        <Key ID="STR_KAT_Hitpoints_washBody">
+            <English>Clean Patient</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_washingBody">
+            <English>Cleaning Patient</English>
+        </Key>
     </Package>
 </Project>

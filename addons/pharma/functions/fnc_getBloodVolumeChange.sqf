@@ -20,12 +20,14 @@
 params ["_unit", "_deltaT", "_syncValues"];
 
 private _bloodLoss = GET_BODY_BLEED_RATE(_unit);
+private _exBloodLoss = GET_EXTERNAL_BODY_BLEED_RATE(_unit);
 private _internalBleeding = GET_INTERNAL_BLEEDING(_unit);
 private _bloodPressure = GET_BLOOD_PRESSURE(_unit);
 private _vasoconstriction = GET_VASOCONSTRICTION(_unit);
 private _ECP = GET_BODY_FLUID_ECP(_unit);
 private _ECB = GET_BODY_FLUID_ECB(_unit);
 private _defaultHR = (_unit getVariable [QEGVAR(circulation,defaultHeartRate), 80]);
+private _externalBloodLoss = (_unit getVariable [QEGVAR(circulation,externalBloodLoss), 0]);
 _bloodPressure params ["_bloodPressureL", "_bloodPressureH"];
 private _map = GET_MAP(_unit);
 private _correctedMap = linearConversion [14.3333, 174.3333, _map, 0.05, 2, true];
@@ -36,6 +38,11 @@ private _lossVolumeChange = 0;
 {
     _lossVolumeChange = _lossVolumeChange + (-(_deltaT/12) * (((_bloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) / (_vasoconstriction select _forEachIndex)));
 } forEach _bloodLoss;
+
+private _externalLossVolumeChange = 0;
+{
+    _externalLossVolumeChange = _externalLossVolumeChange + ((_deltaT/12) * (((_exBloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) / (_vasoconstriction select _forEachIndex)));
+} forEach _exBloodLoss;
 private _enableFluidShift = EGVAR(vitals,enableFluidShift);
 private _fluidVolume = GET_BODY_FLUID(_unit);
 TRACE_3("gbvc",_bloodLoss,_heartRate,_lossVolumeChange);
@@ -44,6 +51,7 @@ _fluidVolume params ["_ECB","_ECP","_SRBC","_ISP","_fullVolume","_platelets"];
 _ECP = (_ECP + (_lossVolumeChange * LITERS_TO_ML) / 2) max 100;
 _ECB = (_ECB + (_lossVolumeChange * LITERS_TO_ML) / 2) max 100;
 _platelets = (_platelets + ((_lossVolumeChange * LITERS_TO_ML) / 10)) max 0;
+_unit setVariable [QEGVAR(circulation,externalBloodLoss), _externalBloodLoss + _externalLossVolumeChange, _syncValues];
 if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
     private _bloodBags = _unit getVariable [QACEGVAR(medical,ivBags), []];
     private _IVarray = _unit getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];

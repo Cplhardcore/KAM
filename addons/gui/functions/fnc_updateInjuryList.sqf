@@ -106,21 +106,22 @@ if (_hasExternalBleeding && (IS_BLEEDING(_target))) then {
 
 if (ACEGVAR(medical_gui,showBloodlossEntry)) then {
     // Give a qualitative description of the blood volume lost
-    switch (GET_HEMORRHAGE(_target)) do {
-        case 0: {
+    private _externalBloodLoss = _target getVariable [QEGVAR(circulation,externalBloodLoss), 0];
+    switch (true) do {
+        case (_externalBloodLoss == 0): {
             if (ACEGVAR(medical_gui,showInactiveStatuses)) then {_entries pushBack [localize ACELSTRING(medical_gui,Lost_Blood0), _nonissueColor];};
         };
-        case 1: {
-            _entries pushBack [localize ACELSTRING(medical_gui,Lost_Blood1), [1, 1, 0, 1]];
+        case (_externalBloodLoss > 2.4): {
+            _entries pushBack [localize ACELSTRING(medical_gui,Lost_Blood4), [1, 0, 0, 1]];
         };
-        case 2: {
-            _entries pushBack [localize ACELSTRING(medical_gui,Lost_Blood2), [1, 0.67, 0, 1]];
-        };
-        case 3: {
+        case (_externalBloodLoss > 1.8): {
             _entries pushBack [localize ACELSTRING(medical_gui,Lost_Blood3), [1, 0.33, 0, 1]];
         };
-        case 4: {
-            _entries pushBack [localize ACELSTRING(medical_gui,Lost_Blood4), [1, 0, 0, 1]];
+        case (_externalBloodLoss > 0.9): {
+            _entries pushBack [localize ACELSTRING(medical_gui,Lost_Blood2), [1, 0.67, 0, 1]];
+        };
+        case (_externalBloodLoss > 0): {
+            _entries pushBack [localize ACELSTRING(medical_gui,Lost_Blood1), [1, 1, 0, 1]];
         };
     };
 };

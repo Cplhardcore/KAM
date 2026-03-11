@@ -62,6 +62,8 @@ PREP(stabilizeJointLocal);
 PREP(tourniquet);
 PREP(tourniquetLocal);
 PREP(updateBodyPartVisuals);
+PREP(washBody);
+PREP(washBodyLocal);
 PREP(woundsHandlerArmorPenetration);
 PREP(woundsHandlerBase);
 PREP(woundsHandlerBurning);

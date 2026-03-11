@@ -265,4 +265,17 @@ class ACE_Medical_Treatment_Actions {
         callbackSuccess = QUOTE([ARR_8(_medic,_patient,_bodyPart,_classname,_itemUser,_usedItem,_createLitter,2)] call FUNC(tourniquet));
         allowedUnderwater = 0;
     };
+    class WashBody: CheckPulse {
+        displayName = CSTRING(WashBody);
+        displayNameProgress = CSTRING(WashingBody);
+        category = "examine";
+        medicRequired = 0;
+        allowedSelections[] = {"Head","LeftArm","RightArm","Body","LeftLeg","RightLeg", "Chest", "UpperLeftArm", "UpperRightArm", "UpperLeftLeg", "UpperRightLeg", "Neck"};
+        treatmentTime = 15;
+        items[] = {};
+        consumeItem = 0;
+        condition = "true";
+        callbackStart = "";
+        callbackSuccess = QFUNC(washBody);
+    };
 };
