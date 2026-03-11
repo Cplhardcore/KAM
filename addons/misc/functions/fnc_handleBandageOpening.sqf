@@ -30,7 +30,7 @@ private _fnc_processWounds = {
             private _config = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Bandaging";
             private _bandageConfig = _config >> _bandage;
             if !(isClass _bandageConfig) exitWith {1};
-            private _bandageMovementPenalty = GET_NUMBER(_bandageConfig >> "bandageMovementPenalty", 1);
+            private _bandageMovementPenalty = GET_NUMBER(_bandageConfig >> "bandageMovementPenalty",1);
             (linearConversion [1, 12, (abs (speed _target)), 1, 4, true] * _bandageMovementPenalty) 
         } else {1};
         private _newDelay = _delay - (1 + (_bleeding * _occlusionLevel) + _speed);

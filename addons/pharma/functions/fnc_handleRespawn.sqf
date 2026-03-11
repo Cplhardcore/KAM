@@ -1,5 +1,5 @@
-#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
+#pragma hemtt suppress pw3_padded_arg file
 /*
  * Author: MiszczuZPolski
  * Ensures proper initial values reset on respawn
@@ -18,7 +18,6 @@
  */
 
 params ["_unit","_dead"];
-
 [_unit] call FUNC(fullHealLocal);
 if (GVAR(kidneyAction)) then {
     [{

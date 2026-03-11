@@ -29,5 +29,5 @@ private _hasIV = _ivBags findIf {
     (_x select 2) isEqualTo _partIndex
 } != -1;
 
-TRACE_3("hasMatchingIV", _ivBags, _partIndex, _hasIV);
+TRACE_3("hasMatchingIV",_ivBags,_partIndex,_hasIV);
 _hasIV

@@ -187,7 +187,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                         _ISP = _ISP + _bagChange / 2; 
                         _lossVolumeChange = _lossVolumeChange + (_bagChange / 2000);
                     } else {
-                        { _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS); };
+                        _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS);
                     };
                     private _salineFlow = _unit getVariable [QEGVAR(brain,salineFlow), 0];
                     _unit setVariable [QEGVAR(brain,salineFlow), _salineFlow + _bagChange, true];
@@ -199,7 +199,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                         _ISP = _ISP + _bagChange * 0.25; 
                         _lossVolumeChange = _lossVolumeChange + (_bagChange / 2000);
                     } else {
-                        { _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS); };
+                        _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS);
                     };
                     _platelets = (_platelets + (_plateletAmount * _bagChange)) max 0;
                 };
@@ -233,7 +233,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                     
                         _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS);
                     } else {
-                        { _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS); };
+                        _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS);
                     };
                     private _salineFlow = _unit getVariable [QEGVAR(brain,salineFlow), 0];
                     _unit setVariable [QEGVAR(brain,salineFlow), _salineFlow + (_bagChange * 3), true];

@@ -99,7 +99,7 @@ private _modifierFunc = {
 				//when creating children, only create children of unit who is being hovered over, otherwise empty children
 				//probably performance thing, unsure
 				if(ace_interact_menu_selectedTarget isEqualTo _target) then {
-					_this call FUNC(buildStableActions);
+					call FUNC(buildStableActions);
 				}else {
 					[]
 				};
