@@ -25,7 +25,6 @@ if (GVAR(Surgery_ConsciousnessRequirement) == 1 && !(IS_UNCONSCIOUS(_patient))) 
 };
 private _openWounds = GET_OPEN_WOUNDS(_patient);
 private _existingWounds = _openWounds getOrDefault [_bodyPart, [], true];
-private _bodyPartDamage = GET_BODYPART_DAMAGE(_patient);
 private _woundTypeToAdd = "Cut";
 TRACE_4("create_Incision1",_openWounds,_existingWounds,_bodyPartDamage,_woundTypeToAdd);
 private _woundClassIDToAdd = ACEGVAR(medical_damage,woundClassNames) find _woundTypeToAdd;
@@ -39,7 +38,6 @@ private _injury = [_classComplex, 1, _bleeding, 1];
 TRACE_1("adding new wound",_injury);
 _existingWounds pushBack _injury;
 _patient setVariable [VAR_OPEN_WOUNDS, _openWounds, true];
-_patient setVariable [VAR_BODYPART_DAMAGE, _bodyPartDamage, true];
 [_patient] call ACEFUNC(medical_status,updateWoundBloodLoss);
 private _part = ALL_BODY_PARTS find toLower _bodyPart;
 private _fractureArray = _patient getVariable [QGVAR(fractures), [0,0,0,0,0,0,0,0,0,0,0,0]];

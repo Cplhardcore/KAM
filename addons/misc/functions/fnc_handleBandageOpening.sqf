@@ -61,7 +61,11 @@ private _fnc_processWounds = {
                     if (ACEGVAR(medical_treatment,clearTrauma) == 2) then {
                         [_target, _part, _selDamage * _amountOf] call ACEFUNC(medical_treatment,addTrauma);
                     };
-
+                    private _classIndex = _selClassID / 10;
+                    private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+                    if (_className isEqualTo "Contusion") then {
+                        [_target, _part, _selDamage * _amountOf] call ACEFUNC(medical_treatment,addTrauma);
+                    };
                     // Check if we gained limping from this wound re-opening
                     if ((ACEGVAR(medical,limping) == 1) && {_partIndex > 7}) then {
                         [_target] call FUNC(updateDamageEffects);

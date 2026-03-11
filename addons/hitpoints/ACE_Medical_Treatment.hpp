@@ -2891,26 +2891,26 @@ class ACE_Medical_Treatment {
             class Contusion: Abrasion {
                 effectiveness = 3;
                 reopeningChance = 0.2;
-                reopeningMinDelay = 1200;
-                reopeningMaxDelay = 2400;
+                reopeningMinDelay = 2400;
+                reopeningMaxDelay = 3000;
             };
             class ContusionMinor: Contusion {
                 effectiveness = 5;
                 reopeningChance = 0.2;
-                reopeningMinDelay = 1200;
-                reopeningMaxDelay = 2400;
+                reopeningMinDelay = 2400;
+                reopeningMaxDelay = 3000;
             };
             class ContusionMedium: Contusion {
                 effectiveness = 4;
                 reopeningChance = 0.2;
-                reopeningMinDelay = 1200;
-                reopeningMaxDelay = 2400;
+                reopeningMinDelay = 2400;
+                reopeningMaxDelay = 3000;
             };
             class ContusionLarge: Contusion {
                 effectiveness = 3;
                 reopeningChance = 0.2;
-                reopeningMinDelay = 1200;
-                reopeningMaxDelay = 2400;
+                reopeningMinDelay = 2400;
+                reopeningMaxDelay = 3000;
             };
 
             class Crush: Abrasion {

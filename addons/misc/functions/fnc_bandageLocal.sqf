@@ -140,8 +140,7 @@ private _clearConditionCache = false;
                 _bandagedInjury set [6, _delay];
                 (_wrappedWounds getOrDefault [_bodyPart, [], true]) pushBack _bandagedInjury;
             };
-
-
+            [_patient, _bodyPart, -(_damage * _impact)] call ACEFUNC(medical_treatment,addTrauma);
             _patient setVariable [VAR_WRAPPED_WOUNDS, _wrappedWounds, true];
         }
         
