@@ -177,7 +177,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         private _woundDamage = _dmgPerWound * _dmgMultiplier * random [0.9, 1, 1.1];
 
         _bodyPartDamage set [_bodyPartNToAdd, (_bodyPartDamage select _bodyPartNToAdd) + _woundDamage];
-        _bodyPartVisParams set [[1,1,1,2,2,2,3,3,3,4,4,4] select _bodyPartNToAdd, true]; // Mark the body part index needs updating
+        _bodyPartVisParams set [[1,1,2,2,3,3,3,3,4,4,4,4] select _bodyPartNToAdd, true]; // Mark the body part index needs updating
 
         // Anything above this value is guaranteed worst wound possible
         private _worstDamage = 6;

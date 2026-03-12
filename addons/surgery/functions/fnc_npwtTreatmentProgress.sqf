@@ -81,9 +81,13 @@ _patient setVariable [QACEGVAR(medical,bodyPartDamage), _bodyPartDamage, true];
 
 switch (_bodyPart) do {
     case "head": {[_patient, true, false, false, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
+    case "neck": {[_patient, true, false, false, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
     case "body": {[_patient, false, true, false, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
-    case "leftarm";
+    case "chest": {[_patient, false, true, false, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
+    case "leftarm": {[_patient, false, false, true, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
     case "rightarm": {[_patient, false, false, true, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
+    case "upperleftarm": {[_patient, false, false, true, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
+    case "upperrightarm": {[_patient, false, false, true, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
     default {[_patient, false, false, false, true] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
 };
 

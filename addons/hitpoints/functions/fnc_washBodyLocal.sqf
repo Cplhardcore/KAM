@@ -19,3 +19,4 @@
 params ["_medic", "_patient", "_bodyPart"];
 
 _patient setVariable [QEGVAR(circulation,externalBloodLoss), 0, true];
+[_patient, false, false, false, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);
