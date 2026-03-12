@@ -244,7 +244,8 @@ private _vasoArray = _unit getVariable [VAR_VASOCONSTRICTION, [1,1,1,1,1,1,1,1,1
 {
     private _limbIndex = _forEachIndex;
     private _bodyPartDamage = linearConversion [0, 20, (_damage select _limbIndex), 0, 1, true];
-    private _vasoconstriction = 1 + (0.5 * (_woundBloodLoss select _limbIndex)) + _alphaFactorAdjustment + (0.5 * _bodyPartDamage);
+    private _bloodLoss = linearConversion [0, 0.3, (_woundBloodLoss select _limbIndex), 0, 1, true];
+    private _vasoconstriction = 1 + (0.5 * _bloodLoss) + _alphaFactorAdjustment + (0.5 * _bodyPartDamage);
     _vasoArray set [_limbIndex, (1.9 min (0.2 max _vasoconstriction))];
 } forEach _vasoArray;
 
