@@ -115,7 +115,7 @@ params ["_unit", "_instigator"];
 
                     // Queue up a bunch of animations
                     for "_i" from 0 to 2 do {
-                        [_unit, selectRandom ["amovppnemstpsnonwnondnon_amovppnemevasnonwnondl", "amovppnemstpsnonwnondnon_amovppnemevasnonwnondr"], 0] call EFUNC(common,doAnimation);
+                        [_unit, selectRandom ["amovppnemstpsnonwnondnon_amovppnemevasnonwnondl", "amovppnemstpsnonwnondnon_amovppnemevasnonwnondr"], 0] call ACEFUNC(common,doAnimation);
                     };
 
                     _intensity = _intensity - (1 / _intensity);
