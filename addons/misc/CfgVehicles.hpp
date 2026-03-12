@@ -1,49 +1,4 @@
 class CfgVehicles {
-    class Land_IntravenStand_01_base_F;
-
-    class Land_IntravenStand_01_empty_F: Land_IntravenStand_01_base_F {
-        ace_cargo_size = 2;
-        ace_cargo_canLoad = 1;
-
-        // Dragging
-        ace_dragging_canDrag = 1;
-        ace_dragging_dragPosition[] = {0, 1.2, 1};
-        ace_dragging_dragDirection = 0;
-
-        // Carrying
-        ace_dragging_canCarry = 1;
-        ace_dragging_carryPosition[] = {0, 1.2, 1};
-        ace_dragging_carryDirection = 0;
-    };
-    class Land_IntravenStand_01_1bag_F: Land_IntravenStand_01_base_F {
-        ace_cargo_size = 2;
-        ace_cargo_canLoad = 1;
-
-        // Dragging
-        ace_dragging_canDrag = 1;
-        ace_dragging_dragPosition[] = {0, 1.2, 1};
-        ace_dragging_dragDirection = 0;
-
-        // Carrying
-        ace_dragging_canCarry = 1;
-        ace_dragging_carryPosition[] = {0, 1.2, 1};
-        ace_dragging_carryDirection = 0;
-    };
-    class Land_IntravenStand_01_2bags_F: Land_IntravenStand_01_base_F {
-        ace_cargo_size = 2;
-        ace_cargo_canLoad = 1;
-
-        // Dragging
-        ace_dragging_canDrag = 1;
-        ace_dragging_dragPosition[] = {0, 1.2, 1};
-        ace_dragging_dragDirection = 0;
-
-        // Carrying
-        ace_dragging_canCarry = 1;
-        ace_dragging_carryPosition[] = {0, 1.2, 1};
-        ace_dragging_carryDirection = 0;
-    };
-
     class Items_base_F;
     class kat_Armband_Red_Cross_Object: Items_base_F {
         scope = 2;
