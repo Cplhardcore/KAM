@@ -11,6 +11,9 @@ class CfgFunctions {
             class woundsHandlerBase {
                 file = QPATHTOF(functions\fnc_woundsHandlerBase.sqf);
             };
+            class woundReceived {
+                file = QPATHTOF(functions\fnc_woundReceived.sqf);
+            };
             class woundsHandlerVehiclehit {
                 file = QPATHTOF(functions\fnc_woundsHandlerVehiclehit.sqf);
             };
@@ -27,6 +30,14 @@ class CfgFunctions {
             };
             class updateBodyPartVisuals {
                 file = QPATHTOF(functions\fnc_updateBodyPartVisuals.sqf);
+            };
+        };
+    };
+    class overwrite_ace_fire {
+        tag = "ace_fire";
+        class ace_fire {
+            class burnSimulation {
+                file = QPATHTOF(functions\fnc_burnSimulation.sqf);
             };
         };
     };
