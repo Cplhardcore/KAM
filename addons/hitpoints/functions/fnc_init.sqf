@@ -19,4 +19,3 @@ params ["_unit", ["_isRespawn", true]];
 
 // init variables
 [_unit] call FUNC(fullHealMod);
-
