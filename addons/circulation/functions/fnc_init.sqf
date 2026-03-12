@@ -44,7 +44,7 @@ _unit setVariable [QGVAR(deviceCode), 0, true];
     private _bl = _unit getVariable [QGVAR(externalBloodLoss), 0];
     private _bl = (_bl - 0.0025) max 0;
     if (_isRaining && !_isUnderCover) then {
-        _bl = (_bl - linearConversion [0, 1, rain, 0, 0.4, true]) max 0;
+        _bl = (_bl - linearConversion [0, 1, rain, 0, 0.2, true]) max 0;
     };
     _unit setVariable [QGVAR(externalBloodLoss), _bl, true];
 }, 10, [_unit]] call CBA_fnc_addPerFrameHandler;
