@@ -1,4 +1,3 @@
-
 #include "..\script_component.hpp"
 /*
  * Author: Glowbal, Mazinski
@@ -213,6 +212,7 @@ if (_adjustments isNotEqualTo []) then {
 [_unit, _sedationAdjustment, _deltaT, _syncValues] call FUNC(updateSedation);
 [_unit, _paralysisAdjustment, _deltaT, _syncValues] call FUNC(updateParalysis);
 
+
 private _aceAnFatigue = 0;
 private _aceAnReserve = 0;
 if (_unit getVariable [QGVAR(fatigueEnabled), false]) then {
@@ -239,13 +239,20 @@ private _woundBloodLoss = GET_BODY_BLEED_RATE(_unit);
 private _totalBloodLoss = 0;
 { _totalBloodLoss = _totalBloodLoss + _x } forEach _woundBloodLoss;
 private _damage = GET_BODYPART_DAMAGE(_unit);
+private _symp = _unit getVariable [QGVAR(sympatheticTone),0.5];
+private _trauma = _unit getVariable [QGVAR(traumaState),0];
+private _sympVaso = linearConversion [0.5,1,_symp,0,0.3,true];
 // Vasoconstriction from Wound Blood Loss and Alpha Adjustment
 private _vasoArray = _unit getVariable [VAR_VASOCONSTRICTION, [1,1,1,1,1,1,1,1,1,1,1,1]];
 {
     private _limbIndex = _forEachIndex;
-    private _bodyPartDamage = linearConversion [0, 20, (_damage select _limbIndex), 0, 1, true];
-    private _bloodLoss = linearConversion [0, 0.3, (_woundBloodLoss select _limbIndex), 0, 1, true];
-    private _vasoconstriction = 1 + (0.5 * _bloodLoss) + _alphaFactorAdjustment + (0.5 * _bodyPartDamage);
+    private _bodyPartDamage = linearConversion [0, 20, (_damage select _limbIndex), 0, -0.3, true];
+    private _bloodLoss = linearConversion [0.05, 0.3, (_woundBloodLoss select _limbIndex), 0, 1, true];
+    private _vasoconstriction = 1 + (0.5 * _bloodLoss) + _alphaFactorAdjustment + _bodyPartDamage + _sympVaso;
+    if (_trauma > 0.7) then {
+    _vasoconstriction = _vasoconstriction * (1 - ((_trauma - 0.7) * 1.2));
+    };
+    TRACE_4("vaso", _bodyPartDamage, _bloodLoss, _alphaFactorAdjustment, _sympVaso);
     _vasoArray set [_limbIndex, (1.9 min (0.2 max _vasoconstriction))];
 } forEach _vasoArray;
 

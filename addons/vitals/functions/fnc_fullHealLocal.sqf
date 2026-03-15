@@ -36,6 +36,13 @@ _patient setVariable [QGVAR(ataxicTimer), 0, true];
 _patient setVariable [QGVAR(respFatigue), 0, true];
 _patient setVariable [QGVAR(pao2_prev), 90, true];
 _patient setVariable [QGVAR(lastTimeUDEUpdated), 0, true];
+_patient setVariable [QGVAR(catecholamine), 0, true];
+_patient setVariable [QGVAR(sympatheticTone), 0, true];
+_patient setVariable [QGVAR(traumaState), 0, true];
+_patient setVariable [QGVAR(oxygenDebt), 0, true];
+_patient setVariable [QGVAR(shockState), 0, true];
+_patient setVariable [QGVAR(traumaState), 0, true];
+_patient setVariable [QGVAR(skinPerfusion), 0, true];
 if (GVAR(enableSimpleMedical)) then {
     _patient setVariable [QGVAR(simpleMedical), true, true];
 };

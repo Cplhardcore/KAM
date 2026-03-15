@@ -90,6 +90,9 @@ _patient setVariable [QGVAR(acidRepo), 1.0, true];
 _patient setVariable [QGVAR(prevRenalPhysio), [0, 1.2, 2.4, 0], true];
 _patient setVariable [QGVAR(prevCalciumPhysio), [0, 1.2, 2.4, 0], true];
 _patient setVariable [QGVAR(lactate), 1.2, true];
+_patient setVariable [QGVAR(microcirculation), 0, true];
+_patient setVariable [QGVAR(mitoFailure), 0, true];
+
 /// Clear Stamina & weapon sway
 if (ACEGVAR(advanced_fatigue,enabled)) then {
     ["kat_PDF"] call ACEFUNC(advanced_fatigue,removeDutyFactor);

@@ -32,12 +32,14 @@ private _map = GET_MAP(_unit);
 private _correctedMap = linearConversion [14.3333, 174.3333, _map, 0.05, 2, true];
 TRACE_3("correctedMAP",_correctedMap,_map,_bloodPressure);
 private _heartRate = GET_HEART_RATE(_unit);
+private _trauma = _unit getVariable [QEGVAR(vitals,traumaState),0];
+private _capLeak = linearConversion [0.4,0.9,_trauma,0,0.0002,true];
 
 private _lossVolumeChange = 0;
 {
     _lossVolumeChange = _lossVolumeChange + (-(_deltaT/12) * (((_bloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) / (_vasoconstriction select _forEachIndex)));
 } forEach _bloodLoss;
-
+_lossVolumeChange = _lossVolumeChange + _capLeak;
 private _externalLossVolumeChange = 0;
 {
     _externalLossVolumeChange = _externalLossVolumeChange + ((_deltaT/12) * (((_exBloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) / (_vasoconstriction select _forEachIndex)));

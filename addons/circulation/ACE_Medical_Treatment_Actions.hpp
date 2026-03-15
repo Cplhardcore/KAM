@@ -330,4 +330,16 @@ class ACE_Medical_Treatment_Actions {
         animationPatientUnconscious = "AinjPpneMstpSnonWrflDnon_rolltoback";
         animationPatientUnconsciousExcludeOn[] = {"ainjppnemstpsnonwrfldnon", "kat_recoveryposition"};
     };
+    class CheckSkin: CheckPulse {
+        displayName = CSTRING(CheckSkin);
+        displayNameProgress = CSTRING(CheckSkin_Action);
+        treatmentTime = 3;
+        allowedSelections[] = {"All"};
+        allowSelfTreatment = 1;
+        callbackSuccess = QFUNC(checkSkin);
+        condition = "true";
+        animationPatient = "";
+        animationPatientUnconscious = "AinjPpneMstpSnonWrflDnon_rolltoback";
+        animationPatientUnconsciousExcludeOn[] = {"ainjppnemstpsnonwrfldnon", "kat_recoveryposition"};
+    };
 };

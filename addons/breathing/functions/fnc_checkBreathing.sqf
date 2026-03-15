@@ -41,6 +41,16 @@ if (_respiratoryDepth < 7)  then {
     _breathing_log = LLSTRING(breathing_Veryshallow);
 };
 
+if (_respiratoryDepth > 12) then {
+    _breathing = LLSTRING(breathing_isDeep);
+    _breathing_log = LLSTRING(breathing_Deep);
+};
+
+if (_respiratoryDepth > 15)  then {
+    _breathing = LLSTRING(breathing_isVeryDeep);
+    _breathing_log = LLSTRING(breathing_VeryDeep);
+};
+
 if (_ph < 7.3) then {
     _breath = LLSTRING(breath_mild);
 

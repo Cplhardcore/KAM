@@ -41,6 +41,8 @@ PREP(checkPulse);
 PREP(checkPulseLocal);
 PREP(checkPulseSteth);
 PREP(checkPulseStethLocal);
+PREP(checkSkin);
+PREP(checkSkinLocal);
 PREP(compatible);
 PREP(cprLocal);
 PREP(cprSuccess);

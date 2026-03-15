@@ -4026,6 +4026,84 @@
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_SeverelyDelayed_log">
             <English>a Capillary Refill time of ~5 seconds</English>
         </Key>
+        <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Normal_Mottled">
+            <English>You find a Refill time of ~1.5 seconds, Skin appears mottled</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Delayed_Mottled">
+            <English>You find a Refill time of ~3 seconds, Skin appears mottled</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_capRefill_Output_SeverelyDelayed_Mottled">
+            <English>You find a Refill time of ~5 seconds, Skin appears mottled</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Normal_Mottled_log">
+            <English>a Refill time of ~1.5 seconds, Skin appears mottled</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Delayed_Mottled_log">
+            <English>a Refill time of ~3 seconds, Skin appears mottled</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_capRefill_Output_SeverelyDelayed_Mottled_log">
+            <English>a Refill time of ~5 seconds, Skin appears mottled</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_CheckSkin">
+            <English>Check Skin</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_CheckSkin_Action">
+            <English>Checking Skin</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_CheckSkin_Output_Normal">
+            <English>You find skin that is warm and pink</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_Skin_Output_NoRefill">
+            <English>You find skin that is cool and pink</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_CheckSkin_Output_SlightlyDelayed">
+            <English>You find skin that is warm and pale</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_CheckSkin_Output_Delayed">
+            <English>You find skin that is cool and pale</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_CheckSkin_Output_SeverelyDelayed">
+            <English>You find skin that is cool and grey</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_CheckSkin_Output_Normal_log">
+            <English>finds skin that is warm and pink</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_Skin_Output_NoRefill_log">
+            <English>finds skin that is cool and pink</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_CheckSkin_Output_SlightlyDelayed_log">
+            <English>finds skin that is warm and pale</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_CheckSkin_Output_Delayed_log">
+            <English>finds skin that is cool and pale</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_CheckSkin_Output_SeverelyDelayed_log">
+            <English>finds skin that is cool and grey</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_Normal">
+            <English>You find a Venous Return time of ~1.5 seconds</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_NoRefill">
+            <English>You find no Venous Return</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_Delayed">
+            <English>You find a Venous Return time of ~3 seconds</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_SeverelyDelayed">
+            <English>You find a Venous Return time of ~5 seconds</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_Normal_log">
+            <English>a Venous Return time of ~1.5 seconds</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_NoRefill_log">
+            <English>No Venous Return</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_Delayed_log">
+            <English>a Venous Return time of ~3 seconds</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_SeverelyDelayed_log">
+            <English>a Venous Return time of ~5 seconds</English>
+        </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV">
             <English>Hextend IV (1000ml)</English>
         </Key>

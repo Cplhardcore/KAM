@@ -2642,6 +2642,9 @@
             <Japanese>とても浅い</Japanese>
             <Chinese>非常淺</Chinese>
         </Key>
+        <Key ID="STR_KAT_Breathing_breathing_VeryDeep">
+            <English>Very Deep</English>
+        </Key>
         <Key ID="STR_KAT_Breathing_breathing_isNormal">
             <English>Patient is breathing normally</English>
             <Czech>Pacient dýchá normálně</Czech>
@@ -2682,6 +2685,12 @@
             <German>Die Atmung des Patienten ist sehr flach</German>
             <Japanese>患者の呼吸はとても浅い</Japanese>
             <Chinese>病人呼吸非常淺</Chinese>
+        </Key>
+        <Key ID="STR_KAT_Breathing_breathing_isDeep">
+            <English>Patient's breathing is deep</English>
+        </Key>
+        <Key ID="STR_KAT_Breathing_breathing_isVeryDeep">
+            <English>Patient's breathing is very deep</English>
         </Key>
         <Key ID="STR_KAT_Breathing_breathing_none">
             <English>Patient is not breathing</English>
@@ -2741,6 +2750,9 @@
             <Chinesesimp>浅</Chinesesimp>
             <Finnish>Matala</Finnish>
             <Dutch>Oppervlakkig</Dutch>
+        </Key>
+        <Key ID="STR_KAT_Breathing_breathing_Deep">
+            <English>Deep</English>
         </Key>
         <Key ID="STR_KAT_Breathing_cba_name">
             <English>KAT - ADV Medical: Breathing</English>
