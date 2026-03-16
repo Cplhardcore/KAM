@@ -19,6 +19,7 @@
 
 params ["_medic", "_patient", "_bodyPart"];
 private _bodyPartN = ALL_BODY_PARTS find _bodyPart;
+private _hr = GET_HEART_RATE(_patient);
 private _occlusion = [_patient,_bodyPartN] call EFUNC(pharma,occlusionLevel);
 private _isDamaged = [_patient,_bodyPartN] call EFUNC(hitpoints,damageCheck);
 private _oxygenDelivery = _patient getVariable [QEGVAR(vitals,oxygenDelivery), 1];
@@ -44,7 +45,7 @@ _perfusionScore = _perfusionScore * (1 - _occlusion);
 private _venousPerf = _perfusionScore;
 _venousPerf = _venousPerf - (0.3 * (_damage select _bodyPartN));
 _venousPerf = _venousPerf * (_shock min 1);   
-if ((_occlusion > 0.9) || _isDamaged) then {
+if ((_occlusion > 0.9) || _isDamaged || (_hr < 20)) then {
     _capRefillOutput = LSTRING(Check_capRefill_Output_NoRefill);
     _logCapRefillOutput = LSTRING(Check_capRefill_Output_NoRefill_log);
 } else {
@@ -74,13 +75,14 @@ if ((_occlusion > 0.9) || _isDamaged) then {
             };
         };
     };
-};
-if (_vaso > 1.7) then {
+    if (_vaso > 1.7) then {
     _capRefillOutput = LSTRING(Check_capRefill_Output_SeverelyDelayed);
     _logCapRefillOutput = LSTRING(Check_capRefill_Output_SeverelyDelayed_log);
+    };
 };
 
-if ((_occlusion > 0.9) || _isDamaged) then {
+
+if ((_occlusion > 0.9) || _isDamaged || (_hr < 20)) then {
     _venousReturnOutput = LSTRING(Check_venousReturn_Output_NoRefill);
     _logVenousReturnOutput = LSTRING(Check_venousReturn_Output_NoRefill_log);
 } else {
