@@ -76,9 +76,9 @@ private _providerSkill = linearConversion [0, 2, _medLevel, 0.4, 0.8];
 private _bvmActive = _unit getVariable [QEGVAR(breathing,BVMInUse), false];
 private _bvmDyssync = _unit getVariable [QGVAR(bvmDyssync), 0];
 private _sedation = _unit getVariable [QEGVAR(surgery,sedated), 0];
-private _opioid = _unit getVariable [QEGVAR(pharma,opioidDepression), 0];
+private _opioid = _unit getVariable [QEGVAR(pharma,cnsSuppression), 0];
 private _cnsSuppression =
-    (_sedation max _opioid) * 0.6;
+    (_opioid) * 0.6;
 private _isArrest = IN_CRDC_ARRST(_unit);
 if (_do2Norm < 0.4) then {
     _anerobicPressure = _anerobicPressure + ((0.5 - _do2Norm) * _deltaT);

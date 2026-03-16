@@ -31,10 +31,10 @@ private _painLevel = 0;
 private _shockClass = "NONE";
 private _metabolicDemand = 0;
 private _sedation = _unit getVariable [QEGVAR(surgery,sedated), 0];
-private _opioid = _unit getVariable [QEGVAR(pharma,opioidDepression), 0];
+private _opioid = _unit getVariable [QEGVAR(pharma,cnsSuppression), 0];
 [_unit] call FUNC(updateSympatheticTone);
 private _cnsSuppression =
-    (_sedation max _opioid) * 0.6;
+    (_opioid) * 0.6;
 if (IN_CRDC_ARRST(_unit)) then {
     if (alive (_unit getVariable [QACEGVAR(medical,CPR_provider), objNull])) then {
         if (_actualHeartRate == 0) then { _syncValue = true };

@@ -52,6 +52,7 @@ class ACE_ADDON(Medical_Treatment) {
         paralysis = "false";
         bloodBased = "false";
         linear = "false";
+        cnsSuppression = 0;
 
         class Epinephrine {
             painReduce = 0;
@@ -97,6 +98,7 @@ class ACE_ADDON(Medical_Treatment) {
             viscosityChange = -0;
             maximumEffectiveDose = 20;
             nauseaMult = 0.2;
+            cnsSuppression = 0.25;
         };
         class MorphineIV {
             painReduce = 0.8;
@@ -588,7 +590,7 @@ class ACE_ADDON(Medical_Treatment) {
         class syringe_Fentanyl_5ml {
             painReduce = 1;
             hrIncreaseLow[] = {-5, -10};
-            hrIncreaseNormal[] = {-10, -15};
+            hrIncreaseNormal[] = {-5, -10};
             hrIncreaseHigh[] = {-10, -15};
             timeInSystem = 900;
             timeTillMaxEffect = 20;
@@ -604,6 +606,7 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
             nauseaMult = 0.4;
             bloodBased = "true";
+            cnsSuppression = 0.35;
         };
         class syringe_Ketamine_5ml {
             painReduce = 0.8;
@@ -643,6 +646,7 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
             nauseaMult = 0.3;
             bloodBased = "true";
+            cnsSuppression = 0.20;
         };
         class syringe_AtropineIV_5ml {
             painReduce = 0;
@@ -695,6 +699,7 @@ class ACE_ADDON(Medical_Treatment) {
             weightDose = 20;
             maximumEffectiveDose = 30;
             bloodBased = "true";
+            cnsSuppression = 0.95;
         };
         class syringe_Flumazenil_5ml {
             painReduce = 0;
@@ -722,6 +727,7 @@ class ACE_ADDON(Medical_Treatment) {
             weightBased = "true";
             weightDose = 20;
             maximumEffectiveDose = 30;
+            cnsSuppression = 0.55;
         };
         class syringe_MorphineIV_5ml {
             painReduce = 0.7;
@@ -738,6 +744,7 @@ class ACE_ADDON(Medical_Treatment) {
             weightDose = 20;
             maximumEffectiveDose = 30;
             nauseaMult = 0.3;
+            cnsSuppression = 0.35;
         };
         class syringe_AdenosineIV_5ml {
             painReduce = 0;
@@ -885,7 +892,7 @@ class ACE_ADDON(Medical_Treatment) {
         class syringe_Fentanyl_10ml {
             painReduce = 1;
             hrIncreaseLow[] = {-5, -10};
-            hrIncreaseNormal[] = {-10, -15};
+            hrIncreaseNormal[] = {-5, -10};
             hrIncreaseHigh[] = {-10, -15};
             timeInSystem = 300;
             timeTillMaxEffect = 60;
@@ -901,6 +908,7 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
             nauseaMult = 0.3;
             bloodBased = "true";
+            cnsSuppression = 0.35;
         };
         class syringe_Ketamine_10ml {
             painReduce = 0.8;
@@ -936,6 +944,7 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
             nauseaMult = 0.3;
             bloodBased = "true";
+            cnsSuppression = 0.25;
         };
         class syringe_Lidocaine_10ml {
             painReduce = 0;
@@ -962,6 +971,7 @@ class ACE_ADDON(Medical_Treatment) {
             weightDose = 20;
             maximumEffectiveDose = 30;
             nauseaMult = 0.3;
+            cnsSuppression = 0.25;
         };
         class syringe_TXA {
             maxDose = 40;

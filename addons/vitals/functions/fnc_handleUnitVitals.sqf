@@ -103,6 +103,7 @@ private _respiratoryRateAdjustment = 1;
 private _contractilityAdjustment = 1;
 private _nauseaMultAdjustment = 1;
 private _sedationAdjustment = 0;
+private _cnsSuppressionAdjustment = 0;
 private _paralysisAdjustment = 0;
 private _effectRatio = 0;
 
@@ -156,7 +157,7 @@ if (_adjustments isNotEqualTo []) then {
             "_hrAdjust", "_painAdjust", "_flowAdjust", "_dose", "_alphaFactor",
             "_opioidRelief", "_opioidEffect", "_opioidDepression",
             "_respiratoryRate", "_contractility", "_nauseaMult",
-            "_sedation", "_paralysis", "_linear"
+            "_sedation", "_paralysis", "_linear", "_cnsSuppression"
         ];
 
         private _scaledMaxTime = _maxTimeInSystem / _metabolismMult;
@@ -190,6 +191,7 @@ if (_adjustments isNotEqualTo []) then {
             if (_nauseaMult != 0) then { _nauseaMultAdjustment = (_nauseaMultAdjustment + (_nauseaMult * _effectRatio)) max 0.1; };
             if (_sedation == "true") then { _sedationAdjustment = (_sedationAdjustment + (1 * _effectRatio)) min 1; };
             if (_paralysis == "true") then { _paralysisAdjustment = (_paralysisAdjustment + (1 * _effectRatio)) min 1; };
+            if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = _cnsSuppressionAdjustment + _cnsSuppression * _effectRatio * _effectiveDose; };
         };
 
     } forEach _adjustments;
@@ -211,6 +213,7 @@ if (_adjustments isNotEqualTo []) then {
 [_unit, _nauseaMultAdjustment, _deltaT, _syncValues] call FUNC(updateNauseaMult);
 [_unit, _sedationAdjustment, _deltaT, _syncValues] call FUNC(updateSedation);
 [_unit, _paralysisAdjustment, _deltaT, _syncValues] call FUNC(updateParalysis);
+[_unit, _cnsSuppressionAdjustment, _deltaT, _syncValues] call FUNC(updateCnsSuppression);
 
 
 private _aceAnFatigue = 0;

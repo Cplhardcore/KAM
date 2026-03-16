@@ -38,7 +38,8 @@ params [
     ["_nauseaMult", 0],
     ["_sedation", "false"],
     ["_paralysis", "false"],
-    ["_linear", "false"]
+    ["_linear", "false"],
+    ["_cnsSuppression", 0]
 ];
 TRACE_8("addMedicationAdjustment",_unit,_medication,_timeToMaxEffect,_maxTimeInSystem,_hrAdjust,_painAdjust,_flowAdjust,_dose);
 
@@ -47,6 +48,6 @@ _timeToMaxEffect = _timeToMaxEffect max 1;
 
 
 private _adjustments = _unit getVariable [VAR_MEDICATIONS, []];
-_adjustments pushBack [_medication, CBA_missionTime, _timeToMaxEffect, _maxTimeInSystem, _hrAdjust, _painAdjust, _flowAdjust, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility,_nauseaMult,_sedation,_paralysis,_linear];
+_adjustments pushBack [_medication, CBA_missionTime, _timeToMaxEffect, _maxTimeInSystem, _hrAdjust, _painAdjust, _flowAdjust, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility,_nauseaMult,_sedation,_paralysis,_linear,_cnsSuppression];
 
 _unit setVariable [VAR_MEDICATIONS, _adjustments, true];
