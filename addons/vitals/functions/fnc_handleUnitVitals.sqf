@@ -222,7 +222,8 @@ if (_unit getVariable [QGVAR(fatigueEnabled), false]) then {
 if (_unit getVariable [QGVAR(fatigueEnabled), false]) then {
     _aceAnReserve = [_unit] call FUNC(returnReserve);
 };
-
+[_unit] call FUNC(updateShockController);
+[_unit] call FUNC(updateSympatheticTone);
 private _heartRate = [_unit, _hrTargetAdjustment, 0, _bloodVolume, _aceAnFatigue, _aceAnReserve, _deltaT, _syncValues] call FUNC(handleCardiacFunction);
 
 private _spo2 = 97;

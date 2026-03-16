@@ -27,5 +27,6 @@ PREP(updateParalysis);
 PREP(updateRespiratoryDepth);
 PREP(updateRespiratoryRate);
 PREP(updateSedation);
+PREP(updateShockController);
 PREP(updateSympatheticTone);
 PREP(weightLog);

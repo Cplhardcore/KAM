@@ -42,7 +42,7 @@ _patient setVariable [QGVAR(traumaState), 0, true];
 _patient setVariable [QGVAR(oxygenDebt), 0, true];
 _patient setVariable [QGVAR(shockState), 0, true];
 _patient setVariable [QGVAR(traumaState), 0, true];
-_patient setVariable [QGVAR(skinPerfusion), 0, true];
+_patient setVariable [QGVAR(skinPerfusion), 1, true];
 if (GVAR(enableSimpleMedical)) then {
     _patient setVariable [QGVAR(simpleMedical), true, true];
 };

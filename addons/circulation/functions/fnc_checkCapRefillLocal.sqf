@@ -33,8 +33,10 @@ private _micro = _patient getVariable [QEGVAR(vitals,microcirculation),0];
 private _vaso = [_patient, _bodyPartN] call EFUNC(pharma,vasoconstrictionLevel);
 private _vasoPerf = linearConversion [1,1.9,_vaso,1,0.3,true];
 private _microPerf = linearConversion [0,1,_micro,1,0.4,true];
+private _coNorm =
+linearConversion [0.04, 0.10, _cardiacOutput, 0, 1, true];
 private _perfusionScore =
-(_cardiacOutput * 0.5)
+(_coNorm * 0.5)
 + (_vasoPerf * 0.3)
 + (_microPerf * 0.2);
 _perfusionScore = _perfusionScore * (1 - (_shock * 0.4));

@@ -21,7 +21,10 @@ params ["_medic", "_patient", "_bodyPart"];
 private _bodyPartN = ALL_BODY_PARTS find _bodyPart;
 private _occlusion = [_patient,_bodyPartN] call EFUNC(pharma,occlusionLevel);
 private _isDamaged = [_patient,_bodyPartN] call EFUNC(hitpoints,damageCheck);
-private _skinPerfusion = (_patient getVariable [QEGVAR(vitals,skinPerfusion), 1]) * (1 - (_occlusion * 0.4)) ;
+private _skinPerfusion = (_patient getVariable [QEGVAR(vitals,skinPerfusion), 1]) * (1 - (_occlusion * 0.4));
+systemChat str _skinPerfusion;
+systemChat str _occlusion;
+systemChat str (_patient getVariable [QEGVAR(vitals,skinPerfusion), 1]);
 private _capRefillOutput = LSTRING(Checkskin_Output_Normal);
 private _logCapRefillOutput = LSTRING(Checkskin_Output_Normal_log);
 if ((_occlusion > 0.9) || _isDamaged) then {
