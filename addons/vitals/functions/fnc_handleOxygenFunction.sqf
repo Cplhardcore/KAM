@@ -889,7 +889,7 @@ private _do2Norm = linearConversion [3.5, 10, _do2, 0, 1, true];
 if ((_actualVentilation / _demandVentilation <= 0.35) && !(_unit getVariable ["ACE_isUnconscious", false])) then {
     private _timer = _unit getVariable [QGVAR(airwayTimer), -1];
     if (_timer == -1) then {
-        _timer = 45 + random 45;
+        _timer = 30 + random 15;
         _unit setVariable [QGVAR(airwayTimer), _timer, true];
     };
     private _elapsed = _unit getVariable [QGVAR(airwayElapsed), 0];

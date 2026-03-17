@@ -66,7 +66,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     private _lastHR =
         GET_HEART_RATE(_unit)
         - _hrTargetAdjustment
-        + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
+        - (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
         - (_aceAnFatigue * 40);
 
     private _baselineSV = 0.0810542;
@@ -206,11 +206,21 @@ if (IN_CRDC_ARRST(_unit)) then {
     _co2Tachy =
     _co2Tachy * (1 - (_cnsSuppression * 0.7));
     _modelHR = _modelHR + _co2Tachy;
-
+    TRACE_3(
+        "_co2Tachy",
+        _co2Tachy,
+        _paCO2,
+        _modelHR
+    );
     private _pao2 = GET_PAO2(_unit);
     private _hypoxiaTachy = linearConversion [80, 40, _pao2, 0, 20, true];
     _modelHR = _modelHR + _hypoxiaTachy;
-
+    TRACE_3(
+        "_hypoxiaTachy",
+        _hypoxiaTachy,
+        _pao2,
+        _modelHR
+    );
     private _respDepth =
     _unit getVariable [VAR_RESPIRATORY_DEPTH, 10];
 

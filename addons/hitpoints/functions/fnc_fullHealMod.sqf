@@ -25,4 +25,3 @@ _patient setVariable [VAR_JOINTS, DEFAULT_JOINT_VALUES, true];
 _patient setVariable [QGVAR(jointCheck), [false, false, false, false], true];
 _patient setVariable [QGVAR(pelvicFracture), 0, true];
 _patient setVariable [QGVAR(activePelvicBinder), false, true];
-_patient setVariable [QEGVAR(circulation,externalBloodLoss), 0, true];

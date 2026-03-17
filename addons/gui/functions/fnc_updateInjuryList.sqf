@@ -446,8 +446,6 @@ private _fnc_processOpenWounds = {
                 private _current = _aggregatedWounds getOrDefault [_woundClassID, 0];
                 if (_className in ["InternalBleeding", "Evisceration"]) then { continue };
                 private _suffix = ["Minor", "Medium", "Large"] select _category;
-                systemChat str _className;
-                systemChat str _suffix;
                 private _woundName = localize format [LSTRING(%1_%2), _className, _suffix];
                 _aggregatedWounds set [_woundName, _current + _amountOf];
             };
