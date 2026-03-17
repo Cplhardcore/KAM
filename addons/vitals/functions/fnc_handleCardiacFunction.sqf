@@ -111,7 +111,7 @@ if (IN_CRDC_ARRST(_unit)) then {
       + (BARO_KI * _mapIntegral)) * _baroScale;
 
     private _modelHR = _defaultHR + _baroDelta;
-    _modelHR = _modelHR - linearConversion [0,1,_cnsSuppression,0,8,true];
+    _modelHR = _modelHR - linearConversion [0,1,_cnsSuppression,0,12,true];
 
     TRACE_6(
         "BARO_CORE",
@@ -226,7 +226,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     if (_respFatigue > 0.9) then {
 
         private _respCollapse =
-        linearConversion [0.9,1.2,_respFatigue,0,25,true];
+        linearConversion [0.7,1,_respFatigue,0,25,true];
 
         _modelHR = _modelHR - _respCollapse;
     };
