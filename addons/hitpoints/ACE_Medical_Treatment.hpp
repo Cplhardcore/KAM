@@ -185,6 +185,15 @@ class ACE_Medical_Treatment {
             class EviscerationLarge: Evisceration {
                 effectiveness = 0;
             };
+            class Incision: Abrasion {
+                effectiveness = 0;
+                reopeningChance = 0.1;
+                reopeningMinDelay = 120;
+                reopeningMaxDelay = 200;
+            };
+            class IncisionMinor: Incision {};
+            class IncisionMedium: Incision {};
+            class IncisionLarge: Incision {};
         };
 
         class PackingBandage: FieldDressing {
@@ -3102,7 +3111,82 @@ class ACE_Medical_Treatment {
             class EviscerationMedium: Evisceration {};
             class EviscerationLarge: Evisceration {};
         };
+        class IncisionClosure: FieldDressing {
+            class Abrasion {
+                effectiveness = 0;
+                reopeningChance = 0.1;
+                reopeningMinDelay = 120;
+                reopeningMaxDelay = 200;
+            };
+            class AbrasionMinor: Abrasion {};
+            class AbrasionMedium: Abrasion {};
+            class AbrasionLarge: Abrasion {};
 
+            class Avulsion: Abrasion {};
+            class AvulsionMinor: Avulsion {};
+            class AvulsionMedium: Avulsion {};
+            class AvulsionLarge: Avulsion {};
+
+            class Contusion: Abrasion {};
+            class ContusionMinor: Contusion {};
+            class ContusionMedium: Contusion {};
+            class ContusionLarge: Contusion {};
+
+            class Crush: Abrasion {};
+            class CrushMinor: Crush {};
+            class CrushMedium: Crush {};
+            class CrushLarge: Crush {};
+
+            class Cut: Abrasion {};
+            class CutMinor: Cut {};
+            class CutMedium: Cut {};
+            class CutLarge: Cut {};
+
+            class Laceration: Abrasion {};
+            class LacerationMinor: Laceration {};
+            class LacerationMedium: Laceration {};
+            class LacerationLarge: Laceration {};
+
+            class VelocityWound: Abrasion {};
+            class VelocityWoundMinor: VelocityWound {};
+            class VelocityWoundMedium: VelocityWound {};
+            class VelocityWoundLarge: VelocityWound {};
+
+            class PunctureWound: Abrasion {};
+            class PunctureWoundMinor: PunctureWound {};
+            class PunctureWoundMedium: PunctureWound {};
+            class PunctureWoundLarge: PunctureWound {};
+
+            class ThermalBurn: Abrasion {};
+            class ThermalBurnMinor: ThermalBurn {};
+            class ThermalBurnMedium: ThermalBurn {};
+            class ThermalBurnLarge: ThermalBurn {};
+
+            class InternalBleeding: Abrasion {
+                effectiveness = 0;
+                reopeningChance = 0.1;
+                reopeningMinDelay = 120;
+                reopeningMaxDelay = 200;
+            };
+            class InternalBleedingMinor: InternalBleeding {};
+            class InternalBleedingMedium: InternalBleeding {};
+            class InternalBleedingLarge: InternalBleeding {};
+            
+            class Evisceration: Abrasion {};
+            class EviscerationMinor: Evisceration {};
+            class EviscerationMedium: Evisceration {};
+            class EviscerationLarge: Evisceration {};
+
+            class Incision: Abrasion {
+                effectiveness = 1;
+                reopeningChance = 0.1;
+                reopeningMinDelay = 120;
+                reopeningMaxDelay = 200;
+            };
+            class IncisionMinor: Incision {};
+            class IncisionMedium: Incision {};
+            class IncisionLarge: Incision {};
+        };
         class BloodClotMinor: FieldDressing {
             class Abrasion {
                 effectiveness = 0;

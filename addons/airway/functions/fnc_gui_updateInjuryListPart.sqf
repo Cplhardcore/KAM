@@ -71,5 +71,23 @@ if (_target getVariable [QGVAR(hasExternallyPuked), true] && (_selectionN in [0,
     _entries pushBack [localize _text, [0.1, 1, 1, 1]];
 };
 
+if ((_target getVariable [QGVAR(cricothyrotomy), 0] > 0) && _selectionN isEqualTo 1) then {
+    private _crike = _target getVariable [QGVAR(cricothyrotomy), 0];
+    switch (_crike) do {
+        case 0.1: {
+            _entries pushBack [LLSTRING(PartialCricothyrotomy_1), [0.3, 0.8, 0.8, 1]];
+        };
+        case 0.3: {
+            _entries pushBack [LLSTRING(PartialCricothyrotomy_3), [0.3, 0.8, 0.8, 1]];
+        };
+        case 0.5: {
+            _entries pushBack [LLSTRING(PartialCricothyrotomy_5), [0.3, 0.8, 0.8, 1]];
+        };
+        default {
+            _entries pushBack [LLSTRING(PartialCricothyrotomy_1), [0.3, 0.8, 0.8, 1]];
+        };
+    };  
+};
+
 
 

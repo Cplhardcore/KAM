@@ -66,7 +66,23 @@ for "_i" from (_woundCount - 1) to 0 step -1 do {
 _treatedWound params ["_treatedID", "_treatedAmountOf", "", "_treatedDamageOf"];
 
 // Check if we need to add a new stitched wound or increase the amount of an existing one
+private _stitchedWounds = GET_STITCHED_WOUNDS(_patient);
+private _stitchedWoundsOnPart = _stitchedWounds getOrDefault [_bodyPart, [], true];
+
+private _woundIndex = _stitchedWoundsOnPart findIf {
+    _x params ["_classID"];
+    _classID == _treatedID
+};
+
+if (_woundIndex == -1) then {
+    _stitchedWoundsOnPart pushBack _treatedWound;
+} else {
+    private _wound = _stitchedWoundsOnPart select _woundIndex;
+    _wound set [1, (_wound select 1) + _treatedAmountOf];
+};
+
 _patient setVariable [VAR_BANDAGED_WOUNDS, _bandagedWounds, true];
+_patient setVariable [VAR_STITCHED_WOUNDS, _stitchedWounds, true];
 
 private _partIndex = ALL_BODY_PARTS find _bodyPart;
 private _bodyPartDamage = GET_BODYPART_DAMAGE(_patient);

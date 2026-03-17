@@ -19,7 +19,7 @@
             <Dutch>Activeert geadvanceerde breuken</Dutch>
         </Key>
         <Key ID="STR_KAT_Surgery_CLAMPED">
-            <English>clamped</English>
+            <English>Clamped</English>
             <Czech>Upnuto</Czech>
             <French>clampé(e)</French>
             <Spanish>alineado/a</Spanish>
@@ -257,7 +257,7 @@
             <Dutch>Klem</Dutch>
         </Key>
         <Key ID="STR_KAT_Surgery_EXPOSED">
-            <English>exposed</English>
+            <English>Exposed</English>
             <Czech>Roztaženo</Czech>
             <French>exposé(e)</French>
             <Spanish>expuesto/a</Spanish>
@@ -359,7 +359,7 @@
             <Dutch>Bepaald hoe lang het doet om tussentijdse chirurgische acties uit te voeren, zoals het vrijleggen en irrigeren van een fractuur</Dutch>
         </Key>
         <Key ID="STR_KAT_Surgery_IRRIGATED">
-            <English>irrigated</English>
+            <English>Irrigated</English>
             <Czech>Vypláchnuto</Czech>
             <French>irrigué(e)</French>
             <Spanish>irrigado/a</Spanish>

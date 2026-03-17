@@ -28,7 +28,6 @@ if (_woundsOnPart isEqualTo []) exitWith {};
 
 // Figure out which injuries for this bodypart are the best choice to bandage
 private _targetWounds = [_patient, _bandage, _bodyPart, _bandageEffectiveness * ACEGVAR(medical_treatment,bandageEffectiveness)] call FUNC(findMostEffectiveWounds);
-systemChat str _targetWounds;
 // Everything is patched up on this body part already
 if (count _targetWounds == 0) exitWith {};
 

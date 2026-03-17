@@ -2401,5 +2401,14 @@
         <Key ID="STR_KAT_Airway_AirwayStatus_breathing">
             <English>Patient is Breathing</English>
         </Key>
+        <Key ID="STR_KAT_Airway_PartialCricothyrotomy_1">
+            <English>Prepped</English>
+        </Key>
+        <Key ID="STR_KAT_Airway_PartialCricothyrotomy_3">
+            <English>Incision</English>
+        </Key>
+        <Key ID="STR_KAT_Airway_PartialCricothyrotomy_5">
+            <English>Placed</English>
+        </Key>
     </Package>
 </Project>

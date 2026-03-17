@@ -1,4 +1,5 @@
 PREP(canNPWT);
+PREP(closeIncision);
 PREP(closedReduction);
 PREP(closedReductionLocal);
 PREP(fractureCheck);

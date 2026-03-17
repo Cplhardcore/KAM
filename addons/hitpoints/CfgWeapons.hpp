@@ -132,7 +132,7 @@ class CfgWeapons {
         };
     };
     class kat_Burn_Dressing: ACE_ItemCore {
-        scope = 0;
+        scope = 2;
         author = "Cplhardcore";
         displayName = CSTRING(Burn_Dressing_Display);
         picture = QPATHTOF(ui\Burn_Dressing.paa);

@@ -25,10 +25,10 @@ if (GVAR(Surgery_ConsciousnessRequirement) == 1 && !(IS_UNCONSCIOUS(_patient))) 
 };
 private _openWounds = GET_OPEN_WOUNDS(_patient);
 private _existingWounds = _openWounds getOrDefault [_bodyPart, [], true];
-private _woundTypeToAdd = "Cut";
+private _woundTypeToAdd = "Incision";
 TRACE_4("create_Incision1",_openWounds,_existingWounds,_bodyPartDamage,_woundTypeToAdd);
 private _woundClassIDToAdd = ACEGVAR(medical_damage,woundClassNames) find _woundTypeToAdd;
-private _injuryBleedingRate = random [0.06, 0.1, 0.13];
+private _injuryBleedingRate = random [0.02, 0.04, 0.06];
 private _bleedMultiplier = random [0.8, 1, 1.2];
 private _woundSize = 2;
 private _bleeding = _woundSize * _bleedMultiplier * _injuryBleedingRate;

@@ -424,7 +424,7 @@ private _woundEntries = [];
 
 private _fnc_processOpenWounds = {
     params ["_wounds", "_format", "_color"];
-    private _arterialThreshold = 0.1;
+    private _arterialThreshold = 0.2;
 
     private _aggregatedWounds = createHashMap;
     private _aggregatedArterialWounds = createHashMap;
@@ -436,7 +436,6 @@ private _fnc_processOpenWounds = {
             private _classIndex = _woundClassID / 10;
             private _category   = _woundClassID % 10;
             private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-
             if (_bleeding >= _arterialThreshold) then {
                 private _current = _aggregatedArterialWounds getOrDefault [_woundClassID, 0];
                 if (_className in ["InternalBleeding", "Evisceration"]) then { continue };
@@ -447,6 +446,8 @@ private _fnc_processOpenWounds = {
                 private _current = _aggregatedWounds getOrDefault [_woundClassID, 0];
                 if (_className in ["InternalBleeding", "Evisceration"]) then { continue };
                 private _suffix = ["Minor", "Medium", "Large"] select _category;
+                systemChat str _className;
+                systemChat str _suffix;
                 private _woundName = localize format [LSTRING(%1_%2), _className, _suffix];
                 _aggregatedWounds set [_woundName, _current + _amountOf];
             };

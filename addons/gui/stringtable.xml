@@ -540,6 +540,18 @@
             <Turkish>Küçük Kopuk</Turkish>
             <Hungarian>Kis leszakadás</Hungarian>
         </Key>
+        <Key ID="STR_KAT_GUI_Incision">
+            <English>Incision</English>
+        </Key>
+        <Key ID="STR_KAT_GUI_Incision_Large">
+            <English>Large Incision</English>
+        </Key>
+        <Key ID="STR_KAT_GUI_Incision_Medium">
+            <English>Medium Incision</English>
+        </Key>
+        <Key ID="STR_KAT_GUI_Incision_Minor">
+            <English>Minor Incision</English>
+        </Key>
         <Key ID="STR_KAT_GUI_Contusion">
             <English>Bruise</English>
             <Czech>Modřina</Czech>
