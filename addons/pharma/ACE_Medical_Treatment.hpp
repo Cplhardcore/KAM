@@ -699,7 +699,7 @@ class ACE_ADDON(Medical_Treatment) {
             weightDose = 20;
             maximumEffectiveDose = 30;
             bloodBased = "true";
-            cnsSuppression = 0.95;
+            cnsSuppression = 0.65;
         };
         class syringe_Flumazenil_5ml {
             painReduce = 0;
@@ -727,13 +727,13 @@ class ACE_ADDON(Medical_Treatment) {
             weightBased = "true";
             weightDose = 20;
             maximumEffectiveDose = 30;
-            cnsSuppression = 0.55;
+            cnsSuppression = 0.45;
         };
         class syringe_MorphineIV_5ml {
             painReduce = 0.7;
-            hrIncreaseLow[] = {-5, -15};
-            hrIncreaseNormal[] = {-5, -20};
-            hrIncreaseHigh[] = {-5, -20};
+            hrIncreaseLow[] = {-5, -10};
+            hrIncreaseNormal[] = {-5, -15};
+            hrIncreaseHigh[] = {-5, -15};
             timeInSystem = 600;
             timeTillMaxEffect = 15;
             dose = 1;
