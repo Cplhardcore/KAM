@@ -30,7 +30,7 @@ if (_exit) exitWith {
     } else {
         _liveFracture = 3;
     };
-
+    [_medic, _patient, _bodyPart] call FUNC(closeIncision);
     _fractureArray set [_part, _liveFracture];
     _patient setVariable [QGVAR(fractures), _fractureArray, true];
 
