@@ -284,17 +284,17 @@ private _fnc_clotWound = {
             private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
             switch (_suffix) do {
                 case "Minor": {
-                    if ((missionNamespace getVariable [QGVAR(coagulation_allow_MinorWounds), true] || (_className isEqualTo "InternalBleeding")) && _amountOf * _bleeding > 0) then {
+                    if ((missionNamespace getVariable [QGVAR(coagulation_allow_MinorWounds), true] || (_className isEqualTo "InternalBleeding")) && (_amountOf * _bleeding > 0) && (_className isNotEqualTo "Incision")) then {
                         _hasWoundToBandageArray pushBack true;
                     };
                 };
                 case "Medium": {
-                    if ((missionNamespace getVariable [QGVAR(coagulation_allow_MediumWounds), true] || (_className isEqualTo "InternalBleeding")) && _amountOf * _bleeding > 0) then {
+                    if ((missionNamespace getVariable [QGVAR(coagulation_allow_MediumWounds), true] || (_className isEqualTo "InternalBleeding")) && (_amountOf * _bleeding > 0) && (_className isNotEqualTo "Incision")) then {
                         _hasWoundToBandageArray pushBack true;
                     };
                 };
                 default {
-                    if ((missionNamespace getVariable [QGVAR(coagulation_allow_LargeWounds), true] || (_className isEqualTo "InternalBleeding")) && (_amountOf * _bleeding > 0)) then {
+                    if ((missionNamespace getVariable [QGVAR(coagulation_allow_LargeWounds), true] || (_className isEqualTo "InternalBleeding")) && (_amountOf * _bleeding > 0) && (_className isNotEqualTo "Incision")) then {
                         _hasWoundToBandageArray pushBack true;
                     };
                 };
