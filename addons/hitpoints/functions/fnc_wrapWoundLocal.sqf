@@ -39,8 +39,8 @@ private _newWrappedWounds = _wrappedWounds getOrDefault [_bodyPart, []];
         private _reopeningMinDelay = DEFAULT_BANDAGE_REOPENING_MIN_DELAY;
         private _reopeningMaxDelay = DEFAULT_BANDAGE_REOPENING_MAX_DELAY;
         private _config = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Bandaging";
-        if (isClass (_config >> _bandage)) then {
-            _config = _config >> _bandage;
+        if (isClass (_config >> _newBandage)) then {
+            _config = _config >> _newBandage;
             _reopeningMinDelay = getNumber (_config >> "reopeningMinDelay");
             _reopeningMaxDelay = getNumber (_config >> "reopeningMaxDelay") max _reopeningMinDelay;
         } else {
