@@ -9,6 +9,7 @@ PREP(getCushings);
 PREP(getDefaultStrokeVolume);
 PREP(getStrokeVolume);
 PREP(handleCardiacFunction);
+PREP(handleOverdoses);
 PREP(handleOxygenFunction);
 PREP(handleRespawn);
 PREP(handleSimpleVitals);

@@ -126,7 +126,7 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4,10,11,12]) && !_isFlushed
             _medicationConfig = _defaultConfig >> _trimmedClassname;
         };
     };
-    private _startDose = 20;
+    private _startDose = 1;
     private _parts = (_classname splitString "_");
     if (count _parts > 3) then {
         _startDose = parseNumber (_parts select -1);
@@ -185,42 +185,8 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4,10,11,12]) && !_isFlushed
         if ((_IVarray select _partIndex) == 14) then {
             _routeMult = random [1.1, 1.25, 1.35];
         };
-    private _hemocrit = 1;
-        if (_bloodBased == "true") then {
-            _hemocrit = (GET_BODY_FLUID_ECB(_patient)/GET_BODY_FLUID_ECP(_patient)) / (DEFAULT_ECB/DEFAULT_ECP)
-        } else {
-            _hemocrit = (GET_BODY_FLUID_ECP(_patient)/GET_BODY_FLUID_ECB(_patient)) / (DEFAULT_ECP/DEFAULT_ECB)
-        };
     private _unitMedEffectivness = _patient getVariable [QGVAR(medicationEffectivness), 1];
-    private _drugMult = 1;
-    if (_classname == "Diazapam") then {
-        private _medStack = _patient call ACEFUNC(medical_status,getAllMedicationCount);
-        private _fentanylEffectiveness = 0;
-        private _nalbuphineEffectiveness = 0;
-        private _morphineEffectiveness = 0;
-        private _lorazepamEffectiveness = 0;
-        {
-            private _medName = toLower (_x select 0);
-            private _effectiveness = _x select 2;
-            private _dose = _x select 1;
-            if ("fentanyl" in _medName) then {
-                _fentanylEffectiveness = _fentanylEffectiveness max (_dose * _effectiveness);
-            };
-            if ("nalbuphine" in _medName) then {
-                _nalbuphineEffectiveness = _nalbuphineEffectiveness max (_dose * _effectiveness);
-            };
-            if ("morphine" in _medName) then {
-                _morphineEffectiveness = _morphineEffectiveness max (_dose * _effectiveness);
-            };
-            if ("lorazepam" in _medName) then {
-                _lorazepamEffectiveness = _lorazepamEffectiveness max (_dose * _effectiveness);
-            };
-        } forEach _medStack;
-        private _diazapamMult = linearConversion [0, 90, (_fentanylEffectiveness + _nalbuphineEffectiveness + _morphineEffectiveness * _lorazepamEffectiveness), 1, 4, true];
-        _drugMult = ((((GET_BLOOD_VOLUME_LITERS(_patient) / DEFAULT_BLOOD_VOLUME) * _hemocrit) max 0.2) min 2) * _weightMult * _doseMult * _unitMedEffectivness * _routeMult * _diazapamMult;
-    } else {
-        _drugMult = ((((GET_BLOOD_VOLUME_LITERS(_patient) / DEFAULT_BLOOD_VOLUME) * _hemocrit) max 0.2) min 2) * _weightMult * _doseMult * _unitMedEffectivness * _routeMult;
-    };
+    private _drugMult = _weightMult * _doseMult * _unitMedEffectivness * _routeMult;
     TRACE_7("_drugMult",_patient,_defaultHeartRate,(GET_BLOOD_VOLUME_LITERS(_patient) / DEFAULT_BLOOD_VOLUME),_drugMult,_weightMult,_doseMult,_unitMedEffectivness);
     private _painReduce             = GET_NUMBER(_medicationConfig >> "painReduce",getNumber (_defaultConfig >> "painReduce")) * _drugMult;
     private _timeInSystem           = GET_NUMBER(_medicationConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")) * _drugMult;
@@ -266,22 +232,52 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4,10,11,12]) && !_isFlushed
         if (_upperMed select [count _upperMed - 2] isEqualTo "IV") then {
             _medicationName = _medicationName select [0, count _medicationName - 2];
         };
+        private _medicationODName = format ["admin_%1", _medicationName];
+        private _medicationODConfig = _defaultConfig >> _medicationODName;
+        TRACE_1("onMedicationUsage2",_medicationODConfig);
+        private _maxDose = GET_NUMBER(_medicationODConfig >> "OD50",getNumber (_defaultConfig >> "OD50"));
+        private _ld50 = GET_NUMBER(_medicationODConfig >> "LD50",getNumber (_defaultConfig >> "LD50"));
+        private _chanceToOD = GET_NUMBER(_medicationConfig >> "chanceToOD",getNumber (_defaultConfig >> "chanceToOD"));
+        private _maxDoseMult = 1;
+        private _currentWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80];
+        _maxDoseMult = linearConversion [60, 100, _currentWeight, 0.6, 1.4, true];
+        private _unitMedEffectivness = _patient getVariable [QGVAR(medicationEffectivness), 1];
+        private _maxDoseFixed = _maxDose * _maxDoseMult * _unitMedEffectivness;
         TRACE_6("adjustments1",_patient,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
         TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-        [_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression] call EFUNC(vitals,addMedicationAdjustment);
-        [_patient, _medicationName, _incompatibleMedication] call FUNC(onMedicationUsage);
+        [_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased]] call EFUNC(vitals,addMedicationAdjustment);
     } else {
         if (_classname in ["TXAAuto", "PhenylephrineAuto"]) then {
             private _medicationName = _classname select [0, count _classname - 4];
+            private _medicationODName = format ["admin_%1", _medicationName];
+            private _medicationODConfig = _defaultConfig >> _medicationODName;
+            TRACE_1("onMedicationUsage2",_medicationODConfig);
+            private _maxDose = GET_NUMBER(_medicationODConfig >> "OD50",getNumber (_defaultConfig >> "OD50"));
+            private _ld50 = GET_NUMBER(_medicationODConfig >> "LD50",getNumber (_defaultConfig >> "LD50"));
+            private _chanceToOD = GET_NUMBER(_medicationConfig >> "chanceToOD",getNumber (_defaultConfig >> "chanceToOD"));
+            private _maxDoseMult = 1;
+            private _currentWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80];
+            _maxDoseMult = linearConversion [60, 100, _currentWeight, 0.6, 1.4, true];
+            private _unitMedEffectivness = _patient getVariable [QGVAR(medicationEffectivness), 1];
+            private _maxDoseFixed = _maxDose * _maxDoseMult * _unitMedEffectivness;
             TRACE_6("adjustments1",_patient,_classname,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
             TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-            [_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression] call EFUNC(vitals,addMedicationAdjustment);
-            [_patient, _medicationName, _incompatibleMedication] call FUNC(onMedicationUsage);
+            [_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased]] call EFUNC(vitals,addMedicationAdjustment);
         } else {
+            private _medicationODName = format ["admin_%1", _classname];
+            private _medicationODConfig = _defaultConfig >> _medicationODName;
+            TRACE_1("onMedicationUsage2",_medicationODConfig);
+            private _maxDose = GET_NUMBER(_medicationODConfig >> "OD50",getNumber (_defaultConfig >> "OD50"));
+            private _ld50 = GET_NUMBER(_medicationODConfig >> "LD50",getNumber (_defaultConfig >> "LD50"));
+            private _chanceToOD = GET_NUMBER(_medicationConfig >> "chanceToOD",getNumber (_defaultConfig >> "chanceToOD"));
+            private _maxDoseMult = 1;
+            private _currentWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80];
+            _maxDoseMult = linearConversion [60, 100, _currentWeight, 0.6, 1.4, true];
+            private _unitMedEffectivness = _patient getVariable [QGVAR(medicationEffectivness), 1];
+            private _maxDoseFixed = _maxDose * _maxDoseMult * _unitMedEffectivness;
             TRACE_6("adjustments1",_patient,_classname,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
             TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-            [_patient, _classname, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression] call EFUNC(vitals,addMedicationAdjustment);
-            [_patient, _classname, _incompatibleMedication] call FUNC(onMedicationUsage);
+            [_patient, _classname, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased]] call EFUNC(vitals,addMedicationAdjustment);
         };
     };
 

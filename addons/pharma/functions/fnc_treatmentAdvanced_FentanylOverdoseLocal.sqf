@@ -16,8 +16,7 @@
  */
 params ["_patient"];
 
-private _hrAdjust = -50 + floor random ((-30 - -50) + 1);
-[_patient, "fentanylOverdose", 120, 1200, _hrAdjust, 0, 0, 0, 0.4, 0, 0, 0.17, -0.3] call EFUNC(vitals,addMedicationAdjustment);
+[_patient, "fentanylOverdose", 120, 2400, 0, 0, 0, 0, 0.4, 0, 0, 0.17, -0.1, 0, 0, "false", "false", "false", 1.2] call EFUNC(vitals,addMedicationAdjustment);
 [{
     params ["_patient"];
         [{
