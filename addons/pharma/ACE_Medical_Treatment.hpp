@@ -684,7 +684,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_TXA {
             OD50 = 40;
             LD50 = 80;
-            chanceToOD = 30;
+            chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -693,7 +693,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_EACA {
             OD50 = 30;
             LD50 = 80;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -702,7 +702,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Epinephrine {
             OD50 = 120;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -711,7 +711,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Norepinephrine {
             OD50 = 90;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -720,7 +720,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Phenylephrine {
             OD50 = 60;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -729,7 +729,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Nitroglycerin {
             OD50 = 60;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 30;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -738,7 +738,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Atropine {
             OD50 = 90;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 30;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -747,7 +747,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Amiodarone {
             OD50 = 60;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -756,7 +756,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Etomidate {
             OD50 = 60;
             LD50 = 120;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -766,7 +766,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Flumazenil {
             OD50 = 40;
             LD50 = 80;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -775,7 +775,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Lorazepam {
             OD50 = 40;
             LD50 = 80;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -785,7 +785,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Lidocaine {
             OD50 = 60;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 30;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -794,7 +794,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Fentanyl {
             OD50 = 30;
             LD50 = 60;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -804,7 +804,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Ketamine {
             OD50 = 60;
             LD50 = 180;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -814,7 +814,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Nalbuphine {
             OD50 = 60;
             LD50 = 180;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -824,7 +824,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Morphine {
             OD50 = 60;
             LD50 = 180;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 30;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -834,7 +834,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Adenosine {
             OD50 = 60;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 30;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -843,7 +843,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Alteplase {
             OD50 = 30;
             LD50 = 90;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -852,7 +852,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Doxapram {
             OD50 = 60;
             LD50 = 120;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -861,7 +861,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Ondansetron {
             OD50 = 60;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -871,7 +871,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Succinylcholine {
             OD50 = 90;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -881,7 +881,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Rocuronium {
             OD50 = 90;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -891,7 +891,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Sugammadex  {
             OD50 = 90;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -900,7 +900,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Metoprolol  {
             OD50 = 50;
             LD50 = 100;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -909,7 +909,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Diazepam  {
             OD50 = 60;
             LD50 = 140;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -918,7 +918,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_CalciumGluconate  {
             OD50 = 120;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 120;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -927,7 +927,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_CalciumChloride  {
             OD50 = 120;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 120;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -936,7 +936,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Bicarbonate  {
             OD50 = 120;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 120;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -963,7 +963,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Pervitin {
             OD50 = 30;
             LD50 = 60;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 120;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -972,7 +972,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Caffeine {
             OD50 = 40;
             LD50 = 100;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 120;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -990,7 +990,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Penthrox {
             OD50 = 120;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 120;
             incompatibleMedication[] = {};
             onOverDose = "";
@@ -1008,7 +1008,7 @@ class ACE_ADDON(Medical_Treatment) {
         class admin_Carbonate {
             OD50 = 60;
             LD50 = 240;
-            chanceToOD = 40;
+            chanceToOD = 3;
             maxDoseDeviation = 120;
             incompatibleMedication[] = {};
             onOverDose = "";
