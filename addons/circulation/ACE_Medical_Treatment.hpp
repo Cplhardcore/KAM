@@ -49,6 +49,7 @@ class ACE_Medical_Treatment {
         paralysis = "false";
         ph = 0;
         ca = 0;
+        cnsSuppression = 0;
 
 
         incompatibleMedication[] = {};
@@ -377,6 +378,7 @@ class ACE_Medical_Treatment {
             volume = 250;
             rateCoef = 1.4;
             type = "Morphine_IVInfusion";
+            cnsSuppression = 0.2;
         };
         class Epinephrine_IVInfusion: SalineIV_250 {
             painReduce = 0;
@@ -406,6 +408,7 @@ class ACE_Medical_Treatment {
             rateCoef = 1.4;
             type = "Etomidate_IVInfusion";
             incompatibleMedication[] = {};
+            cnsSuppression = 0.1;
         };
         class Doxapram_IVInfusion: SalineIV_250 {
             painReduce = 0;
@@ -467,6 +470,7 @@ class ACE_Medical_Treatment {
             volume = 100;
             rateCoef = 1.4;
             type = "Morphine_IVInfusion";
+            cnsSuppression = 0.1;
         };
         class Epinephrine_IVInfusion100: SalineIV_250 {
             painReduce = 0;
@@ -496,6 +500,7 @@ class ACE_Medical_Treatment {
             rateCoef = 1.4;
             type = "Etomidate_IVInfusion";
             incompatibleMedication[] = {};
+            cnsSuppression = 0.05;
         };
         class Doxapram_IVInfusion100: SalineIV_250 {
             painReduce = 0;
