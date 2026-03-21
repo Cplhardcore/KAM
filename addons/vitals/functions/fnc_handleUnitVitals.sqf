@@ -163,7 +163,7 @@ if (_adjustments isNotEqualTo []) then {
         private _scaledMaxTime = _maxTimeInSystem / _metabolismMult;
         private _scaledTimeToMax = _timeTillMaxEffect * _onsetMult;
         private _timeInSystem = CBA_missionTime - _timeAdded;
-        if ((selectMax _overdoseAdmin) > 0) then {
+        if (_overdoseAdmin select 1 > 0) then {
             [_unit, _medication, _ld50, _od50, _chanceToOD] call FUNC(handleOverdoses);
         };
         if (_timeInSystem >= _scaledMaxTime) then {
@@ -219,7 +219,10 @@ if (_adjustments isNotEqualTo []) then {
                 _hemocrit = (GET_BODY_FLUID_ECP(_unit)/GET_BODY_FLUID_ECB(_unit)) / (DEFAULT_ECP/DEFAULT_ECB)
             };
             private _drugMult = ((((GET_BLOOD_VOLUME_LITERS(_unit) / DEFAULT_BLOOD_VOLUME) * _hemocrit) max 0.2) min 2) * _diazapamMult;
-            if ((toLower _medication) find "overdose" == -1) then {
+            private _medLower = toLower _medication;
+            private _blockedWords = ["overdose", "override", "bradycardia", "tachycardia"];
+            private _found = _blockedWords findIf { _medLower find _x != -1 };
+            if (_found == -1) then {
                 if (_hrAdjust != 0) then { _hrTargetAdjustment = [_hrTargetAdjustment, _hrAdjust * _drugMult * _effectRatio * _effectiveDose, 125, 0] call _dampening };
                 if (_painAdjust != 0) then { _painSupressAdjustment = [_painSupressAdjustment, _painAdjust * _drugMult * _effectRatio * _effectiveDose, 1.25, 0] call _dampening };
                 if (_flowAdjust >= 0) then { _peripheralResistanceAdjustment = [_peripheralResistanceAdjustment * _drugMult + _flowAdjust * _effectRatio * _effectiveDose * _vasoEffectMult, 1.25, 0] call _dampening };

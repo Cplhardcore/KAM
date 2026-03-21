@@ -86,7 +86,7 @@ if (_entry == 0.1) then {
         [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
     if (!(IS_UNCONSCIOUS(_patient))) exitWith {
-            [_patient, "Pain", 2, 10, 120, 0.8, 40] call ACEFUNC(medical_status,addMedicationAdjustment);
+            [_patient, "Pain_Override", 2, 10, 120, 0.8, 40] call ACEFUNC(medical_status,addMedicationAdjustment);
         [_patient, true] call ACEFUNC(medical,setUnconscious);
         };
     }, 5, [_patient]] call CBA_fnc_addPerFrameHandler;
