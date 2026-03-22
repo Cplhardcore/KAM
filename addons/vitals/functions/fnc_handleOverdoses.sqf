@@ -21,15 +21,15 @@ params ["_target", "_medication", "_ld50", "_od50", "_chanceToOD"];
 
 private _currentDose = [_target, _medication] call EFUNC(misc,getCurrentDosage);
 TRACE_2("onMedUsage1",_maxDoseFixed,_medicationName);
-if (_maxDoseFixed > 0) then {
+if (_od50 > 0) then {
     TRACE_2("onMedUsage2",_currentDose,_medication);
     // Because both {floor random 0} and {floor random 1} return 0
-    if ((_currentDose > _maxDoseFixed) && ((random 100) < (_chanceToOD * linearconversion [0, _ld50 -_od50, _maxDoseFixed - _currentDose, 1, 5, true]))) then {
+    if ((_currentDose > _od50) && ((random 100) < (_chanceToOD * linearConversion [0, _ld50 -_od50, _od50 - _currentDose, 1, 5, true]))) then {
         TRACE_1("exceeded max dose",_currentDose);
-        [_target, _medication, _currentDose, _limit] call EFUNC(pharma,overDose);
+        [_target, _medication, _currentDose, _od50] call EFUNC(pharma,overDose);
     };
 };
-if (_currentDose > (_ld50 * _maxDoseMult)) then {
+if (_currentDose > _ld50) then {
     TRACE_1("exceeded lethal dose",_currentDose);
     private _reason = format ["lethaldose_%1", _medication];
     [_target, _reason] call EFUNC(conversion,setDead);

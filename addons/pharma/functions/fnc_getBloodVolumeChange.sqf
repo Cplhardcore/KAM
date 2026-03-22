@@ -37,12 +37,12 @@ private _capLeak = linearConversion [0.4,0.9,_trauma,0,0.0002,true];
 
 private _lossVolumeChange = 0;
 {
-    _lossVolumeChange = _lossVolumeChange + (-(_deltaT/12) * (((_bloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) / (_vasoconstriction select _forEachIndex)));
+    _lossVolumeChange = _lossVolumeChange + (-(_deltaT/12) * (((_bloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex)));
 } forEach _bloodLoss;
 _lossVolumeChange = _lossVolumeChange + _capLeak;
 private _externalLossVolumeChange = 0;
 {
-    _externalLossVolumeChange = _externalLossVolumeChange + ((_deltaT/12) * (((_exBloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) / (_vasoconstriction select _forEachIndex)));
+    _externalLossVolumeChange = _externalLossVolumeChange + ((_deltaT/12) * (((_exBloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex)));
 } forEach _exBloodLoss;
 private _enableFluidShift = EGVAR(vitals,enableFluidShift);
 private _fluidVolume = GET_BODY_FLUID(_unit);
@@ -97,7 +97,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             if (_type in ["Blood", "Saline", "Plasma", "Ringers Lactate", "PackedRBC", "Hypertonic Saline", "Hextend"]) then {
             _bagChange = (_flowCalculation * (_IVflow select _bodyPart) * (_IVrate select _bodyPart) * (1 + (_pressureBag select _bodyPart)) * _rateCoef) min _bagVolumeRemaining; // absolute value of the change in miliLiters
             if ((_IVarray select _bodyPart) in [2,3,4,10,11,12]) then {
-                _bagChange = _bagChange * ((2 - (_vasoconstriction select _bodyPart)) max 0.2);
+                _bagChange = _bagChange * ((1 * (_vasoconstriction select _bodyPart)) max 0.2);
             };
             _bagVolumeRemaining = _bagVolumeRemaining - _bagChange;
             _incomingFlowAmount set [_bodyPart, ((_incomingFlowAmount select _bodyPart) + _bagChange)];
@@ -108,8 +108,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             } forEach _incomingFlowAmount;
             TRACE_8("IV",_bagChange,_IVrate,_IVflow,_IVarray,_isOccluded,_rateCoef,_flowCalculation,_bodyPart);
             TRACE_2("IV2",_bagVolumeRemaining,_incomingFlowAmount);
-            if ((GVAR(LimbIVComplications)) && ((((_incomingFlowAmount select _bodyPart) max 0.01) / ((_IVrate select _bodyPart) max 0.01)) > (5 * ((2 - (_vasoconstriction select _bodyPart)) max 0.2))) && ((random 100) < 20)) then {
-                private _incomingFlowDifference = (_incomingFlowAmount select _bodyPart) - (5 * ((2 - (_vasoconstriction select _bodyPart)) max 0.2));
+            if ((GVAR(LimbIVComplications)) && ((((_incomingFlowAmount select _bodyPart) max 0.01) / ((_IVrate select _bodyPart) max 0.01)) > (5 * ((1 * (_vasoconstriction select _bodyPart)) max 0.2))) && ((random 100) < 20)) then {
+                private _incomingFlowDifference = (_incomingFlowAmount select _bodyPart) - (5 * ((1 * (_vasoconstriction select _bodyPart)) max 0.2));
                 [_unit, _bodyPart, _incomingFlowDifference] call FUNC(handleLimbIVComplications)};
             if (GVAR(IVComplications)) then {
                 private _hr = GET_HEART_RATE(_unit);
@@ -124,7 +124,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                     _fixedVaso = _fixedVaso + _x;
                 } forEach _vasoconstriction;
                 private _fixedVaso = (_fixedVaso /12);
-                private _maxSafeFlow = (20 * ((2 - _fixedVaso) max 0.2)) / _riskCoef;
+                private _maxSafeFlow = (20 * ((1 * _fixedVaso) max 0.2)) / _riskCoef;
                 if (_totalFlow > _maxSafeFlow) then {
                     [_unit, (_totalFlow - _maxSafeFlow)] call FUNC(handleIVComplications)
                     };
@@ -291,8 +291,6 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             private _defaultConfig = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "IV";
             private _ivConfig = _defaultConfig >> _treatment;
             private _painReduce             = (GET_NUMBER(_ivConfig >> "painReduce",getNumber (_defaultConfig >> "painReduce")) * _medicationMult);
-            private _timeInSystem           = (GET_NUMBER(_ivConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")) * _medicationMult);
-            private _timeTillMaxEffect      = (GET_NUMBER(_ivConfig >> "timeTillMaxEffect",getNumber (_defaultConfig >> "timeTillMaxEffect")) * _medicationMult);
             private _viscosityChange        = (GET_NUMBER(_ivConfig >> "viscosityChange",getNumber (_defaultConfig >> "viscosityChange")) * _medicationMult);
             private _hrIncreaseLow          = GET_ARRAY(_ivConfig >> "hrIncreaseLow",getArray (_defaultConfig >> "hrIncreaseLow"));
             private _hrIncreaseNormal       = GET_ARRAY(_ivConfig >> "hrIncreaseNormal",getArray (_defaultConfig >> "hrIncreaseNormal"));
@@ -322,7 +320,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             TRACE_6("adjustments1",_unit,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
             TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
 
-            [_unit, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, "false", "false", "false", _cnsSuppression] call EFUNC(vitals,addMedicationAdjustment);
+            [_unit, _medicationName, 0, 1, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, "false", "false", "true", _cnsSuppression] call EFUNC(vitals,addMedicationAdjustment);
             [_unit, _medicationName] call ACEFUNC(medical_treatment,onMedicationUsage);
 
             if (_hypothermia) then {

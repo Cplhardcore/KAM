@@ -67,7 +67,7 @@ class ACE_ADDON(Medical_Treatment) {
             OD50 = 60;
             maxDoseDeviation = 40;
             incompatibleMedication[] = {};
-            alphaFactor = -0.05;
+            alphaFactor = -0.1;
             onOverDose = "";
             maximumEffectiveDose = 40;
         };
@@ -141,7 +141,7 @@ class ACE_ADDON(Medical_Treatment) {
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             viscosityChange = 25;
-            alphaFactor = -0.15;
+            alphaFactor = -0.3;
             maximumEffectiveDose = 20;
         };
         class CWMP {
@@ -278,7 +278,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeInSystem = 180;
             timeTillMaxEffect = 20;
             dose = 1;
-            alphaFactor = -0.1;
+            alphaFactor = -0.15;
             contractility = 0.5;
             maximumEffectiveDose = 30;
             respiratoryRate = 0.2;
@@ -292,7 +292,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeTillMaxEffect = 15;
             viscosityChange = 10;
             dose = 1;
-            alphaFactor = -0.3;
+            alphaFactor = -0.5;
             maximumEffectiveDose = 30;
         };
         class syringe_Fentanyl_5ml {
@@ -533,7 +533,8 @@ class ACE_ADDON(Medical_Treatment) {
             timeInSystem = 300;
             timeTillMaxEffect = 5;
             dose = 1;
-            alphaFactor = -0.15;
+            alphaFactor = -0.05;
+            contractility = -0.15;
             maximumEffectiveDose = 30;
         };
         class syringe_Diazepam_5ml  {
@@ -555,7 +556,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeInSystem = 60;
             timeTillMaxEffect = 5;
             dose = 1;
-            alphaFactor = -0.04;
+            alphaFactor = -0.08;
             onOverDose = "";
             maximumEffectiveDose = 40;
         };
@@ -567,7 +568,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeInSystem = 240;
             timeTillMaxEffect = 15;
             dose = 1;
-            alphaFactor = -0.02;
+            alphaFactor = -0.04;
             onOverDose = "";
             maximumEffectiveDose = 40;
         };

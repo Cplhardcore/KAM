@@ -32,5 +32,5 @@ private _occlusionMap = [
 ];
 private _idx = _occlusionMap findIf { _x#0 == _bodyPartN };
 private _result = if (_idx != -1) then { _occlusionMap select _idx select 1 } else { [] };
-private _occlusionLevel = if (_result isNotEqualTo []) then { selectMax (_result apply { _tourniquets select _x }) } else { 0 };
+private _occlusionLevel = if (_result isNotEqualTo []) then { selectMin (_result apply { _tourniquets select _x }) } else { 0 };
 _occlusionLevel

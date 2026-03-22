@@ -60,14 +60,15 @@ private _vasoconstriction = 0;
     _vasoconstriction = _vasoconstriction + _x;
 } forEach _vasoconstrictionArray;
 private _vasoconstriction = (_vasoconstriction / 12);
+private _vasoFactor = linearConversion [0.2, 1.8, _vasoconstriction, 1.4, 0.6, true];
 private _map =
     (_cardiacOutput
     * BASELINE_SVR
     * (_resistance / 100)
     * _exertionSVR
-    * ((_vasoconstriction max 0.2) min 1.8))
+    * _vasoFactor)
     * (1.035 ^ _countOccluded);
-TRACE_5("BP2", _map, _vasoconstriction, _resistance, BASELINE_SVR, _cardiacOutput);
+TRACE_5("BP2", _map, _vasoFactor, _resistance, BASELINE_SVR, _cardiacOutput);
 _map = _map * 0.95;
 private _cushing = [_unit] call EFUNC(vitals,getCushings);
 if (_cushing > 0) then {

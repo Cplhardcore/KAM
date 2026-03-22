@@ -451,7 +451,7 @@ class ACE_Medical_Treatment {
             dose = 2.5;
             volume = 250;
             rateCoef = 1.4;
-            alphaFactor = -0.1;
+            alphaFactor = -0.075;
             viscosityChange = 4;
             type = "Norepinephrine_IVInfusion";
             incompatibleMedication[] = {};
@@ -480,7 +480,7 @@ class ACE_Medical_Treatment {
             timeInSystem = 3;
             timeTillMaxEffect = 1;
             dose = 2.5;
-            alphaFactor = -0.05;
+            alphaFactor = -0.025;
             volume = 100;
             rateCoef = 1.4;
             contractility = 0.1;
@@ -527,7 +527,7 @@ class ACE_Medical_Treatment {
             dose = 2.5;
             volume = 100;
             rateCoef = 1.4;
-            alphaFactor = 0.1;
+            alphaFactor = 0.05;
             viscosityChange = -2;
             contractility = -0.05;
             type = "Nitroglycerin_IVInfusion";
@@ -543,7 +543,7 @@ class ACE_Medical_Treatment {
             dose = 2.5;
             volume = 100;
             rateCoef = 1.4;
-            alphaFactor = -0.1;
+            alphaFactor = -0.075;
             viscosityChange = 4;
             type = "Norepinephrine_IVInfusion";
             incompatibleMedication[] = {};

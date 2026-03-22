@@ -179,7 +179,7 @@ if (_adjustments isNotEqualTo []) then {
             };
             private _dampening = {
                 params ["_total", "_effect", "_cap", "_base"];
-                if ((_total * _effect) > _base) then {
+                if (abs (_total * _effect) > _base) then {
                     _total = _total + (_effect * (1 - (abs _total / _cap)));
                 } else {
                     _total = _total + _effect;
@@ -309,15 +309,16 @@ private _totalBloodLoss = 0;
 private _damage = GET_BODYPART_DAMAGE(_unit);
 private _symp = _unit getVariable [QGVAR(sympatheticTone),0.5];
 private _trauma = _unit getVariable [QGVAR(traumaState),0];
-
+private _bloodVol = GET_BLOOD_VOLUME_LITERS(_unit);
 private _sympVaso = linearConversion [0.5,1,_symp,0,0.3,true];
 // Vasoconstriction from Wound Blood Loss and Alpha Adjustment
 private _vasoArray = _unit getVariable [VAR_VASOCONSTRICTION, [1,1,1,1,1,1,1,1,1,1,1,1]];
 {
     private _limbIndex = _forEachIndex;
-    private _bodyPartDamage = linearConversion [0, 20, (_damage select _limbIndex), 0, -0.3, true];
-    private _bloodLoss = linearConversion [0.05, 0.3, (_woundBloodLoss select _limbIndex), 0, 1, true];
-    private _vasoconstriction = 1 + (0.5 * _bloodLoss) + _alphaFactorAdjustment + _bodyPartDamage + _sympVaso;
+    private _bodyPartDamage = linearConversion [0, 20, (_damage select _limbIndex), 0, 0.3, true];
+    private _bloodLoss = linearConversion [0.05, 0.3, (_woundBloodLoss select _limbIndex), 0, -1, true];
+    private _bloodVolRemaining = linearConversion [6, 4, _bloodVol, 1, 0.3, true];
+    private _vasoconstriction = 1 + (0.7 * (_bloodLoss * _bloodVolRemaining)) + _alphaFactorAdjustment + _bodyPartDamage + _sympVaso;
     if (_trauma > 0.7) then {
     _vasoconstriction = _vasoconstriction * (1 - ((_trauma - 0.7) * 1.2));
     };

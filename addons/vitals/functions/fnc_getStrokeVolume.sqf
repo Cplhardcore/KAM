@@ -117,19 +117,14 @@ private _vasoTone = switch (_shockClass) do {
 };
 private _effectiveVaso =
     _fixedVaso * _vasoTone;
-
-_effectiveVaso = _effectiveVaso min 1.4 max 0.6;
-private _effectiveCVP =
-    _defaultCVP
-    * _bvComp
-    * _effectiveVaso
-    * _vrEff;
-TRACE_8(
+_effectiveVaso = _effectiveVaso min 1.8 max 0.2;
+private _venousFactor = linearConversion [0.2, 1.8,_effectiveVaso,1.25, 0.75,true];
+private _effectiveCVP = _defaultCVP * _bvComp * _venousFactor * _vrEff;
+TRACE_7(
     "_effectiveCVP",
     _defaultCVP,
     _bvComp,
     _effectiveVaso,
-    _globalVaso,
     _vasoTone,
     _fillPortion,
     _effectiveCVP,
@@ -162,10 +157,9 @@ private _starlingGain =
     ];
 
 _starlingGain = _starlingGain min 1.35;
-TRACE_8(
+TRACE_7(
     "_starlingGain",
     _starlingGain,
-    _edvNorm,
     _edv,
     BASELINE_EDV,
     _preload,
@@ -193,14 +187,7 @@ private _mapNorm =
 _mapNorm =
     _mapNorm * _mapShock;
     
-private _vasoAfterload =
-    linearConversion
-    [
-        0.6, 1.4,
-        _effectiveVaso,
-        0.85, 1.25,
-        true
-    ];
+_vasoAfterload = linearConversion [0.6,1.4,_effectiveVaso,1.25,0.75,true];
 private _afterload =
     _mapNorm
     * _vasoAfterload;
