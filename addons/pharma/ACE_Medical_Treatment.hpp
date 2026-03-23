@@ -701,8 +701,8 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 20;
         };
         class admin_Epinephrine {
-            OD50 = 120;
-            LD50 = 240;
+            OD50 = 60;
+            LD50 = 120;
             chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
@@ -710,8 +710,8 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
         };
         class admin_Norepinephrine {
-            OD50 = 90;
-            LD50 = 240;
+            OD50 = 40;
+            LD50 = 90;
             chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
@@ -719,8 +719,8 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
         };
         class admin_Phenylephrine {
-            OD50 = 60;
-            LD50 = 240;
+            OD50 = 45;
+            LD50 = 90;
             chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
@@ -729,7 +729,7 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class admin_Nitroglycerin {
             OD50 = 60;
-            LD50 = 240;
+            LD50 = 120;
             chanceToOD = 3;
             maxDoseDeviation = 30;
             incompatibleMedication[] = {};
@@ -737,8 +737,8 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
         };
         class admin_Atropine {
-            OD50 = 90;
-            LD50 = 240;
+            OD50 = 50;
+            LD50 = 120;
             chanceToOD = 3;
             maxDoseDeviation = 30;
             incompatibleMedication[] = {};
@@ -746,8 +746,8 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
         };
         class admin_Amiodarone {
-            OD50 = 60;
-            LD50 = 240;
+            OD50 = 50;
+            LD50 = 110;
             chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
@@ -785,7 +785,7 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class admin_Lidocaine {
             OD50 = 60;
-            LD50 = 240;
+            LD50 = 120;
             chanceToOD = 3;
             maxDoseDeviation = 30;
             incompatibleMedication[] = {};
@@ -804,7 +804,7 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class admin_Ketamine {
             OD50 = 60;
-            LD50 = 180;
+            LD50 = 120;
             chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
@@ -814,7 +814,7 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class admin_Nalbuphine {
             OD50 = 60;
-            LD50 = 180;
+            LD50 = 120;
             chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
@@ -824,7 +824,7 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class admin_Morphine {
             OD50 = 60;
-            LD50 = 180;
+            LD50 = 120;
             chanceToOD = 3;
             maxDoseDeviation = 30;
             incompatibleMedication[] = {};
@@ -834,7 +834,7 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class admin_Adenosine {
             OD50 = 60;
-            LD50 = 240;
+            LD50 = 120;
             chanceToOD = 3;
             maxDoseDeviation = 30;
             incompatibleMedication[] = {};
@@ -861,7 +861,7 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class admin_Ondansetron {
             OD50 = 60;
-            LD50 = 240;
+            LD50 = 120;
             chanceToOD = 3;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
@@ -870,8 +870,8 @@ class ACE_ADDON(Medical_Treatment) {
             weightBased = "true";
         };
         class admin_Succinylcholine {
-            OD50 = 90;
-            LD50 = 240;
+            OD50 = 60;
+            LD50 = 120;
             chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
@@ -880,8 +880,8 @@ class ACE_ADDON(Medical_Treatment) {
             weightBased = "true";
         };
         class admin_Rocuronium {
-            OD50 = 90;
-            LD50 = 240;
+            OD50 = 60;
+            LD50 = 110;
             chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
@@ -890,8 +890,8 @@ class ACE_ADDON(Medical_Treatment) {
             weightBased = "true";
         };
         class admin_Sugammadex  {
-            OD50 = 90;
-            LD50 = 240;
+            OD50 = 60;
+            LD50 = 110;
             chanceToOD = 3;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};

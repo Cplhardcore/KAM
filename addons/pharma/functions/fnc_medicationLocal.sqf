@@ -56,10 +56,17 @@ if !(ACEGVAR(medical_treatment,advancedMedication)) exitWith {
     };
 };
 TRACE_1("Running treatmentMedicationLocal with Advanced configuration for",_patient);
-if (_classname in ["CWMP", "Painkillers", "Penthrox", "Caffeine", "Pervitin"]) then {
+if (_classname in ["CWMP", "Painkillers", "Penthrox", "Caffeine", "Pervitin", "Carbonate"]) then {
     private _airway = HAS_AIRWAY(_patient);
     if !(_airway) exitWith {
         TRACE_1("Medication  is occluded by airway",_airway);
+    };
+    
+};
+if (_classname in ["Penthrox", "Carbonate"]) then {
+    private _breathing = GET_BREATHING_RATE(_patient);
+    if (_breathing < 2) exitWith {
+        TRACE_1("Medication ",_breathing);
     };
 };
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
@@ -147,7 +154,7 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4,10,11,12]) && !_isFlushed
         };
         _weightMult = (_weightDoseFixed/_weightFixed);
     } else {
-        if (((_parts select 2) find "ml") != -1) then {
+        if ((_classname find "ml") != -1) then {
             private _lc = linearConversion [10, 30, _startDose, 0.5, 1.5, true];
             _weightMult = _weightMult * _lc;
             TRACE_2("weightMult",_weightMult,_lc);

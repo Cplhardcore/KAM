@@ -24,7 +24,7 @@ TRACE_4("handleOD",_medication,_ld50,_od50,_chanceToOD);
 if (_od50 > 0) then {
     TRACE_2("onMedUsage2",_currentDose,_medication);
     // Because both {floor random 0} and {floor random 1} return 0
-    if ((_currentDose > _od50) && ((random 100) < (_chanceToOD * linearConversion [0, _ld50 -_od50, _od50 - _currentDose, 1, 5, true]))) then {
+    if ((_currentDose > _od50) && ((random 100) < (_chanceToOD * linearConversion [0, _ld50 -_od50, _od50 - _currentDose, 1, 15, true]))) then {
         TRACE_1("exceeded max dose",_currentDose);
         [_target, _medication, _currentDose, _od50] call EFUNC(pharma,overDose);
     };
