@@ -59,7 +59,7 @@ private _bodyExternalPartBleeding = [0,0,0,0,0,0,0,0,0,0,0,0];
             if (_isPressureApplied || (_occlusionLevel > 0)) then {
                 switch (true) do {
                     case (_suffix == "Minor"): {
-                        _partBleeding = _partBleeding + ((_amountOf * _bleeding) * (1 - (_pressureApplied * 1.5)) * (1 - _occlusionLevel) * (1 - _damageFixed));
+                        _partBleeding = _partBleeding + ((_amountOf * _bleeding) * ((1 - (_pressureApplied * 1.5)) max 0) * (1 - _occlusionLevel) * (1 - _damageFixed));
                     };
                     case (_suffix == "Medium"): {
                         _partBleeding = _partBleeding + ((_amountOf * _bleeding) * (1 - _pressureApplied) * (1 - _occlusionLevel) * (1 - _damageFixed));

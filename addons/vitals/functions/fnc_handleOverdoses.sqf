@@ -20,7 +20,7 @@
 params ["_target", "_medication", "_ld50", "_od50", "_chanceToOD"];
 
 private _currentDose = [_target, _medication] call EFUNC(misc,getCurrentDosage);
-TRACE_2("onMedUsage1",_maxDoseFixed,_medicationName);
+TRACE_4("handleOD",_medication,_ld50,_od50,_chanceToOD);
 if (_od50 > 0) then {
     TRACE_2("onMedUsage2",_currentDose,_medication);
     // Because both {floor random 0} and {floor random 1} return 0

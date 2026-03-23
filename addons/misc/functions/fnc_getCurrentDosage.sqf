@@ -25,7 +25,7 @@ private _medDose = 0;
 {
     _x params ["_xMed", "_timeAdded", "_timeTillMaxEffect", "_maxTimeInSystem", "", "", "", "_dose", "", "", "", "", "", "", "", "", "", "", "", "_overdoseAdmin"];
     _overdoseAdmin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased"];
-    if (_xMed == _medication) then {
+    if ((toLower _xMed) == (toLower _medication)) then {
         private _timeInSystem = CBA_missionTime - _timeAdded;
         // as used in handleUnitVitals, a medication effectiveness will start low, ramp up to timeTillMaxEffect, and then drop off
         private _effectiveness = (((_timeInSystem / _timeTillMaxEffect) ^ 2) min 1) * (_maxTimeInSystem - _timeInSystem) / _maxTimeInSystem;
@@ -62,8 +62,9 @@ private _medDose = 0;
             _hemocrit = (GET_BODY_FLUID_ECP(_target)/GET_BODY_FLUID_ECB(_target)) / (DEFAULT_ECP/DEFAULT_ECB)
         };
         private _drugMult = ((((GET_BLOOD_VOLUME_LITERS(_target) / DEFAULT_BLOOD_VOLUME) * _hemocrit) max 0.2) min 2) * _diazapamMult;
-        _medDose = _medDose + (_dose * _effectiveness * drugMult);
-        TRACE_5("getMedicationCount",_target,_medication,_dose,_effectiveness,_medDose);
+        TRACE_1("getMedicationCount1",_medDose);
+        _medDose = _medDose + (_dose * _effectiveness * _drugMult);
+        TRACE_7("getMedicationCount",_target,_medication,_dose,_effectiveness,_medDose,_diazapamMult,_drugMult);
     };
 } forEach (_target getVariable [VAR_MEDICATIONS, []]);
 

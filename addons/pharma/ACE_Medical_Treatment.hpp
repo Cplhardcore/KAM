@@ -141,7 +141,7 @@ class ACE_ADDON(Medical_Treatment) {
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             viscosityChange = 25;
-            alphaFactor = -0.3;
+            alphaFactor = -0.25;
             maximumEffectiveDose = 20;
         };
         class CWMP {
@@ -292,7 +292,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeTillMaxEffect = 15;
             viscosityChange = 10;
             dose = 1;
-            alphaFactor = -0.5;
+            alphaFactor = -0.35;
             maximumEffectiveDose = 30;
         };
         class syringe_Fentanyl_5ml {

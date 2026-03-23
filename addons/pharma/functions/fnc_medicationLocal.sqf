@@ -147,9 +147,11 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4,10,11,12]) && !_isFlushed
         };
         _weightMult = (_weightDoseFixed/_weightFixed);
     } else {
-        private _lc = linearConversion [10, 30, _startDose, 0.5, 1.5, true];
-        _weightMult = _weightMult * _lc;
-        TRACE_2("weightMult",_weightMult,_lc);
+        if (((_parts select 2) find "ml") != -1) then {
+            private _lc = linearConversion [10, 30, _startDose, 0.5, 1.5, true];
+            _weightMult = _weightMult * _lc;
+            TRACE_2("weightMult",_weightMult,_lc);
+        };
     };
     private _medicationParts = _classname splitString "_";
     private _medicationName = _medicationParts select 1;
