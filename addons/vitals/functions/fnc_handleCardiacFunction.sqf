@@ -300,7 +300,6 @@ if (IN_CRDC_ARRST(_unit)) then {
     if (_unit getVariable [QEGVAR(circulation,heartRestart), false]) then {
         _hrMem = 70;
         _unit setVariable [QGVAR(hrMemory), _hrMem, true];
-        
     };
     _actualHeartRate = _hrMem;
     TRACE_3(
