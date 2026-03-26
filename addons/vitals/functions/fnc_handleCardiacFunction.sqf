@@ -53,13 +53,6 @@ if (IN_CRDC_ARRST(_unit)) then {
     #define MIN_HR 20
     #define MAX_HR 220
     _metabolicDemand = linearConversion [2200, 400, _aceAnReserve, 0, 1, true];
-    private _symp = _unit getVariable [QGVAR(sympatheticTone),0.5];
-    private _catecholamine =
-    _unit getVariable [QGVAR(catecholamine),0];
-    private _target = linearConversion [0.5,1,_symp,0,1,true];
-    _catecholamine =
-    _catecholamine + ((_target - _catecholamine) * (_deltaT / 8));
-    _unit setVariable [QGVAR(catecholamine),_catecholamine];
 
     _painLevel = GET_PAIN_PERCEIVED(_unit);
 
