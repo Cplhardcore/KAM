@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 #pragma hemtt suppress pw3_padded_arg file
 /*
@@ -56,11 +57,7 @@ if (IN_CRDC_ARRST(_unit)) then {
 
     _painLevel = GET_PAIN_PERCEIVED(_unit);
 
-    private _lastHR =
-        GET_HEART_RATE(_unit)
-        - _hrTargetAdjustment
-        - (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
-        - (_aceAnFatigue * 40);
+    private _lastHR = GET_HEART_RATE(_unit);
 
     private _baselineSV = 0.0810542;
     private _strokeVolume = [_unit] call FUNC(getStrokeVolume);
@@ -105,7 +102,10 @@ if (IN_CRDC_ARRST(_unit)) then {
 
     private _modelHR = _defaultHR + _baroDelta;
     _modelHR = _modelHR - linearConversion [0,1,_cnsSuppression,0,12,true];
-
+    _modelHR = _modelHR
+    + _hrTargetAdjustment
+    + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
+    + (_aceAnFatigue * 40);
     TRACE_6(
         "BARO_CORE",
         _map,
@@ -241,8 +241,21 @@ if (IN_CRDC_ARRST(_unit)) then {
     private _hrDelta = _modelHR - _lastHR;
     private _rate =
         (1.2 * _deltaT)
+        * linearConversion [0, 40, abs _hrDelta, 0.6, 1.4, true]
         * linearConversion [0, 1, _metabolicDemand, 1, 1.6, true];
     _rate = _rate * linearConversion [0, 1, _cnsSuppression, 1, 0.65, true];
+
+    TRACE_5("HR_BREAKDOWN",
+    _modelHR,
+    _vagalResp,
+    _vagalTone,
+    _respFatigue,
+    _pH
+    );
+    TRACE_2("HR_AFTER_VAGAL",
+    _modelHR,
+    _modelHR * (1 - _vagalTone)
+    );
     TRACE_4("SA_NODE", _lastHR, _modelHR, _hrDelta, _rate);
 
     TRACE_4(
@@ -259,29 +272,20 @@ if (IN_CRDC_ARRST(_unit)) then {
         _actualHeartRate =
             _lastHR + ((_hrDelta max -_rate) min _rate);
     };
+    TRACE_1(
+        "HR_Actual0",
+        _actualHeartRate
+    );
     private _respRate = _unit getVariable [QEGVAR(breathing,breathRate), 12];
     private _respDepth = _unit getVariable [VAR_RESPIRATORY_DEPTH, 10];
-
-    if (_respRate > 4) then {
-        private _rsaAmp =
-            linearConversion [6, 20, _respRate, 6, 2, true];
-        _rsaAmp =
-            _rsaAmp
-            * linearConversion [4, 14, _respDepth, 0.4, 1.0, true];
-        _rsaAmp =
-            _rsaAmp
-            * (1 - (_cnsSuppression * 0.6))
-            * linearConversion [0,1,_metabolicDemand,1,0.5,true];
-        private _rsa =
-            sin (CBA_missionTime * (_respRate / 60) * 360) * _rsaAmp;
-        _actualHeartRate = _actualHeartRate + _rsa;
-    };
-    _actualHeartRate =
+        TRACE_1(
+        "HR_Actual1",
         _actualHeartRate
-        + _hrTargetAdjustment
-        + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
-        + (_aceAnFatigue * 40);
-
+    );
+    TRACE_1(
+        "HR_Actual2",
+        _actualHeartRate
+    );
     _actualHeartRate = (_actualHeartRate max MIN_HR) min MAX_HR;
     private _hrMem =
     _unit getVariable [QGVAR(hrMemory), _actualHeartRate];
@@ -297,17 +301,37 @@ if (IN_CRDC_ARRST(_unit)) then {
         _hrMem
         + ((_actualHeartRate - _hrMem) * (_deltaT / _hrTau));
     _unit setVariable [QGVAR(hrMemory), _hrMem];
+    TRACE_2(
+        "HR_Actual",
+        _hrMem,
+        _actualHeartRate
+    );
     if (_unit getVariable [QEGVAR(circulation,heartRestart), false]) then {
         _hrMem = 70;
         _unit setVariable [QGVAR(hrMemory), _hrMem, true];
     };
     _actualHeartRate = _hrMem;
+    if (_respRate > 4) then {
+        private _rsaAmp =
+            linearConversion [6, 20, _respRate, 6, 2, true];
+
+        _rsaAmp =
+            _rsaAmp
+            * linearConversion [4, 14, _respDepth, 0.4, 1.0, true]
+            * (1 - (_cnsSuppression * 0.6))
+            * linearConversion [0,1,_metabolicDemand,1,0.5,true];
+        _rsaAmp = _rsaAmp min (_rate * 0.8);
+        private _rsa =
+            sin (CBA_missionTime * (_respRate / 60) * 360) * _rsaAmp;
+        _actualHeartRate = _actualHeartRate + _rsa;
+    };
     TRACE_3(
         "HR_FINAL",
         _actualHeartRate,
         _map,
         GET_BLOOD_VOLUME_LITERS(_unit)
     );
+    
     private _delivery =
     (_spo2 / 100) * linearConversion [50,90,_map,0.4,1,true];
 

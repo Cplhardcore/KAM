@@ -75,8 +75,5 @@ params ["_unit"];
     private _entry = format [LLSTRING(capnographyStatus), _color];
     _unit setVariable [QGVAR(capnoStatus), _entry, true];
     _unit setVariable [QGVAR(capnoColor), _rgb, true];
-    private _breathrate = GET_BREATHING_RATE(_unit);
-    private _delay = (60/_breathrate) max 1;
-    [_idPFH, _delay] call CBA_fnc_setPerFrameHandlerDelay;
-}, 3, [_unit]] call CBA_fnc_addPerFrameHandler;
+}, 1, [_unit]] call CBA_fnc_addPerFrameHandler;
 
