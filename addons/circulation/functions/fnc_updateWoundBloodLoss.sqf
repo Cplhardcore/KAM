@@ -36,17 +36,10 @@ private _bodyExternalPartBleeding = [0,0,0,0,0,0,0,0,0,0,0,0];
 
 {
     private _partIndex = ALL_BODY_PARTS find _x;
-    private _appliedPressure = GET_APPLIEDPRESSURE(_unit);
-    private _pressureApplied = _appliedPressure select _partIndex;
 
     private _idx = _occlusionMap findIf { _x#0 == _partIndex };
     private _result = if (_idx != -1) then { _occlusionMap select _idx select 1 } else { [] };
     private _isOccluded = { _tourniquets select _x >= 1 } count _result > 0;
-    private _occlusionLevel = if (_result isNotEqualTo []) then { selectMax (_result apply { _tourniquets select _x }) } else { 0 };
-
-    private _damageAmount = [_unit,_idx] call EFUNC(hitpoints,damageAmount);
-    private _damageFixed = linearConversion [0, 40, _damageAmount, 0, 0.6, true];
-    private _isPressureApplied = _pressureApplied > 0;
     if (!_isOccluded) then {
         private _partBleeding = 0;
         {
@@ -56,24 +49,7 @@ private _bodyExternalPartBleeding = [0,0,0,0,0,0,0,0,0,0,0,0];
             private _suffix = ["Minor", "Medium", "Large"] select _category;
             private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
             TRACE_5("updateWoundBloodLoss1",_isPressureApplied,_occlusionLevel,_amountOf,_bleeding,_pressureApplied);
-            if (_isPressureApplied || (_occlusionLevel > 0)) then {
-                switch (true) do {
-                    case (_suffix == "Minor"): {
-                        _partBleeding = _partBleeding + ((_amountOf * _bleeding) * ((1 - (_pressureApplied * 1.5)) max 0) * (1 - _occlusionLevel) * (1 - _damageFixed));
-                    };
-                    case (_suffix == "Medium"): {
-                        _partBleeding = _partBleeding + ((_amountOf * _bleeding) * (1 - _pressureApplied) * (1 - _occlusionLevel) * (1 - _damageFixed));
-                    };
-                    case (_suffix == "Large"): {
-                        _partBleeding = _partBleeding + ((_amountOf * _bleeding) * (1 - (_pressureApplied * 0.7)) * (1 - _occlusionLevel) * (1 - _damageFixed));
-                    };
-                    default {
-                        _partBleeding = _partBleeding + ((_amountOf * _bleeding) * (1 - _pressureApplied) * (1 - _occlusionLevel) * (1 - _damageFixed));
-                    };
-                };
-            } else {
-                _partBleeding = _partBleeding + (_amountOf * _bleeding);
-            };
+            _partBleeding = _partBleeding + (_amountOf * _bleeding);
             if !(_className in ["InternalBleeding"]) then {
                 _bodyExternalPartBleeding set [_partIndex, _partBleeding];
                 TRACE_3("updateWoundBloodLossExternal",_partBleeding,_bodyExternalPartBleeding,_partIndex);

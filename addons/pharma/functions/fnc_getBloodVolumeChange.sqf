@@ -23,6 +23,7 @@ private _bloodLoss = GET_BODY_BLEED_RATE(_unit);
 private _exBloodLoss = GET_EXTERNAL_BODY_BLEED_RATE(_unit);
 private _bloodPressure = GET_BLOOD_PRESSURE(_unit);
 private _vasoconstriction = GET_VASOCONSTRICTION(_unit);
+private _appliedPressure = GET_APPLIEDPRESSURE(_unit);
 private _ECP = GET_BODY_FLUID_ECP(_unit);
 private _ECB = GET_BODY_FLUID_ECB(_unit);
 private _defaultHR = (_unit getVariable [QEGVAR(circulation,defaultHeartRate), 80]);
@@ -32,17 +33,22 @@ private _map = GET_MAP(_unit);
 private _correctedMap = linearConversion [14.3333, 174.3333, _map, 0.05, 2, true];
 TRACE_3("correctedMAP",_correctedMap,_map,_bloodPressure);
 private _heartRate = GET_HEART_RATE(_unit);
+
 private _trauma = _unit getVariable [QEGVAR(vitals,traumaState),0];
 private _capLeak = linearConversion [0.4,0.9,_trauma,0,0.0002,true];
 
 private _lossVolumeChange = 0;
 {
-    _lossVolumeChange = _lossVolumeChange + (-(_deltaT/12) * (((_bloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex)));
+    private _occlusionLevel = [_unit,_forEachIndex] call FUNC(occlusionLevel);
+    private _pressureApplied = _appliedPressure select _forEachIndex;
+    _lossVolumeChange = _lossVolumeChange + (-(_deltaT/12) * (((_bloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex) * (1 - _pressureApplied) * (1 - _occlusionLevel)));
 } forEach _bloodLoss;
 _lossVolumeChange = _lossVolumeChange + _capLeak;
 private _externalLossVolumeChange = 0;
 {
-    _externalLossVolumeChange = _externalLossVolumeChange + ((_deltaT/12) * (((_exBloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex)));
+    private _occlusionLevel = [_unit,_forEachIndex] call FUNC(occlusionLevel);
+    private _pressureApplied = _appliedPressure select _forEachIndex;
+    _externalLossVolumeChange = _externalLossVolumeChange + ((_deltaT/12) * (((_exBloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex) * (1 - _pressureApplied) * (1 - _occlusionLevel)));
 } forEach _exBloodLoss;
 private _enableFluidShift = EGVAR(vitals,enableFluidShift);
 private _fluidVolume = GET_BODY_FLUID(_unit);
