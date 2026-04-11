@@ -237,7 +237,7 @@ if (_adjustments isNotEqualTo []) then {
                 if (_nauseaMult != 0) then { _nauseaMultAdjustment = ([_nauseaMultAdjustment, (_nauseaMult * _effectRatio * _drugMult), 1.25, 1] call _dampening ) max 0.1};
                 if (_sedation == "true") then { _sedationAdjustment = (_sedationAdjustment + (1 * _effectRatio)) min 1; };
                 if (_paralysis == "true") then { _paralysisAdjustment = (_paralysisAdjustment + (1 * _effectRatio)) min 1; };
-                if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = [_cnsSuppressionAdjustment, _cnsSuppression * _drugMult * _effectRatio * _effectiveDose, 1.25, 0] };
+                if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = [_cnsSuppressionAdjustment, _cnsSuppression * _drugMult * _effectRatio * _effectiveDose, 1.25, 0] call _dampening};
             } else {
                 if (_hrAdjust != 0) then { _hrTargetAdjustment = _hrTargetAdjustment + _hrAdjust * _drugMult * _effectRatio * _effectiveDose; };
                 if (_painAdjust != 0) then { _painSupressAdjustment = _painSupressAdjustment + _painAdjust * _drugMult * _effectRatio * _effectiveDose; };
