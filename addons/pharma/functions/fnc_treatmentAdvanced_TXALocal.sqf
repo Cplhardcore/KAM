@@ -58,8 +58,10 @@ private _fnc_txaClot = {
     [{
     params ["_patient", "_bodyPart", "_id", "_amount", "_bleeding", "_damage", "_oldBandage", "_newBandage", "_factorCountToRemove"];
     if !(alive _patient) exitWith {};
-    private _eacaAmount = [_patient, "EACA",false] call ACEFUNC(medical_status,getMedicationCount) select 1;
+    private _eacaAmount = [_patient, "EACA", false] call ACEFUNC(medical_status,getMedicationCount) select 1;
     if (_eacaAmount > 0.1) exitWith {};
+    private _coagulationFactor = GET_BODY_FLUID_PLATELETS(_patient);
+    if (_coagulationFactor <= 0) exitWith {};
     private _coagWoundsLive = GET_COAGED_WOUNDS(_patient);
     private _currentWounds  = _coagWoundsLive getOrDefault [_bodyPart, []];
     private _minorIndex = -1;
@@ -80,8 +82,6 @@ private _fnc_txaClot = {
     _coagWoundsLive set [_bodyPart, _currentWounds];
     _patient setVariable [VAR_COAGED_WOUNDS, _coagWoundsLive, true];
     private _bodyFluid = GET_BODY_FLUID(_patient);
-    private _coagulationFactor = GET_BODY_FLUID_PLATELETS(_patient);
-    if (_coagulationFactor <= 0) exitWith {};
     _bodyFluid set [5, (_coagulationFactor - _factorCountToRemove)];
     _patient setVariable [VAR_BODY_FLUID, _bodyFluid, true];
     }, [_patient, _bodyPart, _id, _amount, _bleeding, _damage, _oldBandage, _newBandage,_factorCountToRemove], _delay] call CBA_fnc_waitAndExecute;

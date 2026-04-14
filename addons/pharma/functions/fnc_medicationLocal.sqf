@@ -299,10 +299,10 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4,10,11,12]) && !_isFlushed
         if (_upperMed select [count _upperMed - 2] isEqualTo "IV") then {
             _medicationName = _medicationName select [0, count _medicationName - 2];
         };
-        if (_medicationName in ["TXA","Amiodarone"]) then {
+        if (_medicationName in ["Amiodarone"]) then {
         [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart], _patient] call CBA_fnc_targetEvent;
         };
-        if (_medicationName in ["EACA"]) then {
+        if (_medicationName in ["EACA", "TXA"]) then {
         [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart, _timeTillMaxEffect, _timeInSystem], _patient] call CBA_fnc_targetEvent;
         };
         if (_medicationName in ["Lorazepam","Etomidate","Sugammadex","Flumazenil"]) then {
@@ -321,12 +321,33 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4,10,11,12]) && !_isFlushed
         [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart, _opioidRelief], _patient] call CBA_fnc_targetEvent;
         };
     } else {
-        if (_classname in ["Lorazepam","Ketamine","EACA","TXA","Atropine","Amiodarone","Flumazenil","Lidocaine", "TXAAuto"]) then {
-        [format ["kat_pharma_%1Local", toLower _classname], [_patient, _bodyPart, _classname], _patient] call CBA_fnc_targetEvent;
+        private _upperMed = toUpper _classname;
+        if (_upperMed select [count _upperMed - 4] isEqualTo "AUTO") then {
+            _medicationName = _classname select [0, count _classname - 4];
+        };
+        if (_upperMed select [count _upperMed - 2] isEqualTo "IV") then {
+            _medicationName = _classname select [0, count _classname - 2];
+        };
+        if (_medicationName in ["Amiodarone"]) then {
+        [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart], _patient] call CBA_fnc_targetEvent;
+        };
+        if (_medicationName in ["EACA", "TXA", "TXAAuto"]) then {
+        [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart, _timeTillMaxEffect, _timeInSystem], _patient] call CBA_fnc_targetEvent;
+        };
+        if (_medicationName in ["Lorazepam","Etomidate","Sugammadex","Flumazenil"]) then {
+        [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _dose], _patient] call CBA_fnc_targetEvent;
         };
 
-        if (_classname in ["Fentanyl","Morphine","Nalbuphine"]) then {
-        [format ["kat_pharma_%1Local", toLower _classname], [_patient, _bodyPart, _opioidRelief], _patient] call CBA_fnc_targetEvent;
+        if (_medicationName in ["Rocuronium","Succinylcholine"]) then {
+        [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _dose, _timeTillMaxEffect, _timeInSystem], _patient] call CBA_fnc_targetEvent;
+        };
+
+        if (_medicationName in ["Ketamine","Atropine","Adenosine","Alteplase","Lidocaine"]) then {
+        [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart, _classname], _patient] call CBA_fnc_targetEvent;
+        };
+
+        if (_medicationName in ["Fentanyl","Morphine","Nalbuphine"]) then {
+        [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart, _opioidRelief], _patient] call CBA_fnc_targetEvent;
         };
     };
     
