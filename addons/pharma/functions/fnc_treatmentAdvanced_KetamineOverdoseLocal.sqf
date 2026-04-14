@@ -15,6 +15,7 @@
  * Public: No
  */
 params ["_patient"];
+[_patient, "ketamineOverdose", 20, 2400, 0, 0, 0, 0, -0.1, 0, 0, 0, -0.15, 0, 0, "false", "false", "false", 0.5] call EFUNC(vitals,addMedicationAdjustment);
 [{
     params ["_patient"];
         [{
@@ -25,7 +26,10 @@ params ["_patient"];
             if (!(alive _patient)) exitWith {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
-                _KetamineOverdoseTarget =  + 1;
+            private _medications = _patient getVariable [QACEGVAR(medical,medications), []];
+            if (_medications findIf {_x isEqualTo "ketamineOverdose"} == -1) exitWith {
+                [_idPFH] call CBA_fnc_removePerFrameHandler;
+            };
                 if (_KetamineOverdoseTarget > 12) exitWith {
                     if (random(100) < 25) then {
                     [{
@@ -38,9 +42,5 @@ params ["_patient"];
                     };
                     [_idPFH] call CBA_fnc_removePerFrameHandler;
                 };
-                private _rr = (_patient getVariable [QEGVAR(breathing,respiratoryRateMultiplier), 1]) - 0.04;
-                _patient setVariable [QEGVAR(breathing,respiratoryRateMultiplier), _rr, true];
-                private _depression = (_patient getVariable [QEGVAR(pharma,opioidDepression), 0]) + 0.04;
-                _patient setVariable [QEGVAR(pharma,opioidDepression), _depression, true];
         }, 15, [_patient,0]] call CBA_fnc_addPerFrameHandler;
 }, [_patient], 15] call CBA_fnc_waitAndExecute;

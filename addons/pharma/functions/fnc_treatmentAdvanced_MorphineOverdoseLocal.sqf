@@ -15,7 +15,7 @@
  * Public: No
  */
 params ["_patient"];
-[_patient, "morphineOverdose", 30, 2400, 0, 0, 0, 0, 0.3, 0, 0, 0.17, -0.1, 0, 0, "false", "false", "false", 0.7] call EFUNC(vitals,addMedicationAdjustment);
+[_patient, "morphineOverdose", 20, 2400, 0, 0, 0, 0, 0.3, 0, 0, 0.17, -0.1, 0, 0, "false", "false", "false", 0.7] call EFUNC(vitals,addMedicationAdjustment);
 [{
     params ["_patient"];
         [{
@@ -26,7 +26,10 @@ params ["_patient"];
             if (!(alive _patient)) exitWith {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
-                _morphineOverdoseTarget = _morphineOverdoseTarget + 1;
+            private _medications = _patient getVariable [QACEGVAR(medical,medications), []];
+            if (_medications findIf {_x isEqualTo "morphineOverdose"} == -1) exitWith {
+                [_idPFH] call CBA_fnc_removePerFrameHandler;
+            };
                 if (_morphineOverdoseTarget > 6) exitWith {
                     [{
                         params ["_args", "_idPFH"];
@@ -42,10 +45,5 @@ params ["_patient"];
                     }, [_patient], 10] call CBA_fnc_waitAndExecute;
                     [_idPFH] call CBA_fnc_removePerFrameHandler;
                 };
-                private _medications = _patient getVariable [QACEGVAR(medical,medications), []];
-                if (_medications findIf {_x isEqualTo "naloxone"} != -1) exitWith {};
-                private _depression = (_patient getVariable [QEGVAR(pharma,opioidDepression), 0]) + 0.08;
-                _patient setVariable [QEGVAR(pharma,opioidDepression), _depression, true];
-                
-        }, 10, [_patient,0]] call CBA_fnc_addPerFrameHandler;
-}, [_patient], 10] call CBA_fnc_waitAndExecute;
+        }, 15, [_patient,0]] call CBA_fnc_addPerFrameHandler;
+}, [_patient], 15] call CBA_fnc_waitAndExecute;
