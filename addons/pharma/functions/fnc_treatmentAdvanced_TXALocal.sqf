@@ -98,11 +98,7 @@ if (GVAR(coagulation)) then {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
             private _eacaAmount = [_patient, "EACA", false] call ACEFUNC(medical_status,getMedicationCount) select 1;
-            if (_eacaAmount > 0.1) exitWith {
-                [_idPFH] call CBA_fnc_removePerFrameHandler;
-            };
-
-
+            if (_eacaAmount > 0.1) exitWith {};
             private _random = random [6.4, 6.8, 7.2];
             private _ph     = GET_PH(_patient);
 
