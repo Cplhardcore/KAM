@@ -238,6 +238,6 @@ if (!(GVAR(coagulation)) || GVAR(coagulation_allow_EACA_script)) then {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
 
-        }, _cycleTime,[_patient, _keepRunning, _timeInSystem]] call CBA_fnc_addPerFrameHandler;
+        }, _cycleTime, [_patient, _keepRunning, _timeInSystem]] call CBA_fnc_addPerFrameHandler;
     };
 };
