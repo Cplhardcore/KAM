@@ -26,7 +26,7 @@ if (_unit getVariable [QEGVAR(surgery,reboa), false]) exitWith { false };
 
 private _cardiacOutput = [_unit] call ACEFUNC(medical_status,getCardiacOutput);
 private _bloodLoss = _unit call ACEFUNC(medical_status,getBloodLoss);
-if (_bloodLoss > (ACEGVAR(medical,const_bloodLossKnockOutThreshold) * _cardiacOutput / 2)) exitWith { false };
+if (_bloodLoss > ACEGVAR(medical,const_bloodLossKnockOutThreshold)) exitWith { false };
 
 private _map = GET_MAP(_unit);
 if (_map < 60 || _map > 120) exitWith { false };
