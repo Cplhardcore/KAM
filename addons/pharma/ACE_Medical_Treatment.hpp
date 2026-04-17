@@ -314,7 +314,7 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
             nauseaMult = 0.4;
             bloodBased = "true";
-            cnsSuppression = 0.35;
+            cnsSuppression = 0.4;
         };
         class syringe_Ketamine_5ml {
             painReduce = 0.8;
@@ -407,7 +407,7 @@ class ACE_ADDON(Medical_Treatment) {
             weightDose = 20;
             maximumEffectiveDose = 30;
             bloodBased = "true";
-            cnsSuppression = 0.65;
+            cnsSuppression = 0.4;
         };
         class syringe_Flumazenil_5ml {
             painReduce = 0;

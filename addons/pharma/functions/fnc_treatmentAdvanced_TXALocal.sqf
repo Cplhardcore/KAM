@@ -149,11 +149,9 @@ if (GVAR(coagulation)) then {
     };
 };
 if (!(GVAR(coagulation)) || GVAR(coagulation_allow_TXA_script)) then {
-
-    if ([7,8,9] find _IVactual == -1) then {
-
-        if ((_txaEffectiveness > 0.3) && !(_allowStack)) exitWith {};
-
+    if ((_txaEffectiveness > 0.1) && !(_allowStack)) exitWith {};
+    if ([7,8,9] find _IVactual == -1) then 
+        {
         [{
             params ["_args", "_idPFH"];
             _args params ["_patient", "_keepRunning", "_timeInSystem"];
@@ -166,7 +164,6 @@ if (!(GVAR(coagulation)) || GVAR(coagulation_allow_TXA_script)) then {
             if !(_alive) exitWith {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
-
             if (_random <= _ph) then {
                 {
                     _x params ["_targetBodyPart"];
