@@ -31,10 +31,8 @@ private _painLevel = 0;
 private _shockClass = "NONE";
 private _metabolicDemand = 0;
 private _sedation = _unit getVariable [QEGVAR(surgery,sedated), 0];
-private _opioid = _unit getVariable [QEGVAR(pharma,cnsSuppression), 0];
+private _cnsSuppression = (_unit getVariable [QEGVAR(pharma,cnsSuppression), 0]) min 0.8;
 [_unit] call FUNC(updateSympatheticTone);
-private _cnsSuppression =
-    (_opioid) * 0.6;
 if (IN_CRDC_ARRST(_unit)) then {
     if (alive (_unit getVariable [QACEGVAR(medical,CPR_provider), objNull])) then {
         if (_actualHeartRate == 0) then { _syncValue = true };
@@ -100,7 +98,7 @@ if (IN_CRDC_ARRST(_unit)) then {
       + (BARO_KI * _mapIntegral)) * _baroScale;
 
     private _modelHR = _defaultHR + _baroDelta;
-    _modelHR = _modelHR - linearConversion [0,1,_cnsSuppression,0,12,true];
+    _modelHR = _modelHR - linearConversion [0,1,_cnsSuppression,0,16,true];
     _modelHR = _modelHR
     + _hrTargetAdjustment
     + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
