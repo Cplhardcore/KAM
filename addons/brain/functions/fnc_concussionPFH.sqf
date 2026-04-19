@@ -19,15 +19,12 @@
  *
  * Public: No
  */
-params ["_unit"];
+params ["_unit", "_deltaT"];
+private _time = _unit getVariable [QGVAR(concussionTime), 0, true];
+_unit setVariable [QGVAR(concussionTime), _time + _deltaT, true];
+if (5 > _time) exitWith {};
+_unit setVariable [QGVAR(concussionTime), 0, true];
 
-private _pfh = [{
-    params ["_args","_pfhID"];
-    _args params ["_unit"];
-    if (!alive _unit) exitWith {
-        [_pfhID] call CBA_fnc_removePerFrameHandler;
-        _unit setVariable [QGVAR(concussionPFH), nil];
-    };
     private _startEdema    = _unit getVariable [QGVAR(edema),0];
     private _oldEdema    = _unit getVariable [QGVAR(oldEdema),0];
     private _bleeding = _unit getVariable [QGVAR(bleeding),0];
@@ -35,6 +32,7 @@ private _pfh = [{
     private _necrosis = _unit getVariable [QGVAR(necrosis),0];
     private _reversibleDamage = _unit getVariable [QGVAR(reversibleDamage),0];
     private _concussion = _unit getVariable [QGVAR(concussion),0];
+    if ((_startEdema == 0) && (_concussion == 0) && (_ICP <= 20) && (_reversibleDamage == 0)) exitWith {};
     private _edema = 0;
     _unit setVariable [QGVAR(oldEdema), _startEdema, true];
     if (_startEdema < 0.7) then {
@@ -65,9 +63,3 @@ private _pfh = [{
     private _earRinging = linearConversion [0, 1, _concussion, 0, 20, true];
     GVAR(concussionRinging) = _earRinging;
     _unit setVariable [QGVAR(reversibleDamage),_reversibleDamage,true];
-    if ((_edema == 0) && (_concussion == 0) && (_ICP <= 20) && (_reversibleDamage == 0)) then {
-        _unit setVariable [QGVAR(concussionPFH), nil];
-        [_pfhID] call CBA_fnc_removePerFrameHandler;
-    };
- }, 5, [_unit]] call CBA_fnc_addPerFrameHandler;
- _unit setVariable [QGVAR(concussionPFH), _pfh];

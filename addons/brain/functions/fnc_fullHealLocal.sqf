@@ -34,10 +34,5 @@ _patient setVariable [QGVAR(edema),0,true];
 _patient setVariable [QGVAR(bleeding),0,true];
 _patient setVariable [QGVAR(isSwelling),false,true];
 
-
-//TODO fix these PFHs so that they dont create duplicates when a player is healed
-_patient setVariable [QGVAR(autoregulationPFH), [_patient] call FUNC(handleAutoregulation),true];
-_patient setVariable [QGVAR(activityPFH), [_patient] call FUNC(handleBrainActivity),true];
-
 _patient setVariable [QGVAR(concussionPFH),nil,true];
 _patient setVariable [QGVAR(concussion),0,true];

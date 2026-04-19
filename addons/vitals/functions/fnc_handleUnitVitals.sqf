@@ -396,6 +396,29 @@ switch (true) do {
 };
 [_unit] call EFUNC(misc,handleBandageOpening);
 [_unit] call EFUNC(misc,updateDamageEffects);
+
+
+private _isUnconscious  = _unit getVariable ["ACE_isUnconscious", false];
+if (_isUnconscious) then {
+    [_unit, _deltaT] call EFUNC(airway,airwayDeterioration);
+};
+[_unit, _deltaT] call EFUNC(airway,handlePuking);
+
+if (_unit getVariable [QEGVAR(brain,concussion), 0] > 0) then {
+    [_unit, _deltaT] call EFUNC(brain,concussionPFH);
+};
+[_unit, _deltaT] call EFUNC(brain,handleAutoregulation);
+[_unit, _deltaT] call EFUNC(brain,handleBrainActivity);
+{
+private _side = _x;
+[_unit, _side, _deltaT] call EFUNC(breathing,handleHemothoraxTreatment);
+[_unit, _side, _deltaT] call EFUNC(breathing,handleHemothoraxDeterioration);
+[_unit, _side, _deltaT] call EFUNC(breathing,handlePneumothoraxDeterioration);
+[_unit, _side, _deltaT] call EFUNC(breathing,handlePneumothoraxTreatment);
+} forEach [0, 1];
+[_unit, _deltaT] call EFUNC(breathing,handleTamponade);
+
+
 #ifdef DEBUG_MODE_FULL
 private _cardiacOutput = [_unit] call ACEFUNC(medical_status,getCardiacOutput);
 if (!isPlayer _unit) then {

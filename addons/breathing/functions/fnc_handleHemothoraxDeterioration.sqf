@@ -16,7 +16,12 @@
  * Public: No
  */
 
-params ["_unit", "_side", ["_amount", 3]];
+params ["_unit", "_side", ["_amount", 0], ["_deltaT", 1]];
+
+private _time = _unit getVariable [QGVAR(hptxDTime), 0, true];
+_unit setVariable [QGVAR(hptxDTime), _time + _deltaT, true];
+if (3 > _time) exitWith {};
+_unit setVariable [QGVAR(hptxDTime), 0, true];
 private _fnc_createInternalBleeding = {
     private _openWounds = GET_OPEN_WOUNDS(_unit);
     private _existingWounds = _openWounds getOrDefault ["chest", [], true];
@@ -40,35 +45,21 @@ private _fnc_createInternalBleeding = {
 
 for "_i" from 0 to _amount do {
     [_unit] call _fnc_createInternalBleeding;
- };
-
-
-if (((_unit getVariable [QGVAR(chestTube), [0, 0]] select 0) > 0.9) && ((_unit getVariable [QGVAR(chestTube), [0, 0]] select 1) > 0.9)) then {
-    [_unit, _side] call FUNC(handleHemothoraxTreatment);
 };
-[{
-    params ["_unit", "_side"];
-    [{
 
-        params ["_args", "_idPFH"];
-        _args params ["_unit", "_side"];
-        private _hemoState = _unit getVariable [QGVAR(hemopneumothorax), [0, 0]];
-            if (!(alive _unit) ||
-                ((INTERNAL_BLEEDING_RATE(_unit,2) == 0))) exitWith {
-                [_idPFH] call CBA_fnc_removePerFrameHandler;
+
+private _hemoState = _unit getVariable [QGVAR(hemopneumothorax), [0, 0]];
+    if (((INTERNAL_BLEEDING_RATE(_unit,2) == 0))) exitWith {};
+    private _internalBleeding = (INTERNAL_BLEEDING_RATE(_unit,2) / 10);
+    _hemoState set [_side, (((_hemoState select _side) + (_internalBleeding)) min 1)];
+    if (((random 100) < (linearConversion [0, 1, (_hemoState select _side), 5, 75, true])) && GVAR(PneumothoraxArrest)) then {
+        private _ht = _unit getVariable [QEGVAR(circulation,ht), []];
+        if !("hemo" in _ht) then {
+            _ht pushBack "hemo";
+            _unit setVariable [QEGVAR(circulation,ht), _ht, true];
+            if (_unit getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
+                [QACEGVAR(medical,FatalVitals), _unit] call CBA_fnc_localEvent;
             };
-            private _internalBleeding = (INTERNAL_BLEEDING_RATE(_unit,2) / 10);
-            _hemoState set [_side, (((_hemoState select _side) + (_internalBleeding)) min 1)];
-            if (((random 100) < (linearConversion [0, 1, (_hemoState select _side), 5, 75, true])) && GVAR(PneumothoraxArrest)) then {
-                private _ht = _unit getVariable [QEGVAR(circulation,ht), []];
-                if !("hemo" in _ht) then {
-                    _ht pushBack "hemo";
-                    _unit setVariable [QEGVAR(circulation,ht), _ht, true];
-                    if (_unit getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
-                        [QACEGVAR(medical,FatalVitals), _unit] call CBA_fnc_localEvent;
-                    };
-                };
-            };
-            _unit setVariable [QGVAR(hemopneumothorax), _hemoState, true];
-        }, (3 * random [0.8, 1, 1.2]), [_unit, _side]] call CBA_fnc_addPerFrameHandler;
-}, [_unit, _side], (3 * random [0.8, 1, 1.2]) ] call CBA_fnc_waitAndExecute;
+        };
+    };
+    _unit setVariable [QGVAR(hemopneumothorax), _hemoState, true];

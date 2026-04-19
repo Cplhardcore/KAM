@@ -84,6 +84,6 @@ _unit setVariable [QGVAR(activeChestSeal), _activeChestSeal, true];
 // Unit already has it or got lucky
 if ((_unit getVariable [QEGVAR(circulation,effusion), 0]) != 0 || floor (random 100) > EGVAR(circulation,tamponadeChance)) exitWith {_this};
 
-[_unit] call FUNC(createTamponade);
+_unit setVariable [QEGVAR(circulation,effusion), 1, true];
 
 _this // return
