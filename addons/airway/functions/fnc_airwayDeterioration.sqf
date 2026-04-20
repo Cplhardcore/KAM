@@ -29,9 +29,10 @@ if (
     || {}
 ) exitWith {};
 if (_unit getVariable [QEGVAR(vitals,simpleMedical), false]) exitWith {};
-private _time = _unit getVariable [QGVAR(pukeTime), 0];
+private _time = _unit getVariable [QGVAR(deteriorateTime), 0];
 _unit setVariable [QGVAR(deteriorateTime), _time + _deltaT, true];
 if (_time < (GVAR(deterioratingAirways_interval) * random [0.8, 1, 1.3])) exitWith {};
+_unit setVariable [QGVAR(deteriorateTime), 0, true];
 private _occlusionState = _unit getVariable [QGVAR(occlusion), [0, 0, 0]];
 if ((selectMax _occlusionState) == 0) exitWith {};
 private _isUnconscious  = _unit getVariable ["ACE_isUnconscious", false];

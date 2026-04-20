@@ -41,17 +41,3 @@ _patient setVariable [QGVAR(recovery), false, true];
 _patient setVariable [QGVAR(isVisualized), false, true];
 _patient setVariable ["kat_occlusion_PFH", false, true];
 _patient setVariable ["kat_pukeActive_PFH", false, true];
-[{
-        params ["_args", "_idPFH"];
-        _args params ["_patient"];
-
-        private _isUnconscious   = _patient getVariable ["ACE_isUnconscious", false];
-        private _alive           = alive _patient;
-        private _stomachVolume  = _patient getVariable [QGVAR(stomachVolume), 5];
-        if (!_alive || (_stomachVolume == 5) || _isUnconscious) exitWith {
-            [_idPFH] call CBA_fnc_removePerFrameHandler;
-        };
-        _patient setVariable [QGVAR(stomachVolume), (_stomachVolume + 1), true];
-    }, 
-    300, 
-    [_patient]] call CBA_fnc_addPerFrameHandler;

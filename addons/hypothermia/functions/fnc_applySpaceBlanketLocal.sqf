@@ -23,15 +23,3 @@ if (GET_BLOOD_VOLUME_LITERS(_patient) > 4) then {
     private _impact = (_patient getVariable [QGVAR(warmingImpact), 0]);
     _patient setVariable [QGVAR(warmingImpact), (_impact + 3000), true];
 };
-[{
-    params ["_args", "_idPFH"];
-    _args params ["_patient"];
-    private _isBeingCarried = _patient call ACEFUNC(common,isBeingCarried);
-    if (!alive _patient || (abs (speed _patient) > 6 && isNull objectParent _patient && !_isBeingCarried)) exitWith {
-        [_idPFH] call CBA_fnc_removePerFrameHandler;
-        _patient setVariable [QGVAR(spaceBlanket), false, true];
-        private _impact = (_patient getVariable [QGVAR(warmingImpact), 0]);
-        _patient setVariable [QGVAR(warmingImpact), (_impact - 3000), true];
-        [LLSTRING(thermalBlanket_FallOff), 1.5, _patient] call ACEFUNC(common,displayTextStructured);  
-        };
-}, 1, [_patient]] call CBA_fnc_addPerFrameHandler;

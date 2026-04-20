@@ -27,7 +27,10 @@ private _nauseaMult = _unit getVariable [QEGVAR(pharma,nauseaMult), 1];
 private _nauseaMult = (_nauseaMult min 6) max 0.1;
 private _nauseaDelay = if (_nauseaMult < 1) then {_nauseaMult / 2} else {_nauseaMult};
 private _delay = ((GVAR(occlusion_repeatTimer) / _nauseaDelay) * random [0.8, 1, 1.3]) max GVAR(minPukeTime);
-
+private _time = _unit getVariable [QGVAR(pukeTime), 0];
+_unit setVariable [QGVAR(pukeTime), _time + _deltaT, true];
+if (_time < _delay) exitWith {};
+_unit setVariable [QGVAR(pukeTime), 0, true];
 private _stomachVolume = _unit getVariable [QGVAR(stomachVolume), 5];
 private _icp = _unit getVariable [QEGVAR(brain,ICP),15];
 private _icpChance = linearConversion [15, 60, _icp, 1, 2, true];
@@ -50,7 +53,7 @@ _occlusionState set [0, ((_occlusionState select 0) + floor (_volume * 1.5 * (1 
 _occlusionState set [1, ((_occlusionState select 1) + floor (_volume * (1 - (_mitigation select 1)))) min 10];
 _occlusionState set [2, ((_occlusionState select 2) + floor (_volume * 0.7 * (1 - (_mitigation select 1)))) min 10];
 _unit setVariable [QGVAR(occlusion), _occlusionState, true];
-_unit setVariable [QGVAR(stomachVolume), (_volume - 1), true];
+//_unit setVariable [QGVAR(stomachVolume), (_volume - 1), true];
 _unit setVariable [QGVAR(hasPuked), true, true];
 TRACE_1("occlusion",_occlusionState);
 if (GVAR(checkbox_puking_sound)) then {
