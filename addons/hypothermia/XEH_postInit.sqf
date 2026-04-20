@@ -23,5 +23,5 @@
     };
     private _temp = _temp - 0.1;
     _unit setVariable [QGVAR(unitTemperature), _temp, true];
-}, 10, [_unit]] call ;
+}, 10, [_unit]] call CBA_fnc_addPerFrameHandler;
 }] call CBA_fnc_addEventHandler;
