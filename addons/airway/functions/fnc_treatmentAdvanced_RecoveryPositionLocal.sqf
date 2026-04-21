@@ -52,4 +52,4 @@ if (GVAR(RecoveryPosition_TimeToDrain) > 0) then {
 
     _patient setVariable [QGVAR(recovery), false, true];
     _patient setVariable [QGVAR(overstretch), false, true];
-}, [_medic, _patient], 3600, {}] call CBA_fnc_waitUntilAndExecute;
+}, [_medic, _patient], 10800, {}] call CBA_fnc_waitUntilAndExecute;
