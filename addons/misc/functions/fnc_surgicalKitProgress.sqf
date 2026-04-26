@@ -22,7 +22,13 @@
 params ["_args", "_elapsedTime", "_totalTime"];
 _args params ["_medic", "_patient", "_bodyPart"];
 
-if (_totalTime - _elapsedTime > ([_patient, _patient, _bodyPart] call FUNC(getStitchTime)) - ACEGVAR(medical_treatment,woundStitchTime)) exitWith {true};
+private _currentWound = [_patient, _bodyPart] call FUNC(getNextStitchableWound);
+
+if (_currentWound isEqualTo []) exitWith {false};
+
+private _requiredTime = [_currentWound] call FUNC(getStitchTimeWound);
+
+if (_totalTime - _elapsedTime > (([_patient, _patient, _bodyPart] call FUNC(getStitchTime)) - _requiredTime)) exitWith {true};
 // Get all wounds
 private _bandagedWounds  = GET_BANDAGED_WOUNDS(_patient);
 private _wrappedWounds   = GET_WRAPPED_WOUNDS(_patient);
@@ -40,11 +46,7 @@ private _allWounds = [];
 
     {
         if (
-            _woundSource != "bandaged"
-            || {
-                _x params ["", "", "", "", "_type"];
-                !(_type in _unstitchableTypes)
-            }
+            ([_x] call FUNC(canStitchWound))
         ) then {
             _allWounds pushBack [_x, _forEachIndex, _woundSource];
         };
@@ -61,15 +63,30 @@ if (_allWounds isEqualTo []) exitWith {false};
 // Stitch the first possible wound on the body part
 private _stitched = [_patient, _bodyPart] call FUNC(stitchWound);
 
-if (!_stitched) exitWith {
+if (typeName _stitched != "array") exitWith {
     ERROR_1("failed to stitch wound on unit - %1",_patient);
     false
 };
 
 // Consume a suture for the next wound if one exists, stop stitching if none are left
-if (GVAR(consumeSurgicalKit) == 2 && {_bandagedWoundsOnPart isNotEqualTo []}) then {
-    ([_medic, _patient, ["ACE_suture"]] call FUNC(useItem)) params ["_user"];
-    !isNull _user
+if (GVAR(consumeSurgicalKit) == 2 && {_bandagedWoundsOnPart isNotEqualTo []} &&  {_wrappedWoundsOnPart isNotEqualTo []} &&  {_coagWoundsOnPart isNotEqualTo []}) then {
+    _stitched params ["_wound", "_amount", "_source"];
+    _wound params ["_classID", "", "", "", "_type"];
+    private _category = _classID % 10;
+    private _cost = switch (_category) do {
+        case 0: {1};
+        case 1: {2};
+        case 2: {3};
+        default {1};
+    };
+
+    if (_type == "Avulsion") then {_cost = _cost + 1};
+
+    for "_i" from 1 to _cost do {
+        ([_medic, _patient, ["ACE_suture"]] call FUNC(useItem)) params ["_user"];
+        if (isNull _user) exitWith {false};
+    };
+    true
 } else {
     true
 }

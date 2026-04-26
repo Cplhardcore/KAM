@@ -25,64 +25,49 @@ private _bandagedWounds = GET_BANDAGED_WOUNDS(_patient) getOrDefault [_bodyPart,
 private _clottedWounds  = GET_COAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
 private _wrappedWounds = GET_WRAPPED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
 private _time = 0;
+private _calcTime = {
+    params ["_wound"];
 
-_bandagedWounds select {
-    _x params ["_woundClassID", "_amountOfWounds", "_bleedingRate", "", "_type"];
-    
-    private _classIndex = _woundClassID / 10;
-    private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-    private _category   = _woundClassID % 10;
-    switch (_category) do {
-        case 0: {
-            _time = _time + ((_amountOfWounds max 1) * GVAR(smallWoundStitchTime));
-        };
-        case 1: {
-            _time = _time + ((_amountOfWounds max 1) * GVAR(mediumWoundStitchTime));
-        };
-        case 2: {
-            _time = _time + ((_amountOfWounds max 1) * GVAR(largeWoundStitchTime));
-        };
-    };
-    !(_type in _unstitchableTypes) && !(_className in ["InternalBleeding", "Evisceration", "Thermal_Burn"])  && !(GVAR(allowCatastrophicWoundStitch) && _className in ["Avulsion", "VelocityWound", "Laceration"]);
-};
+    _wound params ["_classID", "_amount"];
 
-_clottedWounds select {
-    _x params ["_woundClassID", "_amountOfWounds", "_bleedingRate", "", "_type"];
-    
-    private _classIndex = _woundClassID / 10;
-    private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-    private _category   = _woundClassID % 10;
-    switch (_category) do {
-        case 0: {
-            _time = _time + ((_amountOfWounds max 1) * GVAR(smallWoundStitchTime));
-        };
-        case 1: {
-            _time = _time + ((_amountOfWounds max 1) * GVAR(mediumWoundStitchTime));
-        };
-        case 2: {
-            _time = _time + ((_amountOfWounds max 1) * GVAR(largeWoundStitchTime));
-        };
+    private _category = _classID % 10;
+
+    private _baseTime = switch (_category) do {
+        case 0: { GVAR(smallWoundStitchTime) };
+        case 1: { GVAR(mediumWoundStitchTime) };
+        case 2: { GVAR(largeWoundStitchTime) };
+        default { 1 };
     };
-    !(_type in _unstitchableTypes) && !(_className in ["InternalBleeding", "Evisceration", "Thermal_Burn"])  && !(GVAR(allowCatastrophicWoundStitch) && _className in ["Avulsion", "VelocityWound", "Laceration"]);
-};
-_wrappedWounds select {
-    _x params ["_woundClassID", "_amountOfWounds", "_bleedingRate", "", "_type"];
-    
-    private _classIndex = _woundClassID / 10;
+
+    // Optional: scale by class
+    private _classIndex = _classID / 10;
     private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-    private _category   = _woundClassID % 10;
-    switch (_category) do {
-        case 0: {
-            _time = _time + ((_amountOfWounds max 1) * GVAR(smallWoundStitchTime));
-        };
-        case 1: {
-            _time = _time + ((_amountOfWounds max 1) * GVAR(mediumWoundStitchTime));
-        };
-        case 2: {
-            _time = _time + ((_amountOfWounds max 1) * GVAR(largeWoundStitchTime));
-        };
+
+    private _typeMultiplier = switch (_className) do {
+        case "VelocityWound": {1.3};
+        case "Avulsion": {1.5};
+        case "Laceration": {1.2};
+        default {1};
     };
-    !(_type in _unstitchableTypes) && !(_className in ["InternalBleeding", "Evisceration", "Thermal_Burn"])  && !(GVAR(allowCatastrophicWoundStitch) && _className in ["Avulsion", "VelocityWound", "Laceration"]);
+
+    (_amount max 1) * _baseTime * _typeMultiplier
 };
+{
+    if ([_x] call FUNC(canStitchWound)) then {
+        _time = _time + ([_x] call _calcTime);
+    };
+} forEach _bandagedWounds;
+
+{
+    if ([_x] call FUNC(canStitchWound)) then {
+        _time = _time + ([_x] call _calcTime);
+    };
+} forEach _clottedWounds;
+
+{
+    if ([_x] call FUNC(canStitchWound)) then {
+        _time = _time + ([_x] call _calcTime);
+    };
+} forEach _wrappedWounds;
 TRACE_1("AmountOf",_amountOf);
 _time
