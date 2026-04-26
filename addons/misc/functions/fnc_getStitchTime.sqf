@@ -24,15 +24,26 @@ private _unstitchableTypes = ["ETD", "Israeli_Bandage"];
 private _bandagedWounds = GET_BANDAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
 private _clottedWounds  = GET_COAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
 private _wrappedWounds = GET_WRAPPED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
-private _amountOf = 0;
+private _time = 0;
 
 _bandagedWounds select {
     _x params ["_woundClassID", "_amountOfWounds", "_bleedingRate", "", "_type"];
     
     private _classIndex = _woundClassID / 10;
     private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-    _amountOf = _amountOf + (_amountOfWounds max 1);
-    !(_type in _unstitchableTypes) && !(_className in ["InternalBleeding", "Evisceration", "Thermal_Burn"]);
+    private _category   = _woundClassID % 10;
+    switch (_category) do {
+        case 0: {
+            _time = _time + ((_amountOfWounds max 1) * GVAR(smallWoundStitchTime));
+        };
+        case 1: {
+            _time = _time + ((_amountOfWounds max 1) * GVAR(mediumWoundStitchTime));
+        };
+        case 2: {
+            _time = _time + ((_amountOfWounds max 1) * GVAR(largeWoundStitchTime));
+        };
+    };
+    !(_type in _unstitchableTypes) && !(_className in ["InternalBleeding", "Evisceration", "Thermal_Burn"])  && !(GVAR(allowCatastrophicWoundStitch) && _className in ["Avulsion", "VelocityWound", "Laceration"]);
 };
 
 _clottedWounds select {
@@ -40,16 +51,38 @@ _clottedWounds select {
     
     private _classIndex = _woundClassID / 10;
     private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-    _amountOf = _amountOf + (_amountOfWounds max 1);
-    !(_type in _unstitchableTypes) && !(_className in ["InternalBleeding", "Evisceration", "Thermal_Burn"]);
+    private _category   = _woundClassID % 10;
+    switch (_category) do {
+        case 0: {
+            _time = _time + ((_amountOfWounds max 1) * GVAR(smallWoundStitchTime));
+        };
+        case 1: {
+            _time = _time + ((_amountOfWounds max 1) * GVAR(mediumWoundStitchTime));
+        };
+        case 2: {
+            _time = _time + ((_amountOfWounds max 1) * GVAR(largeWoundStitchTime));
+        };
+    };
+    !(_type in _unstitchableTypes) && !(_className in ["InternalBleeding", "Evisceration", "Thermal_Burn"])  && !(GVAR(allowCatastrophicWoundStitch) && _className in ["Avulsion", "VelocityWound", "Laceration"]);
 };
 _wrappedWounds select {
     _x params ["_woundClassID", "_amountOfWounds", "_bleedingRate", "", "_type"];
     
     private _classIndex = _woundClassID / 10;
     private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-    _amountOf = _amountOf + (_amountOfWounds max 1);
-    !(_type in _unstitchableTypes) && !(_className in ["InternalBleeding", "Evisceration", "Thermal_Burn"]);
+    private _category   = _woundClassID % 10;
+    switch (_category) do {
+        case 0: {
+            _time = _time + ((_amountOfWounds max 1) * GVAR(smallWoundStitchTime));
+        };
+        case 1: {
+            _time = _time + ((_amountOfWounds max 1) * GVAR(mediumWoundStitchTime));
+        };
+        case 2: {
+            _time = _time + ((_amountOfWounds max 1) * GVAR(largeWoundStitchTime));
+        };
+    };
+    !(_type in _unstitchableTypes) && !(_className in ["InternalBleeding", "Evisceration", "Thermal_Burn"])  && !(GVAR(allowCatastrophicWoundStitch) && _className in ["Avulsion", "VelocityWound", "Laceration"]);
 };
 TRACE_1("AmountOf",_amountOf);
-_amountOf * ACEGVAR(medical_treatment,woundStitchTime)
+_time
