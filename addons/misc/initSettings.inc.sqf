@@ -603,13 +603,41 @@
     }
 ] call CBA_fnc_addSetting;
 
-//Enable's Stitching of the Full Body 
+
+
 [
-    QGVAR(enableStitchFullBody),
-    "CHECKBOX",
-    [LLSTRING(SETTING_EnableStitchFullBody), LLSTRING(SETTING_EnableStitchFullBody_DESC)],
+    QGVAR(allowAdvancedStitching),
+    "LIST",
+    [LLSTRING(allowAdvancedStitching_DisplayName), LLSTRING(allowAdvancedStitching_Description)],
     [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [false],
+    [[0, 1, 2, 3], [ACELSTRING(common,Anywhere), ACELSTRING(common,Vehicle), ACELSTRING(medical_treatment,MedicalFacilities), ACELSTRING(medical_treatment,VehiclesAndFacilities)], 2],
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(smallWoundStitchTime),
+    "SLIDER",
+    [LLSTRING(SETTING_smallWoundStitchTime)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [1, 60, 1, 1],
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(mediumWoundStitchTime),
+    "SLIDER",
+    [LLSTRING(SETTING_mediumWoundStitchTime)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [1, 60, 2, 1],
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(largeWoundStitchTime),
+    "SLIDER",
+    [LLSTRING(SETTING_largeWoundStitchTime)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [1, 60, 3, 1],
     true
 ] call CBA_fnc_addSetting;
 

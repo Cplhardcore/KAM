@@ -20,13 +20,13 @@
  * Public: No
  */
  
-params ["_patient", "_bodyPart"];
+params ["_medic", "_patient", "_bodyPart"];
 
 // Fetch wounds
 private _bandaged = GET_BANDAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
 private _wrapped  = GET_WRAPPED_WOUNDS(_patient)  getOrDefault [_bodyPart, []];
 private _coag     = GET_COAGED_WOUNDS(_patient)   getOrDefault [_bodyPart, []];
-
+private _stitchableWound = [];
 // Order matters (same as your system)
 private _sources = [
     [_bandaged, "bandaged"],
@@ -40,8 +40,8 @@ private _sources = [
     {
         private _wound = _x;
 
-        if ([_wound] call FUNC(canStitchWound)) exitWith {
-            [_wound, _forEachIndex, _source]
+        if ([_medic, _wound] call FUNC(canStitchWound)) exitWith {
+            _stitchableWound = [_wound, _forEachIndex, _source]
         };
 
     } forEach _woundArray;
@@ -49,4 +49,4 @@ private _sources = [
 } forEach _sources;
 
 // Nothing found
-[]
+_stitchableWound

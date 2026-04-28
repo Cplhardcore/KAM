@@ -22,13 +22,16 @@
 params ["_args", "_elapsedTime", "_totalTime"];
 _args params ["_medic", "_patient", "_bodyPart"];
 
-private _currentWound = [_patient, _bodyPart] call FUNC(getNextStitchableWound);
+private _currentWound = [_medic, _patient, _bodyPart] call FUNC(getNextStitchableWound);
 
 if (_currentWound isEqualTo []) exitWith {false};
-
-private _requiredTime = [_currentWound] call FUNC(getStitchTimeWound);
-
-if (_totalTime - _elapsedTime > (([_patient, _patient, _bodyPart] call FUNC(getStitchTime)) - _requiredTime)) exitWith {true};
+TRACE_1("_currentWound", _currentWound);
+_currentWound params ["_wound"];
+private _requiredTime = [_wound] call FUNC(getStitchTimeWound);
+TRACE_1("ReqTime", _requiredTime);
+private _totalStitchTime = ([_patient, _patient, _bodyPart] call FUNC(getStitchTime));
+TRACE_1("stitchTime", _totalStitchTime);
+if (_totalTime - _elapsedTime > (_totalStitchTime - _requiredTime)) exitWith {true};
 // Get all wounds
 private _bandagedWounds  = GET_BANDAGED_WOUNDS(_patient);
 private _wrappedWounds   = GET_WRAPPED_WOUNDS(_patient);
@@ -46,7 +49,7 @@ private _allWounds = [];
 
     {
         if (
-            ([_x] call FUNC(canStitchWound))
+            ([_medic, _x] call FUNC(canStitchWound))
         ) then {
             _allWounds pushBack [_x, _forEachIndex, _woundSource];
         };
@@ -61,7 +64,7 @@ private _allWounds = [];
 if (_allWounds isEqualTo []) exitWith {false};
 
 // Stitch the first possible wound on the body part
-private _stitched = [_patient, _bodyPart] call FUNC(stitchWound);
+private _stitched = [_medic, _patient, _bodyPart] call FUNC(stitchWound);
 
 if (typeName _stitched != "array") exitWith {
     ERROR_1("failed to stitch wound on unit - %1",_patient);

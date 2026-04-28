@@ -4,7 +4,7 @@
  * Calculates the Surgical Kit treatment time based on the amount of stitchable wounds.
  *
  * Arguments:
- * 0: Medic <OBJECT>
+ * 0: Medic (not used) <OBJECT>
  * 1: Patient <OBJECT>
  * 2: Body Part <STRING>
  *
@@ -17,19 +17,12 @@
  * Public: No
  */
 
-params ["_medic", "_patient", "_bodyPart"];
-
-private _unstitchableTypes = ["ETD", "Israeli_Bandage"];
-
-private _bandagedWounds = GET_BANDAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
-private _clottedWounds  = GET_COAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
-private _wrappedWounds = GET_WRAPPED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
-private _time = 0;
+params ["_wound"];
 private _calcTime = {
     params ["_wound"];
 
     _wound params ["_classID", "_amount"];
-
+    systemChat str _wound;
     private _category = _classID % 10;
 
     private _baseTime = switch (_category) do {
@@ -52,22 +45,5 @@ private _calcTime = {
 
     (_amount max 1) * _baseTime * _typeMultiplier
 };
-{
-    if ([_medic,_x] call FUNC(canStitchWound)) then {
-        _time = _time + ([_x] call _calcTime);
-    };
-} forEach _bandagedWounds;
-
-{
-    if ([_medic, _x] call FUNC(canStitchWound)) then {
-        _time = _time + ([_x] call _calcTime);
-    };
-} forEach _clottedWounds;
-
-{
-    if ([_medic,_x] call FUNC(canStitchWound)) then {
-        _time = _time + ([_x] call _calcTime);
-    };
-} forEach _wrappedWounds;
-TRACE_1("AmountOf",_amountOf);
+private _time = [_wound] call _calcTime;
 _time

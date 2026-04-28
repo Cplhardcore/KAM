@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_patient", "_bodyPart", ["_treatedWound", []]];
+params ["_medic", "_patient", "_bodyPart", ["_treatedWound", []]];
 
 // Fetch wounds per body part
 private _bandagedWounds = GET_BANDAGED_WOUNDS(_patient);
@@ -50,12 +50,7 @@ private _woundIndex = -1;
 if (_treatedWound isEqualTo []) then {
     {
         _x params ["_wound", "_index", "_source"];
-        _wound params ["_treatedID", "", "", "", "_type"];
-
-        private _classIndex = _treatedID / 10;
-        private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-
-        if (([_wound] call FUNC(canStitchWound))) exitWith {
+        if (([_medic, _wound] call FUNC(canStitchWound))) exitWith {
             _treatedWound = _wound;
             _woundIndex = _index;
             _treatedSource = _source;
