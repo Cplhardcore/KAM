@@ -83,8 +83,6 @@ if (GVAR(consumeSurgicalKit) == 2 && {_bandagedWoundsOnPart isNotEqualTo []} && 
         default {1};
     };
 
-    if (_type == "Avulsion") then {_cost = _cost + 1};
-
     for "_i" from 1 to _cost do {
         ([_medic, _patient, ["ACE_suture"]] call FUNC(useItem)) params ["_user"];
         if (isNull _user) exitWith {false};

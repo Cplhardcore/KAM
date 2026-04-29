@@ -47,6 +47,9 @@ private _calcTime = {
         case "VelocityWound": {1.3};
         case "Avulsion": {1.5};
         case "Laceration": {1.2};
+        case "Crush": {0.8};
+        case "Incision": {0.8};
+        case "Abrasion": {0.6};
         default {1};
     };
 

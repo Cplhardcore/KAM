@@ -24,7 +24,6 @@ PREP(getDogtagData);
 PREP(getMagazineAmmoCounts);
 PREP(getNextStitchableWound);
 PREP(getStitchTime);
-PREP(getStitchTimeFullBody);
 PREP(getStitchTimeWound);
 PREP(groupID);
 PREP(handleBandageOpening);
