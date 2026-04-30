@@ -66,13 +66,14 @@ if (_classname in ["CWMP", "Painkillers", "Penthrox", "Caffeine", "Pervitin", "C
 if (_classname in ["Penthrox", "Carbonate"]) then {
     private _breathing = GET_BREATHING_RATE(_patient);
     if (_breathing < 2) exitWith {
-        TRACE_1("Medication ",_breathing);
+        TRACE_1("Medication cannot be inhaled",_breathing);
     };
 };
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
 private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
+private _IVStatusArray = _patient getVariable [QGVAR(IVStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
 // Handle IV blockage
-if ([7,8,9] find (_IVarray select _partIndex) != -1) exitWith {
+if ((_IVStatusArray select _partIndex) > 0.3) exitWith {
     private _occludedMedications = _patient getVariable [QGVAR(occludedMedications), []];
     _occludedMedications pushBack [_partIndex, _classname, _patient];
     _patient setVariable [QGVAR(occludedMedications), _occludedMedications, true];

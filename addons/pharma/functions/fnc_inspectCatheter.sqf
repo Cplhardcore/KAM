@@ -20,10 +20,10 @@
 params ["_medic", "_patient", "_bodyPart"];
 
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
-private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
+private _IVarray = _patient getVariable [QGVAR(IVStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVactual = _IVarray select _partIndex;
 
-if (_IVactual in [7,8,9]) exitWith {
+if (_IVactual > 0) exitWith {
     private _output = LLSTRING(IVblock_closed);
     [_output, 1.5, _medic] call ACEFUNC(common,displayTextStructured);
 };

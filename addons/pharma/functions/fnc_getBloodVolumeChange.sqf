@@ -62,6 +62,7 @@ _unit setVariable [QEGVAR(circulation,externalBloodLoss), _externalBloodLoss + _
 if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
     private _bloodBags = _unit getVariable [QACEGVAR(medical,ivBags), []];
     private _IVarray = _unit getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
+    private _IVStatusArray = _unit getVariable [QGVAR(IVStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
     private _flowCalculation = (ACEGVAR(medical,ivFlowRate) * _deltaT * 3.16);
     private _hypothermia = EGVAR(hypothermia,hypothermiaActive);
     private _vasoconstriction = GET_VASOCONSTRICTION(_unit);
@@ -88,8 +89,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
         private _idx = _occlusionMap findIf { _x#0 == _bodyPart };
         private _result = if (_idx != -1) then { _occlusionMap select _idx select 1 } else { [] };
         private _isOccluded = ({ _tourniquets select _x != 0 } count _result > 0) && (_IVarray select _bodyPart isNotEqualTo 13);
-        if ((!_isOccluded) && ([7,8,9,15] find (_IVarray select _bodyPart) == -1)) then {
-            if (_type in ["Blood", "Saline", "Plasma", "Ringers Lactate", "PackedRBC", "Hypertonic Saline", "Hextend", "FBTK_500", "FBTK_250"]) then {
+        if ((!_isOccluded) && ((_IVStatusArray select _bodyPart) != 1)) then {
+            if (_type in ["Blood", "Saline", "Plasma", "Ringers Lactate", "PackedRBC", "Hypertonic Saline", "Hextend", "FBTK_500", "FBTK_250", "Platelets"]) then {
             private _IVflow = _unit getVariable [QGVAR(IVflow), [0,0,0,0,0,0,0,0,0,0,0,0]];
             private _IVrate = _unit getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
             private _pressureBag = _unit getVariable [QGVAR(pressureBag), [0,0,0,0,0,0,0,0,0,0,0,0]];
@@ -100,10 +101,17 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 _flowCalculation = _flowCalculation * 0.6;
             };
             private _bagChange = 0;
-            if (_type in ["Blood", "Saline", "Plasma", "Ringers Lactate", "PackedRBC", "Hypertonic Saline", "Hextend"]) then {
-            _bagChange = (_flowCalculation * (_IVflow select _bodyPart) * (_IVrate select _bodyPart) * (1 + (_pressureBag select _bodyPart)) * _rateCoef) min _bagVolumeRemaining; // absolute value of the change in miliLiters
-            if ((_IVarray select _bodyPart) in [2,3,4,10,11,12]) then {
+            if (_type in ["Blood", "Saline", "Plasma", "Ringers Lactate", "PackedRBC", "Hypertonic Saline", "Hextend", "Platelets"]) then {
+            _bagChange = (_flowCalculation * (_IVflow select _bodyPart) * (1 - (((_IVStatusArray select _bodyPart)) max 0)) * (_IVrate select _bodyPart) * (1 + (_pressureBag select _bodyPart)) * _rateCoef) min _bagVolumeRemaining; // absolute value of the change in miliLiters
+            if ((_IVarray select _bodyPart) in [2,3,4]) then {
                 _bagChange = _bagChange * ((1 * (_vasoconstriction select _bodyPart)) max 0.2);
+            };
+            if (_plateletAmount > 0) then {
+                if ((random 100) < 2) then {
+                    private _amount = linearConversion [0, 2, _plateletAmount, 0.001, 0.03];
+                    _IVStatusArray set [_bodyPart, (_IVStatusArray select _bodyPart) + _amount];
+                    _unit setVariable [QGVAR(IVStatus),_IVStatusArray, true];
+                };
             };
             _bagVolumeRemaining = _bagVolumeRemaining - _bagChange;
             _incomingFlowAmount set [_bodyPart, ((_incomingFlowAmount select _bodyPart) + _bagChange)];
@@ -180,7 +188,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             };
             } else {
                 _bagChange = (_flowCalculation * (_IVrate select _bodyPart) *  _rateCoef); // absolute value of the change in miliLiters
-                if ((_IVarray select _bodyPart) in [2,3,4,10,11,12]) then {
+                if ((_IVarray select _bodyPart) in [2,3,4]) then {
                     _bagChange = _bagChange * ((2 - (_vasoconstriction select _bodyPart)) max 0.2);
                 };
             };

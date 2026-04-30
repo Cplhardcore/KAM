@@ -18,27 +18,27 @@
 params ["_patient"];
 TRACE_1("fullHealLocal",_patient);
 
+
+
+GVAR(cardiacArrestBleedRate) = ACEGVAR(medical,const_minCardiacOutput) * EGVAR(circulation,cardiacArrestBleedRate);
+_patient setVariable [QGVAR(alphaAction), [1,1,1,1,1,1,1,1,1,1,1,1], true];
 /*
 * 0 = No IV
 * 1 = IO
 * 2 = 16g IV
 * 3 = 14g IV
 * 4 = 20g IV
-* 7 = 16g IV w/ Block
-* 8 = 14g IV w/ Block
-* 9 = 20g IV w/ Block
-* 10 = 16g IV w/ Flush
-* 11 = 14g IV w/ Flush
-* 12 = 20g IV w/ Flush
 * 13 = EZ IO
 * 14 = EJV
 */
-
-GVAR(cardiacArrestBleedRate) = ACEGVAR(medical,const_minCardiacOutput) * EGVAR(circulation,cardiacArrestBleedRate);
-_patient setVariable [QGVAR(alphaAction), [1,1,1,1,1,1,1,1,1,1,1,1], true];
-
 _patient setVariable [QGVAR(IV),[0,0,0,0,0,0,0,0,0,0,0,0], true];
 
+/*
+* 0 = Normal IV
+* 1-2 = IV block level, 
+* 3-4 = IV Leakage Level,
+*/
+_patient setVariable [QGVAR(IVStatus),[0,0,0,0,0,0,0,0,0,0,0,0], true];
 if (GVAR(RequireInsIV) && GVAR(IVflowControl)) then {
     _patient setVariable [QGVAR(IVflow), [0,0,0,0,0,0,0,0,0,0,0,0], true];
 } else {
