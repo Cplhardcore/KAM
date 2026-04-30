@@ -47,8 +47,6 @@ private _modifierFunc = {
 	private _map = GET_MAP(_patient);
 	private _lowBP = GVAR(Stable_TrackLowBP) && (_map < 60);
 	private _lowHR = GVAR(Stable_TrackLowHR) && (GET_HEART_RATE(_patient) < 60);
-	private _stitchWounds = _patient call EFUNC(misc,getFullBodyStitchableWoundTime);
-	private _stitch = (_stitchWounds > 0);
 	private _bandage = GVAR(Stable_TrackNeedsBandage) && [_patient] call FUNC(needsBandage);
 
 	if(_tourniquet) then {

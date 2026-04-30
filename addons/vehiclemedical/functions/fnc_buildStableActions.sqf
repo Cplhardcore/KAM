@@ -38,18 +38,6 @@ if(_needsBandage) then {
 	_actions pushBack [_action, [], _patient];
 };
 
-// Stitchable Wounds Action
-private _stitchWounds = _patient call EFUNC(misc,getFullBodyStitchableWoundTime);
-private _needsStitch = (_stitchWounds > 0);
-if (_needsStitch) then {
-	private _action = ["MIRA_Stitch", format[[LOC(Stable,Stitch)] call FUNC(cachedLocalisationCall), _stitchWounds] , QPATHTOF(ui\stitch.paa), {
-			params ["_target", "_player", "_parameters"];
-			_parameters params ["_patient"];
-			[_patient] call FUNC(openMedicalMenu);
-		}, {true}, {}, [_patient]] call ace_interact_menu_fnc_createAction;
-	_actions pushBack [_action, [], _patient];
-};
-
 // Low Heartrate Action
 private _hasLowHR = GVAR(Stable_TrackLowHR) && (GET_HEART_RATE(_patient) < 60);
 if(_hasLowHR) then {

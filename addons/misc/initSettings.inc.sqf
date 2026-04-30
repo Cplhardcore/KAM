@@ -608,7 +608,7 @@
 [
     QGVAR(allowAdvancedStitching),
     "LIST",
-    [LLSTRING(allowAdvancedStitching_DisplayName), LLSTRING(allowAdvancedStitching_Description)],
+    [LLSTRING(SETTING_allowAdvancedStitching_DisplayName), LLSTRING(SETTING_allowAdvancedStitching_Description)],
     [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
     [[0, 1, 2, 3], [ACELSTRING(common,Anywhere), ACELSTRING(common,Vehicle), ACELSTRING(medical_treatment,MedicalFacilities), ACELSTRING(medical_treatment,VehiclesAndFacilities)], 2],
     true

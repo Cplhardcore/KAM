@@ -23,7 +23,7 @@ if ((_hasSpaceblanket) && (abs (speed _unit) > 4 && isNull objectParent _unit)) 
     if ((random 100) < _chance) then {
         _unit setVariable [QGVAR(spaceBlanket), false, true];
         private _impact = (_unit getVariable [QGVAR(warmingImpact), 0]);
-        private _reduce = (_impact - 3000) max 0
+        private _reduce = (_impact - 3000) max 0;
         _unit setVariable [QGVAR(warmingImpact), _reduce, true];
         [LLSTRING(thermalBlanket_FallOff), 1.5, _unit] call ACEFUNC(common,displayTextStructured);
     };
