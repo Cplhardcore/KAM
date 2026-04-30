@@ -396,6 +396,7 @@ switch (true) do {
 };
 [_unit] call EFUNC(misc,handleBandageOpening);
 [_unit] call EFUNC(misc,updateDamageEffects);
+[_unit] call EFUNC(pharma,updatePharmaEffects);
 #ifdef DEBUG_MODE_FULL
 private _cardiacOutput = [_unit] call ACEFUNC(medical_status,getCardiacOutput);
 if (!isPlayer _unit) then {

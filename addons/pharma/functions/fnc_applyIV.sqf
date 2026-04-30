@@ -236,23 +236,6 @@ switch (_usedItem) do {
         _IVrate set [_partIndex, 0.8];
         _patient setVariable [QGVAR(IV), _IVarray, true];
         _patient setVariable [QGVAR(IVrate), _IVrate, true];
-        [{
-            params ["_args", "_idPFH"];
-            _args params ["_patient"];
-            if (!alive _patient || (abs (speed _patient) > 9.9 && isNull objectParent _patient)) exitWith {
-                [_idPFH] call CBA_fnc_removePerFrameHandler;
-                private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
-                private _IVrate = _patient getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
-                _IVarray set [1, 0];
-                _IVrate set [1, 0];
-                _patient setVariable [QGVAR(IV), _IVarray, true];
-                _patient setVariable [QGVAR(IVrate), _IVrate, true];
-                if (random 100 < 25) then {
-                    private _side = selectRandom [0, 1];
-                    [_patient, _side, 1] call EFUNC(breathing,handleHemothoraxDeterioration);
-                }
-            };
-        }, 1, [_patient]] call CBA_fnc_addPerFrameHandler;
         [_patient, "activity", LSTRING(iv_log), [[_medic] call ACEFUNC(common,getName), "EJV"]] call ACEFUNC(medical_treatment,addToLog);
         [_patient, "EJV"] call ACEFUNC(medical_treatment,addToTriageCard);};};
     default {};
