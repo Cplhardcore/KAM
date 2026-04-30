@@ -17,7 +17,7 @@
 
  params ["_unit"];
  if (!local _unit) exitWith { ERROR_2("updatePharmaEffects: Unit not local or null [%1:%2]",_unit,typeOf _unit); };
-private _IVrate = _patient getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
+private _IVrate = _unit getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVarray = _unit getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 {
     private _partIndex = ALL_BODY_PARTS find _x;
@@ -27,7 +27,7 @@ private _IVarray = _unit getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
             _IVarray set [_partIndex, 0];
             _IVrate set [_partIndex, 0];
             _unit setVariable [QGVAR(IV), _IVarray, true];
-            _patient setVariable [QGVAR(IVrate), _IVrate, true];
+            _unit setVariable [QGVAR(IVrate), _IVrate, true];
         };
     };
 } forEach ALL_BODY_PARTS;
@@ -35,9 +35,9 @@ private _IVarray = _unit getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 if (((_IVarray select 1) == 14) && (abs (speed _unit) > 6 && isNull objectParent _unit)) then {
     private _chance = linearConversion [4, 12, (abs (speed _unit)), 2, 20];
     if ((random 100) < _chance) then {
-        _IVarray set [_partIndex, 0];
-        _IVrate set [_partIndex, 0];
+        _IVarray set [1, 0];
+        _IVrate set [1, 0];
         _unit setVariable [QGVAR(IV), _IVarray, true];
-        _patient setVariable [QGVAR(IVrate), _IVrate, true];
+        _unit setVariable [QGVAR(IVrate), _IVrate, true];
     };
 };
