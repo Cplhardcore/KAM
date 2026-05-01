@@ -15,6 +15,8 @@
  * Public: No
  */
 params ["_patient"];
+private _doseLevel = ([_patient, "DiazepamOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel > 0.1) exitWith {};
 private _medStack = _patient call ACEFUNC(medical_status,getAllMedicationCount);
 private _fentanylEffectiveness = 0;
 private _nalbuphineEffectiveness = 0;

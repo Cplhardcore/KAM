@@ -15,6 +15,8 @@
  * Public: No
  */
 params ["_patient"];
+private _doseLevel = ([_patient, "morphineOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel > 0.1) exitWith {};
 [_patient, "morphineOverdose", 20, 2400, 0, 0, 0, 0, 0.3, 0, 0, 0.17, -0.1, 0, 0, "false", "false", "false", 0.7] call EFUNC(vitals,addMedicationAdjustment);
 [{
     params ["_patient"];
