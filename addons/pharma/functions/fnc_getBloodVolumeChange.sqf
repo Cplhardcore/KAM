@@ -62,7 +62,7 @@ _unit setVariable [QEGVAR(circulation,externalBloodLoss), _externalBloodLoss + _
 if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
     private _bloodBags = _unit getVariable [QACEGVAR(medical,ivBags), []];
     private _IVarray = _unit getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
-    private _IVStatusArray = _unit getVariable [QGVAR(IVStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
+    private _IVStatusArray = _unit getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
     private _flowCalculation = (ACEGVAR(medical,ivFlowRate) * _deltaT * 3.16);
     private _hypothermia = EGVAR(hypothermia,hypothermiaActive);
     private _vasoconstriction = GET_VASOCONSTRICTION(_unit);
@@ -102,7 +102,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             };
             private _bagChange = 0;
             if (_type in ["Blood", "Saline", "Plasma", "Ringers Lactate", "PackedRBC", "Hypertonic Saline", "Hextend", "Platelets"]) then {
-            _bagChange = (_flowCalculation * (_IVflow select _bodyPart) * (1 - (((_IVStatusArray select _bodyPart)) max 0)) * (_IVrate select _bodyPart) * (1 + (_pressureBag select _bodyPart)) * _rateCoef) min _bagVolumeRemaining; // absolute value of the change in miliLiters
+            _bagChange = (_flowCalculation * (_IVflow select _bodyPart) * (1 - (((_IVStatusArray select _bodyPart) min 1) max 0)) * (_IVrate select _bodyPart) * (1 + (_pressureBag select _bodyPart)) * _rateCoef) min _bagVolumeRemaining; // absolute value of the change in miliLiters
             if ((_IVarray select _bodyPart) in [2,3,4]) then {
                 _bagChange = _bagChange * ((1 * (_vasoconstriction select _bodyPart)) max 0.2);
             };
@@ -110,7 +110,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 if ((random 100) < 2) then {
                     private _amount = linearConversion [0, 2, _plateletAmount, 0.001, 0.03];
                     _IVStatusArray set [_bodyPart, (_IVStatusArray select _bodyPart) + _amount];
-                    _unit setVariable [QGVAR(IVStatus),_IVStatusArray, true];
+                    _unit setVariable [QGVAR(IVBlockStatus),_IVStatusArray, true];
                 };
             };
             _bagVolumeRemaining = _bagVolumeRemaining - _bagChange;
@@ -122,7 +122,13 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             } forEach _incomingFlowAmount;
             TRACE_8("IV",_bagChange,_IVrate,_IVflow,_IVarray,_isOccluded,_rateCoef,_flowCalculation,_bodyPart);
             TRACE_2("IV2",_bagVolumeRemaining,_incomingFlowAmount);
-            if ((GVAR(LimbIVComplications)) && ((((_incomingFlowAmount select _bodyPart) max 0.01) / ((_IVrate select _bodyPart) max 0.01)) > (5 * ((1 * (_vasoconstriction select _bodyPart)) max 0.2))) && ((random 100) < 20)) then {
+            private _flowRatio = ((_incomingFlowAmount select _bodyPart) max 0.01) / ((_IVrate select _bodyPart) max 0.01);
+            private _vasoFactor = 1 / ((_vasoconstriction select _bodyPart) max 0.2);
+            private _capacity = 4 * _vasoFactor * ((_IVrate select _bodyPart) max 0.01);
+            private _pressure = 1 + (_pressureBag select _bodyPart);
+            private _overload = (_flowRatio * _pressure) / _capacity;
+            private _chance = linearConversion [1, 3, _overload, 0, 100, true];
+            if ((GVAR(LimbIVComplications)) && (_overload > 1) && ((random 100) < _chance)) then {
                 private _incomingFlowDifference = (_incomingFlowAmount select _bodyPart) - (5 * ((1 * (_vasoconstriction select _bodyPart)) max 0.2));
                 [_unit, _bodyPart, _incomingFlowDifference] call FUNC(handleLimbIVComplications)};
             if (GVAR(IVComplications)) then {
@@ -294,6 +300,14 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 _platelets = _platelets - _leakAmount;
                 _ISP = _ISP - _leakAmount;
             };
+            private _leakAmount = ((_unit getVariable [QGVAR(IVLeakStatus), [0,0,0,0,0,0,0,0,0,0,0,0]]) select _bodyPart);
+            if (_leakAmount > 0) then {
+                private _leak = _bagChange * (1 - _leakAmount);
+                _ECB = _ECB - _leak;
+                _ECP = _ECP - _leak;
+                _platelets = _platelets - _leak;
+                _ISP = _ISP - _leak;
+            };
         } else {
             private _IVflow = _unit getVariable [QGVAR(IVflow), [0,0,0,0,0,0,0,0,0,0,0,0]];
             private _IVrate = _unit getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
@@ -363,6 +377,12 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 private _leakAmount = _bagChange * (1 - _lostFluids);
                 _ECP = _ECP - _leakAmount;
                 _ISP = _ISP - _leakAmount;
+            };
+            private _leakAmount = ((_unit getVariable [QGVAR(IVLeakStatus), [0,0,0,0,0,0,0,0,0,0,0,0]]) select _bodyPart);
+            if (_leakAmount > 0) then {
+                private _leak = _bagChange * (1 - _leakAmount);
+                _ECP = _ECP - _leak;
+                _ISP = _ISP - _leak;
             };
         };
     };

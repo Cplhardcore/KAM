@@ -34,11 +34,14 @@ _patient setVariable [QGVAR(alphaAction), [1,1,1,1,1,1,1,1,1,1,1,1], true];
 _patient setVariable [QGVAR(IV),[0,0,0,0,0,0,0,0,0,0,0,0], true];
 
 /*
-* 0 = Normal IV
-* 1-2 = IV block level, 
-* 3-4 = IV Leakage Level,
+* 0-1 = IV block level, 
 */
-_patient setVariable [QGVAR(IVStatus),[0,0,0,0,0,0,0,0,0,0,0,0], true];
+_patient setVariable [QGVAR(IVBlockStatus),[0,0,0,0,0,0,0,0,0,0,0,0], true];
+
+_patient setVariable [QGVAR(IVLeakStatus),[0,0,0,0,0,0,0,0,0,0,0,0], true];
+_patient setVariable [QGVAR(ivStress),[0,0,0,0,0,0,0,0,0,0,0,0], true];
+_patient setVariable [QGVAR(ivPain),[0,0,0,0,0,0,0,0,0,0,0,0], true];
+_patient setVariable [QGVAR(ivCondition),[0,0,0,0,0,0,0,0,0,0,0,0], true];
 if (GVAR(RequireInsIV) && GVAR(IVflowControl)) then {
     _patient setVariable [QGVAR(IVflow), [0,0,0,0,0,0,0,0,0,0,0,0], true];
 } else {

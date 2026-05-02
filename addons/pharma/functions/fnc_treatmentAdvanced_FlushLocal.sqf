@@ -20,7 +20,7 @@
 params ["_medic", "_patient", "_bodyPart"];
 
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
-private _IVarray = _patient getVariable [QGVAR(IVStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
+private _IVarray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
 _IVarray set [_partIndex, 0];
 _patient setVariable [QGVAR(IV), _IVarray, true];
 

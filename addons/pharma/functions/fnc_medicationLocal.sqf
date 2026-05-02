@@ -71,7 +71,7 @@ if (_classname in ["Penthrox", "Carbonate"]) then {
 };
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
 private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
-private _IVStatusArray = _patient getVariable [QGVAR(IVStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
+private _IVStatusArray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
 // Handle IV blockage
 if ((_IVStatusArray select _partIndex) > 0.3) exitWith {
     private _occludedMedications = _patient getVariable [QGVAR(occludedMedications), []];
@@ -114,7 +114,7 @@ if (_isOccluded) exitWith {
     _patient setVariable [QACEGVAR(medical,occludedMedications), _occludedMedications, true];
 };
 private _isInCA = (_patient getVariable [QACEGVAR(medical,inCardiacArrest), false] && !(alive (_patient getVariable [QACEGVAR(medical,CPR_provider), objNull])));
-if (_isInCA && ((_IVarray select _partIndex) in [2,3,4,10,11,12]) && !_isFlushed) exitWith {
+if (_isInCA && ((_IVarray select _partIndex) in [2,3,4]) && !_isFlushed) exitWith {
     TRACE_3("Medication injection site is occluded by CA",_partIndex,_classname,_patient);
     private _occludedMedications = _patient getVariable [QACEGVAR(medical,occludedMedications), []];
     _occludedMedications pushBack [_partIndex, _classname, _patient];
@@ -199,7 +199,7 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4,10,11,12]) && !_isFlushed
     private _drugMult = _weightMult * _doseMult * _unitMedEffectivness * _routeMult;
     TRACE_7("_drugMult",_patient,_defaultHeartRate,(GET_BLOOD_VOLUME_LITERS(_patient) / DEFAULT_BLOOD_VOLUME),_drugMult,_weightMult,_doseMult,_unitMedEffectivness);
     private _painReduce             = GET_NUMBER(_medicationConfig >> "painReduce",getNumber (_defaultConfig >> "painReduce")) * _drugMult;
-    private _timeInSystem           = GET_NUMBER(_medicationConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")) * _drugMult;
+    private _timeInSystem           = GET_NUMBER(_medicationConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")) * _drugMult * (2 - _routeMult);
     private _timeTillMaxEffect      = GET_NUMBER(_medicationConfig >> "timeTillMaxEffect",getNumber (_defaultConfig >> "timeTillMaxEffect")) * _drugMult * (2 - _routeMult);
     private _viscosityChange        = GET_NUMBER(_medicationConfig >> "viscosityChange",getNumber (_defaultConfig >> "viscosityChange")) * _drugMult;
     private _alphaFactor            = GET_NUMBER(_medicationConfig >> "alphaFactor",getNumber (_defaultConfig >> "alphaFactor")) * _drugMult;

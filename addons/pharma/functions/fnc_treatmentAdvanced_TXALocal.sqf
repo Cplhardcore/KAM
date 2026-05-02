@@ -20,7 +20,7 @@ params ["_patient", "_bodyPart", "_timeTillMaxEffect", "_timeInSystem"];
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
 private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVactual = _IVarray select _partIndex;
-private _IVStatusArray = _patient getVariable [QGVAR(IVStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
+private _IVStatusArray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVStatusActual = _IVStatusArray select _partIndex;
 private _medStack = [_patient, false] call ACEFUNC(medical_status,getAllMedicationCount);
 private _txaEffectiveness = 0;
@@ -44,7 +44,7 @@ if (([2,3,4] find _IVactual > 0)) then {
             if !(alive _patient) exitWith {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
-            private _IVStatusArray = _patient getVariable [QGVAR(IVStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
+            private _IVStatusArray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
             private _IVStatusActual = _IVStatusArray select _partIndex;
             if (_IVStatusActual >= 1) exitWith {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
@@ -53,7 +53,7 @@ if (([2,3,4] find _IVactual > 0)) then {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
             _IVStatusArray set [_partIndex, ((_IVStatusActual + (random [0.01, 0.1, 0.2])) min 1)];
-            _patient setVariable [QGVAR(IVStatus), _IVStatusArray, true];
+            _patient setVariable [QGVAR(IVBlockStatus), _IVStatusArray, true];
         }, 15, [_patient, _IVStatusArray, _partIndex, _IVStatusActual]] call CBA_fnc_addPerFrameHandler;
     };
 };

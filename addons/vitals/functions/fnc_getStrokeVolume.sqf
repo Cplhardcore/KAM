@@ -47,14 +47,14 @@ private _hptx = ((_hptxArray select 0) + (_hptxArray select 1));
 
 
 private _tamponade = _unit getVariable [QEGVAR(circulation,effusion), 0];
-private _trali = _unit getVariable [QEGVAR(breathing,TRALI), 0];
+private _trali = _unit getVariable [QEGVAR(breathing,TACO), 0];
 
 private _vrEff =
     1
     - (linearConversion [0,16,_ptx,0,0.3,true])
     - (linearConversion [0,2,_hptx,0,0.4,true])
     - (linearConversion [0,4,_tamponade,0,0.5,true])
-    - (linearConversion [0,30,_trali,0,0.2,true]);
+    - (linearConversion [0,20,_trali,0,0.2,true]);
 
 _vrEff = _vrEff max 0.1;
 private _rvAfterload = 1;

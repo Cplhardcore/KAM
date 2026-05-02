@@ -2785,7 +2785,7 @@
             <Finnish>%1 suoritti suolaliuoksen huuhtelun</Finnish>
             <Dutch>%1 voerde een salinespoeling uit</Dutch>
         </Key>
-        <Key ID="STR_KAT_Pharma_IVblock_closed">
+        <Key ID="STR_KAT_Pharma_IVblock5">
             <English>Patient's IV is blocked</English>
             <Italian>La IV del paziente è ostruita/bloccata</Italian>
             <Czech>IV pacienta je blokována</Czech>
@@ -6161,14 +6161,41 @@
         <Key ID="STR_KAT_Pharma_Transfusing_Hextend">
             <English>Transfusing Hextend...</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_ivSiteCompromised">
-            <English>IV Site Leaking</English>
+        <Key ID="STR_KAT_Pharma_ivSiteCompromised1">
+            <English>Minor IV Site Leakage</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_ivSiteCompromised2">
+            <English>Significant IV Site Leakage</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_ivSiteCompromised3">
+            <English>Major IV Site Leakage</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_ivSiteCompromised4">
+            <English>Catastrophic IV Site Leakage</English>
         </Key>
         <Key ID="STR_KAT_Pharma_ivSiteBlown">
             <English>IV Site Blown</English>
         </Key>
         <Key ID="STR_KAT_Pharma_activeDialysis">
             <English>Active Dialysis</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_ivSiteStatus1">
+            <English>IV Site Inflamed</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_ivSiteStatus2">
+            <English>IV Site Swelling</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IVblock4">
+            <English>Patient's IV is severely occluded</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IVblock3">
+            <English>Patient's IV is majorly occluded</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IVblock2">
+            <English>Patient's IV is partially occluded</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IVblock1">
+            <English>Patient's IV is slightly occluded</English>
         </Key>
     </Package>
 </Project>
