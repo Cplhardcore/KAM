@@ -24,8 +24,6 @@ params ["_medic", "_patient", "_bodyPart", "_usedItem"];
 
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
 private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
-private _IVpfh = _patient getVariable [QGVAR(IVpfh), [0,0,0,0,0,0,0,0,0,0,0,0]];
-private _IVpfhActual = _IVpfh select _partIndex;
 private _IVrate = _patient getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _fractureArray = GET_FRACTURES(_patient);
 private _liveFracture = _fractureArray select _partIndex;
@@ -33,16 +31,6 @@ private _damage = GET_BODYPART_DAMAGE(_patient);
 private _bodypartDamage = _damage select _partIndex;
 private _damageFixed = linearConversion [GVAR(ivDamageThreshold), 40, _bodypartDamage, 1, 4, true];
 
-if (_IVpfhActual > 0) then {
-    [_IVpfhActual] call CBA_fnc_removePerFrameHandler;
-    _IVpfhActual = 0;
-    _IVpfh set [_partIndex, _IVpfhActual];
-    _patient setVariable [QGVAR(IVpfh), _IVpfh, true];
-} else {
-    _IVpfhActual = _IVpfhActual - 1;
-    _IVpfh set [_partIndex, _IVpfhActual];
-    _patient setVariable [QGVAR(IVpfh), _IVpfh, true];
-};
 switch (_usedItem) do {
     case "kat_IV_16": {
         if (GVAR(ivCheckLimbDamage) && (_bodypartDamage > GVAR(ivDamageThreshold)) && (random 100 < (25 * _damageFixed))) exitWith {
@@ -248,64 +236,8 @@ switch (_usedItem) do {
         _IVrate set [_partIndex, 0.8];
         _patient setVariable [QGVAR(IV), _IVarray, true];
         _patient setVariable [QGVAR(IVrate), _IVrate, true];
-        [{
-            params ["_args", "_idPFH"];
-            _args params ["_patient"];
-            if (!alive _patient || (abs (speed _patient) > 9.9 && isNull objectParent _patient)) exitWith {
-                [_idPFH] call CBA_fnc_removePerFrameHandler;
-                private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
-                private _IVrate = _patient getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
-                _IVarray set [1, 0];
-                _IVrate set [1, 0];
-                _patient setVariable [QGVAR(IV), _IVarray, true];
-                _patient setVariable [QGVAR(IVrate), _IVrate, true];
-                if (random 100 < 25) then {
-                    private _side = selectRandom [0, 1];
-                    [_patient, _side, 1] call EFUNC(breathing,handleHemothoraxDeterioration);
-                }
-            };
-        }, 1, [_patient]] call CBA_fnc_addPerFrameHandler;
         [_patient, "activity", LSTRING(iv_log), [[_medic] call ACEFUNC(common,getName), "EJV"]] call ACEFUNC(medical_treatment,addToLog);
         [_patient, "EJV"] call ACEFUNC(medical_treatment,addToTriageCard);};};
     default {};
 };
 
-if (GVAR(IVdropEnable) && ((_usedItem isEqualTo "kat_IV_16") || (_usedItem isEqualTo "kat_IV_14") || (_usedItem isEqualTo "kat_IV_20"))) then {
-    [{
-        params ["_patient", "_partIndex", "_IVpfhActual"];
-
-        private _IVpfh = _patient getVariable [QGVAR(IVpfh), [0,0,0,0,0,0,0,0,0,0,0,0]];
-        private _IVpfhCurrent = _IVpfh select _partIndex;
-
-        if (_IVpfhCurrent == _IVpfhActual) then {
-            [{
-                params ["_args", "_idPFH"];
-                _args params ["_patient", "_partIndex"];
-
-                private _IVpfh = _patient getVariable [QGVAR(IVpfh), [0,0,0,0,0,0,0,0,0,0,0,0]];
-                _IVpfh set [_partIndex, _idPFH];
-                _patient setVariable [QGVAR(IVpfh), _IVpfh, true];
-
-                private _bloodBags = _patient getVariable [QACEGVAR(medical,ivBags), []];
-
-                if (_bloodBags isEqualTo []) exitWith {
-                    [_idPFH] call CBA_fnc_removePerFrameHandler;
-                    private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
-                    private _IVactual = _IVarray select _partIndex;
-
-                    if(GVAR(IVreuse)) then {
-                        switch (_IVactual) do {
-                        case "1": {_patient addItem "kat_IO_FAST"};
-                        case "2": {_patient addItem "kat_IV_16"};
-                        case "3": {_patient addItem "kat_IV_14"};
-                        case "4": {_patient addItem "kat_IV_20"};
-                        };
-                    };
-
-                    _IVarray set [_partIndex, 0];
-                    _patient setVariable [QGVAR(IV), _IVarray, true];
-                };
-            }, GVAR(IVdrop), [_patient, _partIndex]] call CBA_fnc_addPerFrameHandler;
-        };
-    }, [_patient, _partIndex, _IVpfhActual], GVAR(IVdrop)] call CBA_fnc_waitAndExecute;
-};

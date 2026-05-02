@@ -2045,5 +2045,22 @@
         <Key ID="STR_KAT_Misc_SETTING_treatmentModifiers_DESC">
             <English>Adds modifiers to treatment time if the medic is injured or providing continuous aid (Hyperextension or squeezing IV bag)</English>
         </Key>
+        <Key ID="STR_KAT_Misc_SETTING_smallWoundStitchTime">
+            <English>Small wound stitch time</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_mediumWoundStitchTime">
+            <English>Medium wound stitch time</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_largeWoundStitchTime">
+            <English>Large wound stitch time</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_allowAdvancedStitching_Description">
+            <English>Enables/disables the ability to stitch traumatic wounds outside of medical facilities/vehicles</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_allowAdvancedStitching_DisplayName">
+            <English>Allow Traumatic Wound Stitching</English>
+        </Key>
+
+        
     </Package>
 </Project>

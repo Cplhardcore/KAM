@@ -15,7 +15,8 @@
  * Public: No
  */
 params ["_patient"];
-
+private _doseLevel = ([_patient, "EtomidateOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel > 0.01) exitWith {};
 private _randomNumber = floor (random 3) + 1;
 switch (_randomNumber) do {
     case 1: {

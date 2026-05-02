@@ -15,6 +15,8 @@
  * Public: No
  */
 params ["_patient"];
+private _doseLevel = ([_patient, "PhenylephrineOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel > 0.01) exitWith {};
 private _hrValue = [20, 25, 30, 35, 40, 45];
 private _hrAdjust = selectRandom _hrValue;
 private _alphaValue = [-0.7, -0.6, -0.8];

@@ -311,4 +311,4 @@ if (_skip) then { // Skip visual charging process
             _chargeBar ctrlCommit 0;
         }, [_dlg, _chargeBar, _fnc_showDialog], 1] call CBA_fnc_waitAndExecute;
     };
-}, [_dlg, _chargeBar, _fnc_showDialog], 3600, {}] call CBA_fnc_waitUntilAndExecute;
+}, [_dlg, _chargeBar, _fnc_showDialog], 10800, {}] call CBA_fnc_waitUntilAndExecute;

@@ -41,6 +41,9 @@ _patient setVariable [QGVAR(biotTimer), 0, true];
 _patient setVariable [QGVAR(biotState), "", true];
 _patient setVariable [QGVAR(agonalTimer), 0, true];
 _patient setVariable [QGVAR(drainRate), [0, 0], true];
+_patient setVariable [QEGVAR(breathing,TACO), 0, true];
+_patient setVariable [QEGVAR(breathing,TACOStrain), 0, true];
+_patient setVariable [QEGVAR(breathing,TACOState), 0, true];
 
 
 if (ACEGVAR(advanced_fatigue,enabled)) then {

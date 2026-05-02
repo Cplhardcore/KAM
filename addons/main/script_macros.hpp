@@ -350,7 +350,7 @@
 
 // Breathing
 #define VAR_SURFACE_AREA                QEGVAR(breathing,lungSurfaceArea)
-#define GET_KAT_SURFACE_AREA(unit)      ((unit getVariable [VAR_SURFACE_AREA, 400]) - (((unit getVariable [QEGVAR(breathing,pneumothorax), [0, 0]] select 0) + (unit getVariable [QEGVAR(breathing,pneumothorax), [0, 0]] select 1)) * 20) + (((unit getVariable [QEGVAR(breathing,hemopneumothorax), [0, 0]] select 0) + (unit getVariable [QEGVAR(breathing,hemopneumothorax), [0, 0]] select 1)) * 60))
+#define GET_KAT_SURFACE_AREA(unit)      ((unit getVariable [VAR_SURFACE_AREA, 400]) - (((unit getVariable [QEGVAR(breathing,pneumothorax), [0, 0]] select 0) + (unit getVariable [QEGVAR(breathing,pneumothorax), [0, 0]] select 1)) * 20) + (((unit getVariable [QEGVAR(breathing,hemopneumothorax), [0, 0]] select 0) + (unit getVariable [QEGVAR(breathing,hemopneumothorax), [0, 0]] select 1)) * 60) + ((unit getVariable [QEGVAR(breathing,TACO), [0, 0]] select 0) * 10))
 
 #define VAR_BLOOD_GAS                  QEGVAR(circulation,bloodGas)
 #define VAR_BREATHING_RATE             QEGVAR(breathing,breathRate)

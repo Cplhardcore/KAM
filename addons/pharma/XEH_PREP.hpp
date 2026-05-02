@@ -115,5 +115,6 @@ PREP(treatmentAdvanced_SugammadexOverdoseLocal);
 PREP(treatmentAdvanced_TXAAutoLocal);
 PREP(treatmentAdvanced_TXALocal);
 PREP(treatmentAdvanced_TXAOverdoseLocal);
+PREP(updatePharmaEffects);
 PREP(vasoconstrictionLevel);
 PREP(vehicleCheckDialysis);

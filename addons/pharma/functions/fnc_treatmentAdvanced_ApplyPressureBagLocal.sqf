@@ -32,7 +32,7 @@ _patient setVariable [QGVAR(pressureBag), _pressureBag, true];
     _pressureBag set [_partIndex, 0];
     _patient setVariable [QGVAR(pressureBag), _pressureBag, true];
     [_medic, "kat_pressureBag"] call ACEFUNC(common,addToInventory);
-}, [_medic, _patient, _partIndex], 3600, {
+}, [_medic, _patient, _partIndex], 10800, {
     params ["_medic", "_patient", "_partIndex"];
     private _pressureBag = _patient getVariable [QGVAR(pressureBag), [0,0,0,0,0,0,0,0,0,0,0,0]];
     _pressureBag set [_partIndex, 0];

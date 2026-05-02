@@ -21,29 +21,34 @@ params ["_patient", "_bodyPart", "_timeTillMaxEffect", "_timeInSystem"];
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
 private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVactual = _IVarray select _partIndex;
+private _IVStatusArray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
+private _IVStatusActual = _IVStatusArray select _partIndex;
 private _eacaEffectiveness = [_patient, "EACA", false] call ACEFUNC(medical_status,getMedicationCount) select 1;
 private _allowStack = missionNamespace getVariable [QGVAR(allowStackScript_EACA), true];
 private _keepRunning = missionNamespace getVariable [QGVAR(keepScriptRunning_EACA), false];
 private _cycleTime = missionNamespace getVariable [QGVAR(bandageCycleTime_EACA), 5];
 
-if (_IVactual > 1) then {
+if (([2,3,4] find _IVactual > 0)) then {
     private _randomNumber = random 100;
-
-    if (_IVactual in [2, 3, 4]) exitWith {
-        if (_randomNumber < GVAR(blockChance)) then {
-            [{
-                params ["_patient", "_IVarray", "_partIndex", "_IVactual"];
-
-                if (_IVactual > 1 && ([10,11,12] find _IVactual == -1)) exitWith {};
-                _IVarray set [_partIndex, _IVactual + 5];
-                _patient setVariable [QGVAR(IV), _IVarray, true];
-            },
-            [_patient, _IVarray, _partIndex, _IVactual], (random 300)] call CBA_fnc_waitAndExecute;
-        };
+    if (_randomNumber < GVAR(blockChance)) then {
+        [{
+            params ["_args", "_idPFH"];
+            _args params ["_patient", "_IVStatusArray", "_partIndex", "_IVStatusActual"];
+            if !(alive _patient) exitWith {
+                [_idPFH] call CBA_fnc_removePerFrameHandler;
+            };
+            private _IVStatusArray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
+            private _IVStatusActual = _IVStatusArray select _partIndex;
+            if (_IVStatusActual >= 1) exitWith {
+                [_idPFH] call CBA_fnc_removePerFrameHandler;
+            };
+            if ((random 6) >= 3) exitWith {
+                [_idPFH] call CBA_fnc_removePerFrameHandler;
+            };
+            _IVStatusArray set [_partIndex, ((_IVStatusActual + (random [0.01, 0.1, 0.2])) min 1)];
+            _patient setVariable [QGVAR(IVBlockStatus), _IVStatusArray, true];
+        }, 15, [_patient, _IVStatusArray, _partIndex, _IVStatusActual]] call CBA_fnc_addPerFrameHandler;
     };
-
-    _IVarray set [_partIndex, _IVactual];
-    _patient setVariable [QGVAR(IV), _IVarray, true];
 };
 
 
@@ -76,7 +81,7 @@ private _fnc_eacaClot = {
 
 
 if (GVAR(coagulation)) then {
-    if (([7,8,9] find _IVactual) == -1) then {
+    if ((_eacaEffectiveness < 0.3) && (!_allowStack)) exitWith {};
         [{
             params ["_args", "_idPFH"];
             _args params ["_patient", "_timeInSystem", "_fnc_eacaClot"];
@@ -153,12 +158,10 @@ if (GVAR(coagulation)) then {
             }, [_patient, _idPFH], _timeInSystem] call CBA_fnc_waitAndExecute;
 
         }, 10, [_patient, _timeInSystem, _fnc_eacaClot]] call CBA_fnc_addPerFrameHandler;
-    };
 };
 
 
 if (!(GVAR(coagulation)) || GVAR(coagulation_allow_EACA_script)) then {
-    if ([7,8,9] find _IVactual == -1) then {
         if ((_eacaEffectiveness < 0.3) && (!_allowStack)) exitWith {};
 
         [{
@@ -239,5 +242,4 @@ if (!(GVAR(coagulation)) || GVAR(coagulation_allow_EACA_script)) then {
             };
 
         }, _cycleTime, [_patient, _keepRunning, _timeInSystem]] call CBA_fnc_addPerFrameHandler;
-    };
 };

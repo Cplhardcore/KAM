@@ -418,6 +418,9 @@ private _side = _x;
 } forEach [0, 1];
 [_unit, _deltaT] call EFUNC(breathing,handleTamponade);
 
+[_unit] call EFUNC(pharma,updatePharmaEffects);
+[_unit] call EFUNC(hypothermia,updateHypothermiaEffects);
+[_unit] call EFUNC(breathing,updateTACOEffects);
 
 #ifdef DEBUG_MODE_FULL
 private _cardiacOutput = [_unit] call ACEFUNC(medical_status,getCardiacOutput);

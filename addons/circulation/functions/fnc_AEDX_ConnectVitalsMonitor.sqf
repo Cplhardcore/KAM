@@ -65,7 +65,7 @@ switch (_source) do {
                 [_medic, objNull, true, 1, _provider] call FUNC(AEDX_DisconnectVitalsMonitor);
                 [LLSTRING(Defibrillator_PatientDisconnected), 1.5, _medic] call ACEFUNC(common,displayTextStructured);
             };
-        }, [_medic, _patient, _placedDefibrillator], 3600] call CBA_fnc_waitUntilAndExecute;
+        }, [_medic, _patient, _placedDefibrillator], 10800] call CBA_fnc_waitUntilAndExecute;
     };
     case 2: { // Vehicle
         _provider = objectParent _patient;
@@ -84,7 +84,7 @@ switch (_source) do {
                     [LLSTRING(Defibrillator_PatientDisconnected), 1.5, _medic] call ACEFUNC(common,displayTextStructured);
                 };
             };
-        }, [_medic, _patient, _provider], 3600] call CBA_fnc_waitUntilAndExecute;
+        }, [_medic, _patient, _provider], 10800] call CBA_fnc_waitUntilAndExecute;
     };
     default { // Medic
         _provider = _medic;
@@ -109,7 +109,7 @@ switch (_source) do {
                 [_medic, objNull, true, 0, _medic] call FUNC(AEDX_DisconnectVitalsMonitor);
                 [LLSTRING(Defibrillator_PatientDisconnected), 1.5, _medic] call ACEFUNC(common,displayTextStructured);
             };
-        }, [_medic, _patient], 3600] call CBA_fnc_waitUntilAndExecute;
+        }, [_medic, _patient], 10800] call CBA_fnc_waitUntilAndExecute;
     };
 };
 

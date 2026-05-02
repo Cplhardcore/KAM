@@ -15,8 +15,9 @@
  * Public: No
  */
 params ["_patient"];
-
-[_patient, "fentanylOverdose", 10, 2400, 0, 0, 0, 0, 0.4, 0, 0, 0.17, -0.1, 0, 0, "false", "false", "false", 1.2] call EFUNC(vitals,addMedicationAdjustment);
+private _doseLevel = ([_patient, "FentanylOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel > 0.01) exitWith {};
+[_patient, "FentanylOverdose", 10, 2400, 0, 0, 0, 0, 0.4, 0, 0, 0.17, -0.1, 0, 0, "false", "false", "false", 1.2] call EFUNC(vitals,addMedicationAdjustment);
 [{
     params ["_patient"];
         [{
@@ -28,7 +29,7 @@ params ["_patient"];
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
             private _medications = _patient getVariable [QACEGVAR(medical,medications), []];
-            if (_medications findIf {_x isEqualTo "fentanylOverdose"} == -1) exitWith {
+            if (_medications findIf {_x isEqualTo "FentanylOverdose"} == -1) exitWith {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
                 if (_fentanylOverdoseTarget > 6) exitWith {

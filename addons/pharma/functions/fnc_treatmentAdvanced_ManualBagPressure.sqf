@@ -45,7 +45,7 @@ _medic setVariable [QGVAR(pressureIVApplied), true, true];
     _patient setVariable [QGVAR(pressureBag), _pressureBag, true];
     _medic setVariable [QGVAR(pressureIVApplied), false, true];
     [LLSTRING(Pressure_Cancel), 1.5, _medic] call ACEFUNC(common,displayTextStructured);
-}, [_medic, _patient, _partIndex], 3600, {
+}, [_medic, _patient, _partIndex], 10800, {
     params ["_medic", "_patient", "_partIndex"];
     private _pressureBag = _patient getVariable [QGVAR(pressureBag), [0,0,0,0,0,0,0,0,0,0,0,0]];
     if ((_pressureBag select _partIndex) != 1) then {

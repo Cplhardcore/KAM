@@ -35,24 +35,6 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    QGVAR(IVdropEnable),
-    "CHECKBOX",
-    [LLSTRING(IV_DROP_ENABLE)],
-    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [true],
-    true
-] call CBA_Settings_fnc_init;
-
-[
-    QGVAR(IVdrop),
-    "SLIDER",
-    [LLSTRING(IV_DROP),LLSTRING(IV_DROP_TIME_DESC)],
-    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [60, 1200, 600, 0],
-    true
-] call CBA_Settings_fnc_init;
-
-[
     QGVAR(IVreuse),
     "CHECKBOX",
     [LLSTRING(IV_REUSE)],

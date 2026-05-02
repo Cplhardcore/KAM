@@ -15,6 +15,8 @@
  * Public: No
  */
 params ["_patient"];
+private _doseLevel = ([_patient, "ketamineOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel > 0.01) exitWith {};
 [_patient, "ketamineOverdose", 20, 2400, 0, 0, 0, 0, -0.1, 0, 0, 0, -0.15, 0, 0, "false", "false", "false", 0.5] call EFUNC(vitals,addMedicationAdjustment);
 [{
     params ["_patient"];

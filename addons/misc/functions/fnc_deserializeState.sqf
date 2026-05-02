@@ -115,7 +115,7 @@ private _state = [_json] call CBA_fnc_parseJSON;
 [QEGVAR(breathing,attachedVentGUI), false],
 [QEGVAR(breathing,paralysis), 0],
 [QEGVAR(breathing,ventRate), 2],
-[QEGVAR(breathing,TRALI), 0],
+[QEGVAR(breathing,TACO), 0],
 [QEGVAR(circulation,cprCount), 2],
 [QEGVAR(circulation,heartRestart), false],
 [QEGVAR(circulation,cardiacArrestType), 0],
