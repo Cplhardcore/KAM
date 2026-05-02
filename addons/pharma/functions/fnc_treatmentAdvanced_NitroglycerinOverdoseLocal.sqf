@@ -16,7 +16,7 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "NitroglycerinOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.1) exitWith {};
+if (_doseLevel > 0.01) exitWith {};
 private _hrValue = [-20, -25, -30, -35, -40, -45, 20, 25, 30, 35, 40, 45];
 private _hrAdjust = selectRandom _hrValue;
 

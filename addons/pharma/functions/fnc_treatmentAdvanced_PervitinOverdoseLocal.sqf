@@ -17,7 +17,7 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "PervitinOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.1) exitWith {};
+if (_doseLevel > 0.01) exitWith {};
 private _randomNumber = floor (random 3) + 1;
 switch (_randomNumber) do {
     case 1: {

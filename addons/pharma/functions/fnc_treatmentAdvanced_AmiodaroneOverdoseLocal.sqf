@@ -16,7 +16,7 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "AmiodaroneOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.1) exitWith {};
+if (_doseLevel > 0.01) exitWith {};
 [{
     params ["_patient"];
     (_patient setVariable [QGVAR(AmiodaroneOverdose), false, true])

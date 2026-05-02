@@ -16,7 +16,7 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "FlumazenilOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.1) exitWith {};
+if (_doseLevel > 0.01) exitWith {};
 private _hrAdjust = 20 + floor random ((40 - 20) + 1);
 [_patient, "TACHYCARDIA", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
 [_patient, "FlumazenilOverdose", 120, 1200] call EFUNC(vitals,addMedicationAdjustment);

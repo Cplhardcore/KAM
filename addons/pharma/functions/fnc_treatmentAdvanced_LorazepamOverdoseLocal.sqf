@@ -16,7 +16,7 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "LorazepamOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.1) exitWith {};
+if (_doseLevel > 0.01) exitWith {};
 private _hrAdjust = -50 + floor random ((-30 - -50) + 1);
 [_patient, "LorazepamOverdose", 30, 1200, _hrAdjust, 0, 0, 0, 0.2] call EFUNC(vitals,addMedicationAdjustment);
 [{

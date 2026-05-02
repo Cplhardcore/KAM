@@ -17,7 +17,7 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "EACAOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.1) exitWith {};
+if (_doseLevel > 0.01) exitWith {};
 [_patient, "EACAOverdose", 1, 900, 0, 0, -0.5] call EFUNC(vitals,addMedicationAdjustment);
 [{
     params ["_patient"];

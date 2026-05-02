@@ -16,6 +16,6 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "OndansetronOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.1) exitWith {};
+if (_doseLevel > 0.01) exitWith {};
 private _hrAdjust = -20 + floor random ((-30 - -40) + 1);
 [_patient, "OndansetronOverdose", 20, 300, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
