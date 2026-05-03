@@ -149,6 +149,11 @@ if (IN_CRDC_ARRST(_unit)) then {
         _modelHR = _modelHR + _ICPbias;
     };
     
+    if (EGVAR(hypothermia,hypothermiaActive)) then {
+        private _tempBias = linearConversion [36, 30, (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]), -4, -24, true];
+        _modelHR = _modelHR + _tempBias;
+    };
+
     TRACE_2("STAMINA_CMD", _metabolicDemand, _staminaHRBias);
 
     private _vagalTone = 0;
