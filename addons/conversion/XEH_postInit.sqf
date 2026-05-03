@@ -23,8 +23,8 @@
 
     _previousUnit setName _setName;
     if (GVAR(useMedVehicle) && GVAR(forceVehicleConversion)) then {
-        private _oldUnit = (objectParent _previousUnit);
-        private _respawnPos = [player, _oldUnit, LLSTRING(conversionRespawn_Vehicle)] call BIS_fnc_addRespawnPosition;
+        private _oldvic = (objectParent _previousUnit);
+        private _respawnPos = [player, _oldvic, LLSTRING(conversionRespawn_Vehicle)] call BIS_fnc_addRespawnPosition;
         [{
             params ["_previousUnit", "_respawnPos"];
             [_previousUnit, _respawnPos] call BIS_fnc_removeRespawnPosition;
