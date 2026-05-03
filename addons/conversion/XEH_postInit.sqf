@@ -24,11 +24,13 @@
     _previousUnit setName _setName;
     if (GVAR(useMedVehicle) && GVAR(forceVehicleConversion)) then {
         private _oldvic = (objectParent _previousUnit);
-        private _respawnPos = [player, _oldvic, LLSTRING(conversionRespawn_Vehicle)] call BIS_fnc_addRespawnPosition;
-        [{
-            params ["_previousUnit", "_respawnPos"];
-            [_previousUnit, _respawnPos] call BIS_fnc_removeRespawnPosition;
-        }, [_previousUnit, _respawnPos], 20] call CBA_fnc_waitAndExecute;
+        if (alive _oldvic) then {
+            private _respawnPos = [player, _oldvic, LLSTRING(conversionRespawn_Vehicle)] call BIS_fnc_addRespawnPosition;
+            [{
+                params ["_previousUnit", "_respawnPos"];
+                [_previousUnit, _respawnPos] call BIS_fnc_removeRespawnPosition;
+            }, [_previousUnit, _respawnPos], 20] call CBA_fnc_waitAndExecute;
+        };
     };
     setPlayerRespawnTime 3;
     forceRespawn player;
