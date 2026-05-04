@@ -63,6 +63,15 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(useMedVehicle),
+    "CHECKBOX",
+    [LLSTRING(CONVERSION_useMedVehicle), LLSTRING(CONVERSION_useMedVehicle_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [false],
+    true
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(convertVehicles),
     "EDITBOX",
     [LLSTRING(CONVERSION_FORCE_VEHICLE_LIST), LLSTRING(CONVERSION_FORCE_VEHICLE_LIST_DESC)],

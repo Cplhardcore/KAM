@@ -103,5 +103,15 @@
         <Key ID="STR_KAT_CONVERSION_conversion_requirements_2">
             <English>Stable Vitals + No joint Injuries or fractures</English>
         </Key>
+        <Key ID="STR_KAT_CONVERSION_conversionRespawn_Vehicle">
+            <English>RESPAWN HERE</English>
+        </Key>
+        <Key ID="STR_KAT_CONVERSION_useMedVehicle_DESC">
+            <English>Use conversion medical vehicle</English>
+        </Key>
+        <Key ID="STR_KAT_CONVERSION_useMedVehicle">
+            <English>Use conversion medical vehicle as the respawn point</English>
+        </Key>
+
     </Package>
 </Project>
