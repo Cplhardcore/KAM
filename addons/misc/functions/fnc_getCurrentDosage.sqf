@@ -60,6 +60,7 @@ private _medDose = 0;
         private _drugMult = _drugMult * _diazapamMult;
         //TRACE_1("getMedicationCount1",_medDose);
         _medDose = _medDose + (_dose * _effectiveness * _drugMult);
+        TRACE_4("getCurrentDoseage",_medDose,_dose,_effectiveness,_drugMult);
         //TRACE_7("getMedicationCount",_target,_medication,_dose,_effectiveness,_medDose,_diazapamMult,_drugMult);
     };
 } forEach (_target getVariable [VAR_MEDICATIONS, []]);
