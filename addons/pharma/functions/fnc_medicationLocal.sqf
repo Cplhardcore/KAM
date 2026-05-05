@@ -222,7 +222,7 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4]) && !_isFlushed) exitWit
         TRACE_1("onMedicationUsage2",_medicationODConfig);
         private _maxDose = GET_NUMBER(_medicationODConfig >> "OD50",getNumber (_defaultConfig >> "OD50"));
         private _ld50 = GET_NUMBER(_medicationODConfig >> "LD50",getNumber (_defaultConfig >> "LD50"));
-        private _chanceToOD = GET_NUMBER(_medicationConfig >> "chanceToOD",getNumber (_defaultConfig >> "chanceToOD"));
+        private _chanceToOD = GET_NUMBER(_medicationODConfig >> "chanceToOD",getNumber (_defaultConfig >> "chanceToOD"));
         private _maxDoseMult = 1;
         private _currentWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80];
         _maxDoseMult = linearConversion [60, 100, _currentWeight, 0.6, 1.4, true];
