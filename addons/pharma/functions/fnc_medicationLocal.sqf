@@ -30,31 +30,6 @@ TRACE_3("medicationLocal",_patient,_bodyPart,_classname);
 // Medication has no effects on dead units
 if (!alive _patient) exitWith {};
 
-// Exit with basic medication handling if advanced medication not enabled
-if !(ACEGVAR(medical_treatment,advancedMedication)) exitWith {
-    switch (_classname) do {
-        case "Morphine": {
-            private _painSuppress = GET_PAIN_SUPPRESS(_patient);
-            _patient setVariable [VAR_PAIN_SUPP, (_painSuppress + MORPHINE_PAIN_SUPPRESSION) min 1, true];
-        };
-        case "Epinephrine": {
-            private _sedated = _patient getVariable [QEGVAR(surgery,sedated), 0];
-            if (_sedated == 0) then {
-                [QACEGVAR(medical,WakeUp), _patient] call CBA_fnc_localEvent;
-            };
-        };
-        case "EpinephrineIV": {
-            private _sedated = _patient getVariable [QEGVAR(surgery,sedated), 0];
-            if (_sedated == 0) then {
-                [QACEGVAR(medical,WakeUp), _patient] call CBA_fnc_localEvent;
-            };
-        };
-        case "Painkillers": {
-            private _painSuppress = GET_PAIN_SUPPRESS(_patient);
-            _patient setVariable [VAR_PAIN_SUPP, (_painSuppress + PAINKILLERS_PAIN_SUPPRESSION) min 1, true];
-        };
-    };
-};
 TRACE_1("Running treatmentMedicationLocal with Advanced configuration for",_patient);
 if (_classname in ["CWMP", "Painkillers", "Penthrox", "Caffeine", "Pervitin", "Carbonate"]) then {
     private _airway = HAS_AIRWAY(_patient);
@@ -196,7 +171,7 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4]) && !_isFlushed) exitWit
             _routeMult = random [1.1, 1.25, 1.35];
         };
     private _unitMedEffectivness = _patient getVariable [QGVAR(medicationEffectivness), 1];
-    private _drugMult = _weightMult * _doseMult * _unitMedEffectivness * _routeMult;
+    private _drugMult = _weightMult * _doseMult * _unitMedEffectivness;
     TRACE_7("_drugMult",_patient,_defaultHeartRate,(GET_BLOOD_VOLUME_LITERS(_patient) / DEFAULT_BLOOD_VOLUME),_drugMult,_weightMult,_doseMult,_unitMedEffectivness);
     private _painReduce             = GET_NUMBER(_medicationConfig >> "painReduce",getNumber (_defaultConfig >> "painReduce")) * _drugMult;
     private _timeInSystem           = GET_NUMBER(_medicationConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")) * _drugMult * (2 - _routeMult);
@@ -255,7 +230,7 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4]) && !_isFlushed) exitWit
         private _maxDoseFixed = _maxDose * _maxDoseMult * _unitMedEffectivness;
         TRACE_6("adjustments1",_patient,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
         TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-        [_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased]] call EFUNC(vitals,addMedicationAdjustment);
+        [_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased, _drugMult]] call EFUNC(vitals,addMedicationAdjustment);
     } else {
         if (_classname in ["TXAAuto", "PhenylephrineAuto"]) then {
             private _medicationName = _classname select [0, count _classname - 4];
@@ -272,7 +247,7 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4]) && !_isFlushed) exitWit
             private _maxDoseFixed = _maxDose * _maxDoseMult * _unitMedEffectivness;
             TRACE_6("adjustments1",_patient,_classname,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
             TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-            [_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased]] call EFUNC(vitals,addMedicationAdjustment);
+            [_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased, _drugMult]] call EFUNC(vitals,addMedicationAdjustment);
         } else {
             private _medicationODName = format ["admin_%1", _classname];
             private _medicationODConfig = _defaultConfig >> _medicationODName;
@@ -287,7 +262,7 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4]) && !_isFlushed) exitWit
             private _maxDoseFixed = _maxDose * _maxDoseMult * _unitMedEffectivness;
             TRACE_6("adjustments1",_patient,_classname,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
             TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-            [_patient, _classname, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased]] call EFUNC(vitals,addMedicationAdjustment);
+            [_patient, _classname, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased, _drugMult]] call EFUNC(vitals,addMedicationAdjustment);
         };
     };
 
@@ -351,54 +326,6 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4]) && !_isFlushed) exitWit
         [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart, _opioidRelief], _patient] call CBA_fnc_targetEvent;
         };
     };
-    
-/*
-    private _defaultConfig = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Medication";
-    private _medicationConfig = _defaultConfig >> _classname;
-    _painReduce             = GET_NUMBER(_medicationConfig >> "painReduce",getNumber (_defaultConfig >> "painReduce"));
-    _timeInSystem           = GET_NUMBER(_medicationConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem"));
-    _timeTillMaxEffect      = GET_NUMBER(_medicationConfig >> "timeTillMaxEffect",getNumber (_defaultConfig >> "timeTillMaxEffect"));
-    _viscosityChange        = GET_NUMBER(_medicationConfig >> "viscosityChange",getNumber (_defaultConfig >> "viscosityChange"));
-    _alphaFactor            = GET_NUMBER(_medicationConfig >> "alphaFactor",getNumber (_defaultConfig >> "alphaFactor"));
-    _opioidRelief           = GET_NUMBER(_medicationConfig >> "opioidRelief",getNumber (_defaultConfig >> "opioidRelief"));
-    _opioidEffect           = GET_NUMBER(_medicationConfig >> "opioidEffect",getNumber (_defaultConfig >> "opioidEffect"));
-    _respiratoryRate        = GET_NUMBER(_medicationConfig >> "respiratoryRate",getNumber (_defaultConfig >> "respiratoryRate"));
-    _opioidDepression       = GET_NUMBER(_medicationConfig >> "opioidDepression",getNumber (_defaultConfig >> "opioidDepression"));
-    _hrIncreaseLow          = GET_ARRAY(_medicationConfig >> "hrIncreaseLow",getArray (_defaultConfig >> "hrIncreaseLow"));
-    _hrIncreaseNormal       = GET_ARRAY(_medicationConfig >> "hrIncreaseNormal",getArray (_defaultConfig >> "hrIncreaseNormal"));
-    _hrIncreaseHigh         = GET_ARRAY(_medicationConfig >> "hrIncreaseHigh",getArray (_defaultConfig >> "hrIncreaseHigh"));
-    _incompatibleMedication = GET_ARRAY(_medicationConfig >> "incompatibleMedication",getArray (_defaultConfig >> "incompatibleMedication"));
-    _maxRelief              = GET_NUMBER(_medicationConfig >> "maxRelief",getNumber (_defaultConfig >> "maxRelief"));
-    _dose                   = GET_NUMBER(_medicationConfig >> "dose",getNumber (_defaultConfig >> "dose"));
-    _contractility          = GET_NUMBER(_medicationConfig >> "_contractility",getNumber (_defaultConfig >> "_contractility"));
-    _nauseaMult             = GET_NUMBER(_medicationConfig >> "nauseaMult",getNumber (_defaultConfig >> "nauseaMult"));
-    _sedation               = GET_STRING(_medicationConfig >> "sedation",getText (_defaultConfig >> "sedation"));
-    
-    private _heartRate = GET_HEART_RATE(_patient);
-    private _hrIncrease = [_hrIncreaseLow, _hrIncreaseNormal, _hrIncreaseHigh] select (floor ((0 max _heartRate min 110) / 55));
-    _hrIncrease params ["_minIncrease", "_maxIncrease"];
-    _heartRateChange = _minIncrease + random (_maxIncrease - _minIncrease);
-
-    private _presentPain = GET_PAIN(_patient);
-    private _presentReduce = 0;
-    if (_maxRelief > 0) then {
-        if (_presentPain > _maxRelief) then {
-            _painReduce = _painReduce / 4;
-        };
-    };
-    TRACE_6("adjustments1",_patient,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
-    TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-    [_patient, _classname, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation] call EFUNC(vitals,addMedicationAdjustment);
-    [_patient, _classname, _incompatibleMedication] call FUNC(onMedicationUsage);
-
-    if (_classname in ["Lorazepam","Ketamine","EACA","TXA","TXAAuto","Atropine","Amiodarone","Flumazenil","Lidocaine"]) then {
-        [format ["kat_pharma_%1Local", toLower _classname], [_patient, _bodyPart, _classname], _patient] call CBA_fnc_targetEvent;
-    };
-
-    if (_classname in ["Fentanyl","Morphine","Nalbuphine"]) then {
-    [format ["kat_pharma_%1Local", toLower _classname], [_patient, _bodyPart, _opioidRelief], _patient] call CBA_fnc_targetEvent;
-    };
-};*/
 private _TXAmedications = ["syringe_TXA_5ml_10", "syringe_TXA_10ml_10", "TXAAuto"];
     if (_classname in _TXAmedications) then {
         TRACE_1("TXADose",_patient);

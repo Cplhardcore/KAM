@@ -16,18 +16,14 @@
  */
 
 params ["_unit"];
-// =======================
-// BASELINE CONSTANTS
-// =======================
+
 #define BASELINE_SV 0.0879        // 87.9 mL
 #define BASELINE_EF 0.6
 #define BASELINE_EDV (BASELINE_SV / BASELINE_EF)
 #define BASELINE_ESV (BASELINE_EDV - BASELINE_SV)
 #define BASELINE_MAP 93  
 
-// =======================
-// INPUTS
-// =======================
+
 private _map = GET_MAP(_unit);
 private _defaultCVP = 6;
 private _heartRate = GET_HEART_RATE(_unit);
@@ -36,9 +32,6 @@ private _bloodVolumeRatio = GET_BLOOD_VOLUME_LITERS(_unit) / DEFAULT_BLOOD_VOLUM
 private _contractility =
     (_unit getVariable [QEGVAR(pharma,heartContractility), 1]) max 0.2;
 
-// =======================
-// OBSTRUCTIVE FACTORS
-// =======================
 private _ptxArray = (_unit getVariable [QEGVAR(breathing,pneumothorax), [0,0]]);
 private _tptxArray = (_unit getVariable [QEGVAR(breathing,tensionpneumothorax), [0,0]]);
 private _hptxArray = (_unit getVariable [QEGVAR(breathing,hemopneumothorax), [0,0]]);
@@ -63,35 +56,27 @@ if ((_tptxArray select 0) || (_tptxArray select 1)) then {
     _rvAfterload =
         linearConversion
     [
-        0, 16,          // PTX scale
+        0, 16,
         _ptx,
-        1.0, 2.5,       // RV afterload multiplier
+        1.0, 2.5,
         true
     ];
-
-// RV stroke limitation (Frank–Starling failure)
     _rvFailure =
         linearConversion
     [
-        0.3, 1.5,       // mild → severe RV strain
+        0.3, 2.5,
         _rvAfterload,
-        1.0, 0.35,      // full → failing RV
+        1.0, 0.35,
         true
     ];
 
 };
 
-// =======================
-// HEART RATE FILLING
-// =======================
 private _fillTime =
     linearConversion [40, 160, _heartRate, 1.2, 0.6, true];
 
 private _fillPortion = 1 - exp (-3 * _fillTime);
 
-// =======================
-// VENOUS COMPENSATION
-// =======================
 private _bvComp =
     linearConversion
     [
@@ -110,9 +95,9 @@ private _fixedVaso = 0;
 private _fixedVaso = (_fixedVaso /12);
 private _vasoTone = switch (_shockClass) do {
     case "NONE":          { 1.0 };
-    case "COMPENSATED":   { 1.2 };   // strong sympathetic response
-    case "DECOMPENSATED": { 1.05 };  // partial failure
-    case "TERMINAL":      { 0.75 };  // vasoplegia
+    case "COMPENSATED":   { 1.2 };
+    case "DECOMPENSATED": { 1.05 };
+    case "TERMINAL":      { 0.75 };
     default               { 1.0 };
 };
 private _effectiveVaso =
@@ -130,9 +115,7 @@ TRACE_7(
     _effectiveCVP,
     _defaultCVP
 );
-// =======================
-// PRELOAD & STARLING
-// =======================
+
 private _preload =
     (_effectiveCVP / _defaultCVP)
     * _rvFailure
@@ -150,9 +133,9 @@ private _edvRel = _edv / _restEDV;
 private _starlingGain =
     linearConversion
     [
-        0.7, 1.2,        // relative EDV range
+        0.7, 1.2,
         _edvRel,
-        0.8, 1.15,      // gain range
+        0.8, 1.15,
         true
     ];
 
@@ -167,15 +150,12 @@ TRACE_7(
     _effectiveCVP,
     _defaultCVP
 );
-// =======================
-// AFTERLOAD & ESV
-// =======================
 private _mapNorm =
     linearConversion
     [
-        50, 130,     // hypotension → severe HTN
+        50, 130,
         _map,
-        0.65, 1.35,  // afterload multiplier
+        0.65, 1.35,
         true
     ];
     private _mapShock = switch (_shockClass) do {
@@ -205,9 +185,7 @@ TRACE_5(
     _bloodVolumeRatio
 );
 _esv = _esv min (_edv * 0.95);
-// =======================
-// FINAL STROKE VOLUME
-// =======================
+
 private _strokeVol = (_edv - _esv) max 0.001;
 
 TRACE_6(

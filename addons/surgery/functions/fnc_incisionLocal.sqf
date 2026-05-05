@@ -59,7 +59,6 @@ _patient setVariable [QGVAR(fractures), _fractureArray, true];
     private _fractureArray = _patient getVariable [QGVAR(fractures), [0,0,0,0,0,0,0,0,0,0,0,0]];
     private _liveFracture = _fractureArray select _part;
     private _count = ([_patient, "Etomidate", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-    private _activeLoadingDose = _patient getVariable [QEGVAR(pharma,activeEtomidateLoadingDose), false];
 
     private _alive = alive _patient;
 
@@ -68,14 +67,14 @@ _patient setVariable [QGVAR(fractures), _fractureArray, true];
         _patient setVariable [QGVAR(etomidate_Pain), false]
     };
 
-    if (((GVAR(Surgery_ConsciousnessRequirement) in [0,1]) && (!(IS_UNCONSCIOUS(_patient))) && (_count <= 0.2) && (_activeLoadingDose)) || (GVAR(Surgery_ConsciousnessRequirement) == 3 && _count <= 0.2  && (_activeLoadingDose))) exitWith {
+    if (((GVAR(Surgery_ConsciousnessRequirement) in [0,1]) && (!(IS_UNCONSCIOUS(_patient))) && (_count <= 0.6)) || (GVAR(Surgery_ConsciousnessRequirement) == 3 && _count <= 0.6)) exitWith {
         if !(_patient getVariable [QGVAR(etomidate_Pain), false]) then {
             [_patient, "Pain_Override", 2, 10, 120, 0.8, 40] call ACEFUNC(medical_status,addMedicationAdjustment);
             _patient setVariable [QGVAR(etomidate_Pain), true]};
         [_patient, true] call ACEFUNC(medical,setUnconscious);
     };
 
-    if (GVAR(Surgery_ConsciousnessRequirement) == 2 && _count <= 0.2 && (_activeLoadingDose)) then {
+    if (GVAR(Surgery_ConsciousnessRequirement) == 2 && (_count <= 0.6)) then {
         if !(_patient getVariable [QGVAR(etomidate_Pain), false]) then {
             [_patient, "Pain_Override", 2, 10, 120, 0.8, 40] call ACEFUNC(medical_status,addMedicationAdjustment);
             _patient setVariable [QGVAR(etomidate_Pain), true]

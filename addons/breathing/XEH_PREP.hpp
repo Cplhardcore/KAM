@@ -60,6 +60,7 @@ PREP(treatmentAdvanced_removeNasalCannulaLocal);
 PREP(treatmentAdvanced_removePulseoximeter);
 PREP(treatmentAdvanced_tensionpneumothorax);
 PREP(treatmentAdvanced_tensionpneumothoraxLocal);
+PREP(updateTACOEffects);
 PREP(useBVM);
 PREP(ventPFH);
 PREP(woundsHandlerPulmoHit);

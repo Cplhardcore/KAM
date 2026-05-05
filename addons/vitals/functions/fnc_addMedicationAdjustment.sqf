@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: BaerMitUmlaut, PabstMirror
@@ -40,9 +41,9 @@ params [
     ["_paralysis", "false"],
     ["_linear", "false"],
     ["_cnsSuppression", 0],
-    ["_overdoseAdmin", [-1, -1, -1, "false"]]
+    ["_overdoseAdmin", [-1, -1, -1, "false", 1]]
 ];
-TRACE_8("addMedicationAdjustment",_unit,_medication,_timeToMaxEffect,_maxTimeInSystem,_hrAdjust,_painAdjust,_flowAdjust,_dose);
+TRACE_8("addMedicationAdjustment",_unit,_medication,_timeToMaxEffect,_maxTimeInSystem,_hrAdjust,_painAdjust,_flowAdjust,_overdoseAdmin);
 
 if (_maxTimeInSystem <= 0) exitWith { WARNING_1("bad value for _maxTimeInSystem - %1",_this); };
 _timeToMaxEffect = _timeToMaxEffect max 1;

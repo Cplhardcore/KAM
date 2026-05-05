@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: PabstMirror, Cplhardcore
@@ -24,11 +25,12 @@ params ["_target", "_medication"];
 private _medDose = 0;
 {
     _x params ["_xMed", "_timeAdded", "_timeTillMaxEffect", "_maxTimeInSystem", "", "", "", "_dose", "", "", "", "", "", "", "", "", "", "", "", "_overdoseAdmin"];
-    _overdoseAdmin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased"];
+    _overdoseAdmin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased", "_drugMult"];
+    TRACE_2("getCurrentDoseage",_xMed,_medication);
     if ((toLower _xMed) == (toLower _medication)) then {
         private _timeInSystem = CBA_missionTime - _timeAdded;
         // as used in handleUnitVitals, a medication effectiveness will start low, ramp up to timeTillMaxEffect, and then drop off
-        private _effectiveness = (((_timeInSystem / _timeTillMaxEffect) ^ 2) min 1) * (_maxTimeInSystem - _timeInSystem) / _maxTimeInSystem;
+        private _effectiveness = ((((_timeInSystem / _timeTillMaxEffect) ^ 2) min 1) * (_maxTimeInSystem - _timeInSystem) / _maxTimeInSystem) * _drugMult;
         private _diazapamMult = 1;
             if (toLower _medication == "diazapam") then {
                 private _medStack = _target call ACEFUNC(medical_status,getAllMedicationCount);
@@ -55,16 +57,10 @@ private _medDose = 0;
                 } forEach _medStack;
                 _diazapamMult = linearConversion [0, 90, (_fentanylEffectiveness + _nalbuphineEffectiveness + _morphineEffectiveness * _lorazepamEffectiveness), 1, 4, true];
             };
-        private _hemocrit = 1;
-        if (_bloodBased == "true") then {
-            _hemocrit = (GET_BODY_FLUID_ECB(_target)/GET_BODY_FLUID_ECP(_target)) / (DEFAULT_ECB/DEFAULT_ECP)
-        } else {
-            _hemocrit = (GET_BODY_FLUID_ECP(_target)/GET_BODY_FLUID_ECB(_target)) / (DEFAULT_ECP/DEFAULT_ECB)
-        };
-        private _drugMult = ((((GET_BLOOD_VOLUME_LITERS(_target) / DEFAULT_BLOOD_VOLUME) * _hemocrit) max 0.2) min 2) * _diazapamMult;
-        TRACE_1("getMedicationCount1",_medDose);
+        private _drugMult = _drugMult * _diazapamMult;
+        //TRACE_1("getMedicationCount1",_medDose);
         _medDose = _medDose + (_dose * _effectiveness * _drugMult);
-        TRACE_7("getMedicationCount",_target,_medication,_dose,_effectiveness,_medDose,_diazapamMult,_drugMult);
+        //TRACE_7("getMedicationCount",_target,_medication,_dose,_effectiveness,_medDose,_diazapamMult,_drugMult);
     };
 } forEach (_target getVariable [VAR_MEDICATIONS, []]);
 

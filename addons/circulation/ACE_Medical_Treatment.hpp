@@ -23,7 +23,7 @@ class ACE_Medical_Treatment {
         // Example with maxDose = 4 and maxDoseDeviation = 2: Dose 4: Safe | Dose 5 and 6: Possible overdose | Dose 7: Guaranteed overdose
         maxDoseDeviation = 2;
         // The dose of the medication, to allow for different dose amounts of the same medication
-        dose = 2.5;
+        dose = 0.025;
         // Function to execute upon overdose. Arguments passed to call back are 0: unit <OBJECT>, 1: medicationClassName <STRING>
         onOverDose = "";
         // The viscosity of a fluid is a measure of its resistance to gradual deformation by shear stress or tensile stress. For liquids, it corresponds to the informal concept of "thickness". This value will increase/decrease the viscoty of the blood with the percentage given. Where 100 = max. Using the minus will decrease viscosity
@@ -371,7 +371,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {-1, -4};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             viscosityChange = -3;
             opioidRelief = 1.05;
             respiratoryRate = -0.05;
@@ -387,7 +387,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {3, 7};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             alphaFactor = -0.05;
             volume = 250;
             rateCoef = 1.4;
@@ -402,7 +402,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {-1, -4};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             viscosityChange = 0;
             volume = 250;
             rateCoef = 1.4;
@@ -417,7 +417,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {1, 4};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             respiratoryRate = 0.1;
             opioidDepression = -0.05;
             volume = 250;
@@ -432,7 +432,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {1, 4};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             volume = 250;
             rateCoef = 1.4;
             alphaFactor = 0.05;
@@ -448,7 +448,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {1, 4};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             volume = 250;
             rateCoef = 1.4;
             alphaFactor = -0.075;
@@ -463,7 +463,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {-1, -4};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             viscosityChange = -3;
             opioidRelief = 1.05;
             respiratoryRate = -0.05;
@@ -479,7 +479,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {3, 7};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             alphaFactor = -0.025;
             volume = 100;
             rateCoef = 1.4;
@@ -494,13 +494,13 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {-1, -4};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             viscosityChange = 0;
             volume = 100;
             rateCoef = 1.4;
             type = "Etomidate_IVInfusion";
             incompatibleMedication[] = {};
-            cnsSuppression = 0.05;
+            cnsSuppression = 0.1;
         };
         class Doxapram_IVInfusion100: SalineIV_250 {
             painReduce = 0;
@@ -509,7 +509,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {1, 4};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             respiratoryRate = 0.1;
             opioidDepression = -0.05;
             volume = 100;
@@ -524,7 +524,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {1, 4};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             volume = 100;
             rateCoef = 1.4;
             alphaFactor = 0.05;
@@ -540,7 +540,7 @@ class ACE_Medical_Treatment {
             hrIncreaseHigh[] = {1, 4};
             timeInSystem = 3;
             timeTillMaxEffect = 1;
-            dose = 2.5;
+            dose = 0.025;
             volume = 100;
             rateCoef = 1.4;
             alphaFactor = -0.075;

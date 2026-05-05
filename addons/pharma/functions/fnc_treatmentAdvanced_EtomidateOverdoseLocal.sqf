@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: Cplhardcore
@@ -16,6 +17,7 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "EtomidateOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+TRACE_1("EtomidateOD",_doseLevel);
 if (_doseLevel > 0.01) exitWith {};
 private _randomNumber = floor (random 3) + 1;
 switch (_randomNumber) do {
