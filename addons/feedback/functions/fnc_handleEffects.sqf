@@ -71,5 +71,4 @@ private _timeElapsed = ACE_player getVariable [QGVAR(airwayElapsed), 0];
 
 [!_unconscious, _cmr] call FUNC(effectLossCMR);
 
-
 END_COUNTER(handleEffects);
