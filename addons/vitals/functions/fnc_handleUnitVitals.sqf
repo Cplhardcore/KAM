@@ -168,9 +168,10 @@ if (_adjustments isNotEqualTo []) then {
         if ((_overdoseAdmin select 1 > 0) && (_found == -1) && (_overdoseAdmin select 0 > 0)) then {
             [_unit, _medication, _ld50, _od50, _chanceToOD] call FUNC(handleOverdoses);
         };
+        TRACE_3("TIS",_medication,_timeInSystem,_scaledMaxTime);
         if (_timeInSystem >= _scaledMaxTime) then {
             _deleted = true;
-            _adjustments set [_forEachIndex, objNull];
+            _adjustments deleteAt _forEachIndex;
         } else {
             if (_linear == "true") then {
                 _effectRatio = 1;
@@ -276,8 +277,6 @@ if (_adjustments isNotEqualTo []) then {
 [_unit, _sedationAdjustment, _deltaT, _syncValues] call FUNC(updateSedation);
 [_unit, _paralysisAdjustment, _deltaT, _syncValues] call FUNC(updateParalysis);
 [_unit, _cnsSuppressionAdjustment, _deltaT, _syncValues] call FUNC(updateCnsSuppression);
-
-systemChat str _adjustments;
 private _aceAnFatigue = 0;
 private _aceAnReserve = 0;
 if (_unit getVariable [QGVAR(fatigueEnabled), false]) then {
@@ -397,14 +396,6 @@ switch (true) do {
 [_unit] call EFUNC(pharma,updatePharmaEffects);
 [_unit] call EFUNC(hypothermia,updateHypothermiaEffects);
 [_unit] call EFUNC(breathing,updateTACOEffects);
-
-#ifdef DEBUG_MODE_FULL
-private _cardiacOutput = [_unit] call ACEFUNC(medical_status,getCardiacOutput);
-if (!isPlayer _unit) then {
-    private _painLevel = _unit getVariable [VAR_PAIN, 0];
-    hintSilent format["blood volume: %1, blood loss: [%2, %3]\nhr: %4, bp: %5, vasoconstriction: %6", round(_bloodVolume * 100) / 100, round(_woundBloodLoss * 1000) / 1000, round((_woundBloodLoss / (0.001 max _cardiacOutput)) * 100) / 100, round(_heartRate), _bloodPressure, _vasoconstriction];
-};
-#endif
 
 END_COUNTER(Vitals);
 
