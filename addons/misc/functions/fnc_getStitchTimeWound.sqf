@@ -22,7 +22,6 @@ private _calcTime = {
     params ["_wound"];
 
     _wound params ["_classID", "_amount"];
-    systemChat str _wound;
     private _category = _classID % 10;
 
     private _baseTime = switch (_category) do {
