@@ -18,7 +18,7 @@
  params ["_unit"];
  if (!local _unit) exitWith { ERROR_2("updatePharmaEffects: Unit not local or null [%1:%2]",_unit,typeOf _unit); };
 private _hasSpaceblanket = _unit getVariable [QGVAR(spaceBlanket), false];
-if ((_hasSpaceblanket) && (abs (speed _unit) > 4 && isNull objectParent _unit)) then {
+if ((_hasSpaceblanket) && (abs (speed _unit) > 4 && isNull objectParent _unit) && !(_unit call ACEFUNC(medical_status,isBeingDragged) || _unit call ACEFUNC(medical_status,isBeingCarried))) then {
     private _chance = linearConversion [4, 12, (abs (speed _unit)), 2, 20];
     if ((random 100) < _chance) then {
         _unit setVariable [QGVAR(spaceBlanket), false, true];
