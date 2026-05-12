@@ -22,67 +22,74 @@
  */
 
 params ["_unit"];
+private _isUnconscious  = _unit getVariable ["ACE_isUnconscious", false];
+if !(_isUnconscious) exitWith {};
+private _alive = alive _unit;
+if !(_alive) exitWith {};
+
 
 if (
     !(GVAR(enable))
     || {_unit getVariable ["KAT_Occlusion_Exclusion", false]}
-    || {(_unit getVariable ["KAT_DeteriorationPFH", false])}
 ) exitWith {};
 if (_unit getVariable [QEGVAR(vitals,simpleMedical), false]) exitWith {};
 
-[{
-    params ["_unit"];
-    [{
-        params ["_args", "_idPFH"];
-        _args params ["_unit"];
+private _lastTimeUpdated = _unit getVariable [QGVAR(lastTimeHDUpdated), 0];
+private _deltaT = (CBA_missionTime - _lastTimeUpdated) min 10;
+if (_deltaT < 5) exitWith { false }; 
+_unit setVariable [QGVAR(lastTimeHDUpdated), CBA_missionTime];
 
-        private _alive          = alive _unit;
-        private _isUnconscious  = _unit getVariable ["ACE_isUnconscious", false];
-        private _occlusionState = _unit getVariable [QGVAR(occlusion), [0, 0, 0]];
-        private _mitigation     = _unit getVariable [QGVAR(occlusionMitigation), [0.3, 0.3, 0.3]];
-        private _pfhID = _unit getVariable ["KAT_DeteriorationPFH", false];
-        if (!_alive || !(_pfhID)) exitWith {
-            [_idPFH] call CBA_fnc_removePerFrameHandler;
-            _unit setVariable ["KAT_DeteriorationPFH", false, true];
+
+private _occlusionState = _unit getVariable [QGVAR(occlusion), [0, 0, 0]];
+private _mitigation     = _unit getVariable [QGVAR(occlusionMitigation), [0, 0, 0]];
+{
+    private _level = _forEachIndex;
+    private _current = _x;
+    private _bleeding = ((GET_BODY_PART_RATE(_unit,0)) + (GET_BODY_PART_RATE(_unit,1)));
+    _occlusionState set [_level, (_current + (_bleeding max 0.1)) min 10];
+} forEach _occlusionState;
+
+{
+    private _a = _x;
+    private _b = _x + 1;
+
+    private _occA = _occlusionState select _a;
+    private _occB = _occlusionState select _b;
+
+    private _mitA = _mitigation select _a;
+    private _mitB = _mitigation select _b;
+
+    private _gravityBias = 1;
+    if (_occB > _occA) then {
+        _gravityBias = 0.5;
+    };
+    private _rate = 0.1
+        * (1 - ((_mitA + _mitB) / 2))
+        * _gravityBias;
+    private _difference = _occA - _occB;
+    if (_difference > 0) then {
+        if (_occB < 10 && _mitB < 1) then {
+            private _delta = _difference * _rate;
+            private _actual =
+                (_delta min _occA)
+                min (10 - _occB);
+            _occlusionState set [_a, _occA - _actual];
+            _occlusionState set [_b, _occB + _actual];
         };
-        if (_isUnconscious) then {
-            {
-                private _level = _forEachIndex;
-                private _current = _x;
-                if (_current <= 0) exitWith {};
-
-                if (floor (random 100) < GVAR(deterioratingAirways_chance)) then {
-                    _occlusionState set [_level, (_current + 1) min 10];
-                };
-            } forEach _occlusionState;
-            {
-                private _a = _x;
-                private _b = _x + 1;
-
-                private _occA = _occlusionState select _a;
-                private _occB = _occlusionState select _b;
-
-                private _mitA = _mitigation select _a;
-                private _mitB = _mitigation select _b;
-                private _downward = _occA > _occB;
-                private _rate = 0.15 * (1 - ((_mitA + _mitB) / 2));
-                if (!_downward) then { _rate = _rate * 0.5};
-                private _delta = (_occA - _occB) * _rate;
-
-                _occlusionState set [_a, (_occA - _delta) min 10 max 0];
-                _occlusionState set [_b, (_occB + _delta) min 10 max 0];
-            } forEach [0, 1];
-            _unit setVariable [QGVAR(occlusion), _occlusionState, true];
-        } else {
-            _unit call FUNC(handleAwakePuking);
-            _unit setVariable ["KAT_DeteriorationPFH", false, true];
-            [_idPFH] call CBA_fnc_removePerFrameHandler;
+    } else {
+        if (_difference < 0) then {
+            if (_occA < 10 && _mitA < 1) then {
+            
+                private _delta = abs(_difference) * _rate;
+                private _actual =
+                    (_delta min _occB)
+                    min (10 - _occA);
+                _occlusionState set [_a, _occA + _actual];
+                _occlusionState set [_b, _occB - _actual];
+            };
         };
+    };
 
-    }, 
-    (GVAR(deterioratingAirways_interval) * random [0.8, 1, 1.3]), 
-    [_unit]] call CBA_fnc_addPerFrameHandler;
+} forEach [0,1];
 
-    _unit setVariable ["KAT_DeteriorationPFH", true, true];
-
-}, [_unit], GVAR(deterioratingAirways_interval)] call CBA_fnc_waitAndExecute;
+_unit setVariable [QGVAR(occlusion), _occlusionState, true];

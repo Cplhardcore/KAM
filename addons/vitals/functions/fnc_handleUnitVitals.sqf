@@ -396,6 +396,7 @@ switch (true) do {
 [_unit] call EFUNC(pharma,updatePharmaEffects);
 [_unit] call EFUNC(hypothermia,updateHypothermiaEffects);
 [_unit] call EFUNC(breathing,updateTACOEffects);
+[_unit] call EFUNC(airway,airwayDeterioration);
 
 END_COUNTER(Vitals);
 

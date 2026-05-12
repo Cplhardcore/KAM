@@ -49,7 +49,7 @@ if (_hasCapno && _selectionN isEqualTo 0 && GVAR(capnographEnable)) then {
 };
     
 
-if (((_target getVariable [QGVAR(catastrophicAirway), [false, false]] select 1) || (_target getVariable [QGVAR(catastrophicAirway), [false, false]] select 1)) && (_selectionN isEqualTo 0)) then {
+if (((_target getVariable [QGVAR(catastrophicAirway), [false, false]] select 1) || (_target getVariable [QGVAR(catastrophicAirway), [false, false]] select 1)) && (_selectionN in [0, 1])) then {
     private _text = LSTRING(Catastrophic_Display);
     _entries pushBack [localize _text, [1, 0, 0, 1]];
 };

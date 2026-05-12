@@ -35,31 +35,31 @@ if !(_bodyPart in ["Head", "Neck"]) exitWith {
 
 private _occlusionChanceIncrease = 0;
 if (GVAR(airwayOcclusionDamageThreshold_TakenDamage)) then {
-    _occlusionChanceIncrease = linearConversion [GVAR(airwayOcclusionDamageThreshold), 3, _engineDamage, 0, 30, true];
+    _occlusionChanceIncrease = linearConversion [GVAR(airwayOcclusionDamageThreshold), (GVAR(airwayOcclusionDamageThreshold) + 15), _engineDamage, 0, 30, true];
 };
 private _obstructionChanceIncrease = 0;
 if (GVAR(airwayObstructionDamageThreshold_TakenDamage)) then {
-    _obstructionChanceIncrease = linearConversion [GVAR(airwayObstructionDamageThreshold), 3, _engineDamage, 0, 30, true];
+    _obstructionChanceIncrease = linearConversion [GVAR(airwayObstructionDamageThreshold), (GVAR(airwayObstructionDamageThreshold) + 15), _engineDamage, 0, 30, true];
 };
 private _catastrophicAirwayChanceIncrease = 0;
 if (GVAR(catastrophicAirwayDamageThreshold_TakenDamage)) then {
-    _catastrophicAirwayChanceIncrease = linearConversion [GVAR(catastrophicAirwayDamageThreshold), 3, _engineDamage, 0, 30, true];
+    _catastrophicAirwayChanceIncrease = linearConversion [GVAR(catastrophicAirwayDamageThreshold), (GVAR(catastrophicAirwayDamageThreshold) + 15), _engineDamage, 0, 30, true];
 };
 switch (true) do {
         case (_bodyPart == "Head"): {
-            if ((floor (random 100) < GVAR(airwayOcclusionChance)) && (_engineDamage > (GVAR(airwayOcclusionDamageThreshold) + _occlusionChanceIncrease))) then {
+            if ((floor (random 100) < GVAR(airwayOcclusionChance)) && ((_engineDamage + _occlusionChanceIncrease) > (GVAR(airwayOcclusionDamageThreshold)))) then {
                 private _level = selectRandom [0, 1];
                 private _occlusion = _unit getVariable [QGVAR(occlusion), [0, 0, 0]];
                 _occlusion set [_level, (((_occlusion select _level) + random 3) min 6)];
                 _unit setVariable [QGVAR(occlusion), _occlusion, true];
                 };
-            if ((floor (random 100) < GVAR(airwayObstructionChance)) && (_engineDamage > (GVAR(airwayObstructionDamageThreshold + _obstructionChanceIncrease)))) then {
+            if ((floor (random 100) < GVAR(airwayObstructionChance)) && ((_engineDamage + _obstructionChanceIncrease) > (GVAR(airwayObstructionDamageThreshold)))) then {
                 private _level = selectRandom [0, 1];
                 private _obstruction = _unit getVariable [QGVAR(obstruction), [0, 0, 0]];
                 _obstruction set [_level, (((_obstruction select _level) + 1) min 2)];
                 _unit setVariable [QGVAR(obstruction), _obstruction, true];
                 };
-            if ((floor (random 100) < GVAR(catastrophicAirwayChance)) && (_engineDamage > (GVAR(catastrophicAirwayDamageThreshold + _catastrophicAirwayChanceIncrease))) && GVAR(CatastrophicAirwaysEnable)) then {
+            if ((floor (random 100) < GVAR(catastrophicAirwayChance)) && ((_engineDamage + _catastrophicAirwayChanceIncrease) > (GVAR(catastrophicAirwayDamageThreshold))) && GVAR(CatastrophicAirwaysEnable)) then {
                 private _level = selectRandom [0, 1];
                 private _catastrophic =  _unit getVariable [QGVAR(catastrophicAirway), [false, false]];
                 _catastrophic set [_level, true];
@@ -67,19 +67,24 @@ switch (true) do {
                 };
             };
         case (_bodyPart == "Neck"): {
-            if ((floor (random 100) < GVAR(airwayOcclusionChance)) && (_engineDamage > (GVAR(airwayOcclusionDamageThreshold + _occlusionChanceIncrease)))) then {
+            if ((floor (random 100) < GVAR(airwayOcclusionChance)) && ((_engineDamage + _occlusionChanceIncrease) > (GVAR(airwayOcclusionDamageThreshold)))) then {
                 private _level = selectRandom [1, 2];
                 private _occlusion = _unit getVariable [QGVAR(occlusion), [0, 0, 0]];
                 _occlusion set [_level, (((_occlusion select _level) random 3) min 2)];
                 _unit setVariable [QGVAR(occlusion), _occlusion, true];
                 };
-            if ((floor (random 100) < GVAR(airwayObstructionChance)) && (_engineDamage > (GVAR(airwayObstructionDamageThreshold + _obstructionChanceIncrease)))) then {
+            if ((floor (random 100) < GVAR(airwayObstructionChance)) && ((_engineDamage + _obstructionChanceIncrease) > (GVAR(airwayObstructionDamageThreshold)))) then {
                 private _level = selectRandom [1, 2];
                 private _obstruction = _unit getVariable [QGVAR(obstruction), [0, 0, 0]];
                 _obstruction set [_level, (((_obstruction select _level) + 1) min 2)];
                 _unit setVariable [QGVAR(obstruction), _obstruction, true];
-                };
             };
+            if ((floor (random 100) < GVAR(catastrophicAirwayChance)) && ((_engineDamage + _catastrophicAirwayChanceIncrease) > (GVAR(catastrophicAirwayDamageThreshold))) && GVAR(CatastrophicAirwaysEnable)) then {
+                private _catastrophic =  _unit getVariable [QGVAR(catastrophicAirway), [false, false]];
+                _catastrophic set [1, true];
+                _unit setVariable [QGVAR(catastrophicAirway), _catastrophic, true];
+            };
+        };
         default {};
     };
 
