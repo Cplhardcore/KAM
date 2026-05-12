@@ -28,11 +28,11 @@ if !(GVAR(enable)) exitWith {
     TRACE_1("NotEnable",_bodyPart);
     _this
 };
-if !(_bodyPart in ["Head", "Neck"]) exitWith {
-    TRACE_1("NotEnable",_bodyPart);
+if !(_bodyPart in ["Head", "Neck", "Chest"]) exitWith {
+    TRACE_1("NotBody",_bodyPart);
     _this
 };
-
+TRACE_2("Damage",_engineDamage,_bodyPart);
 private _occlusionChanceIncrease = 0;
 if (GVAR(airwayOcclusionDamageThreshold_TakenDamage)) then {
     _occlusionChanceIncrease = linearConversion [GVAR(airwayOcclusionDamageThreshold), (GVAR(airwayOcclusionDamageThreshold) + 15), _engineDamage, 0, 30, true];
@@ -45,6 +45,7 @@ private _catastrophicAirwayChanceIncrease = 0;
 if (GVAR(catastrophicAirwayDamageThreshold_TakenDamage)) then {
     _catastrophicAirwayChanceIncrease = linearConversion [GVAR(catastrophicAirwayDamageThreshold), (GVAR(catastrophicAirwayDamageThreshold) + 15), _engineDamage, 0, 30, true];
 };
+TRACE_3("Damage",_occlusionChanceIncrease,_obstructionChanceIncrease,_catastrophicAirwayChanceIncrease);
 switch (true) do {
         case (_bodyPart == "Head"): {
             if ((floor (random 100) < GVAR(airwayOcclusionChance)) && ((_engineDamage + _occlusionChanceIncrease) > (GVAR(airwayOcclusionDamageThreshold)))) then {
