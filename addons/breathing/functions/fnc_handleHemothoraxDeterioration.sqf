@@ -57,7 +57,7 @@ if (((_unit getVariable [QGVAR(chestTube), [0, 0]] select 0) > 0.9) && ((_unit g
                 ((INTERNAL_BLEEDING_RATE(_unit,2) == 0))) exitWith {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
-            private _internalBleeding = (INTERNAL_BLEEDING_RATE(_unit,2) / 10);
+            private _internalBleeding = (INTERNAL_BLEEDING_RATE(_unit,2) / 4);
             _hemoState set [_side, (((_hemoState select _side) + (_internalBleeding)) min 1)];
             if (((random 100) < (linearConversion [0, 1, (_hemoState select _side), 5, 75, true])) && GVAR(PneumothoraxArrest)) then {
                 private _ht = _unit getVariable [QEGVAR(circulation,ht), []];

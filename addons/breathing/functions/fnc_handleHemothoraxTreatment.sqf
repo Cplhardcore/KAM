@@ -41,7 +41,7 @@ params ["_unit", "_side"];
             _unit setVariable [QEGVAR(circulation,ht), _ht, true];
         };
         private _baseDrain = GVAR(chestTubeDrainAmount) * 0.001;
-        private _pressureFactor = linearConversion [0, 1, _val, 0.4, 1.2, true];
+        private _pressureFactor = linearConversion [0, 1, _val, 0.4, 1.3, true];
         private _drainAmount = _baseDrain * _pressureFactor;
         private _newVal = _val - _drainAmount;
         if (_newVal < 0.01) then { _newVal = 0; };

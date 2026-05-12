@@ -202,15 +202,15 @@ class FBTKBloodIV_AB_N_250: BloodIV_250 {
     callbackSuccess = "[_medic, _patient, _bodyPart, _className, _usedItem] call kat_circulation_fnc_handleTreatment;";
 };
 class PlasmaIV;
+class PlateletIV100: PlasmaIV {
+    displayName = CSTRING(Action_PlateletIV100);
+    items[] = {"kat_PlateletIV100"};
+    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
+};
 class SalineIV;
 class SalineIV100: SalineIV {
     displayName = CSTRING(Action_SalineIV100);
     items[] = {"kat_salineIV100"};
-    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
-};
-class PlateletIV100: PlasmaIV {
-    displayName = CSTRING(Action_PlateletIV100);
-    items[] = {"kat_PlateletIV100"};
     callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
 };
 class Morphine_IVInfusion: SalineIV {
@@ -219,40 +219,16 @@ class Morphine_IVInfusion: SalineIV {
     displayNameProgress = CSTRING(Transfusing_Morphine_Infusion);
     callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
 };
-class Epinephrine_IVInfusion: SalineIV {
-    displayName = CSTRING(Actions_EpinephrineInfusion);
-    items[] = {"kat_EpinephrineIVInfusion"};
-    displayNameProgress = CSTRING(Transfusing_Epinephrine_Infusion);
-    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
-};
-class Etomidate_IVInfusion: SalineIV {
-    displayName = CSTRING(Actions_EtomidateInfusion);
-    items[] = {"kat_EtomidateInfusion"};
-    displayNameProgress = CSTRING(Transfusing_Etomidate_Infusion);
-    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
-};
-class Doxapram_IVInfusion: SalineIV {
-    displayName = CSTRING(Actions_DoxapramInfusion);
-    items[] = {"kat_DoxapramInfusion"};
-    displayNameProgress = CSTRING(Transfusing_Doxapram_Infusion);
-    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
-};
-class Nitroglycerin_IVInfusion: SalineIV {
-    displayName = CSTRING(Actions_NitroglycerinInfusion);
-    items[] = {"kat_NitroglycerinInfusion"};
-    displayNameProgress = CSTRING(Transfusing_Nitroglycerin_Infusion);
-    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
-};
-class Norepinephrine_IVInfusion: SalineIV {
-    displayName = CSTRING(Actions_NorepinephrineInfusion);
-    items[] = {"kat_NorepinephrineInfusion"};
-    displayNameProgress = CSTRING(Transfusing_Norepinephrine_Infusion);
-    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
-};
 class Morphine_IVInfusion100: SalineIV {
     displayName = CSTRING(Actions_MorphineIVInfusion100);
     items[] = {"kat_MorphineIVInfusion100"};
     displayNameProgress = CSTRING(Transfusing_Morphine_Infusion100);
+    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
+};
+class Epinephrine_IVInfusion: SalineIV {
+    displayName = CSTRING(Actions_EpinephrineInfusion);
+    items[] = {"kat_EpinephrineIVInfusion"};
+    displayNameProgress = CSTRING(Transfusing_Epinephrine_Infusion);
     callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
 };
 class Epinephrine_IVInfusion100: SalineIV {
@@ -261,10 +237,22 @@ class Epinephrine_IVInfusion100: SalineIV {
     displayNameProgress = CSTRING(Transfusing_Epinephrine_Infusion100);
     callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
 };
+class Etomidate_IVInfusion: SalineIV {
+    displayName = CSTRING(Actions_EtomidateInfusion);
+    items[] = {"kat_EtomidateInfusion"};
+    displayNameProgress = CSTRING(Transfusing_Etomidate_Infusion);
+    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
+};
 class Etomidate_IVInfusion100: SalineIV {
     displayName = CSTRING(Actions_EtomidateInfusion100);
     items[] = {"kat_EtomidateInfusion100"};
     displayNameProgress = CSTRING(Transfusing_Etomidate_Infusion100);
+    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
+};
+class Doxapram_IVInfusion: SalineIV {
+    displayName = CSTRING(Actions_DoxapramInfusion);
+    items[] = {"kat_DoxapramInfusion"};
+    displayNameProgress = CSTRING(Transfusing_Doxapram_Infusion);
     callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
 };
 class Doxapram_IVInfusion100: SalineIV {
@@ -273,10 +261,22 @@ class Doxapram_IVInfusion100: SalineIV {
     displayNameProgress = CSTRING(Transfusing_Doxapram_Infusion100);
     callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
 };
+class Nitroglycerin_IVInfusion: SalineIV {
+    displayName = CSTRING(Actions_NitroglycerinInfusion);
+    items[] = {"kat_NitroglycerinInfusion"};
+    displayNameProgress = CSTRING(Transfusing_Nitroglycerin_Infusion);
+    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
+};
 class Nitroglycerin_IVInfusion100: SalineIV {
     displayName = CSTRING(Actions_NitroglycerinInfusion100);
     items[] = {"kat_NitroglycerinInfusion100"};
     displayNameProgress = CSTRING(Transfusing_Nitroglycerin_Infusion100);
+    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
+};
+class Norepinephrine_IVInfusion: SalineIV {
+    displayName = CSTRING(Actions_NorepinephrineInfusion);
+    items[] = {"kat_NorepinephrineInfusion"};
+    displayNameProgress = CSTRING(Transfusing_Norepinephrine_Infusion);
     callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
 };
 class Norepinephrine_IVInfusion100: SalineIV {

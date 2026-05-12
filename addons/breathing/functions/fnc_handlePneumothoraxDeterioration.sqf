@@ -65,9 +65,9 @@ params ["_unit", "_side"];
                             if (EGVAR(hypothermia,useACEpressure)) then {
                             private _hPa = _altitude call ACEFUNC(weather,calculateBarometricPressure);
                             private _baroPressure = _hPa * 0.750062;
-                            private _defaulthPa = 0 call ACEFUNC(weather,calculateBarometricPressure);
-                            private _defaultbaroPressure = _defaulthPa * 0.750062;
-                            _baroMult = _baroPressure / _defaultBaroPressure;
+                            private _defaultHPa = 0 call ACEFUNC(weather,calculateBarometricPressure);
+                            private _defaultbaroPressure = _defaultHPa * 0.750062;
+                            _baroMult = (_baroPressure / _defaultBaroPressure) min 1;
                             } else {
                             private _baroPressure = 760 * exp((-(_altitude)) / 8400);
                             private _defaultBaroPressure = 760 * exp((-(0)) / 8400);
