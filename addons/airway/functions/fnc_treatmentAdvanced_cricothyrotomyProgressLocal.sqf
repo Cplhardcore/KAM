@@ -79,8 +79,8 @@ if (_entry == 0.1) then {
     _patient setVariable [VAR_OPEN_WOUNDS, _openWounds, true];
     [_patient] call ACEFUNC(medical_status,updateWoundBloodLoss);
     if (GVAR(hardcoreCrike)) then {
-    [_patient, "blockRadio", "kat_crike", true] call ACEFUNC(common,statusEffect_set);
-    [_patient, "blockSpeaking", "kat_crike", true] call ACEFUNC(common,statusEffect_set);
+        [_patient, "blockRadio", "kat_crike", true] call ACEFUNC(common,statusEffect_set);
+        [_patient, "blockSpeaking", "kat_crike", true] call ACEFUNC(common,statusEffect_set);
     };
     [{
     params ["_args", "_idPFH"];
