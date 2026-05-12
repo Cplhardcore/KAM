@@ -168,7 +168,7 @@ class ACE_Medical_Treatment_Actions {
     class RecoveryPosition: Larynxtubus {
         displayName = CSTRING(RecoveryPosition_displayName);
         displayNameProgress = CSTRING(RecoveryPosition_displayNameProgress);
-        category="advanced";
+        category="airway";
         treatmentTime = QGVAR(RecoveryPosition_Time);
         allowedSelections[] = {"Chest", "Body"};
         medicRequired = 0;
@@ -183,7 +183,7 @@ class ACE_Medical_Treatment_Actions {
     class CancelRecoveryPosition: Larynxtubus {
         displayName = CSTRING(CancelRecoveryPosition_displayName);
         displayNameProgress = CSTRING(CancelRecoveryPosition_displayNameProgress);
-        category="advanced";
+        category="airway";
         treatmentTime = QGVAR(CancelRecoveryPosition_Time);
         allowedSelections[] = {"Chest", "Body"};
         medicRequired = 0;

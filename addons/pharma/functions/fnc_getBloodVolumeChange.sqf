@@ -52,7 +52,7 @@ private _externalLossVolumeChange = 0;
 } forEach _exBloodLoss;
 private _enableFluidShift = EGVAR(vitals,enableFluidShift);
 private _fluidVolume = GET_BODY_FLUID(_unit);
-TRACE_3("gbvc",_bloodLoss,_heartRate,_lossVolumeChange);
+TRACE_4("gbvc",_bloodLoss,_heartRate,_lossVolumeChange,_externalLossVolumeChange);
 _fluidVolume params ["_ECB","_ECP","_SRBC","_ISP","_fullVolume","_platelets"];
 
 _ECP = (_ECP + (_lossVolumeChange * LITERS_TO_ML) / 2) max 100;

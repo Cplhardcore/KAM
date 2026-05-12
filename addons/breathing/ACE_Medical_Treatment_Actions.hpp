@@ -73,7 +73,7 @@ class ACE_Medical_Treatment_Actions {
     class Pulseoximeter {
         displayName = CSTRING(Pulseoximeter_Display);
         displayNameProgress = CSTRING(placing);
-        category = "examine";
+        category = "advanced";
         treatmentLocations = 0;
         allowedSelections[] = {"LeftArm", "RightArm"};
         allowSelfTreatment = 1;
@@ -97,7 +97,7 @@ class ACE_Medical_Treatment_Actions {
     class RemovePulseoximeter {
         displayName = CSTRING(Pulseoximeter_Display_Remove);
         displayNameProgress = CSTRING(remove);
-        category = "examine";
+        category = "advanced";
         treatmentLocations = 0;
         allowedSelections[] = {"LeftArm", "RightArm"};
         allowSelfTreatment = 1;
@@ -149,7 +149,7 @@ class ACE_Medical_Treatment_Actions {
     class FingerThoracostomy {
         displayName = CSTRING(FingerThoracostomy_display);
         displayNameProgress = CSTRING(treating);
-        category = "airway";
+        category = "surgery";
         treatmentLocations = 0;
         allowedSelections[] = {"Chest"};
         allowSelfTreatment = 0;
@@ -206,7 +206,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(PulseOximeter_Action_removeSound);
         displayNameProgress = "";
         icon = "";
-        category = "examine";
+        category = "advanced";
         treatmentLocations = 0;
         medicRequired = 0;
         allowSelfTreatment = 1;

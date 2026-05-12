@@ -276,7 +276,7 @@ class ACE_Medical_Treatment_Actions {
     class WashBody: CheckPulse {
         displayName = CSTRING(WashBody);
         displayNameProgress = CSTRING(WashingBody);
-        category = "examine";
+        category = "advanced";
         medicRequired = 0;
         allowedSelections[] = {"Head","LeftArm","RightArm","Body","LeftLeg","RightLeg", "Chest", "UpperLeftArm", "UpperRightArm", "UpperLeftLeg", "UpperRightLeg", "Neck"};
         treatmentTime = 15;

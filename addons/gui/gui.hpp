@@ -50,6 +50,16 @@ class ACEGVAR(medical_gui,BodyImage): RscControlsGroupNoScrollbars {
             idc = IDC_BODY_HEAD_NPA;
             text = QPATHTOF(data\body_image\NPA.paa);
         };
+        class Head_CATASTROPHIC: Head_GuedelTube {
+            idc = IDC_BODY_HEAD_CATASTROPHIC;
+            text = QPATHTOF(data\body_image\catastrophicAirway.paa);
+            colorText[] = {1, 0, 0, 1};
+        };
+        class Neck_CATASTROPHIC: Head_GuedelTube {
+            idc = IDC_BODY_NECK_CATASTROPHIC;
+            text = QPATHTOF(data\body_image\catastrophicAirway1.paa);
+            colorText[] = {1, 0, 0, 1};
+        };
         class Neck_CRIKE: Head_GuedelTube {
             idc = IDC_BODY_NECK_CRIKE;
             text = QPATHTOF(data\body_image\Crike.paa);

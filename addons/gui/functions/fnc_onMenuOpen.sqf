@@ -48,9 +48,9 @@ private _list = [
     [IDC_TRIAGE, true],
     [IDC_EXAMINE, true],
     [IDC_BANDAGE, "bandage"],
-    [IDC_MEDICATION, "medication"],
     [IDC_AIRWAY, "airway"],
     [IDC_ADVANCED, "advanced"],
+    [IDC_MEDICATION, "medication"],
     [IDC_SURGERY, "surgery"],
     [IDC_DRAG, "drag"],
     [IDC_TOGGLE, true]
