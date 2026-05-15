@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="KAT">
+    <Package name="triagecard">
+        <Key ID="STR_KAT_triagecard_BASIC_DIAGNOSTIC_ENABLE">
+            <English>Enable Basic Vitals Kit</English>
+            <Czech>Povolit Základní Vitální Sadu</Czech>
+            <French>Activer le kit de diagnostic vital de base.</French>
+            <Italian>Abilita il Kit diagnostico per la misurazione di parametri vitali</Italian>
+            <German>Aktiviere Einfaches Vitalwerte-Kit</German>
+            <Japanese>基本型バイタル診断キットを有効化</Japanese>
+            <Chinese>啟用基本生命體徵套件</Chinese>
+            <Chinesesimp>启用基本生命体征套件</Chinesesimp>
+        </Key>
+    </Package>
+</Project>
