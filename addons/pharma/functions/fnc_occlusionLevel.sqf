@@ -17,7 +17,7 @@
  */
 
 params ["_unit", "_bodypartN"];
-private _tourniquets = GET_TOURNIQUETS(_unit);
+private _tourniquets = GET_KAT_TOURNIQUETS(_unit);
 private _occlusionMap = [
     [4, [4, 5]],
     [5, [5]],

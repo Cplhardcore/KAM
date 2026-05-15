@@ -877,7 +877,9 @@ class ACE_Medical_Menu {
                 idc = IDC_TEST_CA; // LOOK HERE
                 x = QUOTE(POS_X(46));
             };
-        class Triage: RscActivePicture {};
+        class Triage: RscActivePicture {
+            onButtonClick = QUOTE([ARR_2(ACE_player,ACEGVAR(medical_gui,target))] call EFUNC(triagecard,openCard));
+        };
         class Surgery: Triage {
             idc = IDC_SURGERY;
             onButtonClick = QUOTE(ace_medical_gui_selectedCategory = 'surgery');

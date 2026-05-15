@@ -1,15 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="KAT">
     <Package name="triagecard">
-        <Key ID="STR_KAT_triagecard_BASIC_DIAGNOSTIC_ENABLE">
-            <English>Enable Basic Vitals Kit</English>
-            <Czech>Povolit Základní Vitální Sadu</Czech>
-            <French>Activer le kit de diagnostic vital de base.</French>
-            <Italian>Abilita il Kit diagnostico per la misurazione di parametri vitali</Italian>
-            <German>Aktiviere Einfaches Vitalwerte-Kit</German>
-            <Japanese>基本型バイタル診断キットを有効化</Japanese>
-            <Chinese>啟用基本生命體徵套件</Chinese>
-            <Chinesesimp>启用基本生命体征套件</Chinesesimp>
+        <Key ID="str_kat_triagecard_cba_name">
+            <English>Triage Card</English>
+        </Key>
+        <Key ID="str_kat_triagecard_opentriagecard">
+            <English>Open Triage Card</English>
+        </Key>
+        <Key ID="str_kat_triagecard_openingtriagecard">
+            <English>Opening Triage Card</English>
+        </Key>
+        <Key ID="str_kat_triagecard_urgent">
+            <English>Urgent</English>
+        </Key>
+        <Key ID="str_kat_triagecard_priority">
+            <English>Priority</English>
+        </Key>
+        <Key ID="str_kat_triagecard_routine">
+            <English>Routine</English>
+        </Key>
+        <Key ID="str_kat_triagecard_flipcard">
+            <English>Flip Card</English>
+        </Key>
+        <Key ID="str_kat_triagecard_setname">
+            <English>Dbl Click to Set Name</English>
+        </Key>
+        <Key ID="str_kat_triagecard_setSSN">
+            <English>Dbl Click to Set SSN</English>
+        </Key>
+        <Key ID="str_kat_triagecard_tqtype_cat">
+            <English>CAT</English>
+        </Key>
+        <Key ID="str_kat_triagecard_tqtype_hasty">
+            <English>HSTY</English>
+        </Key>
+        <Key ID="str_kat_triagecard_jan">
+            <English>JAN</English>
+        </Key>
+        <Key ID="str_kat_triagecard_feb">
+            <English>FEB</English>
+        </Key>
+        <Key ID="str_kat_triagecard_mar">
+            <English>MAR</English>
+        </Key>
+        <Key ID="str_kat_triagecard_apr">
+            <English>APR</English>
+        </Key>
+        <Key ID="str_kat_triagecard_may">
+            <English>MAY</English>
+        </Key>
+        <Key ID="str_kat_triagecard_jun">
+            <English>JUN</English>
+        </Key>
+        <Key ID="str_kat_triagecard_jul">
+            <English>JUL</English>
+        </Key>
+        <Key ID="str_kat_triagecard_aug">
+            <English>AUG</English>
+        </Key>
+        <Key ID="str_kat_triagecard_sep">
+            <English>SEP</English>
+        </Key>
+        <Key ID="str_kat_triagecard_oct">
+            <English>OCT</English>
+        </Key>
+        <Key ID="str_kat_triagecard_nov">
+            <English>NOV</English>
+        </Key>
+        <Key ID="str_kat_triagecard_dec">
+            <English>DEC</English>
         </Key>
     </Package>
 </Project>

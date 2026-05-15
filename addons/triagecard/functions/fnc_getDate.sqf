@@ -17,18 +17,18 @@ params["_date"];
 _year = _date select 0;
 _month = _date select 1;
 _months = [
-	"JAN",
-	"FEB",
-	"MAR",
-	"APR",
-	"MAY",
-	"JUN",
-	"JUL",
-	"AUG",
-	"SEP",
-	"OCT",
-	"NOV",
-	"DEC"
+	LLSTRING(JAN),
+	LLSTRING(FEB),
+	LLSTRING(MAR),
+	LLSTRING(APR),
+	LLSTRING(MAY),
+	LLSTRING(JUN),
+	LLSTRING(JUL),
+	LLSTRING(AUG),
+	LLSTRING(SEP),
+	LLSTRING(OCT),
+	LLSTRING(NOV),
+	LLSTRING(dec)
 ];
 _month = _months select (_month - 1);
 _day = _date select 2;

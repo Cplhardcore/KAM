@@ -70,7 +70,7 @@ class DD1380_RscEditMiscNotes: RscEdit {
 	//w = QUOTE(KAT_TCpxToScreen_W(DD1380_GUI_DH9_OSD_ELEMENT_STD_W));
 	//h = QUOTE(KAT_TCpxToScreen_H(DD1380_GUI_DH9_OSD_ELEMENT_STD_H));
 	colorText[] = COLOR_BLACK;
-	sizeEx = QUOTE(KAT_TCpxToScreen_H(18));
+	sizeEx = QUOTE(KAT_TCpxToScreen_H(19));
 	colorBackground[] = COLOR_TRANSPARENT;
 	shadow = 0;
 };
@@ -98,18 +98,18 @@ class GVAR(triageCardDialog)
 			y = QUOTE(KAT_TCpxToScreen_Y(145));
 			w = QUOTE(KAT_TCpxToScreen_W(16));
 			h = QUOTE(KAT_TCpxToScreen_H(16));
-			tooltip = "Urgent";
+			tooltip = CSTRING(Urgent);
 		};
 		class EVAC_PRIORITY : EVAC_URGENT {
 			idc = IDC_DD1380_EVAC_PRIORITY;
 			x = QUOTE(KAT_TCpxToScreen_X(502));
 			w = QUOTE(KAT_TCpxToScreen_W(17));
-			tooltip = "Priority";
+			tooltip = CSTRING(Priority);
 		};
 		class EVAC_ROUTINE : EVAC_URGENT {
 			idc = IDC_DD1380_EVAC_ROUTINE;
 			x = QUOTE(KAT_TCpxToScreen_X(603));
-			tooltip = "Routine";
+			tooltip = CSTRING(Routine);
 		};
 
 		// PATIENT INFO
@@ -230,91 +230,91 @@ class GVAR(triageCardDialog)
 		// INJURY TQ
 		class INJURY_TQ_R_ARM_TYPE : DD1380_RscTextTQ {
 			idc = IDC_DD1380_R_ARM_TYPE;
-			x = QUOTE(KAT_TCpxToScreen_X(304));
-			y = QUOTE(KAT_TCpxToScreen_Y(404));
+			x = QUOTE(KAT_TCpxToScreen_X(310));
+			y = QUOTE(KAT_TCpxToScreen_Y(405));
 			w = QUOTE(KAT_TCpxToScreen_W(37));
 			h = QUOTE(KAT_TCpxToScreen_H(20));
 		};
 		class INJURY_TQ_R_ARM_TIME : INJURY_TQ_R_ARM_TYPE {
 			idc = IDC_DD1380_R_ARM_TIME;
-			y = QUOTE(KAT_TCpxToScreen_Y(457));
+			y = QUOTE(KAT_TCpxToScreen_Y(427));
 		};
 		class INJURY_TQ_UR_ARM_TYPE : DD1380_RscTextTQ {
 			idc = IDC_DD1380_UR_ARM_TYPE;
 			x = QUOTE(KAT_TCpxToScreen_X(277));
-			y = QUOTE(KAT_TCpxToScreen_Y(404));
+			y = QUOTE(KAT_TCpxToScreen_Y(405));
 			w = QUOTE(KAT_TCpxToScreen_W(37));
 			h = QUOTE(KAT_TCpxToScreen_H(20));
 		};
 		class INJURY_TQ_UR_ARM_TIME : INJURY_TQ_UR_ARM_TYPE {
 			idc = IDC_DD1380_UR_ARM_TIME;
-			y = QUOTE(KAT_TCpxToScreen_Y(457));
+			y = QUOTE(KAT_TCpxToScreen_Y(427));
 		};
 		class INJURY_TQ_L_ARM_TYPE : DD1380_RscTextTQ {
 			idc = IDC_DD1380_L_ARM_TYPE;
 			x = QUOTE(KAT_TCpxToScreen_X(612));
-			y = QUOTE(KAT_TCpxToScreen_Y(404));
+			y = QUOTE(KAT_TCpxToScreen_Y(405));
 			w = QUOTE(KAT_TCpxToScreen_W(37));
 			h = QUOTE(KAT_TCpxToScreen_H(20));
 		};
 		class INJURY_TQ_L_ARM_TIME : INJURY_TQ_L_ARM_TYPE {
 			idc = IDC_DD1380_L_ARM_TIME;
-			y = QUOTE(KAT_TCpxToScreen_Y(457));
+			y = QUOTE(KAT_TCpxToScreen_Y(427));
 		};
 		class INJURY_TQ_UL_ARM_TYPE : DD1380_RscTextTQ {
 			idc = IDC_DD1380_UL_ARM_TYPE;
 			x = QUOTE(KAT_TCpxToScreen_X(575));
-			y = QUOTE(KAT_TCpxToScreen_Y(404));
+			y = QUOTE(KAT_TCpxToScreen_Y(405));
 			w = QUOTE(KAT_TCpxToScreen_W(37));
 			h = QUOTE(KAT_TCpxToScreen_H(20));
 		};
 		class INJURY_TQ_UL_ARM_TIME : INJURY_TQ_UL_ARM_TYPE {
 			idc = IDC_DD1380_UL_ARM_TIME;
-			y = QUOTE(KAT_TCpxToScreen_Y(457));
+			y = QUOTE(KAT_TCpxToScreen_Y(427));
 		};
 		class INJURY_TQ_R_LEG_TYPE : DD1380_RscTextTQ {
 			idc = IDC_DD1380_R_LEG_TYPE;
-			x = QUOTE(KAT_TCpxToScreen_X(304));
-			y = QUOTE(KAT_TCpxToScreen_Y(697));
+			x = QUOTE(KAT_TCpxToScreen_X(308));
+			y = QUOTE(KAT_TCpxToScreen_Y(702));
 			w = QUOTE(KAT_TCpxToScreen_W(37));
 			h = QUOTE(KAT_TCpxToScreen_H(20));
 		};
 		class INJURY_TQ_R_LEG_TIME : INJURY_TQ_R_LEG_TYPE {
 			idc = IDC_DD1380_R_LEG_TIME;
-			y = QUOTE(KAT_TCpxToScreen_Y(751));
+			y = QUOTE(KAT_TCpxToScreen_Y(725));
 		};
 		class INJURY_TQ_UR_LEG_TYPE : DD1380_RscTextTQ {
 			idc = IDC_DD1380_UR_LEG_TYPE;
 			x = QUOTE(KAT_TCpxToScreen_X(277));
-			y = QUOTE(KAT_TCpxToScreen_Y(697));
+			y = QUOTE(KAT_TCpxToScreen_Y(702));
 			w = QUOTE(KAT_TCpxToScreen_W(37));
 			h = QUOTE(KAT_TCpxToScreen_H(20));
 		};
 		class INJURY_TQ_UR_LEG_TIME : INJURY_TQ_UR_LEG_TYPE {
 			idc = IDC_DD1380_UR_LEG_TIME;
-			y = QUOTE(KAT_TCpxToScreen_Y(751));
+			y = QUOTE(KAT_TCpxToScreen_Y(725));
 		};
 		class INJURY_TQ_L_LEG_TYPE : DD1380_RscTextTQ {
 			idc = IDC_DD1380_L_LEG_TYPE;
-			x = QUOTE(KAT_TCpxToScreen_X(612));
+			x = QUOTE(KAT_TCpxToScreen_X(614));
 			y = QUOTE(KAT_TCpxToScreen_Y(697));
 			w = QUOTE(KAT_TCpxToScreen_W(37));
 			h = QUOTE(KAT_TCpxToScreen_H(20));
 		};
 		class INJURY_TQ_L_LEG_TIME : INJURY_TQ_L_LEG_TYPE {
 			idc = IDC_DD1380_L_LEG_TIME;
-			y = QUOTE(KAT_TCpxToScreen_Y(751));
+			y = QUOTE(KAT_TCpxToScreen_Y(722));
 		};
 		class INJURY_TQ_UL_LEG_TYPE : DD1380_RscTextTQ {
 			idc = IDC_DD1380_UL_LEG_TYPE;
-			x = QUOTE(KAT_TCpxToScreen_X(575));
+			x = QUOTE(KAT_TCpxToScreen_X(577));
 			y = QUOTE(KAT_TCpxToScreen_Y(697));
 			w = QUOTE(KAT_TCpxToScreen_W(37));
 			h = QUOTE(KAT_TCpxToScreen_H(20));
 		};
 		class INJURY_TQ_UL_LEG_TIME : INJURY_TQ_UL_LEG_TYPE {
 			idc = IDC_DD1380_UL_LEG_TIME;
-			y = QUOTE(KAT_TCpxToScreen_Y(751));
+			y = QUOTE(KAT_TCpxToScreen_Y(722));
 		};
 
 
@@ -452,7 +452,7 @@ class GVAR(triageCardDialog)
 			h = QUOTE(KAT_TCpxToScreen_H(84));
 			text = ">";
 			onButtonClick="_this call kat_triagecard_fnc_flipPage";
-			tooltip = "Flip card";
+			tooltip = CSTRING(FlipCard);
 		};
 	};
 };
@@ -481,18 +481,18 @@ class GVAR(triageCardDialog2)
 			y = QUOTE(KAT_TCpxToScreen_Y(123));
 			w = QUOTE(KAT_TCpxToScreen_W(17));
 			h = QUOTE(KAT_TCpxToScreen_H(16));
-			tooltip = "Urgent";
+			tooltip = CSTRING(Urgent);
 		};
 		class EVAC_PRIORITY : EVAC_URGENT {
 			idc = IDC_DD1380_EVAC_PRIORITY;
 			x = QUOTE(KAT_TCpxToScreen_X(508));
-			tooltip = "Priority";
+			tooltip = CSTRING(Priority);
 		};
 		class EVAC_ROUTINE : EVAC_URGENT {
 			idc = IDC_DD1380_EVAC_ROUTINE;
 			x = QUOTE(KAT_TCpxToScreen_X(609));
 			w = QUOTE(KAT_TCpxToScreen_W(16));
-			tooltip = "Routine";
+			tooltip = CSTRING(Routine);
 		};
 
 		// TQ
@@ -899,14 +899,14 @@ class GVAR(triageCardDialog2)
 			y = QUOTE(KAT_TCpxToScreen_Y(978));
 			h = QUOTE(KAT_TCpxToScreen_H(20));
 			onMouseButtonDblClick = "_this select 0 ctrlSetText ((player) call ace_common_fnc_getName)";
-			tooltip = "Double Click Me!";
+			tooltip = CSTRING(SetName);
 		};
 		class FIRST_RESPONDER_LAST4 : FIRST_RESPONDER_NAME {
 			idc = IDC_DD1380_FIRST_RESPONDER_LAST4;
 			x = QUOTE(KAT_TCpxToScreen_X(736));
 			w = QUOTE(KAT_TCpxToScreen_W(92));
 			onMouseButtonDblClick = "_this select 0 ctrlSetText (((name player) call ace_dogtags_fnc_ssn) select [7,4])";
-			tooltip = "Double Click Me!";
+			tooltip = CSTRING(SetSSN);
 		};
 		// FLIP PAGE
 		class FLIP_PAGE : DD1380_RscButton {
@@ -917,7 +917,7 @@ class GVAR(triageCardDialog2)
 			h = QUOTE(KAT_TCpxToScreen_H(84));
 			text = ">";
 			onButtonClick="_this call kat_triagecard_fnc_flipPage";
-			tooltip = "Flip card";
+			tooltip = CSTRING(FlipCard);
 		};
 	};
 };
