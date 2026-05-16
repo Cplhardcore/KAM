@@ -28,11 +28,12 @@ class ACE_Chest {
     modifierFunction = QUOTE([ARR_3(_target,""chest"",_this select 3)] call EFUNC(gui,modifyAction));
     runOnHover = 1;
     class TriageCard {
-        displayName = CSTRING(Actions_TriageCard);
-        exceptions[] = {"isNotInside", "isNotSitting"};
-        condition = "true";
-        statement = QUOTE(_target call ACEFUNC(medical_gui,displayTriageCard));
-        icon = QPATHTOF(ui\triage_card.paa);
+       displayName = CSTRING(openTriageCard);
+       condition =  "true";
+       statement = QEFUNC(triagecard,openCard);
+       showDisabled = 0;
+       exceptions[] = {"isNotInside", "isNotSitting"};
+       icon = QPATHTOF(ui\triage_card.paa);
     };
 };
 class ACE_Torso {
@@ -45,11 +46,12 @@ class ACE_Torso {
     modifierFunction = QUOTE([ARR_3(_target,""body"",_this select 3)] call EFUNC(gui,modifyAction));
     runOnHover = 1;
     class TriageCard {
-        displayName = CSTRING(Actions_TriageCard);
-        exceptions[] = {"isNotInside", "isNotSitting"};
-        condition = "true";
-        statement = QUOTE(_target call ACEFUNC(medical_gui,displayTriageCard));
-        icon = QPATHTOF(ui\triage_card.paa);
+       displayName = CSTRING(openTriageCard);
+       condition =  "true";
+       statement = QEFUNC(triagecard,openCard);
+       showDisabled = 0;
+       exceptions[] = {"isNotInside", "isNotSitting"};
+       icon = QPATHTOF(ui\triage_card.paa);
     };
 };
 class ACE_ArmUpperLeft {
