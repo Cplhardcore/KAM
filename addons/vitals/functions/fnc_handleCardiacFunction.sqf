@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 #pragma hemtt suppress pw3_padded_arg file
 /*
@@ -23,7 +24,10 @@
  */
 
 params ["_unit", "_hrTargetAdjustment", "_hrTarget", "_bloodVolume", "_aceAnFatigue", "_aceAnReserve",  "_deltaT", "_syncValue"];
-
+TRACE_1(
+        "_hrTargetAdjustment",
+        _hrTargetAdjustment
+    );
 private _icp = GET_ICP(_unit);
 private _map = GET_MAP(_unit);
 private _actualHeartRate = _hrTarget;
@@ -99,10 +103,6 @@ if (IN_CRDC_ARRST(_unit)) then {
 
     private _modelHR = _defaultHR + _baroDelta;
     _modelHR = _modelHR - linearConversion [0,1,_cnsSuppression,0,16,true];
-    _modelHR = _modelHR
-    + _hrTargetAdjustment
-    + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
-    + (_aceAnFatigue * 40);
     TRACE_6(
         "BARO_CORE",
         _map,
@@ -244,6 +244,10 @@ if (IN_CRDC_ARRST(_unit)) then {
     if (_pH < 7.2) then {
         _modelHR = _modelHR - linearConversion [7.2,6.9,_pH,0,25,true];
     };
+    _modelHR = _modelHR
+    + _hrTargetAdjustment (FIX HR TIMES)
+    + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
+    + (_aceAnFatigue * 40);
     _modelHR = (_modelHR max MIN_HR) min MAX_HR;
     private _hrDelta = _modelHR - _lastHR;
     private _rate =
@@ -366,6 +370,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     if (_irreversible > 0) then {
         _actualHeartRate = _actualHeartRate * (1 - (_irreversible * 0.4));
     };
+    _actualHeartRate = _actualHeartRate + _hrTargetAdjustment;
 };
 
 _unit setVariable [VAR_HEART_RATE, _actualHeartRate, _syncValue];

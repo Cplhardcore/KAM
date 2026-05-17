@@ -1,3 +1,4 @@
+
 #define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
@@ -110,30 +111,22 @@ private _excludedMeds = [
     "Naloxone"
 ];
 
-private _originalClassname = _classname;
-
-private _upperClass = toUpper _classname;
-
-if ((_upperClass select [count _upperClass - 4]) isEqualTo "AUTO") then {
-    _classname = _classname select [0, count _classname - 4];
-};
-_upperClass = toUpper _classname;
-
-if ((_upperClass select [count _upperClass - 2]) isEqualTo "IV") then {
-    _classname = _classname select [0, count _classname - 2];
-};
-
 private _medicationConfigName = _classname;
-
 if !(_classname in _excludedMeds) then {
     private _parts = _classname splitString "_";
-    if ((_parts select 0) != "syringe") then {
-        _medicationConfigName = format ["syringe_%1", _parts select 0];
+    private _medName = "";
+    if ((_parts select 0) isEqualTo "syringe") then {
+        _medName = _parts select 1;
     } else {
-        if ((count _parts) >= 2) then {
-            _medicationConfigName = format ["syringe_%1", _parts select 1];
-        };
+        _medName = _parts select 0;
     };
+    if ((toUpper _medName) find "AUTO" >= 0) then {
+        _medName = _medName select [0, (count _medName) - 4];
+    };
+    if ((toUpper _medName) find "IV" == ((count _medName) - 2)) then {
+        _medName = _medName select [0, (count _medName) - 2];
+    };
+    _medicationConfigName = format ["syringe_%1", _medName];
 };
 
 private _medicationConfig = _defaultConfig >> _medicationConfigName;
@@ -143,7 +136,7 @@ if (!isClass _medicationConfig) then {
 };
 TRACE_3("Medication config resolved",_classname,_medicationConfigName,_medicationConfig);
 private _startDose = 1;
-private _parts = (_originalClassname splitString "_");
+private _parts = (_classname splitString "_");
 if (count _parts > 3) then {
     _startDose = parseNumber (_parts select -1);
 };
@@ -205,7 +198,7 @@ private _routeMult = 1;
     };
 private _unitMedEffectivness = _patient getVariable [QGVAR(medicationEffectivness), 1];
 private _drugMult = _weightMult * _doseMult * _unitMedEffectivness;
-TRACE_7("_drugMult",_patient,_defaultHeartRate,(GET_BLOOD_VOLUME_LITERS(_patient) / DEFAULT_BLOOD_VOLUME),_drugMult,_weightMult,_doseMult,_unitMedEffectivness);
+TRACE_6("_drugMult",_patient,(GET_BLOOD_VOLUME_LITERS(_patient) / DEFAULT_BLOOD_VOLUME),_drugMult,_weightMult,_doseMult,_unitMedEffectivness);
 private _painReduce             = GET_NUMBER(_medicationConfig >> "painReduce",getNumber (_defaultConfig >> "painReduce")) * _drugMult;
 private _timeInSystem           = GET_NUMBER(_medicationConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")) * _drugMult * (2 - _routeMult);
 private _timeTillMaxEffect      = GET_NUMBER(_medicationConfig >> "timeTillMaxEffect",getNumber (_defaultConfig >> "timeTillMaxEffect")) * _drugMult * (2 - _routeMult);
@@ -244,6 +237,15 @@ private _currentWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80]
 _maxDoseMult = linearConversion [60, 100, _currentWeight, 0.6, 1.4, true];
 private _unitMedEffectivness = _patient getVariable [QGVAR(medicationEffectivness), 1];
 private _maxDoseFixed = _maxDose * _maxDoseMult * _unitMedEffectivness;
+private _upperMed = toUpper _medicationName;
+if ((_upperMed select [count _upperMed - 4]) isEqualTo "AUTO") then {
+    _medicationName = _medicationName select [0, count _medicationName - 4];
+};
+_upperMed = toUpper _medicationName;
+if ((_upperMed select [count _upperMed - 2]) isEqualTo "IV") then {
+    _medicationName = _medicationName select [0, count _medicationName - 2];
+};
+
 TRACE_6("adjustments1",_patient,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
 TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
 [_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased, (_weightMult * (_doseMult max 1) * _unitMedEffectivness)]] call EFUNC(vitals,addMedicationAdjustment);
