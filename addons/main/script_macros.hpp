@@ -657,4 +657,7 @@
 #define NOTMEDIC_LOWHR_THRESHOLD 50
 #define NOTMEDIC_LOWBP_THRESHOLD 90
 
+
+#undef PAIN_FADE_TIME
+#define PAIN_FADE_TIME 3600
 #define HAS_AIRWAY(unit)  (unit call EFUNC(airway,airwayCheck))
