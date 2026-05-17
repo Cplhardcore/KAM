@@ -7,6 +7,14 @@ class ACE_Head {
     statement = QUOTE([ARR_2(_target,0)] call EFUNC(gui,displayPatientInformation));
     modifierFunction = QUOTE([ARR_3(_target,""head"",_this select 3)] call EFUNC(gui,modifyAction));
     runOnHover = 1;
+    class TriageCard {
+       displayName = CSTRING(openTriageCard);
+       condition =  "true";
+       statement = QUOTE([ARR_2(ACE_player,_target)] call EFUNC(triagecard,openCard));
+       showDisabled = 0;
+       exceptions[] = {"isNotInside", "isNotSitting"};
+       icon = QPATHTOF(ui\triage_card.paa);
+    };
 };
 class ACE_Neck {
     displayName = CSTRING(Neck);
@@ -17,6 +25,14 @@ class ACE_Neck {
     statement = QUOTE([ARR_2(_target,1)] call EFUNC(gui,displayPatientInformation));
     modifierFunction = QUOTE([ARR_3(_target,""neck"",_this select 3)] call EFUNC(gui,modifyAction));
     runOnHover = 1;
+    class TriageCard {
+       displayName = CSTRING(openTriageCard);
+       condition =  "true";
+       statement = QUOTE([ARR_2(ACE_player,_target)] call EFUNC(triagecard,openCard));
+       showDisabled = 0;
+       exceptions[] = {"isNotInside", "isNotSitting"};
+       icon = QPATHTOF(ui\triage_card.paa);
+    };
 };
 class ACE_Chest {
     displayName = CSTRING(Chest);
@@ -30,7 +46,7 @@ class ACE_Chest {
     class TriageCard {
        displayName = CSTRING(openTriageCard);
        condition =  "true";
-       statement = QEFUNC(triagecard,openCard);
+       statement = QUOTE([ARR_2(ACE_player,_target)] call EFUNC(triagecard,openCard));
        showDisabled = 0;
        exceptions[] = {"isNotInside", "isNotSitting"};
        icon = QPATHTOF(ui\triage_card.paa);
@@ -48,7 +64,7 @@ class ACE_Torso {
     class TriageCard {
        displayName = CSTRING(openTriageCard);
        condition =  "true";
-       statement = QEFUNC(triagecard,openCard);
+       statement = QUOTE([ARR_2(ACE_player,_target)] call EFUNC(triagecard,openCard));
        showDisabled = 0;
        exceptions[] = {"isNotInside", "isNotSitting"};
        icon = QPATHTOF(ui\triage_card.paa);
