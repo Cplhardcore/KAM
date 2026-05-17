@@ -59,7 +59,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     _painLevel = GET_PAIN_PERCEIVED(_unit);
 
     private _lastHR = GET_HEART_RATE(_unit);
-
+    _lastHR = _lastHR + _hrTargetAdjustment;
     private _baselineSV = 0.0819575;
     private _strokeVolume = [_unit] call FUNC(getStrokeVolume);
 
@@ -175,7 +175,7 @@ if (IN_CRDC_ARRST(_unit)) then {
 
     _vagalTone =
         _vagalTone
-        * linearConversion [0, 1, _metabolicDemand, 1, 0.4, true];
+        * linearConversion [0, 1, _metabolicDemand, 1, 0.5, true];
 
     TRACE_3("VAGAL", _painLevel, _spo2, _vagalTone);
 
@@ -245,7 +245,6 @@ if (IN_CRDC_ARRST(_unit)) then {
         _modelHR = _modelHR - linearConversion [7.2,6.9,_pH,0,25,true];
     };
     _modelHR = _modelHR
-    + _hrTargetAdjustment (FIX HR TIMES)
     + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
     + (_aceAnFatigue * 40);
     _modelHR = (_modelHR max MIN_HR) min MAX_HR;
@@ -322,6 +321,9 @@ if (IN_CRDC_ARRST(_unit)) then {
         _unit setVariable [QGVAR(hrMemory), _hrMem, true];
     };
     _actualHeartRate = _hrMem;
+
+    _actualHeartRate = _actualHeartRate + _hrTargetAdjustment;
+
     if (_respRate > 4) then {
         private _rsaAmp =
             linearConversion [6, 20, _respRate, 6, 2, true];
@@ -370,7 +372,6 @@ if (IN_CRDC_ARRST(_unit)) then {
     if (_irreversible > 0) then {
         _actualHeartRate = _actualHeartRate * (1 - (_irreversible * 0.4));
     };
-    _actualHeartRate = _actualHeartRate + _hrTargetAdjustment;
 };
 
 _unit setVariable [VAR_HEART_RATE, _actualHeartRate, _syncValue];
