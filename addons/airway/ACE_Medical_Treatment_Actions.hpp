@@ -200,7 +200,7 @@ class ACE_Medical_Treatment_Actions {
     class CheckAirway: CheckPulse {
         displayName = CSTRING(checkAirway);
         displayNameProgress = CSTRING(action_checking);
-        category = "airway";
+        category = "examine";
         treatmentTime = QGVAR(CheckAirway_time);
         allowedSelections[] = {"Head"};
         allowSelfTreatment = 0;

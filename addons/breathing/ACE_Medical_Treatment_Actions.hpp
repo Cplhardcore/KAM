@@ -38,7 +38,7 @@ class ACE_Medical_Treatment_Actions {
     class CheckBreathing: CheckPulse {
         displayName = CSTRING(Check_Breathing);
         displayNameProgress = CSTRING(Check_Breathing_Progress);
-        category = "airway";
+        category = "examine";
         allowedSelections[] = {"Head"};
         allowSelfTreatment = 1;
         medicRequired = 0;

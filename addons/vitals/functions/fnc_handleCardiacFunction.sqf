@@ -56,7 +56,7 @@ if (IN_CRDC_ARRST(_unit)) then {
 
     private _lastHR = GET_HEART_RATE(_unit);
 
-    private _baselineSV = 0.0810542;
+    private _baselineSV = 0.0819575;
     private _strokeVolume = [_unit] call FUNC(getStrokeVolume);
 
     private _svMemory =
@@ -132,29 +132,34 @@ if (IN_CRDC_ARRST(_unit)) then {
                 22,
                 true
             ];
+        TRACE_1("symp3", _sympatheticSurge);
     };
+    TRACE_1("symp2", _sympatheticSurge);
     _sympatheticSurge =
     _sympatheticSurge * linearConversion [0,1,_painLevel,0.7,1.2,true];
+    TRACE_1("symp3", _sympatheticSurge);
     _modelHR = _modelHR + _centralBias;
     _modelHR = _modelHR + (_sympatheticSurge * (1 - (_cnsSuppression * 0.7)));
-    TRACE_2("CENTRAL_CMD", _centralBias, _modelHR);
+    TRACE_3("CENTRAL_CMD", _centralBias, _modelHR, _sympatheticSurge);
 
     private _staminaHRBias =
         linearConversion [0, 1, _metabolicDemand, 0, 25, true];
     _staminaHRBias = _staminaHRBias * (1 - (_cnsSuppression * 0.6));
     _modelHR = _modelHR + _staminaHRBias;
-
+    TRACE_3("STAMINA", _metabolicDemand, _staminaHRBias, _modelHR);
     if (_icp > EGVAR(brain,ICPbradycardiaThreshold)) then {
         private _ICPbias = linearConversion [EGVAR(brain,ICPbradycardiaThreshold), 60, _icp, -20, -45, true];
         _modelHR = _modelHR + _ICPbias;
+        TRACE_2("ICP", _modelHR, _ICPbias);
     };
     
-    if (EGVAR(hypothermia,hypothermiaActive)) then {
-        private _tempBias = linearConversion [36, 30, (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]), -4, -24, true];
+    if (EGVAR(hypothermia,hypothermiaActive) && ((_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]) < 36)) then {
+        private _tempBias = linearConversion [36, 30, (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]), 0, -24, true];
         _modelHR = _modelHR + _tempBias;
+        TRACE_2("Hyperthermia", _modelHR, _tempBias);
     };
 
-    TRACE_2("STAMINA_CMD", _metabolicDemand, _staminaHRBias);
+    TRACE_3("STAMINA_CMD", _metabolicDemand, _staminaHRBias, _modelHR);
 
     private _vagalTone = 0;
 
@@ -175,6 +180,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     TRACE_3("VAGAL", _painLevel, _spo2, _vagalTone);
 
     _modelHR = _modelHR * (1 - _vagalTone);
+    TRACE_2("VAGAL_CMD", _modelHR, _vagalTone);
     _shockClass = "NONE";
     private _metShock = _unit getVariable [QGVAR(shockState),0];
     if (_effectiveSV < 0.06 && _map < 70) then { _shockClass = "COMPENSATED" };
@@ -198,8 +204,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     private _paCO2 = GET_PACO2(_unit);
     private _co2Tachy =
     linearConversion [45, 80, _paCO2, 0, 18, true];
-    _co2Tachy =
-    _co2Tachy * (1 - (_cnsSuppression * 0.7));
+    _co2Tachy = _co2Tachy * (1 - (_cnsSuppression * 0.7));
     _modelHR = _modelHR + _co2Tachy;
     TRACE_3(
         "_co2Tachy",

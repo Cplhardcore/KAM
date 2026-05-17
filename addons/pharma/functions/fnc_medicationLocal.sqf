@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: Glowbal, mharis001
@@ -136,19 +137,24 @@ if !(_classname in _excludedMeds) then {
 };
 
 private _medicationConfig = _defaultConfig >> _medicationConfigName;
-
+TRACE_3("Medication config ",_classname,_medicationConfigName,_medicationConfig);
 if (!isClass _medicationConfig) then {
     _medicationConfig = _defaultConfig;
 };
-
-TRACE_2("Medication config resolved",_classname,_medicationConfigName);
+TRACE_3("Medication config resolved",_classname,_medicationConfigName,_medicationConfig);
 private _startDose = 1;
 private _parts = (_originalClassname splitString "_");
 if (count _parts > 3) then {
     _startDose = parseNumber (_parts select -1);
 };
-if (count _parts > 3) then { /DO THE CUSTOM DOSE CONFIG
-    _startDose = parseNumber (_parts select -1);
+if (_classname in ["Epinephrine", "Morphine", "Adenosine", "TXAAuto", "PhenylephrineAuto"]) then {
+    _startDose = switch (_classname) do {
+        case "Epinephrine": {10};
+        case "Morphine": {10};
+        case "Adenosine": {10};
+        case "TXAAuto": {10};
+        case "PhenylephrineAuto": {10};
+    };
 };
 private _bloodBased = GET_STRING(_medicationConfig >> "bloodBased",getText (_defaultConfig >> "bloodBased"));
 private _weightBase = GET_STRING(_medicationConfig >> "weightBased",getText (_defaultConfig >> "weightBased"));

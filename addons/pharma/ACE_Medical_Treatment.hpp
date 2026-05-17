@@ -221,7 +221,7 @@ class ACE_ADDON(Medical_Treatment) {
             onOverDose = "";
             maximumEffectiveDose = 20;
         };
-        class syringe_EpinephrineIV {
+        class syringe_Epinephrine {
             painReduce = 0;
             hrIncreaseLow[] = {10, 15};
             hrIncreaseNormal[] = {10, 20};
@@ -336,7 +336,7 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
             weightBased = "true";
         };
-        class syringe_AtropineIV {
+        class syringe_Atropine {
             painReduce = 0;
             hrIncreaseLow[] = {5, 25};
             hrIncreaseNormal[] = {5, 20};
@@ -453,7 +453,7 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
             weightBased = "true";
         };
-        class syringe_MorphineIV {
+        class syringe_Morphine {
             painReduce = 0.7;
             hrIncreaseLow[] = {-5, -10};
             hrIncreaseNormal[] = {-5, -15};
@@ -476,7 +476,7 @@ class ACE_ADDON(Medical_Treatment) {
             maximumEffectiveDose = 30;
             weightBased = "true";
         };
-        class syringe_AdenosineIV {
+        class syringe_Adenosine {
             painReduce = 0;
             hrIncreaseLow[] = {-3, -10};
             hrIncreaseNormal[] = {-7, -15};
@@ -519,7 +519,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeInSystem = 300;
             timeTillMaxEffect = 15;
             dose = 1;
-            viscosityChange = -0;
+            viscosityChange = 0;
             nauseaMult = -0.7;
             weightDose = 20;
             OD50 = 60;
