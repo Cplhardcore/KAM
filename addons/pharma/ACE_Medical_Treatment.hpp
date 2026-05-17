@@ -59,6 +59,9 @@ class ACE_ADDON(Medical_Treatment) {
         class Epinephrine {};
         class Morphine {};
         class Adenosine {};
+        class Atropine {};
+        class TXAAuto {};
+        class PhenylephrineAuto {};
         class Carbonate {
             painReduce = 0;
             hrIncreaseLow[] = {5, 10};
@@ -76,8 +79,6 @@ class ACE_ADDON(Medical_Treatment) {
             onOverDose = "";
             maximumEffectiveDose = 120;
         };
-        class TXAAuto {};
-        class PhenylephrineAuto {};
         class CWMP {
             painReduce = 0.2;
             hrIncreaseLow[] = {0, 5};
@@ -143,7 +144,7 @@ class ACE_ADDON(Medical_Treatment) {
             viscosityChange = 0;
             respiratoryRate = 0.1;
             OD50 = 40;
-            LD50 = 100;
+            LD50 = 200;
             chanceToOD = 5;
             maxDoseDeviation = 120;
             incompatibleMedication[] = {};
