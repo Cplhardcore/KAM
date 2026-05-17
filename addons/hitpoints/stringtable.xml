@@ -660,5 +660,8 @@
         <Key ID="STR_KAT_Hitpoints_washingBody">
             <English>Cleaning Patient</English>
         </Key>
+        <Key ID="STR_KAT_Hitpoints_openTriageCard">
+            <English>Open Triage Card</English>
+        </Key>
     </Package>
 </Project>
