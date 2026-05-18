@@ -34,13 +34,13 @@ if (_strain > 18) then {_newState = 3};
 
 switch (_newState) do {
     case 1: {
-        [_patient, 0.01] call ACEFUNC(medical_status,adjustPainLevel);
+        [_patient, 0.2] call ACEFUNC(medical_status,adjustPainLevel);
     };
     case 2: {
-        [_patient, 0.03] call ACEFUNC(medical_status,adjustPainLevel);
+        [_patient, 0.35] call ACEFUNC(medical_status,adjustPainLevel);
     };
     case 3: {
-        [_patient, 0.3] call ACEFUNC(medical_status,adjustPainLevel);
+        [_patient, 0.5] call ACEFUNC(medical_status,adjustPainLevel);
         if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
             [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
         };

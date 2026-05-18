@@ -659,5 +659,5 @@
 
 
 #undef PAIN_FADE_TIME
-#define PAIN_FADE_TIME 3600
+#define PAIN_FADE_TIME 7200
 #define HAS_AIRWAY(unit)  (unit call EFUNC(airway,airwayCheck))

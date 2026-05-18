@@ -165,7 +165,7 @@ if (_weightBase == "true") then {
     _weightMult = (_weightDoseFixed/_weightFixed);
 } else {
     if ((_classname find "ml") != -1) then {
-        private _lc = linearConversion [10, 30, _startDose, 0.5, 1.5, true];
+        private _lc = linearConversion [10, 30, _startDose, 1, 3, true];
         _weightMult = _weightMult * _lc;
         TRACE_2("weightMult",_weightMult,_lc);
     };
