@@ -45,6 +45,8 @@ class ACE_ADDON(Medical_Treatment) {
         weightDoseMax = 30; //100kg
         //maximum dose before medication effects are reduced
         maximumEffectiveDose = 40;
+        //how far over max effective dose before it scales to 0
+        maxOverEffective = 40;
         //multiplier to nausea
         nauseaMult = 0;
         //is this drug a sedation drug
@@ -78,13 +80,14 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 120;
+            maxOverEffective = 20;
         };
         class CWMP {
             painReduce = 0.2;
             hrIncreaseLow[] = {0, 5};
             hrIncreaseNormal[] = {5, 10};
             hrIncreaseHigh[] = {5, 10};
-            timeInSystem = 360;
+            timeInSystem = 1200;
             timeTillMaxEffect = 45;
             dose = 10;
             viscosityChange = -5;
@@ -96,16 +99,18 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 120;
+            maxOverEffective = 20;
         };
         class PainKillers {
-            painReduce = 0.35;
-            hrIncreaseLow[] = {-5, -10};
-            hrIncreaseNormal[] = {-5, -15};
-            hrIncreaseHigh[] = {-5, -17};
-            timeInSystem = 420;
-            timeTillMaxEffect = 60;
+            painReduce = 0.2;
+            hrIncreaseLow[] = {0, 5};
+            hrIncreaseNormal[] = {5, 10};
+            hrIncreaseHigh[] = {5, 10};
+            timeInSystem = 1200;
+            timeTillMaxEffect = 45;
             dose = 10;
-            maxRelief = 0.5;
+            viscosityChange = -5;
+            maxRelief = 0.4;
             OD50 = -1;
             LD50 = -1;
             chanceToOD = -1;
@@ -113,13 +118,14 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 120;
+            maxOverEffective = 20;
         };
         class Pervitin {
             painReduce = 0.5;
             hrIncreaseLow[] = {15, 25};
             hrIncreaseNormal[] = {15, 30};
             hrIncreaseHigh[] = {15, 25};
-            timeInSystem = 600;
+            timeInSystem = 1200;
             timeTillMaxEffect = 5;
             dose = 10;
             viscosityChange = 5;
@@ -173,9 +179,9 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {-0, -5};
             hrIncreaseNormal[] = {-5, -10};
             hrIncreaseHigh[] = {-5, -15};
-            timeInSystem = 300;
+            timeInSystem = 2400;
             timeTillMaxEffect = 20;
-            dose = 10;
+            dose = 15;
             viscosityChange = 5;
             maxRelief = 0.6;
             bloodBased = "true";
@@ -189,15 +195,15 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_TXA {
             painReduce = 0;
-            hrIncreaseLow[] = {-2, -5};
-            hrIncreaseNormal[] = {-2, -5};
-            hrIncreaseHigh[] = {-2, -5};
-            timeInSystem = 180;
-            timeTillMaxEffect = 5;
+            hrIncreaseLow[] = {-2, 0};
+            hrIncreaseNormal[] = {-3, -1};
+            hrIncreaseHigh[] = {-4, -2};
+            timeInSystem = 360;
+            timeTillMaxEffect = 15;
             dose = 1;
             viscosityChange = 0;
             bloodBased = "true";
-            OD50 = 50;
+            OD50 = 40;
             LD50 = 100;
             chanceToOD = 5;
             maxDoseDeviation = 10;
@@ -206,11 +212,11 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_EACA {
             painReduce = 0;
-            hrIncreaseLow[] = {-2, -5};
-            hrIncreaseNormal[] = {-2, -5};
-            hrIncreaseHigh[] = {-2, -5};
-            timeInSystem = 100;
-            timeTillMaxEffect = 35;
+            hrIncreaseLow[] = {-1, 0};
+            hrIncreaseNormal[] = {-2, -1};
+            hrIncreaseHigh[] = {-3, -1};
+            timeInSystem = 360;
+            timeTillMaxEffect = 25;
             dose = 1;
             viscosityChange = 0;
             bloodBased = "true";
@@ -224,17 +230,17 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_Epinephrine {
             painReduce = 0;
-            hrIncreaseLow[] = {10, 15};
-            hrIncreaseNormal[] = {10, 20};
-            hrIncreaseHigh[] = {10, 20};
-            timeInSystem = 180;
-            timeTillMaxEffect = 20;
+            hrIncreaseLow[] = {10, 18};
+            hrIncreaseNormal[] = {10, 18};
+            hrIncreaseHigh[] = {8, 15};
+            timeInSystem = 120;
+            timeTillMaxEffect = 5;
             dose = 1;
-            alphaFactor = -0.15;
-            contractility = 0.5;
-            respiratoryRate = 0.2;
-            OD50 = 60;
-            LD50 = 120;
+            alphaFactor = -0.08;
+            contractility = 0.25;
+            respiratoryRate = 0.12;
+            OD50 = 90;
+            LD50 = 150;
             chanceToOD = 5;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
@@ -243,16 +249,16 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_Phenylephrine {
             painReduce = 0;
-            hrIncreaseLow[] = {2, 10};
-            hrIncreaseNormal[] = {2, 15};
-            hrIncreaseHigh[] = {2, 10};
-            timeInSystem = 180;
+            hrIncreaseLow[] = {-5, 2};
+            hrIncreaseNormal[] = {-8, 0};
+            hrIncreaseHigh[] = {-10, -2};
+            timeInSystem = 360;
             timeTillMaxEffect = 15;
             viscosityChange = 10;
             dose = 1;
-            alphaFactor = -0.35;
-            OD50 = 45;
-            LD50 = 90;
+            alphaFactor = -0.3;
+            OD50 = 60;
+            LD50 = 120;
             chanceToOD = 5;
             maxDoseDeviation = 20;
             incompatibleMedication[] = {};
@@ -261,19 +267,19 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_Fentanyl {
             painReduce = 1;
-            hrIncreaseLow[] = {-5, -10};
-            hrIncreaseNormal[] = {-5, -10};
-            hrIncreaseHigh[] = {-10, -15};
-            timeInSystem = 900;
-            timeTillMaxEffect = 20;
+            hrIncreaseLow[] = {-8, -15};
+            hrIncreaseNormal[] = {-8, -20};
+            hrIncreaseHigh[] = {-14, -25};
+            timeInSystem = 7200;
+            timeTillMaxEffect = 10;
             dose = 1;
             viscosityChange = -10;
             opioidRelief = 1.2;
             opioidEffect = 0.11;
-            opioidDepression = 0.2;
-            respiratoryRate = -0.2;
-            contractility = -0.2;
-            nauseaMult = 0.4;
+            opioidDepression = 0.25;
+            respiratoryRate = -0.25;
+            contractility = -0.1;
+            nauseaMult = 0.5;
             bloodBased = "true";
             cnsSuppression = 0.4;
             OD50 = 30;
@@ -287,21 +293,21 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_Ketamine {
             painReduce = 0.8;
-            hrIncreaseLow[] = {5, 20};
-            hrIncreaseNormal[] = {10, 20};
-            hrIncreaseHigh[] = {5, 20};
-            timeInSystem = 600;
+            hrIncreaseLow[] = {5, 10};
+            hrIncreaseNormal[] = {5, 10};
+            hrIncreaseHigh[] = {5, 10};
+            timeInSystem = 3600;
             timeTillMaxEffect = 15;
             dose = 1;
-            viscosityChange = 10;
-            opioidEffect = 0.09;
-            opioidDepression = 0.09;
-            respiratoryRate = 0.2;
-            contractility = 0.1;
+            viscosityChange = 5;
+            opioidEffect = 0.05;
+            opioidDepression = 0.05;
+            respiratoryRate = 0.07;
+            contractility = 0.08;
             weightDose = 15;
             weightDoseMin = 10;
             weightDoseMax = 20;
-            nauseaMult = 0.3;
+            nauseaMult = 0.2;
             bloodBased = "true";
             OD50 = 60;
             LD50 = 120;
@@ -313,12 +319,12 @@ class ACE_ADDON(Medical_Treatment) {
             weightBased = "true";
         };
         class syringe_Nalbuphine {
-            painReduce = 0.6;
+            painReduce = 0.8;
             hrIncreaseLow[] = {-5, 0};
             hrIncreaseNormal[] = {-10, -5};
             hrIncreaseHigh[] = {-15, -5};
-            timeInSystem = 600;
-            timeTillMaxEffect = 30;
+            timeInSystem = 5400;
+            timeTillMaxEffect = 45;
             dose = 1;
             viscosityChange = -5;
             opioidRelief = 1.1;
@@ -336,14 +342,15 @@ class ACE_ADDON(Medical_Treatment) {
             onOverDose = "";
             maximumEffectiveDose = 30;
             weightBased = "true";
+            maxOverEffective = 1;
         };
         class syringe_Atropine {
             painReduce = 0;
-            hrIncreaseLow[] = {5, 25};
-            hrIncreaseNormal[] = {5, 20};
-            hrIncreaseHigh[] = {5, 10};
-            timeInSystem = 120;
-            timeTillMaxEffect = 30;
+            hrIncreaseLow[] = {8, 20};
+            hrIncreaseNormal[] = {6, 16};
+            hrIncreaseHigh[] = {3, 10};
+            timeInSystem = 540;
+            timeTillMaxEffect = 10;
             dose = 1;
             viscosityChange = 0;
             contractility = 0.1;
@@ -357,10 +364,10 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_Amiodarone {
             painReduce = 0;
-            hrIncreaseLow[] = {0, 0};
-            hrIncreaseNormal[] = {0, 0};
-            hrIncreaseHigh[] = {0, 0};
-            timeInSystem = 120;
+            hrIncreaseLow[] = {-2, 0};
+            hrIncreaseNormal[] = {-5, -2};
+            hrIncreaseHigh[] = {-8, -3};
+            timeInSystem = 540;
             timeTillMaxEffect = 30;
             dose = 1;
             viscosityChange = 0;
@@ -376,10 +383,10 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_Lidocaine {
             painReduce = 0;
-            hrIncreaseLow[] = {0, 0};
-            hrIncreaseNormal[] = {0, 0};
-            hrIncreaseHigh[] = {0, 0};
-            timeInSystem = 120;
+            hrIncreaseLow[] = {-1, 0};
+            hrIncreaseNormal[] = {-2, -1};
+            hrIncreaseHigh[] = {-3, -1};
+            timeInSystem = 240;
             timeTillMaxEffect = 30;
             dose = 1;
             contractility = -0.1;
@@ -396,15 +403,14 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {0, -5};
             hrIncreaseNormal[] = {-5, -10};
             hrIncreaseHigh[] = {-10, -15};
-            timeInSystem = 60;
+            timeInSystem = 90;
             timeTillMaxEffect = 5;
             dose = 1;
-            opioidDepression = 0.06;
             viscosityChange = 0;
             contractility = -0.05;
             weightDose = 20;
             bloodBased = "true";
-            cnsSuppression = 0.4;
+            cnsSuppression = 0.6;
             OD50 = 60;
             LD50 = 120;
             chanceToOD = 5;
@@ -419,7 +425,7 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {0, 0};
             hrIncreaseNormal[] = {0, 0};
             hrIncreaseHigh[] = {0, 0};
-            timeInSystem = 60;
+            timeInSystem = 300;
             timeTillMaxEffect = 5;
             dose = 1;
             viscosityChange = 0;
@@ -433,15 +439,15 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_Lorazepam {
             painReduce = 0;
-            hrIncreaseLow[] = {5, 10};
-            hrIncreaseNormal[] = {5, 15};
-            hrIncreaseHigh[] = {7, 15};
-            timeInSystem = 30;
+            hrIncreaseLow[] = {-2, 2};
+            hrIncreaseNormal[] = {-5, 0};
+            hrIncreaseHigh[] = {-5, -2};
+            timeInSystem = 3600;
             timeTillMaxEffect = 5;
             dose = 1;
             opioidDepression = 0.11;
             viscosityChange = -5;
-            respiratoryRate = -0.1;
+            respiratoryRate = -0.15;
             contractility = -0.1;
             weightDose = 20;
             cnsSuppression = 0.45;
@@ -459,12 +465,12 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {-5, -10};
             hrIncreaseNormal[] = {-5, -15};
             hrIncreaseHigh[] = {-5, -15};
-            timeInSystem = 600;
-            timeTillMaxEffect = 15;
+            timeInSystem = 5400;
+            timeTillMaxEffect = 60;
             dose = 1;
             viscosityChange = -7;
             opioidRelief = 1.1;
-            respiratoryRate = -0.1;
+            respiratoryRate = -0.15;
             weightDose = 20;
             nauseaMult = 0.3;
             cnsSuppression = 0.35;
@@ -482,8 +488,8 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {-3, -10};
             hrIncreaseNormal[] = {-7, -15};
             hrIncreaseHigh[] = {-7, -20};
-            timeInSystem = 180;
-            timeTillMaxEffect = 15;
+            timeInSystem = 60;
+            timeTillMaxEffect = 2;
             dose = 1;
             viscosityChange = 0;
             OD50 = 60;
@@ -499,11 +505,11 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {3, 10};
             hrIncreaseNormal[] = {5, 10};
             hrIncreaseHigh[] = {5, 15};
-            timeInSystem = 180;
+            timeInSystem = 360;
             timeTillMaxEffect = 15;
             dose = 1; 
-            respiratoryRate = 0.40;
-            opioidDepression = -0.25;
+            respiratoryRate = 0.12;
+            opioidDepression = -0.175;
             OD50 = 60;
             LD50 = 120;
             chanceToOD = 5;
@@ -517,7 +523,7 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {0, 0};
             hrIncreaseNormal[] = {0, 0};
             hrIncreaseHigh[] = {0, 0};
-            timeInSystem = 300;
+            timeInSystem = 600;
             timeTillMaxEffect = 15;
             dose = 1;
             viscosityChange = 0;
@@ -534,10 +540,10 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_Succinylcholine {
             painReduce = 0.0;
-            hrIncreaseLow[] = {15, 20};
-            hrIncreaseNormal[] = {10, 20};
-            hrIncreaseHigh[] = {10, 20};
-            timeInSystem = 120;
+            hrIncreaseLow[] = {-5, 5};
+            hrIncreaseNormal[] = {-5, 5};
+            hrIncreaseHigh[] = {-10, 5};
+            timeInSystem = 60;
             timeTillMaxEffect = 5;
             dose = 1;
             weightDose = 20;
@@ -555,8 +561,8 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {0, 0};
             hrIncreaseNormal[] = {0, 0};
             hrIncreaseHigh[] = {0, 0};
-            timeInSystem = 300;
-            timeTillMaxEffect = 20;
+            timeInSystem = 3600;
+            timeTillMaxEffect = 15;
             dose = 1;
             weightDose = 20;
             OD50 = 60;
@@ -588,8 +594,8 @@ class ACE_ADDON(Medical_Treatment) {
             painReduce = 0.0;
             hrIncreaseLow[] = {-4, -11};
             hrIncreaseNormal[] = {-8, -16};
-            hrIncreaseHigh[] = {-12, -20};
-            timeInSystem = 300;
+            hrIncreaseHigh[] = {-8, -16};
+            timeInSystem = 900;
             timeTillMaxEffect = 5;
             dose = 1;
             alphaFactor = -0.05;
@@ -607,10 +613,11 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {-2, 0};
             hrIncreaseNormal[] = {-3, -5};
             hrIncreaseHigh[] = {-3, -5};
-            timeInSystem = 180;
-            timeTillMaxEffect = 5;
+            timeInSystem = 5400;
+            timeTillMaxEffect = 10;
             dose = 1; 
-            respiratoryRate = -0.25;
+            respiratoryRate = -0.2;
+            cnsSuppression = 0.3;
             OD50 = 60;
             LD50 = 140;
             chanceToOD = 5;
@@ -621,11 +628,12 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_CalciumChloride {
             painReduce = 0;
-            hrIncreaseLow[]    = {10, 20};
-            hrIncreaseNormal[] = {8, 15};
-            hrIncreaseHigh[]   = {5, 10};
+            hrIncreaseLow[] = {1,5};
+            hrIncreaseNormal[] = {1,5};
+            hrIncreaseHigh[] = {0,3};
             timeInSystem = 60;
             timeTillMaxEffect = 5;
+            contractility = 0.15;
             dose = 1;
             alphaFactor = -0.08;
             OD50 = 120;
@@ -638,9 +646,10 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_CalciumGluconate {
             painReduce = 0;
-            hrIncreaseLow[]    = {5, 15};
-            hrIncreaseNormal[] = {5, 15};
-            hrIncreaseHigh[]   = {3, 10};
+            hrIncreaseLow[] = {1,5};
+            hrIncreaseNormal[] = {1,5};
+            hrIncreaseHigh[] = {0,3};
+            contractility = 0.08;
             timeInSystem = 240;
             timeTillMaxEffect = 15;
             dose = 1;
@@ -672,13 +681,14 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_Alteplase {
             painReduce = 0;
-            hrIncreaseLow[] = {-4, -10};
-            hrIncreaseNormal[] = {-5, -15};
-            hrIncreaseHigh[] = {-5, -20};
+            hrIncreaseLow[] = {-2, 0};
+            hrIncreaseNormal[] = {-3, -1};
+            hrIncreaseHigh[] = {-5, -2};
             timeInSystem = 180;
             timeTillMaxEffect = 30;
             dose = 1;
             OD50 = 40;
+            LD50 = 240;
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             viscosityChange = 0;

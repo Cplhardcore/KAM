@@ -1,4 +1,3 @@
-#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 #pragma hemtt suppress pw3_padded_arg file
 /*
@@ -56,7 +55,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     #define MAX_HR 220
     _metabolicDemand = linearConversion [2200, 400, _aceAnReserve, 0, 1, true];
 
-    _painLevel = GET_PAIN_PERCEIVED(_unit);
+    _painLevel = GET_PAIN(_unit);
 
     private _lastHR = GET_HEART_RATE(_unit);
     _lastHR = _lastHR + _hrTargetAdjustment;

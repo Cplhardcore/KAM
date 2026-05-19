@@ -575,16 +575,16 @@ class ACE_Medical_Treatment_Actions {
         displayName = KATPUSHCSTRING(doxapram,5ml,30);
         displayNameProgress = KATPUSHINGCSTRING(doxapram,5ml,30);
     };
-    class syringe_EpinephrineIV_5ml_10: syringe_EACA_5ml_10 {
+    class syringe_EpinephrineIV_5ml_20: syringe_EACA_5ml_10 {
         medicRequired = QGVAR(medLvl_EpinephrineIV);
-        items[] = {"kat_syringe_epinephrineIV_5ml_10"};
-        displayName = KATPUSHCSTRING(epinephrineIV,5ml,10);
-        displayNameProgress = KATPUSHINGCSTRING(epinephrineIV,5ml,10);
-    };
-    class syringe_EpinephrineIV_5ml_20: syringe_EpinephrineIV_5ml_10 {
         items[] = {"kat_syringe_epinephrineIV_5ml_20"};
         displayName = KATPUSHCSTRING(epinephrineIV,5ml,20);
         displayNameProgress = KATPUSHINGCSTRING(epinephrineIV,5ml,20);
+    };
+    class syringe_EpinephrineIV_5ml_30: syringe_EpinephrineIV_5ml_20 {
+        items[] = {"kat_syringe_epinephrineIV_5ml_30"};
+        displayName = KATPUSHCSTRING(epinephrineIV,5ml,30);
+        displayNameProgress = KATPUSHINGCSTRING(epinephrineIV,5ml,30);
     };
     class syringe_Etomidate_5ml_10: syringe_EACA_5ml_10 {
         category = "surgery";

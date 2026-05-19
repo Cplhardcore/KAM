@@ -5516,22 +5516,22 @@
         <Key ID="STR_KAT_Pharma_SyringeDisplay_etomidate_5ml_30">
             <English>5ml Syringe / 30mg(100kg) Etomidate</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_Push_epinephrineIV_5ml_10">
+        <Key ID="STR_KAT_Pharma_Push_epinephrineIV_5ml_20">
             <English>Push 10mcg Epinephrine</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_Pushing_epinephrineIV_5ml_10">
+        <Key ID="STR_KAT_Pharma_Pushing_epinephrineIV_5ml_20">
             <English>Pushing 10mcg Epinephrine</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_SyringeDisplay_epinephrineIV_5ml_10">
+        <Key ID="STR_KAT_Pharma_SyringeDisplay_epinephrineIV_5ml_20">
             <English>5ml Syringe / 10mcg Epinephrine</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_Push_epinephrineIV_5ml_20">
+        <Key ID="STR_KAT_Pharma_Push_epinephrineIV_5ml_30">
             <English>Push 1mg Epinephrine</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_Pushing_epinephrineIV_5ml_20">
+        <Key ID="STR_KAT_Pharma_Pushing_epinephrineIV_5ml_30">
             <English>Pushing 1mg Epinephrine</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_SyringeDisplay_epinephrineIV_5ml_20">
+        <Key ID="STR_KAT_Pharma_SyringeDisplay_epinephrineIV_5ml_30">
             <English>5ml Syringe / 1mg Epinephrine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_adenosineIV_5ml_10">
