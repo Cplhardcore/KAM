@@ -92,6 +92,9 @@ private _clearConditionCache = false;
         if (random 1 >= _reopeningChance * ACEGVAR(medical_treatment,woundReopenChance)) then {
             _delay = _delay * random [1.5, 2, 2.5];
         };
+        if (GVAR(longTermBandages) && (_bandage in ["Israeli_Bandage", "ETD", "Burn_Dressing", "Hemostat", "Adhesive_Bandage"])) then {
+            _delay = _delay * random [3, 6, 10];
+        };
         private _classIndex = _classID / 10;
         private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
         if (_className isNotEqualTo "Contusion") then {
