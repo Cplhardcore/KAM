@@ -54,11 +54,17 @@ switch (true) do {
         _temp_idc = IDC_TRIAGE + (ALL_CATEGORIES find _temp_category) * 10;
         case (_keyPressed == _y && {ACEGVAR(medical_gui,selectedCategory) != _temp_category}): {
             if (ctrlEnabled _temp_idc) then {
-                if (_temp_category == "toggle") then {
-                    call ACEFUNC(medical_gui,handleToggle);
-                } else {
-                    ACEGVAR(medical_gui,selectedCategory) = _temp_category;
-                };
+                switch (_temp_category) do {
+                    case "toggle": {
+                        call ACEFUNC(medical_gui,handleToggle);
+                    };
+                    case "triage": {
+                        [ACE_player,ACEGVAR(medical_gui,target)] call EFUNC(triagecard,openCard);
+                    };
+                    default {
+                        ACEGVAR(medical_gui,selectedCategory) = _temp_category;
+                    };
+                }; 
             } else {
                 _return = false;
             };

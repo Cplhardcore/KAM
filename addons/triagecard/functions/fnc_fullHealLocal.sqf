@@ -16,3 +16,8 @@
  */
 
 params ["_patient"];
+_patient setVariable [QGVAR(triageCardCheckboxes), createHashMap, true];
+_patient setVariable [QGVAR(triageCardPriority), createHashMap, true];
+_patient setVariable [QGVAR(triageCardText), createHashMap, true];
+_patient setVariable [QGVAR(triageCardBackCheckboxes), createHashMap, true];
+_patient setVariable [QGVAR(triageCardBackText), createHashMap, true];

@@ -79,7 +79,7 @@ class GVAR(triageCardDialog)
 	idd = 1380;
 	movingEnable = QUOTE(true);
 	onLoad= "((uiNamespace setVariable ['kat_triagecard_triageCard', 1]) && (_this call kat_triagecard_fnc_onLoad))";
-	onUnload= "((_this call kat_triagecard_fnc_setData) && (uiNamespace setVariable ['kat_triagecard_triageCard', nil]))";
+	onUnload= "((_this call kat_triagecard_fnc_setData) && (_this call kat_triagecard_fnc_openMenuDelayed) && (uiNamespace setVariable ['kat_triagecard_triageCard', nil]))";
 	class Controls {
 		// CARD
 		class DD1380_Card : RscPictureKeepAspect {
@@ -462,7 +462,7 @@ class GVAR(triageCardDialog2)
 	idd = 13802;
 	movingEnable = QUOTE(true);
 	onLoad= "((uiNamespace setVariable ['kat_triagecard_triageCard', 2]) && (_this call kat_triagecard_fnc_onLoad))";
-	onUnload= "((_this call kat_triagecard_fnc_setData) && (uiNamespace setVariable ['kat_triagecard_triageCard', nil]))";
+	onUnload= "((_this call kat_triagecard_fnc_setData) && (_this call kat_triagecard_fnc_openMenuDelayed) && (uiNamespace setVariable ['kat_triagecard_triageCard', nil]))";
 	class Controls {
 		// CARD
 		class DD1380_Card : RscPictureKeepAspect {

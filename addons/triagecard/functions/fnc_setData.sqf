@@ -56,6 +56,9 @@ switch (uiNamespace getVariable [QGVAR(triageCard), 0]) do {
 		{
 			_hmText set [_x, ctrlText (_display displayCtrl _x)];
 		} forEach [
+			IDC_DD1380_PATIENT_NAME,
+			IDC_DD1380_PATIENT_LAST4,
+			IDC_DD1380_PATIENT_DATE,
 			IDC_DD1380_PATIENT_TIME,
 			IDC_DD1380_PATIENT_SERVICE,
 			IDC_DD1380_PATIENT_UNIT,

@@ -6,4 +6,5 @@ PREP(init);
 PREP(onLoad);
 PREP(openCard);
 PREP(openCardLocal);
+PREP(openMenuDelayed);
 PREP(setData);

@@ -20,6 +20,7 @@ switch (uiNamespace getVariable [QGVAR(triageCard), 0]) do {
 		(_display displayCtrl IDC_DD1380_PATIENT_NAME) ctrlSetText ([ACEGVAR(medical_gui,target)] call ACEFUNC(common,getName));
 		(_display displayCtrl IDC_DD1380_PATIENT_LAST4) ctrlSetText (((name ACEGVAR(medical_gui,target)) call ACEFUNC(dogtags,ssn)) select [7,4]);
 		(_display displayCtrl IDC_DD1380_PATIENT_DATE) ctrlSetText ([date] call FUNC(getDate));
+		(_display displayCtrl IDC_DD1380_PATIENT_UNIT) ctrlSetText (groupId (group ACEGVAR(medical_gui,target)));
 		
 		if ([ACEGVAR(medical_gui,target), "leftarm"] call EFUNC(hitpoints,hasTourniquetAppliedTo)) then {
 			if ((GET_KAT_TOURNIQUETS(ACEGVAR(medical_gui,target)) select 4) == 1) then {
