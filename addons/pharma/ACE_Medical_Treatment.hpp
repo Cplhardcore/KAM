@@ -694,7 +694,18 @@ class ACE_ADDON(Medical_Treatment) {
             viscosityChange = 0;
             maximumEffectiveDose = 30;
         };
-        class admin_Norepinephrine {
+        class syringe_Norepinephrine {
+            painReduce = 0;
+            hrIncreaseLow[] = {1, 3};
+            hrIncreaseNormal[] = {1, 3};
+            hrIncreaseHigh[] = {1, 4};
+            timeInSystem = 3;
+            timeTillMaxEffect = 1;
+            dose = 1;
+            volume = 100;
+            rateCoef = 1.4;
+            alphaFactor = -0.075;
+            viscosityChange = 4;
             OD50 = 40;
             LD50 = 90;
             chanceToOD = 5;
@@ -703,7 +714,19 @@ class ACE_ADDON(Medical_Treatment) {
             onOverDose = "";
             maximumEffectiveDose = 30;
         };
-        class admin_Nitroglycerin {
+        class syringe_Nitroglycerin {
+            painReduce = 0;
+            hrIncreaseLow[] = {1, 3};
+            hrIncreaseNormal[] = {1, 3};
+            hrIncreaseHigh[] = {1, 4};
+            timeInSystem = 3;
+            timeTillMaxEffect = 1;
+            dose = 1;
+            volume = 100;
+            rateCoef = 1.4;
+            alphaFactor = 0.05;
+            viscosityChange = -2;
+            contractility = -0.05;
             OD50 = 60;
             LD50 = 120;
             chanceToOD = 5;

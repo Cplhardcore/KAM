@@ -22,4 +22,4 @@ if (!local _unit) exitWith {};
 
 [_unit] call FUNC(fullHealLocal);
 
-[_unit] call FUNC(renalSystem);
+//[_unit] call FUNC(renalSystem);

@@ -17,6 +17,8 @@
 
  params ["_unit"];
  if (!local _unit) exitWith { ERROR_2("updatePharmaEffects: Unit not local or null [%1:%2]",_unit,typeOf _unit); };
+[_unit] call FUNC(clotWound);
+[_unit] call FUNC(coagRegen);
 private _IVrate = _unit getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVarray = _unit getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 {
@@ -41,3 +43,4 @@ if (((_IVarray select 1) == 14) && (abs (speed _unit) > 6 && isNull objectParent
         _unit setVariable [QGVAR(IVrate), _IVrate, true];
     };
 };
+

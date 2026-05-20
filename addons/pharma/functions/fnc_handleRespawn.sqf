@@ -20,5 +20,5 @@
 params ["_unit","_dead"];
 [_unit] call FUNC(fullHealLocal);
 
-[_unit] call FUNC(renalSystem);
+//[_unit] call FUNC(renalSystem);
 

@@ -94,6 +94,8 @@ _patient setVariable [QGVAR(prevCalciumPhysio), [0, 1.2, 2.4, 0], true];
 _patient setVariable [QGVAR(lactate), 1.2, true];
 _patient setVariable [QGVAR(microcirculation), 0, true];
 _patient setVariable [QGVAR(mitoFailure), 0, true];
+_patient setVariable [QGVAR(lastTimeCoagUpdated), 0, true];
+_patient setVariable [QGVAR(lastTimeClotUpdated), 0, true];
 
 /// Clear Stamina & weapon sway
 if (ACEGVAR(advanced_fatigue,enabled)) then {
