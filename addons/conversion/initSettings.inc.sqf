@@ -65,7 +65,7 @@
 [
     QGVAR(useMedVehicle),
     "CHECKBOX",
-    [LLSTRING(CONVERSION_useMedVehicle), LLSTRING(CONVERSION_useMedVehicle_DESC)],
+    [LLSTRING(useMedVehicle), LLSTRING(useMedVehicle_DESC)],
     [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
     [false],
     true

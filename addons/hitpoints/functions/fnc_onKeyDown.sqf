@@ -23,7 +23,7 @@
 // TODO: Is the airway category ever visible? Can the dynamic category stuff be removed?
 
 #define NUMBER_KEYS [DIK_1, DIK_2, DIK_3, DIK_4, DIK_5, DIK_6, DIK_7, DIK_8, DIK_9, DIK_0]
-#define ALL_CATEGORIES ["triage", "examine", "bandage", "medication", "airway", "advanced", "drag", "toggle"]
+#define ALL_CATEGORIES ["triage", "examine", "bandage", "airway", "medication", "advanced", "drag", "toggle"]
 
 params ["", "_args"];
 _args params ["_display", "_keyPressed", "_shiftState", "_ctrlState", "_altState"];
@@ -31,7 +31,7 @@ _args params ["_display", "_keyPressed", "_shiftState", "_ctrlState", "_altState
 private _return = true; // Override existing keybinds for keys used here
 
 private _visibleCategories = [
-    "bandage","medication","airway","advanced","drag"
+    "bandage","airway","medication","advanced","drag"
 ] select {
     private _category = _x;
     (ACEGVAR(medical_gui,actions) findIf {_category == _x select 1}) > -1
@@ -54,11 +54,17 @@ switch (true) do {
         _temp_idc = IDC_TRIAGE + (ALL_CATEGORIES find _temp_category) * 10;
         case (_keyPressed == _y && {ACEGVAR(medical_gui,selectedCategory) != _temp_category}): {
             if (ctrlEnabled _temp_idc) then {
-                if (_temp_category == "toggle") then {
-                    call ACEFUNC(medical_gui,handleToggle);
-                } else {
-                    ACEGVAR(medical_gui,selectedCategory) = _temp_category;
-                };
+                switch (_temp_category) do {
+                    case "toggle": {
+                        call ACEFUNC(medical_gui,handleToggle);
+                    };
+                    case "triage": {
+                        [ACE_player,ACEGVAR(medical_gui,target)] call EFUNC(triagecard,openCard);
+                    };
+                    default {
+                        ACEGVAR(medical_gui,selectedCategory) = _temp_category;
+                    };
+                }; 
             } else {
                 _return = false;
             };

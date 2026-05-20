@@ -37,7 +37,7 @@ if (GVAR(pneumothoraxDamageThreshold_TakenDamage)) then {
 private _side = selectRandom [0, 1];
 // Damage threshold passed & pneumothorax given
 if (floor (random 100) < (GVAR(hptxChance) + _chanceIncrease)) then {
-    private _amount = linearConversion [1, 9, _engineDamage, 1, 5, true];
+    private _amount = linearConversion [1, 9, _engineDamage, 1, 4, true];
     [_unit, _side, _amount] call FUNC(handleHemothoraxDeterioration);
 };
 if (floor (random 100) < (GVAR(pneumothoraxChance) + _chanceIncrease)) then {

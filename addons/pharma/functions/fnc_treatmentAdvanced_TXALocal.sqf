@@ -160,32 +160,26 @@ if (!(GVAR(coagulation)) || GVAR(coagulation_allow_TXA_script)) then {
 
             private _alive = alive _patient;
             private _exit = true;
-            private _random = random [6.4, 6.8, 7.2];
-            private _ph = GET_PH(_patient);
 
             if !(_alive) exitWith {
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
             };
-            if (_random <= _ph) then {
-                {
-                    _x params ["_targetBodyPart"];
-                    
-                    private _openWounds = GET_OPEN_WOUNDS(_patient);
-                    private _openWoundsOnPart = _openWounds getOrDefault [_targetBodyPart, []];
-
-                    private _bodyPartN = ALL_BODY_PARTS find _x;
-                    if (_openWoundsOnPart isEqualTo [] || [_patient,_bodyPartN] call EFUNC(pharma,occlusionCheck)) then {
-                        continue;
-                    };
-
-                    private _woundIndex = _openWoundsOnPart findIf {(_x select 1) > 0 && (_x select 2) > 0};
-                    
-                    if (_woundIndex != -1) exitWith {
-                        [QACEGVAR(medical_treatment,bandageLocal), [_patient, _targetBodyPart, "PackingBandage"], _patient] call CBA_fnc_targetEvent;
-                        _exit = false;
-                    };
-                } forEach ALL_BODY_PARTS_PRIORITY;
-            };
+            {
+                _x params ["_targetBodyPart"];
+                
+                private _openWounds = GET_OPEN_WOUNDS(_patient);
+                private _openWoundsOnPart = _openWounds getOrDefault [_targetBodyPart, []];
+                private _bodyPartN = ALL_BODY_PARTS find _x;
+                if (_openWoundsOnPart isEqualTo [] || [_patient,_bodyPartN] call EFUNC(pharma,occlusionCheck)) then {
+                    continue;
+                };
+                private _woundIndex = _openWoundsOnPart findIf {(_x select 1) > 0 && (_x select 2) > 0};
+                
+                if (_woundIndex != -1) exitWith {
+                    [QACEGVAR(medical_treatment,bandageLocal), [_patient, _targetBodyPart, "PackingBandage"], _patient] call CBA_fnc_targetEvent;
+                    _exit = false;
+                };
+            } forEach ALL_BODY_PARTS_PRIORITY;
 
             [{
                 params["_patient", "_idPFH"];

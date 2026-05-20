@@ -23,7 +23,10 @@
  */
 
 params ["_unit", "_hrTargetAdjustment", "_hrTarget", "_bloodVolume", "_aceAnFatigue", "_aceAnReserve",  "_deltaT", "_syncValue"];
-
+TRACE_1(
+        "_hrTargetAdjustment",
+        _hrTargetAdjustment
+    );
 private _icp = GET_ICP(_unit);
 private _map = GET_MAP(_unit);
 private _actualHeartRate = _hrTarget;
@@ -52,11 +55,11 @@ if (IN_CRDC_ARRST(_unit)) then {
     #define MAX_HR 220
     _metabolicDemand = linearConversion [2200, 400, _aceAnReserve, 0, 1, true];
 
-    _painLevel = GET_PAIN_PERCEIVED(_unit);
+    _painLevel = GET_PAIN(_unit);
 
     private _lastHR = GET_HEART_RATE(_unit);
-
-    private _baselineSV = 0.0810542;
+    _lastHR = _lastHR + _hrTargetAdjustment;
+    private _baselineSV = 0.0819575;
     private _strokeVolume = [_unit] call FUNC(getStrokeVolume);
 
     private _svMemory =
@@ -99,10 +102,6 @@ if (IN_CRDC_ARRST(_unit)) then {
 
     private _modelHR = _defaultHR + _baroDelta;
     _modelHR = _modelHR - linearConversion [0,1,_cnsSuppression,0,16,true];
-    _modelHR = _modelHR
-    + _hrTargetAdjustment
-    + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
-    + (_aceAnFatigue * 40);
     TRACE_6(
         "BARO_CORE",
         _map,
@@ -132,29 +131,34 @@ if (IN_CRDC_ARRST(_unit)) then {
                 22,
                 true
             ];
+        TRACE_1("symp3", _sympatheticSurge);
     };
+    TRACE_1("symp2", _sympatheticSurge);
     _sympatheticSurge =
     _sympatheticSurge * linearConversion [0,1,_painLevel,0.7,1.2,true];
+    TRACE_1("symp3", _sympatheticSurge);
     _modelHR = _modelHR + _centralBias;
     _modelHR = _modelHR + (_sympatheticSurge * (1 - (_cnsSuppression * 0.7)));
-    TRACE_2("CENTRAL_CMD", _centralBias, _modelHR);
+    TRACE_3("CENTRAL_CMD", _centralBias, _modelHR, _sympatheticSurge);
 
     private _staminaHRBias =
         linearConversion [0, 1, _metabolicDemand, 0, 25, true];
     _staminaHRBias = _staminaHRBias * (1 - (_cnsSuppression * 0.6));
     _modelHR = _modelHR + _staminaHRBias;
-
+    TRACE_3("STAMINA", _metabolicDemand, _staminaHRBias, _modelHR);
     if (_icp > EGVAR(brain,ICPbradycardiaThreshold)) then {
         private _ICPbias = linearConversion [EGVAR(brain,ICPbradycardiaThreshold), 60, _icp, -20, -45, true];
         _modelHR = _modelHR + _ICPbias;
+        TRACE_2("ICP", _modelHR, _ICPbias);
     };
     
-    if (EGVAR(hypothermia,hypothermiaActive)) then {
-        private _tempBias = linearConversion [36, 30, (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]), -4, -24, true];
+    if (EGVAR(hypothermia,hypothermiaActive) && ((_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]) < 36)) then {
+        private _tempBias = linearConversion [36, 30, (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]), 0, -24, true];
         _modelHR = _modelHR + _tempBias;
+        TRACE_2("Hyperthermia", _modelHR, _tempBias);
     };
 
-    TRACE_2("STAMINA_CMD", _metabolicDemand, _staminaHRBias);
+    TRACE_3("STAMINA_CMD", _metabolicDemand, _staminaHRBias, _modelHR);
 
     private _vagalTone = 0;
 
@@ -170,11 +174,12 @@ if (IN_CRDC_ARRST(_unit)) then {
 
     _vagalTone =
         _vagalTone
-        * linearConversion [0, 1, _metabolicDemand, 1, 0.4, true];
+        * linearConversion [0, 1, _metabolicDemand, 1, 0.5, true];
 
     TRACE_3("VAGAL", _painLevel, _spo2, _vagalTone);
 
     _modelHR = _modelHR * (1 - _vagalTone);
+    TRACE_2("VAGAL_CMD", _modelHR, _vagalTone);
     _shockClass = "NONE";
     private _metShock = _unit getVariable [QGVAR(shockState),0];
     if (_effectiveSV < 0.06 && _map < 70) then { _shockClass = "COMPENSATED" };
@@ -198,8 +203,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     private _paCO2 = GET_PACO2(_unit);
     private _co2Tachy =
     linearConversion [45, 80, _paCO2, 0, 18, true];
-    _co2Tachy =
-    _co2Tachy * (1 - (_cnsSuppression * 0.7));
+    _co2Tachy = _co2Tachy * (1 - (_cnsSuppression * 0.7));
     _modelHR = _modelHR + _co2Tachy;
     TRACE_3(
         "_co2Tachy",
@@ -239,6 +243,9 @@ if (IN_CRDC_ARRST(_unit)) then {
     if (_pH < 7.2) then {
         _modelHR = _modelHR - linearConversion [7.2,6.9,_pH,0,25,true];
     };
+    _modelHR = _modelHR
+    + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
+    + (_aceAnFatigue * 40);
     _modelHR = (_modelHR max MIN_HR) min MAX_HR;
     private _hrDelta = _modelHR - _lastHR;
     private _rate =
@@ -313,6 +320,9 @@ if (IN_CRDC_ARRST(_unit)) then {
         _unit setVariable [QGVAR(hrMemory), _hrMem, true];
     };
     _actualHeartRate = _hrMem;
+
+    _actualHeartRate = _actualHeartRate + _hrTargetAdjustment;
+
     if (_respRate > 4) then {
         private _rsaAmp =
             linearConversion [6, 20, _respRate, 6, 2, true];

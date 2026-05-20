@@ -59,6 +59,7 @@ private _localAnesthesia = (_patient getVariable [QEGVAR(pharma,localAnesthesia)
 if (_number == 0.9) exitWith {
     _surgeryString = LSTRING(ClosedIncision);
     [_patient, "quick_view", LSTRING(ChestTube_log), [[_medic] call ACEFUNC(common,getName), _surgeryString, STRING_BODY_PARTS select 2]] call ACEFUNC(medical_treatment,addToLog);
+    [_medic, _patient, "chest"] call EFUNC(surgery,closeIncision);
     _chestTubeArray set [_side, 0];
     _patient setVariable [QGVAR(chestTube), _chestTubeArray, true];
     _patient setVariable [QGVAR(cricothyrotomy), 0, true];

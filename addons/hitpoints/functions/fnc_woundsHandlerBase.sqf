@@ -93,7 +93,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
             private _woundClassIDToAdd = ACEGVAR(medical_damage,woundClassNames) find _woundTypeToAdd;
             TRACE_2("wounds",_woundTypeToAdd,_woundClassIDToAdd);
             // Add a bit of random variance to wounds
-            private _woundDamage = _dmgPerWound * _dmgMultiplier * random [0.3, 0.5, 0.7] ;
+            private _woundDamage = _dmgPerWound * _dmgMultiplier * random [0.3, 0.5, 0.7];
 
             _bodyPartDamage set [_bodyPartNToAdd, (_bodyPartDamage select _bodyPartNToAdd) + _woundDamage];
 

@@ -22,7 +22,6 @@ if (GVAR(kidneyAction)) then {
     [{
         params ["_args", "_idPFH"];
         _args params ["_unit"];
-
         if (!alive _unit) exitWith {
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };
@@ -105,16 +104,16 @@ if (GVAR(kidneyAction)) then {
         linearConversion [1, 2.2, _shockIndex, 0.01, 0.035, true] *
         linearConversion [2, 6, _lactate, 1.0, 0.4, true];
         _lactateGen = _lactateGen * linearConversion [0.4, 1.0, _bvFrac, 1.8, 1.0, true];
-        _lactateGen = _lactateGen * (1 + (_micro * 1.6));
-        _lactateGen = _lactateGen * (1 + (_mito * 1.8));
-        _lactateGen = _lactateGen * (1 + (_trauma * 1.2));
+        _lactateGen = _lactateGen * (1 + (_micro * 1.3));
+        _lactateGen = _lactateGen * (1 + (_mito * 1.4));
+        _lactateGen = _lactateGen * (1 + (_trauma * 1.1));
         if (_effectiveCa < 2.1) then {
             _lactateGen = _lactateGen *
-                linearConversion [2.1, 1.6, _effectiveCa, 1.0, 1.6, true];
+                linearConversion [2.1, 1.6, _effectiveCa, 1.0, 1.4, true];
         };
         if (_effectiveCa > 3.0) then {
             _lactateGen = _lactateGen *
-                linearConversion [3.0, 3.6, _effectiveCa, 1.0, 1.4, true];
+                linearConversion [3.0, 3.6, _effectiveCa, 1.0, 1.3, true];
         };
         _lactate = (_lactate + _lactateGen) min 15;
         private _lactateTarget = 2.0;
@@ -407,10 +406,9 @@ if (GVAR(kidneyAction)) then {
 
         
         private _targetCa = 2.4 + linearConversion [-300, 300, _externalCa, -0.9, 0.9, true];
-        TRACE_3(
+        TRACE_2(
     "Ca TARGET",
     _targetCa,
-    _caError,
     _externalCa
 );
         if (_externalCa != 0) then {    
@@ -427,7 +425,7 @@ if (GVAR(kidneyAction)) then {
             if (_liverFail) then {
                 _clearanceRate = _clearanceRate * 0.125;
             };
-            _externalCa = _externalCa - (_clearanceRate * ((_externalCa max -1) min 1));
+            _externalCa = _externalCa - (_externalCa * _clearanceRate);
             _externalCa = (_externalCa max -300) min 300;
 
             _unit setVariable [QGVAR(externalCa), _externalCa, true];
@@ -443,7 +441,7 @@ if (GVAR(kidneyAction)) then {
         };
         if (_caCl2 > 0) then {
             private _amp = _caCl2 min 3;
-            private _cancel = (_amp * 4);
+            private _cancel = (_amp * 3);
             _externalCa = _externalCa + _cancel;
         };
         if (_caGlu > 0) then {
@@ -529,7 +527,7 @@ if (GVAR(kidneyAction)) then {
             _ca = _ca + linearConversion [2.45, 2.25, _effectiveCa, 0.000, 0.0005, true]
         };
         if (_effectiveCa > 3.0) then {
-            private _d = (_damage + 0) min 1;
+            private _d = (_damage + 0.004) min 1;
             _damage = [_d, _prevDmg, _maxDeltaDmg] call _rateLimit;
 
         };

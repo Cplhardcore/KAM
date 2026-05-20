@@ -3,7 +3,7 @@ class ACE_Medical_Treatment_Actions {
     class ConvertPatient: CheckPulse {
         displayName = CSTRING(convertPatient);
         displayNameProgress = CSTRING(converting);
-        category = "examine";
+        category = "advanced";
         condition = QFUNC(manualConversionCondition);
         medicRequired = QGVAR(manualConversionLevel);
         treatmentLocations = QGVAR(manualConversionLocation);
@@ -15,7 +15,7 @@ class ACE_Medical_Treatment_Actions {
     class ConvertPatientTickets: CheckPulse {
         displayName = CSTRING(TicketConversion);
         displayNameProgress = CSTRING(converting);
-        category = "examine";
+        category = "advanced";
         condition = QFUNC(ticketConversionCondition);
         medicRequired = QGVAR(manualConversionLevel);
         treatmentLocations = 2;
@@ -28,7 +28,7 @@ class ACE_Medical_Treatment_Actions {
     class ConvertPatientFacility: CheckPulse {
         displayName = CSTRING(TicketConversion);
         displayNameProgress = CSTRING(converting);
-        category = "examine";
+        category = "advanced";
         condition = QFUNC(facilityConversionCondition);
         medicRequired = QGVAR(manualConversionLevel);
         treatmentLocations = 2;

@@ -95,4 +95,12 @@ class CfgFunctions {
             };
         };
     };
+    class overwrite_medical_status {
+        tag = "ace_medical_status";
+        class ace_medical_status {
+            class getMedicationCount {
+                file = QPATHTOF(functions\fnc_getMedicationCount.sqf);
+            };
+        };
+    };
 };

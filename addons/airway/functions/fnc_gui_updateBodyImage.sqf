@@ -23,9 +23,20 @@ private _ctrlGuedelTube = _ctrlGroup controlsGroupCtrl IDC_BODY_HEAD_GUEDELTUBE;
 private _ctrlKingLT = _ctrlGroup controlsGroupCtrl IDC_BODY_HEAD_KINGLT;
 private _ctrlNPA = _ctrlGroup controlsGroupCtrl IDC_BODY_HEAD_NPA;
 private _ctrlCrike = _ctrlGroup controlsGroupCtrl IDC_BODY_NECK_CRIKE;
+private _ctrlCA1 = _ctrlGroup controlsGroupCtrl IDC_BODY_HEAD_CATASTROPHIC;
+private _ctrlCA2 = _ctrlGroup controlsGroupCtrl IDC_BODY_NECK_CATASTROPHIC;
 
 private _airwayItem = _target getVariable [QGVAR(airway_item), ""];
-
+if (_target getVariable [QGVAR(catastrophicAirway), [false, false]] select 0) then {
+    _ctrlCA1 ctrlShow true;
+} else {
+    _ctrlCA1 ctrlShow false;
+};
+if (_target getVariable [QGVAR(catastrophicAirway), [false, false]] select 1) then {
+    _ctrlCA2 ctrlShow true;
+} else {
+    _ctrlCA2 ctrlShow false;
+};
 if (_airwayItem isNotEqualTo "") then {
     switch (true) do {
         case (_airwayItem in ["Larynxtubus", "IGEL", "ETT"]): {

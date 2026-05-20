@@ -758,15 +758,6 @@
     true
 ] call CBA_Settings_fnc_init;
 
-[
-    QGVAR(coagulation_factor_regenerate_time),
-    "TIME",
-    [LLSTRING(SETTING_Coagulation_Factor_Regenerate_Time), LLSTRING(SETTING_Coagulation_Factor_Regenerate_Time_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_Coagulation)],
-    [1, 120, 30],
-    true
-] call CBA_Settings_fnc_init;
-
 // Stamina Settings
 [
     QGVAR(staminaMedication),

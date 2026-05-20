@@ -92,58 +92,86 @@ private _clearConditionCache = false;
         if (random 1 >= _reopeningChance * ACEGVAR(medical_treatment,woundReopenChance)) then {
             _delay = _delay * random [1.5, 2, 2.5];
         };
+        if (GVAR(longTermBandages) && (_bandage in ["Israeli_Bandage", "ETD", "Burn_Dressing", "Hemostat", "Adhesive_Bandage"])) then {
+            _delay = _delay * random [3, 6, 10];
+        };
         private _classIndex = _classID / 10;
         private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-        if (_className isNotEqualTo "Contusion") then {
-            private _bandagedWounds = GET_BANDAGED_WOUNDS(_patient);
-            private _exist = false;
-            {
-                _x params ["_id", "_amountOf", "", "", "_oldBandage", "", "_oldDelay"];
-                if ((_id == _classID) && (_oldBandage == _bandage) && (_oldDelay == _delay)) exitWith {
-                    _x set [1, _amountOf + _impact];
-                    TRACE_2("adding to existing bandagedWound",_id,_bodyPart);
-                    _exist = true;
+        switch (true) do {
+            case (_className isEqualTo "Contusion") : {
+                private _wrappedWounds = GET_WRAPPED_WOUNDS(_patient);
+                private _exist = false;
+                {
+                    _x params ["_id", "_amountOf", "", "", "_oldBandage", "", "_oldDelay"];
+                    if ((_id == _classID) && (_oldBandage == _bandage) && (_oldDelay == _delay)) exitWith {
+                        _x set [1, _amountOf + _impact];
+                        TRACE_2("adding to existing bandagedWound",_id,_bodyPart);
+                        _exist = true;
+                    };
+                } forEach (_wrappedWounds getOrDefault [_bodyPart, []]);
+
+                if (!_exist) then {
+                    TRACE_2("adding new bandagedWound",_classID,_bodyPart);
+                    private _bandagedInjury = +_wound;
+                    _bandagedInjury set [1, _impact];
+                    _bandagedInjury set [4, _bandage];
+                    _bandagedInjury set [5, _woundIndex];
+                    _bandagedInjury set [6, _delay];
+                    (_wrappedWounds getOrDefault [_bodyPart, [], true]) pushBack _bandagedInjury;
                 };
-            } forEach (_bandagedWounds getOrDefault [_bodyPart, []]);
-
-            if (!_exist) then {
-                TRACE_2("adding new bandagedWound",_classID,_bodyPart);
-                private _bandagedInjury = +_wound;
-                _bandagedInjury set [1, _impact];
-                _bandagedInjury set [4, _bandage];
-                _bandagedInjury set [5, _woundIndex];
-                _bandagedInjury set [6, _delay];
-                (_bandagedWounds getOrDefault [_bodyPart, [], true]) pushBack _bandagedInjury;
+                [_patient, _bodyPart, -(_damage * _impact)] call ACEFUNC(medical_treatment,addTrauma);
+                _patient setVariable [VAR_WRAPPED_WOUNDS, _wrappedWounds, true];
             };
+            case (((toLower _bandage) find "bloodclot") != -1): {
+                private _coagedWound = GET_COAGED_WOUNDS(_patient);
+                private _exist = false;
+                {
+                    _x params ["_id", "_amountOf", "", "", "_oldBandage", "", "_oldDelay"];
+                    if ((_id == _classID) && (_oldBandage == _bandage) && (_oldDelay == _delay)) exitWith {
+                        _x set [1, _amountOf + _impact];
+                        TRACE_2("adding to existing bandagedWound",_id,_bodyPart);
+                        _exist = true;
+                    };
+                } forEach (_coagedWound getOrDefault [_bodyPart, []]);
 
-
-            _patient setVariable [VAR_BANDAGED_WOUNDS, _bandagedWounds, true];
-        } else {
-            private _wrappedWounds = GET_WRAPPED_WOUNDS(_patient);
-            private _exist = false;
-            {
-                _x params ["_id", "_amountOf", "", "", "_oldBandage", "", "_oldDelay"];
-                if ((_id == _classID) && (_oldBandage == _bandage) && (_oldDelay == _delay)) exitWith {
-                    _x set [1, _amountOf + _impact];
-                    TRACE_2("adding to existing bandagedWound",_id,_bodyPart);
-                    _exist = true;
+                if (!_exist) then {
+                    TRACE_2("adding new bandagedWound",_classID,_bodyPart);
+                    private _bandagedInjury = +_wound;
+                    _bandagedInjury set [1, _impact];
+                    _bandagedInjury set [4, _bandage];
+                    _bandagedInjury set [5, _woundIndex];
+                    _bandagedInjury set [6, _delay];
+                    (_coagedWound getOrDefault [_bodyPart, [], true]) pushBack _bandagedInjury;
                 };
-            } forEach (_wrappedWounds getOrDefault [_bodyPart, []]);
-
-            if (!_exist) then {
-                TRACE_2("adding new bandagedWound",_classID,_bodyPart);
-                private _bandagedInjury = +_wound;
-                _bandagedInjury set [1, _impact];
-                _bandagedInjury set [4, _bandage];
-                _bandagedInjury set [5, _woundIndex];
-                _bandagedInjury set [6, _delay];
-                (_wrappedWounds getOrDefault [_bodyPart, [], true]) pushBack _bandagedInjury;
+                [_patient, _bodyPart, -(_damage * _impact)] call ACEFUNC(medical_treatment,addTrauma);
+                _patient setVariable [VAR_COAGED_WOUNDS, _coagedWound, true];
             };
-            [_patient, _bodyPart, -(_damage * _impact)] call ACEFUNC(medical_treatment,addTrauma);
-            _patient setVariable [VAR_WRAPPED_WOUNDS, _wrappedWounds, true];
-        }
-        
-        
+            default {
+                private _bandagedWounds = GET_BANDAGED_WOUNDS(_patient);
+                private _exist = false;
+                {
+                    _x params ["_id", "_amountOf", "", "", "_oldBandage", "", "_oldDelay"];
+                    if ((_id == _classID) && (_oldBandage == _bandage) && (_oldDelay == _delay)) exitWith {
+                        _x set [1, _amountOf + _impact];
+                        TRACE_2("adding to existing bandagedWound",_id,_bodyPart);
+                        _exist = true;
+                    };
+                } forEach (_bandagedWounds getOrDefault [_bodyPart, []]);
+
+                if (!_exist) then {
+                    TRACE_2("adding new bandagedWound",_classID,_bodyPart);
+                    private _bandagedInjury = +_wound;
+                    _bandagedInjury set [1, _impact];
+                    _bandagedInjury set [4, _bandage];
+                    _bandagedInjury set [5, _woundIndex];
+                    _bandagedInjury set [6, _delay];
+                    (_bandagedWounds getOrDefault [_bodyPart, [], true]) pushBack _bandagedInjury;
+                };
+
+
+                _patient setVariable [VAR_BANDAGED_WOUNDS, _bandagedWounds, true];
+            }
+        };
     };
 } forEach _targetWounds;
 

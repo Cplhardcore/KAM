@@ -42,10 +42,12 @@ private _fnc_createInternalBleeding = {
     _unit setVariable [VAR_BODYPART_DAMAGE, _bodyPartDamage, true];
     [_unit] call EFUNC(circulation,updateWoundBloodLoss);
 };
-
-for "_i" from 0 to _amount do {
+if (_amount > 0) then {
+    for "_i" from 0 to _amount do {
     [_unit] call _fnc_createInternalBleeding;
+    };
 };
+
 
 
 private _hemoState = _unit getVariable [QGVAR(hemopneumothorax), [0, 0]];

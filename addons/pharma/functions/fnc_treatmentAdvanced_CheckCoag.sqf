@@ -68,7 +68,7 @@ if (EGVAR(circulation,abgEnable)) then {
     private _ca = GET_CA(_patient);
     private _patientName = [_patient] call ACEFUNC(common,getName);
     private _output = format ["Patient: %1, PaCO2: %2, PaO2: %3, SpO2: %4", _patientName, _paCO2 toFixed 2, _paO2 toFixed 2, _spO2 toFixed 2];
-    private _output1 = format ["Patient: %1, HCO3: %2, pH: %3, Ca %4", _patientName, _hCO3 toFixed 2, _pH toFixed 2, _ca toFixed 2];
+    private _output1 = format ["Patient: %1, HCO3: %2, pH: %3, Ca: %4", _patientName, _hCO3 toFixed 2, _pH toFixed 2, _ca toFixed 2];
     [_output, 3, _medic] call ACEFUNC(common,displayTextStructured);
     [_patient, "quick_view", _output, [_medic]] call ACEFUNC(medical_treatment,addToLog);
     [_patient, "quick_view", _output1, [_medic]] call ACEFUNC(medical_treatment,addToLog);

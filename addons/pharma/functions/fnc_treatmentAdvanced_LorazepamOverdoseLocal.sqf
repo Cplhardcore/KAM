@@ -47,10 +47,10 @@ private _hrAdjust = -50 + floor random ((-30 - -50) + 1);
 }, [_patient], 15] call CBA_fnc_waitAndExecute;
 
 
-if (EGVAR(feedback,effectOverdose)) then
+/*if (EGVAR(feedback,effectOverdose)) then
     {
     PP_wetD = ppEffectCreate ["WetDistortion",300];
     PP_wetD ppEffectEnable true;
     PP_wetD ppEffectAdjust [10,0.2,0.2,1.84,1.46,0.33,0.86,0.05,0.05,0.05,0.05,0.1,0.1,0.2,0.2];
     PP_wetD ppEffectCommit 0;
-    [{PP_wetD ppEffectEnable false; PP_wetD ppEffectCommit 0;}, [], 600] call CBA_fnc_waitAndExecute;};
+    [{PP_wetD ppEffectEnable false; PP_wetD ppEffectCommit 0;}, [], 600] call CBA_fnc_waitAndExecute;};*/

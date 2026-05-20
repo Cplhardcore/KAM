@@ -138,24 +138,8 @@
     true
 ] call CBA_fnc_addSetting;
 
-[
-    QGVAR(deterioratingAirways_chance),
-    "SLIDER",
-    [LLSTRING(SETTING_deterioratingAirways_chance), LLSTRING(SETTING_deterioratingAirways_chance_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_AirwayInjury)],
-    [0, 100, 25, 0],
-    true
-] call CBA_fnc_addSetting;
 
 //Deteriorating Airways countdown
-[
-    QGVAR(deterioratingAirways_interval),
-    "SLIDER",
-    [LLSTRING(SETTING_deterioratingAirways_interval), LLSTRING(SETTING_deterioratingAirways_interval_Desc)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_AirwayInjury)],
-    [1, 1200, 30, 0],
-    true
-] call CBA_fnc_addSetting;
 
 [
     QGVAR(airwayCollapse_Timer),

@@ -43,8 +43,8 @@ params ["_display"];
     [IDC_TRIAGE, "triage"],
     [IDC_EXAMINE, "examine"],
     [IDC_BANDAGE, "bandage"],
-    [IDC_MEDICATION, "medication"],
     [IDC_AIRWAY, "airway"],
+    [IDC_MEDICATION, "medication"],
     [IDC_ADVANCED, "advanced"],
     [IDC_SURGERY, "surgery"],
     [IDC_DRAG, "drag"]

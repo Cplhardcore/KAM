@@ -60,7 +60,6 @@ if (EGVAR(hypothermia,hypothermiaActive)) then {
     _temperature = [_unit, _altitudeTempImpact, _bloodVolume, _deltaT, _syncValues] call FUNC(handleTemperatureFunction);
 };
 
-// Set variables for synchronizing information across the net
 private _hemorrhage = switch (true) do {
     case (_bloodVolume < BLOOD_VOLUME_CLASS_4_HEMORRHAGE): { 4 };
     case (_bloodVolume < BLOOD_VOLUME_CLASS_3_HEMORRHAGE): { 3 };
@@ -91,7 +90,7 @@ if (_tourniquetPain > 0) then {
     [_unit, _tourniquetPain] call ACEFUNC(medical_status,adjustPainLevel);
 };
 
-// Get Medication Adjustments:
+
 private _hrTargetAdjustment = 0;
 private _painSupressAdjustment = 0;
 private _peripheralResistanceAdjustment = 0;
@@ -159,19 +158,20 @@ if (_adjustments isNotEqualTo []) then {
             "_respiratoryRate", "_contractility", "_nauseaMult",
             "_sedation", "_paralysis", "_linear", "_cnsSuppression", "_overdoseAdmin"
         ];
-        _overdoseAdmin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased"];
+        _overdoseAdmin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased", "_weightMult"];
         private _scaledMaxTime = _maxTimeInSystem / _metabolismMult;
         private _scaledTimeToMax = _timeTillMaxEffect * _onsetMult;
         private _timeInSystem = CBA_missionTime - _timeAdded;
         private _medLower = toLower _medication;
         private _blockedWords = ["overdose", "override", "bradycardia", "tachycardia"];
         private _found = _blockedWords findIf { _medLower find _x != -1 };
-        if ((_overdoseAdmin select 1 > 0) && (_found == -1)) then {
+        if ((_overdoseAdmin select 1 > 0) && (_found == -1) && (_overdoseAdmin select 0 > 0)) then {
             [_unit, _medication, _ld50, _od50, _chanceToOD] call FUNC(handleOverdoses);
         };
+        TRACE_3("TIS",_medication,_timeInSystem,_scaledMaxTime);
         if (_timeInSystem >= _scaledMaxTime) then {
             _deleted = true;
-            _adjustments set [_forEachIndex, objNull];
+            _adjustments deleteAt _forEachIndex;
         } else {
             if (_linear == "true") then {
                 _effectRatio = 1;
@@ -259,10 +259,9 @@ if (_adjustments isNotEqualTo []) then {
         };
 
     } forEach _adjustments;
-
-    if (_deleted) then {
-        _unit setVariable [VAR_MEDICATIONS, _adjustments - [objNull], true];
+    if (_deleted) then {   
         _syncValues = true;
+        _unit setVariable [VAR_MEDICATIONS, _adjustments - [objNull], true];
     };
 };
 
@@ -278,8 +277,6 @@ if (_adjustments isNotEqualTo []) then {
 [_unit, _sedationAdjustment, _deltaT, _syncValues] call FUNC(updateSedation);
 [_unit, _paralysisAdjustment, _deltaT, _syncValues] call FUNC(updateParalysis);
 [_unit, _cnsSuppressionAdjustment, _deltaT, _syncValues] call FUNC(updateCnsSuppression);
-
-
 private _aceAnFatigue = 0;
 private _aceAnReserve = 0;
 if (_unit getVariable [QGVAR(fatigueEnabled), false]) then {
@@ -421,14 +418,7 @@ private _side = _x;
 [_unit] call EFUNC(pharma,updatePharmaEffects);
 [_unit] call EFUNC(hypothermia,updateHypothermiaEffects);
 [_unit] call EFUNC(breathing,updateTACOEffects);
-
-#ifdef DEBUG_MODE_FULL
-private _cardiacOutput = [_unit] call ACEFUNC(medical_status,getCardiacOutput);
-if (!isPlayer _unit) then {
-    private _painLevel = _unit getVariable [VAR_PAIN, 0];
-    hintSilent format["blood volume: %1, blood loss: [%2, %3]\nhr: %4, bp: %5, vasoconstriction: %6", round(_bloodVolume * 100) / 100, round(_woundBloodLoss * 1000) / 1000, round((_woundBloodLoss / (0.001 max _cardiacOutput)) * 100) / 100, round(_heartRate), _bloodPressure, _vasoconstriction];
-};
-#endif
+[_unit] call EFUNC(airway,airwayDeterioration);
 
 END_COUNTER(Vitals);
 

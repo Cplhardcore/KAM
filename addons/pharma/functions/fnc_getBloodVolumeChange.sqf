@@ -52,7 +52,7 @@ private _externalLossVolumeChange = 0;
 } forEach _exBloodLoss;
 private _enableFluidShift = EGVAR(vitals,enableFluidShift);
 private _fluidVolume = GET_BODY_FLUID(_unit);
-TRACE_3("gbvc",_bloodLoss,_heartRate,_lossVolumeChange);
+TRACE_4("gbvc",_bloodLoss,_heartRate,_lossVolumeChange,_externalLossVolumeChange);
 _fluidVolume params ["_ECB","_ECP","_SRBC","_ISP","_fullVolume","_platelets"];
 
 _ECP = (_ECP + (_lossVolumeChange * LITERS_TO_ML) / 2) max 100;
@@ -205,8 +205,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                     
                 case(_type == "Saline"): { 
                     if (_enableFluidShift) then {
-                        _ECP = _ECP + _bagChange / 2; 
-                        _ISP = _ISP + _bagChange / 2; 
+                        _ECP = _ECP + (_bagChange / 2); 
+                        _ISP = _ISP + (_bagChange / 2); 
                         _lossVolumeChange = _lossVolumeChange + (_bagChange / 2000);
                     } else {
                         _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS);
@@ -217,8 +217,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 };
                 case(_type == "Ringers Lactate"): {
                     if (_enableFluidShift) then {
-                        _ECP = _ECP + _bagChange * 0.75; 
-                        _ISP = _ISP + _bagChange * 0.25; 
+                        _ECP = _ECP + (_bagChange * 0.75); 
+                        _ISP = _ISP + (_bagChange * 0.25); 
                         _lossVolumeChange = _lossVolumeChange + (_bagChange / 2000);
                     } else {
                         _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS);
@@ -226,8 +226,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                     _platelets = (_platelets + (_plateletAmount * _bagChange)) max 0;
                 };
                 case(_type == "Blood"): { 
-                    _ECB = _ECB + _bagChange / 2; 
-                    _ECP = _ECP + _bagChange / 2; 
+                    _ECB = _ECB + (_bagChange / 2); 
+                    _ECP = _ECP + (_bagChange / 2); 
                     _lossVolumeChange = _lossVolumeChange + (_bagChange / 2000);
                     _platelets = (_platelets + (_plateletAmount * _bagChange)) max 0; 
                 };
@@ -274,8 +274,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 case(_type == "FBTK_250"): {
                     if (_bagVolumeRemaining < 250) then {
                         _bagVolumeRemaining = (_bagVolumeRemaining + _bagChange) min 250;
-                        _ECB = _ECB - _bagChange / 2; 
-                        _ECP = _ECP - _bagChange / 2;
+                        _ECB = _ECB - (_bagChange / 2); 
+                        _ECP = _ECP - (_bagChange / 2);
                         _platelets = _platelets - (0.1 * _bagChange);
                         _lossVolumeChange = _lossVolumeChange - (_bagChange / ML_TO_LITERS); 
                     };
@@ -283,8 +283,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 case(_type == "FBTK_500"): {
                     if (_bagVolumeRemaining < 500) then {
                         _bagVolumeRemaining = (_bagVolumeRemaining + _bagChange) min 500;
-                        _ECB = _ECB - _bagChange / 2; 
-                        _ECP = _ECP - _bagChange / 2;
+                        _ECB = _ECB - (_bagChange / 2); 
+                        _ECP = _ECP - (_bagChange / 2);
                         _platelets = _platelets - (0.1 * _bagChange);
                         _lossVolumeChange = _lossVolumeChange - (_bagChange / ML_TO_LITERS); 
                     };
@@ -347,8 +347,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             private _medicationName = (_type splitString "_") select 0;
             TRACE_6("adjustments1",_unit,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
             TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-
-            [_unit, _medicationName, 0, 1, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, "false", "false", "true", _cnsSuppression] call EFUNC(vitals,addMedicationAdjustment);
+            private _drugMult = linearConversion [0, 4, _medicationMult, 0.01, 4];
+            [_unit, _medicationName, 0, 2, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, "false", "false", "true", _cnsSuppression, [-1, -1, -1, "false", _drugMult]] call EFUNC(vitals,addMedicationAdjustment);
             [_unit, _medicationName] call ACEFUNC(medical_treatment,onMedicationUsage);
 
             if (_hypothermia) then {

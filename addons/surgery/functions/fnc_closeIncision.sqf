@@ -16,6 +16,7 @@
  *
  * Public: No
  */
+ 
 params ["_medic", "_patient", "_bodyPart"];
 [QACEGVAR(medical_treatment,bandageLocal), [_patient, _bodyPart, "IncisionClosure"], _patient] call CBA_fnc_targetEvent; //TODO replace this
 
@@ -32,11 +33,11 @@ for "_i" from (_woundCount - 1) to 0 step -1 do {
     private _treatedID = _wound select 0;
     private _classIndex = _treatedID / 10;
     private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-    if (_className in ["Incision"]) then {
+    if (_className == "Incision") then {
         _treatedWound = _bandagedWoundsOnPart deleteAt _i;
     };
 };
-
+_bandagedWounds set [_bodyPart, _bandagedWoundsOnPart];
 _treatedWound params ["_treatedID", "_treatedAmountOf", "", "_treatedDamageOf"];
 
 // Check if we need to add a new stitched wound or increase the amount of an existing one

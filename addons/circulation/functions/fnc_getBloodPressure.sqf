@@ -60,7 +60,7 @@ private _vasoconstriction = 0;
     _vasoconstriction = _vasoconstriction + _x;
 } forEach _vasoconstrictionArray;
 private _vasoconstriction = (_vasoconstriction / 12);
-private _vasoFactor = linearConversion [0.2, 1.8, _vasoconstriction, 1.4, 0.6, true];
+private _vasoFactor = linearConversion [0.2, 1.8, _vasoconstriction, 1.25, 0.75, true];
 private _map =
     (_cardiacOutput
     * BASELINE_SVR

@@ -111,6 +111,7 @@ _patient setVariable [QACEGVAR(medical,triageCard), [], true];
 _patient setDamage 0;
 
 _patient setVariable  [VAR_BODY_BLEED_RATE, DEFAULT_BODY_BLEED_RATE_VALUES];
+_patient setVariable  [VAR_EXTERNAL_BODY_BLEED_RATE, DEFAULT_BODY_BLEED_RATE_VALUES];
 
 [QACEGVAR(medical,FullHeal), _patient] call CBA_fnc_localEvent;
 _state = GET_SM_STATE(_patient);

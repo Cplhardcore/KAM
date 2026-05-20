@@ -80,7 +80,6 @@ _patient setVariable [QGVAR(medicationEffectivness), [_patient] call FUNC(genera
 _patient setVariable [QGVAR(occludedCAMedications), [], true];
 _patient setVariable [QGVAR(occludedBlockMedications), [], true];
 _patient setVariable [VAR_LOCAL_ANESTHESIA, DEFAULT_LOCAL_ANESTHESIA, true];
-_patient setVariable [QGVAR(activeEtomidateLoadingDose), false, true];
 _patient setVariable [QGVAR(serumCalcium), 2.4, true];
 _patient setVariable [QGVAR(calciumDamage), 0, true];
 _patient setVariable [QGVAR(externalCa), 0, true];
@@ -95,6 +94,8 @@ _patient setVariable [QGVAR(prevCalciumPhysio), [0, 1.2, 2.4, 0], true];
 _patient setVariable [QGVAR(lactate), 1.2, true];
 _patient setVariable [QGVAR(microcirculation), 0, true];
 _patient setVariable [QGVAR(mitoFailure), 0, true];
+_patient setVariable [QGVAR(lastTimeCoagUpdated), 0, true];
+_patient setVariable [QGVAR(lastTimeClotUpdated), 0, true];
 
 /// Clear Stamina & weapon sway
 if (ACEGVAR(advanced_fatigue,enabled)) then {

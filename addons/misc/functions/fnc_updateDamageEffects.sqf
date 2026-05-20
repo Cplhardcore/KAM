@@ -207,7 +207,7 @@ if (_unit getVariable [QEGVAR(surgery,reboa), false]) then {
 [_unit, "forceWalk", QACEGVAR(medical,fracture), _noJog] call ACEFUNC(common,statusEffect_set);
 
 _unit setVariable [QACEGVAR(medical,isLimping), _isLimping, true];
-if (_keepProne && !(IS_UNCONSCIOUS(_unit)) && (lifeState _unit != "INCAPACITATED")) then {
+if (_keepProne && !(IS_UNCONSCIOUS(_unit)) && (lifeState _unit != "INCAPACITATED") && (isPlayer _unit)) then {
     if (stance _unit != "PRONE") then {
         _unit setUnconscious true;
         [{

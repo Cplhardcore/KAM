@@ -51,7 +51,6 @@ _unit setVariable [QGVAR(ptxTTime), 0, true];
                                 _unit setVariable [QGVAR(activeChestSeal), _activeChestSeal, true];
                                 };
                         };
-                        
                         _pneumothoraxState set [_side, _ptxTarget];
                         _unit setVariable [QGVAR(pneumothorax), _pneumothoraxState, true];
                     };

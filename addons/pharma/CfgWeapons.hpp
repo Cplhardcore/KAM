@@ -585,11 +585,11 @@ class CfgWeapons {
     class kat_syringe_alteplase_5ml_30: kat_syringe_txa_5ml_10 {
         displayName = KATDISPLAYCSTRING(alteplase,5ml,30);
     };
-    class kat_syringe_epinephrineIV_5ml_10: kat_syringe_txa_5ml_10 {
-        displayName = KATDISPLAYCSTRING(epinephrineIV,5ml,10);
-    };
-    class kat_syringe_epinephrineIV_5ml_20: kat_syringe_epinephrineIV_5ml_10 {
+    class kat_syringe_epinephrineIV_5ml_20: kat_syringe_txa_5ml_10 {
         displayName = KATDISPLAYCSTRING(epinephrineIV,5ml,20);
+    };
+    class kat_syringe_epinephrineIV_5ml_30: kat_syringe_epinephrineIV_5ml_20 {
+        displayName = KATDISPLAYCSTRING(epinephrineIV,5ml,30);
     };
     class kat_syringe_lidocaine_5ml_10: kat_syringe_txa_5ml_10 {
         displayName = KATDISPLAYCSTRING(lidocaine,5ml,10);
