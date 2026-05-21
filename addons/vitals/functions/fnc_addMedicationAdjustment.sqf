@@ -40,7 +40,7 @@ params [
     ["_paralysis", "false"],
     ["_linear", "false"],
     ["_cnsSuppression", 0],
-    ["_overdoseAdmin", [-1, -1, -1, "false", 1]]
+    ["_overdoseAdmin", [-1, -1, -1, "false", 1, 15]]
 ];
 TRACE_8("addMedicationAdjustment",_unit,_medication,_timeToMaxEffect,_maxTimeInSystem,_hrAdjust,_painAdjust,_flowAdjust,_overdoseAdmin);
 

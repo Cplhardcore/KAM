@@ -18,7 +18,7 @@
 
 params ["_unit", "_side", ["_amount", 0], ["_deltaT", 1]];
 
-private _time = _unit getVariable [QGVAR(hptxDTime), 0, true];
+private _time = _unit getVariable [QGVAR(hptxDTime), 0];
 _unit setVariable [QGVAR(hptxDTime), _time + _deltaT, true];
 if (3 > _time) exitWith {};
 _unit setVariable [QGVAR(hptxDTime), 0, true];

@@ -14,12 +14,10 @@
  *
  * Public: No
  */
-params ["_patient", "_dose"];
-
-private _currentWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80];
-private _doseNormalized = linearConversion [10, 30, _dose, 15, 35, true];
-private _weightNormalized = linearConversion [60, 100, _currentWeight, 10, 30, true];
-if (_doseNormalized > _weightNormalized) then {
+params ["_patient"];
+private _doseLevel = ([_patient, "EtomidateSedation", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+TRACE_1("EtomidateOD",_doseLevel);
+if (_doseLevel < 0.1) then {
     [_patient, "EtomidateSedation", 5, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "true"] call EFUNC(vitals,addMedicationAdjustment);
     [_patient, true] call ACEFUNC(medical,setUnconscious);
 };

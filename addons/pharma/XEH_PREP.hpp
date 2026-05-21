@@ -112,7 +112,6 @@ PREP(treatmentAdvanced_SuccinylcholineLocal);
 PREP(treatmentAdvanced_SuccinylcholineOverdoseLocal);
 PREP(treatmentAdvanced_SugammadexLocal);
 PREP(treatmentAdvanced_SugammadexOverdoseLocal);
-PREP(treatmentAdvanced_TXAAutoLocal);
 PREP(treatmentAdvanced_TXALocal);
 PREP(treatmentAdvanced_TXAOverdoseLocal);
 PREP(updatePharmaEffects);

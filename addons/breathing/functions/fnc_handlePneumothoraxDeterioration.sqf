@@ -17,7 +17,7 @@
  */
 
 params ["_unit", "_side", "_deltaT"];
-private _time = _unit getVariable [QGVAR(ptxDTime), 0, true];
+private _time = _unit getVariable [QGVAR(ptxDTime), 0];
 _unit setVariable [QGVAR(ptxDTime), _time + _deltaT, true];
 private _baroMult = 1;
 if (EGVAR(hypothermia,baroPressureEnable)) then {

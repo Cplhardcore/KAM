@@ -57,6 +57,8 @@ class ACE_ADDON(Medical_Treatment) {
         cnsSuppression = 0;
         LD50 = -1;
         chanceToOD = -1;
+        //at what dose does this drug have therapeutic effects
+        therapeutic = 15;
 
         class Epinephrine {};
         class Morphine {};

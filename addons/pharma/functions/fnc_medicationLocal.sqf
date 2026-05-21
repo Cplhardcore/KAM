@@ -225,6 +225,7 @@ private _cnsSuppression         = GET_NUMBER(_medicationConfig >> "cnsSuppressio
 private _maxDose                = GET_NUMBER(_medicationConfig >> "OD50",getNumber (_defaultConfig >> "OD50"));
 private _ld50                   = GET_NUMBER(_medicationConfig >> "LD50",getNumber (_defaultConfig >> "LD50"));
 private _chanceToOD             = GET_NUMBER(_medicationConfig >> "chanceToOD",getNumber (_defaultConfig >> "chanceToOD"));
+private _therapeutic             = GET_NUMBER(_medicationConfig >> "therapeutic",getNumber (_defaultConfig >> "therapeutic")) * _weightMult;
 private _heartRate = GET_HEART_RATE(_patient);
 private _hrIncrease = [_hrIncreaseLow, _hrIncreaseNormal, _hrIncreaseHigh] select (floor ((0 max _heartRate min 110) / 55));
 _hrIncrease params ["_minIncrease", "_maxIncrease"];
@@ -254,24 +255,15 @@ if ((_upperMed select [count _upperMed - 2]) isEqualTo "IV") then {
 
 TRACE_6("adjustments1",_patient,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
 TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-[_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased, (_weightMult * (_doseMult max 1))]] call EFUNC(vitals,addMedicationAdjustment);
+[_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased, (_weightMult * (_doseMult max 1)), _therapeutic]] call EFUNC(vitals,addMedicationAdjustment);
 if (_medicationName in ["Amiodarone"]) then {
 [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart], _patient] call CBA_fnc_targetEvent;
-};
-if (_medicationName in ["EACA", "TXA"]) then {
-[format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart, _timeTillMaxEffect, _timeInSystem], _patient] call CBA_fnc_targetEvent;
-};
-if (_medicationName in ["Lorazepam","Etomidate","Sugammadex","Flumazenil"]) then {
-[format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _dose], _patient] call CBA_fnc_targetEvent;
 };
 if (_medicationName in ["Rocuronium","Succinylcholine"]) then {
 [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _dose, _timeTillMaxEffect, _timeInSystem], _patient] call CBA_fnc_targetEvent;
 };
-if (_medicationName in ["Ketamine","Atropine","Adenosine","Alteplase","Lidocaine"]) then {
+if (_medicationName in ["Ketamine","Adenosine","Lidocaine"]) then {
 [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart, _classname], _patient] call CBA_fnc_targetEvent;
-};
-if (_medicationName in ["Fentanyl","Morphine","Nalbuphine"]) then {
-[format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart, _opioidRelief], _patient] call CBA_fnc_targetEvent;
 };
 
 private _TXAmedications = ["syringe_TXA_5ml_10", "syringe_TXA_10ml_10", "TXAAuto"];

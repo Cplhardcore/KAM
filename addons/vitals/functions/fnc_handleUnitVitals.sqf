@@ -158,7 +158,7 @@ if (_adjustments isNotEqualTo []) then {
             "_respiratoryRate", "_contractility", "_nauseaMult",
             "_sedation", "_paralysis", "_linear", "_cnsSuppression", "_overdoseAdmin"
         ];
-        _overdoseAdmin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased", "_weightMult"];
+        _overdoseAdmin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased", "_weightMult", "_theraputic"];
         private _scaledMaxTime = _maxTimeInSystem / _metabolismMult;
         private _scaledTimeToMax = _timeTillMaxEffect * _onsetMult;
         private _timeInSystem = CBA_missionTime - _timeAdded;
@@ -255,7 +255,20 @@ if (_adjustments isNotEqualTo []) then {
                 if (_paralysis == "true") then { _paralysisAdjustment = (_paralysisAdjustment + (1 * _effectRatio)) min 1; };
                 if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = _cnsSuppressionAdjustment + _cnsSuppression * _drugMult * _effectRatio * _effectiveDose; };
             };
-            
+            private _currentDose = [_unit, _medication] call EFUNC(misc,getCurrentDosage);
+            if (_currentDose > _theraputic) then {
+                private _overage = (_dose - _theraputic);
+                if (_medication in ["EACA", "TXA"]) then {
+                    [format ["kat_pharma_%1Local", toLower _medication], [_unit], _unit] call CBA_fnc_targetEvent;
+                };
+                if (_medication in ["Lorazepam","Etomidate","Sugammadex","Flumazenil"]) then {
+                    [format ["kat_pharma_%1Local", toLower _medication], [_unit, _overage], _unit] call CBA_fnc_targetEvent;
+                };
+                if (_medication in ["Atropine","Alteplase"]) then {
+                    [format ["kat_pharma_%1Local", toLower _medication], [_unit], _unit] call CBA_fnc_targetEvent;
+                };
+                
+            }
         };
 
     } forEach _adjustments;
@@ -393,6 +406,7 @@ switch (true) do {
 };
 [_unit] call EFUNC(misc,handleBandageOpening);
 [_unit] call EFUNC(misc,updateDamageEffects);
+[_unit] call EFUNC(misc,handleTourniquetEffects);
 
 
 private _isUnconscious  = _unit getVariable ["ACE_isUnconscious", false];
@@ -400,6 +414,7 @@ if (_isUnconscious) then {
     [_unit, _deltaT] call EFUNC(airway,airwayDeterioration);
 };
 [_unit, _deltaT] call EFUNC(airway,handlePuking);
+[_unit] call EFUNC(airway,handleAirwayEffects);
 
 if (_unit getVariable [QEGVAR(brain,concussion), 0] > 0) then {
     [_unit, _deltaT] call EFUNC(brain,concussionPFH);
@@ -409,7 +424,7 @@ if (_unit getVariable [QEGVAR(brain,concussion), 0] > 0) then {
 {
 private _side = _x;
 [_unit, _side, _deltaT] call EFUNC(breathing,handleHemothoraxTreatment);
-[_unit, _side, _deltaT] call EFUNC(breathing,handleHemothoraxDeterioration);
+[_unit, _side, 0, _deltaT] call EFUNC(breathing,handleHemothoraxDeterioration);
 [_unit, _side, _deltaT] call EFUNC(breathing,handlePneumothoraxDeterioration);
 [_unit, _side, _deltaT] call EFUNC(breathing,handlePneumothoraxTreatment);
 } forEach [0, 1];
@@ -418,6 +433,7 @@ private _side = _x;
 [_unit] call EFUNC(pharma,updatePharmaEffects);
 [_unit] call EFUNC(hypothermia,updateHypothermiaEffects);
 [_unit] call EFUNC(breathing,updateTACOEffects);
+[_unit] call EFUNC(breathing,handlePulseoximeter);
 [_unit] call EFUNC(airway,airwayDeterioration);
 
 END_COUNTER(Vitals);

@@ -22,7 +22,7 @@ if (_unit getVariable [QEGVAR(vitals,simpleMedical), false]) exitWith {};
 
 if !(GVAR(enable) || (isNil QGVAR(activityPFH))) exitWith {};
 
-private _time = _unit getVariable [QGVAR(brainTime), 0, true];
+private _time = _unit getVariable [QGVAR(brainTime), 0];
 _unit setVariable [QGVAR(brainTime), _time + _deltaT, true];
 if (5 > _time) exitWith {};
 _unit setVariable [QGVAR(brainTime), 0, true];

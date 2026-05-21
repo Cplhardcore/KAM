@@ -16,35 +16,20 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "LorazepamOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.01) exitWith {};
-private _hrAdjust = -50 + floor random ((-30 - -50) + 1);
-[_patient, "LorazepamOverdose", 30, 1200, _hrAdjust, 0, 0, 0, 0.2] call EFUNC(vitals,addMedicationAdjustment);
+if (_doseLevel < 0.01) then {
+    private _hrAdjust = -50 + floor random ((-30 - -50) + 1);
+    [_patient, "LorazepamOverdose", 30, 1200, _hrAdjust, 0, 0, 0, 0.2, 0, 0, 0.3] call EFUNC(vitals,addMedicationAdjustment);
+};
+
+if (random(100) < 25) then {
 [{
-    params ["_patient"];
-        [{
-            params ["_args", "_idPFH"];
-            _args params ["_patient", "_LorazepamOverdoseTarget"];
-            _LorazepamOverdoseTarget = _LorazepamOverdoseTarget + 1;
-            _args set [1, _LorazepamOverdoseTarget];
-            if (!(alive _patient)) exitWith {
-                [_idPFH] call CBA_fnc_removePerFrameHandler;
-            };
-                if (_LorazepamOverdoseTarget > 12) exitWith {
-                    if (random(100) < 25) then {
-                    [{
-                        params ["_args", "_idPFH"];
-                        _args params ["_patient"];
-                       if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
-                                [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
-                        };
-                    }, [_patient], 15] call CBA_fnc_waitAndExecute;
-                    };
-                    [_idPFH] call CBA_fnc_removePerFrameHandler;
-                };
-                private _depression = (_patient getVariable [QEGVAR(pharma,opioidDepression), 0]) + 0.08;
-                _patient setVariable [QEGVAR(pharma,opioidDepression), _depression, true];
-        }, 15, [_patient,0]] call CBA_fnc_addPerFrameHandler;
+    params ["_args", "_idPFH"];
+    _args params ["_patient"];
+   if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
+            [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
+    };
 }, [_patient], 15] call CBA_fnc_waitAndExecute;
+};
 
 
 /*if (EGVAR(feedback,effectOverdose)) then

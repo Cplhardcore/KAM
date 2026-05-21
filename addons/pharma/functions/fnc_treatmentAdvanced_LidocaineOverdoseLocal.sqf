@@ -16,32 +16,18 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "LidocaineOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.01) exitWith {};
-private _hrAdjust = -20 + floor random ((-20 - -20) + 1);
-[_patient, "LidocaineOverdose", 30, 1200, _hrAdjust, 0, 0, 0, 0.2] call EFUNC(vitals,addMedicationAdjustment);
-[{
-    params ["_patient"];
-        [{
-            params ["_args", "_idPFH"];
-            _args params ["_patient", "_lidocaineOverdoseTarget"];
-            _lidocaineOverdoseTarget = _lidocaineOverdoseTarget + 1;
-            _args set [1, _lidocaineOverdoseTarget];
-            if (!(alive _patient)) exitWith {
-                [_idPFH] call CBA_fnc_removePerFrameHandler;
-            };
-                if (_lidocaineOverdoseTarget > 12) exitWith {
-                    if (random(100) < 25) then {
-                    [{
-                        params ["_args", "_idPFH"];
-                        _args params ["_patient"];
-                        if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
-                                [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
-                        };
-                    }, [_patient], 15] call CBA_fnc_waitAndExecute;
-                    };
-                    [_idPFH] call CBA_fnc_removePerFrameHandler;
-                };
-                private _depression = (_patient getVariable [QEGVAR(pharma,opioidDepression), 0]) + 0.08;
-                _patient setVariable [QEGVAR(pharma,opioidDepression), _depression, true];
-        }, 30, [_patient,0]] call CBA_fnc_addPerFrameHandler;
-}, [_patient], 30] call CBA_fnc_waitAndExecute;
+if (_doseLevel < 0.01) then {
+    private _hrAdjust = -20 + floor random ((-20 - -20) + 1);
+    [_patient, "LidocaineOverdose", 30, 1200, _hrAdjust, 0, 0, 0, 0.2, 0, 0, 0.3] call EFUNC(vitals,addMedicationAdjustment);
+};
+if (random(100) < 4) then {
+    [{
+        params ["_args", "_idPFH"];
+        _args params ["_patient"];
+        if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
+                [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
+        };
+    }, [_patient], 15] call CBA_fnc_waitAndExecute;
+};
+private _depression = (_patient getVariable [QEGVAR(pharma,opioidDepression), 0]) + 0.08;
+_patient setVariable [QEGVAR(pharma,opioidDepression), _depression, true];

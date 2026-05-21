@@ -20,7 +20,7 @@
  * Public: No
  */
 params ["_unit", "_deltaT"];
-private _time = _unit getVariable [QGVAR(concussionTime), 0, true];
+private _time = _unit getVariable [QGVAR(concussionTime), 0];
 _unit setVariable [QGVAR(concussionTime), _time + _deltaT, true];
 if (5 > _time) exitWith {};
 _unit setVariable [QGVAR(concussionTime), 0, true];

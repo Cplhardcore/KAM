@@ -163,24 +163,10 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                     if (_medCount < 0.05) then {
                         [_unit, "BloodPoisoning_Override", 0, 30, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.3, 0, 0, "false", "false", "true"] call EFUNC(vitals,addMedicationAdjustment);
                     };
-                    private _hasPFH = _unit getVariable [QGVAR(hemolysisPFH), -1] isNotEqualTo -1;
-                    if !(_hasPFH) then {
-                        private _hemolysisPFH = [{
-                            params ["_args", "_idPFH"];
-                            _args params ["_unit"];
-                            private _medCount = [_unit, "BloodPoisoning"] call ACEFUNC(medical_status,getMedicationCount) select 1;
-                            if ((_medCount == 0) || !(alive _unit)) exitWith {
-                                _unit setVariable [QGVAR(hemolysisPFH), -1, true];
-                                [_idPFH] call CBA_fnc_removePerFrameHandler;
-                            };
-                            private _bloodlevels = GET_BODY_FLUID(_unit);
-                            _bloodlevels set [0, ((_bloodlevels select 0) - 8) max 0];
-                            _bloodlevels set [1, ((_bloodlevels select 1) + 8) max 0];
-                            _bloodlevels set [5, ((_bloodlevels select 5) - 3) max 0];
-                            _unit setVariable [QEGVAR(circulation,bodyFluid), _bloodlevels, true];
-                        }, 1, [_unit]] call CBA_fnc_addPerFrameHandler;
-                        _unit setVariable [QGVAR(hemolysisPFH), _hemolysisPFH, true];
-                    };
+                    private _bloodlevels = GET_BODY_FLUID(_unit);
+                    _bloodlevels set [0, ((_bloodlevels select 0) - 8) max 0];
+                    _bloodlevels set [1, ((_bloodlevels select 1) + 8) max 0];
+                    _bloodlevels set [5, ((_bloodlevels select 5) - 3) max 0];
                 };
             };
             // Plasma adds to ECP. Saline splits between the ECP and ISP. Blood adds to ECB/ECP

@@ -18,12 +18,12 @@
 params ["_unit", "_deltaT"];
 
 if (!local _unit) then {
-    [QGVAR(handleAutoregulation), [_unit], _unit] call CBA_fnc_targetEvent;
+    [QGVAR(handleAutoregulation), [_unit, _deltaT], _unit] call CBA_fnc_targetEvent;
 };
 if (_unit getVariable [QEGVAR(vitals,simpleMedical), false]) exitWith {};
 
 if !(GVAR(enable)) exitWith {};
-private _time = _unit getVariable [QGVAR(autoregTime), 0, true];
+private _time = _unit getVariable [QGVAR(autoregTime), 0];
 _unit setVariable [QGVAR(autoregTime), _time + _deltaT, true];
 if (3 > _time) exitWith {};
 _unit setVariable [QGVAR(autoregTime), 0, true];

@@ -34,46 +34,4 @@ if ((ALL_BODY_PARTS find toLower _bodyPart) == 6) then {
 };
 _patient setVariable [QGVAR(PulseOximeter_Attached), _attachedPulseOximeter, true];
 
-[{
-    params ["_args", "_idPFH"];
-    _args params ["_patient", "_bodyPart"];
-    if !(_patient getVariable [QGVAR(pulseoximeter), false]) exitWith {
-        [_idPFH] call CBA_fnc_removePerFrameHandler;
-        _patient setVariable ["kat_PulseoxiInUse_PFH", nil];
-        [_patient, "quick_view", LSTRING(pulseoxi_Log)] call EFUNC(circulation,removeLog);
-    };
-
-    private _HR = GET_HEART_RATE(_patient);
-    private _SpO2 = GET_KAT_SPO2(_patient);
-    private _bodyPartN = ALL_BODY_PARTS find _bodyPart;
-    private _isOccluded = [_patient,_bodyPartN] call EFUNC(pharma,occlusionCheck);
-    private _isDamaged = [_patient,_bodyPartN] call EFUNC(hitpoints,damageCheck);
-    if (_isOccluded || _isDamaged) then {
-        _HR = 0;
-        _SpO2 = 0;
-    };
-
-    [_patient, "quick_view", LSTRING(pulseoxi_Log)] call EFUNC(circulation,removeLog);
-    [_patient, "quick_view", LSTRING(pulseoxi_Log), [round _HR, round _SpO2]] call ACEFUNC(medical_treatment,addToLog);
-}, 1, [_patient, _bodyPart]] call CBA_fnc_addPerFrameHandler;
-
-[{
-    params ["_args", "_idPFH"];
-    _args params ["_patient", "_bodyPart"];
-    if !(_patient getVariable [QGVAR(pulseoximeter), false]) exitWith {
-        [_idPFH] call CBA_fnc_removePerFrameHandler;
-    };
-
-    private _SpO2 = GET_KAT_SPO2(_patient);
-
-    private _bodyPartN = ALL_BODY_PARTS find _bodyPart;
-    if (([_patient,_bodyPartN] call EFUNC(pharma,occlusionCheck)) || [_patient,_bodyPartN] call EFUNC(hitpoints,damageCheck)) then {
-        _SpO2 = 0;
-    };
-
-    if(_patient getVariable [QGVAR(PulseOximeter_VolumePatient), false] && _SpO2 < GVAR(PulseOximeter_SpO2Warning)) then {
-        playSound3D [QPATHTOF_SOUND(audio\pulseoximeter_warning.wav), _patient, false, getPosASL _patient, 4, 1, 15];
-    };
-}, 3, [_patient, _bodyPart]] call CBA_fnc_addPerFrameHandler;
-
 [_patient, "activity", LSTRING(pulseoxi_Log_2), [[_medic] call ACEFUNC(common,getName)]] call ACEFUNC(medical_treatment,addToLog);

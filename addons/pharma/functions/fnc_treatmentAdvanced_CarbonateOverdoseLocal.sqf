@@ -15,5 +15,7 @@
  * Public: No
  */
 params ["_patient"];
+private _doseLevel = ([_patient, "CarbonateOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel > 0.01) exitWith {};
 private _hrAdjust = 10 + floor random ((30 - 10) + 1);
 [_patient, "CarbonateOverdose", 5, 360, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);

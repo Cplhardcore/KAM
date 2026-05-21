@@ -16,6 +16,8 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "RocuroniumOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.01) exitWith {};
-private _hrAdjust = 20 + floor random ((50 - 20) + 1);
-[_patient, "RocuroniumOverdose", 10, 600, _hrAdjust, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "false", "true"] call EFUNC(vitals,addMedicationAdjustment);
+if (_doseLevel < 0.01) then {
+    private _hrAdjust = 20 + floor random ((50 - 20) + 1);
+    [_patient, "RocuroniumOverdose", 10, 600, _hrAdjust, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "false", "true"] call EFUNC(vitals,addMedicationAdjustment);
+};
+

@@ -17,40 +17,25 @@
 
 params ["_patient"];
 private _doseLevel = ([_patient, "TXAOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.01) exitWith {};
-[_patient, "TXAOverdose", 1, 900, 0, 0, -0.5] call EFUNC(vitals,addMedicationAdjustment);
-[{
-    params ["_patient"];
-    private _TXAOverdoseTarget = 0;
-        [{
-            params ["_args", "_idPFH"];
-            _args params ["_patient", "_TXAOverdoseTarget"];
-            if (!(alive _patient)) exitWith {
-                [_idPFH] call CBA_fnc_removePerFrameHandler;
-            };
-                _TXAOverdoseTarget = _TXAOverdoseTarget + 1;
-                if (_TXAOverdoseTarget > 12) exitWith {
-                    if (random(100) < 25) then {
-                    [{
-                        params ["_args", "_idPFH"];
-                        _args params ["_patient"];
-
-                        if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
-                            [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
-                        };
-                    }, [_patient], 15] call CBA_fnc_waitAndExecute;
-                    };
-                    [_idPFH] call CBA_fnc_removePerFrameHandler;
-                };
-                private _surface = (_patient getVariable [QEGVAR(breathing,lungSurfaceArea), 400]);
-                if (_surface < 150) then {
-                    } else {
-                        private _surfaceArea = _surface - 10;
-                        _patient setVariable [QEGVAR(breathing,lungSurfaceArea), _surfaceArea, true];
-                    };
-                private _bloodlevels = GET_BODY_FLUID(_patient);
-                _bloodlevels set [5, ((_bloodlevels select 5) - 20) max 0];
-                _patient setVariable [QEGVAR(circulation,bodyFluid), _bloodlevels, true];
-                if ((random 10000) < 1) then {[_patient, "TXAOD"] call ACEFUNC(medical_status,setDead);};
-        }, 15, [_patient,_TXAOverdoseTarget]] call CBA_fnc_addPerFrameHandler;
-}, [_patient], 15] call CBA_fnc_waitAndExecute;
+if (_doseLevel < 0.01) then {
+    [_patient, "TXAOverdose", 1, 900, 0, 0, -0.5] call EFUNC(vitals,addMedicationAdjustment);
+};
+if (random(100) < 5) then {
+    [{
+        params ["_args", "_idPFH"];
+        _args params ["_patient"];
+        if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
+            [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
+        };
+    }, [_patient], 15] call CBA_fnc_waitAndExecute;
+};
+    private _surface = (_patient getVariable [QEGVAR(breathing,lungSurfaceArea), 400]);
+    if (_surface < 150) then {
+        } else {
+            private _surfaceArea = _surface - 1;
+            _patient setVariable [QEGVAR(breathing,lungSurfaceArea), _surfaceArea, true];
+        };
+    private _bloodlevels = GET_BODY_FLUID(_patient);
+    _bloodlevels set [5, ((_bloodlevels select 5) - 3) max 0];
+    _patient setVariable [QEGVAR(circulation,bodyFluid), _bloodlevels, true];
+if ((random 10000) < 1) then {[_patient, "TXAOD"] call ACEFUNC(medical_status,setDead);};
