@@ -256,8 +256,6 @@ if (_adjustments isNotEqualTo []) then {
                 if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = _cnsSuppressionAdjustment + _cnsSuppression * _drugMult * _effectRatio * _effectiveDose; };
             };
             private _currentDose = [_unit, _medication] call EFUNC(misc,getCurrentDosage);
-            systemchat str _currentDose;
-            systemchat str _theraputic;
             if (_currentDose > _theraputic) then {
                 private _overage = (_dose - _theraputic);
                 if (_medication in ["EACA", "TXA"]) then {
