@@ -29,5 +29,3 @@ if (random(100) < 4) then {
         };
     }, [_patient], 15] call CBA_fnc_waitAndExecute;
 };
-private _depression = (_patient getVariable [QEGVAR(pharma,opioidDepression), 0]) + 0.08;
-_patient setVariable [QEGVAR(pharma,opioidDepression), _depression, true];

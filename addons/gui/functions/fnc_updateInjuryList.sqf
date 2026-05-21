@@ -395,7 +395,9 @@ if (_internalBleedAmount > 0) then {
         case (_internalBleedAmount < 3): { localize ELSTRING(hitpoints,InternalBleeding_Minor) };
         case (_internalBleedAmount < 6): { localize ELSTRING(hitpoints,InternalBleeding_Medium) };
         case (_internalBleedAmount < 10): { localize ELSTRING(hitpoints,InternalBleeding_Large) };
-        default {};
+        default {
+            localize ELSTRING(hitpoints,InternalBleeding_Large)
+        };
     };
     _entries pushBack [_sizeLabel, [0.8, 0.76, 0.9, 1]];
 };
