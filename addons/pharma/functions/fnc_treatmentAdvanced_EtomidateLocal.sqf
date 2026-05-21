@@ -17,7 +17,7 @@
 params ["_patient"];
 private _doseLevel = ([_patient, "EtomidateSedation", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
 TRACE_1("EtomidateOD",_doseLevel);
-if (_doseLevel < 0.1) then {
+if (_doseLevel < 0.2) then {
     [_patient, "EtomidateSedation", 5, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "true"] call EFUNC(vitals,addMedicationAdjustment);
     [_patient, true] call ACEFUNC(medical,setUnconscious);
 };
