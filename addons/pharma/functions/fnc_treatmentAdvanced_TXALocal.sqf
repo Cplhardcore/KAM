@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: Mazinski
@@ -16,16 +17,18 @@
  * Public: No
  */
 
-params ["_patient"];
+params ["_patient","_deltaT"];
+TRACE_1("Patient", _patient);
 private _allowStack = missionNamespace getVariable [QGVAR(allowStackScript_TXA), true];
 private _keepRunning = missionNamespace getVariable [QGVAR(keepScriptRunning_TXA), false];
 private _cycleTime = missionNamespace getVariable [QGVAR(bandageCycleTime_TXA), 5];
-
+private _time = _patient getVariable [QGVAR(TXATime), 0];
+_patient setVariable [QGVAR(TXATime), _time + _deltaT, true];
+if (_cycleTime > _time) exitWith {};
+TRACE_1("CycleTime", _patient);
+_patient setVariable [QGVAR(TXATime), 0, true];
 private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVStatusArray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
-private _eacaEffectiveness = [_patient, "EACA", false] call ACEFUNC(medical_status,getMedicationCount) select 1;
-private _allowStack = missionNamespace getVariable [QGVAR(allowStackScript_EACA), true];
-private _cycleTime = missionNamespace getVariable [QGVAR(bandageCycleTime_EACA), 5];
 {
 private _partIndex = _x;
 private _IVactual = _IVarray select _partIndex;
@@ -33,7 +36,7 @@ private _IVStatusActual = _IVStatusArray select _partIndex;
 if (_IVactual in [2,3,4]) then {
     private _randomNumber = random 100;
     if (_randomNumber < GVAR(blockChance)) then {
-        _IVStatusArray set [_partIndex, ((_IVStatusActual + (random [0.001, 0.01, 0.02])) min 1)];
+        _IVStatusArray set [_partIndex, ((_IVStatusActual + (random [0.01, 0.03, 0.05])) min 1)];
         _patient setVariable [QGVAR(IVBlockStatus), _IVStatusArray, true];
     };
 };
@@ -41,13 +44,16 @@ if (_IVactual in [2,3,4]) then {
 
 private _fnc_txaClot = {
     params ["_patient", "_bodyPart", "_id", "_amount", "_bleeding", "_damage", "_delay", "_oldBandage", "_newBandage", "_factorCountToRemove"];
+    TRACE_2("_fnc_txaClot", _patient, _delay);
     [{
     params ["_patient", "_bodyPart", "_id", "_amount", "_bleeding", "_damage", "_oldBandage", "_newBandage", "_factorCountToRemove"];
     if !(alive _patient) exitWith {};
     private _eacaAmount = [_patient, "EACA", false] call ACEFUNC(medical_status,getMedicationCount) select 1;
     if (_eacaAmount > 0.1) exitWith {};
+    TRACE_1("EACA", _patient);
     private _coagulationFactor = GET_BODY_FLUID_PLATELETS(_patient);
     if (_coagulationFactor <= 0) exitWith {};
+    TRACE_1("Coags", _coagulationFactor);
     private _coagWoundsLive = GET_COAGED_WOUNDS(_patient);
     private _currentWounds  = _coagWoundsLive getOrDefault [_bodyPart, []];
     private _minorIndex = -1;
@@ -80,6 +86,7 @@ if (_eacaAmount > 0.1) exitWith {};
 private _random = random [6.4, 6.8, 7.2];
 private _ph     = GET_PH(_patient);
 if (_random <= _ph) then {
+    TRACE_1("Started Clotting", _ph);
     private _coagWounds       = GET_COAGED_WOUNDS(_patient);
     private _pulse            = _patient getVariable [VAR_HEART_RATE, 80];
     private _coagulationFactor = GET_BODY_FLUID_PLATELETS(_patient);
@@ -88,6 +95,7 @@ if (_random <= _ph) then {
     if (GET_BLOOD_VOLUME_LITERS(_patient) < GVAR(coagulation_requireBV)) exitWith {};
     if ((_pulse < 20) && {GVAR(coagulation_requireHR)}) exitWith {};
     if (_coagulationFactor <= 0) exitWith {};
+    TRACE_1("PassedExitWith Clotting", _ph);
     {
         private _bodyPart = _x;
         private _wounds = _coagWounds getOrDefault [_bodyPart, []];
@@ -99,6 +107,7 @@ if (_random <= _ph) then {
                     private _newBandage = "BloodClotMinorTXA";
                     private _factorCountToRemove = random [6, 11, 15];
                     [_patient, _bodyPart, _id, _amount, _bleeding, _damage, _delay, _bandage, _newBandage, _factorCountToRemove] call _fnc_txaClot;
+                    TRACE_6("Small Clotting", _patient, _bodyPart, _delay, _bandage, _newBandage, _factorCountToRemove);
                     _exit = true;
                 };
                 case (_bandage isEqualTo "BloodClotMedium"): {
@@ -106,6 +115,7 @@ if (_random <= _ph) then {
                     private _newBandage = "BloodClotMediumTXA";
                     private _factorCountToRemove = random [12, 18, 25];
                     [_patient, _bodyPart, _id, _amount, _bleeding, _damage, _delay, _bandage, _newBandage, _factorCountToRemove] call _fnc_txaClot;
+                    TRACE_6("Medium Clotting", _patient, _bodyPart, _delay, _bandage, _newBandage, _factorCountToRemove);
                     _exit = true;
                 };
                 case (_bandage isEqualTo "BloodClotLarge"): {
@@ -113,6 +123,7 @@ if (_random <= _ph) then {
                     private _newBandage = "BloodClotLargeTXA";
                     private _factorCountToRemove = random [16, 23, 30];
                     [_patient, _bodyPart, _id, _amount, _bleeding, _damage, _delay, _bandage, _newBandage, _factorCountToRemove] call _fnc_txaClot;
+                    TRACE_6("Large Clotting", _patient, _bodyPart, _delay, _bandage, _newBandage, _factorCountToRemove);
                     _exit = true;
                 };
                 default {};

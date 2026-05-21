@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: PabstMirror, Cplhardcore
@@ -29,7 +30,7 @@ private _medDose = 0;
     if ((toLower _xMed) == (toLower _medication)) then {
         private _timeInSystem = CBA_missionTime - _timeAdded;
         // as used in handleUnitVitals, a medication effectiveness will start low, ramp up to timeTillMaxEffect, and then drop off
-        private _effectiveness = ((((_timeInSystem / _timeTillMaxEffect) ^ 2) min 1) * (_maxTimeInSystem - _timeInSystem) / _maxTimeInSystem) * _drugMult;
+        private _effectiveness = ((((_timeInSystem / _timeTillMaxEffect) ^ 2) min 1) * (_maxTimeInSystem - _timeInSystem) / _maxTimeInSystem);
         private _diazapamMult = 1;
             if (toLower _medication == "diazapam") then {
                 private _medStack = _target call ACEFUNC(medical_status,getAllMedicationCount);
@@ -58,7 +59,7 @@ private _medDose = 0;
             };
         private _drugMult = _drugMult * _diazapamMult;
         //TRACE_1("getMedicationCount1",_medDose);
-        _medDose = _medDose + (_dose * _effectiveness * _drugMult);
+        _medDose = _medDose + (_dose * _effectiveness);
         TRACE_4("getCurrentDoseage",_medDose,_dose,_effectiveness,_drugMult);
         //TRACE_7("getMedicationCount",_target,_medication,_dose,_effectiveness,_medDose,_diazapamMult,_drugMult);
     };

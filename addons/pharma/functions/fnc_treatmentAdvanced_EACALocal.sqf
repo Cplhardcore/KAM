@@ -16,12 +16,16 @@
  * Public: No
  */
 
-params ["_patient"];
+params ["_patient", "_deltaT"];
 private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVStatusArray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _eacaEffectiveness = [_patient, "EACA", false] call ACEFUNC(medical_status,getMedicationCount) select 1;
 private _allowStack = missionNamespace getVariable [QGVAR(allowStackScript_EACA), true];
 private _cycleTime = missionNamespace getVariable [QGVAR(bandageCycleTime_EACA), 5];
+private _time = _patient getVariable [QGVAR(EACATime), 0];
+_patient setVariable [QGVAR(EACATime), _time + _deltaT, true];
+if (_cycleTime > _time) exitWith {};
+_patient setVariable [QGVAR(EACATime), 0, true];
 {
 private _partIndex = _x;
 private _IVactual = _IVarray select _partIndex;
@@ -29,7 +33,7 @@ private _IVStatusActual = _IVStatusArray select _partIndex;
 if (_IVactual in [2,3,4]) then {
     private _randomNumber = random 100;
     if (_randomNumber < GVAR(blockChance)) then {
-        _IVStatusArray set [_partIndex, ((_IVStatusActual + (random [0.001, 0.01, 0.02])) min 1)];
+        _IVStatusArray set [_partIndex, ((_IVStatusActual + (random [0.01, 0.03, 0.05])) min 1)];
         _patient setVariable [QGVAR(IVBlockStatus), _IVStatusArray, true];
     };
 };

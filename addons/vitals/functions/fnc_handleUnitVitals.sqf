@@ -256,10 +256,12 @@ if (_adjustments isNotEqualTo []) then {
                 if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = _cnsSuppressionAdjustment + _cnsSuppression * _drugMult * _effectRatio * _effectiveDose; };
             };
             private _currentDose = [_unit, _medication] call EFUNC(misc,getCurrentDosage);
+            systemchat str _currentDose;
+            systemchat str _theraputic;
             if (_currentDose > _theraputic) then {
                 private _overage = (_dose - _theraputic);
                 if (_medication in ["EACA", "TXA"]) then {
-                    [format ["kat_pharma_%1Local", toLower _medication], [_unit], _unit] call CBA_fnc_targetEvent;
+                    [format ["kat_pharma_%1Local", toLower _medication], [_unit, _deltaT], _unit] call CBA_fnc_targetEvent;
                 };
                 if (_medication in ["Lorazepam","Etomidate","Sugammadex","Flumazenil"]) then {
                     [format ["kat_pharma_%1Local", toLower _medication], [_unit, _overage], _unit] call CBA_fnc_targetEvent;

@@ -4410,19 +4410,19 @@
             <English>Time to establish External Jugular Vein Access</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_txa_10ml_10">
-            <English>Push 1g TXA</English>
+            <English>Inject 1g TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_txa_10ml_10">
-            <English>Pushing 1g TXA</English>
+            <English>Injecting 1g TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_txa_10ml_10">
             <English>10ml Syringe / 1g TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_txa_10ml_20">
-            <English>Push 2g TXA</English>
+            <English>Inject 2g TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_txa_10ml_20">
-            <English>Pushing 2g TXA</English>
+            <English>Injecting 2g TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_txa_10ml_20">
             <English>10ml Syringe / 2g TXA</English>

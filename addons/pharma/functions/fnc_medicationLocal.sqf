@@ -145,7 +145,7 @@ if (_classname in ["Epinephrine", "Morphine", "Adenosine", "TXAAuto", "Phenyleph
         case "Morphine": {10};
         case "Adenosine": {10};
         case "Atropine": {10};
-        case "TXAAuto": {10};
+        case "TXAAuto": {5};
         case "PhenylephrineAuto": {10};
     };
 };
@@ -155,8 +155,8 @@ private _weightDose = GET_NUMBER(_medicationConfig >> "weightDose",getNumber (_d
 private _weightMult = 1;
 private _weightFixed = 1;
 private _weightDoseFixed = 1;
+private _defaultWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80];
 if (_weightBase == "true") then {
-    private _defaultWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80];
     _weightFixed = linearConversion [60, 100, _defaultWeight, 1, 3, true];
     _weightDoseFixed = _startDose;
     if (_weightDose != 20) then {
@@ -199,6 +199,7 @@ if ((_IVarray select _partIndex) in [1, 13]) then {
 if ((_IVarray select _partIndex) == 14) then {
     _routeMult = random [1.1, 1.25, 1.35];
 };
+private _theraputicMult = linearConversion [60, 100, _defaultWeight, 0.5, 1.5, true];
 private _drugMult = _weightMult * _doseMult;
 private _durationMult = sqrt _drugMult;
 TRACE_5("_drugMult",_patient,(GET_BLOOD_VOLUME_LITERS(_patient) / DEFAULT_BLOOD_VOLUME),_drugMult,_weightMult,_doseMult);
@@ -216,7 +217,7 @@ private _hrIncreaseNormal       = GET_ARRAY(_medicationConfig >> "hrIncreaseNorm
 private _hrIncreaseHigh         = GET_ARRAY(_medicationConfig >> "hrIncreaseHigh",getArray (_defaultConfig >> "hrIncreaseHigh"));
 private _incompatibleMedication = GET_ARRAY(_medicationConfig >> "incompatibleMedication",getArray (_defaultConfig >> "incompatibleMedication"));
 private _maxRelief              = GET_NUMBER(_medicationConfig >> "maxRelief",getNumber (_defaultConfig >> "maxRelief"));
-private _dose                   = GET_NUMBER(_medicationConfig >> "dose",getNumber (_defaultConfig >> "dose")) * (_drugMult / _doseMult) * _startDose;
+private _dose                   = GET_NUMBER(_medicationConfig >> "dose",getNumber (_defaultConfig >> "dose")) * _startDose;
 private _contractility          = GET_NUMBER(_medicationConfig >> "contractility",getNumber (_defaultConfig >> "contractility")) * _drugMult;
 private _nauseaMult             = GET_NUMBER(_medicationConfig >> "nauseaMult",getNumber (_defaultConfig >> "nauseaMult")) * _drugMult;
 private _sedation               = GET_STRING(_medicationConfig >> "sedation",getText (_defaultConfig >> "sedation"));
@@ -225,7 +226,7 @@ private _cnsSuppression         = GET_NUMBER(_medicationConfig >> "cnsSuppressio
 private _maxDose                = GET_NUMBER(_medicationConfig >> "OD50",getNumber (_defaultConfig >> "OD50"));
 private _ld50                   = GET_NUMBER(_medicationConfig >> "LD50",getNumber (_defaultConfig >> "LD50"));
 private _chanceToOD             = GET_NUMBER(_medicationConfig >> "chanceToOD",getNumber (_defaultConfig >> "chanceToOD"));
-private _therapeutic             = GET_NUMBER(_medicationConfig >> "therapeutic",getNumber (_defaultConfig >> "therapeutic")) * _weightMult;
+private _therapeutic            = GET_NUMBER(_medicationConfig >> "therapeutic",getNumber (_defaultConfig >> "therapeutic")) * _theraputicMult;
 private _heartRate = GET_HEART_RATE(_patient);
 private _hrIncrease = [_hrIncreaseLow, _hrIncreaseNormal, _hrIncreaseHigh] select (floor ((0 max _heartRate min 110) / 55));
 _hrIncrease params ["_minIncrease", "_maxIncrease"];
@@ -255,7 +256,7 @@ if ((_upperMed select [count _upperMed - 2]) isEqualTo "IV") then {
 
 TRACE_6("adjustments1",_patient,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
 TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-[_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased, (_weightMult * (_doseMult max 1)), _therapeutic]] call EFUNC(vitals,addMedicationAdjustment);
+[_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased, 1, _therapeutic]] call EFUNC(vitals,addMedicationAdjustment);
 if (_medicationName in ["Amiodarone"]) then {
 [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart], _patient] call CBA_fnc_targetEvent;
 };

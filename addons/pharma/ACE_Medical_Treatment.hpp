@@ -211,6 +211,7 @@ class ACE_ADDON(Medical_Treatment) {
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
+            therapeutic = 8;
         };
         class syringe_EACA {
             painReduce = 0;
@@ -421,6 +422,7 @@ class ACE_ADDON(Medical_Treatment) {
             onOverDose = "";
             maximumEffectiveDose = 30;
             weightBased = "true";
+            therapeutic = 16;
         };
         class syringe_Flumazenil {
             painReduce = 0;
@@ -438,6 +440,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
+            therapeutic = 16;
         };
         class syringe_Lorazepam {
             painReduce = 0;
@@ -461,6 +464,7 @@ class ACE_ADDON(Medical_Treatment) {
             onOverDose = "";
             maximumEffectiveDose = 30;
             weightBased = "true";
+            therapeutic = 16;
         };
         class syringe_Morphine {
             painReduce = 0.7;
@@ -575,6 +579,7 @@ class ACE_ADDON(Medical_Treatment) {
             onOverDose = "";
             maximumEffectiveDose = 30;
             weightBased = "true";
+            therapeutic = 16;
         };
         class syringe_Sugammadex  {
             painReduce = 0.0;
@@ -591,6 +596,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
+            therapeutic = 16;
         };
         class syringe_Metoprolol  {
             painReduce = 0.0;
