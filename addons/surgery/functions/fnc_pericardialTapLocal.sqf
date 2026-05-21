@@ -26,7 +26,6 @@ if (_effusion == 0) then {
 } else {
     _ht deleteAt (_ht find "tamponade");
     _patient setVariable [QEGVAR(circulation,ht), _ht, true];
-
     _patient setVariable [QEGVAR(circulation,effusion), 0, true];
     _patient setVariable [QGVAR(imaging), false, true];
 };
