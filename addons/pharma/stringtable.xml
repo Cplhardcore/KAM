@@ -3408,12 +3408,7 @@
             <Italian>Tempo del ciclo TXA</Italian>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_bandageCycleTime_TXA_DESC">
-            <English>The time it takes for TXA to close a wound</English>
-            <Japanese>TXAが創傷を塞ぐのに掛かる時間</Japanese>
-            <Spanish>El tiempo que tarda el ATX en cerrar una herida</Spanish>
-            <Dutch>Hoe lang het duurt voordat TXA een wond dicht</Dutch>
-            <French>Temps requis pour permettre au TXA de refermer une blessure</French>
-            <Italian>Il tempo necessario affinché TXA chiuda una ferita</Italian>
+            <English>The time it takes between wounds for TXA to start to close a wound</English>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Coagulation">
             <English>Coagulation Settings</English>
