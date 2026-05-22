@@ -2084,11 +2084,11 @@
             <Russian>Время обработки Лидокаином</Russian>
             <Dutch>Behandeltijd van Lidocaïne</Dutch>
         </Key>
-        <Key ID="STR_KAT_Pharma_medLvl_LidocaineIM">
-            <English>Medical level required for IM Lidocaine</English>
+        <Key ID="STR_KAT_Pharma_medLvl_NerveBlock">
+            <English>Medical level required for Nerve Block</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_treatmentTime_LidocaineIM">
-            <English>Treatment time for IM Lidocaine</English>
+        <Key ID="STR_KAT_Pharma_treatmentTime_NerveBlock">
+            <English>Treatment time for Nerve Block</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Atropine">
             <English>Medical level required for Atropine</English>
@@ -6196,6 +6196,18 @@
         </Key>
         <Key ID="STR_KAT_Pharma_IVblock1">
             <English>Patient's IV is slightly occluded</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Place_Nerve_Block">
+            <English>Place Nerve Block</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Placing_Nerve_Block">
+            <English>Placing Nerve Block</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Flush_Catheter_Lidocaine">
+            <English>Flush IV with Lidocaine</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Flushing_Catheter_Lidocaine">
+            <English>Flushing IV with Lidocaine</English>
         </Key>
     </Package>
 </Project>

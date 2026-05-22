@@ -1020,9 +1020,9 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    QGVAR(medLvl_LidocaineIM),
+    QGVAR(medLvl_NerveBlock),
     "LIST",
-    [LLSTRING(medLvl_LidocaineIM)],
+    [LLSTRING(medLvl_NerveBlock)],
     [CBA_SETTINGS_CAT, LSTRING(SubCategory_Medications)],
     [[0, 1, 2], [ACELSTRING(medical_treatment,Anyone), ACELSTRING(medical_treatment,Medics), ACELSTRING(medical_treatment,Doctors)], 0],
     true
@@ -1155,5 +1155,14 @@
     [LLSTRING(medLvl_Succinylcholine)],
     [CBA_SETTINGS_CAT, LSTRING(SubCategory_Medications)],
     [[0, 1, 2], [ACELSTRING(medical_treatment,Anyone), ACELSTRING(medical_treatment,Medics), ACELSTRING(medical_treatment,Doctors)], 0],
+    true
+] call CBA_Settings_fnc_init;
+
+[
+    QGVAR(treatmentTime_NerveBlock),
+    "SLIDER",
+    [LLSTRING(treatmentTime_NerveBlock)],
+    [CBA_SETTINGS_CAT, LSTRING(SubCategory_ApplyIV)],
+    [0.1, 10, 7, 1],
     true
 ] call CBA_Settings_fnc_init;

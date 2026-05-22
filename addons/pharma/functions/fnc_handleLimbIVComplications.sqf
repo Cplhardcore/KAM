@@ -21,7 +21,6 @@ params ["_patient", "_partIndex", "_incomingFlowDifference"];
 
 private _stressArray = _patient getVariable [QGVAR(ivStress), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _conditionArray = _patient getVariable [QGVAR(ivCondition), [0,0,0,0,0,0,0,0,0,0,0,0]];
-private _painArray = _patient getVariable [QGVAR(ivPain), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _leakArray = _patient getVariable [QGVAR(IVLeakStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _stress = _stressArray select _partIndex;
 private _condition = _conditionArray select _partIndex;
@@ -34,14 +33,10 @@ private _newLeak = _leak + ((_targetLeak - _leak) * 0.25);
 _leakArray set [_partIndex, _newLeak];
 _patient setVariable [QGVAR(IVLeakStatus), _leakArray, true];
 private _leakPain = (_newLeak - _leak) * 0.5;
-private _prevPain = _painArray select _partIndex;
 private _targetPain = (((_stress / 20) ^ 2) min 1) + _leakPain;
-private _deltaPain = _targetPain - _prevPain;
-
+private _anesthesia = (_patient getVariable [QEGVAR(pharma,localAnesthesia), [0,0,0,0,0,0,0,0,0,0,0,0]]) select _partIndex;
 if (abs _deltaPain > 0.01) then {
-    [_patient, _deltaPain] call ACEFUNC(medical_status,adjustPainLevel);
-    _painArray set [_partIndex, _targetPain];
-    _patient setVariable [QGVAR(ivPain), _painArray];
+    [_patient, (_targetPain * (1-_anesthesia))] call ACEFUNC(medical_status,adjustPainLevel);
 };
 
 private _newCondition = _condition;
@@ -66,7 +61,11 @@ if (_newCondition != _condition) then {
 
     switch (_newCondition) do {
         case 2: {
-            [_patient, 0.3] call ACEFUNC(medical_status,adjustPainLevel);
+            private _anesthesia = (_patient getVariable [QEGVAR(pharma,localAnesthesia), [0,0,0,0,0,0,0,0,0,0,0,0]]) select _partIndex;
+            if (_anesthesia < 0.2) then {
+                [_patient, 0.3] call ACEFUNC(medical_status,adjustPainLevel);
+            };
+            
         };
 
         case 3: {

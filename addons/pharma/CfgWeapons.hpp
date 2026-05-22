@@ -594,9 +594,6 @@ class CfgWeapons {
     class kat_syringe_lidocaine_5ml_10: kat_syringe_txa_5ml_10 {
         displayName = KATDISPLAYCSTRING(lidocaine,5ml,10);
     };
-    class kat_syringe_lidocaine_5ml_12: kat_syringe_lidocaine_5ml_10 {
-        displayName = KATDISPLAYCSTRING(lidocaine,5ml,12);
-    };
     class kat_syringe_lidocaine_5ml_20: kat_syringe_lidocaine_5ml_10 {
         displayName = KATDISPLAYCSTRING(lidocaine,5ml,20);
     };
