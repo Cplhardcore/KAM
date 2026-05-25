@@ -185,34 +185,34 @@ if !(GVAR(enable_CPR_Chances)) then {
 } else {
     if (_reviveObject in ["LUCAS"]) then {
         if (_epiBoost > 1.5) then {
-        _chance = _chance + (2 ^ _CPRcount);
-        _CPRcount = _CPRcount + 0.01;
-        _patient setVariable [QGVAR(cprCount), _CPRcount, true];
-    };
-
-    if (_patient getVariable [QGVAR(cardiacArrestType), 0] in [4,3] && _randomAmi > 2) then {
-        _chance = _chance + (_amiBoost / 10);
-    };
-
-    if (_patient getVariable [QGVAR(cardiacArrestType), 0] in [4,3] && (_patient getVariable [QGVAR(refractoryCA), false])) then {
-        _chance = _chance / 4;
-    };
-    _chance = _chance * _caChance * _phChance;
-    _chance = _chance / _nitroEffect;
-
-    if (_random <= _chance) then {
-        if (GVAR(AdvRhythm)) then {
-            if (_patient getVariable [QGVAR(cardiacArrestType), 0] != 0) then {
-                [_patient, true] call _fnc_advRhythm;
-            };
-        } else {
-            [QACEGVAR(medical,CPRSucceeded), _patient] call CBA_fnc_localEvent;
+            _chance = _chance + (2 ^ _CPRcount);
+            _CPRcount = _CPRcount + 0.01;
+            _patient setVariable [QGVAR(cprCount), _CPRcount, true];
         };
-        _patient setVariable [QGVAR(cprCount), 2, true];
-    } else {
-        _CPRcount = _CPRcount + 0.01;
-        _patient setVariable [QGVAR(cprCount), _CPRcount, true];
-    };
+
+        if (_patient getVariable [QGVAR(cardiacArrestType), 0] in [4,3] && _randomAmi > 2) then {
+            _chance = _chance + (_amiBoost / 10);
+        };
+
+        if (_patient getVariable [QGVAR(cardiacArrestType), 0] in [4,3] && (_patient getVariable [QGVAR(refractoryCA), false])) then {
+            _chance = _chance / 4;
+        };
+        _chance = _chance * _caChance * _phChance;
+        _chance = _chance / _nitroEffect;
+
+        if (_random <= _chance) then {
+            if (GVAR(AdvRhythm)) then {
+                if (_patient getVariable [QGVAR(cardiacArrestType), 0] != 0) then {
+                    [_patient, true] call _fnc_advRhythm;
+                };
+            } else {
+                [QACEGVAR(medical,CPRSucceeded), _patient] call CBA_fnc_localEvent;
+            };
+            _patient setVariable [QGVAR(cprCount), 2, true];
+        } else {
+            _CPRcount = _CPRcount + 0.01;
+            _patient setVariable [QGVAR(cprCount), _CPRcount, true];
+        };
 
     } else {
         
@@ -224,9 +224,13 @@ if !(GVAR(enable_CPR_Chances)) then {
     };
 
     if (_patient getVariable [QGVAR(cardiacArrestType), 0] in [4,3] && _randomAmi > 2) then {
-        _chance = _chance + _amiBoost;
+        _chance = _chance + (_amiBoost / 10);
     };
 
+    if (_patient getVariable [QGVAR(cardiacArrestType), 0] in [4,3] && (_patient getVariable [QGVAR(refractoryCA), false])) then {
+        _chance = _chance / 4;
+    };
+    _chance = _chance * _caChance * _phChance;
     _chance = _chance / _nitroEffect;
 
     if (_random <= _chance) then {
