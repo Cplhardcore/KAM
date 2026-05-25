@@ -43,7 +43,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(IO_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 2;
         };
     };
     class kat_EZ_IO: ACE_ItemCore {
@@ -54,7 +54,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(IO_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 3;
         };
     };
     class kat_EJV: ACE_ItemCore {
@@ -65,7 +65,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(EJV_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2;
+            mass = 3;
         };
     };
     class kat_pressureBag: ACE_ItemCore {
@@ -76,7 +76,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(pressureBag_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 5;
         }; 
     };
     class kat_10ml_syringe: ACE_ItemCore {
