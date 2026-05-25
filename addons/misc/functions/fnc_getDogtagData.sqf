@@ -24,6 +24,7 @@ params ["_target"];
 private _targetName = [_target, false, true] call ACEFUNC(common,getName);
 private _targetBlood = _target call EFUNC(circulation,bloodType);
 private _targetWeight = _target getVariable [QEGVAR(vitals,currentWeight), 80];
+private _targetSSN = _targetName call ACEFUNC(dogtags,ssn);
 
 switch (_targetBlood) do {
     case "O": {_targetBlood = "0+"};
@@ -39,7 +40,8 @@ switch (_targetBlood) do {
 private _dogTagData = [
     _targetName,
     _targetBlood, //EDIT by Katalam switch name to target objective //EDIT 2 changed called function, old: ace_dogtags_fnc_bloodType //EDIT 3 working solution for added rhesus factor
-    _targetWeight
+    _targetWeight,
+    _targetSSN
 ];
 // Store it
 _target setVariable [QACEGVAR(dogtags,dogtagData), _dogTagData, true];

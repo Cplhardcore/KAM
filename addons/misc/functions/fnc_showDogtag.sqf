@@ -40,4 +40,13 @@ if (_name == "") then {
     _name = ACELSTRING(common,unknown);
 };
 
-_control ctrlSetStructuredText parseText format ["%1<br/>%2<br/>%3 Kg", toUpper _name, _bloodType, _weight];
+_control ctrlSetStructuredText parseText format [
+    "<t size='0.8'>%1</t><br/>
+     <t size='0.8'>%2</t><br/>
+     <t size='0.8'>%3 Kg</t><br/>
+     <t size='0.8'>%4</t>",
+    toUpper _name,
+    _bloodType,
+    _weight,
+    _code
+];

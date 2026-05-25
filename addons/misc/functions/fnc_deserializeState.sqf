@@ -208,6 +208,7 @@ private _state = [_json] call CBA_fnc_parseJSON;
 [QEGVAR(pharma,mitoFailure), 0],
 [QEGVAR(pharma,lastTimeCoagUpdated), 0],
 [QEGVAR(pharma,lastTimeClotUpdated), 0],
+[VAR_LOCAL_ANESTHESIA, DEFAULT_LOCAL_ANESTHESIA],
 [QEGVAR(triagecard,triageCardCheckboxes), createHashMap],
 [QEGVAR(triagecard,triageCardPriority), createHashMap],
 [QEGVAR(triagecard,triageCardText), createHashMap],
