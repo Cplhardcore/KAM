@@ -35,19 +35,24 @@ private _fnc_checkItems = {
         _unitItems append (magazineCargo _unitVehicle);
     };
     if (GVAR(allowCrateEquipment) && ([_unit, GVAR(medicCrateEquipment)] call ACEFUNC(common,isMedic)) && (isNull _unitVehicle)) then {
+    private _objectTypes = [];
 
+    switch (GVAR(crateAccess)) do {
+        case 0: {
+            _objectTypes = ["GroundWeaponHolder", "WeaponHolderSimulated"];
+        };
+        case 1: {
+            _objectTypes = ["GroundWeaponHolder", "WeaponHolderSimulated", "ThingX"];
+        };
+        case 2: {
+            _objectTypes = ["GroundWeaponHolder", "WeaponHolderSimulated", "ThingX", "LandVehicle", "Air", "Ship"];
+        };
+    };
     private _nearbyCrates = nearestObjects [
-    _patient,
-            [
-                "ThingX",
-                "GroundWeaponHolder",
-                "WeaponHolderSimulated",
-                "LandVehicle",
-                "Air",
-                "Ship"
-            ],
-            GVAR(crateEquipmentRange)
-        ];
+        _patient,
+        _objectTypes,
+        GVAR(crateEquipmentRange)
+    ];
 
         _nearbyCrates = _nearbyCrates select {
 
@@ -57,13 +62,13 @@ private _fnc_checkItems = {
                 false
             };
 
-            private _hasLoot =
+            private _hasItem =
                 (itemCargo _container) isNotEqualTo []
                 || (magazineCargo _container) isNotEqualTo []
                 || (weaponCargo _container) isNotEqualTo []
                 || (everyBackpack _container) isNotEqualTo [];
 
-            if (!_hasLoot) then {
+            if (!_hasItem) then {
 
                 {
                     private _bp = _x;
@@ -74,28 +79,42 @@ private _fnc_checkItems = {
                         || (weaponCargo _bp) isNotEqualTo []
                         || (backpackCargo _bp) isNotEqualTo []
                     ) exitWith {
-                        _hasLoot = true;
+                        _hasItem = true;
                     };
 
                 } forEach everyBackpack _container;
             };
 
-            _hasLoot
+            _hasItem
         };
 
         {
             private _container = _x;
+            private _filteredItems = (itemCargo _container) select {
+                !(_x in GVAR(blacklistedItems))
+            };
+            private _filteredMags = (magazineCargo _container) select {
+                !(_x in GVAR(blacklistedItems))
+            };
 
-            _unitItems append (itemCargo _container);
-            _unitItems append (magazineCargo _container);
-
-            // Include dropped backpack contents
+            _unitItems append _filteredItems;
+            _unitItems append _filteredMags;
             {
-                _unitItems append (itemCargo _x);
-                _unitItems append (magazineCargo _x);
+                private _bpFilteredItems = (itemCargo _x) select {
+                    !(_x in GVAR(blacklistedItems))
+                };
+
+                private _bpFilteredMags = (magazineCargo _x) select {
+                    !(_x in GVAR(blacklistedItems))
+                };
+
+                _unitItems append _bpFilteredItems;
+                _unitItems append _bpFilteredMags;
+
             } forEach everyBackpack _container;
 
         } forEach _nearbyCrates;
+
     };
     _items findAny _unitItems != -1
 };

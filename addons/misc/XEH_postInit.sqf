@@ -35,3 +35,21 @@ call FUNC(FAK_updateContents);
         1 max (ACE_player getVariable [QGVAR(Tourniquet_ArmNecrosis), 0]) / 10
     } else {1};
 }, QUOTE(ADDON)] call ACEFUNC(common,addSwayFactor);
+
+GVAR(blacklistedItems) = [
+    "kat_accuvac",
+    "kat_X_AED",
+    "kat_AED",
+    "kat_laryngoscope",
+    "kat_suction",
+    "kat_pocketBVM",
+    "kat_BVM",
+    "kat_stethoscope",
+    "kat_BPCuff",
+    "kat_fluidWarmer",
+    "kat_thermometer",
+    "kat_pressureBag",
+    "kat_coag_sense",
+    "kat_vacuum",
+    "kat_ultrasound"
+];

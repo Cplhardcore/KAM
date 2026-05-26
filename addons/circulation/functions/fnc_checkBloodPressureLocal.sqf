@@ -33,12 +33,13 @@ private _bloodPressureOutput = ACELSTRING(medical_treatment,Check_Bloodpressure_
 private _logOutput = ACELSTRING(medical_treatment,Check_Bloodpressure_NoBloodpressure);
 
 _bloodPressure params ["_bloodPressureLow", "_bloodPressureHigh"];
-
+private _bpValue = round _bloodPressureLow;
 if (_bloodPressureLow > 40) then {
     if (_medic call ACEFUNC(medical_treatment,isMedic)) then {
         if (GVAR(hardcoreDiagnose)) then {
+            _bpValue = (round (_bloodPressureLow / 10) * 10) + ([5, -5] select (random 1 > 0.5));
             _bloodPressureOutput = LSTRING(Check_Bloodpressure_Output_Palp);
-            _logOutput = format [LLSTRING(Bloodpressure_Output_Palp), (round (_bloodPressureLow / 10) * 10) + ([5, -5] select (random 1 > 0.5))];
+            _logOutput = format [LLSTRING(Bloodpressure_Output_Palp), _bpValue];
         } else {
             _bloodPressureOutput = ACELSTRING(medical_treatment,Check_Bloodpressure_Output_1);
             _logOutput = format ["%1/%2", round _bloodPressureHigh, round _bloodPressureLow];
@@ -64,4 +65,4 @@ if (_bloodPressureLow > 40) then {
 
 [_patient, "quick_view", ACELSTRING(medical_treatment,Check_Bloodpressure_Log), [_medic call ACEFUNC(common,getName), _logOutput]] call ACEFUNC(medical_treatment,addToLog);
 
-[QACEGVAR(common,displayTextStructured), [[_bloodPressureOutput, _patient call ACEFUNC(common,getName), round _bloodPressureHigh, round _bloodPressureLow], 1.75, _medic], _medic] call CBA_fnc_targetEvent;
+[QACEGVAR(common,displayTextStructured), [[_bloodPressureOutput, _patient call ACEFUNC(common,getName), round _bloodPressureHigh, round _bloodPressureLow, _bpValue], 1.75, _medic], _medic] call CBA_fnc_targetEvent;

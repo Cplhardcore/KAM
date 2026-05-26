@@ -92,16 +92,22 @@ if (GVAR(allowCrateEquipment) && ([ACE_player, GVAR(medicCrateEquipment)] call A
 
     _crateCount = 0;
 
+    private _objectTypes = [];
+
+    switch (GVAR(crateAccess)) do {
+        case 0: {
+            _objectTypes = ["GroundWeaponHolder", "WeaponHolderSimulated"];
+        };
+        case 1: {
+            _objectTypes = ["GroundWeaponHolder", "WeaponHolderSimulated", "ThingX"];
+        };
+        case 2: {
+            _objectTypes = ["GroundWeaponHolder", "WeaponHolderSimulated", "ThingX", "LandVehicle", "Air", "Ship"];
+        };
+    };
     private _nearbyContainers = nearestObjects [
         ACEGVAR(medical_gui,target),
-        [
-            "ThingX",
-            "GroundWeaponHolder",
-            "WeaponHolderSimulated",
-            "LandVehicle",
-            "Air",
-            "Ship"
-        ],
+        _objectTypes,
         GVAR(crateEquipmentRange)
     ];
 
@@ -113,13 +119,13 @@ if (GVAR(allowCrateEquipment) && ([ACE_player, GVAR(medicCrateEquipment)] call A
             false
         };
 
-         private _hasLoot =
+         private _hasItem =
                 (itemCargo _container) isNotEqualTo []
                 || (magazineCargo _container) isNotEqualTo []
                 || (weaponCargo _container) isNotEqualTo []
                 || (everyBackpack _container) isNotEqualTo [];
 
-            if (!_hasLoot) then {
+            if (!_hasItem) then {
 
                 {
                     private _bp = _x;
@@ -130,15 +136,18 @@ if (GVAR(allowCrateEquipment) && ([ACE_player, GVAR(medicCrateEquipment)] call A
                         || (weaponCargo _bp) isNotEqualTo []
                         || (backpackCargo _bp) isNotEqualTo []
                     ) exitWith {
-                        _hasLoot = true;
+                        _hasItem = true;
                     };
 
                 } forEach everyBackpack _container;
             };
-        _hasLoot
+        _hasItem
     };
     private _magazineItems = [];
     private _itemItems = [];
+    _items = _items select {
+        !(_x in GVAR(blacklistedItems))
+    };
     {
         if (isClass (configFile >> "CfgMagazines" >> _x)) then {
             _magazineItems pushBack _x;

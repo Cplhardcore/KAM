@@ -34,7 +34,9 @@ private _sharedUseOrder = [[_patient, _medic],
 
 private _useOrder = [];
 private _nearbyCrates = [];
-
+private _containsBlacklisted = _items findIf {
+    _x in GVAR(blacklistedItems)
+} > -1;
 private _nearbyContainers = nearestObjects [
         ACEGVAR(medical_gui,target),
         [
@@ -55,13 +57,13 @@ private _nearbyContainers = nearestObjects [
             false
         };
 
-         private _hasLoot =
+         private _hasItem =
                 (itemCargo _container) isNotEqualTo []
                 || (magazineCargo _container) isNotEqualTo []
                 || (weaponCargo _container) isNotEqualTo []
                 || (everyBackpack _container) isNotEqualTo [];
 
-            if (!_hasLoot) then {
+            if (!_hasItem) then {
 
                 {
                     private _bp = _x;
@@ -72,12 +74,12 @@ private _nearbyContainers = nearestObjects [
                         || (weaponCargo _bp) isNotEqualTo []
                         || (backpackCargo _bp) isNotEqualTo []
                     ) exitWith {
-                        _hasLoot = true;
+                        _hasItem = true;
                     };
 
                 } forEach everyBackpack _container;
             };
-    _hasLoot
+    _hasItem
 };
 private _vehicle = objectParent _medic;
 private _vehicleCondition = !(isNull _vehicle) && _vehicle isEqualTo (objectParent _patient);
@@ -116,7 +118,12 @@ if (GVAR(allowSharedVehicleEquipment) > 0 && _vehicleCondition) then {
     };
 } else {
     _useOrder = +_sharedUseOrder;
-    if (GVAR(allowCrateEquipment) && {_nearbyContainers isNotEqualTo []} && ([_medic, GVAR(medicCrateEquipment)] call ACEFUNC(common,isMedic))) then {
+    if (
+        !_containsBlacklisted &&
+        GVAR(allowCrateEquipment) &&
+        {_nearbyContainers isNotEqualTo []} &&
+        ([_medic, GVAR(medicCrateEquipment)] call ACEFUNC(common,isMedic))
+    ) then {
         _useOrder = _nearbyContainers + _useOrder;
     };
 };
@@ -125,9 +132,27 @@ TRACE_2("useOrder",_useOrder,_nearbyContainers);
     private _origin = _x;
     private _isVehicleSource = (_forEachIndex == _vehicleIndex);
 
-    private _isCrateSource =
-    !(_origin isKindOf "CAManBase");
-    if (!_isVehicleSource && !_isCrateSource) then {// Remove unit item
+    private _allowAccess = false;
+
+    switch (GVAR(crateAccess)) do {
+        case 0: {
+            _allowAccess = (_origin isKindOf "WeaponHolderSimulated");
+        };
+        case 1: {
+            _allowAccess =
+                (_origin isKindOf "ThingX") ||
+                (_origin isKindOf "WeaponHolderSimulated");
+        };
+        case 2: {
+            _allowAccess =
+                (_origin isKindOf "LandVehicle") ||
+                (_origin isKindOf "Air") ||
+                (_origin isKindOf "Ship") ||
+                (_origin isKindOf "ThingX") ||
+                (_origin isKindOf "WeaponHolderSimulated");
+        };
+    };
+    if (!_isVehicleSource && !_allowAccess) then {// Remove unit item
         private _originItems = [_origin, 0] call ACEFUNC(common,uniqueItems); // Item
         {
             if (_x in _originItems) then {

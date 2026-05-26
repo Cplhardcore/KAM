@@ -1937,13 +1937,13 @@
             <Chinesesimp>更换监控设备</Chinesesimp>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Bloodpressure_Output_Palp">
-            <English>You find a blood pressure of %3 over Palp</English>
-            <Czech>Naměřil jsi krevní tlak %3 nad palpační hodnotou</Czech>
-            <French>Vous avez mesuré la tension artérielle %3 au-dessus de la palpation</French>
-            <Italian>Misuri una pressione sanguinea di %3 su Palp</Italian>
-            <German>Du misst einen Blutdruck von %3 per Palpitation</German>
-            <Japanese>触診で計測した拡張期血圧は %3 でした</Japanese>
-            <Chinese>你發現血壓比觸診高 %3</Chinese>
+            <English>You find a blood pressure of %4 over Palp</English>
+            <Czech>Naměřil jsi krevní tlak %4 nad palpační hodnotou</Czech>
+            <French>Vous avez mesuré la tension artérielle %4 au-dessus de la palpation</French>
+            <Italian>Misuri una pressione sanguinea di %4 su Palp</Italian>
+            <German>Du misst einen Blutdruck von %4 per Palpitation</German>
+            <Japanese>触診で計測した拡張期血圧は %4 でした</Japanese>
+            <Chinese>你發現血壓比觸診高 %4</Chinese>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Pulse_Output">
             <English>You find a Pulse Rate of %2</English>

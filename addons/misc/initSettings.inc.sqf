@@ -38,6 +38,15 @@
 ] call CBA_Settings_fnc_init;
 
 [
+    QGVAR(crateAccess),
+    "LIST",
+    [LLSTRING(SETTING_crateAccess), LLSTRING(SETTING_crateAccess_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [[0, 1, 2], [LSTRING(Bags), LSTRING(CratesBags), LSTRING(VehiclesCratesBags)], 0],
+    true
+] call CBA_Settings_fnc_init;
+
+[
     QGVAR(crateEquipmentRange),
     "SLIDER",
     [LLSTRING(SETTING_crateEquipmentRange), LLSTRING(SETTING_crateEquipmentRange_DESC)],
