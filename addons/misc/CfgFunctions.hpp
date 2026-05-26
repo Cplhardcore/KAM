@@ -57,6 +57,9 @@ class CfgFunctions {
             class isMedic {
                 file = QPATHTOF(functions\fnc_isMedic.sqf);
             };
+            class hasItem {
+                file = QPATHTOF(functions\fnc_hasItem.sqf);
+            };
         };
     };
     class ace_medical {
@@ -100,6 +103,17 @@ class CfgFunctions {
         class ace_medical_status {
             class getMedicationCount {
                 file = QPATHTOF(functions\fnc_getMedicationCount.sqf);
+            };
+        };
+    };
+    class overwrite_medical_gui {
+        tag = "ace_medical_gui";
+        class ace_medical_gui {
+            class countTreatmentItems {
+                file = QPATHTOF(functions\fnc_countTreatmentItems.sqf);
+            };
+            class formatItemCounts {
+                file = QPATHTOF(functions\fnc_formatItemCounts.sqf);
             };
         };
     };

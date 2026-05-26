@@ -20,6 +20,33 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(allowCrateEquipment),
+    "CHECKBOX",
+    [LLSTRING(SETTING_allowCrateEquipment), LLSTRING(SETTING_allowCrateEquipment_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [true],
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(medicCrateEquipment),
+    "LIST",
+    [LLSTRING(SETTING_medicCrateEquipment), LLSTRING(SETTING_medicCrateEquipment_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [[0, 1, 2], [ACELSTRING(medical_treatment,Anyone), ACELSTRING(medical_treatment,Medics), ACELSTRING(medical_treatment,Doctors)], 0],
+    true
+] call CBA_Settings_fnc_init;
+
+[
+    QGVAR(crateEquipmentRange),
+    "SLIDER",
+    [LLSTRING(SETTING_crateEquipmentRange), LLSTRING(SETTING_crateEquipmentRange_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [1, 15, 5, 1],
+    true
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(treatmentModifiers),
     "CHECKBOX",
     [LLSTRING(SETTING_treatmentModifiers), LLSTRING(SETTING_treatmentModifiers_DESC)],
@@ -808,3 +835,4 @@
         call FUNC(FAK_updateContents);
     }
 ] call CBA_Settings_fnc_init;
+

@@ -2060,7 +2060,26 @@
         <Key ID="STR_KAT_Misc_SETTING_allowAdvancedStitching_DisplayName">
             <English>Allow Traumatic Wound Stitching</English>
         </Key>
-
-        
+        <Key ID="STR_KAT_Misc_SETTING_TreatmentItemCount_Crate">
+            <English>in nearby crates</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_allowCrateEquipment">
+            <English>Use Crate Supplies</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_allowCrateEquipment_DESC">
+            <English>Allows units to use medical supplies directly from nearby crates/vehicles</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_medicCrateEquipment">
+            <English>Med Level for Crate Supplies</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_medicCrateEquipment_DESC">
+            <English>Restricts pulling from nearby crates/vehicles to a certain medical level</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_crateEquipmentRange">
+            <English>Crate Range</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_crateEquipmentRange_DESC">
+            <English>Range to take from crates/vehicles</English>
+        </Key>
     </Package>
 </Project>
