@@ -14,7 +14,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 1;
+        mass = 5;
 
         ACE_isMedicalItem = 1;
         ACE_asItem = 1;

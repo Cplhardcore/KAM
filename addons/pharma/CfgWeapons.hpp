@@ -43,7 +43,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(IO_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 2;
         };
     };
     class kat_EZ_IO: ACE_ItemCore {
@@ -54,7 +54,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(IO_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 3;
         };
     };
     class kat_EJV: ACE_ItemCore {
@@ -65,7 +65,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(EJV_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2;
+            mass = 5;
         };
     };
     class kat_pressureBag: ACE_ItemCore {
@@ -76,7 +76,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(pressureBag_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 5;
         }; 
     };
     class kat_10ml_syringe: ACE_ItemCore {
@@ -120,7 +120,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(EACA_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_TXA: ACE_ItemCore {
@@ -131,7 +131,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(TXA_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
      class kat_TXAAuto: ACE_ItemCore {
@@ -142,7 +142,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(TXA_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_norepinephrine: ACE_ItemCore {
@@ -154,7 +154,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Norep_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_phenylephrine: ACE_ItemCore {
@@ -165,7 +165,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Phenyl_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_phenylephrineAuto: ACE_ItemCore {
@@ -176,7 +176,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(PhenylAuto_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_nitroglycerin: ACE_ItemCore {
@@ -187,7 +187,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Nitro_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_amiodarone: ACE_ItemCore {
@@ -198,7 +198,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Amiodarone_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_lidocaine: ACE_ItemCore {
@@ -209,7 +209,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Lidocaine_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_atropine: ACE_ItemCore {
@@ -220,7 +220,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Atropine_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_atropineIV: ACE_ItemCore {
@@ -231,7 +231,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(AtropineIV_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_ketamine: ACE_ItemCore {
@@ -242,7 +242,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Ketamine_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_fentanyl: ACE_ItemCore {
@@ -253,7 +253,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Fentanyl_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_nalbuphine: ACE_ItemCore {
@@ -264,7 +264,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Nalbuphine_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
         class kat_lorazepam: ACE_ItemCore {
@@ -275,7 +275,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Lorazepam_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_flumazenil: ACE_ItemCore {
@@ -286,7 +286,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Flumazenil_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_succinylcholine: ACE_ItemCore {
@@ -297,7 +297,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Succinylcholine_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_rocuronium: ACE_ItemCore {
@@ -308,7 +308,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Rocuronium_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_sugammadex: ACE_ItemCore {
@@ -319,7 +319,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Sugammadex_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_etomidate: ACE_ItemCore {
@@ -330,7 +330,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Etomidate_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_epinephrineIV: ACE_ItemCore {
@@ -341,7 +341,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(EpinephrineIV_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_morphineIV: ACE_ItemCore {
@@ -352,7 +352,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(MorphineIV_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_ondansetron: ACE_ItemCore {
@@ -363,7 +363,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Ondansetron_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_adenosineIV: ACE_ItemCore {
@@ -374,7 +374,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(AdenosineIV_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_alteplase: ACE_ItemCore {
@@ -385,7 +385,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Alteplase_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_doxapram: ACE_ItemCore {
@@ -396,7 +396,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Doxapram_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_coag_sense: ACE_ItemCore {
@@ -429,7 +429,7 @@ class CfgWeapons {
         descriptionShort = "";
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.75;
+            mass = 1;
         };
     };
     class kat_syringe_txa_10ml_20: kat_syringe_txa_10ml_10 {
@@ -927,7 +927,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Diazepam_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_metoprolol: ACE_ItemCore {
@@ -938,7 +938,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Metoprolol_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_calciumGluconate: ACE_ItemCore {
@@ -949,7 +949,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(CalciumGluconate_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_calciumChloride: ACE_ItemCore {
@@ -960,7 +960,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(CalciumChloride_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_bicarbonate: ACE_ItemCore {
@@ -971,7 +971,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Bicarbonate_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_syringe_bicarbonate_5ml_20: kat_syringe_txa_5ml_10 {

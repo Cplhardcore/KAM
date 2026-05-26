@@ -13,7 +13,7 @@ class CfgWeapons {
         model = QPATHTOF(models\pulseox\pulseox.p3d);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 3;
         };
     };
     class kat_nasal: ACE_ItemCore {
@@ -37,7 +37,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\chest-seal.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 1.5;
         };
     };
     class kat_chestTube: ACE_ItemCore {
@@ -49,7 +49,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\chestTube.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 2;
         };
     };
     class kat_aatKit: ACE_ItemCore {
@@ -65,7 +65,7 @@ class CfgWeapons {
         hiddenSelectionsTextures[] = {QPATHTOF(models\AAT_Kit\AAT_ca.paa)};
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 5;
         };
     };
     class kat_ncdKit: ACE_ItemCore {
@@ -78,7 +78,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\ndcKit.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 1.5;
         };
     };
     class kat_stethoscope: ACE_ItemCore {
@@ -91,7 +91,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\steth.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 4;
+            mass = 9;
         };
     };
 
@@ -105,7 +105,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\BVM.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 6;
+            mass = 12;
         };
     };
     class kat_pocketBVM: ACE_ItemCore {
@@ -118,7 +118,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\pocketBVM.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 3;
+            mass = 5;
         };
     };
     class kat_oxygenTank_150_Empty: ACE_ItemCore {
@@ -131,7 +131,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\oxygenTank.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 10;
+            mass = 50;
         };
     };
     class kat_oxygenTank_300_Empty: ACE_ItemCore {
@@ -144,7 +144,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\oxygenTank.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 20;
+            mass = 90;
         };
     };
 };

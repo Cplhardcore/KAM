@@ -398,7 +398,7 @@ class CfgWeapons {
         hiddenSelectionsTextures[] = {QPATHTOF(ui\IVBag_blood_500ml_empty_ca.paa)};
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2;
+            mass = 4;
         };
     };
     class KAT_Empty_bloodIV_250: ACE_bloodIV
@@ -410,7 +410,7 @@ class CfgWeapons {
         hiddenSelectionsTextures[] = {QPATHTOF(ui\IVBag_blood_500ml_empty_ca.paa)};
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2;
         };
     };
     class kat_AED: ACE_ItemCore {
@@ -422,7 +422,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(AED_DESCRIPTION);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 30;
+            mass = 60;
         };
     };
     class kat_X_AED: kat_AED {
@@ -433,7 +433,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(X_Desc);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 40;
+            mass = 120;
         };
     };
     class kat_crossPanel: ACE_ItemCore {
@@ -476,7 +476,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\BPCuff.paa);
         icon = "";
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 6;
+            mass = 8;
         };
     };
     class kat_HypertonicSalineIV_500: ACE_salineIV_500 {
