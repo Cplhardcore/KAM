@@ -17,13 +17,51 @@
 class CfgWeapons {
     class ACE_ItemCore;
     class CBA_MiscItem_ItemInfo;
-    class ACE_bloodIV;
-    class ACE_salineIV;
-    class ACE_salineIV_500;
-    class ACE_salineIV_250;
-    class ACE_plasmaIV;
-    class ACE_plasmaIV_500;
-    class ACE_plasmaIV_250;
+    class ACE_bloodIV: ACE_ItemCore {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 20;
+        };
+    };
+    class ACE_bloodIV_500: ACE_bloodIV {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 10;
+        };
+    };
+    class ACE_bloodIV_250: ACE_bloodIV {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 5;
+        };
+    };
+    class ACE_salineIV: ACE_ItemCore {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 20;
+        };
+    };
+    class ACE_salineIV_500: ACE_salineIV {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 10;
+        };
+    };
+    class ACE_salineIV_250: ACE_salineIV {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 5;
+        };
+    };
+    class ACE_plasmaIV: ACE_ItemCore {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 20;
+        };
+    };
+    class ACE_plasmaIV_500: ACE_plasmaIV {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 10;
+        };
+    };
+    class ACE_plasmaIV_250: ACE_plasmaIV {
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 5;
+        };
+    };
     class kat_bloodIV_O: ACE_bloodIV {
         displayName = CSTRING(BloodIV_O);
         ACE_isMedicalItem = 1;
@@ -49,7 +87,6 @@ class CfgWeapons {
     class kat_bloodIV_AB_N: kat_bloodIV_O {
         displayName = CSTRING(BloodIV_AB_N);
     };
-    class ACE_bloodIV_500;
     class kat_bloodIV_O_500: ACE_bloodIV_500 {
         displayName = CSTRING(BloodIV_O_500);
         ACE_isMedicalItem = 1;
@@ -75,7 +112,6 @@ class CfgWeapons {
     class kat_bloodIV_AB_N_500: kat_bloodIV_O_500 {
         displayName = CSTRING(BloodIV_AB_500_N);
     };
-    class ACE_bloodIV_250;
     class kat_bloodIV_O_250: ACE_bloodIV_250 {
         displayName = CSTRING(BloodIV_O_250);
         ACE_isMedicalItem = 1;
@@ -160,7 +196,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Platelet_IV_Desc_Short);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2;
         };
     };
     class kat_HextendIV: ACE_plasmaIV {
@@ -170,7 +206,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Hextend_IV_Desc_Short);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 10;
+            mass = 20;
         };
     };
     class kat_HextendIV_500: ACE_plasmaIV_500 {
@@ -180,7 +216,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Hextend_IV_Desc_Short);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 5;
+            mass = 10;
         };
     };
     class kat_HextendIV_250: ACE_plasmaIV_250 {
@@ -190,7 +226,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Hextend_IV_Desc_Short);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 5;
         };
     };
     class kat_RingersLactateIV: ACE_salineIV {
@@ -201,7 +237,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Ringers_Lactate_IV_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 10;
+            mass = 20;
         };
     };
     class kat_RingersLactateIV_500: ACE_salineIV_500 {
@@ -212,7 +248,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Ringers_Lactate_IV_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 5;
+            mass = 10;
         };
     };
     class kat_RingersLactateIV_250: ACE_salineIV_250 {
@@ -223,7 +259,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Ringers_Lactate_IV_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 5;
         };
     };
     class kat_MorphineIVInfusion: ACE_salineIV_250 {
@@ -234,7 +270,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Morphine_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 5;
         };
     };
     class kat_EpinephrineIVInfusion: ACE_salineIV_250 {
@@ -245,7 +281,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Epinephrine_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 5;
         };
     };
     class kat_EtomidateInfusion: ACE_salineIV_250 {
@@ -256,7 +292,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Etomidate_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 5;
         };
     };
     class kat_DoxapramInfusion: ACE_salineIV_250 {
@@ -267,7 +303,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Doxapram_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 5;
         };
     };
     class kat_NitroglycerinInfusion: ACE_salineIV_250 {
@@ -278,7 +314,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Nitroglycerin_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 5;
         };
     };
     class kat_NorepinephrineInfusion: ACE_salineIV_250 {
@@ -289,7 +325,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Norepinephrine_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 5;
         };
     };
     class kat_MorphineIVInfusion100: ACE_salineIV_250 {
@@ -300,7 +336,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Morphine_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2;
         };
     };
     class kat_EpinephrineIVInfusion100: ACE_salineIV_250 {
@@ -311,7 +347,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Epinephrine_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2;
         };
     };
     class kat_EtomidateInfusion100: ACE_salineIV_250 {
@@ -322,7 +358,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Etomidate_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2;
         };
     };
     class kat_DoxapramInfusion100: ACE_salineIV_250 {
@@ -333,7 +369,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Doxapram_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2;
         };
     };
     class kat_NitroglycerinInfusion100: ACE_salineIV_250 {
@@ -344,7 +380,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Nitroglycerin_Infusion_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2;
         };
     };
     class kat_NorepinephrineInfusion100: ACE_salineIV_250 {
@@ -366,7 +402,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Packed_RBC_IV_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 5;
+            mass = 10;
         };
     };
     class kat_PackedRBCIV_250: ACE_bloodIV_250 {
@@ -377,7 +413,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Packed_RBC_IV_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 5;
         };
     };
     class kat_salineIV100: ACE_salineIV_250 {
@@ -386,7 +422,7 @@ class CfgWeapons {
         displayName = CSTRING(salineIV_100);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2;
         };
     };
     class KAT_Empty_bloodIV_500: ACE_bloodIV
