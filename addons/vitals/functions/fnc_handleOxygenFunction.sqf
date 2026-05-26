@@ -376,7 +376,6 @@ if (!_patternApplied && (_ph <= 7.2) && (_respFatigue < 1.1)) then {
         _respiratoryDepth = _respiratoryDepth * _depthPenalty;
     };
     if (_respFatigue > 0.85) then {
-    
         _respiratoryRate =
             _respiratoryRate
             * linearConversion [0.85, 1.1, _respFatigue, 1.0, 0.6, true];
@@ -818,23 +817,26 @@ if (IN_CRDC_ARRST(_unit)) then {
 
 TRACE_3("pao21", _pao2,_previousCyclePao2,_arrestPerfusion);
 if (_previousCyclePao2 < 55 && _alveolarVent > 3000) then {
-    _pulmonaryShunt = (_pulmonaryShunt + (0.00002 * _deltaT));
+    _pulmonaryShunt = (_pulmonaryShunt + (0.0004 * _deltaT));
 };
 if ((_respiratoryDepth < (DEFAULT_RESPIRATORY_DEPTH * 0.4)) && (_respiratoryRate < 10)) then {
-    _pulmonaryShunt = (_pulmonaryShunt + (0.00002 * _deltaT));
+    _pulmonaryShunt = (_pulmonaryShunt + (0.0004 * _deltaT));
 };
 if (IN_CRDC_ARRST(_unit)) then {
-    _pulmonaryShunt = (_pulmonaryShunt + (0.00006 * _deltaT));
+    _pulmonaryShunt = (_pulmonaryShunt + (0.00085 * _deltaT));
 };
 if (!IN_CRDC_ARRST(_unit) && _alveolarVent > 4000) then {
-    _pulmonaryShunt = ((_pulmonaryShunt - (0.0005 * _deltaT)) max 0);
+    _pulmonaryShunt = ((_pulmonaryShunt - (0.005 * _deltaT)) max 0);
 };
 private _micro = _unit getVariable [QEGVAR(pharma,microcirculation),0];
 if (_micro > 0.5) then {
     private _pulmonaryShunt =  _pulmonaryShunt + linearConversion [0.5,1,_micro,0.0005,0.0025,true];
 };
 private _trauma = _unit getVariable [QGVAR(traumaState),0];
-if (_trauma > 0.3) then {
+if (_trauma > 0.2) then {
+    _pulmonaryShunt = ((_pulmonaryShunt + (0.0005 * _deltaT)) max 0);
+};
+if (_trauma <= 0.2) then {
     _pulmonaryShunt = ((_pulmonaryShunt - (0.0005 * _deltaT)) max 0);
 };
 
@@ -843,7 +845,8 @@ _pulmonaryShunt = _pulmonaryShunt min 0.6;
 _pao2 = _pao2 * (1 - _pulmonaryShunt);
 TRACE_2("pao22",
         _pao2,_pulmonaryShunt);
-_pao2 = if (_previousCyclePao2 != _pao2) then { ([ (_previousCyclePao2 - (((PAO2_MAX_CHANGE/10) * EGVAR(breathing,SpO2_MultiplyNegative)) * _deltaT)) , (_previousCyclePao2 + ((PAO2_MAX_CHANGE * EGVAR(breathing,SpO2_MultiplyPositive)) * _deltaT))] select ((_previousCyclePao2 - _pao2) < 0)) } else { _pao2 };
+private _pao2fio2Mult = linearConversion [0.21, 1, _fio2, 1, 1.5, true];
+_pao2 = if (_previousCyclePao2 != _pao2) then { ([ (_previousCyclePao2 - ((((PAO2_MAX_CHANGE/10)) * EGVAR(breathing,SpO2_MultiplyNegative)) * _deltaT)) , (_previousCyclePao2 + (((PAO2_MAX_CHANGE * _pao2fio2Mult) * EGVAR(breathing,SpO2_MultiplyPositive)) * _deltaT))] select ((_previousCyclePao2 - _pao2) < 0)) } else { _pao2 };
 private _baseConst =
     7.4 - log(24 / (0.03 * 39.9));
 
