@@ -15,10 +15,11 @@
  * Public: No
  */
 
- params ["_unit"];
+ params ["_unit", "_deltaT"];
  if (!local _unit) exitWith { ERROR_2("updatePharmaEffects: Unit not local or null [%1:%2]",_unit,typeOf _unit); };
 [_unit] call FUNC(clotWound);
 [_unit] call FUNC(coagRegen);
+[_unit, _deltaT] call FUNC(handleNerveBlock);
 private _IVrate = _unit getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVarray = _unit getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 {

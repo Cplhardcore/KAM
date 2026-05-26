@@ -58,7 +58,73 @@ if (IN_CRDC_ARRST(_unit)) then {
     _painLevel = GET_PAIN(_unit);
 
     private _lastHR = GET_HEART_RATE(_unit);
-    _lastHR = _lastHR + _hrTargetAdjustment;
+    _lastHR = _lastHR + linearConversion [0,1,_cnsSuppression,0,16,true];
+    _lastHR = _lastHR - _hrTargetAdjustment;
+
+    private _staminaHRBias =
+        linearConversion [0, 1, _metabolicDemand, 0, 25, true];
+    _staminaHRBias = _staminaHRBias * (1 - (_cnsSuppression * 0.6));
+    _lastHR = _lastHR - _staminaHRBias;
+
+    TRACE_3("STAMINA", _metabolicDemand, _staminaHRBias, _lastHR);
+    private _ICPbias = 0;
+    if (_icp > EGVAR(brain,ICPbradycardiaThreshold)) then {
+        _ICPbias = linearConversion [EGVAR(brain,ICPbradycardiaThreshold), 60, _icp, -20, -45, true];
+        _lastHR = _lastHR - _ICPbias;
+        TRACE_2("ICP", _lastHR, _ICPbias);
+    };
+    private _tempBias = 0;
+    if (EGVAR(hypothermia,hypothermiaActive) && ((_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]) < 36)) then {
+        _tempBias = linearConversion [36, 30, (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]), 0, -24, true];
+        _lastHR = _lastHR - _tempBias;
+        TRACE_2("Hyperthermia", _lastHR, _tempBias);
+    };
+
+    private _paCO2 = GET_PACO2(_unit);
+    private _co2Tachy =
+    linearConversion [45, 80, _paCO2, 0, 18, true];
+    _co2Tachy = _co2Tachy * (1 - (_cnsSuppression * 0.7));
+    _lastHR = _lastHR - _co2Tachy;
+    TRACE_3(
+        "_co2Tachy",
+        _co2Tachy,
+        _paCO2,
+        _lastHR
+    );
+    private _pao2 = GET_PAO2(_unit);
+    private _hypoxiaTachy = linearConversion [80, 40, _pao2, 0, 20, true];
+    _lastHR = _lastHR + _hypoxiaTachy;
+    TRACE_3(
+        "_hypoxiaTachy",
+        _hypoxiaTachy,
+        _pao2,
+        _lastHR
+    );
+    private _respDepth =
+    _unit getVariable [VAR_RESPIRATORY_DEPTH, 10];
+
+    private _vagalResp =
+    linearConversion [14, 22, _respDepth, 0, 10, true];
+
+    _lastHR = _lastHR + _vagalResp;
+
+
+    private _respFatigue =
+    _unit getVariable [QGVAR(respFatigue),0];
+
+    if (_respFatigue > 0.9) then {
+
+        private _respCollapse =
+        linearConversion [0.7,1,_respFatigue,0,25,true];
+
+        _lastHR = _lastHR + _respCollapse;
+    };
+    private _pH = GET_PH(_unit);
+    if (_pH < 7.2) then {
+        _lastHR = _lastHR + linearConversion [7.2,6.9,_pH,0,25,true];
+    };
+
+
     private _baselineSV = 0.0819575;
     private _strokeVolume = [_unit] call FUNC(getStrokeVolume);
 
@@ -101,7 +167,6 @@ if (IN_CRDC_ARRST(_unit)) then {
       + (BARO_KI * _mapIntegral)) * _baroScale;
 
     private _modelHR = _defaultHR + _baroDelta;
-    _modelHR = _modelHR - linearConversion [0,1,_cnsSuppression,0,16,true];
     TRACE_6(
         "BARO_CORE",
         _map,
@@ -140,23 +205,6 @@ if (IN_CRDC_ARRST(_unit)) then {
     _modelHR = _modelHR + _centralBias;
     _modelHR = _modelHR + (_sympatheticSurge * (1 - (_cnsSuppression * 0.7)));
     TRACE_3("CENTRAL_CMD", _centralBias, _modelHR, _sympatheticSurge);
-
-    private _staminaHRBias =
-        linearConversion [0, 1, _metabolicDemand, 0, 25, true];
-    _staminaHRBias = _staminaHRBias * (1 - (_cnsSuppression * 0.6));
-    _modelHR = _modelHR + _staminaHRBias;
-    TRACE_3("STAMINA", _metabolicDemand, _staminaHRBias, _modelHR);
-    if (_icp > EGVAR(brain,ICPbradycardiaThreshold)) then {
-        private _ICPbias = linearConversion [EGVAR(brain,ICPbradycardiaThreshold), 60, _icp, -20, -45, true];
-        _modelHR = _modelHR + _ICPbias;
-        TRACE_2("ICP", _modelHR, _ICPbias);
-    };
-    
-    if (EGVAR(hypothermia,hypothermiaActive) && ((_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]) < 36)) then {
-        private _tempBias = linearConversion [36, 30, (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]), 0, -24, true];
-        _modelHR = _modelHR + _tempBias;
-        TRACE_2("Hyperthermia", _modelHR, _tempBias);
-    };
 
     TRACE_3("STAMINA_CMD", _metabolicDemand, _staminaHRBias, _modelHR);
 
@@ -199,49 +247,6 @@ if (IN_CRDC_ARRST(_unit)) then {
     switch (_shockClass) do {
         case "DECOMPENSATED": { _modelHR = _modelHR * 1.1 };
         case "TERMINAL":     { _modelHR = _modelHR * 0.6 };
-    };
-    private _paCO2 = GET_PACO2(_unit);
-    private _co2Tachy =
-    linearConversion [45, 80, _paCO2, 0, 18, true];
-    _co2Tachy = _co2Tachy * (1 - (_cnsSuppression * 0.7));
-    _modelHR = _modelHR + _co2Tachy;
-    TRACE_3(
-        "_co2Tachy",
-        _co2Tachy,
-        _paCO2,
-        _modelHR
-    );
-    private _pao2 = GET_PAO2(_unit);
-    private _hypoxiaTachy = linearConversion [80, 40, _pao2, 0, 20, true];
-    _modelHR = _modelHR + _hypoxiaTachy;
-    TRACE_3(
-        "_hypoxiaTachy",
-        _hypoxiaTachy,
-        _pao2,
-        _modelHR
-    );
-    private _respDepth =
-    _unit getVariable [VAR_RESPIRATORY_DEPTH, 10];
-
-    private _vagalResp =
-    linearConversion [14, 22, _respDepth, 0, 10, true];
-
-    _modelHR = _modelHR - _vagalResp;
-
-
-    private _respFatigue =
-    _unit getVariable [QGVAR(respFatigue),0];
-
-    if (_respFatigue > 0.9) then {
-
-        private _respCollapse =
-        linearConversion [0.7,1,_respFatigue,0,25,true];
-
-        _modelHR = _modelHR - _respCollapse;
-    };
-    private _pH = GET_PH(_unit);
-    if (_pH < 7.2) then {
-        _modelHR = _modelHR - linearConversion [7.2,6.9,_pH,0,25,true];
     };
     _modelHR = _modelHR
     + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
@@ -322,6 +327,20 @@ if (IN_CRDC_ARRST(_unit)) then {
     _actualHeartRate = _hrMem;
 
     _actualHeartRate = _actualHeartRate + _hrTargetAdjustment;
+    _actualHeartRate = _actualHeartRate + _staminaHRBias;
+    _actualHeartRate = _actualHeartRate + _ICPbias;
+    _actualHeartRate = _actualHeartRate + _tempBias;
+    _actualHeartRate = _actualHeartRate + _co2Tachy;
+    _actualHeartRate = _actualHeartRate + _hypoxiaTachy;
+    if (_respFatigue > 0.9) then {
+        private _respCollapse =
+        linearConversion [0.7,1,_respFatigue,0,25,true];
+        _actualHeartRate = _actualHeartRate - _respCollapse;
+    };
+    if (_pH < 7.2) then {
+        _actualHeartRate = _actualHeartRate - linearConversion [7.2,6.9,_pH,0,25,true];
+    };
+    _actualHeartRate = _actualHeartRate - _vagalResp;
 
     if (_respRate > 4) then {
         private _rsaAmp =

@@ -10,7 +10,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(HandWarmer_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.2;
+            mass = 1;
         }; 
     };
     class kat_fluidWarmer: ACE_ItemCore {
@@ -21,7 +21,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(FluidWarmer_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 3;
         }; 
     };
     class kat_spaceBlanket: ACE_ItemCore {
@@ -32,7 +32,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(spaceBlanket_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2;
         }; 
     };
     class kat_thermometer: ACE_ItemCore {
@@ -42,7 +42,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(thermometer_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 2;
         }; 
     };
 };

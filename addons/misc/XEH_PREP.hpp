@@ -43,7 +43,7 @@ PREP(removeTourniquetTime);
 PREP(serializeState);
 PREP(setTourniquetTime);
 PREP(setUnconscious);
-PREP(showDogtagData);
+PREP(showDogtag);
 PREP(slingArmband);
 PREP(stitchWound);
 PREP(stopCarryingPrompt);
