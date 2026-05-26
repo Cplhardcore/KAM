@@ -35,9 +35,7 @@ _patient setVariable [QGVAR(IVLeakStatus), _leakArray, true];
 private _leakPain = (_newLeak - _leak) * 0.5;
 private _targetPain = (((_stress / 20) ^ 2) min 1) + _leakPain;
 private _anesthesia = (_patient getVariable [QEGVAR(pharma,localAnesthesia), [0,0,0,0,0,0,0,0,0,0,0,0]]) select _partIndex;
-if (abs _deltaPain > 0.01) then {
-    [_patient, (_targetPain * (1-_anesthesia))] call ACEFUNC(medical_status,adjustPainLevel);
-};
+[_patient, (_targetPain * (1-_anesthesia))] call ACEFUNC(medical_status,adjustPainLevel);
 
 private _newCondition = _condition;
 
