@@ -11,7 +11,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(EyeCover_Desc);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 0.2;
         };
     };
 
@@ -33,7 +33,7 @@ class CfgWeapons {
             hiddenSelections[] = {"eye_l","eye_r"};
             uniformModel = QPATHTOF(models\eyecovers\kat_eyecovers.p3d);
             modelOff = QPATHTOF(models\eyecovers\kat_eyecovers.p3d);
-            mass = 1;
+            mass = 0.1;
         };
     };
     class kat_eyecovers_left: kat_eyecovers_right {

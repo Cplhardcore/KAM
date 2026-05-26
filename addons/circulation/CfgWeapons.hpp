@@ -422,7 +422,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(AED_DESCRIPTION);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 40;
+            mass = 30;
         };
     };
     class kat_X_AED: kat_AED {
@@ -433,7 +433,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(X_Desc);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 120;
+            mass = 40;
         };
     };
     class kat_crossPanel: ACE_ItemCore {

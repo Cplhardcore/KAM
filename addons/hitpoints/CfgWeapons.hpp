@@ -11,7 +11,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Hemostat_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 0.4;
         };
     };
     class kat_Elastic_Wrap: ACE_ItemCore {
@@ -24,7 +24,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Elastic_Wrap_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1.25;
+            mass = 1;
         };
     };
     class kat_4X4_Gauze: ACE_ItemCore {
@@ -37,7 +37,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(4X4_Gauze_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 0.2;
         };
     };
     class kat_Compressed_Gauze: ACE_ItemCore {
@@ -50,7 +50,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Compressed_Gauze_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 0.3;
         };
     };
     class kat_Roller_Gauze: ACE_ItemCore {
@@ -63,7 +63,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Roller_Gauze_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.75;
+            mass = 0.5;
         };
     };
     class kat_Abdominal_Pad: ACE_ItemCore {
@@ -76,7 +76,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Abdominal_Pad_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 4;
+            mass = 1.5;
         };
     };
     class kat_ETD: ACE_ItemCore {
@@ -89,7 +89,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(ETD_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 5;
+            mass = 3;
         };
     };
     class kat_Israeli_Bandage: ACE_ItemCore {
@@ -102,7 +102,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Israeli_Bandage_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 1;
         };
     };
     class kat_Hemostatic_Gauze: ACE_ItemCore {
@@ -115,7 +115,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Hemostatic_Gauze_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.4;
+            mass = 0.3;
         };
     };
     class kat_Adhesive_Bandage: ACE_ItemCore {
@@ -128,7 +128,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Adhesive_Bandage_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.2;
+            mass = 0.05;
         };
     };
     class kat_Burn_Dressing: ACE_ItemCore {
@@ -141,7 +141,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Burn_Dressing_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 0.3;
         };
     };
     class kat_Ice_Pack: ACE_ItemCore {
@@ -154,7 +154,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Ice_Pack_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1.5;
+            mass = 2;
         };
     };
     class kat_Pelvic_Binder: ACE_ItemCore {
@@ -167,7 +167,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Pelvic_Binder_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 6;
+            mass = 5;
         };
     };
 };

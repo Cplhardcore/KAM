@@ -101,7 +101,7 @@ class CfgWeapons {
         editorPreview = QPATHTOF(ui\MFAK.paa);
         picture = QPATHTOF(ui\MFAK.paa);
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 120;
+            mass = 100;
         };
     };
     class kat_MEDPACK: kat_IFAK {
@@ -110,7 +110,7 @@ class CfgWeapons {
         editorPreview = QPATHTOF(ui\MedicationCase.paa);
         picture = QPATHTOF(ui\MedicationCase.paa);
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 60;
+            mass = 40;
         };
     };
 };
