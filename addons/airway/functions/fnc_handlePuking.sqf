@@ -19,7 +19,7 @@ params ["_unit", "_deltaT"];
 
 //Other mods can utilise KAT_Occlusion_Exclusion variable to prevent occlusions from happening
 if (!(GVAR(enable)) || (_unit getVariable ["KAT_Occlusion_Exclusion", false])) exitWith {};
-
+if (isNil _deltaT) exitWith {};
 if (_unit getVariable [QEGVAR(vitals,simpleMedical), false]) exitWith {};
 private _isUnconscious = _unit getVariable ["ACE_isUnconscious", false];
 if !(_isUnconscious) exitWith {};
