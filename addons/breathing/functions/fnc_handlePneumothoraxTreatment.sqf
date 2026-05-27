@@ -37,21 +37,19 @@ if (EGVAR(hypothermia,baroPressureEnable)) then {
 private _delay  = (GVAR(chestSealTreatmentLoopTime) * _baroMult) * random [0.8, 1, 1.3];
 if (_delay > _time) exitWith {};
 _unit setVariable [QGVAR(ptxTTime), 0, true];
-
-            private _pneumothoraxState = _unit getVariable [QGVAR(pneumothorax), [0, 0]];
-                if (_pneumothoraxState select _side != 0) then {
-                    // If patient is dead, treated, or already deteriorated to advanced pneumothorax, kill the PFH
-
-                    if ((floor (random 100) < 50)) then {
-                        private _ptxTarget = (_pneumothoraxState select _side) - 1;
-                        if (_ptxTarget < 0) exitWith {
-                            if (GVAR(clearChestSealAfterTreatment)) then {
-                                private _activeChestSeal = _unit getVariable [QGVAR(activeChestSeal), [false, false]];
-                                _activeChestSeal set [_side, false];
-                                _unit setVariable [QGVAR(activeChestSeal), _activeChestSeal, true];
-                                };
-                        };
-                        _pneumothoraxState set [_side, _ptxTarget];
-                        _unit setVariable [QGVAR(pneumothorax), _pneumothoraxState, true];
-                    };
-                };
+private _pneumothoraxState = _unit getVariable [QGVAR(pneumothorax), [0, 0]];
+if (_pneumothoraxState select _side == 0) exitWith {};
+private _activeChestSeal = _unit getVariable [QGVAR(activeChestSeal), [false, false]];
+if !(_activeChestSeal select _side) exitWith {};
+if ((floor (random 100) < 50)) then {
+    private _ptxTarget = (_pneumothoraxState select _side) - 1;
+    if (_ptxTarget < 0) exitWith {
+        if (GVAR(clearChestSealAfterTreatment)) then {
+            private _activeChestSeal = _unit getVariable [QGVAR(activeChestSeal), [false, false]];
+            _activeChestSeal set [_side, false];
+            _unit setVariable [QGVAR(activeChestSeal), _activeChestSeal, true];
+            };
+    };
+    _pneumothoraxState set [_side, _ptxTarget];
+    _unit setVariable [QGVAR(pneumothorax), _pneumothoraxState, true];
+};

@@ -545,7 +545,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Hypertonic_Saline_IV_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2;
         };
     };
     KAT_bloodSample_ITEM(KAT_bloodSample,1);

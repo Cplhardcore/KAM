@@ -42,7 +42,7 @@ private _airway = HAS_AIRWAY(_unit);
 private _activeChestSeal = (_unit getVariable [QGVAR(activeChestSeal), [false, false]]) select _side;
 private _breathing = ((_airway) && ((GET_BREATHING_RATE(_unit) > 5) || (_unit getVariable [QEGVAR(breathing,BVMInUse), false]) || (_unit getVariable [QEGVAR(breathing,attachedVent), false])));
     if (_pneumothoraxState select _side > 0) then {
-        if ((_pneumothoraxState select _side isEqualTo 0) || (_activeChestSeal) || (_pneumothoraxState select _side isEqualTo 16)) exitWith {};
+        if ((_activeChestSeal) || (_pneumothoraxState select _side isEqualTo 16)) exitWith {};
         if (floor (random 100) < GVAR(deterioratingPneumothorax_chance) && _breathing) then {
             private _ptxTarget = (_pneumothoraxState select _side) + 1;
             if ((_ptxTarget % 4) == 0) then {

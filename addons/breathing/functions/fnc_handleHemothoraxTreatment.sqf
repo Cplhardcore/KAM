@@ -20,15 +20,18 @@ params ["_unit", "_side", "_deltaT"];
 
 private _time = _unit getVariable [QGVAR(hptxTTime), 0];
 _unit setVariable [QGVAR(hptxTTime), _time + _deltaT, true];
+
 if (3 > _time) exitWith {};
 _unit setVariable [QGVAR(hptxTTime), 0, true];
+
+private _chestTube = _unit getVariable [QGVAR(activeChestSeal), [0, 0]];
+if ((_chestTube select _side) == 0) exitWith {};
+
 private _hemo = _unit getVariable [QGVAR(hemopneumothorax), [0, 0]];
 private _currentVol = _hemo select _side;
 if (_currentVol <= 0) exitWith {};
-private _hemo = _unit getVariable [QGVAR(hemopneumothorax), [0, 0]];
 private _drain = _unit getVariable [QGVAR(drainRate), [0, 0]];
-private _val = _hemo select _side;
-if (!alive _unit || (_val <= 0 && (INTERNAL_BLEEDING_RATE(_unit,2) == 0))) exitWith {
+if (!alive _unit || (_currentVol <= 0 && (INTERNAL_BLEEDING_RATE(_unit,2) == 0))) exitWith {
     _drain set [_side, 0];
     _unit setVariable [QGVAR(drainRate), _drain, true];
     private _ht = _unit getVariable [QEGVAR(circulation,ht), []];
@@ -36,9 +39,9 @@ if (!alive _unit || (_val <= 0 && (INTERNAL_BLEEDING_RATE(_unit,2) == 0))) exitW
     _unit setVariable [QEGVAR(circulation,ht), _ht, true];
 };
 private _baseDrain = GVAR(chestTubeDrainAmount) * 0.001;
-private _pressureFactor = linearConversion [0, 1, _val, 0.4, 1.2, true];
+private _pressureFactor = linearConversion [0, 1, _currentVol, 0.4, 1.2, true];
 private _drainAmount = _baseDrain * _pressureFactor;
-private _newVal = _val - _drainAmount;
+private _newVal = _currentVol - _drainAmount;
 if (_newVal < 0.01) then { _newVal = 0; };
 _hemo set [_side, _newVal];
 _unit setVariable [QGVAR(hemopneumothorax), _hemo, true];

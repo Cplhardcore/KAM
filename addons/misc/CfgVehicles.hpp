@@ -1472,6 +1472,15 @@ class CfgVehicles {
                     };
                 };
             };
+            class ACE_Equipment {
+                class Slot1_Repack {
+                    displayName = CSTRING(dropBag);
+                    condition = QUOTE([ARR_1(_player)] call FUNC(hasBag));
+                    statement = QUOTE([ARR_1(_player)] call FUNC(dropBag));
+                    exceptions[] = {};
+                    showDisabled = 0;
+                };
+            };
         };
     };
 

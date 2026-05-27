@@ -51,17 +51,18 @@ if (_amount > 0) then {
 
 
 private _hemoState = _unit getVariable [QGVAR(hemopneumothorax), [0, 0]];
-    if (((INTERNAL_BLEEDING_RATE(_unit,2) == 0))) exitWith {};
-    private _internalBleeding = (INTERNAL_BLEEDING_RATE(_unit,2) / 10);
-    _hemoState set [_side, (((_hemoState select _side) + (_internalBleeding)) min 1)];
-    if (((random 100) < (linearConversion [0, 1, (_hemoState select _side), 5, 75, true])) && GVAR(PneumothoraxArrest)) then {
-        private _ht = _unit getVariable [QEGVAR(circulation,ht), []];
-        if !("hemo" in _ht) then {
-            _ht pushBack "hemo";
-            _unit setVariable [QEGVAR(circulation,ht), _ht, true];
-            if (_unit getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
-                [QACEGVAR(medical,FatalVitals), _unit] call CBA_fnc_localEvent;
-            };
+if (((INTERNAL_BLEEDING_RATE(_unit,2) == 0))) exitWith {};
+private _internalBleeding = (INTERNAL_BLEEDING_RATE(_unit,2) / 10);
+_hemoState set [_side, (((_hemoState select _side) + (_internalBleeding)) min 1)];
+_unit setVariable [QGVAR(hemopneumothorax), _hemoState, true];
+if (((random 100) < (linearConversion [0, 1, (_hemoState select _side), 5, 75, true])) && GVAR(PneumothoraxArrest)) then {
+    private _ht = _unit getVariable [QEGVAR(circulation,ht), []];
+    if !("hemo" in _ht) then {
+        _ht pushBack "hemo";
+        _unit setVariable [QEGVAR(circulation,ht), _ht, true];
+        if (_unit getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
+            [QACEGVAR(medical,FatalVitals), _unit] call CBA_fnc_localEvent;
         };
     };
-    _unit setVariable [QGVAR(hemopneumothorax), _hemoState, true];
+};
+    

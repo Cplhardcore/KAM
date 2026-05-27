@@ -822,8 +822,8 @@ if (_previousCyclePao2 < 55 && _alveolarVent > 3000) then {
 if ((_respiratoryDepth < (DEFAULT_RESPIRATORY_DEPTH * 0.4)) && (_respiratoryRate < 10)) then {
     _pulmonaryShunt = (_pulmonaryShunt + (0.0004 * _deltaT));
 };
-if (IN_CRDC_ARRST(_unit)) then {
-    _pulmonaryShunt = (_pulmonaryShunt + (0.00085 * _deltaT));
+if (IN_CRDC_ARRST(_unit) && (_alveolarVent < 4000)) then {
+    _pulmonaryShunt = (_pulmonaryShunt + (0.0008 * _deltaT));
 };
 if (!IN_CRDC_ARRST(_unit) && _alveolarVent > 4000) then {
     _pulmonaryShunt = ((_pulmonaryShunt - (0.005 * _deltaT)) max 0);

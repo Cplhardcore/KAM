@@ -15,7 +15,7 @@
  * Public: No
  */
 
-params ["_unit", "_deltaT"];
+params ["_unit", ["_deltaT", 1]];
 
 //Other mods can utilise KAT_Occlusion_Exclusion variable to prevent occlusions from happening
 if (!(GVAR(enable)) || (_unit getVariable ["KAT_Occlusion_Exclusion", false])) exitWith {};

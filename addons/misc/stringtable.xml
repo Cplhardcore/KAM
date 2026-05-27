@@ -2096,5 +2096,8 @@
         <Key ID="STR_KAT_Misc_VehiclesCratesBags">
             <English>Vehicles/Crates/Bags</English>
         </Key>
+        <Key ID="STR_KAT_Misc_dropBag">
+            <English>Drop Backpack</English>
+        </Key>
     </Package>
 </Project>
