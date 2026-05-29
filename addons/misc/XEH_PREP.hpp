@@ -43,6 +43,7 @@ PREP(healingLogic);
 PREP(incompatibilityWarning);
 PREP(init);
 PREP(isMedic);
+PREP(isSafe);
 PREP(removeTourniquetTime);
 PREP(serializeState);
 PREP(setTourniquetTime);

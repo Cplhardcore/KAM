@@ -27,6 +27,9 @@ class CfgFunctions {
             class healingLogic {
                 file = QPATHTOF(functions\fnc_healingLogic.sqf);
             };
+            class isSafe {
+                file = QPATHTOF(functions\fnc_isSafe.sqf);
+            };
         };
     };
     class overwrite_medical_treatment {
