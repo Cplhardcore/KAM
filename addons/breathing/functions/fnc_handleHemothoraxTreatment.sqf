@@ -24,7 +24,7 @@ _unit setVariable [QGVAR(hptxTTime), _time + _deltaT, true];
 if (3 > _time) exitWith {};
 _unit setVariable [QGVAR(hptxTTime), 0, true];
 
-private _chestTube = _unit getVariable [QGVAR(activeChestSeal), [0, 0]];
+private _chestTube = _unit getVariable [QGVAR(chestTube), [0, 0]];
 if ((_chestTube select _side) == 0) exitWith {};
 
 private _hemo = _unit getVariable [QGVAR(hemopneumothorax), [0, 0]];

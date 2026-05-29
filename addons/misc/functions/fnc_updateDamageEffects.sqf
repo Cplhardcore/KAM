@@ -196,7 +196,12 @@ if (_hasArmJointInjury) then {
     _noThrow = true;
 };
 
-if (_unit getVariable [QEGVAR(surgery,reboa), false]) then {
+if ((_unit getVariable [QEGVAR(surgery,reboa), false]) select 0) then {
+    _isLimping = true;
+    _noJog = true;
+    _noSprint = true;
+};
+if ((_unit getVariable [QEGVAR(surgery,reboa), false]) select 1) then {
     _isLimping = true;
     _noJog = true;
     _noSprint = true;
@@ -229,6 +234,5 @@ if (_keepProne && !(IS_UNCONSCIOUS(_unit)) && (lifeState _unit != "INCAPACITATED
 };
 
 // refresh
-private _isDamaged = _unit getHitPointDamage "HitLegs" >= DAMAGED_MIN_THRESHOLD && {_unit getHitPointDamage "HitLegs" != LIMPING_MIN_DAMAGE};
-
+private _isDamaged = _unit getHitPointDamage "HitLegs" >= 0.45 && {_unit getHitPointDamage "HitLegs" != 0.5};
 [_unit, "Legs", _isDamaged] call ACEFUNC(medical_engine,damageBodyPart);

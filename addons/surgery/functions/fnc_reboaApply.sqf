@@ -16,6 +16,6 @@
  * Public: No
  */
 
-params ["_medic", "_patient"];
+params ["_medic", "_patient", "_bodypart"];
 
-[QGVAR(reboaApply), [_medic, _patient], _patient] call CBA_fnc_targetEvent;
+[QGVAR(reboaApply), [_medic, _patient, _bodypart], _patient] call CBA_fnc_targetEvent;

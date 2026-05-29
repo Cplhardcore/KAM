@@ -16,21 +16,29 @@
  * Public: No
  */
 
-params ["_medic", "_patient"];
+params ["_medic", "_patient", "_bodyPart"];
 
 private _tourniquets = GET_TOURNIQUETS(_patient);
+private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
 private _surgicalBlock = GET_SURGICAL_TOURNIQUETS(_patient);
-
+private _reboaStatus = _patient getVariable [QGVAR(reboa), [false, false]];
 _tourniquets set [9, CBA_missionTime];
-_tourniquets set [11, CBA_missionTime];
-_patient setVariable [VAR_TOURNIQUET, _tourniquets, true];
-
 _surgicalBlock set [9, 1];
+_tourniquets set [11, CBA_missionTime];
 _surgicalBlock set [11, 1];
-_patient setVariable [QGVAR(surgicalBlock), _surgicalBlock, true];
-_patient setVariable [QGVAR(reboa), true, true];
+if (_partIndex == 9) then {
+    _reboaStatus set [0, true];
+} else {
+    _reboaStatus set [1, true];
+};
 
-_patient setVariable [QGVAR(imaging), false, true];
+_patient setVariable [VAR_TOURNIQUET, _tourniquets, true];
+_patient setVariable [QGVAR(surgicalBlock), _surgicalBlock, true];
+_patient setVariable [QGVAR(reboa), _reboaStatus, true];
+private _imaging = _patient getVariable [QGVAR(imaging), [0,0,0,0,0,0,0,0,0,0,0,0]];
+_imaging set [_partIndex, 0];
+_patient setVariable [QGVAR(imaging), _imaging, true];
+
 
 [_patient] call ACEFUNC(medical_status,updateWoundBloodLoss);
 

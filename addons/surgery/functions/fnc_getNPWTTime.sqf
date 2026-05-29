@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: MiszczuZPolski
@@ -29,8 +30,35 @@ private _woundCount = 0;
     };
 } forEach ((GET_OPEN_WOUNDS(_patient)) getOrDefault [_bodyPart, []]);
 
-if (_woundCount > 0) then {
-    _woundCount * GVAR(npwtTime)
-} else {
-    count (GET_BANDAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []]) * GVAR(npwtTime)
-};
+{ // ace_medical_treatment_fnc_canBandage
+    _x params ["_woundClassID", "_amountOf", "_bleeding"];
+    private _classIndex = _woundClassID / 10;
+    private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+    if !(_classname in ["InternalBleeding"]) then {
+        _woundCount = _woundCount + 1;
+    };
+} forEach ((GET_BANDAGED_WOUNDS(_patient)) getOrDefault [_bodyPart, []]);
+
+
+{ // ace_medical_treatment_fnc_canBandage
+    _x params ["_woundClassID", "_amountOf", "_bleeding"];
+    private _classIndex = _woundClassID / 10;
+    private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+    if !(_classname in ["InternalBleeding"]) then {
+        _woundCount = _woundCount + 1;
+    };
+} forEach ((GET_COAGED_WOUNDS(_patient)) getOrDefault [_bodyPart, []]);
+
+
+{ // ace_medical_treatment_fnc_canBandage
+    _x params ["_woundClassID", "_amountOf", "_bleeding"];
+    private _classIndex = _woundClassID / 10;
+    private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+    if !(_classname in ["InternalBleeding"]) then {
+        _woundCount = _woundCount + 1;
+    };
+} forEach ((GET_WRAPPED_WOUNDS(_patient)) getOrDefault [_bodyPart, []]);
+
+private _totalTime = _woundCount * GVAR(npwtTime);
+TRACE_2("totalNPWT Time",_totalTime,_woundCount);
+_totalTime

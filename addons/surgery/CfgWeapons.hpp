@@ -54,7 +54,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Vacuum_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 5;
+            mass = 40;
         };
     };
     class kat_ultrasound: ACE_ItemCore {

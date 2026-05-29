@@ -725,18 +725,10 @@
             <Dutch>Verwijder REBOA eenheid</Dutch>
         </Key>
         <Key ID="STR_KAT_Surgery_Reboa_Status">
-            <English>REBOA</English>
-            <Czech>REBOA</Czech>
-            <French>REBOA</French>
-            <Spanish>REBOA</Spanish>
-            <Italian>REBOA</Italian>
-            <Portuguese>REBOA</Portuguese>
-            <Russian>REBOA</Russian>
-            <German>REBOA</German>
-            <Japanese>REBOA</Japanese>
-            <Chinese>REBOA</Chinese>
-            <Chinesesimp>雷博亚</Chinesesimp>
-            <Dutch>REBOA</Dutch>
+            <English>REBOA (ZONE 1)</English>
+        </Key>
+        <Key ID="STR_KAT_Surgery_Reboa_Status2">
+            <English>REBOA (ZONE 3)</English>
         </Key>
         <Key ID="STR_KAT_Surgery_Reboa_Use">
             <English>Place REBOA Unit</English>

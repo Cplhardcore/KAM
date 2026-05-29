@@ -22,7 +22,7 @@ if (_bloodVolume < BLOOD_VOLUME_CLASS_4_HEMORRHAGE) exitWith { false };
 
 if IN_CRDC_ARRST(_unit) exitWith { false };
 if ((_unit getVariable [QEGVAR(surgery,sedated), 0]) > 0.1) exitWith { false };
-if (_unit getVariable [QEGVAR(surgery,reboa), false]) exitWith { false };
+if (((_unit getVariable [QEGVAR(surgery,reboa), false]) select 0) || ((_unit getVariable [QEGVAR(surgery,reboa), false]) select 1)) exitWith { false };
 
 private _cardiacOutput = [_unit] call ACEFUNC(medical_status,getCardiacOutput);
 private _bloodLoss = _unit call ACEFUNC(medical_status,getBloodLoss);

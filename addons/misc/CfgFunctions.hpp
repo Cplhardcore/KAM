@@ -16,6 +16,17 @@ class CfgFunctions {
             class updateDamageEffects {
                 file = QPATHTOF(functions\fnc_updateDamageEffects.sqf);
             };
+            class damageBodyPart {
+                file = QPATHTOF(functions\fnc_damageBodyPart.sqf);
+            };
+        };
+    };
+    class overwrite_ace_medical_ai {
+        tag = "ace_medical_ai";
+        class ace_medical_ai {
+            class healingLogic {
+                file = QPATHTOF(functions\fnc_healingLogic.sqf);
+            };
         };
     };
     class overwrite_medical_treatment {

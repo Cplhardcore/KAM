@@ -275,7 +275,7 @@ private _fractures = _unit getVariable [QEGVAR(surgery,fractures), [0,0,0,0,0,0,
 private _lidocaine = _unit getVariable [QEGVAR(surgery,lidocaine), false];
 private _etomidate = _unit getVariable [QEGVAR(surgery,etomidate), false];
 private _sedated = _unit getVariable [QEGVAR(surgery,sedated), 0];
-private _imaging = _unit getVariable [QEGVAR(surgery,imaging), false];
+private _imaging = _unit getVariable [QEGVAR(surgery,imaging), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _reboa = _unit getVariable [QEGVAR(surgery,reboa), false];
 private _surgicalBlock = _unit getVariable [QEGVAR(surgery,surgicalBlock), [0,0,0,0,0,0,0,0,0,0,0,0]];
 
