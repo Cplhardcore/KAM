@@ -357,9 +357,9 @@ if (ACEGVAR(medical_gui,showDamageEntry)) then {
         };
     };
 };
-
+private _surgicalBlock = GET_SURGICAL_TOURNIQUETS(_target);
 // Indicate if a tourniquet is applied
-if (HAS_TOURNIQUET_ACTUAL(_target,_selectionN)) then {
+if ((HAS_TOURNIQUET_ACTUAL(_target,_selectionN)) && (_surgicalBlock select _selectionN == 0)) then {
     if ((GET_KAT_TOURNIQUETS(_target) select _selectionN) >= 1) then {
         _entries pushBack [format ["%1 [%2]", localize ACELSTRING(medical_gui,Status_Tourniquet_Applied), _target getVariable [QEGVAR(circulation,tourniquetTime), [0,0,0,0,0,0,0,0,0,0,0,0]] select _selectionN], [0.77, 0.51, 0.08, 1]];
     } else {

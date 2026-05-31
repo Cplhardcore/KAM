@@ -211,7 +211,7 @@ class ACE_ADDON(Medical_Treatment) {
             maxDoseDeviation = 10;
             incompatibleMedication[] = {};
             onOverDose = "";
-            therapeutic = 8;
+            therapeutic = 6;
         };
         class syringe_EACA {
             painReduce = 0;
@@ -230,6 +230,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 20;
+            therapeutic = 6;
         };
         class syringe_Epinephrine {
             painReduce = 0;

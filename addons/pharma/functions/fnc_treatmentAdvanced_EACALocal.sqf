@@ -20,7 +20,6 @@ params ["_patient", "_deltaT"];
 private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVStatusArray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _eacaEffectiveness = [_patient, "EACA", false] call ACEFUNC(medical_status,getMedicationCount) select 1;
-private _allowStack = missionNamespace getVariable [QGVAR(allowStackScript_EACA), true];
 private _cycleTime = missionNamespace getVariable [QGVAR(bandageCycleTime_EACA), 5];
 private _time = _patient getVariable [QGVAR(EACATime), 0];
 _patient setVariable [QGVAR(EACATime), _time + _deltaT, true];

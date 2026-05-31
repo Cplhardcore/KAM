@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: Glowbal
@@ -28,28 +29,32 @@ private _amiBoost = 0;
 private _lidoBoost = 0;
 private _nitroEffect = 1;
 private _CPRcount = _patient getVariable [QGVAR(cprCount), 0];
-
+TRACE_1("cprLocal_1",_reviveObject);
 private _fnc_advRhythm = {
     params ["_patient", ["_CPR",false]];
-
+    TRACE_2("cprLocal_6",_patient,_CPR);
     private _patientState = _patient getVariable [QGVAR(cardiacArrestType), 0];
     private _ht = if (GVAR(AdvRhythm_HTHold)) then {
         ((count(_patient getVariable [QGVAR(ht), []])) == 0)
     } else {
         true
     };
-
+    TRACE_1("cprLocal_7",_ht);
     if (_CPR) then {
         if (floor (random 100) < GVAR(AdvRhythm_CPR_ROSC_Chance)) then {
             _patient setVariable [QGVAR(cardiacArrestType), 0, true];
+            TRACE_1("cprLocal_rosc",_patient);
         } else {
             if (_patient getVariable [QGVAR(cardiacArrestType), 0] isEqualTo 1) then {
                 _patient setVariable [QGVAR(cardiacArrestType), 3, true];
+                TRACE_1("cprLocal_ca3",_patient);
             } else {
                 if (_patient getVariable [QGVAR(cardiacArrestType), 0] < 4) then {
                     _patient setVariable [QGVAR(cardiacArrestType), _patientState + 1, true];
+                    TRACE_1("cprLocal_ca+1",_patientState+1);
                 } else {
                     _patient setVariable [QGVAR(cardiacArrestType), 0, true];
+                    TRACE_1("cprLocal_ca+0",_patient);
                 };
             };
         };
@@ -99,7 +104,7 @@ private _fnc_advRhythm = {
         };
     };
 } forEach (_patient getVariable [QACEGVAR(medical,medications), []]);
-private _ph = GET_PH(_patient);
+/*private _ph = GET_PH(_patient);
 private _ca = GET_CA(_patient);
 private _phChance = if (_ph > 7.5) then {
     linearConversion [7.55, 7.9, _ph, 1, 0.4, true];
@@ -110,12 +115,14 @@ private _caChance = if (_ca > 2.6) then {
     linearConversion [2.6, 3.4, _ca, 1, 0.4, true];
 } else {
     linearConversion [2.2, 1.8, _ca, 1, 0.2, true];
-};
+};*/
+TRACE_4("cprLocal_2",_epiBoost,_lidoBoost,_amiBoost,_ca);
 switch (_reviveObject) do {
     case "LUCAS": {
         if (GVAR(enable_CPR_Chances)) then {
         _chance = linearConversion [BLOOD_VOLUME_CLASS_4_HEMORRHAGE, BLOOD_VOLUME_CLASS_2_HEMORRHAGE, GET_BLOOD_VOLUME_LITERS(_patient), 0.05, 0.1, true];
         };
+        TRACE_1("cprLocal_3",_chance);
     };
     case "CPR": {
         if (GVAR(enable_CPR_Chances)) then {
@@ -131,14 +138,17 @@ switch (_reviveObject) do {
                 };
             };
         };
+        TRACE_1("cprLocal_3",_chance);
     };
     case "AED": {
         [_patient, "activity", LSTRING(Activity_Shock), [[_medic, false, true] call ACEFUNC(common,getName), "AED"]] call ACEFUNC(medical_treatment,addToLog);
         _chance = linearConversion [BLOOD_VOLUME_CLASS_4_HEMORRHAGE, BLOOD_VOLUME_CLASS_2_HEMORRHAGE, GET_BLOOD_VOLUME_LITERS(_patient), GVAR(AED_MinChance), GVAR(AED_MaxChance), true];
+        TRACE_1("cprLocal_3",_chance);
     };
     case "AEDX": {
         [_patient, "activity", LSTRING(Activity_Shock), [[_medic, false, true] call ACEFUNC(common,getName), "AED-X"]] call ACEFUNC(medical_treatment,addToLog);
         _chance = linearConversion [BLOOD_VOLUME_CLASS_4_HEMORRHAGE, BLOOD_VOLUME_CLASS_2_HEMORRHAGE, GET_BLOOD_VOLUME_LITERS(_patient), GVAR(AED_X_MinChance), GVAR(AED_X_MaxChance), true];
+        TRACE_1("cprLocal_3",_chance);
     };
 };
 
@@ -150,7 +160,7 @@ if (_reviveObject in ["AED", "AEDX"]) exitWith {
     private _patientState = _patient getVariable [QGVAR(cardiacArrestType), 0];
     private _AEDeffectivness = (_patient getVariable [QGVAR(AEDEffectiveness), 1]) max 0.2;
     _chance = _chance * _AEDeffectivness;
-    _chance = _chance * _caChance * _phChance;
+    TRACE_1("cprLocal_4",_chance);
     if (GVAR(AdvRhythm)) then {
         if (_patientState > 2) then {
             if (_random <= _chance) then {
@@ -174,7 +184,6 @@ if !(GVAR(enable_CPR_Chances)) then {
     private _max = ACEGVAR(medical_treatment,cprSuccessChanceMax);
     _chance = linearConversion [BLOOD_VOLUME_CLASS_4_HEMORRHAGE, BLOOD_VOLUME_CLASS_2_HEMORRHAGE, GET_BLOOD_VOLUME_LITERS(_patient), _min, _max, true];
     // ACE Medical settings are percentages (decimals, 0 <= x <= 1) instead of integers
-
     if ((random 1) <= _chance) then {
         if (GVAR(AdvRhythm)) then {
             [_patient, true] call _fnc_advRhythm;
@@ -192,14 +201,15 @@ if !(GVAR(enable_CPR_Chances)) then {
 
         if (_patient getVariable [QGVAR(cardiacArrestType), 0] in [4,3] && _randomAmi > 2) then {
             _chance = _chance + (_amiBoost / 10);
+            TRACE_1("_amiBoost",(_amiBoost / 10));
         };
 
         if (_patient getVariable [QGVAR(cardiacArrestType), 0] in [4,3] && (_patient getVariable [QGVAR(refractoryCA), false])) then {
             _chance = _chance / 4;
+            TRACE_1("refractory",_chance);
         };
-        _chance = _chance * _caChance * _phChance;
         _chance = _chance / _nitroEffect;
-
+        TRACE_3("cprLocal_5",_random,_chance,_nitroEffect);
         if (_random <= _chance) then {
             if (GVAR(AdvRhythm)) then {
                 if (_patient getVariable [QGVAR(cardiacArrestType), 0] != 0) then {
@@ -221,18 +231,20 @@ if !(GVAR(enable_CPR_Chances)) then {
 
         _CPRcount = _CPRcount + 1;
         _patient setVariable [QGVAR(cprCount), _CPRcount, true];
+        TRACE_2("_CPRcount",_chance,_CPRcount);
     };
 
     if (_patient getVariable [QGVAR(cardiacArrestType), 0] in [4,3] && _randomAmi > 2) then {
         _chance = _chance + (_amiBoost / 10);
+        TRACE_1("_amiBoost",(_amiBoost / 10));
     };
 
     if (_patient getVariable [QGVAR(cardiacArrestType), 0] in [4,3] && (_patient getVariable [QGVAR(refractoryCA), false])) then {
         _chance = _chance / 4;
+        TRACE_1("refractoryCA",_chance);
     };
-    _chance = _chance * _caChance * _phChance;
     _chance = _chance / _nitroEffect;
-
+    TRACE_3("cprLocal_5",_random,_chance,_nitroEffect);
     if (_random <= _chance) then {
         if (GVAR(AdvRhythm)) then {
             if (_patient getVariable [QGVAR(cardiacArrestType), 0] != 0) then {

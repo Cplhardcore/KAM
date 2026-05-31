@@ -412,23 +412,6 @@
 
 
 // TXA Settings Category
-[
-    QGVAR(allowStackScript_TXA),
-    "CHECKBOX",
-    [LLSTRING(SETTING_allowStackScript_TXA), LLSTRING(SETTING_allowStackScript_TXA_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_TXA)],
-    [true],
-    true
-] call CBA_Settings_fnc_init;
-
-[
-    QGVAR(keepScriptRunning_TXA),
-    "CHECKBOX",
-    [LLSTRING(SETTING_keepScriptRunning_TXA), LLSTRING(SETTING_keepScriptRunning_TXA_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_TXA)],
-    [true],
-    true
-] call CBA_Settings_fnc_init;
 
 [
     QGVAR(medLvl_TXA),
@@ -472,25 +455,6 @@
     [LLSTRING(SETTING_bandageCycleTime_TXA), LLSTRING(SETTING_bandageCycleTime_TXA_DESC)],
     [CBA_SETTINGS_CAT, LSTRING(SubCategory_TXA)],
     [1, 180, 5],
-    true
-] call CBA_Settings_fnc_init;
-
-
-[
-    QGVAR(allowStackScript_EACA),
-    "CHECKBOX",
-    [LLSTRING(SETTING_allowStackScript_EACA), LLSTRING(SETTING_allowStackScript_EACA_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_EACA)],
-    [true],
-    true
-] call CBA_Settings_fnc_init;
-
-[
-    QGVAR(keepScriptRunning_EACA),
-    "CHECKBOX",
-    [LLSTRING(SETTING_keepScriptRunning_EACA), LLSTRING(SETTING_keepScriptRunning_EACA_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_EACA)],
-    [true],
     true
 ] call CBA_Settings_fnc_init;
 

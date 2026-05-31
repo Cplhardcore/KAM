@@ -18,8 +18,6 @@
 
 params ["_patient","_deltaT"];
 TRACE_1("Patient", _patient);
-private _allowStack = missionNamespace getVariable [QGVAR(allowStackScript_TXA), true];
-private _keepRunning = missionNamespace getVariable [QGVAR(keepScriptRunning_TXA), false];
 private _cycleTime = missionNamespace getVariable [QGVAR(bandageCycleTime_TXA), 5];
 private _time = _patient getVariable [QGVAR(TXATime), 0];
 _patient setVariable [QGVAR(TXATime), _time + _deltaT, true];

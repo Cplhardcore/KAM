@@ -893,14 +893,6 @@ class ACE_Medical_Treatment_Actions {
         displayName = KATPUSHCSTRING(lidocaine,5ml,30);
         displayNameProgress = KATPUSHINGCSTRING(lidocaine,5ml,30);
     };
-    class syringe_Lidocaine_10ml_10: syringe_TXA_10ml_10 {
-        allowedSelections[] = {"Chest", "Body", "LeftArm", "RightArm", "UpperLeftArm", "UpperRightArm", "UpperLeftLeg", "UpperRightLeg", "LeftLeg", "RightLeg"};
-        medicRequired = QGVAR(medLvl_NerveBlock);
-        items[] = {"kat_syringe_lidocaine_10ml_10"};
-        displayName = KATPUSHCSTRING(lidocaine,10ml,10);
-        displayNameProgress = KATPUSHINGCSTRING(lidocaine,10ml,10);
-        callbackSuccess = QFUNC(nerveBlock);
-    };
      class syringe_Lorazepam_5ml_10: syringe_EACA_5ml_10 {
         category = "surgery";
         medicRequired = QGVAR(medLvl_lorazepam);

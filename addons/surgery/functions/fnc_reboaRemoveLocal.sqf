@@ -21,16 +21,20 @@ params ["_medic", "_patient", "_bodyPart"];
 
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
 private _tourniquets = GET_KAT_TOURNIQUETS(_patient);
+private _katTourniquets = GET_KAT_TOURNIQUETS(_patient);
 private _surgicalBlock = GET_SURGICAL_TOURNIQUETS(_patient);
 private _reboaStatus = _patient getVariable [QGVAR(reboa), [false, false]];
 if ((_surgicalBlock select 3) > 0) then {
     _tourniquets set [3, 0];
+    _katTourniquets set [3, 0];
     _surgicalBlock set [3, 0];
 } else {
     _tourniquets set [11, 0];
     _surgicalBlock set [11, 0];
+    _katTourniquets set [11, 0];
     _tourniquets set [9, 0];
     _surgicalBlock set [9, 0];
+    _katTourniquets set [9, 0];
     if (_partIndex == 9) then {
         _reboaStatus set [0, false];
     } else {
@@ -40,8 +44,8 @@ if ((_surgicalBlock select 3) > 0) then {
 
 
 
-_patient setVariable [VAR_KAT_TOURNIQUET, _tourniquets, true];
-
+_patient setVariable [VAR_KAT_TOURNIQUET, _katTourniquets, true];
+_patient setVariable [VAR_TOURNIQUET, _tourniquets, true];
 _patient setVariable [QGVAR(surgicalBlock), _surgicalBlock, true];
 
 _patient setVariable [QGVAR(reboa), _reboaStatus, true];
