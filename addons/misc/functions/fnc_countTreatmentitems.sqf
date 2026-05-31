@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: AmsteadRayle
@@ -42,9 +43,59 @@ if (ACE_player != ACEGVAR(medical_gui,target)) then {
     } forEach _items;
 };
 
+        
+private _magazineItems = [];
+private _itemItems = [];
+_items = _items select {
+    !(_x in GVAR(blacklistedItems))
+};
+
+{
+    if (isClass (configFile >> "CfgMagazines" >> _x)) then {
+        _magazineItems pushBack _x;
+    } else {
+        _itemItems pushBack _x;
+    };
+
+} forEach _items;
+
 //
 // Vehicle
 //
+
+_fnc_getCountsFromCargo = {
+
+    params ["_object", "_magazineItems", "_itemItems"];
+
+    private _count = 0;
+    TRACE_3("crateCount2",_count,_magazineItems,_itemItems);
+    if (_magazineItems isNotEqualTo []) then {
+
+        (getMagazineCargo _object) params ["_itemTypes", "_itemCounts"];
+        TRACE_1("crateCount2",(getMagazineCargo _object));
+        private _map = _itemTypes createHashMapFromArray _itemCounts;
+        TRACE_1("crateCount2",_map);
+        {
+            _count = _count + (_map getOrDefault [_x, 0]);
+        } forEach _magazineItems;
+        TRACE_1("crateCount2",_count);
+    };
+    TRACE_1("crateCount3",_count);
+    if (_itemItems isNotEqualTo []) then {
+
+        (getItemCargo _object) params ["_itemTypes", "_itemCounts"];
+        TRACE_1("crateCount3",(getItemCargo _object));
+        private _map = _itemTypes createHashMapFromArray _itemCounts;
+        TRACE_1("crateCount3",_map);
+        {
+            _count = _count + (_map getOrDefault [_x, 0]);
+        } forEach _itemItems;
+        TRACE_1("crateCount3",_count);
+    };
+
+    _count
+};
+
 private _medicVehicle = objectParent ACE_player;
 private _patientVehicle = objectParent ACEGVAR(medical_gui,target);
 
@@ -52,43 +103,15 @@ private _vehicle = [_patientVehicle, _medicVehicle] select (!isNull _medicVehicl
 
 if (!isNull _vehicle) then {
 
-    _vehicleCount = 0;
+    _vehicleCount = [_vehicle, _magazineItems, _itemItems] call _fnc_getCountsFromCargo;
 
-    private _magazineItems = [];
-    private _itemItems = [];
-
-    {
-        if (isClass (configFile >> "CfgMagazines" >> _x)) then {
-            _magazineItems pushBack _x;
-        } else {
-            _itemItems pushBack _x;
-        };
-    } forEach _items;
-
-    if (_magazineItems isNotEqualTo []) then {
-
-        (getMagazineCargo _vehicle) params ["_itemTypes", "_itemCounts"];
-
-        {
-            _vehicleCount = _vehicleCount + (_itemCounts param [_itemTypes find _x, 0]);
-        } forEach _magazineItems;
-    };
-
-    if (_itemItems isNotEqualTo []) then {
-
-        (getItemCargo _vehicle) params ["_itemTypes", "_itemCounts"];
-
-        {
-            _vehicleCount = _vehicleCount + (_itemCounts param [_itemTypes find _x, 0]);
-        } forEach _itemItems;
-    };
 };
 
 //
 // Nearby Crates
 //
 if (GVAR(allowCrateEquipment) && ([ACE_player, GVAR(medicCrateEquipment)] call ACEFUNC(common,isMedic)) && ((isNull (objectParent ACE_player)))) then {
-    private _fnc_crateCheck = {
+
     _crateCount = 0;
 
     private _objectTypes = [];
@@ -104,104 +127,30 @@ if (GVAR(allowCrateEquipment) && ([ACE_player, GVAR(medicCrateEquipment)] call A
             _objectTypes = ["GroundWeaponHolder", "WeaponHolderSimulated", "ThingX", "LandVehicle", "Air", "Ship"];
         };
     };
+
     private _nearbyContainers = nearestObjects [
         ACEGVAR(medical_gui,target),
         _objectTypes,
         GVAR(crateEquipmentRange)
     ];
 
-    _nearbyContainers = _nearbyContainers select {
-
-        private _container = _x;
-
-        if (_container == objectParent ACEGVAR(medical_gui,target)) exitWith {
-            false
-        };
-
-         private _hasItem =
-                (itemCargo _container) isNotEqualTo []
-                || (magazineCargo _container) isNotEqualTo []
-                || (weaponCargo _container) isNotEqualTo []
-                || (everyBackpack _container) isNotEqualTo [];
-
-            if (!_hasItem) then {
-
-                {
-                    private _bp = _x;
-
-                    if (
-                        (itemCargo _bp) isNotEqualTo []
-                        || (magazineCargo _bp) isNotEqualTo []
-                        || (weaponCargo _bp) isNotEqualTo []
-                        || (backpackCargo _bp) isNotEqualTo []
-                    ) exitWith {
-                        _hasItem = true;
-                    };
-
-                } forEach everyBackpack _container;
-            };
-        _hasItem
-    };
-    private _magazineItems = [];
-    private _itemItems = [];
-    _items = _items select {
-        !(_x in GVAR(blacklistedItems))
-    };
-    {
-        if (isClass (configFile >> "CfgMagazines" >> _x)) then {
-            _magazineItems pushBack _x;
-        } else {
-            _itemItems pushBack _x;
-        };
-    } forEach _items;
+    private _ignoredObjects = [ACE_player, ACEGVAR(medical_gui,target), _medicVehicle, _patientVehicle];
 
     {
-        private _crate = _x;
-        if (_magazineItems isNotEqualTo []) then {
 
-            (getMagazineCargo _crate) params ["_itemTypes", "_itemCounts"];
+        if (_x in _ignoredObjects) exitWith {};
+        _crateCount = _crateCount + ([_x, _magazineItems, _itemItems] call _fnc_getCountsFromCargo);
+        TRACE_3("crateCount",_crateCount,_magazineItems,_itemItems);
+        if ((everyBackpack _x) isNotEqualTo []) then {
 
             {
-                _crateCount = _crateCount + (_itemCounts param [_itemTypes find _x, 0]);
-            } forEach _magazineItems;
+                _crateCount = _crateCount + ([_x, _magazineItems, _itemItems] call _fnc_getCountsFromCargo);
+            } forEach everyBackpack _x;
         };
-        if (_itemItems isNotEqualTo []) then {
-
-            (getItemCargo _crate) params ["_itemTypes", "_itemCounts"];
-
-            {
-                _crateCount = _crateCount + (_itemCounts param [_itemTypes find _x, 0]);
-            } forEach _itemItems;
-        };
-
     } forEach _nearbyContainers;
-    {
-        private _container = _x;
-        {
-            private _crate = _x;
-            if (_magazineItems isNotEqualTo []) then {
 
-                (getMagazineCargo _crate) params ["_itemTypes", "_itemCounts"];
-
-                {
-                    _crateCount = _crateCount + (_itemCounts param [_itemTypes find _x, 0]);
-                } forEach _magazineItems;
-            };
-            if (_itemItems isNotEqualTo []) then {
-
-                (getItemCargo _crate) params ["_itemTypes", "_itemCounts"];
-
-                {
-                    _crateCount = _crateCount + (_itemCounts param [_itemTypes find _x, 0]);
-                } forEach _itemItems;
-            };
-
-        } forEach everyBackpack _container;
-    } forEach _nearbyContainers;
-    _crateCount
-    };
-    _crateCount = [[], _fnc_crateCheck, ACE_player, QGVAR(clearCrateCache), 1] call ACEFUNC(common,cachedCall);
 };
+
 [
     _medicCount,
     _patientCount,
