@@ -35,8 +35,9 @@ private _fnc_checkItems = {
         _unitItems append (magazineCargo _unitVehicle);
     };
     if (GVAR(allowCrateEquipment) && ([_unit, GVAR(medicCrateEquipment)] call ACEFUNC(common,isMedic)) && (isNull _unitVehicle)) then {
+    private _fnc_crateCheck = {
     private _objectTypes = [];
-
+    private _crateItems = [];
     switch (GVAR(crateAccess)) do {
         case 0: {
             _objectTypes = ["GroundWeaponHolder", "WeaponHolderSimulated"];
@@ -97,8 +98,8 @@ private _fnc_checkItems = {
                 !(_x in GVAR(blacklistedItems))
             };
 
-            _unitItems append _filteredItems;
-            _unitItems append _filteredMags;
+            _crateItems append _filteredItems;
+            _crateItems append _filteredMags;
             {
                 private _bpFilteredItems = (itemCargo _x) select {
                     !(_x in GVAR(blacklistedItems))
@@ -108,13 +109,15 @@ private _fnc_checkItems = {
                     !(_x in GVAR(blacklistedItems))
                 };
 
-                _unitItems append _bpFilteredItems;
-                _unitItems append _bpFilteredMags;
+                _crateItems append _bpFilteredItems;
+                _crateItems append _bpFilteredMags;
 
             } forEach everyBackpack _container;
 
         } forEach _nearbyCrates;
-
+        _crateItems
+        };
+        _unitItems = _unitItems + [[], _fnc_crateCheck, _medic, QGVAR(clearCrateCache), 1] call ACEFUNC(common,cachedCall);
     };
     _items findAny _unitItems != -1
 };

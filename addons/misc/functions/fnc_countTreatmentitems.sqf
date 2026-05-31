@@ -88,7 +88,7 @@ if (!isNull _vehicle) then {
 // Nearby Crates
 //
 if (GVAR(allowCrateEquipment) && ([ACE_player, GVAR(medicCrateEquipment)] call ACEFUNC(common,isMedic)) && ((isNull (objectParent ACE_player)))) then {
-
+    private _fnc_crateCheck = {
     _crateCount = 0;
 
     private _objectTypes = [];
@@ -198,6 +198,9 @@ if (GVAR(allowCrateEquipment) && ([ACE_player, GVAR(medicCrateEquipment)] call A
 
         } forEach everyBackpack _container;
     } forEach _nearbyContainers;
+    _crateCount
+    };
+    _crateCount = [[], _fnc_crateCheck, ACE_player, QGVAR(clearCrateCache), 1] call ACEFUNC(common,cachedCall);
 };
 [
     _medicCount,
