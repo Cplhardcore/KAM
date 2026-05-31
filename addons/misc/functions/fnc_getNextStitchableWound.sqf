@@ -27,7 +27,6 @@ private _bandaged = GET_BANDAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
 private _wrapped  = GET_WRAPPED_WOUNDS(_patient)  getOrDefault [_bodyPart, []];
 private _coag     = GET_COAGED_WOUNDS(_patient)   getOrDefault [_bodyPart, []];
 private _stitchableWound = [];
-// Order matters (same as your system)
 private _sources = [
     [_bandaged, "bandaged"],
     [_wrapped,  "wrapped"],
@@ -47,6 +46,6 @@ private _sources = [
     } forEach _woundArray;
 
 } forEach _sources;
-
+TRACE_1("nextWound", _stitchableWound);
 // Nothing found
 _stitchableWound

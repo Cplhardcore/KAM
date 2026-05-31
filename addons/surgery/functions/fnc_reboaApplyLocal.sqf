@@ -18,7 +18,7 @@
 
 params ["_medic", "_patient", "_bodyPart"];
 
-private _tourniquets = GET_TOURNIQUETS(_patient);
+private _tourniquets = GET_KAT_TOURNIQUETS(_patient);
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
 private _surgicalBlock = GET_SURGICAL_TOURNIQUETS(_patient);
 private _reboaStatus = _patient getVariable [QGVAR(reboa), [false, false]];
@@ -32,7 +32,7 @@ if (_partIndex == 9) then {
     _reboaStatus set [1, true];
 };
 
-_patient setVariable [VAR_TOURNIQUET, _tourniquets, true];
+_patient setVariable [VAR_KAT_TOURNIQUET, _tourniquets, true];
 _patient setVariable [QGVAR(surgicalBlock), _surgicalBlock, true];
 _patient setVariable [QGVAR(reboa), _reboaStatus, true];
 private _imaging = _patient getVariable [QGVAR(imaging), [0,0,0,0,0,0,0,0,0,0,0,0]];

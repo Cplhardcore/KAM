@@ -27,11 +27,24 @@ private _hasStitchableBandage = (_bandaged findIf {
     !(_type in _unstitchableTypes)
 }) != -1;
 private _isBleeding = false;
+private _allow = switch (GVAR(allowAdvancedStitching)) do {
+    case 0: {true};
+    case 1: {
+        IN_MED_VEHICLE(_medic)
+    };
+    case 2: {
+        IN_MED_FACILITY(_medic)
+    };
+    case 3: {
+        IN_MED_VEHICLE(_medic) || {IN_MED_FACILITY(_medic)}
+    };
+    default {false};
+};
 {
     _x params ["_woundClassID", "_amountOf", "_bleedingRate"];
     private _classIndex = _woundClassID / 10;
     private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-    if (_amountOf > 0 && {_bleedingRate > 0} && {!(_className in ["InternalBleeding", "Evisceration"])}) then {
+    if (_amountOf > 0 && {_bleedingRate > 0} && {!(_className in ["InternalBleeding", "Evisceration"])} && {(_allow && {_className in ["Avulsion","VelocityWound","Laceration"]})}) then {
         _isBleeding = true;
         TRACE_4("canStitch - Bleeding from non-allowed wound",_woundClassID,_classIndex,_className,_isBleeding);
         break; 

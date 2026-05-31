@@ -27,9 +27,8 @@ private _wrappedWounds = GET_WRAPPED_WOUNDS(_patient) getOrDefault [_bodyPart, [
 private _time = 0;
 private _calcTime = {
     params ["_wound"];
-
     _wound params ["_classID", "_amount"];
-
+    TRACE_3("calc",_classID,_amount,_wound);
     private _category = _classID % 10;
 
     private _baseTime = switch (_category) do {
@@ -72,5 +71,5 @@ private _calcTime = {
         _time = _time + ([_x] call _calcTime);
     };
 } forEach _wrappedWounds;
-TRACE_1("AmountOf",_amountOf);
+TRACE_1("AmountOf",_time);
 _time

@@ -23,9 +23,8 @@ params ["_args", "_elapsedTime", "_totalTime"];
 _args params ["_medic", "_patient", "_bodyPart"];
 
 private _currentWound = [_medic, _patient, _bodyPart] call FUNC(getNextStitchableWound);
-
-if (_currentWound isEqualTo []) exitWith {false};
 TRACE_1("_currentWound", _currentWound);
+if (_currentWound isEqualTo []) exitWith {false};
 _currentWound params ["_wound"];
 private _requiredTime = [_wound] call FUNC(getStitchTimeWound);
 TRACE_1("ReqTime", _requiredTime);

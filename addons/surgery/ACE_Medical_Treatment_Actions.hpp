@@ -195,7 +195,7 @@ class ACE_Medical_Treatment_Actions {
         medicRequired = QGVAR(reboa_MedLevel);
         treatmentTime = QGVAR(reboaTime);
         items[] = {"kat_ultrasound"};
-        condition = QUOTE((([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasImaging))) && (([ARR_3(_medic,_patient,0)] call FUNC(hasReboaSpecific))));
+        condition = QUOTE((([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasImaging))) && (([ARR_3(_medic,_patient,0)] call FUNC(canAdvanceReboa))));
         consumeItem = 0;
         callbackSuccess = QFUNC(reboaDeepApply);
     };
@@ -209,7 +209,7 @@ class ACE_Medical_Treatment_Actions {
         medicRequired = QGVAR(reboa_MedLevel);
         treatmentTime = QGVAR(reboaTime);
         items[] = {"kat_ultrasound"};
-        condition = QUOTE((([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasImaging))) && (([ARR_3(_medic,_patient,1)] call FUNC(hasReboaSpecific))));
+        condition = QUOTE((([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasImaging))) && (([ARR_3(_medic,_patient,1)] call FUNC(canAdvanceReboa))));
         consumeItem = 0;
         callbackSuccess = QFUNC(reboaDeepApply);
     };
