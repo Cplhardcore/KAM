@@ -661,3 +661,7 @@
 #undef PAIN_FADE_TIME
 #define PAIN_FADE_TIME 7200
 #define HAS_AIRWAY(unit)  (unit call EFUNC(airway,airwayCheck))
+
+#define TRIAGE_COLOR_EXPECTANT 0, 0, 1, 0.9
+
+#define TRIAGE_TEXT_COLOR_EXPECTANT 1, 1, 1, 1

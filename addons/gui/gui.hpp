@@ -11,13 +11,72 @@ class ace_medical_gui_TriageToggle: RscButton {
     x = QUOTE(POS_X(14.33));
     w = QUOTE(POS_W(10.3));
 };
-
 class ace_medical_gui_TriageSelect: RscControlsGroupNoScrollbars {
+    idc = IDC_TRIAGE_SELECT;
     x = QUOTE(POS_X(14.33));
+    y = QUOTE(POS_Y(16.6));
     w = QUOTE(POS_W(10.3));
+    h = QUOTE(POS_H(6.6));
     class controls {
         class None: RscButton {
+            idc = -1;
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),0)] call FUNC(handleTriageSelect));
+            style = 2;
+            text = ACECSTRING(medical_treatment,Triage_Status_None);
+            x = 0;
+            y = 0;
             w = QUOTE(POS_W(10.3));
+            h = QUOTE(POS_H(1.1));
+            shadow = 0;
+            colorText[] = {TRIAGE_TEXT_COLOR_NONE};
+            colorFocused[] = {TRIAGE_COLOR_NONE};
+            colorBackground[] = {TRIAGE_COLOR_NONE};
+            colorBackgroundActive[] = {TRIAGE_COLOR_NONE};
+        };
+        class Minimal: None {
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),1)] call ACEFUNC(medical_gui,handleTriageSelect));
+            text = ACECSTRING(medical_treatment,Triage_Status_Minimal);
+            y = QUOTE(POS_H(1.1));
+            colorText[] = {TRIAGE_TEXT_COLOR_MINIMAL};
+            colorFocused[] = {TRIAGE_COLOR_MINIMAL};
+            colorBackground[] = {TRIAGE_COLOR_MINIMAL};
+            colorBackgroundActive[] = {TRIAGE_COLOR_MINIMAL};
+        };
+        class Delayed: None {
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),2)] call ACEFUNC(medical_gui,handleTriageSelect));
+            text = ACECSTRING(medical_treatment,Triage_Status_Delayed);
+            y = QUOTE(POS_H(2.2));
+            colorText[] = {TRIAGE_TEXT_COLOR_DELAYED};
+            colorFocused[] = {TRIAGE_COLOR_DELAYED};
+            colorBackground[] = {TRIAGE_COLOR_DELAYED};
+            colorBackgroundActive[] = {TRIAGE_COLOR_DELAYED};
+        };
+        class Immediate: None {
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),3)] call ACEFUNC(medical_gui,handleTriageSelect));
+            text = ACECSTRING(medical_treatment,Triage_Status_Immediate);
+            y = QUOTE(POS_H(3.3));
+            colorText[] = {TRIAGE_TEXT_COLOR_IMMEDIATE};
+            colorFocused[] = {TRIAGE_COLOR_IMMEDIATE};
+            colorBackground[] = {TRIAGE_COLOR_IMMEDIATE};
+            colorBackgroundActive[] = {TRIAGE_COLOR_IMMEDIATE};
+        };
+        class Expectant: None {
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),4)] call ACEFUNC(medical_gui,handleTriageSelect));
+            text = CSTRING(Triage_Status_Expectant);
+            y = QUOTE(POS_H(4.4));
+            colorText[] = {TRIAGE_TEXT_COLOR_EXPECTANT};
+            colorFocused[] = {TRIAGE_COLOR_EXPECTANT};
+            colorBackground[] = {TRIAGE_COLOR_EXPECTANT};
+            colorBackgroundActive[] = {TRIAGE_COLOR_EXPECTANT};
+        };
+        class Deceased: None {
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),5)] call ACEFUNC(medical_gui,handleTriageSelect));
+            text = ACECSTRING(medical_treatment,Triage_Status_Deceased);
+            y = QUOTE(POS_H(5.5));
+            colorText[] = {TRIAGE_TEXT_COLOR_DECEASED};
+            colorFocused[] = {TRIAGE_COLOR_DECEASED};
+            colorBackground[] = {TRIAGE_COLOR_DECEASED};
+            colorBackgroundActive[] = {TRIAGE_COLOR_DECEASED};
         };
     };
 };

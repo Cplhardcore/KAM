@@ -1057,5 +1057,8 @@
         <Key ID="STR_KAT_GUI_localPain_DisplayName">
             <English>Local Pain Display</English>
         </Key>
+        <Key ID="STR_KAT_GUI_Triage_Status_Expectant">
+            <English>Expectant</English>
+        </Key>
     </Package>
 </Project>
