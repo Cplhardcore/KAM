@@ -82,7 +82,7 @@ private _fnc_clotWound = {
             if (_ca < 1.0) exitWith {};
             private _coagMult = linearConversion [0, 600, _coagulationFactor, 3, 1, true];
             private _trauma = _unit getVariable [QEGVAR(vitals,traumaState),0];
-            private _coagFail = linearConversion [0.5,1,_trauma,0,0.7,true];
+            private _coagFail = linearConversion [0.5,1,_trauma,0,0.4,true];
             private _woundClotDelayMult = (
                 _alteplaseFixedEffectiveness *
                 (_coagMult + _hypothermiaDelay) *

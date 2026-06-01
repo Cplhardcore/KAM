@@ -38,6 +38,11 @@ private _fnc_checkItems = {
     private _fnc_crateCheck = {
     private _objectTypes = [];
     private _crateItems = [];
+
+    _crateCount = 0;
+
+    private _objectTypes = [];
+
     switch (GVAR(crateAccess)) do {
         case 0: {
             _objectTypes = ["GroundWeaponHolder", "WeaponHolderSimulated"];
@@ -49,48 +54,17 @@ private _fnc_checkItems = {
             _objectTypes = ["GroundWeaponHolder", "WeaponHolderSimulated", "ThingX", "LandVehicle", "Air", "Ship"];
         };
     };
-    private _nearbyCrates = nearestObjects [
-        _patient,
-        _objectTypes,
-        GVAR(crateEquipmentRange)
-    ];
 
-        _nearbyCrates = _nearbyCrates select {
+        private _nearbyContainers = nearestObjects [
+            ACEGVAR(medical_gui,target),
+            _objectTypes,
+            GVAR(crateEquipmentRange)
+        ];
 
-            private _container = _x;
-
-            if (_container == objectParent _patient) exitWith {
-                false
-            };
-
-            private _hasItem =
-                (itemCargo _container) isNotEqualTo []
-                || (magazineCargo _container) isNotEqualTo []
-                || (weaponCargo _container) isNotEqualTo []
-                || (everyBackpack _container) isNotEqualTo [];
-
-            if (!_hasItem) then {
-
-                {
-                    private _bp = _x;
-
-                    if (
-                        (itemCargo _bp) isNotEqualTo []
-                        || (magazineCargo _bp) isNotEqualTo []
-                        || (weaponCargo _bp) isNotEqualTo []
-                        || (backpackCargo _bp) isNotEqualTo []
-                    ) exitWith {
-                        _hasItem = true;
-                    };
-
-                } forEach everyBackpack _container;
-            };
-
-            _hasItem
-        };
-
+        private _ignoredObjects = [ACE_player, ACEGVAR(medical_gui,target), _medicVehicle, _patientVehicle];
         {
             private _container = _x;
+            if (_x in _ignoredObjects) exitWith {};
             private _filteredItems = (itemCargo _container) select {
                 !(_x in GVAR(blacklistedItems))
             };
@@ -114,7 +88,7 @@ private _fnc_checkItems = {
 
             } forEach everyBackpack _container;
 
-        } forEach _nearbyCrates;
+        } forEach _nearbyContainers;
         _crateItems
         };
         _unitItems = _unitItems + [[], _fnc_crateCheck, _medic, QGVAR(clearCrateCache), 1] call ACEFUNC(common,cachedCall);
