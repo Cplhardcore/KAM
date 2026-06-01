@@ -68,31 +68,25 @@ _fnc_getCountsFromCargo = {
     params ["_object", "_magazineItems", "_itemItems"];
 
     private _count = 0;
-    TRACE_3("crateCount2",_count,_magazineItems,_itemItems);
+
     if (_magazineItems isNotEqualTo []) then {
 
-        (getMagazineCargo _object) params ["_itemTypes", "_itemCounts"];
-        TRACE_1("crateCount2",(getMagazineCargo _object));
-        private _map = _itemTypes createHashMapFromArray _itemCounts;
-        TRACE_1("crateCount2",_map);
         {
-            _count = _count + (_map getOrDefault [_x, 0]);
+            private _magClass = _x;
+            _count = _count + ({
+                (toLower _x) isEqualTo (toLower _magClass)
+            } count (magazineCargo _object));
         } forEach _magazineItems;
-        TRACE_1("crateCount2",_count);
     };
-    TRACE_1("crateCount3",_count);
+
     if (_itemItems isNotEqualTo []) then {
-
-        (getItemCargo _object) params ["_itemTypes", "_itemCounts"];
-        TRACE_1("crateCount3",(getItemCargo _object));
-        private _map = _itemTypes createHashMapFromArray _itemCounts;
-        TRACE_1("crateCount3",_map);
         {
-            _count = _count + (_map getOrDefault [_x, 0]);
+            private _itemClass = _x;
+            _count = _count + ({
+                (toLower _x) isEqualTo (toLower _itemClass)
+            } count (itemCargo _object));
         } forEach _itemItems;
-        TRACE_1("crateCount3",_count);
     };
-
     _count
 };
 

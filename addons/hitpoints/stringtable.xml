@@ -322,7 +322,7 @@
             <English>Stopped Applying Pressure</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_ApplyPressure">
-            <English>Apply Pressure to Limb</English>
+            <English>Apply Pressure to Wounds</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_">
             <English></English>
