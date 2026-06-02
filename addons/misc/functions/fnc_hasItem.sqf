@@ -60,7 +60,8 @@ private _fnc_checkItems = {
             _objectTypes,
             GVAR(crateEquipmentRange)
         ];
-
+        private _medicVehicle = objectParent ACE_player;
+        private _patientVehicle = objectParent ACEGVAR(medical_gui,target);
         private _ignoredObjects = [ACE_player, ACEGVAR(medical_gui,target), _medicVehicle, _patientVehicle];
         {
             private _container = _x;
@@ -91,7 +92,7 @@ private _fnc_checkItems = {
         } forEach _nearbyContainers;
         _crateItems
         };
-        _unitItems = _unitItems + [[], _fnc_crateCheck, ACE_player, QGVAR(clearCrateCache), 1] call ACEFUNC(common,cachedCall);
+        _unitItems = _unitItems + ([[], _fnc_crateCheck, ACE_player, QGVAR(clearCrateCache), 1] call ACEFUNC(common,cachedCall));
     };
     _items findAny _unitItems != -1
 };
