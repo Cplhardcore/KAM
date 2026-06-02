@@ -91,7 +91,7 @@ private _fnc_checkItems = {
         } forEach _nearbyContainers;
         _crateItems
         };
-        _unitItems = _unitItems + [[], _fnc_crateCheck, _medic, QGVAR(clearCrateCache), 1] call ACEFUNC(common,cachedCall);
+        _unitItems = _unitItems + [[], _fnc_crateCheck, ACE_player, QGVAR(clearCrateCache), 1] call ACEFUNC(common,cachedCall);
     };
     _items findAny _unitItems != -1
 };

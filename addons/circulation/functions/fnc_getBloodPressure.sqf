@@ -74,7 +74,7 @@ private _cushing = [_unit] call EFUNC(vitals,getCushings);
 if (_cushing > 0) then {
     _map = _map * linearConversion [0, 1, _cushing, 1.0, 1.35, true];
 };
-_map = ((_map min 0) max 160);
+_map = ((_map max 0) min 160);
 _unit setVariable [QGVAR(map), _map];
 TRACE_1("BP3", _map);
 private _basePulsePressure = linearConversion [60, 110, _map, 30, 50, true];
