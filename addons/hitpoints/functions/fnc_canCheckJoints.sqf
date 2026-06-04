@@ -20,15 +20,8 @@
 
 params ["", "_patient", "_bodyPart"];
 if (_patient call ACEFUNC(common,isSwimming)) exitWith {false};
-private _partIndex = ALL_BODY_PARTS find _bodyPart;
-private _jointArray = GET_JOINTS(_patient);
-private _jointGroupIndex = switch (true) do {
-case (_partIndex in [4, 5]): { 0 };
-case (_partIndex in [6, 7]): { 1 };
-case (_partIndex in [8, 9]): { 2 };
-case (_partIndex in [10, 11]): { 3 };
-default { -1 };
+private _jointCheck = false;
+if (GVAR(JointChance) > 0) then {
+    _jointCheck = true
 };
-private _jointCheck = (_patient getVariable [QGVAR(jointCheck), [false, false, false, false]]) select _jointGroupIndex;
 _jointCheck
-

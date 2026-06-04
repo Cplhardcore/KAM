@@ -97,6 +97,11 @@ GVAR(suction_timeOut) = true;
 
         if !(GVAR(suction_timeOut)) then {
             GVAR(suction_timeOut) = true;
+            if (_usedItem isEqualTo "kat_suction") then {
+                playSound3D [QPATHTOF_SOUND(sounds\manualpump_start.wav), _patient, false, getPosASL _patient, 6, 1, 15];
+            } else {
+                playSound3D [QPATHTOF_SOUND(sounds\accuvac_start.wav), _patient, false, getPosASL _patient, 6, 1, 15];
+            };
 
             [{
                 params ["_patient"];
@@ -128,11 +133,6 @@ GVAR(suction_timeOut) = true;
                 } else {
                     [LLSTRING(suction_success), 1.5, _medic] call ACEFUNC(common,displayTextStructured);
                     _patient setVariable [QGVAR(hasPuked), false, true];
-                    if (_usedItem isEqualTo "kat_suction") then {
-                            playSound3D [QPATHTOF_SOUND(sounds\manualpump_start.wav), _patient, false, getPosASL _patient, 6, 1, 15];
-                        } else {
-                            playSound3D [QPATHTOF_SOUND(sounds\accuvac_start.wav), _patient, false, getPosASL _patient, 6, 1, 15];
-                        };
                 };
                 _patient setVariable [QGVAR(clearedTime), CBA_missionTime, true];
 

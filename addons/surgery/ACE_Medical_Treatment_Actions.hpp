@@ -141,7 +141,8 @@ class ACE_Medical_Treatment_Actions {
         sounds[] = {{QPATHTO_R(sounds\vacuum.ogg),8,1,15}};
         consumeItem = 0;
         callbackProgress = QFUNC(npwtTreatmentProgress);
-        callbackSuccess = "";
+        callbackSuccess = QEFUNC(misc,surgicalKitEnd);
+        callbackFailure = QEFUNC(misc,surgicalKitEnd);
     };
      class Ultrasound: BasicBandage {
         displayName = CSTRING(Ultra_Use);

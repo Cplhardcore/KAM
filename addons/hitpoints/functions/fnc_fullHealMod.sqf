@@ -25,3 +25,7 @@ _patient setVariable [VAR_JOINTS, DEFAULT_JOINT_VALUES, true];
 _patient setVariable [QGVAR(jointCheck), [false, false, false, false], true];
 _patient setVariable [QGVAR(pelvicFracture), 0, true];
 _patient setVariable [QGVAR(activePelvicBinder), false, true];
+_patient setVariable [VAR_WRAPPED_JOINTS, DEFAULT_JOINT_VALUES, true];
+_patient setVariable [VAR_ICEPACKS, DEFAULT_JOINT_VALUES, true];
+_patient setVariable [QGVAR(cantThrowBroken), false, true];
+_patient setVariable [QGVAR(cantThrowJoints), false, true]

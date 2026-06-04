@@ -187,7 +187,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(Check_Joints);
         displayNameProgress = CSTRING(Check_Joints_Progress);
         category = "examine";
-        condition = "true";
+        condition = QFUNC(canCheckJoints);
         allowedSelections[] = {"LeftArm", "RightArm", "LeftLeg", "RightLeg", "UpperLeftArm", "UpperRightArm", "UpperLeftLeg", "UpperRightLeg", "Body"};
         allowSelfTreatment = 1;
         medicRequired = 0;

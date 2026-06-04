@@ -36,9 +36,10 @@ private _selectedJointIndexes = if (["upper", _bodyPart] call BIS_fnc_inString) 
 };
 {
     private _jointInjury = _limbJointStatus select _x;
-    if (_jointInjury == 3) exitWith {
-        _limbJointStatus set [_x, _jointInjury + 3];
-        [_patient] call EFUNC(misc,updateDamageEffects);
+    if (_jointInjury == 4) exitWith {
+        _limbJointStatus set [_x, 3];
+        _jointArray set [_jointGroupIndex, _limbJointStatus];
+        _patient setVariable [VAR_JOINTS, _limbJointStatus, true];
     };
 } forEach _selectedJointIndexes;
     

@@ -23,3 +23,20 @@
 
 // Animations that would be played faster than this are instead skipped. (= Progress bar too quick for animation).
 #define ANIMATION_SPEED_MAX_COEFFICIENT 2.5
+
+#define THROWSTYLE_NORMAL_DIR [0, 70, 500]
+#define THROWSTYLE_HIGH_DIR [0, 200, 500]
+#define THROWSTYLE_HIGH_VEL_COEF 2
+#define THROWSTYLE_DROP_VEL 2
+#define THROWSTYLE_DROP_STEP 0.1
+#define THROWSTYLE_HIGH_TORQUE_COEF 1
+#define THROWSTYLE_DROP_TORQUE_COEF .2
+
+#define THROW_SPEED_DEFAULT 18
+#define THROW_MODIFER_DEFAULT 1
+#define THROW_MODIFER_MIN 0
+#define THROW_MODIFER_MAX 1
+#define THROW_MODIFER_STEP (1/GVAR(throwStepSetting))
+#define DROP_DISTANCE_DEFAULT 0.2
+
+#define PICK_UP_DISTANCE 10

@@ -42,7 +42,7 @@ if (_jointGroupIndex != -1) then {
     };
     {
     private _jointInjury = _limbJointStatus select _x;
-    if (_jointInjury == 3) exitWith {
+    if (_jointInjury == 4) exitWith {
         _canStabilizeJoint = true;
     };
     } forEach _selectedJointIndexes;

@@ -471,6 +471,12 @@
         <Key ID="STR_KAT_Hitpoints_JointInjury_WrappedSprain">
             <English>Wrapped Sprained</English>
         </Key>
+        <Key ID="STR_KAT_Hitpoints_JointInjury_IcedWrappedStrain">
+            <English>Iced/Wrapped Strained</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_JointInjury_IcedWrappedSprain">
+            <English>Iced/Wrapped Sprained</English>
+        </Key>
         <Key ID="STR_KAT_Hitpoints_Stabilize_Joint">
             <English>Stabilize Joint</English>
         </Key>
@@ -662,6 +668,15 @@
         </Key>
         <Key ID="STR_KAT_Hitpoints_openTriageCard">
             <English>Open Triage Card</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_armthrowhurt">
+            <English>You feel some pain in your arm</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_cantThrowBroken">
+            <English>You feel like one of your arms is broken</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_droppedGrenade">
+            <English>You dropped the grenade at your feet</English>
         </Key>
     </Package>
 </Project>

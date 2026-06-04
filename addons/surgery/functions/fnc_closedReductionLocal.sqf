@@ -72,8 +72,6 @@ if (random 100 < GVAR(closedReductionFailChance)) exitWith {
         }, [_patient, _activeFracture, _part], _delay] call CBA_fnc_waitAndExecute;
         _patient setVariable [QGVAR(fractures), _fractureArray, true];
         _patient setVariable [VAR_FRACTURES, _activeFracture, true];
-        [_patient, "blockSprint", QACEGVAR(medical,fracture), false] call ACEFUNC(common,statusEffect_set);
-        [_patient] call EFUNC(misc,updateDamageEffects);
 
         [_patient, true] call ACEFUNC(dragging,setCarryable);
         [_patient, true] call ACEFUNC(dragging,setDraggable);
@@ -83,8 +81,6 @@ if (random 100 < GVAR(closedReductionFailChance)) exitWith {
         _fractureArray set [_part, 0];
         _patient setVariable [QGVAR(fractures), _fractureArray, true];
         _patient setVariable [VAR_FRACTURES, _activeFracture, true];
-        [_patient, "blockSprint", QACEGVAR(medical,fracture), false] call ACEFUNC(common,statusEffect_set);
-        [_patient] call EFUNC(misc,updateDamageEffects);
 
         [_patient, true] call ACEFUNC(dragging,setCarryable);
         [_patient, true] call ACEFUNC(dragging,setDraggable);

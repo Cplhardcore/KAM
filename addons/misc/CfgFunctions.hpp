@@ -120,4 +120,15 @@ class CfgFunctions {
             };
         };
     };
+    class overwrite_ace_advanced_throwing {
+        tag = "ace_advanced_throwing";
+        class aceadvanced_throwing {
+            class throw {
+                file = QPATHTOF(functions\fnc_throw.sqf);
+            };
+            class prepare {
+                file = QPATHTOF(functions\fnc_prepare.sqf);
+            };
+        };
+    };
 };

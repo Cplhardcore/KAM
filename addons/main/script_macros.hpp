@@ -202,6 +202,8 @@
 #define VAR_TOURNIQUET        QACEGVAR(medical,tourniquets)
 #define VAR_FRACTURES         QACEGVAR(medical,fractures)
 #define VAR_JOINTS            QEGVAR(hitpoints,joints)
+#define VAR_WRAPPED_JOINTS            QEGVAR(hitpoints,wrappedJoints)
+#define VAR_ICEPACKS            QEGVAR(hitpoints,icePacks)
 
 // - Unit Functions ---------------------------------------------------
 // Retrieval macros for common unit values
@@ -552,6 +554,8 @@
 #define GET_JOINTS(unit)   (unit getVariable [VAR_JOINTS, DEFAULT_JOINT_VALUES])
 #define GET_LIMB_JOINT(unit,limbindex)   ((unit getVariable [VAR_JOINTS, DEFAULT_JOINT_VALUES]) select _limbindex)
 
+#define GET_WRAPPED_JOINTS(unit)   (unit getVariable [VAR_WRAPPED_JOINTS, DEFAULT_JOINT_VALUES])
+#define GET_ICEPACKS(unit)   (unit getVariable [VAR_ICEPACKS, DEFAULT_JOINT_VALUES])
 
 #define INTERNAL_BLEEDING_RATE(unit,index) ([unit, index] call EFUNC(hitpoints,internalBleedingRate))
 #define PART_BLEEDING_RATE(unit,index) ([unit, index] call EFUNC(hitpoints,partBleedingRate))

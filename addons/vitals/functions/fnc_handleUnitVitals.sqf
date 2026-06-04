@@ -435,7 +435,7 @@ private _side = _x;
 [_unit] call EFUNC(breathing,updateTACOEffects);
 [_unit] call EFUNC(breathing,handlePulseoximeter);
 [_unit] call EFUNC(airway,airwayDeterioration);
-
+[_unit,_deltaT] call EFUNC(hitpoints,updateJointInjuries);
 END_COUNTER(Vitals);
 
 //placed outside the counter as 3rd-party code may be called from this event

@@ -20,6 +20,7 @@ params ["_medic", "_patient", "_bodyPart"];
 
 private _partIndex = ALL_BODY_PARTS find _bodyPart;
 private _jointArray = GET_JOINTS(_patient);
+private _wrappedJointArray = GET_WRAPPED_JOINTS(_patient);
 private _jointGroupIndex = switch (true) do {
 case (_partIndex in [4, 5]): { 0 };
 case (_partIndex in [6, 7]): { 1 };
@@ -29,6 +30,7 @@ default { -1 };
 };
 
 private _limbJointStatus = _jointArray select _jointGroupIndex;
+private _limbWrappedStatus = _wrappedJointArray select _jointGroupIndex;
 private _selectedJointIndexes = if (["upper", _bodyPart] call BIS_fnc_inString) then {
     [0, 1]
 } else {
@@ -36,15 +38,11 @@ private _selectedJointIndexes = if (["upper", _bodyPart] call BIS_fnc_inString) 
 };
 {
     private _jointInjury = _limbJointStatus select _x;
-    if (_jointInjury in [7, 8]) exitWith {
-        _limbJointStatus set [_x, _jointInjury + 3];
-        [_patient] call EFUNC(misc,updateDamageEffects);
-        private _delay = random [300, 450, 600];
-        [{
-            params ["_x", "_patient", "_limbJointStatus"];
-            _limbJointStatus set [_x, 0];
-            [_patient] call EFUNC(misc,updateDamageEffects);
-        }, [_x, _patient, _limbJointStatus], _delay] call CBA_fnc_waitAndExecute;
+    private _wrappedStatus = _limbWrappedStatus select _x;
+    if (_wrappedStatus == 0) exitWith {
+        _limbWrappedStatus set [_x, 1200];
+        _wrappedJointArray set [_jointGroupIndex, _limbWrappedStatus];
+        _patient setVariable [VAR_WRAPPED_JOINTS, _wrappedJointArray, true];
     };
 } forEach _selectedJointIndexes;
     
