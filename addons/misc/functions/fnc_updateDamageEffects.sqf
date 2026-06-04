@@ -35,14 +35,14 @@ private _legJointArray = GET_JOINTS(_unit) select [2, 2];
 if (ACEGVAR(medical,fractures) > 0) then {
     private _fractures = GET_FRACTURES(_unit);
     TRACE_1("",_fractures);
-    if ((_fractures select 8) == 1 || (_fractures select 9) == 1 || (_fractures select 10) == 1 || (_fractures select 11) == 1) then {
+    if ((_fractures select 8) > 0 || (_fractures select 9) > 0 || (_fractures select 10) > 0 || (_fractures select 11) > 0) then {
         TRACE_1("limping because of fracture",_fractures);
         _isLimping = true;
     };
-    if ((_fractures select 4) == 1) then { _aimFracture = _aimFracture + 4; _noThrow = true;};
-    if ((_fractures select 5) == 1) then { _aimFracture = _aimFracture + 4; _noThrow = true;};
-    if ((_fractures select 6) == 1) then { _aimFracture = _aimFracture + 4; _noThrow = true;};
-    if ((_fractures select 7) == 1) then { _aimFracture = _aimFracture + 4; _noThrow = true;};
+    if ((_fractures select 4) > 0) then { _aimFracture = _aimFracture + 4;};
+    if ((_fractures select 5) > 0) then { _aimFracture = _aimFracture + 4;};
+    if ((_fractures select 6) > 0) then { _aimFracture = _aimFracture + 4;};
+    if ((_fractures select 7) > 0) then { _aimFracture = _aimFracture + 4;};
 
     if (ACEGVAR(medical,fractures) in [2, 3]) then { // the limp with a splint will still cause effects
         // Block sprint / force walking based on fracture setting and leg splint status
@@ -53,10 +53,10 @@ if (ACEGVAR(medical,fractures) > 0) then {
             _noJog = _hasLegSplint;
         };
 
-        if ((_fractures select 4) in [-1, -2, -3]) then { _aimFracture = _aimFracture + 2; _noThrow = true;};
-        if ((_fractures select 5) in [-1, -2, -3]) then { _aimFracture = _aimFracture + 2; _noThrow = true;};
-        if ((_fractures select 6) in [-1, -2, -3]) then { _aimFracture = _aimFracture + 2; _noThrow = true;};
-        if ((_fractures select 7) in [-1, -2, -3]) then { _aimFracture = _aimFracture + 2; _noThrow = true;};
+        if ((_fractures select 4) in [-1, -2, -3]) then { _aimFracture = _aimFracture + 2;};
+        if ((_fractures select 5) in [-1, -2, -3]) then { _aimFracture = _aimFracture + 2;};
+        if ((_fractures select 6) in [-1, -2, -3]) then { _aimFracture = _aimFracture + 2;};
+        if ((_fractures select 7) in [-1, -2, -3]) then { _aimFracture = _aimFracture + 2;};
     };
 };
 if (EGVAR(hitpoints,JointChance) > 0) then {

@@ -51,10 +51,14 @@ private _dropMode = _unit getVariable [QACEGVAR(advanced_throwing,dropMode), fal
     };
     private _joint = GET_JOINTS(_unit);
     private _armArrays = (_joint select 0) + (_joint select 1);
-    if ((selectMax _armArrays) > 0) then {
-        private _injury = linearConversion [0.3, 2.9, (selectMax _armArrays), 1, 3, true];
+    private _fractures = _unit getVariable [QACEGVAR(medical_engine,aimFracture), 0];
+
+    if (((selectMax _armArrays) > 0) || (_fractures > 0)) then {
+        private _injuryJoints = linearConversion [0.3, 2.9, (selectMax _armArrays), 1, 3, true];
+        private _injuryFractures = linearConversion [0, 4, _fractures, 1, 3, true];
+        private _injury = _injuryFractures + _injuryJoints;
         private _strengthVariance = _injury * 0.1;
-        private _strengthFactor = linearConversion [1, 3, _injury, 0.85, 0.4, true];
+        private _strengthFactor = linearConversion [1, 6, _injury, 0.85, 0.4, true];
         _newVelocity = _newVelocity vectorMultiply _strengthFactor;
         _newVelocity = _newVelocity vectorMultiply (1 + random (_strengthVariance * 2) - _strengthVariance);
         private _spread = 0.05 * _injury;
