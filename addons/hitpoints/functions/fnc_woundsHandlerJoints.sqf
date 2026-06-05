@@ -57,8 +57,8 @@ params ["_unit", "_allDamages", "_damageType"];
                 private _jointInjury = _limbJointStatus select _jointNumber;
                 if (_jointInjury == 0) then {
                     if (_damage <= 4) then {
-                        _jointInjury = linearConversion [0, 4, _damage, 0.1, 2.9, true];
-                        _jointInjury = (_jointInjury + random [ -0.5, 0, 0.5]) min 0.2; 
+                        _jointInjury = linearConversion [0, 4, _damage, 0.5, 2.9, true];
+                        _jointInjury = (_jointInjury + random [ -0.5, 0, 1]) min 0.4; 
                         _limbJointStatus set [_jointNumber, _jointInjury];
                     } else {
                         _jointInjury = 4;
