@@ -42,14 +42,14 @@ if ((abs (speed _unit) > 2 && isNull objectParent _unit) && !(_unit call ACEFUNC
         if (_x < 3) then
         {
             private _icePackMultiplier = [1, 2] select (((_icepackArray # _rowIndex) # _colIndex) > 0);
-            private _wrapMultiplier    = [1, 1.5] select (((_wrappedJointArray # _rowIndex) # _colIndex) > 0);
-
+            private _wrapMultiplier    = [1, 1.8] select (((_wrappedJointArray # _rowIndex) # _colIndex) > 0);
+            private _moderator = linearConversion [0, 3, _x, 1, 3]
             TRACE_2("joints1", _icePackMultiplier, _wrapMultiplier);
 
-            private _newValue =
-                (_x - (0.0015 * _deltaT * _icePackMultiplier * _wrapMultiplier * _speedMult)) max 0;
+            private _jointValue =
+                (_x - (0.00031 * _deltaT * _icePackMultiplier * _wrapMultiplier * _speedMult * _moderator)) max 0;
 
-            _jointSubArray set [_colIndex, _newValue];
+            _jointSubArray set [_colIndex, _jointValue];
         }
         else
         {
