@@ -42,6 +42,7 @@ PREP(hasItem);
 PREP(healingLogic);
 PREP(incompatibilityWarning);
 PREP(init);
+PREP(isInMedicalVehicle);
 PREP(isMedic);
 PREP(isSafe);
 PREP(prepare);

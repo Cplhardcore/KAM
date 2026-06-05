@@ -259,7 +259,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(AttachLucas);
         displayNameProgress = CSTRING(AttachingLucas);
         category = "advanced";
-        treatmentLocations = 1;
+        treatmentLocations = 3;
         allowedSelections[] = {"Chest"};
         allowSelfTreatment = 0;
         medicRequired = QGVAR(medLvl_Lucas);

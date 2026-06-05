@@ -282,7 +282,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(AttachVent);
         displayNameProgress = CSTRING(AttachingVent);
         category = "airway";
-        treatmentLocations = 1;
+        treatmentLocations = 3;
         allowedSelections[] = {"Head"};
         allowSelfTreatment = 0;
         medicRequired = QGVAR(medLvl_Vent);

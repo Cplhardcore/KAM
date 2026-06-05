@@ -74,6 +74,9 @@ class CfgFunctions {
             class hasItem {
                 file = QPATHTOF(functions\fnc_hasItem.sqf);
             };
+            class isInMedicalVehicle {
+                file = QPATHTOF(functions\fnc_isInMedicalVehicle.sqf);
+            };
         };
     };
     class ace_medical {
@@ -122,7 +125,7 @@ class CfgFunctions {
     };
     class overwrite_ace_advanced_throwing {
         tag = "ace_advanced_throwing";
-        class aceadvanced_throwing {
+        class ace_advanced_throwing {
             class throw {
                 file = QPATHTOF(functions\fnc_throw.sqf);
             };
