@@ -65,7 +65,7 @@ private _dlg = uiNamespace getVariable ["KAT_Circulation_AEDX_Monitor_Display", 
         if (GVAR(AEDX_MonitorTarget_Title) getVariable [QACEGVAR(medical,CPR_provider), objNull] isNotEqualTo objNull) then {
             _ekgDisplay = QPATHTOF(ui\ekg_cpr.paa);
         } else {
-            if (!(GVAR(AEDX_MonitorTarget_Title) getVariable [QGVAR(heartRestart), false]) && alive GVAR(AEDX_MonitorTarget_Title)) then {
+            if (!(GVAR(AEDX_MonitorTarget_Title) getVariable [QGVAR(aedPause), false]) && alive GVAR(AEDX_MonitorTarget_Title)) then {
                 switch (GVAR(AEDX_MonitorTarget_Title) getVariable [QGVAR(cardiacArrestType), 0]) do {
                     case 4: {_ekgDisplay = QPATHTOF(ui\ekg_vt.paa);};
                     case 3: {_ekgDisplay = QPATHTOF(ui\ekg_vf.paa);};

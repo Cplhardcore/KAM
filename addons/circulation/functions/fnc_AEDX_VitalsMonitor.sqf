@@ -53,7 +53,7 @@ if (_patient getVariable ["kat_AEDXPatient_PFH", -1] isEqualTo -1) then {
         private _hasEtco2Monitor = (_patient getVariable [QEGVAR(breathing,etco2Monitor),[]] isNotEqualTo []); //check for etco2 monitoring apparatus
         _hasEtco2Monitor = [false, _hasEtco2Monitor] select (EGVAR(breathing,Etco2_Enabled)); //check etco2 monitoring is enabled
 
-        if !(_patient getVariable [QGVAR(heartRestart), false]) then {
+        if !(_patient getVariable [QGVAR(aedPause), false]) then {
             _pr = _patient getVariable [QACEGVAR(medical,heartRate), 0];
             if (_patient getVariable [QGVAR(cardiacArrestType), 0] > 0 && (_patient getVariable [QACEGVAR(medical,CPR_provider), objNull] isEqualTo objNull)) then {
                 _hr = _patient call FUNC(getCardiacArrestHeartRate);

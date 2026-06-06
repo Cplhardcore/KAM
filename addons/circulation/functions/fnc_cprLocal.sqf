@@ -100,7 +100,7 @@ private _fnc_advRhythm = {
         };
         case "Nitroglycerin":
         {
-            _nitroEffect = (_nitroEffect + (1 * _dose));
+            _nitroEffect = (_nitroEffect + (2 * _dose));
         };
     };
 } forEach (_patient getVariable [QACEGVAR(medical,medications), []]);
@@ -116,7 +116,7 @@ private _caChance = if (_ca > 2.6) then {
 } else {
     linearConversion [2.2, 1.8, _ca, 1, 0.2, true];
 };*/
-TRACE_4("cprLocal_2",_epiBoost,_lidoBoost,_amiBoost,_ca);
+TRACE_3("cprLocal_2",_epiBoost,_lidoBoost,_amiBoost);
 switch (_reviveObject) do {
     case "LUCAS": {
         if (GVAR(enable_CPR_Chances)) then {

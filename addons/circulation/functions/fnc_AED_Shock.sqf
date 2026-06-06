@@ -29,8 +29,14 @@ _bystanders = _bystanders - [_medic];
 if (_patient getVariable [QACEGVAR(medical,CPR_provider), objNull] != objNull) then {
     [(_patient getVariable QACEGVAR(medical,CPR_provider)), 0.4] call ACEFUNC(medical_status,adjustPainLevel);
 };
-
+_patient setVariable [QGVAR(aedPause), true, true];
 _patient setVariable [QGVAR(RhythmAnalyzed), false, true];
+
+[{
+    params ["_patient"];
+
+    _patient setVariable [QGVAR(aedPause), false, true];
+}, [_patient], 4] call CBA_fnc_waitAndExecute;
 [QGVAR(AEDused), _patient] call CBA_fnc_localEvent;
 
 [{
