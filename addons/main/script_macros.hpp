@@ -671,3 +671,5 @@
 #define TRIAGE_TEXT_COLOR_EXPECTANT 1, 1, 1, 1
 #define VAR_KAT_FRACTURES               QEGVAR(surgery,fractures)
 #define GET_KAT_FRACTURES(unit)         (unit getVariable [VAR_KAT_FRACTURES, DEFAULT_FRACTURE_VALUES])
+
+#define ARTERIAL_BLEED_THRESHOLD 0.1

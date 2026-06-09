@@ -150,14 +150,15 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
             {
                 _x params ["_classID", "_oldAmountOf", "_oldBleeding", "_oldDamage"];
                 if (
-                        (_classComplex == _classID) &&
-                        {(_bodyPart isNotEqualTo "") || {(_woundDamage < PENETRATION_THRESHOLD) isEqualTo (_oldDamage < PENETRATION_THRESHOLD)}} && 
-                        {(_bodyPartNToAdd > 7) || {!_causeLimping} || {(_woundDamage <= LIMPING_DAMAGE_THRESHOLD) isEqualTo (_oldDamage <= LIMPING_DAMAGE_THRESHOLD)}} // ensure limping damage is stacked correctly
-                        ) exitWith {
+                    (_classComplex == _classID) &&
+                    {
+                        (_bodyPart isNotEqualTo "")
+                    }
+                ) exitWith {
                     TRACE_2("merging with existing wound",_injury,_x);
                     private _newAmountOf = _oldAmountOf + 1;
                     _x set [1, _newAmountOf];
-                    private _newBleeding = (_oldAmountOf * _oldBleeding + _bleeding) / _newAmountOf;
+                    private _newBleeding = (_oldAmountOf * _oldBleeding + _bleeding);
                     _x set [2, _newBleeding];
                     private _newDamage = (_oldAmountOf * _oldDamage + _woundDamage) / _newAmountOf;
                     _x set [3, _newDamage];
@@ -268,22 +269,37 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         private _createNewWound = true;
         private _existingWounds = _openWounds getOrDefault [_bodyPart, [], true];
         {
-            _x params ["_classID", "_oldAmountOf", "_oldBleeding", "_oldDamage"];
-            if (
+                _x params ["_classID", "_oldAmountOf", "_oldBleeding", "_oldDamage"];
+                if (
                     (_classComplex == _classID) &&
-                    {(_bodyPart isNotEqualTo "") || {(_woundDamage < PENETRATION_THRESHOLD) isEqualTo (_oldDamage < PENETRATION_THRESHOLD)}} && 
-                    {(_bodyPartNToAdd > 7) || {!_causeLimping} || {(_woundDamage <= LIMPING_DAMAGE_THRESHOLD) isEqualTo (_oldDamage <= LIMPING_DAMAGE_THRESHOLD)}} // ensure limping damage is stacked correctly
-                    ) exitWith {
-                TRACE_2("merging with existing wound",_injury,_x);
-                private _newAmountOf = _oldAmountOf + 1;
-                _x set [1, _newAmountOf];
-                private _newBleeding = (_oldAmountOf * _oldBleeding + _bleeding) / _newAmountOf;
-                _x set [2, _newBleeding];
-                private _newDamage = (_oldAmountOf * _oldDamage + _woundDamage) / _newAmountOf;
-                _x set [3, _newDamage];
-                _createNewWound = false;
-            };
-        } forEach _existingWounds;
+                    {
+                        (_bodyPart isNotEqualTo "") ||
+                        {(_woundDamage < PENETRATION_THRESHOLD) isEqualTo (_oldDamage < PENETRATION_THRESHOLD)}
+                    } &&
+                    {
+                        (_bodyPartNToAdd > 7) ||
+                        {!_causeLimping} ||
+                        {(_woundDamage <= LIMPING_DAMAGE_THRESHOLD) isEqualTo (_oldDamage <= LIMPING_DAMAGE_THRESHOLD)}
+                    } &&
+                    {
+                        private _arterialMerge = if (_bleeding >= ARTERIAL_BLEED_THRESHOLD) then {
+                            (_bleeding >= ARTERIAL_BLEED_THRESHOLD) isEqualTo ((_oldBleeding/_oldAmountOf) >= ARTERIAL_BLEED_THRESHOLD)
+                        } else {
+                            (_bleeding < ARTERIAL_BLEED_THRESHOLD) isEqualTo ((_oldBleeding/_oldAmountOf) < ARTERIAL_BLEED_THRESHOLD)
+                        };
+                        _arterialMerge
+                    }// ensure limping damage is stacked correctly
+                ) exitWith {
+                    TRACE_2("merging with existing wound",_injury,_x);
+                    private _newAmountOf = _oldAmountOf + 1;
+                    _x set [1, _newAmountOf];
+                    private _newBleeding = (_oldAmountOf * _oldBleeding + _bleeding);
+                    _x set [2, _newBleeding];
+                    private _newDamage = (_oldAmountOf * _oldDamage + _woundDamage) / _newAmountOf;
+                    _x set [3, _newDamage];
+                    _createNewWound = false;
+                };
+            } forEach _existingWounds;
 
         if (_createNewWound) then {
             TRACE_1("adding new wound",_injury);
