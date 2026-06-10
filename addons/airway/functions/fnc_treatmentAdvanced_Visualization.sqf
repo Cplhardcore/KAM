@@ -111,8 +111,11 @@ GVAR(visualization_timeOut) = true;
                         [LLSTRING(visualization_stop), LLSTRING(visualization_place), ""] call ACEFUNC(interaction,showMouseHint);
                         _patient setVariable [QGVAR(isVisualized), true, true];
                         GVAR(PlaceETT) = [0xF1, [false, false, false], {
-                        [QGVAR(airwayLocal), [GVAR(visualizationSource), GVAR(visualizationTarget), "ETT", "kat_ETT"], GVAR(visualizationTarget)] call CBA_fnc_targetEvent;
-                        GVAR(visualizationTarget) setVariable [QGVAR(visualizationActive), false, true];
+                            [{
+                                [QGVAR(airwayLocal), [GVAR(visualizationSource), GVAR(visualizationTarget), "ETT", "kat_ETT"],GVAR(visualizationTarget)] call CBA_fnc_targetEvent;
+                                [LLSTRING(AirwayETT_Placed), 2, GVAR(visualizationSource)] call ACEFUNC(common,displayTextStructured);
+                                GVAR(visualizationTarget) setVariable [QGVAR(visualizationActive), false, true];
+                            }, []] call CBA_fnc_execNextFrame;
                         }, "keydown", "", false, 0] call CBA_fnc_addKeyHandler;
                         [{params ["_patient"];
                         _patient setVariable [QGVAR(isVisualized), false, true]; }, [_patient], 20] call CBA_fnc_waitAndExecute;
