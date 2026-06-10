@@ -20,7 +20,7 @@
 params ["_patient"];
 private _taco = _patient getVariable [QGVAR(TACO), 0];
 private _strain = _patient getVariable [QGVAR(TACOStrain), 0];
-_taco = _taco - 0.001;
+_taco = (_taco - 0.001) max 0;
 _patient setVariable [QGVAR(TACO), _taco, true];
 private _strainLoss = (_taco * 0.005);
 _strain = _strain - _strainLoss;
