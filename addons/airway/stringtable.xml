@@ -2410,13 +2410,13 @@
         <Key ID="STR_KAT_Airway_PartialCricothyrotomy_5">
             <English>Placed</English>
         </Key>
-        <Key ID="STR_KAT_AirwayETT_Place_Action">
+        <Key ID="STR_KAT_airway_AirwayETT_Place_Action">
             <English>Placing ETT</English>
         </Key>
-        <Key ID="STR_KAT_AirwayETT_Placed">
+        <Key ID="STR_KAT_airway_AirwayETT_Placed">
             <English>Placed ETT</English>
         </Key>
-        <Key ID="STR_KAT_AirwayETT_Failed">
+        <Key ID="STR_KAT_airway_AirwayETT_Failed">
             <English>Failed to place ETT</English>
         </Key>
     </Package>
