@@ -162,6 +162,9 @@ if (_adjustments isNotEqualTo []) then {
         private _scaledMaxTime = _maxTimeInSystem / _metabolismMult;
         private _scaledTimeToMax = _timeTillMaxEffect * _onsetMult;
         private _timeInSystem = CBA_missionTime - _timeAdded;
+        if ((typeName _medication) != "STRING") then {
+            diag_log str _x;
+            continue};
         private _medLower = toLower _medication;
         private _blockedWords = ["overdose", "override", "bradycardia", "tachycardia", "sedation"];
         private _found = _blockedWords findIf { _medLower find _x != -1 };

@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 #pragma hemtt suppress pw3_padded_arg file
 /*
@@ -156,7 +157,6 @@ _respDrive = _respDrive * (1 - (_cnsSuppression * 0.7));
 _respDrive = _respDrive * _respiratoryRateMult;
 private _bvmDyssyncPrev = _unit getVariable [QGVAR(bvmDyssync), 0];
 _respDrive = _respDrive + ((_bvmDyssyncPrev min 0.25) * 0.4);
-_respDrive = _respDrive + linearConversion [0.3,0.8,_shock,2,10,true];
 _respDrive = _respDrive max 0 min 1;
 if (_do2Norm < 0.3) then {
     _respDrive = _respDrive * 0.8;
@@ -626,7 +626,7 @@ if (EGVAR(breathing,paco2Active)) then {
     || (_paralysis && !_ventAttached)
     )then {
     private _co2Rise =
-    linearConversion [0, 1, _anerobicPressure, 0.4, 1.2, true];
+    linearConversion [0, 1, _anerobicPressure, 0.08, 0.25, true];
     private _tempScale =
         linearConversion [35, 40, _temperature, 0.9, 1.15, true];
     _co2Rise = _co2Rise * _tempScale;
@@ -635,7 +635,7 @@ if (EGVAR(breathing,paco2Active)) then {
         _cprPerfusion = alive (_unit getVariable [QACEGVAR(medical,CPR_provider), objNull]);
     };
 
-    private _cprScale = [1, 0.75] select _cprPerfusion;
+    private _cprScale = [1, 0.5] select _cprPerfusion;
     _co2Rise = _co2Rise * _cprScale;
     _paco2 = (_previousCyclePaco2 + (_co2Rise * _deltaT)) min 120;
     TRACE_5("PACO2:RISE_ONLY",
@@ -815,7 +815,7 @@ if (IN_CRDC_ARRST(_unit)) then {
         _etco2);
 };
 
-TRACE_3("pao21", _pao2,_previousCyclePao2,_arrestPerfusion);
+TRACE_2("pao21", _pao2,_previousCyclePao2);
 if (_previousCyclePao2 < 55 && _alveolarVent > 3000) then {
     _pulmonaryShunt = (_pulmonaryShunt + (0.0004 * _deltaT));
 };

@@ -28,7 +28,7 @@ _patient setVariable [QGVAR(breathingState), 0, true];
 _patient setVariable [QGVAR(biotTimer), 0, true];
 _patient setVariable [QGVAR(biotState), "breath", true];
 _patient setVariable [QGVAR(agonalTimer), 0, true];
-_patient setVariable [QGVAR(rrMemory), 0, true];
+_patient setVariable [QGVAR(rrMemory), 15, true];
 _patient setVariable [QGVAR(shockClass), "NONE", true];
 _patient setVariable [QGVAR(ataxicRate), 0, true];
 _patient setVariable [QGVAR(ataxicDepth), 0, true];

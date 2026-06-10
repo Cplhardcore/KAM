@@ -30,9 +30,7 @@ private _defaultCVP = 6;
 private _heartRate = GET_HEART_RATE(_unit);
 private _bloodVolumeRatio = GET_BLOOD_VOLUME_LITERS(_unit) / DEFAULT_BLOOD_VOLUME;
 
-private _contractility =
-    (_unit getVariable [QEGVAR(pharma,heartContractility), 1]) max 0.2;
-
+private _contractility = linearConversion [1, 0, (_unit getVariable [QEGVAR(pharma,heartContractility), 1]), 1, 0.5, true];
 private _ptxArray = (_unit getVariable [QEGVAR(breathing,pneumothorax), [0,0]]);
 private _tptxArray = (_unit getVariable [QEGVAR(breathing,tensionpneumothorax), [0,0]]);
 private _hptxArray = (_unit getVariable [QEGVAR(breathing,hemopneumothorax), [0,0]]);
@@ -46,11 +44,11 @@ private _trali = _unit getVariable [QEGVAR(breathing,TACO), 0];
 private _vrEff =
     1
     - (linearConversion [0,16,_ptx,0,0.3,true])
-    - (linearConversion [0,2,_hptx,0,0.4,true])
+    - (linearConversion [0,2,_hptx,0,0.3,true])
     - (linearConversion [0,4,_tamponade,0,0.5,true])
     - (linearConversion [0,20,_trali,0,0.2,true]);
 
-_vrEff = _vrEff max 0.1;
+_vrEff = _vrEff max 0.3;
 private _rvAfterload = 1;
 private _rvFailure = 1;
 if ((_tptxArray select 0) || (_tptxArray select 1)) then {
