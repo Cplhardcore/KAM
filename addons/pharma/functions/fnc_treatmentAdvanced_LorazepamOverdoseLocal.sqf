@@ -17,18 +17,14 @@
 params ["_patient"];
 private _doseLevel = ([_patient, "LorazepamOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
 if (_doseLevel < 0.01) then {
-    private _hrAdjust = -50 + floor random ((-30 - -50) + 1);
+    private _hrAdjust = -30 + floor random ((-10 - -30) + 1);
     [_patient, "LorazepamOverdose", 30, 1200, _hrAdjust, 0, 0, 0, 0.2, 0, 0, 0.3] call EFUNC(vitals,addMedicationAdjustment);
 };
 
-if (random(100) < 25) then {
-[{
-    params ["_args", "_idPFH"];
-    _args params ["_patient"];
+if (random(100) < 0.2) then {
    if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
             [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
     };
-}, [_patient], 15] call CBA_fnc_waitAndExecute;
 };
 
 

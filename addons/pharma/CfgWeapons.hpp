@@ -983,4 +983,13 @@ class CfgWeapons {
     class kat_syringe_calciumGluconate_5ml_20: kat_syringe_txa_5ml_10 {
         displayName = KATDISPLAYCSTRING(calciumGluconate,5ml,20);
     };
+    class ACE_morphine: ACE_ItemCore {
+        displayName = CSTRING(morphineAutoinjector);
+    };
+    class ACE_epinephrine: ACE_ItemCore {
+        displayName = CSTRING(epinephrineAutoinjector);
+    };
+    class ACE_adenosine: ACE_ItemCore {
+        displayName = CSTRING(adenosineAutoinjector);
+    };
 };

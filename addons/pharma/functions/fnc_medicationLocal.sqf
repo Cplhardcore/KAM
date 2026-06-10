@@ -1,4 +1,3 @@
-
 #include "..\script_component.hpp"
 /*
  * Author: Glowbal, mharis001
@@ -151,7 +150,7 @@ private _weightFixed = 1;
 private _weightDoseFixed = 1;
 private _defaultWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80];
 if (_weightBase == "true") then {
-    _weightFixed = linearConversion [60, 100, _defaultWeight, 1, 3, true];
+    _weightFixed = linearConversion [60, 100, _defaultWeight, 10, 30, true];
     _weightDoseFixed = _startDose;
     if (_weightDose != 20) then {
         private _weightDoseMin = GET_NUMBER(_medicationConfig >> "weightDoseMin",getNumber (_defaultConfig >> "weightDoseMin"));

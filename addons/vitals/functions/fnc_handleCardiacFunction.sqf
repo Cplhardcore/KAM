@@ -58,7 +58,6 @@ if (IN_CRDC_ARRST(_unit)) then {
     _painLevel = GET_PAIN(_unit);
 
     private _lastHR = GET_HEART_RATE(_unit);
-    _lastHR = _lastHR + linearConversion [0,1,_cnsSuppression,0,16,true];
     _lastHR = _lastHR - _hrTargetAdjustment;
 
     private _staminaHRBias =

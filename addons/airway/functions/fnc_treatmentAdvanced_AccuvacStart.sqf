@@ -144,7 +144,7 @@ GVAR(suction_timeOut) = true;
             [{
                 params ["_patient"];
                 !(_patient getVariable [QGVAR(suctionActive), false]);
-            }, {}, [_patient], 7.6, {
+            }, {}, [_patient], 5, {
                 GVAR(loopSuction) = true;
             }] call CBA_fnc_waitUntilAndExecute;
         };

@@ -585,7 +585,7 @@
             <Dutch>Wordt gebruikt om patiënten te reanimeren</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_AED_DISPLAYNAME">
-            <English>Automated External Defibrillator</English>
+            <English>(C) Automated External Defibrillator</English>
             <Czech>Automatický Externí Defibrilátor</Czech>
             <French>Défibrillateur Automatisé Externe</French>
             <Spanish>Desfibrilador Externo Automático</Spanish>
@@ -1347,7 +1347,7 @@
             <Chinese>一種準確測量病人血壓的醫療裝置</Chinese>
         </Key>
         <Key ID="STR_KAT_Circulation_BPCuff_display">
-            <English>Blood Pressure Cuff</English>
+            <English>(V) Blood Pressure Cuff</English>
             <Czech>TK Manžeta</Czech>
             <French>Brassard de pression artérielle</French>
             <Italian>Bracciale PS</Italian>
@@ -1356,7 +1356,7 @@
             <Chinese>血壓計</Chinese>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_A">
-            <English>Blood IV (1000ml) BT: A+</English>
+            <English>(IV) Blood IV (1000ml) BT: A+</English>
             <Czech>Krev IV (1000ml) KS: A+</Czech>
             <French>Sang IV (1000ml) GS: A+</French>
             <Spanish>Sangre IV (1000ml) GS: A+</Spanish>
@@ -1374,7 +1374,7 @@
             <Dutch>Bloed IV (1000ml) BT: A+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_AB">
-            <English>Blood IV (1000ml) BT: AB+</English>
+            <English>(IV) Blood IV (1000ml) BT: AB+</English>
             <Czech>Krev IV (1000ml) KS: AB+</Czech>
             <French>Sang IV (1000ml) GS: AB+</French>
             <Spanish>Sangre IV (1000ml) GS: AB+</Spanish>
@@ -1392,7 +1392,7 @@
             <Dutch>Bloed IV (1000ml) BT: AB+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_AB_250">
-            <English>Blood IV (250ml) BT: AB+</English>
+            <English>(IV) Blood IV (250ml) BT: AB+</English>
             <Czech>Krev IV (250ml) KS: AB+</Czech>
             <French>Sang IV (250ml) GS: AB+</French>
             <Spanish>Sangre IV (250ML) GS: AB+</Spanish>
@@ -1410,7 +1410,7 @@
             <Dutch>Bloed IV (250ml) BT: AB+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_AB_250_N">
-            <English>Blood IV (250ml) BT: AB-</English>
+            <English>(IV) Blood IV (250ml) BT: AB-</English>
             <Czech>Krev IV (250ml) KS: AB-</Czech>
             <French>Sang IV (250ml) GS: AB-</French>
             <Spanish>Sangre IV (250ML) GS: AB-</Spanish>
@@ -1428,7 +1428,7 @@
             <Dutch>Bloed IV (250ml) BT: AB-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_AB_500">
-            <English>Blood IV (500ml) BT: AB+</English>
+            <English>(IV) Blood IV (500ml) BT: AB+</English>
             <Czech>Krev IV (500ml) KS: AB+</Czech>
             <French>Sang IV (500ml) GS: AB+</French>
             <Spanish>Sangre IV (500ml) GS: AB+</Spanish>
@@ -1446,7 +1446,7 @@
             <Dutch>Bloed IV (500ml) BT: AB+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_AB_500_N">
-            <English>Blood IV (500ml) BT: AB-</English>
+            <English>(IV) Blood IV (500ml) BT: AB-</English>
             <Czech>Krev IV (500ml) KS: AB-</Czech>
             <French>Sang IV (500ml) GS: AB-</French>
             <Spanish>Sangre IV (500ml) GS: AB-</Spanish>
@@ -1464,7 +1464,7 @@
             <Dutch>Bloed IV (500ml) BT: AB-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_AB_N">
-            <English>Blood IV (1000ml) BT: AB-</English>
+            <English>(IV) Blood IV (1000ml) BT: AB-</English>
             <Czech>Krev IV (1000ml) KS: AB-</Czech>
             <French>Sang IV (1000ml) GS: AB-</French>
             <Spanish>Sangre IV (1000ml) GS: AB-</Spanish>
@@ -1482,7 +1482,7 @@
             <Dutch>Bloed IV (1000ml) BT: AB-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_A_250">
-            <English>Blood IV (250ml) BT: A+</English>
+            <English>(IV) Blood IV (250ml) BT: A+</English>
             <Czech>Krev IV (250ml) KS: A+</Czech>
             <French>Sang IV (250ml) GS: A+</French>
             <Spanish>Sangre IV (250ML) GS: A+</Spanish>
@@ -1500,7 +1500,7 @@
             <Dutch>Bloed IV (250ml) BT: A+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_A_250_N">
-            <English>Blood IV (250ml) BT: A-</English>
+            <English>(IV) Blood IV (250ml) BT: A-</English>
             <Czech>Krev IV (250ml) KS: A-</Czech>
             <French>Sang IV (250ml) GS: A-</French>
             <Spanish>Sangre IV (250ML) GS: A-</Spanish>
@@ -1518,7 +1518,7 @@
             <Dutch>Bloed IV (250ml) BT: A-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_A_500">
-            <English>Blood IV (500ml) BT: A+</English>
+            <English>(IV) Blood IV (500ml) BT: A+</English>
             <Czech>Krev IV (500ml) KS: A+</Czech>
             <French>Sang IV (500ml) GS: A+</French>
             <Spanish>Sangre IV (500ml) GS: A+</Spanish>
@@ -1536,7 +1536,7 @@
             <Dutch>Bloed IV (500ml) BT: A+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_A_500_N">
-            <English>Blood IV (500ml) BT: A-</English>
+            <English>(IV) Blood IV (500ml) BT: A-</English>
             <Czech>Krev IV (500ml) KS: A-</Czech>
             <French>Sang IV (500ml) GS: A-</French>
             <Spanish>Sangre IV (500ml) GS: A-</Spanish>
@@ -1554,7 +1554,7 @@
             <Dutch>Bloed IV (500ml) BT: A-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_A_N">
-            <English>Blood IV (1000ml) BT: A-</English>
+            <English>(IV) Blood IV (1000ml) BT: A-</English>
             <Czech>Krev IV (1000ml) KS: A-</Czech>
             <French>Sang IV (1000ml) GS: A-</French>
             <Spanish>Sangre IV (1000ml) GS: A-</Spanish>
@@ -1572,7 +1572,7 @@
             <Dutch>Bloed IV (1000ml) BT: A-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_B">
-            <English>Blood IV (1000ml) BT: B+</English>
+            <English>(IV) Blood IV (1000ml) BT: B+</English>
             <Czech>Krev IV (1000ml) KS: B+</Czech>
             <French>Sang IV (1000ml) GS: B+</French>
             <Spanish>Sangre IV (1000ml) GS: B+</Spanish>
@@ -1590,7 +1590,7 @@
             <Dutch>Bloed IV (1000ml) BT: B+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_B_250">
-            <English>Blood IV (250ml) BT: B+</English>
+            <English>(IV) Blood IV (250ml) BT: B+</English>
             <Czech>Krev IV (250ml) KS: B+</Czech>
             <French>Sang IV (250ml) GS: B+</French>
             <Spanish>Sangre IV (250ML) GS: B+</Spanish>
@@ -1608,7 +1608,7 @@
             <Dutch>Bloed IV (250ml) BT: B+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_B_250_N">
-            <English>Blood IV (250ml) BT: B-</English>
+            <English>(IV) Blood IV (250ml) BT: B-</English>
             <Czech>Krev IV (250ml) KS: B-</Czech>
             <French>Sang IV (250ml) GS: B-</French>
             <Spanish>Sangre IV (250ML) GS: B-</Spanish>
@@ -1626,7 +1626,7 @@
             <Dutch>Bloed IV (250ml) BT: B-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_B_500">
-            <English>Blood IV (500ml) BT: B+</English>
+            <English>(IV) Blood IV (500ml) BT: B+</English>
             <Czech>Krev IV (500ml) KS: B+</Czech>
             <French>Sang IV (500ml) GS: B+</French>
             <Spanish>Sangre IV (500ml) GS: B+</Spanish>
@@ -1644,7 +1644,7 @@
             <Dutch>Bloed IV (500ml) BT: B+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_B_500_N">
-            <English>Blood IV (500ml) BT: B-</English>
+            <English>(IV) Blood IV (500ml) BT: B-</English>
             <Czech>Krev IV (500ml) KS: B-</Czech>
             <French>Sang IV (500ml) GS: B-</French>
             <Spanish>Sangre IV (500ml) GS: B-</Spanish>
@@ -1662,7 +1662,7 @@
             <Dutch>Bloed IV (500ml) BT: B-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_B_N">
-            <English>Blood IV (1000ml) BT: B-</English>
+            <English>(IV) Blood IV (1000ml) BT: B-</English>
             <Czech>Krev IV (1000ml) KS: B-</Czech>
             <French>Sang IV (1000ml) GS: B-</French>
             <Spanish>Sangre IV (1000ml) GS: B-</Spanish>
@@ -1680,7 +1680,7 @@
             <Dutch>Bloed IV (1000ml) BT: B-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_O">
-            <English>Blood IV (1000ml) BT: 0+</English>
+            <English>(IV) Blood IV (1000ml) BT: 0+</English>
             <Czech>Krev IV (1000ml) KS: 0+</Czech>
             <French>Sang IV (1000ml) GS: O+</French>
             <Spanish>Sangre IV (1000ml) GS: 0+</Spanish>
@@ -1698,7 +1698,7 @@
             <Dutch>Bloed IV (1000ml) BT: 0+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_O_250">
-            <English>Blood IV (250ml) BT: 0+</English>
+            <English>(IV) Blood IV (250ml) BT: 0+</English>
             <Czech>Krev IV (250ml) KS: 0+</Czech>
             <French>Sang IV (250ml) GS: O+</French>
             <Spanish>Sangre IV (250ML) GS: 0+</Spanish>
@@ -1716,7 +1716,7 @@
             <Dutch>Bloed IV (250ml) BT: 0+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_O_250_N">
-            <English>Blood IV (250ml) BT: 0-</English>
+            <English>(IV) Blood IV (250ml) BT: 0-</English>
             <Czech>Krev IV (250ml) KS: 0-</Czech>
             <French>Sang IV (250ml) GS: O-</French>
             <Spanish>Sangre IV (250ML) GS: 0-</Spanish>
@@ -1734,7 +1734,7 @@
             <Dutch>Bloed IV (250ml) BT: 0-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_O_500">
-            <English>Blood IV (500ml) BT: 0+</English>
+            <English>(IV) Blood IV (500ml) BT: 0+</English>
             <Czech>Krev IV (500ml) KS: 0+</Czech>
             <French>Sang IV (500ml) GS: O+</French>
             <Spanish>Sangre IV (500ml) GS: 0+</Spanish>
@@ -1752,7 +1752,7 @@
             <Dutch>Bloed IV (500ml) BT: 0+</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_O_500_N">
-            <English>Blood IV (500ml) BT: 0-</English>
+            <English>(IV) Blood IV (500ml) BT: 0-</English>
             <Czech>Krev IV (500ml) KS: 0-</Czech>
             <French>Sang IV (500ml) GS: O-</French>
             <Spanish>Sangre IV (500ml) GS: 0-</Spanish>
@@ -1770,7 +1770,7 @@
             <Dutch>Bloed IV (500ml) BT: 0-</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_O_N">
-            <English>Blood IV (1000ml) BT: 0-</English>
+            <English>(IV) Blood IV (1000ml) BT: 0-</English>
             <Czech>Krev IV (1000ml) KS: 0-</Czech>
             <French>Sang IV (1000ml) GS: O-</French>
             <Spanish>Sangre IV (1000ml) GS: 0-</Spanish>
@@ -2169,7 +2169,7 @@
             <Dutch>Bloed wordt onttrokken</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_FieldBloodTK250_Display">
-            <English>Field Blood Transfusion Kit (250ml)</English>
+            <English>(IV) Field Blood Transfusion Kit (250ml)</English>
             <Czech>Polní transfůzní sada (250ml)</Czech>
             <French>Kit de transfusion sanguine de terrain (250 ml)</French>
             <Spanish>Kit de transfusión de sangre de campo (250 ml)</Spanish>
@@ -2187,7 +2187,7 @@
             <Dutch>Veld bloedtransfusie set (250ml)</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_FieldBloodTK500_Display">
-            <English>Field Blood Transfusion Kit (500ml)</English>
+            <English>(IV) Field Blood Transfusion Kit (500ml)</English>
             <Czech>Polní transfůzní sada (500ml)</Czech>
             <French>Kit de transfusion sanguine de terrain (500 ml)</French>
             <Spanish>Kit de transfusión de sangre de campo (500 ml)</Spanish>
@@ -3531,7 +3531,7 @@
             <Dutch>Wordt gebruikt om de vitale waarden te monitoren en patiënten te reanimeren</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_X_Display">
-            <English>AED X-Series</English>
+            <English>(C) AED X-Series</English>
             <Czech>AED X-Series</Czech>
             <French>AED X-Series</French>
             <Spanish>DEA Serie-X</Spanish>
@@ -3790,13 +3790,13 @@
             <English>Transfusing Etomidate Infusion (250ml)...</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Ringers_Lactate_IV">
-            <English>Ringers Lactate IV (1000ml)</English>
+            <English>(IV) Ringers Lactate IV (1000ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Ringers_Lactate_IV_250">
-            <English>Ringers Lactate IV (250ml)</English>
+            <English>(IV) Ringers Lactate IV (250ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Ringers_Lactate_IV_500">
-            <English>Ringers Lactate IV (500ml)</English>
+            <English>(IV) Ringers Lactate IV (500ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Ringers_Lactate_IV_Desc_Short">
             <English>Ringers Lactate IV, for restoring a patients fluids</English>
@@ -3805,13 +3805,13 @@
             <English>A medical volume-replenishing agent introduced into the blood system through an IV infusion.</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Hypertonic_Saline_IV_500">
-            <English>Hypertonic Saline IV (23.4%) (500ml)</English>
+            <English>(IV) HT Saline IV (23.4%) (500ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Hypertonic_Saline_IV_250">
-            <English>Hypertonic Saline IV (23.4%) (250ml)</English>
+            <English>(IV) HT Saline IV (23.4%) (250ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Hypertonic_Saline_IV_100">
-            <English>Hypertonic Saline IV (23.4%) (100ml)</English>
+            <English>(IV) HT Saline IV (23.4%) (100ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Hypertonic_Saline_iv_Desc_Short">
             <English>Hypertonic Saline, for reducing a patients ICP</English>
@@ -3820,13 +3820,13 @@
             <English>A medical volume-replenishing agent introduced into the blood system through an IV infusion.</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Packed_RBC_IV_250">
-            <English>Packed RBC IV (250ml)</English>
+            <English>(IV) Packed RBC IV (250ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Packed_RBC_IV_500">
-            <English>Packed RBC IV (500ml)</English>
+            <English>(IV) Packed RBC IV (500ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Packed_RBC_IV_Desc_Short">
-            <English>Packed Red Blood Cells, for restoring a patients blood in conjunction with plasma</English>
+            <English>(IV) Packed Red Blood Cells, for restoring a patients blood in conjunction with plasma</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Packed_RBC_IV_Desc_Use">
             <English>O Negative infusion blood used in strict and rare events to replenish blood supply usually conducted in the transport phase of medical care.</English>
@@ -3943,7 +3943,7 @@
             <English>LUCAS Inactive</English>
         </Key>
         <Key ID="STR_KAT_Circulation_salineIV_100">
-            <English>Saline IV (100ml)</English>
+            <English>(IV) Saline IV (100ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_SalineIV100">
             <English>Give Saline IV (100ml)</English>
@@ -4105,16 +4105,16 @@
             <English>a Venous Return time of ~5 seconds</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV">
-            <English>Hextend IV (1000ml)</English>
+            <English>(IV) Hextend IV (1000ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV_250">
-            <English>Hextend IV (250ml)</English>
+            <English>(IV) Hextend IV (250ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV_500">
-            <English>Hextend IV (500ml)</English>
+            <English>(IV) Hextend IV (500ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV_Desc_Short">
-            <English>Hextend IV, for restoring a patients fluids</English>
+            <English>(IV) Hextend IV, for restoring a patients fluids</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV_Desc_Use">
             <English>A medical volume-replenishing agent introduced into the blood system through an IV infusion.</English>
@@ -4126,7 +4126,7 @@
             <English>Chance for shockable cardiac arrest to be refractory, causing shocks to be much less effective</English>
         </Key>
         <Key ID="STR_KAT_Circulation_platelet_IV">
-            <English>Platelets (100ml)</English>
+            <English>(IV) Platelets (100ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_PlateletIV100">
             <English>Give Platelets (100ml)</English>
@@ -4229,6 +4229,167 @@
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_O_500_N">
             <English>FBTK Blood IV (500ml) BT: 0-</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Blood_IV">
+            <English>(IV) Blood IV (1000ml)</English>
+            <Czech>Krevní transfúze (1000ml)</Czech>
+            <French>Culot sanguin IV (1000 ml)</French>
+            <Spanish>Sangre IV (1000ml)</Spanish>
+            <Italian>Sangue EV (1000ml)</Italian>
+            <Polish>Krew IV (1000ml)</Polish>
+            <Portuguese>Sangue IV (1000ml)</Portuguese>
+            <Russian>Кровь для переливания (1000 мл)</Russian>
+            <German>Blut IV (1000ml)</German>
+            <Korean>혈액 IV (1000ml)</Korean>
+            <Japanese>血液 IV (1000ml)</Japanese>
+            <Chinese>點滴 (血液 1000毫升)</Chinese>
+            <Chinesesimp>血液（1000毫升）</Chinesesimp>
+            <Turkish>Kan IV (1000ml)</Turkish>
+            <Hungarian>Vér-infúzió (1000ml)</Hungarian>
+            <Ukrainian>Кров для переливання (1000 мл)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Blood_IV_250">
+            <English>(IV) Blood IV (250ml)</English>
+            <Czech>Krevní transfúze (250ml)</Czech>
+            <French>Culot sanguin IV (250 ml)</French>
+            <Spanish>Sangre IV (250ml)</Spanish>
+            <Italian>Sangue EV (250ml)</Italian>
+            <Polish>Krew IV (250ml)</Polish>
+            <Portuguese>Sangue IV (250ml)</Portuguese>
+            <Russian>Кровь для переливания (250 мл)</Russian>
+            <German>Blut IV (250ml)</German>
+            <Korean>혈액 IV (250ml)</Korean>
+            <Japanese>血液 IV (250ml)</Japanese>
+            <Chinese>點滴 (血液 250毫升)</Chinese>
+            <Chinesesimp>血液（250毫升）</Chinesesimp>
+            <Turkish>Kan IV (250ml)</Turkish>
+            <Hungarian>Vér-infúzió (250ml)</Hungarian>
+            <Ukrainian>Кров для переливання (250 мл)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Blood_IV_500">
+            <English>(IV) Blood IV (500ml)</English>
+            <Czech>Krevní transfúze (500ml)</Czech>
+            <French>Culot sanguin IV (500 ml)</French>
+            <Spanish>Sangre IV (500ml)</Spanish>
+            <Italian>Sangue EV (500ml)</Italian>
+            <Polish>Krew IV (500ml)</Polish>
+            <Portuguese>Sangue IV (500ml)</Portuguese>
+            <Russian>Кровь для переливания (500 мл)</Russian>
+            <German>Blut IV (500ml)</German>
+            <Korean>혈액 IV (500ml)</Korean>
+            <Japanese>血液 IV (500ml)</Japanese>
+            <Chinese>點滴 (血液 500毫升)</Chinese>
+            <Chinesesimp>血液（500毫升）</Chinesesimp>
+            <Turkish>Kan IV (500ml)</Turkish>
+            <Hungarian>Vér-infúzió (500ml)</Hungarian>
+            <Ukrainian>Кров для переливання (500 мл)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Saline_IV">
+            <English>(IV) Saline IV (1000ml)</English>
+            <Czech>Fyziologický roztok (1000ml)</Czech>
+            <French>Solution saline IV (1000 ml)</French>
+            <Spanish>Salino IV (1000ml)</Spanish>
+            <Italian>Soluzione salina EV (1000ml)</Italian>
+            <Polish>Sól fizjologiczna IV (1000ml)</Polish>
+            <Portuguese>Soro IV (1000ml)</Portuguese>
+            <Russian>Физраствор для в/в вливания (1000 мл)</Russian>
+            <German>Kochsalzlösung (1000ml)</German>
+            <Korean>생리식염수 IV (1000ml)</Korean>
+            <Japanese>生理食塩液 IV (1000ml)</Japanese>
+            <Chinese>點滴 (食鹽水 1000毫升)</Chinese>
+            <Chinesesimp>生理盐水（1000毫升）</Chinesesimp>
+            <Turkish>Serum IV (1000ml)</Turkish>
+            <Hungarian>0,9%-os sósvíz-infúzió (1000ml)</Hungarian>
+            <Ukrainian>Фізрозчин для в/в вливання (1000 мл)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Saline_IV_250">
+            <English>(IV) Saline IV (250ml)</English>
+            <Czech>Fyziologický roztok (250ml)</Czech>
+            <French>Solution saline IV (250 ml)</French>
+            <Spanish>Salino IV (250ml)</Spanish>
+            <Italian>Soluzione salina EV (250ml)</Italian>
+            <Polish>Sól fizjologiczna IV (250ml)</Polish>
+            <Portuguese>Soro IV (1000ml)</Portuguese>
+            <Russian>Физраствор для в/в вливания (250 мл)</Russian>
+            <German>Kochsalzlösung (250ml)</German>
+            <Korean>생리식염수 IV (250ml)</Korean>
+            <Japanese>生理食塩液 IV (250ml)</Japanese>
+            <Chinese>點滴 (食鹽水 250毫升)</Chinese>
+            <Chinesesimp>生理盐水（250毫升）</Chinesesimp>
+            <Turkish>Serum IV (250ml)</Turkish>
+            <Hungarian>0,9%-os sósvíz-infúzió (250ml)</Hungarian>
+            <Ukrainian>Фізрозчин для в/в вливання (250 мл)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Saline_IV_500">
+            <English>(IV) Saline IV (500ml)</English>
+            <Czech>Fyziologický roztok (500ml)</Czech>
+            <French>Solution saline IV (500 ml)</French>
+            <Spanish>Salino IV (500ml)</Spanish>
+            <Italian>Soluzione salina EV (500ml)</Italian>
+            <Polish>Sól fizjologiczna IV (500ml)</Polish>
+            <Portuguese>Soro IV (1000ml)</Portuguese>
+            <Russian>Физраствор для в/в вливания (500 мл)</Russian>
+            <German>Kochsalzlösung (500ml)</German>
+            <Korean>생리식염수 IV (500ml)</Korean>
+            <Japanese>生理食塩液 IV (500ml)</Japanese>
+            <Chinese>點滴 (食鹽水 500毫升)</Chinese>
+            <Chinesesimp>生理盐水（500毫升）</Chinesesimp>
+            <Turkish>Serum IV (500ml)</Turkish>
+            <Hungarian>0,9%-os sósvíz-infúzió (500ml)</Hungarian>
+            <Ukrainian>Фізрозчин для в/в вливання (500 мл)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Plasma_IV">
+            <English>(IV) Plasma IV (1000ml)</English>
+            <Czech>Krevní plazma (1000ml)</Czech>
+            <French>Plasma IV (1000 ml)</French>
+            <Spanish>Plasma IV (1000ml)</Spanish>
+            <Italian>Plasma EV (1000ml)</Italian>
+            <Polish>Osocze IV (1000ml)</Polish>
+            <Portuguese>Plasma IV (1000ml)</Portuguese>
+            <Russian>Плазма для в/в вливания (1000 мл)</Russian>
+            <German>Plasma IV (1000ml)</German>
+            <Korean>혈장 IV (1000ml)</Korean>
+            <Japanese>血漿 IV (1000ml)</Japanese>
+            <Chinese>血漿 (1000毫升)</Chinese>
+            <Chinesesimp>血浆（1000毫升）</Chinesesimp>
+            <Hungarian>Vérplazma-infúzió (1000ml)</Hungarian>
+            <Ukrainian>Плазма для в/в вливання (1000 мл)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Plasma_IV_250">
+            <English>(IV) Plasma IV (250ml)</English>
+            <Czech>Krevní plazma (250ml)</Czech>
+            <French>Plasma IV (250 ml)</French>
+            <Spanish>Plasma IV (250ml)</Spanish>
+            <Italian>Plasma EV (250ml)</Italian>
+            <Polish>Osocze IV (250ml)</Polish>
+            <Portuguese>Plasma IV (250ml)</Portuguese>
+            <Russian>Плазма для в/в вливания (250 мл)</Russian>
+            <German>Plasma IV (250ml)</German>
+            <Korean>혈장 IV (250ml)</Korean>
+            <Japanese>血漿 IV (250ml)</Japanese>
+            <Chinese>點滴 (血漿 250毫升)</Chinese>
+            <Chinesesimp>血浆（250毫升）</Chinesesimp>
+            <Turkish>Plasma IV (250ml)</Turkish>
+            <Hungarian>Vérplazma-infúzió (250ml)</Hungarian>
+            <Ukrainian>Плазма для в/в вливання (250 мл)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Plasma_IV_500">
+            <English>(IV) Plasma IV (500ml)</English>
+            <Czech>Krevní plazma (500ml)</Czech>
+            <French>Plasma IV (500 ml)</French>
+            <Spanish>Plasma IV (500ml)</Spanish>
+            <Italian>Plasma EV (500ml)</Italian>
+            <Polish>Osocze IV (500ml)</Polish>
+            <Portuguese>Plasma IV (500ml)</Portuguese>
+            <Russian>Плазма для в/в вливания (500 мл)</Russian>
+            <German>Plasma IV (500ml)</German>
+            <Korean>혈장 IV (500ml)</Korean>
+            <Japanese>血漿 IV (500ml)</Japanese>
+            <Chinese>點滴 (血漿 500毫升)</Chinese>
+            <Chinesesimp>血浆（500毫升）</Chinesesimp>
+            <Turkish>Plasma IV (500ml)</Turkish>
+            <Hungarian>Vérplazma-infúzió (500ml)</Hungarian>
+            <Ukrainian>Плазма для в/в вливання (500 мл)</Ukrainian>
         </Key>
     </Package>
 </Project>

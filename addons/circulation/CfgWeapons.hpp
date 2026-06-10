@@ -18,46 +18,55 @@ class CfgWeapons {
     class ACE_ItemCore;
     class CBA_MiscItem_ItemInfo;
     class ACE_bloodIV: ACE_ItemCore {
+        displayName = CSTRING(Blood_IV);
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 20;
         };
     };
     class ACE_bloodIV_500: ACE_bloodIV {
+        displayName = CSTRING(Blood_IV_500);
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 10;
         };
     };
     class ACE_bloodIV_250: ACE_bloodIV {
+        displayName = CSTRING(Blood_IV_250);
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 5;
         };
     };
     class ACE_salineIV: ACE_ItemCore {
+        displayName = CSTRING(Saline_IV);
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 20;
         };
     };
     class ACE_salineIV_500: ACE_salineIV {
+        displayName = CSTRING(Saline_IV_500);
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 10;
         };
     };
     class ACE_salineIV_250: ACE_salineIV {
+        displayName = CSTRING(Saline_IV_250);
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 5;
         };
     };
     class ACE_plasmaIV: ACE_ItemCore {
+        displayName = CSTRING(Plasma_IV);
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 20;
         };
     };
     class ACE_plasmaIV_500: ACE_plasmaIV {
+        displayName = CSTRING(Plasma_IV_500);
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 10;
         };
     };
     class ACE_plasmaIV_250: ACE_plasmaIV {
+        displayName = CSTRING(Plasma_IV_250);
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 5;
         };

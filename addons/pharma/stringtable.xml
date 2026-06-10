@@ -184,7 +184,7 @@
             <Italian>Pacchetto di Pillole per Medicazioni da Combattimento&lt;br/&gt;Usato per sopprimere il dolore lieve e alleviare i sintomi di incompatibilità del sangue</Italian>
         </Key>
         <Key ID="STR_KAT_Pharma_Painkillers_Box_Display">
-            <English>Combat Pill Pack</English>
+            <English>(Medication) Combat Pill Pack</English>
             <Japanese>戦闘治療薬パック</Japanese>
             <Spanish>Paquete de Comprimidos de Combate</Spanish>
             <Portuguese>Comprimidos de Combate</Portuguese>
@@ -221,7 +221,7 @@
             <Dutch>Wordt gebruikt om bewustzijn te herstellen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Carbonate_Box_Display">
-            <English>Ammonium Carbonate</English>
+            <English>(Medication) Ammonium Carbonate</English>
             <German>Ammoniumkarbonat</German>
             <Polish>Sole trzeźwiące</Polish>
             <French>Sels d'Ammoniac</French>
@@ -257,7 +257,7 @@
             <Dutch>Gebruik carbonaat</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Penthrox_Display">
-            <English>Penthrox Inhaler</English>
+            <English>(Medication) Penthrox Inhaler</English>
             <Japanese>ペンスロックス吸入器</Japanese>
             <French>Inhalateur de Penthrox</French>
             <Korean>펜트록스 흡입기</Korean>
@@ -310,7 +310,7 @@
             <Dutch>Wordt gebruikt om opïode overdossisen tegen te gaan</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Naloxone_Box_Display">
-            <English>Naloxone</English>
+            <English>(Medication) Naloxone</English>
             <German>Naloxone</German>
             <Polish>Nalokson</Polish>
             <French>Naloxone</French>
@@ -364,7 +364,7 @@
             <Dutch>Wordt gebruikt om hartstilstand te bestrijden</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Amiodarone_Box_Display">
-            <English>Vial: Amiodarone</English>
+            <English>(Vial) Amiodarone</English>
             <German>Amiodaron</German>
             <Polish>Amiodaron</Polish>
             <French>Amiodarone</French>
@@ -385,7 +385,7 @@
             <English>Used to reverse TXA and EACA overdose</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Alteplase_Display">
-            <English>Vial: Alteplase</English>
+            <English>(Vial) Alteplase</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Amiodarone">
             <English>Push Amiodarone</English>
@@ -424,7 +424,7 @@
             <Dutch>Wordt gebruikt om hartstilstand te bestrijden</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Lidocaine_Box_Display">
-            <English>Vial: Lidocaine</English>
+            <English>(Vial) Lidocaine</English>
             <German>Lidocain</German>
             <Polish>Lidokaina</Polish>
             <French>Lidocaïne</French>
@@ -478,7 +478,7 @@
             <Dutch>Wordt gebruikt om chemische blootstelling en bradycardie te behandelen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Atropine_Box_Display">
-            <English>Atropine Autoinjector</English>
+            <English>>(Autoinjector) Atropine</English>
             <German>Atropin</German>
             <Polish>Atropina</Polish>
             <French>Atropine</French>
@@ -496,7 +496,7 @@
             <Dutch>Atropine autoinjector</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_AtropineIV_Display">
-            <English>Vial: Atropine</English>
+            <English>(Vial) Atropine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Atropine">
             <English>Inject Atropine</English>
@@ -538,7 +538,7 @@
             <Dutch>Bevorderd bloedstolling</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_TXA_Box_Display">
-            <English>Vial: TXA</English>
+            <English>(Vial) TXA</English>
             <German>TXA</German>
             <Polish>TXA</Polish>
             <French>Acide Tranexamique</French>
@@ -592,7 +592,7 @@
             <Dutch>Wordt gebruikt om de bloeddruk te verhogen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Norep_Box_Display">
-            <English>Vial: Norepinephrine</English>
+            <English>(Vial) Norepinephrine</English>
             <German>Noradrenalin</German>
             <Polish>Noradrenalina</Polish>
             <French>Noradrénaline</French>
@@ -646,7 +646,7 @@
             <Dutch>Wordt gebruikt om de bloeddruk te verhogen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Phenyl_Box_Display">
-            <English>Vial: Phenylephrine</English>
+            <English>(Vial) Phenylephrine</English>
             <German>Phenylephrin</German>
             <Polish>Fenylefryna</Polish>
             <French>Phényléphrine</French>
@@ -682,7 +682,7 @@
             <Dutch>Injecteer Fenylefrine (IV)</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_PhenylAuto_Box_Display">
-            <English>Phenylephrine Autoinjector</English>
+            <English>>(Autoinjector) Phenylephrine</English>
             <Russian>Автоинъектор фенилэфрина</Russian>
             <Spanish>Autoinyector de Fenilefrina</Spanish>
             <Japanese>フェニレフリン自動注射器</Japanese>
@@ -733,7 +733,7 @@
             <Dutch>Wordt gebruikt om de bloeddruk te laten dalen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Nitro_Box_Display">
-            <English>Vial: Nitroglycerin</English>
+            <English>(Vial) Nitroglycerin</English>
             <German>Nitroglycerin</German>
             <Polish>Nitrogliceryna</Polish>
             <French>Nitroglycérine</French>
@@ -930,56 +930,13 @@
             <Dutch>%1 gebruikte %2</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_16_Display">
-            <English>16g IV</English>
-            <German>16g IV</German>
-            <Polish>16g IV</Polish>
-            <Spanish>16g IV</Spanish>
-            <Chinese>16g IV</Chinese>
-            <Chinesesimp>16g IV</Chinesesimp>
-            <Czech>16g IV</Czech>
-            <Korean>16g IV</Korean>
-            <French>16g IV</French>
-            <Turkish>16g IV</Turkish>
-            <Italian>16g IV</Italian>
-            <Japanese>16g IV</Japanese>
-            <Russian>16г IV</Russian>
-            <Portuguese>16g IV</Portuguese>
-            <Finnish>16g IV</Finnish>
-            <Dutch>16g IV</Dutch>
+            <English>(P) 16g IV</English>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_14_Display">
-            <English>14g IV</English>
-            <German>14g IV</German>
-            <Polish>14g IV</Polish>
-            <Spanish>14g IV</Spanish>
-            <Chinese>14g IV</Chinese>
-            <Chinesesimp>14g IV</Chinesesimp>
-            <Czech>14g IV</Czech>
-            <Korean>14g IV</Korean>
-            <French>14g IV</French>
-            <Turkish>14g IV</Turkish>
-            <Italian>14g IV</Italian>
-            <Japanese>14g IV</Japanese>
-            <Russian>14r IV</Russian>
-            <Portuguese>14g IV</Portuguese>
-            <Finnish>14g IV</Finnish>
+            <English>(P) 14g IV</English>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_20_Display">
-            <English>20g IV</English>
-            <German>20g IV</German>
-            <Polish>20g IV</Polish>
-            <Spanish>20g IV</Spanish>
-            <Chinese>20g IV</Chinese>
-            <Chinesesimp>20g IV</Chinesesimp>
-            <Czech>20g IV</Czech>
-            <Korean>20g IV</Korean>
-            <French>20g IV</French>
-            <Turkish>20g IV</Turkish>
-            <Italian>20g IV</Italian>
-            <Japanese>20g IV</Japanese>
-            <Russian>20r IV</Russian>
-            <Portuguese>20g IV</Portuguese>
-            <Finnish>20g IV</Finnish>
+            <English>(P) 20g IV</English>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_DescShort">
             <English>Intravenous Needle</English>
@@ -1000,22 +957,7 @@
             <Dutch>intraveneuze canule</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_IO_45_Display">
-            <English>FAST IO</English>
-            <German>FAST IO</German>
-            <Polish>FAST IO</Polish>
-            <Spanish>FAST IO</Spanish>
-            <Chinese>FAST IO</Chinese>
-            <Chinesesimp>FAST IO</Chinesesimp>
-            <Czech>FAST IO</Czech>
-            <Korean>FAST IO</Korean>
-            <French>FAST IO</French>
-            <Turkish>FAST IO</Turkish>
-            <Italian>FAST IO</Italian>
-            <Japanese>FAST IO</Japanese>
-            <Russian>FAST IO</Russian>
-            <Portuguese>FAST IO</Portuguese>
-            <Finnish>FAST IO</Finnish>
-            <Dutch>FAST IO</Dutch>
+            <English>(P) FAST IO</English>
         </Key>
         <Key ID="STR_KAT_Pharma_IO_DescShort">
             <English>Intraosseous Needle</English>
@@ -1441,7 +1383,7 @@
             <Dutch>Behandelingstijd voor heroriëntatie</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Etomidate_displayName">
-            <English>Vial: Etomidate</English>
+            <English>(Vial) Etomidate</English>
             <Chinesesimp>依托咪酯</Chinesesimp>
             <Italian>Etomidato</Italian>
             <Czech>Etomidát</Czech>
@@ -1505,7 +1447,7 @@
             <Dutch>Injecteer Etomidaat</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Lorazepam_displayName">
-            <English>Vial: Lorazepam</English>
+            <English>(Vial) Lorazepam</English>
             <Chinesesimp>劳拉西泮</Chinesesimp>
             <Italian>Lorazepam</Italian>
             <Czech>Lorazepam</Czech>
@@ -1569,7 +1511,7 @@
             <Dutch>Injecteer Lorazepam</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Flumazenil_displayName">
-            <English>Vial: Flumazenil</English>
+            <English>(Vial) Flumazenil</English>
             <Chinesesimp>氟马西尼</Chinesesimp>
             <Italian>Flumazenil</Italian>
             <Czech>Flumazenil</Czech>
@@ -1649,7 +1591,7 @@
             <Dutch>Injecteer Ketamine</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Ketamine_Box_Display">
-            <English>Vial: Ketamine</English>
+            <English>(Vial) Ketamine</English>
             <Chinesesimp>氯胺酮</Chinesesimp>
             <Italian>Ketamina</Italian>
             <Czech>Ketamin</Czech>
@@ -1689,7 +1631,7 @@
             <Dutch>Injecteer Fentanyl</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Fentanyl_Box_Display">
-            <English>Vial: Fentanyl</English>
+            <English>(Vial) Fentanyl</English>
             <Chinesesimp>芬太尼</Chinesesimp>
             <Italian>Fentanil</Italian>
             <Czech>Fentanyl</Czech>
@@ -1730,7 +1672,7 @@
             <Dutch>Injecteer Nalbufine</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Nalbuphine_Box_Display">
-            <English>Vial: Nalbuphine</English>
+            <English>(Vial) Nalbuphine</English>
             <Chinesesimp>纳布啡</Chinesesimp>
             <Italian>Nalbufina (Nubain)</Italian>
             <Czech>Nalbufin</Czech>
@@ -2918,7 +2860,7 @@
             <Dutch>Schakelt geadvanceerde coagulatie functies in, en veranderd het gedrag van TXA en EACA naar behoren</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_EACA_Display">
-            <English>Vial: EACA</English>
+            <English>(Vial) EACA</English>
             <Italian>EACA (Acido aminocaproico Epsilon)</Italian>
             <Czech>EACA</Czech>
             <French>Acide aminocaproïque</French>
@@ -2950,7 +2892,7 @@
             <Dutch>Injecteer EACA</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Pervitin_Capsule_Display">
-            <English>Pervitin capsule</English>
+            <English>(Medication) Pervitin capsule</English>
             <German>Pervitin Kapsel</German>
             <French>Capsule de pervitine</French>
             <Japanese>ペルビチンカプセル</Japanese>
@@ -3132,7 +3074,7 @@
             <Dutch>Je hoofd begint zich op te helderen, en je stopt met trillen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Caffeine_Bottle_Display">
-            <English>Caffeine bottle</English>
+            <English>(Medication) Caffeine bottle</English>
             <German>Koffein Kapsel</German>
             <French>Bouteille de caféine</French>
             <Japanese>カフェインボトル</Japanese>
@@ -3830,7 +3772,7 @@
             <English>Upper Right Leg</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Coag_Sense_Display">
-            <English>Portable Blood Tester</English>
+            <English>(P) Portable Blood Tester</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Coag_Sense_Display_DESC">
             <English>The Portable Blood Tester is a blood monitoring system that can both measure the efficiency of your blood clotting and your ABG</English>
@@ -4028,7 +3970,7 @@
             <Italian>Epinefrina IV</Italian>
         </Key>
         <Key ID="STR_KAT_Pharma_EpinephrineIV_displayName">
-            <English>Vial: Epinephrine</English>
+            <English>(Vial) Epinephrine</English>
             <Japanese>アドレナリン静脈注射 (IV)</Japanese>
             <Spanish>Epinefrina IV</Spanish>
             <Dutch>IV Adrenaline</Dutch>
@@ -4044,13 +3986,13 @@
             <Italian>Somministra Epinefrina</Italian>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_5_Display">
-            <English>5ml Syringe</English>
+            <English>(P) 5ml Syringe</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_5_DescShort">
             <English>For IV medications</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_10_Display">
-            <English>10ml Syringe</English>
+            <English>(P) 10ml Syringe</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_10_DescShort">
             <English>For IM medications</English>
@@ -4087,7 +4029,7 @@
             <English>Morphine IV</English>
         </Key>
         <Key ID="STR_KAT_Pharma_MorphineIV_displayName">
-            <English>Vial: Morphine</English>
+            <English>(Vial) Morphine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_MorphineIV">
             <English>Medical level required for Morphine IV</English>
@@ -4117,7 +4059,7 @@
             <English>Adenosine IV</English>
         </Key>
         <Key ID="STR_KAT_Pharma_AdenosineIV_displayName">
-            <English>Vial: Adenosine</English>
+            <English>(Vial) Adenosine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_AdenosineIV">
             <English>Push Adenosine IV</English>
@@ -4225,7 +4167,7 @@
             <English>Doxapram Is a Respiratory Stimulant that increases Breathing Rate and Depth</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Doxapram_Display">
-            <English>Vial: Doxapram</English>
+            <English>(Vial) Doxapram</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Doxapram">
             <English>Push Doxapram</English>
@@ -4279,7 +4221,7 @@
             <Dutch>Wordt gebruikt om chemische blootstelling en bradycardie te behandelen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_TXAAuto_Box_Display">
-            <English>TXA Autoinjector</English>
+            <English>>(Autoinjector) TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_TXAAuto">
             <English>Inject TXA</English>
@@ -4369,7 +4311,7 @@
             <English>Establish EZ IO</English>
         </Key>
         <Key ID="STR_KAT_Pharma_EZ_IO_Display">
-            <English>EZ IO</English>
+            <English>(P) EZ IO</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_ApplyEZIO">
             <English>Allow applying EZ IO</English>
@@ -4387,7 +4329,7 @@
             <English>Establishing External Jugular Vein Access</English>
         </Key>
         <Key ID="STR_KAT_Pharma_EJV_Display">
-            <English>Central Line Kit</English>
+            <English>(P) Kit: Central Line</English>
         </Key>
         <Key ID="STR_KAT_Pharma_EJV_DESCSHORT">
             <English>Allows for External Jugular Vein Access</English>
@@ -5620,7 +5562,7 @@
             <English>Ondansetron, For relief of nausea</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Ondansetron_displayName">
-            <English>Vial: Ondansetron</English>
+            <English>(Vial) Ondansetron</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Ondansetron">
             <English>Medical level required for Ondansetron</English>
@@ -5734,7 +5676,7 @@
             <English>Succinylcholine, For RSI</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Succinylcholine_displayName">
-            <English>Vial: Succinylcholine</English>
+            <English>(Vial) Succinylcholine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Succinylcholine">
             <English>Medical level required for Succinylcholine</English>
@@ -5752,7 +5694,7 @@
             <English>Sugammadex, For reversal of Rocuronium</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Sugammadex_displayName">
-            <English>Vial: Sugammadex</English>
+            <English>(Vial) Sugammadex</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_rocuronium_5ml_10">
             <English>Push 90mg Rocuronium</English>
@@ -5860,7 +5802,7 @@
             <English>Rocuronium, For RSI</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Rocuronium_displayName">
-            <English>Vial: Rocuronium</English>
+            <English>(Vial) Rocuronium</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Rocuronium">
             <English>Medical level required for Rocuronium/Sugammadex</English>
@@ -5893,7 +5835,7 @@
             <English>Treatment time for Fentanyl Patches</English>
         </Key>
         <Key ID="STR_KAT_Pharma_fentpatch_MEDdisplay">
-            <English>Fentanyl Patch</English>
+            <English>(Medication) Fentanyl Patch</English>
         </Key>
         <Key ID="STR_KAT_Pharma_fentpatchFull_MEDdisplay">
             <English>Fentanyl Patch (Full)</English>
@@ -5971,7 +5913,7 @@
             <English>Removing Pressure Bag</English>
         </Key>
         <Key ID="STR_KAT_Pharma_pressureBag_displayName">
-            <English>Pressure Bag</English>
+            <English>(P) Pressure Bag</English>
         </Key>
         <Key ID="STR_KAT_Pharma_pressureBag_DescShort">
             <English>Pressure Bag, increases flow rate of fluid bags when attached</English>
@@ -6034,13 +5976,13 @@
             <English>5ml Syringe / 10mg Diazepam</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Diazepam_Box_Display">
-            <English>Vial: Diazepam</English>
+            <English>(Vial) Diazepam</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Diazepam_DescShort">
             <English>Used to reduce Respiratory Rate</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Metoprolol_Box_Display">
-            <English>Vial: Metoprolol</English>
+            <English>(Vial) Metoprolol</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Metoprolol_DescShort">
             <English>Used to reduce heart rate</English>
@@ -6076,7 +6018,7 @@
             <English>Medical level required for Bicarbonate</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Bicarbonate_Box_Display">
-            <English>Vial: Bicarbonate</English>
+            <English>(Vial) Bicarbonate</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Bicarbonate_DescShort">
             <English>Used to manage Ph</English>
@@ -6094,7 +6036,7 @@
             <English>Medical level required for Calcium Chloride</English>
         </Key>
         <Key ID="STR_KAT_Pharma_CalciumChloride_Box_Display">
-            <English>Vial: Calcium Chloride</English>
+            <English>(Vial) Calcium Chloride</English>
         </Key>
         <Key ID="STR_KAT_Pharma_CalciumChloride_DescShort">
             <English>Used to manage calcium</English>
@@ -6112,7 +6054,7 @@
             <English>Medical level required for Calcium Gluconate</English>
         </Key>
         <Key ID="STR_KAT_Pharma_calciumGluconate_Box_Display">
-            <English>Vial: Calcium Gluconate</English>
+            <English>(Vial) Calcium Gluconate</English>
         </Key>
         <Key ID="STR_KAT_Pharma_calciumGluconate_DescShort">
             <English>Used to manage calcium</English>
@@ -6203,6 +6145,15 @@
         </Key>
         <Key ID="STR_KAT_Pharma_Flushing_Catheter_Lidocaine">
             <English>Flushing IV with Lidocaine</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_epinephrineAutoinjector">
+            <English>>(Autoinjector) Epinephrine</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_morphineAutoinjector">
+            <English>>(Autoinjector) Morphine</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_adenosineAutoinjector">
+            <English>>(Autoinjector) Adenosine</English>
         </Key>
     </Package>
 </Project>

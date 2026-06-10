@@ -17,6 +17,6 @@
 params ["_patient"];
 private _doseLevel = ([_patient, "SugammadexOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
 if (_doseLevel < 0.01) then {
-    private _hrAdjust = -50 + floor random ((-30 - -50) + 1);
+    private _hrAdjust = -30 + floor random ((-10 - -30) + 1);
     [_patient, "SugammadexOverdose", 60, 300, _hrAdjust, 0, 0, 0, 0.3] call EFUNC(vitals,addMedicationAdjustment);
 };

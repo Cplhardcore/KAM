@@ -82,7 +82,7 @@
             <Chinesesimp>可测量心率（HR）、血压（BP）和呼吸频率（RR）等生命体征的诊断套件</Chinesesimp>
         </Key>
         <Key ID="STR_KAT_Vitals_basicDiagnostic_display">
-            <English>Basic Vitals Kit</English>
+            <English>(V) Kit: Basic Vitals</English>
             <Czech>Základní Vitální Sada</Czech>
             <French>Kit de diagnostic vital de base</French>
             <Italian>Kit diagnostico per la misurazione di parametri vitali</Italian>

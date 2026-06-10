@@ -94,7 +94,7 @@
             <Hungarian>Orvosi lap</Hungarian>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostat">
-            <English>Bandage: Hemostatic Injector</English>
+            <English>(I) Bandage: Hemostatic Injector</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostat_Progress">
             <English>Injecting Hemostatic Granules</English>
@@ -106,7 +106,7 @@
             <English>Injector loaded with Hemostatic granules for penetrating wounds</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostat_Display">
-            <English>Hemostatic Injector (CELOX)</English>
+            <English>(I) Bandage: Hemostatic Injector</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Desc_Short">
             <English>Elastic Bandage for Wrapping Packed Wounds and Splints</English>
@@ -115,7 +115,7 @@
             <English>Elastic Bandage for Wrapping Packed Wounds and Splints</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Display">
-            <English>Bandage: Elastic Wrapping Bandage</English>
+            <English>(I) Bandage: Elastic Wrap</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap">
             <English>Wrap Wounds (Elastic)</English>
@@ -136,7 +136,7 @@
             <English>4X4 Gauze Sponge for Small Wounds</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_4X4_Gauze_Display">
-            <English>Bandage: 4X4 Gauze Sponge</English>
+            <English>(I) Bandage: 4X4 Gauze Sponge</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_4X4_Gauze">
             <English>Apply Gauze Sponge</English>
@@ -151,7 +151,7 @@
             <English>Compressed Gauze for Packing Large Wounds</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Compressed_Gauze_Display">
-            <English>Bandage: Compressed Packing Gauze</English>
+            <English>(I) Bandage: Packing Gauze</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Compressed_Gauze">
             <English>Pack Wound</English>
@@ -166,7 +166,7 @@
             <English>Roller Gauze for Wrapping Packed Wounds</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Roller_Gauze_Display">
-            <English>Bandage: Roller Gauze</English>
+            <English>(I) Bandage: Roller Gauze</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Roller_Gauze">
             <English>Wrap Wounds (Gauze)</English>
@@ -187,7 +187,7 @@
             <English>Abdominal Pad for Extremely Large Wounds On the Torso</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Abdominal_Pad_Display">
-            <English>Bandage: Abdominal Pad</English>
+            <English>(I) Bandage: Abdominal Pad</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Abdominal_Pad">
             <English>Apply Abdominal Pad</English>
@@ -202,7 +202,7 @@
             <English>Emergency Trauma Dressing for Extremely Large Amounts of Wounds</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_ETD_Display">
-            <English>Emergency Trauma Dressing</English>
+            <English>(I) Bandage: ETD</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_ETD">
             <English>Apply Emergency Trauma Dressing</English>
@@ -217,7 +217,7 @@
             <English>Israeli Bandage for General Use</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Israeli_Bandage_Display">
-            <English>Bandage: Israeli Bandage</English>
+            <English>(I) Bandage: Israeli Bandage</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Israeli_Bandage">
             <English>Apply Israeli Bandage</English>
@@ -235,7 +235,7 @@
             <English>Hemostatic Gauze for Heavily Bleeding Wounds</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostatic_Gauze_Display">
-            <English>Bandage: Hemostatic Gauze</English>
+            <English>(I) Bandage: Hemostatic Gauze</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostatic_Gauze">
             <English>Apply Hemostatic Gauze</English>
@@ -250,7 +250,7 @@
             <English>Adhesive Bandage for Cuts and Scrapes</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Adhesive_Bandage_Display">
-            <English>Bandage: Adhesive Bandage</English>
+            <English>(I) Bandage: Adhesive Bandage</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Adhesive_Bandage">
             <English>Apply Adhesive Bandage</English>
@@ -265,7 +265,7 @@
             <English>Burn Dressing for Burns</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Burn_Dressing_Display">
-            <English>Bandage: Burn Dressing</English>
+            <English>(I) Bandage: Burn Dressing</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Burn_Dressing">
             <English>Apply Burn Dressing</English>
@@ -388,7 +388,7 @@
             <English>Ice Pack for Sprains and Strains</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Ice_Pack_Display">
-            <English>Ice Pack</English>
+            <English>(I) Ice Pack</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Ice_Pack">
             <English>Apply Ice Pack</English>
@@ -439,7 +439,7 @@
             <English>Pelvic Binder for securing Pelvic Injuries</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Pelvic_Binder_Display">
-            <English>Pelvic Binder</English>
+            <English>(I) Pelvic Binder</English>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Joint">
             <English>Wrap Joint</English>

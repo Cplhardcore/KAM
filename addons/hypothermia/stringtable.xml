@@ -74,7 +74,7 @@
             <Dutch>Verwarmt IV-vloeistoffen. Moet geplaatst worden op een al aangelegde lijn.</Dutch>
         </Key>
         <Key ID="STR_KAT_Hypothermia_FluidWarmer_displayName">
-            <English>Fluid Line Warmer</English>
+            <English>(H) Fluid Line Warmer</English>
             <Czech>Ohřívač Tekutin IV hadice</Czech>
             <French>Chauffe-ligne fluide</French>
             <Spanish>Calentador de Línea de Fluidos</Spanish>
@@ -229,7 +229,7 @@
             <Dutch>Rechterbeen: Geen</Dutch>
         </Key>
         <Key ID="STR_KAT_Hypothermia_HandWarmer_displayName">
-            <English>Hand Warmer</English>
+            <English>(H) Hand Warmer</English>
             <Czech>Ohřívač Rukou</Czech>
             <French>Chauffe-mains</French>
             <Spanish>Calentador de Manos</Spanish>
@@ -417,7 +417,7 @@
             <English>Thin mylar blanket, acts as an effective insulator</English>
         </Key>
         <Key ID="STR_KAT_Hypothermia_spaceblanket_displayName">
-            <English>Space Blanket</English>
+            <English>(H) Space Blanket</English>
         </Key>
         <Key ID="STR_KAT_Hypothermia_apply_spaceblanket">
             <English>Wrap w/ Space Blanket</English>
@@ -438,7 +438,7 @@
             <English>Small, multi use Thermometer</English>
         </Key>
         <Key ID="STR_KAT_Hypothermia_Thermometer_displayName">
-            <English>Thermometer</English>
+            <English>(V) Thermometer</English>
         </Key>
         <Key ID="STR_KAT_Hypothermia_Thermometer_log">
             <English>%1 has a Temperature of %2°c</English>

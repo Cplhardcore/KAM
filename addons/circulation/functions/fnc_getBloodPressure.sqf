@@ -51,16 +51,18 @@ private _occludedParts = [];
 
 private _countOccluded = count _occludedParts;
 private _prevMAP = GET_MAP(_unit);
-if (_icp > 25 && _prevMAP < 70) then {
-    _resistance = _resistance * linearConversion [25, 40, _icp, 1.1, 1.4, true];
-};
-
 private _vasoconstriction = 0;
 {
     _vasoconstriction = _vasoconstriction + _x;
 } forEach _vasoconstrictionArray;
-private _vasoconstriction = (_vasoconstriction / 12);
+_vasoconstriction = (_vasoconstriction / 12);
 private _vasoFactor = linearConversion [0.2, 1.8, _vasoconstriction, 1.25, 0.75, true];
+if (_icp > 25) then {
+    private _cpp = _prevMAP - _icp;
+    if (_cpp < 60) then {
+        _resistance = _resistance * linearConversion [60, 30, _cpp, 1.0, 1.25, true];
+    };
+};
 private _map =
     (_cardiacOutput
     * BASELINE_SVR
@@ -68,7 +70,7 @@ private _map =
     * _exertionSVR
     * _vasoFactor)
     * (1.035 ^ _countOccluded);
-TRACE_5("BP2", _map, _vasoFactor, _resistance, BASELINE_SVR, _cardiacOutput);
+TRACE_4("BP2", _map, _vasoFactor, BASELINE_SVR, _cardiacOutput);
 _map = _map * 0.95;
 private _cushing = [_unit] call EFUNC(vitals,getCushings);
 if (_cushing > 0) then {

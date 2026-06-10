@@ -141,7 +141,7 @@
             <Dutch>Bag-Valve-Mask of een zakventielmasker wordt gebruikt voor het ondersteunen van de ademhaling van bewusteloze personen</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_BVM_Display">
-            <English>BVM</English>
+            <English>(B) BVM</English>
             <Czech>RV</Czech>
             <French>BVM</French>
             <Spanish>Ambú</Spanish>
@@ -474,7 +474,7 @@
             <Dutch>De nasale canule kan in de neusgaten van de patiënt aangebracht worden en verbonden aan een vitale waarden monitor om de ETCo2 waarden en het ademhalingstempo van de patiënt te monitoren</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_NasalCannula_Display">
-            <English>Nasal Cannula</English>
+            <English>(B) Nasal Cannula</English>
             <Czech>Nosní Kanyla</Czech>
             <French>Canule nasale</French>
             <Spanish>Cánula Nasal</Spanish>
@@ -554,7 +554,7 @@
             <Chinesesimp>氧气罐断开</Chinesesimp>
         </Key>
         <Key ID="STR_KAT_Breathing_PersonalOxygen_Display">
-            <English>Personal Oxygen Tank</English>
+            <English>(B) Personal Oxygen Tank</English>
             <Czech>Osobní Kyslíková Lahev</Czech>
             <French>Réservoir d'oxygène personnel</French>
             <Italian>Serbatoio di Ossigeno personale</Italian>
@@ -631,7 +631,7 @@
             <Dutch>Compacte versie van de BVM</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_PocketBVM_Display">
-            <English>Pocket BVM</English>
+            <English>(B) Pocket BVM</English>
             <Czech>Kapesní RV</Czech>
             <French>BVM de poche</French>
             <Spanish>Ambú compacto</Spanish>
@@ -682,7 +682,7 @@
             <Dutch>Draagbare zuurstoftank, bevat 150L van zuurstof. Helpt met het beademen van kritieke patiënten wanneer verbonden aan een BVM</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_PortableOxygenTank_150_Display">
-            <English>Portable Oxygen Tank (150L)</English>
+            <English>(B) Portable Oxygen Tank (150L)</English>
             <Czech>Přenosná Kyslíková Lahev (150L)</Czech>
             <French>Réservoir à oxygène portable (150L)</French>
             <Spanish>Bombona de oxigeno portátil (150L)</Spanish>
@@ -699,7 +699,7 @@
             <Dutch>Draagbare zuurstoftank (150L)</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_PortableOxygenTank_150_Empty_Display">
-            <English>Empty Portable Oxygen Tank (150L)</English>
+            <English>(B) Empty Portable Oxygen Tank (150L)</English>
             <Czech>Prázdná Kyslíková Lahev (150L)</Czech>
             <French>Réservoir à oxygène portable vide (150L)</French>
             <Spanish>Bombona de oxigeno portátil vacío (150L)</Spanish>
@@ -733,7 +733,7 @@
             <Dutch>Draagbare zuurstoftank, bevat 300L van zuurstof. Helpt met het beademen van kritieke patiënten wanneer verbonden aan een BVM</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_PortableOxygenTank_300_Display">
-            <English>Portable Oxygen Tank (300L)</English>
+            <English>(B) Portable Oxygen Tank (300L)</English>
             <Czech>Přenosná Kyslíková Lahev (300L)</Czech>
             <French>Réservoir à oxygène portable (300L)</French>
             <Spanish>Bombona de oxigeno portátil (300L)</Spanish>
@@ -750,7 +750,7 @@
             <Dutch>Draagbare zuurstoftank (300L)</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_PortableOxygenTank_300_Empty_Display">
-            <English>Empty Portable Oxygen Tank (300L)</English>
+            <English>(B) Empty Portable Oxygen Tank (300L)</English>
             <Czech>Prázdná Kyslíková Lahev (300L)</Czech>
             <French>Réservoir à oxygène portable vide (300L)</French>
             <Spanish>Bombona de oxigeno portátil vacío (300L)</Spanish>
@@ -818,7 +818,7 @@
             <Dutch>Zet pulsoximeter alarm uit</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_Pulseoximeter">
-            <English>Pulse Oximeter</English>
+            <English>(B) Pulse Oximeter</English>
             <Czech>Pulzní Oxymetr</Czech>
             <French>Oxymètre de pouls</French>
             <Spanish>Oxímetro de pulso</Spanish>
@@ -2304,7 +2304,7 @@
             <Dutch>Zorgt ervoor dat je de longen kan beluisteren</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_Stethoscope_display">
-            <English>Stethoscope</English>
+            <English>(V) Stethoscope</English>
             <Czech>Stetoskop</Czech>
             <French>Stéthoscope</French>
             <Spanish>Estetoscopio</Spanish>
@@ -2567,7 +2567,7 @@
             <Dutch>de AAT kit is een eenmalig gebruik kit ontwikkeld voor het behandelen van geadvanceerde luchtwegcondities</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_aatKit_display">
-            <English>AAT Kit</English>
+            <English>(B) Kit: AAT</English>
             <Czech>AAT Sada</Czech>
             <French>AAT kit</French>
             <Spanish>Kit AAT</Spanish>
@@ -2780,7 +2780,7 @@
             <Dutch>De chest seal is ontwikkeld om open borstwonden te dichten onder de meeste omstandigheden</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_chestseal_display">
-            <English>Chest Seal</English>
+            <English>(B) Chest Seal</English>
             <Czech>Hrudní Chlopeň</Czech>
             <French>Pansement thoracique</French>
             <Spanish>Sello torácico</Spanish>
@@ -3027,7 +3027,7 @@
             <Dutch>De naalddecompressie kit is een eenmaligsgebruik kit voor de behandeling van een spanningspneumothorax</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_ncdKit_display">
-            <English>NCD Kit</English>
+            <English>(B) NCD Kit</English>
             <Czech>NCD Sada</Czech>
             <French>NCD kit</French>
             <Spanish>Kit NCD</Spanish>
@@ -3462,7 +3462,7 @@
             <English>Opening Chest Tube Kit</English>
         </Key>
         <Key ID="STR_KAT_Breathing_chestTube_display">
-            <English>Chest Tube</English>
+            <English>(B) Chest Tube</English>
         </Key>
         <Key ID="STR_KAT_Breathing_auscultateHeart_display">
             <English>Auscultate Heart Sounds</English>

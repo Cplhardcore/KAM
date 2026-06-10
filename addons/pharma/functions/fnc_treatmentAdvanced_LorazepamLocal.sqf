@@ -16,7 +16,6 @@
  */
 
 params ["_patient", "_dose"];
-
 private _random = random 3;
 private _doseBradyLevel = ([_patient, "LorazepamBrady", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
 if ((_doseBradyLevel < 0.01) && (_random <= 1)) then {

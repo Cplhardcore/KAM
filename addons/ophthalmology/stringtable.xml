@@ -9,7 +9,7 @@
             <Japanese>眼球保護帯は重傷となった目の治療に使用します</Japanese>
         </Key>
         <Key ID="STR_KAT_Ophthalmology_EyeCover_Item">
-            <English>Eye Shield</English>
+            <English>(O) Eye Shield</English>
             <French>Protection oculaire</French>
             <Italian>Protezione oculare</Italian>
             <German>Augenschild</German>
@@ -99,7 +99,7 @@
             <Japanese>水で目を洗う</Japanese>
         </Key>
         <Key ID="STR_KAT_Ophthalmology_eyewash_item">
-            <English>Eye Wash</English>
+            <English>(O) Eye Wash</English>
             <French>Lavage des yeux</French>
             <Italian>Lavaggio oculare</Italian>
             <German>Augenspülung</German>
@@ -113,7 +113,7 @@
             <Japanese>外傷部をすぐに洗い流すことができる洗眼ボトル</Japanese>
         </Key>
         <Key ID="STR_KAT_Ophthalmology_eyewasher_display">
-            <English>Eye Washer</English>
+            <English>(O) Eye Washer</English>
             <French>Nettoyant pour les yeux</French>
             <Italian>Lavaocchi</Italian>
             <German>Augenspüler</German>

@@ -20,7 +20,7 @@ TRACE_1("EtomidateOD",_doseLevel);
 if (_doseLevel < 0.01) then {
     [_patient, "EtomidateOverdose", 120, 1200, 0, 0, 0, 0, 0, 0, 0, 0.3, -0.25] call EFUNC(vitals,addMedicationAdjustment);
     if (random 100 < 50) then {
-        private _hrAdjust = -40 + floor random ((-20 - -40) + 1);
+        private _hrAdjust = -30 + floor random ((-10 - -30) + 1);
         [_patient, "BRADYCARDIA", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
     } else {
         private _hrAdjust = 20 + floor random ((40 - 20) + 1);
