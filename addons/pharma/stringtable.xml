@@ -938,6 +938,15 @@
         <Key ID="STR_KAT_Pharma_IV_20_Display">
             <English>(P) 20g IV</English>
         </Key>
+        <Key ID="STR_KAT_Pharma_IV_16_DisplayGUI">
+            <English>16g IV</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IV_14_DisplayGUI">
+            <English>14g IV</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IV_20_DisplayGUI">
+            <English>20g IV</English>
+        </Key>
         <Key ID="STR_KAT_Pharma_IV_DescShort">
             <English>Intravenous Needle</English>
             <German>Intravenöse Kanüle</German>
@@ -958,6 +967,9 @@
         </Key>
         <Key ID="STR_KAT_Pharma_IO_45_Display">
             <English>(P) FAST IO</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IO_45_DisplayGUI">
+            <English>FAST IO</English>
         </Key>
         <Key ID="STR_KAT_Pharma_IO_DescShort">
             <English>Intraosseous Needle</English>
@@ -4312,6 +4324,9 @@
         </Key>
         <Key ID="STR_KAT_Pharma_EZ_IO_Display">
             <English>(P) EZ IO</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_EZ_IO_DisplayGUI">
+            <English>EZ IO</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_ApplyEZIO">
             <English>Allow applying EZ IO</English>

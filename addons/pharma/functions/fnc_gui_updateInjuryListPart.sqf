@@ -25,11 +25,11 @@ private _IVactual = _placed select _selectionN;
 
 if (_IVactual > 0) then {
     switch (_IVactual) do {
-        case 1: { _entries pushBack [LLSTRING(IO_45_Display), [0.3, 0.6, 0.3, 1]]};
-        case 2: { _entries pushBack [LLSTRING(IV_16_Display), [0.3, 0.6, 0.3, 1]]};
-        case 3: { _entries pushBack [LLSTRING(IV_14_Display), [0.3, 0.6, 0.3, 1]]};
-        case 4: { _entries pushBack [LLSTRING(IV_20_Display), [0.3, 0.6, 0.3, 1]]};
-        case 13: { _entries pushBack [LLSTRING(EZ_IO_Display), [0.3, 0.6, 0.3, 1]]};
+        case 1: { _entries pushBack [LLSTRING(IO_45_DisplayGUI), [0.3, 0.6, 0.3, 1]]};
+        case 2: { _entries pushBack [LLSTRING(IV_16_DisplayGUI), [0.3, 0.6, 0.3, 1]]};
+        case 3: { _entries pushBack [LLSTRING(IV_14_DisplayGUI), [0.3, 0.6, 0.3, 1]]};
+        case 4: { _entries pushBack [LLSTRING(IV_20_DisplayGUI), [0.3, 0.6, 0.3, 1]]};
+        case 13: { _entries pushBack [LLSTRING(EZ_IO_DisplayGUI), [0.3, 0.6, 0.3, 1]]};
         case 14: { _entries pushBack [LLSTRING(EJV_InjuryDisplay), [0.3, 0.6, 0.3, 1]]};
         default {};
         };

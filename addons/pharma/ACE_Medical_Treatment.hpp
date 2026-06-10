@@ -271,21 +271,21 @@ class ACE_ADDON(Medical_Treatment) {
         };
         class syringe_Fentanyl {
             painReduce = 1;
-            hrIncreaseLow[] = {-8, -15};
-            hrIncreaseNormal[] = {-8, -20};
-            hrIncreaseHigh[] = {-14, -25};
+            hrIncreaseLow[] = {-4, -7};
+            hrIncreaseNormal[] = {-4, -10};
+            hrIncreaseHigh[] = {-7, -12};
             timeInSystem = 7200;
             timeTillMaxEffect = 10;
             dose = 1;
             viscosityChange = -10;
             opioidRelief = 1.2;
             opioidEffect = 0.11;
-            opioidDepression = 0.25;
-            respiratoryRate = -0.25;
+            opioidDepression = 0.2;
+            respiratoryRate = -0.2;
             contractility = -0.1;
             nauseaMult = 0.5;
             bloodBased = "true";
-            cnsSuppression = 0.4;
+            cnsSuppression = 0.3;
             OD50 = 30;
             LD50 = 60;
             chanceToOD = 5;
@@ -337,7 +337,7 @@ class ACE_ADDON(Medical_Treatment) {
             weightDose = 20;
             nauseaMult = 0.3;
             bloodBased = "true";
-            cnsSuppression = 0.20;
+            cnsSuppression = 0.15;
             OD50 = 60;
             LD50 = 120;
             chanceToOD = 5;
@@ -414,7 +414,7 @@ class ACE_ADDON(Medical_Treatment) {
             contractility = -0.05;
             weightDose = 20;
             bloodBased = "true";
-            cnsSuppression = 0.6;
+            cnsSuppression = 0.1;
             OD50 = 60;
             LD50 = 120;
             chanceToOD = 5;
@@ -456,7 +456,7 @@ class ACE_ADDON(Medical_Treatment) {
             respiratoryRate = -0.15;
             contractility = -0.1;
             weightDose = 20;
-            cnsSuppression = 0.45;
+            cnsSuppression = 0.15;
             OD50 = 40;
             LD50 = 80;
             chanceToOD = 5;
@@ -480,7 +480,7 @@ class ACE_ADDON(Medical_Treatment) {
             respiratoryRate = -0.15;
             weightDose = 20;
             nauseaMult = 0.3;
-            cnsSuppression = 0.35;
+            cnsSuppression = 0.2;
             OD50 = 60;
             LD50 = 120;
             chanceToOD = 5;

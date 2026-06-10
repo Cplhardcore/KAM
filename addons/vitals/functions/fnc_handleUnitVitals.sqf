@@ -163,7 +163,7 @@ if (_adjustments isNotEqualTo []) then {
         private _scaledTimeToMax = _timeTillMaxEffect * _onsetMult;
         private _timeInSystem = CBA_missionTime - _timeAdded;
         private _medLower = toLower _medication;
-        private _blockedWords = ["overdose", "override", "bradycardia", "tachycardia"];
+        private _blockedWords = ["overdose", "override", "bradycardia", "tachycardia", "sedation"];
         private _found = _blockedWords findIf { _medLower find _x != -1 };
         if ((_overdoseAdmin select 1 > 0) && (_found == -1) && (_overdoseAdmin select 0 > 0)) then {
             [_unit, _medication, _ld50, _od50, _chanceToOD] call FUNC(handleOverdoses);

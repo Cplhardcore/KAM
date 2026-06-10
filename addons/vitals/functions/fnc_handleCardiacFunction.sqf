@@ -33,7 +33,6 @@ private _actualHeartRate = _hrTarget;
 private _painLevel = 0;
 private _shockClass = "NONE";
 private _metabolicDemand = 0;
-private _sedation = _unit getVariable [QEGVAR(surgery,sedated), 0];
 private _cnsSuppression = (_unit getVariable [QEGVAR(pharma,cnsSuppression), 0]) min 0.8;
 [_unit] call FUNC(updateSympatheticTone);
 if (IN_CRDC_ARRST(_unit)) then {
@@ -123,7 +122,8 @@ if (IN_CRDC_ARRST(_unit)) then {
         _lastHR = _lastHR + linearConversion [7.2,6.9,_pH,0,25,true];
     };
 
-
+    private _cnsReduction = linearConversion [0, 1, _cnsSuppression, 0, -40, true];
+    _lastHR = _lastHR - _cnsReduction;
     private _baselineSV = 0.0819575;
     private _strokeVolume = [_unit] call FUNC(getStrokeVolume);
 
@@ -331,6 +331,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     _actualHeartRate = _actualHeartRate + _tempBias;
     _actualHeartRate = _actualHeartRate + _co2Tachy;
     _actualHeartRate = _actualHeartRate + _hypoxiaTachy;
+    _actualHeartRate = _actualHeartRate + _cnsReduction;
     if (_respFatigue > 0.9) then {
         private _respCollapse =
         linearConversion [0.7,1,_respFatigue,0,25,true];
@@ -340,7 +341,17 @@ if (IN_CRDC_ARRST(_unit)) then {
         _actualHeartRate = _actualHeartRate - linearConversion [7.2,6.9,_pH,0,25,true];
     };
     _actualHeartRate = _actualHeartRate - _vagalResp;
-
+    TRACE_8(
+        "HR_FINAL",
+        _actualHeartRate,
+        _vagalResp,
+        _hypoxiaTachy,
+        _co2Tachy,
+        _ICPbias,
+        _tempBias,
+        _staminaHRBias,
+        _hrTargetAdjustment
+    );
     if (_respRate > 4) then {
         private _rsaAmp =
             linearConversion [6, 20, _respRate, 6, 2, true];
