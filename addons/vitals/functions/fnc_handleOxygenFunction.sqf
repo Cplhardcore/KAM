@@ -126,7 +126,7 @@ private _coNorm = linearConversion [0.7, 1.4, _co / CO_REF, 0.85, 1.35, true];
 private _co2Error = _previousCyclePaco2 - DEFAULT_PACO2;
 private _co2Gain =
     linearConversion [0, 5, abs _co2Error, 0.3, 1.0, true];
-_co2Gain = _co2Gain * (1 - (_cnsSuppression * 0.5));
+_co2Gain = _co2Gain * ((1 - _cnsSuppression)^2);
 private _co2Drive =
     (linearConversion [30, 50, _previousCyclePaco2, -1200, 1200, true]) * _co2Gain;
 private _anaerobicDrive = linearConversion [1.0, 1.6, _anerobicPressure, 0, 3000, true];
@@ -161,6 +161,7 @@ _respDrive = _respDrive max 0 min 1;
 if (_do2Norm < 0.3) then {
     _respDrive = _respDrive * 0.8;
 };
+TRACE_5("respDrive",_CPP,(1 - (_cnsSuppression * 0.7)),_respiratoryRateMult,((_bvmDyssyncPrev min 0.25) * 0.4),_respDrive);
 if (!_canBreathe) then {
 _respDrive = 0;
 _patternApplied = true;
@@ -464,7 +465,7 @@ if (!_patternApplied) then {
             linearConversion [2400, 10500, _demandVentilation, 8, 35, true];
 
         _targetRR = (_targetRR min MAXIMUM_RR);
-        _targetRR = _targetRR * (1 - (_opioidDepression * 0.6));
+        _targetRR = _targetRR * (1 - (_opioidDepression * 0.7));
 
         TRACE_1(
             "BREATH_CTRL_TARGET_RR",
@@ -488,7 +489,7 @@ if (!_patternApplied) then {
         _respiratoryDepth =
             ((DEFAULT_RESPIRATORY_DEPTH - (_opioidDepression / 1.5))
             max MINIMUM_DEPTH)
-            * _respDrive;
+            * (0.8 + (_respDrive * 0.2));
         private _hypocapniaScale = linearConversion [25, 40, _previousCyclePaco2, 0.7, 1.0, true];
         _respiratoryDepth = _respiratoryDepth * _hypocapniaScale;
         private _baseVT =
@@ -887,6 +888,7 @@ private _hemoglobin = linearConversion [0, 2700, GET_BODY_FLUID_ECB(_unit), 0.2,
 private _cao2 = 1.34 * _hemoglobin * (_o2Sat * 100);
 private _do2 = _co * _cao2;
 private _do2Norm = linearConversion [3.5, 10, _do2, 0, 1, true];
+TRACE_4("_do2Norm",_do2Norm,_co,_cao2,_do2);
 if (((_actualVentilation / _demandVentilation) <= 0.35) && !(_unit getVariable ["ACE_isUnconscious", false])) then {
     private _timer = _unit getVariable [QGVAR(airwayTimer), -1];
     if (_timer == -1) then {

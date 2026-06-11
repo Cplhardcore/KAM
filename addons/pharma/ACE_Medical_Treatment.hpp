@@ -280,8 +280,6 @@ class ACE_ADDON(Medical_Treatment) {
             viscosityChange = -10;
             opioidRelief = 1.2;
             opioidEffect = 0.11;
-            opioidDepression = 0.2;
-            respiratoryRate = -0.2;
             contractility = -0.1;
             nauseaMult = 0.5;
             bloodBased = "true";
@@ -332,7 +330,6 @@ class ACE_ADDON(Medical_Treatment) {
             dose = 1;
             viscosityChange = -5;
             opioidRelief = 1.1;
-            respiratoryRate = -0.1;
             contractility = -0.1;
             weightDose = 20;
             nauseaMult = 0.3;
@@ -451,9 +448,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeInSystem = 3600;
             timeTillMaxEffect = 30;
             dose = 1;
-            opioidDepression = 0.11;
             viscosityChange = -5;
-            respiratoryRate = -0.15;
             contractility = -0.1;
             weightDose = 20;
             cnsSuppression = 0.15;
@@ -477,7 +472,6 @@ class ACE_ADDON(Medical_Treatment) {
             dose = 1;
             viscosityChange = -7;
             opioidRelief = 1.1;
-            respiratoryRate = -0.15;
             weightDose = 20;
             nauseaMult = 0.3;
             cnsSuppression = 0.2;
@@ -625,7 +619,6 @@ class ACE_ADDON(Medical_Treatment) {
             timeInSystem = 5400;
             timeTillMaxEffect = 10;
             dose = 1; 
-            respiratoryRate = -0.2;
             cnsSuppression = 0.3;
             OD50 = 60;
             LD50 = 140;

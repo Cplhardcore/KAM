@@ -109,11 +109,11 @@ private _effectRatio = 0;
 private _adjustments = _unit getVariable [VAR_MEDICATIONS,[]];
 
 private _ph = GET_PH(_unit);
-private _metabolismMult = linearConversion [7.4, 7.0, _ph, 1.0, 0.4, true];
-private _onsetMult = linearConversion [7.4, 7.0, _ph, 1.0, 1.6, true];
+private _metabolismMult = 1;//linearConversion [7.4, 7.0, _ph, 1.0, 0.4, true];
+private _onsetMult = 1;//linearConversion [7.4, 7.0, _ph, 1.0, 1.6, true];
 
 private _effectiveDose = 1;
-if (_ph < 7.1) then {
+/*if (_ph < 7.1) then {
     _effectiveDose = linearConversion [7.1, 6.8, _ph, 1.0, 1.4, true];;
 };
 private _ph = GET_PH(_unit);
@@ -141,9 +141,9 @@ private _calciumVasoMult = linearConversion [
     0.6,    // poor response
     1.3,    // exaggerated response
     true
-];
-private _vasoEffectMult = _phVasoMult * _calciumVasoMult;
-private _vasodilatorMult = _phDilationMult * (1 / _calciumVasoMult);
+];*/
+private _vasoEffectMult = 1;//_phVasoMult * _calciumVasoMult;
+private _vasodilatorMult = 1;//_phDilationMult * (1 / _calciumVasoMult);*/
 TRACE_1("HUV",_adjustments);
 _vasoEffectMult = (_vasoEffectMult max 0.25) min 1.5;
 _vasodilatorMult = (_vasodilatorMult max 0.6) min 1.8;
@@ -392,6 +392,9 @@ switch (true) do {
         };
     };
     case (_map < 45 || {_map > 190}): {
+        [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
+    };
+    case (_oxygenDelivery < 0.35): {
         [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
     };
     case (_spo2 < EGVAR(breathing,SpO2_unconscious)): {

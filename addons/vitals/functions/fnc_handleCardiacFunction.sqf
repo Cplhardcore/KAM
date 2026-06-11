@@ -79,9 +79,11 @@ if (IN_CRDC_ARRST(_unit)) then {
     };
 
     private _paCO2 = GET_PACO2(_unit);
+    private _co2Norm =
+    linearConversion [45, 100, _paCO2, 0, 1, true];
     private _co2Tachy =
-    linearConversion [45, 80, _paCO2, 0, 18, true];
-    _co2Tachy = _co2Tachy * (1 - (_cnsSuppression * 0.7));
+        ((_co2Norm ^ 1.4) * 15)
+        * (1 - (_cnsSuppression * 0.4));
     _lastHR = _lastHR - _co2Tachy;
     TRACE_3(
         "_co2Tachy",
@@ -90,7 +92,7 @@ if (IN_CRDC_ARRST(_unit)) then {
         _lastHR
     );
     private _pao2 = GET_PAO2(_unit);
-    private _hypoxiaTachy = linearConversion [80, 40, _pao2, 0, 20, true];
+    private _hypoxiaTachy = linearConversion [90, 40, _pao2, 0, 20, true];
     _lastHR = _lastHR + _hypoxiaTachy;
     TRACE_3(
         "_hypoxiaTachy",
@@ -98,6 +100,13 @@ if (IN_CRDC_ARRST(_unit)) then {
         _pao2,
         _lastHR
     );
+
+    private _hypoxicBrady = 0;
+    if (_pao2 < 35) then {
+        _hypoxicBrady =
+            linearConversion [35, 15, _pao2, 0, 40, true];
+    };
+    _lastHR = _lastHR + _hypoxicBrady;
     private _respDepth =
     _unit getVariable [VAR_RESPIRATORY_DEPTH, 10];
 
@@ -332,6 +341,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     _actualHeartRate = _actualHeartRate + _co2Tachy;
     _actualHeartRate = _actualHeartRate + _hypoxiaTachy;
     _actualHeartRate = _actualHeartRate + _cnsReduction;
+    _actualHeartRate = _actualHeartRate - _hypoxicBrady;
     if (_respFatigue > 0.9) then {
         private _respCollapse =
         linearConversion [0.7,1,_respFatigue,0,25,true];
