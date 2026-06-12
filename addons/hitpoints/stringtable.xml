@@ -678,5 +678,11 @@
         <Key ID="STR_KAT_Hitpoints_droppedGrenade">
             <English>You dropped the grenade at your feet</English>
         </Key>
+        <Key ID="STR_KAT_Hitpoints_SETTING_splintFalloff">
+            <English>Splints Require Wrapping</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_SETTING_splintFalloff">
+            <English>Enables splints needing to be wrapped as an additional step otherwise they will fall off</English>
+        </Key>
     </Package>
 </Project>

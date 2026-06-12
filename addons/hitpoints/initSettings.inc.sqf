@@ -26,6 +26,15 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(splintFalloff),
+    "CHECKBOX",
+    [LLSTRING(SETTING_splintFalloff), LLSTRING(SETTING_splintFalloff_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [true],
+    true
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(treatmentTimeHastyTourniquet),
     "SLIDER",
     [LSTRING(TreatmentTimeHastyTourniquet_DisplayName), LSTRING(TreatmentTimeHastyTourniquet_Description)],
