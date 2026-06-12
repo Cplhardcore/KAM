@@ -681,8 +681,17 @@
         <Key ID="STR_KAT_Hitpoints_SETTING_splintFalloff">
             <English>Splints Require Wrapping</English>
         </Key>
-        <Key ID="STR_KAT_Hitpoints_SETTING_splintFalloff">
-            <English>Enables splints needing to be wrapped as an additional step otherwise they will fall off</English>
+        <Key ID="STR_KAT_Hitpoints_SETTING_splintFalloff_DESC">
+            <English>Enables splints needing to be wrapped either automatically or manually</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_SETTING_splintFalloff0">
+            <English>Splints automatically wrap</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_SETTING_splintFalloff1">
+            <English>Splints automatically wrap (needs elastic wrap)</English>
+        </Key>
+        <Key ID="STR_KAT_Hitpoints_SETTING_splintFalloff2">
+            <English>Splints need manual wrapping</English>
         </Key>
     </Package>
 </Project>

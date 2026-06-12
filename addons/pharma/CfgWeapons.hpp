@@ -87,7 +87,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Syringe_10_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 0.75;
         };
     };
     class kat_5ml_syringe: ACE_ItemCore {
@@ -98,7 +98,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Syringe_5_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 0.75;
         };
     };
     class kat_naloxone: ACE_ItemCore {

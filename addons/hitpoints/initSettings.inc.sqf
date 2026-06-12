@@ -25,12 +25,13 @@
     true
 ] call CBA_fnc_addSetting;
 
+
 [
     QGVAR(splintFalloff),
-    "CHECKBOX",
-    [LLSTRING(SETTING_splintFalloff), LLSTRING(SETTING_splintFalloff_DESC)],
-    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [true],
+    "LIST",
+    [LSTRING(SETTING_splintFalloff), LSTRING(SETTING_splintFalloff_DESC)],
+    [CBA_SETTINGS_CAT, LSTRING(Subcatagory_Joints)],
+    [[0, 1, 2], [LSTRING(SETTING_splintFalloff0), LSTRING(SETTING_splintFalloff1), LSTRING(SETTING_splintFalloff2)], 0],
     true
 ] call CBA_fnc_addSetting;
 

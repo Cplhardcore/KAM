@@ -17,8 +17,12 @@
  * Public: No
  */
 
-params ["", "_patient", "_bodyPart"];
+params ["_medic", "_patient", "_bodyPart"];
 
 private _partIndex = ALL_BODY_PARTS find toLowerANSI _bodyPart;
+private _hasWrap = true;
+if (GVAR(splintFalloff) == 1) then {
+    _hasWrap = [_medic, _patient, ["kat_Elastic_Wrap"]] call EFUNC(misc,hasItem);
+};
 
-(GET_FRACTURES(_patient) select _partIndex) == 1
+(GET_FRACTURES(_patient) select _partIndex) == 1 && _hasWrap

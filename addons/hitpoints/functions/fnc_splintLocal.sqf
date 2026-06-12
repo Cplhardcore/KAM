@@ -26,22 +26,29 @@ private _fractures = GET_FRACTURES(_patient);
 TRACE_2("handleSplintFalloff1",_partIndex,_fractures);
 _fractures set [_partIndex, -1];
 _patient setVariable [VAR_FRACTURES, _fractures, true];
-if (GVAR(splintFalloff)) then {
-    private _delay = random [60, 120, 180];
-    [{
-        params ["_patient", "_partIndex"];
-        private _fractures = GET_FRACTURES(_patient);
-        TRACE_3("handleSplintFalloff2",_patient,_partIndex,_fractures);
-        if (_fractures select _partIndex == -1) then {
-            _fractures set [_partIndex, 1];
-            _patient setVariable [VAR_FRACTURES, _fractures, true];
-            [LSTRING(SplintFellOff), 1.5, _patient] call ACEFUNC(common,displayTextStructured);
-        }
-    }, [_patient, _partIndex], _delay] call CBA_fnc_waitAndExecute;
+switch (GVAR(splintFalloff)) do {
+    case 0: {
+        _fractures set [_partIndex, -2];
+    };
+    case 1: {
+        _hasWrap = [_medic, _patient, ["kat_Elastic_Wrap"]] call EFUNC(misc,useItem);
+        _fractures set [_partIndex, -2];
+    };
+    case 2: {
+        private _delay = random [60, 120, 180];
+        [{
+            params ["_patient", "_partIndex"];
+            private _fractures = GET_FRACTURES(_patient);
+            TRACE_3("handleSplintFalloff2",_patient,_partIndex,_fractures);
+            if (_fractures select _partIndex == -1) then {
+                _fractures set [_partIndex, 1];
+                _patient setVariable [VAR_FRACTURES, _fractures, true];
+                [LSTRING(SplintFellOff), 1.5, _patient] call ACEFUNC(common,displayTextStructured);
+            }
+        }, [_patient, _partIndex], _delay] call CBA_fnc_waitAndExecute;
 
-    TRACE_2("splintFalloff",_patient,_bodyPart);
-} else {
-    _fractures set [_partIndex, -2];
+        TRACE_2("splintFalloff",_patient,_bodyPart);
+    };
 };
 
 _patient setVariable [VAR_FRACTURES, _fractures, true];
