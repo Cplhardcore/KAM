@@ -163,7 +163,8 @@ if (_adjustments isNotEqualTo []) then {
         private _scaledTimeToMax = _timeTillMaxEffect * _onsetMult;
         private _timeInSystem = CBA_missionTime - _timeAdded;
         if ((typeName _medication) != "STRING") then {
-            diag_log str _x;
+            diag_log format ["Hey, this is a bad array, %1",_x];
+            ["Hey, if you see this, make a bug report and include your RPT", 2, _unit, 5] call ACEFUNC(common,displayTextStructured);
             continue};
         private _medLower = toLower _medication;
         private _blockedWords = ["overdose", "override", "bradycardia", "tachycardia", "sedation"];
