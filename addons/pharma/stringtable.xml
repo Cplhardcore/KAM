@@ -478,7 +478,7 @@
             <Dutch>Wordt gebruikt om chemische blootstelling en bradycardie te behandelen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Atropine_Box_Display">
-            <English>>(Autoinjector) Atropine</English>
+            <English>(Autoinjector) Atropine</English>
             <German>Atropin</German>
             <Polish>Atropina</Polish>
             <French>Atropine</French>
@@ -682,7 +682,7 @@
             <Dutch>Injecteer Fenylefrine (IV)</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_PhenylAuto_Box_Display">
-            <English>>(Autoinjector) Phenylephrine</English>
+            <English>(Autoinjector) Phenylephrine</English>
             <Russian>Автоинъектор фенилэфрина</Russian>
             <Spanish>Autoinyector de Fenilefrina</Spanish>
             <Japanese>フェニレフリン自動注射器</Japanese>
@@ -4233,7 +4233,7 @@
             <Dutch>Wordt gebruikt om chemische blootstelling en bradycardie te behandelen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_TXAAuto_Box_Display">
-            <English>>(Autoinjector) TXA</English>
+            <English>(Autoinjector) TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_TXAAuto">
             <English>Inject TXA</English>
@@ -6162,13 +6162,13 @@
             <English>Flushing IV with Lidocaine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_epinephrineAutoinjector">
-            <English>>(Autoinjector) Epinephrine</English>
+            <English>(Autoinjector) Epinephrine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_morphineAutoinjector">
-            <English>>(Autoinjector) Morphine</English>
+            <English>(Autoinjector) Morphine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_adenosineAutoinjector">
-            <English>>(Autoinjector) Adenosine</English>
+            <English>(Autoinjector) Adenosine</English>
         </Key>
     </Package>
 </Project>
