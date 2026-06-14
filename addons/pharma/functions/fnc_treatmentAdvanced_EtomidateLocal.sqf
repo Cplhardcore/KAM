@@ -19,6 +19,6 @@ private _doseLevel = ([_patient, "EtomidateSedation", false] call ACEFUNC(medica
 TRACE_1("EtomidateOD",_doseLevel);
 if (_doseLevel < 0.2) then {
     private _cns = random [0.2, 0.25, 0.3];
-    [_patient, "EtomidateSedation", 5, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "true", "false", "false", _cns] call EFUNC(vitals,addMedicationAdjustment);
+    [_patient, "EtomidateSedation", 5, 120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, _cns] call EFUNC(vitals,addMedicationAdjustment);
     [_patient, true] call ACEFUNC(medical,setUnconscious);
 };

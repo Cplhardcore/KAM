@@ -37,7 +37,7 @@ class ACE_ADDON(Medical_Treatment) {
         //multiplier to contractility
         contractility = 0;
         //Is the medication dosaging based off of weight
-        weightBased = "false";
+        weightBased = 0;
         //what dose corresponds to a weight of 80kg
         weightDose = 20;
         //if weightDose isnt 20 (default), what is the upper and lower range of doses
@@ -50,10 +50,10 @@ class ACE_ADDON(Medical_Treatment) {
         //multiplier to nausea
         nauseaMult = 0;
         //is this drug a sedation drug
-        sedation = "false";
-        paralysis = "false";
-        bloodBased = "false";
-        linear = "false";
+        sedation = 0;
+        paralysis = 0;
+        bloodBased = 0;
+        linear = 0;
         cnsSuppression = 0;
         LD50 = -1;
         chanceToOD = -1;
@@ -186,7 +186,7 @@ class ACE_ADDON(Medical_Treatment) {
             dose = 15;
             viscosityChange = 5;
             maxRelief = 0.6;
-            bloodBased = "true";
+            bloodBased = 1;
             OD50 = 120;
             LD50 = 240;
             chanceToOD = 5;
@@ -204,7 +204,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeTillMaxEffect = 15;
             dose = 1;
             viscosityChange = 0;
-            bloodBased = "true";
+            bloodBased = 1;
             OD50 = 40;
             LD50 = 100;
             chanceToOD = 5;
@@ -222,7 +222,7 @@ class ACE_ADDON(Medical_Treatment) {
             timeTillMaxEffect = 25;
             dose = 1;
             viscosityChange = 0;
-            bloodBased = "true";
+            bloodBased = 1;
             OD50 = 30;
             LD50 = 80;
             chanceToOD = 5;
@@ -282,7 +282,7 @@ class ACE_ADDON(Medical_Treatment) {
             opioidEffect = 0.11;
             contractility = -0.1;
             nauseaMult = 0.5;
-            bloodBased = "true";
+            bloodBased = 1;
             cnsSuppression = 0.3;
             OD50 = 30;
             LD50 = 60;
@@ -291,7 +291,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
-            weightBased = "true";
+            weightBased = 1;
         };
         class syringe_Ketamine {
             painReduce = 0.8;
@@ -310,7 +310,7 @@ class ACE_ADDON(Medical_Treatment) {
             weightDoseMin = 10;
             weightDoseMax = 20;
             nauseaMult = 0.2;
-            bloodBased = "true";
+            bloodBased = 1;
             OD50 = 60;
             LD50 = 120;
             chanceToOD = 5;
@@ -318,7 +318,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
-            weightBased = "true";
+            weightBased = 1;
         };
         class syringe_Nalbuphine {
             painReduce = 0.8;
@@ -333,7 +333,7 @@ class ACE_ADDON(Medical_Treatment) {
             contractility = -0.1;
             weightDose = 20;
             nauseaMult = 0.3;
-            bloodBased = "true";
+            bloodBased = 1;
             cnsSuppression = 0.15;
             OD50 = 60;
             LD50 = 120;
@@ -342,7 +342,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
-            weightBased = "true";
+            weightBased = 1;
             maxOverEffective = 1;
         };
         class syringe_Atropine {
@@ -373,7 +373,7 @@ class ACE_ADDON(Medical_Treatment) {
             dose = 1;
             viscosityChange = 0;
             contractility = -0.2;
-            bloodBased = "true";
+            bloodBased = 1;
             OD50 = 50;
             LD50 = 110;
             chanceToOD = 5;
@@ -410,7 +410,7 @@ class ACE_ADDON(Medical_Treatment) {
             viscosityChange = 0;
             contractility = -0.05;
             weightDose = 20;
-            bloodBased = "true";
+            bloodBased = 1;
             cnsSuppression = 0.1;
             OD50 = 60;
             LD50 = 120;
@@ -419,7 +419,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
-            weightBased = "true";
+            weightBased = 1;
             therapeutic = 16;
         };
         class syringe_Flumazenil {
@@ -459,7 +459,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
-            weightBased = "true";
+            weightBased = 1;
             therapeutic = 16;
         };
         class syringe_Morphine {
@@ -482,7 +482,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
-            weightBased = "true";
+            weightBased = 1;
         };
         class syringe_Adenosine {
             painReduce = 0;
@@ -537,7 +537,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
-            weightBased = "true";
+            weightBased = 1;
         };
         class syringe_Succinylcholine {
             painReduce = 0.0;
@@ -555,7 +555,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
-            weightBased = "true";
+            weightBased = 1;
         };
         class syringe_Rocuronium {
             painReduce = 0.0;
@@ -573,7 +573,7 @@ class ACE_ADDON(Medical_Treatment) {
             incompatibleMedication[] = {};
             onOverDose = "";
             maximumEffectiveDose = 30;
-            weightBased = "true";
+            weightBased = 1;
             therapeutic = 16;
         };
         class syringe_Sugammadex  {

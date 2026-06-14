@@ -535,7 +535,7 @@ if (GVAR(kidneyAction)) then {
             private _medCount = [_unit, "CALCIUMCONTRACTILITY"] call ACEFUNC(medical_status,getMedicationCount) select 1;
             private _contractility = linearConversion [2.1, 1.6, _effectiveCa, -0.02, -0.12, true];
             if (_medCount < 0.2) then {
-                [_unit, "CALCIUMCONTRACTILITY_Override", 5, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, _contractility, 0, "false", "false", "true"] call EFUNC(vitals,addMedicationAdjustment);
+                [_unit, "CALCIUMCONTRACTILITY_Override", 5, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, _contractility, 0, 0, 0, 1] call EFUNC(vitals,addMedicationAdjustment);
             };
         };
         if (_effectiveCa > 3.0) then {
@@ -548,7 +548,7 @@ if (GVAR(kidneyAction)) then {
             };
             private _medCount = [_unit, "CALCIUMCONTRACTILITY"] call ACEFUNC(medical_status,getMedicationCount) select 1;
             if (_medCount < 0.2) then {
-                [_unit, "CALCIUMCONTRACTILITY_Override", 5, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, _contractility, 0, "false", "false", "true"] call EFUNC(vitals,addMedicationAdjustment);
+                [_unit, "CALCIUMCONTRACTILITY_Override", 5, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, _contractility, 0, 0, 0, 1] call EFUNC(vitals,addMedicationAdjustment);
             };
         };
         private _arrProb = 0;

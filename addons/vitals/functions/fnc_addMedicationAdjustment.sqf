@@ -36,11 +36,11 @@ params [
     ["_respiratoryRate", 0],
     ["_contractility", 0],
     ["_nauseaMult", 0],
-    ["_sedation", "false"],
-    ["_paralysis", "false"],
-    ["_linear", "false"],
+    ["_sedation", 0],
+    ["_paralysis", 0],
+    ["_linear", 0],
     ["_cnsSuppression", 0],
-    ["_overdoseAdmin", [-1, -1, -1, "false", 1, 15]]
+    ["_overdoseAdmin", [-1, -1, -1, 0, 1, 15]]
 ];
 TRACE_8("addMedicationAdjustment",_unit,_medication,_timeToMaxEffect,_maxTimeInSystem,_hrAdjust,_painAdjust,_flowAdjust,_overdoseAdmin);
 

@@ -161,7 +161,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 if !([_unit, _treatment] call EFUNC(circulation,compatible)) then {
                     private _medCount = [_unit, "BloodPoisoning"] call ACEFUNC(medical_status,getMedicationCount) select 1;
                     if (_medCount < 0.05) then {
-                        [_unit, "BloodPoisoning_Override", 0, 30, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.3, 0, 0, "false", "false", "true"] call EFUNC(vitals,addMedicationAdjustment);
+                        [_unit, "BloodPoisoning_Override", 0, 30, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.3, 0, 0, 0, 0, 1] call EFUNC(vitals,addMedicationAdjustment);
                     };
                     private _bloodlevels = GET_BODY_FLUID(_unit);
                     _bloodlevels set [0, ((_bloodlevels select 0) - 8) max 0];

@@ -156,7 +156,7 @@ if (_adjustments isNotEqualTo []) then {
             "_hrAdjust", "_painAdjust", "_flowAdjust", "_dose", "_alphaFactor",
             "_opioidRelief", "_opioidEffect", "_opioidDepression",
             "_respiratoryRate", "_contractility", "_nauseaMult",
-            "_sedation", "_paralysis", "_linear", "_cnsSuppression", "_overdoseAdmin"
+            "_sedation", "_paralysis", "_medGraph", "_cnsSuppression", "_overdoseAdmin"
         ];
         _overdoseAdmin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased", "_weightMult", "_theraputic"];
         private _scaledMaxTime = _maxTimeInSystem / _metabolismMult;
@@ -177,12 +177,13 @@ if (_adjustments isNotEqualTo []) then {
             _deleted = true;
             _adjustments deleteAt _forEachIndex;
         } else {
-            if (_linear == "true") then {
-                _effectRatio = 1;
-            } else {
-                _effectRatio =
-                    (((_timeInSystem / _scaledTimeToMax) ^ 2) min 1)
-                    * ((_scaledMaxTime - _timeInSystem) / _scaledMaxTime);
+            switch (_medGraph) do {
+                case 1: {
+                    _effectRatio = 1;
+                };
+                default {
+                    _effectRatio = (((_timeInSystem / _scaledTimeToMax) ^ 2) min 1) * ((_scaledMaxTime - _timeInSystem) / _scaledMaxTime);
+                };
             };
             private _dampening = {
                 params ["_total", "_effect", "_cap", "_base"];

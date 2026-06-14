@@ -17,7 +17,7 @@
 params ["_patient"];
 private _doseLevel = ([_patient, "nalbuphineOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
 if (_doseLevel < 0.01) then {
-    [_patient, "nalbuphineOverdose", 20, 2400, 0, 0, 0, 0, 0.3, 0, 0, 0.17, -0.3, 0, 0, "false", "false", "false", 0.7] call EFUNC(vitals,addMedicationAdjustment);
+    [_patient, "nalbuphineOverdose", 20, 2400, 0, 0, 0, 0, 0.3, 0, 0, 0.17, -0.3, 0, 0, 0, 0, 0, 0.7] call EFUNC(vitals,addMedicationAdjustment);
 };
 if (random 100 < 5) then {
     private _ht = _patient getVariable [QEGVAR(circulation,ht), []];    

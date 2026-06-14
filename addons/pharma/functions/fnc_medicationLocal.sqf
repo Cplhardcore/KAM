@@ -142,14 +142,14 @@ if (_classname in ["Epinephrine", "Morphine", "Adenosine", "TXAAuto", "Phenyleph
         case "PhenylephrineAuto": {10};
     };
 };
-private _bloodBased = GET_STRING(_medicationConfig >> "bloodBased",getText (_defaultConfig >> "bloodBased"));
-private _weightBase = GET_STRING(_medicationConfig >> "weightBased",getText (_defaultConfig >> "weightBased"));
+private _bloodBased = GET_NUMBER(_medicationConfig >> "bloodBased",getNumber (_defaultConfig >> "bloodBased"));
+private _weightBase = GET_NUMBER(_medicationConfig >> "weightBased",getNumber (_defaultConfig >> "weightBased"));
 private _weightDose = GET_NUMBER(_medicationConfig >> "weightDose",getNumber (_defaultConfig >> "weightDose"));
 private _weightMult = 1;
 private _weightFixed = 1;
 private _weightDoseFixed = 1;
 private _defaultWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80];
-if (_weightBase == "true") then {
+if (_weightBase == 1) then {
     _weightFixed = linearConversion [60, 100, _defaultWeight, 10, 30, true];
     _weightDoseFixed = _startDose;
     if (_weightDose != 20) then {
@@ -213,8 +213,8 @@ private _maxRelief              = GET_NUMBER(_medicationConfig >> "maxRelief",ge
 private _dose                   = GET_NUMBER(_medicationConfig >> "dose",getNumber (_defaultConfig >> "dose")) * _startDose;
 private _contractility          = GET_NUMBER(_medicationConfig >> "contractility",getNumber (_defaultConfig >> "contractility")) * _drugMult;
 private _nauseaMult             = GET_NUMBER(_medicationConfig >> "nauseaMult",getNumber (_defaultConfig >> "nauseaMult")) * _drugMult;
-private _sedation               = GET_STRING(_medicationConfig >> "sedation",getText (_defaultConfig >> "sedation"));
-private _paralysis              = GET_STRING(_medicationConfig >> "paralysis",getText (_defaultConfig >> "paralysis"));
+private _sedation               = GET_NUMBER(_medicationConfig >> "sedation",getNumber (_defaultConfig >> "sedation"));
+private _paralysis              = GET_NUMBER(_medicationConfig >> "paralysis",getNumber (_defaultConfig >> "paralysis"));
 private _cnsSuppression         = GET_NUMBER(_medicationConfig >> "cnsSuppression",getNumber (_defaultConfig >> "cnsSuppression")) * _drugMult;
 private _maxDose                = GET_NUMBER(_medicationConfig >> "OD50",getNumber (_defaultConfig >> "OD50"));
 private _ld50                   = GET_NUMBER(_medicationConfig >> "LD50",getNumber (_defaultConfig >> "LD50"));
