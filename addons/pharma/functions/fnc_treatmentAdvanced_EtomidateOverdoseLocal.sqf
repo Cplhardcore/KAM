@@ -18,14 +18,13 @@ params ["_patient"];
 private _doseLevel = ([_patient, "EtomidateOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
 TRACE_1("EtomidateOD",_doseLevel);
 if (_doseLevel < 0.01) then {
-    [_patient, "EtomidateOverdose", 120, 1200, 0, 0, 0, 0, 0, 0, 0, 0.3, -0.25] call EFUNC(vitals,addMedicationAdjustment);
+    private _hrAdjust = 0;
     if (random 100 < 50) then {
-        private _hrAdjust = -30 + floor random ((-10 - -30) + 1);
-        [_patient, "BRADYCARDIA", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+        _hrAdjust = -30 + floor random ((-10 - -30) + 1);
     } else {
-        private _hrAdjust = 20 + floor random ((40 - 20) + 1);
-        [_patient, "TACHYCARDIA", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+        _hrAdjust = 20 + floor random ((40 - 20) + 1);
     };
+    [_patient, "EtomidateOverdose", 120, 1200, _hrAdjust, 0, 0, 0, 0, 0, 0, 0.3, -0.25] call EFUNC(vitals,addMedicationAdjustment);
         
 };
     if (random(100) < 2) then {

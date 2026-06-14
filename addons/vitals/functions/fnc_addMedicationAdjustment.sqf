@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: BaerMitUmlaut, PabstMirror
@@ -18,6 +19,8 @@
  *
  * Example:
  * [player, "Morphine", 120, 60, -10, 0.8, -10, 1] call ace_medical_status_fnc_addMedicationAdjustment
+ * ["_unit", "_medication","_timeToMaxEffect","_maxTimeInSystem"."_hrAdjust","_painAdjust","_flowAdjust","_dose","_alphaFactor","_opioidRelief","_opioidEffect","_opioidDepression","_respiratoryRate","_contractility", "_nauseaMult","_sedation","_paralysis","_linear","_cnsSuppression","[-1, -1, -1, 0, 1, 15]"]] call EFUNC(vitals,addMedicationAdjustment);
+ *
  *
  * Public: No
  */

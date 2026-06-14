@@ -19,3 +19,8 @@
  *
  * Public: No
  */
+params ["_patient"];
+private _doseLevel = ([_patient, "PenthroxOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel < 0.01) then {
+    [_patient, "PenthroxOverdose",15,600,0,0,0,0,-0.2,0,0,0,0,0,0,0,0,0,0.2] call EFUNC(vitals,addMedicationAdjustment);
+}; 

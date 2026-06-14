@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: Glowbal, mharis001
@@ -166,7 +167,10 @@ if (_weightBase == 1) then {
     };
 };
 private _medicationParts = _medicationConfigName splitString "_";
-private _medicationName = _medicationParts select 1;
+private _medicationName = _classname;
+if ((count _medicationParts) > 1) then {
+    _medicationName = _medicationParts select 1;
+};
 private _maximumEffectiveDose = 40;
 private _maxOverEffective = 40;
 private _currentDose = [_patient, _medicationName] call ACEFUNC(medical_status,getMedicationCount) select 0;

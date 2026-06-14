@@ -15,3 +15,13 @@
  * Public: No
  */
 params ["_patient"];
+private _doseLevel = ([_patient, "CalciumGluconateOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel < 0.01) then {
+    private _hrAdjust = -10 + floor random ((-35 - -10) + 1);
+     [_patient, "CalciumGluconateOverdose",30, 600,_hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+};
+if (random(100) < 1) then {
+    if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
+        [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
+    };
+};

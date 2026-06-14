@@ -18,5 +18,9 @@ params ["_patient"];
 private _doseLevel = ([_patient, "AmiodaroneOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
 if (_doseLevel > 0.01) exitWith {};
 private _hrAdjust = -30 + floor random ((-10 - -30) + 1);
-[_patient, "BRADYCARDIA", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
-[_patient, "AmiodaroneOverdose", 30, 1200, 0, 0, 0, 0.2] call EFUNC(vitals,addMedicationAdjustment);
+[_patient, "AmiodaroneOverdose", 30, 1200, _hrAdjust, 0, 0, 0, -0.2] call EFUNC(vitals,addMedicationAdjustment);
+if (random(1000) < 5) then {
+    if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
+        [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
+    };
+};

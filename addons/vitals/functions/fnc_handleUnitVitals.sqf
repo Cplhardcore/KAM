@@ -220,13 +220,20 @@ if (_adjustments isNotEqualTo []) then {
                 } forEach _medStack;
                 _diazapamMult = linearConversion [0, 90, (_fentanylEffectiveness + _nalbuphineEffectiveness + _morphineEffectiveness * _lorazepamEffectiveness), 1, 4, true];
             };
+            private _ODblockedWords = ["overdose"];
+            private _ODfound = _ODblockedWords findIf { _medLower find _x != -1 };
+            private _overdoseMult = 1;
+            private _currentDose = [_unit, _medication] call EFUNC(misc,getCurrentDosage);
+            if (_ODfound != -1) then {
+                _overdoseMult = linearConversion [0, _ld50 -_od50, _od50 - _currentDose, 0.6, 3, true];
+            };
             private _hemocrit = 1;
-            if (_bloodBased == "true") then {
+            if (_bloodBased == 1) then {
                 _hemocrit = (GET_BODY_FLUID_ECB(_unit)/GET_BODY_FLUID_ECP(_unit)) / (DEFAULT_ECB/DEFAULT_ECP)
             } else {
                 _hemocrit = (GET_BODY_FLUID_ECP(_unit)/GET_BODY_FLUID_ECB(_unit)) / (DEFAULT_ECP/DEFAULT_ECB)
             };
-            private _drugMult = ((((GET_BLOOD_VOLUME_LITERS(_unit) / DEFAULT_BLOOD_VOLUME) * _hemocrit) max 0.2) min 2) * _diazapamMult;
+            private _drugMult = ((((GET_BLOOD_VOLUME_LITERS(_unit) / DEFAULT_BLOOD_VOLUME) * _hemocrit) max 0.2) min 2) * _diazapamMult * _overdoseMult;
             if (_found == -1) then {
                 if (_hrAdjust != 0) then { _hrTargetAdjustment = [_hrTargetAdjustment, _hrAdjust * _drugMult * _effectRatio * _effectiveDose, 125, 0] call _dampening };
                 if (_painAdjust != 0) then { _painSupressAdjustment = [_painSupressAdjustment, _painAdjust * _drugMult * _effectRatio * _effectiveDose, 1.25, 0] call _dampening };
@@ -240,27 +247,26 @@ if (_adjustments isNotEqualTo []) then {
                 if (_respiratoryRate != 0) then { _respiratoryRateAdjustment = [_respiratoryRateAdjustment, _respiratoryRate * _drugMult * _effectRatio * _effectiveDose, 1.25, 1] call _dampening };
                 if (_contractility != 0) then { _contractilityAdjustment = [_contractilityAdjustment, _contractility * _drugMult * _effectRatio * _effectiveDose, 1.25, 1] call _dampening };
                 if (_nauseaMult != 0) then { _nauseaMultAdjustment = ([_nauseaMultAdjustment, (_nauseaMult * _effectRatio * _drugMult), 1.25, 1] call _dampening ) max 0.1};
-                if (_sedation == "true") then { _sedationAdjustment = (_sedationAdjustment + (1 * _effectRatio)) min 1; };
-                if (_paralysis == "true") then { _paralysisAdjustment = (_paralysisAdjustment + (1 * _effectRatio)) min 1; };
+                if (_sedation == 1) then { _sedationAdjustment = (_sedationAdjustment + (1 * _effectRatio)) min 1; };
+                if (_paralysis == 1) then { _paralysisAdjustment = (_paralysisAdjustment + (1 * _effectRatio)) min 1; };
                 if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = [_cnsSuppressionAdjustment, _cnsSuppression * _drugMult * _effectRatio * _effectiveDose, 1.25, 0] call _dampening};
             } else {
-                if (_hrAdjust != 0) then { _hrTargetAdjustment = _hrTargetAdjustment + _hrAdjust * _drugMult * _effectRatio * _effectiveDose; };
-                if (_painAdjust != 0) then { _painSupressAdjustment = _painSupressAdjustment + _painAdjust * _drugMult * _effectRatio * _effectiveDose; };
-                if (_flowAdjust >= 0) then { _peripheralResistanceAdjustment = _peripheralResistanceAdjustment * _drugMult + _flowAdjust * _effectRatio * _effectiveDose * _vasoEffectMult; };
-                if (_alphaFactor >= 0) then { _alphaFactorAdjustment = _alphaFactorAdjustment + _alphaFactor * _drugMult * _effectRatio * _effectiveDose * _vasoEffectMult; };
-                if (_flowAdjust < 0) then { _peripheralResistanceAdjustment = _peripheralResistanceAdjustment * _drugMult + _flowAdjust * _effectRatio * _effectiveDose * _vasodilatorMult; };
-                if (_alphaFactor < 0) then { _alphaFactorAdjustment = _alphaFactorAdjustment + _alphaFactor * _drugMult * _effectRatio * _effectiveDose * _vasodilatorMult; };
-                if (_opioidRelief != 0) then { _opioidAdjustment = _opioidAdjustment + _opioidRelief * _drugMult * _effectRatio * _effectiveDose; };
-                if (_opioidEffect != 0) then { _opioidEffectAdjustment = _opioidEffectAdjustment + _opioidEffect * _drugMult * _effectRatio * _effectiveDose; };
-                if (_opioidDepression != 0) then { _opioidDepressionAdjustment = _opioidDepressionAdjustment + _opioidDepression * _drugMult * _effectRatio * _effectiveDose; };
-                if (_respiratoryRate != 0) then { _respiratoryRateAdjustment = _respiratoryRateAdjustment + _respiratoryRate * _drugMult * _effectRatio * _effectiveDose; };
-                if (_contractility != 0) then { _contractilityAdjustment = _contractilityAdjustment + _contractility * _drugMult * _effectRatio * _effectiveDose; };
+                if (_hrAdjust != 0) then { _hrTargetAdjustment = _hrTargetAdjustment + (_hrAdjust * _drugMult * _effectRatio * _effectiveDose); };
+                if (_painAdjust != 0) then { _painSupressAdjustment = _painSupressAdjustment + (_painAdjust * _drugMult * _effectRatio * _effectiveDose); };
+                if (_flowAdjust >= 0) then { _peripheralResistanceAdjustment = _peripheralResistanceAdjustment + (_flowAdjust * _drugMult  * _effectRatio * _effectiveDose * _vasoEffectMult); };
+                if (_alphaFactor >= 0) then { _alphaFactorAdjustment = _alphaFactorAdjustment + (_alphaFactor * _drugMult * _effectRatio * _effectiveDose * _vasoEffectMult); };
+                if (_flowAdjust < 0) then { _peripheralResistanceAdjustment = _peripheralResistanceAdjustment + (_flowAdjust * _drugMult * _effectRatio * _effectiveDose * _vasodilatorMult); };
+                if (_alphaFactor < 0) then { _alphaFactorAdjustment = _alphaFactorAdjustment + (_alphaFactor * _drugMult * _effectRatio * _effectiveDose * _vasodilatorMult); };
+                if (_opioidRelief != 0) then { _opioidAdjustment = _opioidAdjustment + (_opioidRelief * _drugMult * _effectRatio * _effectiveDose); };
+                if (_opioidEffect != 0) then { _opioidEffectAdjustment = _opioidEffectAdjustment + (_opioidEffect * _drugMult * _effectRatio * _effectiveDose); };
+                if (_opioidDepression != 0) then { _opioidDepressionAdjustment = _opioidDepressionAdjustment + (_opioidDepression * _drugMult * _effectRatio * _effectiveDose); };
+                if (_respiratoryRate != 0) then { _respiratoryRateAdjustment = _respiratoryRateAdjustment + (_respiratoryRate * _drugMult * _effectRatio * _effectiveDose); };
+                if (_contractility != 0) then { _contractilityAdjustment = _contractilityAdjustment + (_contractility * _drugMult * _effectRatio * _effectiveDose); };
                 if (_nauseaMult != 0) then { _nauseaMultAdjustment = (_nauseaMultAdjustment + (_nauseaMult * _effectRatio * _drugMult)) max 0.1; };
-                if (_sedation == "true") then { _sedationAdjustment = (_sedationAdjustment + (1 * _effectRatio)) min 1; };
-                if (_paralysis == "true") then { _paralysisAdjustment = (_paralysisAdjustment + (1 * _effectRatio)) min 1; };
-                if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = _cnsSuppressionAdjustment + _cnsSuppression * _drugMult * _effectRatio * _effectiveDose; };
+                if (_sedation == 1) then { _sedationAdjustment = (_sedationAdjustment + (1 * _effectRatio)) min 1; };
+                if (_paralysis == 1) then { _paralysisAdjustment = (_paralysisAdjustment + (1 * _effectRatio)) min 1; };
+                if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = _cnsSuppressionAdjustment + (_cnsSuppression * _drugMult * _effectRatio * _effectiveDose); };
             };
-            private _currentDose = [_unit, _medication] call EFUNC(misc,getCurrentDosage);
             if (_currentDose > _theraputic) then {
                 private _overage = (_dose - _theraputic);
                 if (_medication in ["EACA", "TXA"]) then {
