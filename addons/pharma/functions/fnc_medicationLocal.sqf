@@ -253,7 +253,7 @@ if ((_upperMed select [count _upperMed - 2]) isEqualTo "IV") then {
 
 TRACE_6("adjustments1",_patient,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
 TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-[_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, "false", _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased, 1, _therapeutic]] call EFUNC(vitals,addMedicationAdjustment);
+[_patient, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, _sedation, _paralysis, 0, _cnsSuppression, [_ld50, _maxDoseFixed, _chanceToOD, _bloodBased, 1, _therapeutic, 0]] call EFUNC(vitals,addMedicationAdjustment);
 if (_medicationName in ["Amiodarone"]) then {
 [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart], _patient] call CBA_fnc_targetEvent;
 };

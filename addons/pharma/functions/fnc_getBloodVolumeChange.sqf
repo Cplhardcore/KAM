@@ -306,6 +306,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             private _ivConfig = _defaultConfig >> _treatment;
             private _painReduce             = (GET_NUMBER(_ivConfig >> "painReduce",getNumber (_defaultConfig >> "painReduce")) * _medicationMult);
             private _viscosityChange        = (GET_NUMBER(_ivConfig >> "viscosityChange",getNumber (_defaultConfig >> "viscosityChange")) * _medicationMult);
+            private _timeInSystem           = (GET_NUMBER(_ivConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")));
+            private _timeTillMaxEffect      = (GET_NUMBER(_ivConfig >> "timeTillMaxEffect",getNumber (_defaultConfig >> "timeTillMaxEffect")) * _medicationMult);
             private _hrIncreaseLow          = GET_ARRAY(_ivConfig >> "hrIncreaseLow",getArray (_defaultConfig >> "hrIncreaseLow"));
             private _hrIncreaseNormal       = GET_ARRAY(_ivConfig >> "hrIncreaseNormal",getArray (_defaultConfig >> "hrIncreaseNormal"));
             private _hrIncreaseHigh         = GET_ARRAY(_ivConfig >> "hrIncreaseHigh",getArray (_defaultConfig >> "hrIncreaseHigh"));
@@ -319,6 +321,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             private _contractility          = (GET_NUMBER(_ivConfig >> "contractility",getNumber (_defaultConfig >> "contractility"))* _medicationMult);
             private _nauseaMult             = (GET_NUMBER(_ivConfig >> "nauseaMult",getNumber (_defaultConfig >> "nauseaMult")) * _medicationMult);
             private _cnsSuppression         = (GET_NUMBER(_ivConfig >> "cnsSuppression",getNumber (_defaultConfig >> "cnsSuppression")) * _medicationMult);
+            private _theraputicDose        = (GET_NUMBER(_ivConfig >> "theraputicDose",getNumber (_defaultConfig >> "theraputicDose")));
             private _heartRate = GET_HEART_RATE(_unit);
             private _hrIncrease = [_hrIncreaseLow, _hrIncreaseNormal, _hrIncreaseHigh] select (floor ((0 max _heartRate min 110) / 55));
             _hrIncrease params ["_minIncrease", "_maxIncrease"];
@@ -334,8 +337,47 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             TRACE_6("adjustments1",_unit,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
             TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
             private _drugMult = linearConversion [0, 4, _medicationMult, 0.01, 4];
-            [_unit, _medicationName, 0, 2, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, "false", "false", "true", _cnsSuppression, [-1, -1, -1, "false", _drugMult]] call EFUNC(vitals,addMedicationAdjustment);
-            [_unit, _medicationName] call ACEFUNC(medical_treatment,onMedicationUsage);
+            private _adjustments = _unit getVariable [VAR_MEDICATIONS, []];
+            private _index = _adjustments findIf {
+                (_x select 0) isEqualTo _medicationName
+                && {((_x select 19) select 6) == 1}
+            };
+            if (_index > -1) then {
+                private _entry = _adjustments select _index;
+                _entry params [
+                    "_med", "_timeAdded", "_timeTillMaxEffect", "_maxTimeInSystem",
+                    "_hrAdjust", "_painAdjust", "_flowAdjust", "_olddose", "_oldalphaFactor",
+                    "_oldopioidRelief", "_oldopioidEffect", "_oldopioidDepression",
+                    "_oldrespiratoryRate", "_oldcontractility", "_oldnauseaMult",
+                    "_sedation", "_paralysis", "_medGraph", "_oldcnsSuppression", "_admin"
+                ];
+                _adjustments set [_index, [
+                    _med,
+                    _timeAdded,
+                    _timeTillMaxEffect,
+                    _maxTimeInSystem + 1.5,
+                    _hrAdjust + ((_heartRateChange - _hrAdjust) * 0.25),
+                    _painAdjust + ((_painReduce - _painAdjust) * 0.25),
+                    _flowAdjust + ((_viscosityChange - _flowAdjust) * 0.25),
+                    _olddose + ((_dose - _olddose) * 0.25),
+                    _oldalphaFactor + ((_alphaFactor - _oldalphaFactor) * 0.25),
+                    _oldopioidRelief + ((_opioidRelief - _oldopioidRelief) * 0.25),
+                    _oldopioidEffect + ((_opioidEffect - _oldopioidEffect) * 0.25),
+                    _oldopioidDepression + ((_opioidDepression - _oldopioidDepression) * 0.25),
+                    _oldrespiratoryRate + ((_respiratoryRate - _oldrespiratoryRate) * 0.25),
+                    _oldcontractility + ((_contractility - _oldcontractility) * 0.25),
+                    _oldnauseaMult + ((_nauseaMult - _oldnauseaMult) * 0.25),
+                    _sedation,
+                    _paralysis,
+                    _medGraph,
+                    _oldcnsSuppression + ((_cnsSuppression - _oldcnsSuppression) * 0.25),
+                    _admin
+                ]];
+                _unit setVariable [VAR_MEDICATIONS, _adjustments, true];
+            } else {
+                [_unit, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, 0, 0, 1, _cnsSuppression, [-1, -1, -1, 0, _drugMult, _theraputicDose, 1]] call EFUNC(vitals,addMedicationAdjustment);
+            }; 
+            
 
             if (_hypothermia) then {
                 // If fluid warmers are on the line, fluids are "warmed" and added to the warmer. If there is no fluid warmer on the line, the fluids stayed cooled

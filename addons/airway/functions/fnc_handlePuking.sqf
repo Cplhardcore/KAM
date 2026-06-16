@@ -51,6 +51,7 @@ private _mitigation = _unit getVariable [QGVAR(occlusionMitigation), [0, 0, 0]];
 _occlusionState set [0, ((_occlusionState select 0) + floor (_volume * 1.5 * (1 - (_mitigation select 0)))) min 10];
 _occlusionState set [1, ((_occlusionState select 1) + floor (_volume * (1 - (_mitigation select 1)))) min 10];
 _occlusionState set [2, ((_occlusionState select 2) + floor (_volume * 0.7 * (1 - (_mitigation select 1)))) min 10];
+("kat_vomit") createVehicle (eyePos _unit);
 _unit setVariable [QGVAR(occlusion), _occlusionState, true];
 //_unit setVariable [QGVAR(stomachVolume), (_volume - 1), true];
 _unit setVariable [QGVAR(hasPuked), true, true];

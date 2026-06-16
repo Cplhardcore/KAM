@@ -19,7 +19,7 @@
  *
  * Example:
  * [player, "Morphine", 120, 60, -10, 0.8, -10, 1] call ace_medical_status_fnc_addMedicationAdjustment
- * ["_unit", "_medication","_timeToMaxEffect","_maxTimeInSystem"."_hrAdjust","_painAdjust","_flowAdjust","_dose","_alphaFactor","_opioidRelief","_opioidEffect","_opioidDepression","_respiratoryRate","_contractility", "_nauseaMult","_sedation","_paralysis","_linear","_cnsSuppression","[-1, -1, -1, 0, 1, 15]"]] call EFUNC(vitals,addMedicationAdjustment);
+ * ["_unit", "_medication","_timeToMaxEffect","_maxTimeInSystem"."_hrAdjust","_painAdjust","_flowAdjust","_dose","_alphaFactor","_opioidRelief","_opioidEffect","_opioidDepression","_respiratoryRate","_contractility", "_nauseaMult","_sedation","_paralysis","_linear","_cnsSuppression","[-1, -1, -1, 0, 1, 15, 0]"]] call EFUNC(vitals,addMedicationAdjustment);
  *
  *
  * Public: No
@@ -43,15 +43,15 @@ params [
     ["_paralysis", 0],
     ["_linear", 0],
     ["_cnsSuppression", 0],
-    ["_overdoseAdmin", [-1, -1, -1, 0, 1, 15]]
+    ["_admin", [-1, -1, -1, 0, 1, 15, 0]]
 ];
-TRACE_8("addMedicationAdjustment",_unit,_medication,_timeToMaxEffect,_maxTimeInSystem,_hrAdjust,_painAdjust,_flowAdjust,_overdoseAdmin);
+TRACE_8("addMedicationAdjustment",_unit,_medication,_timeToMaxEffect,_maxTimeInSystem,_hrAdjust,_painAdjust,_flowAdjust,_admin);
 
 if (_maxTimeInSystem <= 0) exitWith { WARNING_1("bad value for _maxTimeInSystem - %1",_this); };
 _timeToMaxEffect = _timeToMaxEffect max 1;
 
 
 private _adjustments = _unit getVariable [VAR_MEDICATIONS, []];
-_adjustments pushBack [_medication, CBA_missionTime, _timeToMaxEffect, _maxTimeInSystem, _hrAdjust, _painAdjust, _flowAdjust, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility,_nauseaMult,_sedation,_paralysis,_linear,_cnsSuppression,_overdoseAdmin];
+_adjustments pushBack [_medication, CBA_missionTime, _timeToMaxEffect, _maxTimeInSystem, _hrAdjust, _painAdjust, _flowAdjust, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility,_nauseaMult,_sedation,_paralysis,_linear,_cnsSuppression,_admin];
 
 _unit setVariable [VAR_MEDICATIONS, _adjustments, true];

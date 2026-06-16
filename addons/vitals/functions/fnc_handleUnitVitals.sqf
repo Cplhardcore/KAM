@@ -156,9 +156,9 @@ if (_adjustments isNotEqualTo []) then {
             "_hrAdjust", "_painAdjust", "_flowAdjust", "_dose", "_alphaFactor",
             "_opioidRelief", "_opioidEffect", "_opioidDepression",
             "_respiratoryRate", "_contractility", "_nauseaMult",
-            "_sedation", "_paralysis", "_medGraph", "_cnsSuppression", "_overdoseAdmin"
+            "_sedation", "_paralysis", "_medGraph", "_cnsSuppression", "_admin"
         ];
-        _overdoseAdmin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased", "_weightMult", "_theraputic"];
+        _admin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased", "_weightMult", "_theraputic", "_infusion"];
         private _scaledMaxTime = _maxTimeInSystem / _metabolismMult;
         private _scaledTimeToMax = _timeTillMaxEffect * _onsetMult;
         private _timeInSystem = CBA_missionTime - _timeAdded;
@@ -169,7 +169,7 @@ if (_adjustments isNotEqualTo []) then {
         private _medLower = toLower _medication;
         private _blockedWords = ["overdose", "override", "bradycardia", "tachycardia", "sedation"];
         private _found = _blockedWords findIf { _medLower find _x != -1 };
-        if ((_overdoseAdmin select 1 > 0) && (_found == -1) && (_overdoseAdmin select 0 > 0)) then {
+        if ((_admin select 1 > 0) && (_found == -1) && (_admin select 0 > 0)) then {
             [_unit, _medication, _ld50, _od50, _chanceToOD] call FUNC(handleOverdoses);
         };
         TRACE_3("TIS",_medication,_timeInSystem,_scaledMaxTime);
@@ -180,6 +180,13 @@ if (_adjustments isNotEqualTo []) then {
             switch (_medGraph) do {
                 case 1: {
                     _effectRatio = 1;
+                };
+                case 2: {
+                    private _fadeOutDuration = _scaledTimeToMax * 5;
+                    private _rampUp = ((_timeInSystem / _scaledTimeToMax) ^ 2) min 1;
+                    private _timeRemaining = _scaledMaxTime - _timeInSystem;
+                    private _step = ((_timeRemaining / _fadeOutDuration) max 0) min 1;
+                    _effectRatio = _rampUp * (_step * _step * (3 - 2 * _step));
                 };
                 default {
                     _effectRatio = (((_timeInSystem / _scaledTimeToMax) ^ 2) min 1) * ((_scaledMaxTime - _timeInSystem) / _scaledMaxTime);
