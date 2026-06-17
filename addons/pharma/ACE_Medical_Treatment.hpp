@@ -64,6 +64,7 @@ class ACE_ADDON(Medical_Treatment) {
         class Morphine {};
         class Adenosine {};
         class Atropine {};
+        class ATNAA {};
         class TXAAuto {};
         class PhenylephrineAuto {};
         class Carbonate {
@@ -346,6 +347,24 @@ class ACE_ADDON(Medical_Treatment) {
             maxOverEffective = 1;
         };
         class syringe_Atropine {
+            painReduce = 0;
+            hrIncreaseLow[] = {8, 20};
+            hrIncreaseNormal[] = {6, 16};
+            hrIncreaseHigh[] = {3, 10};
+            timeInSystem = 540;
+            timeTillMaxEffect = 10;
+            dose = 1;
+            viscosityChange = 0;
+            contractility = 0.1;
+            OD50 = 50;
+            LD50 = 120;
+            chanceToOD = 5;
+            maxDoseDeviation = 30;
+            incompatibleMedication[] = {};
+            onOverDose = "";
+            maximumEffectiveDose = 30;
+        };
+        class syringe_ATNAA {
             painReduce = 0;
             hrIncreaseLow[] = {8, 20};
             hrIncreaseNormal[] = {6, 16};

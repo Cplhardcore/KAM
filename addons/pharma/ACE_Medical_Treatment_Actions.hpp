@@ -1418,4 +1418,8 @@ class ACE_Medical_Treatment_Actions {
         items[] = {"kat_syringe_lidocaine_5ml_10", "kat_syringe_lidocaine_10ml_10"};
         callbackSuccess = QFUNC(treatmentAdvanced_NerveBlock);
     };
+    class ATNAA: Atropine {
+        displayName = ECSTRING(chemical,Take_ATNAA);
+        items[] = {"kat_atnaa"};
+    };
 };
