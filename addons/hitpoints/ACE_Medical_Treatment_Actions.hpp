@@ -223,7 +223,7 @@ class ACE_Medical_Treatment_Actions {
     class StopPressure: ApplyPressure {
         displayName = CSTRING(StopPressure);
         displayNameProgress = CSTRING(StopPressure);
-        treatmentTime = 1;
+        treatmentTime = 0.01;
         callbackSuccess = QFUNC(manualPressureStop);
         condition = QFUNC(manualPressureStopCondition);
     };

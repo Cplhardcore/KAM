@@ -292,7 +292,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(TurnOnLUCAS);
         displayNameProgress = CSTRING(TurnOnLUCAS_action);
         medicRequired = QGVAR(medLvl_Lucas);
-        treatmentTime = 1;
+        treatmentTime = 0.01;
         items[] = {};
         condition = QUOTE([ARR_2(_patient,false)] call FUNC(lucasStateCondition));
         callbackSuccess = QUOTE([ARR_2(_patient,true)] call FUNC(lucasState));
@@ -301,7 +301,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(TurnOffLUCAS);
         displayNameProgress = CSTRING(TurnOnLUCAS_action);
         medicRequired = QGVAR(medLvl_Lucas);
-        treatmentTime = 1;
+        treatmentTime = 0.01;
         items[] = {};
         condition = QUOTE([ARR_2(_patient,true)] call FUNC(lucasStateCondition));
         callbackSuccess = QUOTE([ARR_2(_patient,false)] call FUNC(lucasState));

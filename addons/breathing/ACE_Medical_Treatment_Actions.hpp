@@ -315,7 +315,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(IncreaseVent);
         displayNameProgress = CSTRING(IncreasingVent);
         medicRequired = QGVAR(medLvl_Vent);
-        treatmentTime = 1;
+        treatmentTime = 0.01;
         items[] = {};
         condition = QFUNC(canAdjustRate);
         callbackSuccess = QUOTE([ARR_3(_medic,_patient,-1)] call FUNC(adjustVentRate));
@@ -324,7 +324,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(DecreaseVent);
         displayNameProgress = CSTRING(DecreasingVent);
         medicRequired = QGVAR(medLvl_Vent);
-        treatmentTime = 1;
+        treatmentTime = 0.01;
         items[] = {};
         condition = QFUNC(canAdjustRate);
         callbackSuccess = QUOTE([ARR_3(_medic,_patient,1)] call FUNC(adjustVentRate));
