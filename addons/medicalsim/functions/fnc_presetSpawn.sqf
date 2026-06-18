@@ -19,7 +19,7 @@ params ["_stretcher", "_presetName"];
 TRACE_2("presetSpawn",_stretcher,_presetName);
 
 private _preset = GVAR(simPresets) get _presetName;
-_preset params ["_wounds", "_circulation", "_airway", "_ptx", "_fractures", "_misc"];
+_preset params ["_wounds", "_damageType", "_circulation", "_airway", "_ptx", "_fractures", "_misc"];
 TRACE_1("preset params",_preset);
 
 // Get wounds from preset
@@ -53,7 +53,7 @@ switch (true) do {
 _airway params ["_airway_occluded", "_airway_obstructed", "_airway_catastrophic"];
 private _occluded = [0, 0, 0];
 private _obstructed = [0, 0, 0];
-private _catastrophic = [0, 0];
+private _catastrophic = [false, false];
 {
     private _isoccluded = CHANCE_TO_BOOL((_airway_occluded) select _x);
     if (_isoccluded) then {
@@ -134,10 +134,10 @@ TRACE_3("uncon",_misc,_misc_uncon,_uncon);
 // Spawn patient
 private _patient = _stretcher call FUNC(spawnPatient);
 if (isNil "_patient") exitWith {ERROR_1("Patient %1 cannot be nil",_patient)};
-
+_damageType = selectRandom _damageType;
 // Set wounds
 if (_woundsArray isNotEqualTo []) then {
-    [_patient, _woundsArray] call FUNC(setWounds);
+    [_patient, _woundsArray, _damageType] call FUNC(setWounds);
 };
 
 // Set Circulation / Airway

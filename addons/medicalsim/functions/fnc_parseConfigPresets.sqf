@@ -27,7 +27,7 @@ GVAR(simPresetNames) = [];
     if (_className == "Base") then { continue };
 
     private _wounds = GET_ARRAY(_entry >> "wounds",[]);
-
+    private _damageType = GET_ARRAY(_entry >> "damageType",["bullet"]);
     private _arrestType = GET_NUMBER(_entry >> "arrestType",0);
     private _pao2 = GET_NUMBER(_entry >> "PAO2",97);
     private _circulation = [_arrestType, _pao2];
@@ -48,7 +48,7 @@ GVAR(simPresetNames) = [];
     private _uncon = GET_NUMBER(_entry >> "uncon",0);
     private _misc = [_uncon];
 
-    private _details = [_wounds, _circulation, _airway, _ptx, _fractures, _misc];
+    private _details = [_wounds, _damageType, _circulation, _airway, _ptx, _fractures, _misc];
 
     GVAR(simPresets) set [_className, _details];
     GVAR(simPresetNames) pushBack _className;

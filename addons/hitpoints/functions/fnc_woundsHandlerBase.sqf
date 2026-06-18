@@ -17,7 +17,7 @@
  * Public: No
  */
 
-params ["_unit", "_allDamages", "_typeOfDamage"];
+params ["_unit", "_allDamages", "_typeOfDamage", "", ["_notSelectionSpecific", false]];
 TRACE_3("woundsHandlerBase",_unit,_allDamages,_typeOfDamage);
 
 if !(_typeOfDamage in ACEGVAR(medical_damage,damageTypeDetails)) then {
@@ -40,6 +40,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
 // process wounds separately for each body part hit
 {   // forEach _allDamages
     _x params ["_damage", "_bodyPart"];
+    TRACE_2("_x",_damage,_bodyPart);
     _bodyPart = toLowerANSI _bodyPart;
     if (_typeOfDamage != "explosive") then {
         if (_bodyPart == "head") then {
@@ -63,6 +64,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         TRACE_2("Damage created zero wounds",_damage,_typeOfDamage);
         continue
     };
+    TRACE_2("_nWounds",_bodyPart,_nWounds);
     private _dmgPerWound = _damage/_nWounds;
 
     // find the available injuries for this damage type and damage amount
@@ -73,7 +75,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         _weightedWoundTypes pushBack _x;
         _weightedWoundTypes pushBack _woundWeight;
     } forEach _damageWoundDetails;
-
+    TRACE_1("_weightedWoundTypes",_weightedWoundTypes);
     if (_weightedWoundTypes isEqualTo []) then {
         TRACE_2("No valid wounds",_damage,_typeOfDamage);
         continue
@@ -309,7 +311,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
     };
 
     // selection-specific damage only hits the first part
-    if (_selectionSpecific > 0) then {
+    if (_selectionSpecific > 0 && (!_notSelectionSpecific)) then {
         break;
     };
 } forEach _allDamages;

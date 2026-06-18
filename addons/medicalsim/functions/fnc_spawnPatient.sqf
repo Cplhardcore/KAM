@@ -1,5 +1,4 @@
 #include "..\script_component.hpp"
-#define MEDSIM_TYPE ["simple", "fracture", "pneumothorax"]
 /*
 	Author: flufflesamy
 
@@ -39,7 +38,8 @@ removeAllItems _patient;
 removeAllAssignedItems _patient;
 _patient disableAI "PATH";
 _patient disableAI "RADIOPROTOCOL";
-
+_patient setVariable [QEGVAR(vitals,simpleMedical), false, true];
+_patient setVariable [QACEGVAR(medical,AIDamageThreshold), 20, true];
 _entity setVariable [QGVAR(simPatient), _patient, true];
 
 _patient

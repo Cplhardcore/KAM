@@ -18,6 +18,4 @@
 
 params ["_unit", "_allDamages", "_damageType"];
 TRACE_2("setWounds",_unit,_allDamages);
-
-[_unit, _allDamages, _damageType] call ACEFUNC(medical_damage,woundsHandlerBase);
-[_unit] call ACEFUNC(medical_status,updateWoundBloodLoss);
+[_unit, _allDamages, _damageType, "", true] call ACEFUNC(medical_damage,woundsHandlerBase); 

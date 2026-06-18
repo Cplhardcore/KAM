@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: Glowbal
@@ -35,7 +36,7 @@ TRACE_3("correctedMAP",_correctedMap,_map,_bloodPressure);
 private _heartRate = GET_HEART_RATE(_unit);
 
 private _trauma = _unit getVariable [QEGVAR(vitals,traumaState),0];
-private _capLeak = linearConversion [0.4,0.9,_trauma,0,0.0002,true];
+private _capLeak = linearConversion [0.4,0.9,_trauma,0,0.002,true];
 
 private _lossVolumeChange = 0;
 {

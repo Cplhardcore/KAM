@@ -37,21 +37,26 @@ if (_uncon) then {
 
 // set wounds
 private _damageArray = [];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_HEAD_SLIDER, "Head"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_HEAD_SLIDER, "Neck"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_TORSO_SLIDER, "Chest"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_TORSO_SLIDER, "Body"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_LEFTARM_SLIDER, "UpperLeftArm"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_LEFTARM_SLIDER, "LeftArm"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_RIGHTARM_SLIDER, "UpperRightArm"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_RIGHTARM_SLIDER, "RightArm"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_LEFTLEG_SLIDER, "UpperLeftLeg"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_LEFTLEG_SLIDER, "LeftLeg"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_RIGHTLEG_SLIDER, "UpperRightLeg"];
-_damageArray pushBack [sliderPosition IDC_WOUNDS_RIGHTLEG_SLIDER, "RightLeg"];
+{
+    _x params ["_sliderIDC", "_selections"];
+
+    private _damage = sliderPosition _sliderIDC;
+
+    if (_damage > 0) then {
+        {
+            _damageArray pushBack [_damage, _x];
+        } forEach _selections;
+    };
+} forEach [
+    [IDC_WOUNDS_HEAD_SLIDER, ["Head", "Neck"]],
+    [IDC_WOUNDS_TORSO_SLIDER, ["Chest", "Body"]],
+    [IDC_WOUNDS_LEFTARM_SLIDER, ["UpperLeftArm", "LeftArm"]],
+    [IDC_WOUNDS_RIGHTARM_SLIDER, ["UpperRightArm", "RightArm"]],
+    [IDC_WOUNDS_LEFTLEG_SLIDER, ["UpperLeftLeg", "LeftLeg"]],
+    [IDC_WOUNDS_RIGHTLEG_SLIDER, ["UpperRightLeg", "RightLeg"]]
+];
 private _damageIndex = lbCurSel IDC_WOUNDS_DAMAGE_COMBO;
 private _typeOfDamage = lbText [IDC_WOUNDS_DAMAGE_COMBO, _damageIndex];
-
 [_patient, _damageArray, _typeOfDamage] call FUNC(setWounds);
 
 // set cardiac arrest

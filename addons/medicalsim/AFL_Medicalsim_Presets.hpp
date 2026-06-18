@@ -18,7 +18,13 @@ class AFL_Medicalsim_Presets {
             {0}, // Upper Right Leg
             {0}  // Right Leg
         };
-
+        damageTypes[] = { 
+            "bullet",
+            "explosive",
+            "grenade",
+            "shell",
+            "vehiclehit"
+        };
         // Circulation
         // ARREST_TYPE ["none", "asystole", "pea", "vf", "vt"]
         arrestType = 0; // Chance: [0,1); Type: [1..4]

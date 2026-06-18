@@ -45,7 +45,7 @@ private _localAnesthesia = (_patient getVariable [QEGVAR(pharma,localAnesthesia)
     if ("morphine" in _medName) then {
         _morphineEffectiveness = _morphineEffectiveness max _effectiveness;
     };
-    } forEach _medStack;
+} forEach _medStack;
     if (
         _fentanylEffectiveness <= 0.8 &&
         _ketamineEffectiveness <= 0.8 &&

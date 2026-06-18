@@ -106,7 +106,7 @@ if (_hasExternalBleeding && (IS_BLEEDING(_target))) then {
 
 if (ACEGVAR(medical_gui,showBloodlossEntry)) then {
     // Give a qualitative description of the blood volume lost
-    private _externalBloodLoss = _target getVariable [QEGVAR(circulation,externalBloodLoss), 0];
+    private _externalBloodLoss = (_target getVariable [QEGVAR(circulation,externalBloodLoss), 0]) / 1000;
     switch (true) do {
         case (_externalBloodLoss == 0): {
             if (ACEGVAR(medical_gui,showInactiveStatuses)) then {_entries pushBack [localize ACELSTRING(medical_gui,Lost_Blood0), _nonissueColor];};

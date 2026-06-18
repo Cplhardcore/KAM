@@ -141,19 +141,19 @@
             <English>Type of Damage</English>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_Gunshot">
-            <English>Bullet</English>
+            <English>bullet</English>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_Explosion">
-            <English>Explosion</English>
+            <English>explosion</English>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_Grenade">
-            <English>Grenade</English>
+            <English>grenade</English>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_Shell">
-            <English>Shell</English>
+            <English>shell</English>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_vehiclehit">
-            <English>VehicleHit</English>
+            <English>hehiclehit</English>
         </Key>
     </Package>
 </Project>
