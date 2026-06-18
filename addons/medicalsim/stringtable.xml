@@ -153,7 +153,13 @@
             <English>shell</English>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_vehiclehit">
-            <English>hehiclehit</English>
+            <English>vehiclehit</English>
+        </Key>
+        <Key ID="STR_KAT_MedicalSim_Mission">
+            <English>Medic Training</English>
+        </Key>
+        <Key ID="STR_KAT_MedicalSim_Mission_tooltip">
+            <English>For all your medical simulation needs</English>
         </Key>
     </Package>
 </Project>
