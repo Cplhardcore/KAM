@@ -25,14 +25,14 @@ class AFL_Medicalsim_Presets {
         PAO2 = 97; // PAO2: [0..100]
 
         // Airway
-        occluded = [0, 0, 0];
-        obstructed = [0, 0, 0];
-        catastrophic = [0, 0];
+        occluded[] = {0, 0, 0};
+        obstructed[] = {0, 0, 0};
+        catastrophic[] = {0, 0};
         // Pneumothroax
         // PNUMO_TYPE ["none", "initial", "tension", "hemo"]
-        ptxStrength = [0, 0];
-        tptxEnable = [0, 0]; 
-        hptxStrength = [0, 0];
+        ptxStrength[] = {0, 0};
+        tptxEnable[] = {0, 0}; 
+        hptxStrength[] = {0, 0};
         ptxTamponade = 0;
 
         // Fractures
@@ -96,8 +96,8 @@ class AFL_Medicalsim_Presets {
 
     class Medium : Easy {
         uncon = 1;
-        occluded = [0.5, 0.5, 0.5];
-        obstructed = [0.5, 0.25, 0];
+        occluded[] = {0.5, 0.5, 0.5};
+        obstructed[] = {0.5, 0.25, 0};
     };
 
     class Hard : Base {
@@ -129,14 +129,14 @@ class AFL_Medicalsim_Presets {
             {0.5, 0.25},
             {0.5, 0.25}
         };
-        occluded = [0.75, 0.75, 0.75];
-        obstructed = [0.5, 0.5, 0];
-        catastrophic = [0.5, 0.5];
+        occluded[] = {0.75, 0.75, 0.75};
+        obstructed[] = {0.5, 0.5, 0};
+        catastrophic[] = {0.5, 0.5};
 
         arrestType = 0.5;
-        ptxStrength = [0.6, 0.6]; // Strength: [1..16]
-        tptxEnable = [0.4, 0.4]; // true/false
-        hptxStrength = [0.2, 0.2];
+        ptxStrength[] = {0.6, 0.6}; // Strength: [1..16]
+        tptxEnable[] = {0.4, 0.4}; // true/false
+        hptxStrength[] = {0.2, 0.2};
         ptxTamponade = 0;
 
         uncon = 1;

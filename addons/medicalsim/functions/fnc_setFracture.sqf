@@ -21,13 +21,13 @@ params ["_unit", "_bodyPart", "_fracType"];
 TRACE_3("setFracture",_unit,_bodyPart,_fracType);
 
 // set body part to fractured
-private _fractureArray = _unit getVariable [QACEGVAR(medical,fractures), [0,0,0,0,0,0]];
+private _fractureArray = _unit getVariable [QACEGVAR(medical,fractures), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _part = ALL_BODY_PARTS find toLower _bodyPart;
 if (_part == -1) exitWith {ERROR_1("Invalid fracture location %1!",_fracType)};
 _fractureArray set [_part, 1];
 
 // set type of fracture for body part
-private _kamfractureArray = _unit getVariable [QKEGVAR(surgery,fractures), [0,0,0,0,0,0]];
+private _kamfractureArray = _unit getVariable [QKEGVAR(surgery,fractures), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _type = FRACTURE_TYPE find toLower _fracType;
 if (_type == -1) exitWith {ERROR_1("Invalid fracture type %1!",_fracType)};
 _kamfractureArray set [_part, _type];

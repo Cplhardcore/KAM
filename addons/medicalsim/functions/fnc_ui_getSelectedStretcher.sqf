@@ -30,4 +30,4 @@ private _stretcherArray = GVAR(menuTarget) getVariable [QGVAR(simStretchers), ni
 private _stretcher = (_stretcherArray select _stretcherIndex) select 0;
 TRACE_1("Stretcher: %1",_stretcher);
 
-_stretcher;
+_stretcher

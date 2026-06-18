@@ -7,7 +7,6 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "afl_main",
             "ace_medical",
             "ace_medical_damage",
             "kat_vitals",
@@ -22,6 +21,5 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
-#include "ACE_Medical_Injuries.hpp"
 #include "AFL_Medicalsim_Presets.hpp"
 #include "ui\RscSimMenu.hpp"

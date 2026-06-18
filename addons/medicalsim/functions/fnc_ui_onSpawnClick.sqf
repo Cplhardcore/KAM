@@ -32,19 +32,27 @@ if (isNil "_patient") exitWith {ERROR_1("Patient %1 cannot be nil",_patient)};
 private _uncon = cbChecked displayCtrl IDC_MISC_UNCON_CHECKBOX;
 
 if (_uncon) then {
-    [_patient, true, 300] call KEFUNC(misc,setUnconscious);
+    [_patient, true, 900] call EFUNC(misc,setUnconscious);
 };
 
 // set wounds
 private _damageArray = [];
 _damageArray pushBack [sliderPosition IDC_WOUNDS_HEAD_SLIDER, "Head"];
+_damageArray pushBack [sliderPosition IDC_WOUNDS_HEAD_SLIDER, "Neck"];
+_damageArray pushBack [sliderPosition IDC_WOUNDS_TORSO_SLIDER, "Chest"];
 _damageArray pushBack [sliderPosition IDC_WOUNDS_TORSO_SLIDER, "Body"];
+_damageArray pushBack [sliderPosition IDC_WOUNDS_LEFTARM_SLIDER, "UpperLeftArm"];
 _damageArray pushBack [sliderPosition IDC_WOUNDS_LEFTARM_SLIDER, "LeftArm"];
+_damageArray pushBack [sliderPosition IDC_WOUNDS_RIGHTARM_SLIDER, "UpperRightArm"];
 _damageArray pushBack [sliderPosition IDC_WOUNDS_RIGHTARM_SLIDER, "RightArm"];
+_damageArray pushBack [sliderPosition IDC_WOUNDS_LEFTLEG_SLIDER, "UpperLeftLeg"];
 _damageArray pushBack [sliderPosition IDC_WOUNDS_LEFTLEG_SLIDER, "LeftLeg"];
+_damageArray pushBack [sliderPosition IDC_WOUNDS_RIGHTLEG_SLIDER, "UpperRightLeg"];
 _damageArray pushBack [sliderPosition IDC_WOUNDS_RIGHTLEG_SLIDER, "RightLeg"];
+private _damageIndex = lbCurSel IDC_WOUNDS_DAMAGE_COMBO;
+private _typeOfDamage = lbText [IDC_WOUNDS_DAMAGE_COMBO, _damageIndex];
 
-[_patient, _damageArray] call FUNC(setWounds);
+[_patient, _damageArray, _typeOfDamage] call FUNC(setWounds);
 
 // set cardiac arrest
 private _cardiacIndex = lbCurSel IDC_CARDIAC_COMBO;
@@ -56,26 +64,61 @@ if (_cardiacIndex > 0) then {
 };
 
 // set airway
-private _occluded = cbChecked displayCtrl IDC_AIRWAY_OCCLUDED_CHECKBOX;
-private _obstructed = cbChecked displayCtrl IDC_AIRWAY_OBSTRUCTED_CHECKBOX;
-private _pao2 = sliderPosition IDC_AIRWAY_PAO2_SLIDER;
-
-if (_occluded || _obstructed || _pao2 < 100) then {
-    [_patient, _occluded, _obstructed, _pao2] call FUNC(setAirway);
-    TRACE_4("Set airway",_patient,_occluded,_obstructed,_pao2);
+private _occluded = [0, 0, 0];
+private _obstructed = [0, 0, 0];
+private _catastrophic = [false, false];
+for "_i" from 0 to 2 do {
+    _occluded set [_i, sliderPosition IDC_AIRWAY_OCCLUDED_SLIDER];
 };
+for "_i" from 0 to 2 do {
+    private _isobstructed = cbChecked displayCtrl IDC_AIRWAY_OBSTRUCTED_CHECKBOX;
+    if (_isobstructed) then {
+        _obstructed set [_i, 1];
+    };
+};
+
+
+private _iscatastrophic = cbChecked displayCtrl IDC_AIRWAY_CATASTROPHIC_CHECKBOX;
+if (_iscatastrophic) then {
+    _catastrophic = [true, true];
+};
+
+[_patient, _occluded, _obstructed, _catastrophic] call FUNC(setAirway);
+TRACE_3("Set airway",_patient,_occluded,_obstructed);
 
 // set ptx
-private _ptxTypeIndex = lbCurSel IDC_PTX_TYPE_COMBO;
-private _ptxTypeText = lbText [IDC_PTX_TYPE_COMBO, _ptxTypeIndex];
-private _ptxStrength = sliderPosition IDC_PTX_STRENGTH_SLIDER;
-private _ptxDeteriorate = cbChecked displayCtrl IDC_PTX_DETERIORATE_CHECKBOX;
-private _ptxTamponade = cbChecked displayCtrl IDC_PTX_TAMPONADE_CHECKBOX;
-
-if (_ptxTypeIndex > 0) then {
-    [_patient, _ptxTypeText, _ptxStrength, _ptxDeteriorate, _ptxTamponade] call FUNC(setPneumothorax);
-    TRACE_5("Pneumothorax",_patient,_ptxTypeText,_ptxStrength,_ptxDeteriorate,_ptxTamponade);
+private _ptxStrength = [0, 0];
+private _tptxStrength = [false, false];
+private _hptxStrength = [0, 0];
+private _ptxTamponade = 0;
+for "_i" from 0 to 2 do {
+    private _isptx = sliderPosition IDC_PTX_STRENGTH_SLIDER;
+    if (_isptx > 0) then {
+        _ptxStrength set [_i, (sliderPosition IDC_PTX_STRENGTH_SLIDER)];
+    };
 };
+for "_i" from 0 to 2 do {
+    private _isptx = sliderPosition IDC_PTX_STRENGTH_SLIDER;
+    if (_isptx > 0) then {
+        _ptxStrength set [_i, (sliderPosition IDC_PTX_STRENGTH_SLIDER)];
+    };
+};
+private _istptx = cbChecked displayCtrl IDC_TPTX_CHECKBOX;
+if (_istptx) then {
+    _tptxStrength = [true, false];
+};
+for "_i" from 0 to 2 do {
+    private _ishptx = sliderPosition IDC_HPTX_STRENGTH_SLIDER;
+    if (_ishptx > 0) then {
+        _hptxStrength set [_i, linearConversion [0, 100, (sliderPosition IDC_HPTX_STRENGTH_SLIDER), 0, 0.8]];
+    };
+};
+private _isTamponade = cbChecked displayCtrl IDC_PTX_TAMPONADE_CHECKBOX;
+if (_isTamponade) then {
+    _ptxTamponade = selectRandom [0, 1, 2, 3, 4];
+};
+
+[_patient, _ptxStrength, _tptxStrength, _hptxStrength, _ptxTamponade] call FUNC(setPneumothorax);
 
 // set fractures
 private _fracLArmIndex = lbCurSel IDC_FRACTURES_LEFTARM_COMBO;

@@ -16,7 +16,8 @@
 		{_player, [[2, "LeftLeg"]]} call afl_common_fnc_setPneumothorax;
 */
 
-params ["_unit", "_allDamages"];
+params ["_unit", "_allDamages", "_damageType"];
 TRACE_2("setWounds",_unit,_allDamages);
 
-[_unit, _allDamages, "testdamage"] call ACEFUNC(medical_damage,woundsHandlerBase);
+[_unit, _allDamages, _damageType] call ACEFUNC(medical_damage,woundsHandlerBase);
+[_unit] call ACEFUNC(medical_status,updateWoundBloodLoss);

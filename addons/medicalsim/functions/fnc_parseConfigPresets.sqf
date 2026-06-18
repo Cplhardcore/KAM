@@ -32,14 +32,14 @@ GVAR(simPresetNames) = [];
     private _pao2 = GET_NUMBER(_entry >> "PAO2",97);
     private _circulation = [_arrestType, _pao2];
 
-    private _obstructed = GET_ARRAY(_entry >> "obstructed",[0, 0, 0]);
-    private _occluded = GET_ARRAY(_entry >> "occluded",[0, 0, 0]);
-    private _catastrophic = GET_ARRAY(_entry >> "catastrophic",[0, 0]);
+    private _obstructed = GET_ARRAY(_entry >> "obstructed",getArray (_entry >> "obstructed"));
+    private _occluded = GET_ARRAY(_entry >> "occluded",getArray (_entry >> "occluded"));
+    private _catastrophic = GET_ARRAY(_entry >> "catastrophic",getArray (_entry >> "catastrophic"));
     private _airway = [_occluded, _obstructed, _catastrophic];
 
-    private _ptxStrength = GET_ARRAY(_entry >> "ptxStrength",[0, 0]);
-    private _tptxEnable = GET_ARRAY(_entry >> "tptxEnable",[0, 0]);
-    private _hptxStrength = GET_ARRAY(_entry >> "hptxStrength",[0, 0]);
+    private _ptxStrength = GET_ARRAY(_entry >> "ptxStrength",getArray (_entry >> "ptxStrength"));
+    private _tptxEnable = GET_ARRAY(_entry >> "tptxEnable",getArray (_entry >> "tptxEnable"));
+    private _hptxStrength = GET_ARRAY(_entry >> "hptxStrength",getArray (_entry >> "hptxStrength"));
     private _ptxTamponade = GET_NUMBER(_entry >> "ptxTamponade",0);
     private _ptx = [_ptxStrength, _tptxEnable, _hptxStrength, _ptxTamponade];
 

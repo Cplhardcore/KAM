@@ -1,3 +1,4 @@
+#include "ui_macros.hpp"
 class RscText;
 class RscCombo;
 class RscXSliderH;
@@ -44,6 +45,27 @@ class GVAR(RscFractureCombo) : GVAR(RscPropCombo) {
         };
         class Comminuted {
             text = CSTRING(Fractures_Type_Comminuted);
+        };
+    };
+};
+
+class GVAR(RscDamageCombo) : GVAR(RscPropCombo) {
+    class Items {
+        class bullet {
+            text = CSTRING(Damage_Type_Gunshot);
+            default = 1;
+        };
+        class explosive {
+            text = CSTRING(Damage_Type_Explosion);
+        };
+        class grenade {
+            text = CSTRING(Damage_Type_grenade);
+        };
+        class shell {
+            text = CSTRING(Damage_Type_Shell);
+        };
+        class vehiclehit {
+            text = CSTRING(Damage_Type_vehiclehit);
         };
     };
 };
@@ -126,7 +148,7 @@ class GVAR(RscSimMenu) {
                     idc = IDC_STRETCHERS_LISTBOX;
                     x = QUOTE(MEDSIM_CG_POS_W(0.2));
                     y = QUOTE(POS_H(1.1));
-                    h = QUOTE(POS_H(5.9));
+                    h = QUOTE(POS_H(4.9));
                     w = QUOTE(MEDSIM_CG_POS_W(19.3));
 
                     colorBackground[] = {0,0,0,0.65};
@@ -137,7 +159,7 @@ class GVAR(RscSimMenu) {
         class WoundsGroup : RscControlsGroupNoScrollbars {
             idc = IDC_WOUNDS_CG;
             x = QUOTE(MEDSIM_CG_LEFT_X);
-            y = QUOTE(POS_Y(8.3));
+            y = QUOTE(POS_Y(7.3));
             w = QUOTE(MEDSIM_CG_W);
             h = QUOTE(POS_H(7.6));
 
@@ -145,7 +167,11 @@ class GVAR(RscSimMenu) {
                 class Header : GVAR(RscHeaderText) {
                     text = CSTRING(Wounds_Title);
                 };
-
+                class DamageCombo : GVAR(RscDamageCombo) {
+                    idc = IDC_WOUNDS_DAMAGE_COMBO;
+                    y = QUOTE(POS_H(0.1));
+                    text = CSTRING(typeDamage);
+                };
                 // Head
                 class HeadText : GVAR(RscPropTitle) {
                     y = QUOTE(POS_H(1.1));
@@ -284,32 +310,13 @@ class GVAR(RscSimMenu) {
                         };
                     };
                 };
-
-                // PAO2
-                class PAO2Text : GVAR(RscPropTitle) {
-                    text = CSTRING(Cardiac_PAO2);
-                    y = QUOTE(POS_H(2.2));
-                };
-
-                class PAO2Slider : GVAR(RscPropSlider) {
-                    idc = IDC_AIRWAY_PAO2_SLIDER;
-                    y = QUOTE(POS_H(2.2));
-                    sliderRange[] = {0, 100};
-                    sliderStep = 1;
-                    sliderPosition = 100;
-                };
-
-                class PAO2Value : GVAR(RscSliderValue) {
-                    idc = IDC_AIRWAY_PAO2_VAL;
-                    y = QUOTE(POS_H(2.2));
-                };
             };
         };
 
         class AirwayGroup : RscControlsGroupNoScrollbars {
             idc = IDC_AIRWAY_CG;
             x = QUOTE(MEDSIM_CG_LEFT_X);
-            y = QUOTE(POS_Y(19.3));
+            y = QUOTE(POS_Y(18.2));
             w = QUOTE(MEDSIM_CG_W);
             h = QUOTE(3.2);
 
@@ -321,22 +328,37 @@ class GVAR(RscSimMenu) {
                 // Occluded
                 class OcculudedText : GVAR(RscPropTitle) {
                     text = CSTRING(Airway_Occluded);
-                    y = QUOTE(POS_H(1.1));
+                    y = QUOTE(POS_H(0.0));
                 };
-
-                class OcculudedCheckbox : GVAR(RscPropCheckbox) {
-                    idc = IDC_AIRWAY_OCCLUDED_CHECKBOX;
-                    y = QUOTE(POS_H(1.1));
+                class OcculudedSlider : GVAR(RscPropSlider) {
+                    idc = IDC_AIRWAY_OCCLUDED_SLIDER;
+                    y = QUOTE(POS_H(0.0));
+                    sliderRange[] = {0, 10};
+                    sliderStep = 1;
+                    sliderPosition = 0;
+                };
+                class OcculudedVal : GVAR(RscSliderValue) {
+                    idc = IDC_AIRWAY_OCCLUDED_VAL;
+                    y = QUOTE(POS_H(0.0));
                 };
 
                 // Obstructed
                 class ObstructedText : GVAR(RscPropTitle) {
                     text = CSTRING(Airway_Obstructed);
-                    y = QUOTE(POS_H(2.2));
+                    y = QUOTE(POS_H(1.1));
                 };
 
                 class ObstructedCheckbox : GVAR(RscPropCheckbox) {
                     idc = IDC_AIRWAY_OBSTRUCTED_CHECKBOX;
+                    y = QUOTE(POS_H(1.1));
+                };
+                class CatastrophicText : GVAR(RscPropTitle) {
+                    text = CSTRING(Airway_Catastrophic);
+                    y = QUOTE(POS_H(2.2));
+                };
+
+                class CatastrophicCheckbox : GVAR(RscPropCheckbox) {
+                    idc = IDC_AIRWAY_CATASTROPHIC_CHECKBOX;
                     y = QUOTE(POS_H(2.2));
                 };
             };
@@ -399,61 +421,49 @@ class GVAR(RscSimMenu) {
                 class Header : GVAR(RscHeaderText) {
                     text = CSTRING(PTX_Title);
                 };
-
-                // Type
-                class TypeText : GVAR(RscPropTitle) {
-                    text = CSTRING(PTX_Type);
-                    y = QUOTE(POS_H(1.1));
-                };
-
-                class TypeCombo : GVAR(RscPropCombo) {
-                    idc = IDC_PTX_TYPE_COMBO;
-                    y = QUOTE(POS_H(1.1));
-
-                    class Items {
-                        class None {
-                            text = CSTRING(PTX_Type_None);
-                            default = 1;
-                        };
-                        class Initial {
-                            text = CSTRING(PTX_Type_Initial);
-                        };
-                        class Tension {
-                            text = CSTRING(PTX_Type_Tension);
-                        };
-                        class Hemo {
-                            text = CSTRING(PTX_Type_Hemo);
-                        };
-                    };
-                };
-
                 // Strength
                 class StrengthText : GVAR(RscPropTitle) {
                     text = CSTRING(PTX_Strength);
-                    y = QUOTE(POS_H(2.2));
+                    y = QUOTE(POS_H(1.1));
                 };
 
                 class StrengthSlider : GVAR(RscPropSlider) {
                     idc = IDC_PTX_STRENGTH_SLIDER;
-                    y = QUOTE(POS_H(2.2));
-                    sliderPosition = 1;
-                    sliderRange[] = {1, 4};
+                    y = QUOTE(POS_H(1.1));
+                    sliderPosition = 0;
+                    sliderRange[] = {0, 16};
                     sliderStep = 1;
                 };
 
                 class StrengthValue : GVAR(RscSliderValue) {
                     idc = IDC_PTX_STRENGTH_VAL;
+                    y = QUOTE(POS_H(1.1));
+                };
+                class TPTXText : GVAR(RscPropTitle) {
+                    text = CSTRING(TPTX);
                     y = QUOTE(POS_H(2.2));
                 };
 
+                class TPTXCheckbox : GVAR(RscPropCheckbox) {
+                    idc = IDC_TPTX_CHECKBOX;
+                    y = QUOTE(POS_H(2.2));
+                };
                 // Deteriorate
-                class DeteriorateText : GVAR(RscPropTitle) {
-                    text = CSTRING(PTX_Deteriorate);
+                class HPTXStrengthText : GVAR(RscPropTitle) {
+                    text = CSTRING(HPTX_Strength);
                     y = QUOTE(POS_H(3.3));
                 };
 
-                class DeteriorateCheckbox : GVAR(RscPropCheckbox) {
-                    idc = IDC_PTX_DETERIORATE_CHECKBOX;
+                class StrengthSliderHPTX: GVAR(RscPropSlider) {
+                    idc = IDC_HPTX_STRENGTH_SLIDER;
+                    y = QUOTE(POS_H(3.3));
+                    sliderPosition = 0;
+                    sliderRange[] = {0, 100};
+                    sliderStep = 1;
+                };
+
+                class StrengthValueHPTX: GVAR(RscSliderValue) {
+                    idc = IDC_HPTX_STRENGTH_VAL;
                     y = QUOTE(POS_H(3.3));
                 };
 

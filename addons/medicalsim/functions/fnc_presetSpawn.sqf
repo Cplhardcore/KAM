@@ -40,7 +40,7 @@ private _arrestType = 0;
 switch (true) do {
     case (_circulation_arrestType == 0): {};
     case (_circulation_arrestType >= 1): {
-        _arrestType = _arrest;
+        _arrestType = _circulation_arrestType;
     };
     case (_circulation_arrestType < 1): {
         if (_circulation_arrestType >= random 1) then {
@@ -49,23 +49,66 @@ switch (true) do {
     };
 };
 
-private _pao2 = _circulation_pao2;
-
 // Get airway values
-_airway params ["_airway_occluded", "_airway_obstructed", _airway_catastrophic];
+_airway params ["_airway_occluded", "_airway_obstructed", "_airway_catastrophic"];
+private _occluded = [0, 0, 0];
+private _obstructed = [0, 0, 0];
+private _catastrophic = [0, 0];
+{
+    private _isoccluded = CHANCE_TO_BOOL((_airway_occluded) select _x);
+    if (_isoccluded) then {
+        _occluded set [_x, linearConversion [0, 1, ((_airway_occluded) select _x), 0, 10]];
+    };
+} forEach _airway_occluded;
 
-private _occluded = CHANCE_TO_BOOL(_airway_occluded);
-private _obstructed = CHANCE_TO_BOOL(_airway_obstructed);
-private _catastrophic = CHANCE_TO_BOOL(_airway_catastrophic);
+{
+    private _isobstructed = CHANCE_TO_BOOL((_airway_obstructed) select _x);
+    if (_isobstructed) then {
+        _obstructed set [_x, 1];
+    };
+} forEach _airway_obstructed;
+
+{
+    private _iscatastrophic = CHANCE_TO_BOOL((_airway_catastrophic) select _x);
+    if (_iscatastrophic) then {
+        _catastrophic set [_x, true];
+    };
+} forEach _airway_catastrophic;
+
 
 // ptx
-_ptx params ["_ptx_ptxType", "_ptx_ptxStrength", "_ptx_ptxDeteriorate", "_ptx_ptxTamponade"];
+_ptx params ["_ptx_ptxStrength", "_ptx_tptxStrength", "_ptx_hptxStrength", "_ptx_ptxTamponade"];
 
-private _ptxType = [_ptx_ptxType] call FUNC(chanceArrayToValue);
 
-_ptxStrength = _ptx_ptxStrength;
-private _ptxDeteriorate = CHANCE_TO_BOOL(_ptx_ptxDeteriorate);
-private _ptxTamponade = CHANCE_TO_BOOL(_ptx_ptxTamponade);
+private _ptxStrength = [0, 0];
+private _tptxStrength = [false, false];
+private _hptxStrength = [0, 0];
+private _ptxTamponade = 0;
+{
+    private _isptx = CHANCE_TO_BOOL((_ptx_ptxStrength) select _x);
+    if (_isptx) then {
+        _ptxStrength set [_x, linearConversion [0, 1, ((_ptx_ptxStrength) select _x), 0, 8]];
+    };
+} forEach _ptx_ptxStrength;
+
+{
+    private _isobstructed = CHANCE_TO_BOOL((_ptx_tptxStrength) select _x);
+    if (_isobstructed) then {
+        _tptxStrength set [_x, true];
+    };
+} forEach _ptx_tptxStrength;
+
+{
+    private _ishptx = CHANCE_TO_BOOL((_ptx_hptxStrength) select _x);
+    if (_ishptx) then {
+        _hptxStrength set [_x, linearConversion [0, 1, ((_ptx_hptxStrength) select _x), 0, 0.5]];
+    };
+} forEach _ptx_hptxStrength;
+
+private _isTamponade = CHANCE_TO_BOOL(_ptx_ptxTamponade);
+if (_isTamponade) then {
+    _ptxTamponade = selectRandom [0, 1, 2, 3, 4];
+};
 
 // Get fractures
 private _fractureArray = [];
@@ -93,7 +136,7 @@ private _patient = _stretcher call FUNC(spawnPatient);
 if (isNil "_patient") exitWith {ERROR_1("Patient %1 cannot be nil",_patient)};
 
 // Set wounds
-if (count _woundsArray > 0) then {
+if (_woundsArray isNotEqualTo []) then {
     [_patient, _woundsArray] call FUNC(setWounds);
 };
 
@@ -103,14 +146,10 @@ if (_arrestType > 0) then {
     [_patient, _arrestTypeText] call FUNC(setCardiacArrest);
 };
 
-[_patient, _occluded, _obstructed, _catastrophic, _pao2] call FUNC(setAirway);
+[_patient, _occluded, _obstructed, _catastrophic] call FUNC(setAirway);
 
 // Set PTX
-if (_ptxType > 0) then {
-    private _ptxTypeText = PNUMO_TYPE select _ptxType;
-    [_patient, _ptxTypeText, _ptxStrength, _ptxDeteriorate, _ptxTamponade] call FUNC(setPneumothorax);
-};
-
+[_patient, _ptxStrength, _tptxStrength, _hptxStrength, _ptxTamponade] call FUNC(setPneumothorax);
 // Set fractures
 {
     _x params ["_bodyPart", "_fracType"];
