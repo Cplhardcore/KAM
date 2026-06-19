@@ -16,7 +16,7 @@
 		[player, "VF"] call afl_common_fnc_setCardiacArrest;
 */
 
-params["_unit", "_type"];
+params["_unit", "_type", "_refractory"];
 TRACE_2("setCardiacArrest",_unit,_type);
 
 private _aType = ARREST_TYPE find toLower _type;
@@ -28,6 +28,9 @@ _unit setVariable [QKEGVAR(circulation,cardiacArrestType), _aType, true];
 
 if (_aType > 0 && _currentState == 0) then {
     [QACEGVAR(medical,FatalVitals), [_unit], _unit] call CFUNC(targetEvent);
+	if (_refractory) then {
+		_unit setVariable [QEGVAR(circulation,refractoryCA), _refractory, true];
+	};
 } else {
     [QACEGVAR(medical,CPRSucceeded), [_unit], _unit] call CFUNC(targetEvent);
 };

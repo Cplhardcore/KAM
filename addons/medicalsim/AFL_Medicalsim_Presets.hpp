@@ -28,12 +28,15 @@ class AFL_Medicalsim_Presets {
         // Circulation
         // ARREST_TYPE ["none", "asystole", "pea", "vf", "vt"]
         arrestType = 0; // Chance: [0,1); Type: [1..4]
-        PAO2 = 97; // PAO2: [0..100]
+        refractory = 0; // PAO2: [0..100]
 
         // Airway
         occluded[] = {0, 0, 0};
         obstructed[] = {0, 0, 0};
         catastrophic[] = {0, 0};
+
+        concussion = 0; 
+        icp = 15; 
         // Pneumothroax
         // PNUMO_TYPE ["none", "initial", "tension", "hemo"]
         ptxStrength[] = {0, 0};

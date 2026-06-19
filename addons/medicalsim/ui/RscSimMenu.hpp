@@ -167,6 +167,18 @@ class GVAR(RscSimMenu) {
                 class Header : GVAR(RscHeaderText) {
                     text = CSTRING(Wounds_Title);
                 };
+                class DamageText : GVAR(RscPropTitle) {
+                    x = QUOTE(POS_X(2.9));
+                    y = QUOTE(POS_H(0.1));
+                    text = CSTRING(damageOverride);
+                    tooltip = CSTRING(damageOverride_tooltip);
+                };
+                class DamageCheckbox : GVAR(RscPropCheckbox) {
+                    idc = IDC_WOUNDS_DAMAGE_CHECKBOX;
+                    x = QUOTE(POS_X(9.5));
+                    y = QUOTE(POS_H(0.1));
+                };
+
                 class DamageCombo : GVAR(RscDamageCombo) {
                     idc = IDC_WOUNDS_DAMAGE_COMBO;
                     y = QUOTE(POS_H(0.1));

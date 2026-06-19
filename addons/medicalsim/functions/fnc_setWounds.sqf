@@ -16,6 +16,13 @@
 		{_player, [[2, "LeftLeg"]]} call afl_common_fnc_setPneumothorax;
 */
 
-params ["_unit", "_allDamages", "_damageType"];
+params ["_unit", "_allDamages", "_damageType", "_directDamage"];
 TRACE_2("setWounds",_unit,_allDamages);
-[_unit, _allDamages, _damageType, "", true] call ACEFUNC(medical_damage,woundsHandlerBase); 
+if (_directDamage) exitWith {
+	{
+		private _damageToAdd = _x select 0;
+		private _bodyPart = _x select 1;
+		[QACEGVAR(medical,woundReceived), [_unit, [[_damageToAdd, _bodyPart, _damageToAdd]], _unit, _damageType]] call CBA_fnc_localEvent;
+	} forEach _allDamages;	
+};
+[_unit, _allDamages, _damageType] call ACEFUNC(medical_damage,woundsHandlerBase); 

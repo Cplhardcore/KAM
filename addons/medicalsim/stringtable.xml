@@ -161,5 +161,11 @@
         <Key ID="STR_KAT_MedicalSim_Mission_tooltip">
             <English>For all your medical simulation needs</English>
         </Key>
+        <Key ID="STR_KAT_MedicalSim_damageOverride">
+            <English>DMG Ovrrde</English>
+        </Key>
+        <Key ID="STR_KAT_MedicalSim_damageOverride_tooltip">
+            <English>If enabled, this will pass damage through all wound handlers, rather than just creating wounds</English>
+        </Key>
     </Package>
 </Project>

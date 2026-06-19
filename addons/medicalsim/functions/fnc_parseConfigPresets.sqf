@@ -29,13 +29,17 @@ GVAR(simPresetNames) = [];
     private _wounds = GET_ARRAY(_entry >> "wounds",[]);
     private _damageType = GET_ARRAY(_entry >> "damageType",["bullet"]);
     private _arrestType = GET_NUMBER(_entry >> "arrestType",0);
-    private _pao2 = GET_NUMBER(_entry >> "PAO2",97);
-    private _circulation = [_arrestType, _pao2];
+    private _refractory = GET_NUMBER(_entry >> "refractory",0);
+    private _circulation = [_arrestType, _refractory];
 
     private _obstructed = GET_ARRAY(_entry >> "obstructed",getArray (_entry >> "obstructed"));
     private _occluded = GET_ARRAY(_entry >> "occluded",getArray (_entry >> "occluded"));
     private _catastrophic = GET_ARRAY(_entry >> "catastrophic",getArray (_entry >> "catastrophic"));
     private _airway = [_occluded, _obstructed, _catastrophic];
+
+    private _concussion = GET_NUMBER(_entry >> "concussion",0);
+    private _icp = GET_NUMBER(_entry >> "icp",15);
+    private _brain = [_concussion, _icp];
 
     private _ptxStrength = GET_ARRAY(_entry >> "ptxStrength",getArray (_entry >> "ptxStrength"));
     private _tptxEnable = GET_ARRAY(_entry >> "tptxEnable",getArray (_entry >> "tptxEnable"));

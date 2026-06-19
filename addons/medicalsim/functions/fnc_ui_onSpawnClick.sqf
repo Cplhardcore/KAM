@@ -57,7 +57,8 @@ private _damageArray = [];
 ];
 private _damageIndex = lbCurSel IDC_WOUNDS_DAMAGE_COMBO;
 private _typeOfDamage = lbText [IDC_WOUNDS_DAMAGE_COMBO, _damageIndex];
-[_patient, _damageArray, _typeOfDamage] call FUNC(setWounds);
+private _directDamage = cbChecked displayCtrl IDC_WOUNDS_DAMAGE_CHECKBOX;
+[_patient, _damageArray, _typeOfDamage, _directDamage] call FUNC(setWounds);
 
 // set cardiac arrest
 private _cardiacIndex = lbCurSel IDC_CARDIAC_COMBO;

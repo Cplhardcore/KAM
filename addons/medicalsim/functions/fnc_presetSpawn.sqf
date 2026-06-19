@@ -19,7 +19,7 @@ params ["_stretcher", "_presetName"];
 TRACE_2("presetSpawn",_stretcher,_presetName);
 
 private _preset = GVAR(simPresets) get _presetName;
-_preset params ["_wounds", "_damageType", "_circulation", "_airway", "_ptx", "_fractures", "_misc"];
+_preset params ["_wounds", "_damageType", "_circulation", "_airway", "_brain", "_ptx", "_fractures", "_misc"];
 TRACE_1("preset params",_preset);
 
 // Get wounds from preset
@@ -34,8 +34,8 @@ private _woundsArray = [];
 } forEach _wounds;
 
 // Get circulation values
-_circulation params ["_circulation_arrestType", "_circulation_pao2"];
-
+_circulation params ["_circulation_arrestType", "_circulation_refractory"];
+private _refractory = false;
 private _arrestType = 0;
 switch (true) do {
     case (_circulation_arrestType == 0): {};
@@ -47,6 +47,9 @@ switch (true) do {
             _arrestType = floor (random 4) + 1;
         };
     };
+};
+if ((_arrestType in [3, 4]) && CHANCE_TO_BOOL(_circulation_refractory)) then {
+    _refractory = true;
 };
 
 // Get airway values
@@ -143,7 +146,7 @@ if (_woundsArray isNotEqualTo []) then {
 // Set Circulation / Airway
 if (_arrestType > 0) then {
     private _arrestTypeText = ARREST_TYPE select _arrestType;
-    [_patient, _arrestTypeText] call FUNC(setCardiacArrest);
+    [_patient, _arrestTypeText, _refractory] call FUNC(setCardiacArrest);
 };
 
 [_patient, _occluded, _obstructed, _catastrophic] call FUNC(setAirway);
