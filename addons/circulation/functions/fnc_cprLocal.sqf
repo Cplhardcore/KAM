@@ -27,6 +27,8 @@ private _epiBoost = 0;
 private _amiBoost = 0;
 private _lidoBoost = 0;
 private _nitroEffect = 1;
+private _spo2ROSC = linearConversion [95, 70, GET_KAT_SPO2(_patient), 1, 3];
+private _bvROSC = linearConversion [2600, 0, GET_BODY_FLUID_ECB(_patient), 1, 4];
 private _CPRcount = _patient getVariable [QGVAR(cprCount), 0];
 TRACE_1("cprLocal_1",_reviveObject);
 private _fnc_advRhythm = {
@@ -40,7 +42,7 @@ private _fnc_advRhythm = {
     };
     TRACE_1("cprLocal_7",_ht);
     if (_CPR) then {
-        if (floor (random 100) < GVAR(AdvRhythm_CPR_ROSC_Chance)) then {
+        if (floor (random 100) < (GVAR(AdvRhythm_CPR_ROSC_Chance) / (_spo2ROSC + _bvROSC))) then {
             _patient setVariable [QGVAR(cardiacArrestType), 0, true];
             TRACE_1("cprLocal_rosc",_patient);
         } else {
@@ -59,7 +61,7 @@ private _fnc_advRhythm = {
         };
     } else {
         if (_patientState > 2) then {
-            if (floor (random 100) < GVAR(AdvRhythm_AED_ROSC_Chance) || _patientState isEqualTo 4) then {
+            if (floor (random 100) < (GVAR(AdvRhythm_CPR_ROSC_Chance) * (_spo2ROSC + _bvROSC)) || _patientState isEqualTo 4) then {
                 _patient setVariable [QGVAR(cardiacArrestType), 0, true];
             } else {
                 _patient setVariable [QGVAR(cardiacArrestType), 4, true];
@@ -193,7 +195,7 @@ if !(GVAR(enable_CPR_Chances)) then {
 } else {
     if (_reviveObject in ["LUCAS"]) then {
         if (_epiBoost > 1.5) then {
-            _chance = _chance + (2 ^ _CPRcount);
+            _chance = _chance + (2 ^ (_CPRcount/ 5));
             _CPRcount = _CPRcount + 0.01;
             _patient setVariable [QGVAR(cprCount), _CPRcount, true];
         };
@@ -226,7 +228,7 @@ if !(GVAR(enable_CPR_Chances)) then {
     } else {
         
         if (_epiBoost > 1.5) then {
-        _chance = _chance + (2 ^ _CPRcount);
+        _chance = _chance + (2 ^ (_CPRcount/5));
 
         _CPRcount = _CPRcount + 1;
         _patient setVariable [QGVAR(cprCount), _CPRcount, true];

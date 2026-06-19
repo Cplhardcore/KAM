@@ -68,7 +68,7 @@ if (_cardiacIndex > 0) then {
     [_patient, _cardiacText] call FUNC(setCardiacArrest);
     TRACE_2("Set cardiac arrest",_patient,_cardiacText);
 };
-
+if !(_directDamage) then {
 // set airway
 private _occluded = [0, 0, 0];
 private _obstructed = [0, 0, 0];
@@ -88,7 +88,6 @@ private _iscatastrophic = cbChecked displayCtrl IDC_AIRWAY_CATASTROPHIC_CHECKBOX
 if (_iscatastrophic) then {
     _catastrophic = [true, true];
 };
-
 [_patient, _occluded, _obstructed, _catastrophic] call FUNC(setAirway);
 TRACE_3("Set airway",_patient,_occluded,_obstructed);
 
@@ -156,4 +155,6 @@ if (_fracRLegIndex > 0) then {
     [_patient, "RightLeg", _fracRLegText] call FUNC(setFracture);
     TRACE_3("RightLeg Fracture",_patient,_fracRLegIndex,_fracRLegText);
 };
+};
+
 

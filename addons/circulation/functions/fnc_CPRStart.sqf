@@ -183,8 +183,8 @@ if (_notInVehicle) then {
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };
         [_medic, _patient] call FUNC(cprSuccess);
-    }, GVAR(CPR_ChanceInterval), [_medic, _patient]] call CBA_fnc_addPerFrameHandler;
-}, [_medic, _patient], GVAR(CPR_ChanceInterval) + 2.5] call CBA_fnc_waitAndExecute;
+    }, 5, [_medic, _patient]] call CBA_fnc_addPerFrameHandler;
+}, [_medic, _patient], 7.5] call CBA_fnc_waitAndExecute;
 
 if (_patient getVariable [QGVAR(RhythmAnalyzed), false]) then {
     [{

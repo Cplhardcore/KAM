@@ -177,6 +177,7 @@ class GVAR(RscSimMenu) {
                     idc = IDC_WOUNDS_DAMAGE_CHECKBOX;
                     x = QUOTE(POS_X(9.5));
                     y = QUOTE(POS_H(0.1));
+                    tooltip = CSTRING(damageOverride_tooltip);
                 };
 
                 class DamageCombo : GVAR(RscDamageCombo) {

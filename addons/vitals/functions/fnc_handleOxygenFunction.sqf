@@ -849,10 +849,8 @@ private _pao2fio2Mult = linearConversion [0.21, 1, _fio2, 1, 1.5, true];
 _pao2 = if (_previousCyclePao2 != _pao2) then { ([ (_previousCyclePao2 - ((((PAO2_MAX_CHANGE/10)) * EGVAR(breathing,SpO2_MultiplyNegative)) * _deltaT)) , (_previousCyclePao2 + (((PAO2_MAX_CHANGE * _pao2fio2Mult) * EGVAR(breathing,SpO2_MultiplyPositive)) * _deltaT))] select ((_previousCyclePao2 - _pao2) < 0)) } else { _pao2 };
 private _baseConst =
     7.4 - log(24 / (0.03 * 39.9));
-
 private _phConst =
     _baseConst - 0.015 * (_temperature - 37);
-    
 private _externalPh = _unit getVariable [QEGVAR(pharma,externalPh), 0];
 
 private _pH =
