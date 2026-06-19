@@ -165,7 +165,7 @@
             <English>DMG Ovrrde</English>
         </Key>
         <Key ID="STR_KAT_MedicalSim_damageOverride_tooltip">
-            <English>If enabled, this will pass damage through all wound handlers, rather than just creating wounds. Additionally, this will cause the other options on this menu to not work</English>
+            <English>If enabled, this will pass damage through all wound handlers, rather than just creating wounds. &lt;br/&gt; Additionally, this will cause the other options on this menu to not work</English>
         </Key>
     </Package>
 </Project>
