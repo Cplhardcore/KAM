@@ -1,5 +1,0 @@
-briefing = 0;
-debriefing = 0;
-enableDebugConsoleSP = 1;
-respawn = "INSTANT";
-disabledAI = 1;

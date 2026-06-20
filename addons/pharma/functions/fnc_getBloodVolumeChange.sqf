@@ -41,14 +41,15 @@ private _lossVolumeChange = 0;
 {
     private _occlusionLevel = [_unit,_forEachIndex] call FUNC(occlusionLevel);
     private _pressureApplied = _appliedPressure select _forEachIndex;
-    _lossVolumeChange = _lossVolumeChange + (-(_deltaT/12) * (((_bloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex) * (1 - _pressureApplied) * (1 - _occlusionLevel)));
+    _lossVolumeChange = _lossVolumeChange + (-(_deltaT/18) * (((_bloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex) * (1 - _pressureApplied) * (1 - _occlusionLevel)));
+    TRACE_9("_lossVolumeChange",_lossVolumeChange,-(_deltaT/18),(_bloodLoss select _forEachIndex),(_heartRate / _defaultHR),_correctedMap,(((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))),(_vasoconstriction select _forEachIndex),(1 - _pressureApplied),(1 - _occlusionLevel));
 } forEach _bloodLoss;
 _lossVolumeChange = _lossVolumeChange + _capLeak;
 private _externalLossVolumeChange = 0;
 {
     private _occlusionLevel = [_unit,_forEachIndex] call FUNC(occlusionLevel);
     private _pressureApplied = _appliedPressure select _forEachIndex;
-    _externalLossVolumeChange = _externalLossVolumeChange + ((_deltaT/12) * (((_exBloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex) * (1 - _pressureApplied) * (1 - _occlusionLevel)));
+    _externalLossVolumeChange = _externalLossVolumeChange + ((_deltaT/18) * (((_exBloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex) * (1 - _pressureApplied) * (1 - _occlusionLevel)));
 } forEach _exBloodLoss;
 private _enableFluidShift = EGVAR(vitals,enableFluidShift);
 private _fluidVolume = GET_BODY_FLUID(_unit);

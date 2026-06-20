@@ -46,6 +46,6 @@ private _sources = [
     } forEach _woundArray;
 
 } forEach _sources;
-TRACE_1("nextWound", _stitchableWound);
+TRACE_1("nextWound",_stitchableWound);
 // Nothing found
 _stitchableWound

@@ -25,4 +25,4 @@ if (_directDamage) exitWith {
 		[QACEGVAR(medical,woundReceived), [_unit, [[_damageToAdd, _bodyPart, _damageToAdd]], _unit, _damageType]] call CBA_fnc_localEvent;
 	} forEach _allDamages;	
 };
-[_unit, _allDamages, _damageType] call ACEFUNC(medical_damage,woundsHandlerBase); 
+[_unit, _allDamages, _damageType, "", true, false] call ACEFUNC(medical_damage,woundsHandlerBase); 

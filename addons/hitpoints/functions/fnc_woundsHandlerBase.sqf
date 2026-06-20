@@ -17,8 +17,8 @@
  * Public: No
  */
 
-params ["_unit", "_allDamages", "_typeOfDamage", "", ["_notSelectionSpecific", false]];
-TRACE_3("woundsHandlerBase",_unit,_allDamages,_typeOfDamage);
+params ["_unit", "_allDamages", "_typeOfDamage", "", ["_notSelectionSpecific", false], ["_causeAdditionalInjuries", true]];
+TRACE_4("woundsHandlerBase",_unit,_allDamages,_typeOfDamage,_notSelectionSpecific);
 
 if !(_typeOfDamage in ACEGVAR(medical_damage,damageTypeDetails)) then {
     WARNING_1("damage type %1 not found",_typeOfDamage);
@@ -89,7 +89,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
             WARNING_4("No valid wound types %1-%2-%3-%4",_damage,_dmgPerWound,_typeOfDamage,_bodyPart);
             continue
         };
-        if (_woundTypeToAdd in ["Avulsion", "Velocity Wound", "Contusion"] && (random 100 < GVAR(InternalBleedingChance)) && (GVAR(InternalBleedingEnable))) then {
+        if (_woundTypeToAdd in ["Avulsion", "Velocity Wound", "Contusion"] && (random 100 < GVAR(InternalBleedingChance)) && (GVAR(InternalBleedingEnable)) && (_causeAdditionalInjuries)) then {
             private _woundTypeToAdd = "InternalBleeding";
             ACEGVAR(medical_damage,woundDetails) get _woundTypeToAdd params ["","_injuryBleedingRate","_injuryPain","_causeLimping","_causeFracture"];
             private _woundClassIDToAdd = ACEGVAR(medical_damage,woundClassNames) find _woundTypeToAdd;
@@ -246,7 +246,8 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
                 && {ACEGVAR(medical,fractures) > 0}
                 && {_bodyPartNToAdd > 3}
                 && {_woundDamage > FRACTURE_DAMAGE_THRESHOLD}
-                && {random 1 < (_fractureMultiplier * ACEGVAR(medical,fractureChance))}
+                && {random 1 < (_fractureMultiplier * ACEGVAR(medical,fractureChance))
+                && (_causeAdditionalInjuries)}
             ): {
                 private _fractures = GET_FRACTURES(_unit);
                 _fractures set [_bodyPartNToAdd, 1];

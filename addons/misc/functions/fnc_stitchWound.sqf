@@ -43,7 +43,7 @@ private _allWounds = [];
     [_wrappedWoundsOnPart, "wrapped"],
     [_coagWoundsOnPart, "coag"]
 ];
-TRACE_1("_currentWound", _woundIndex);
+TRACE_1("_currentWound",_woundIndex);
 private _treatedSource = "";
 private _woundIndex = -1;
 
@@ -57,7 +57,7 @@ if (_treatedWound isEqualTo []) then {
         };
     } forEach _allWounds;
 };
-TRACE_2("_treatedWound", _treatedWound,_woundIndex);
+TRACE_2("_treatedWound",_treatedWound,_woundIndex);
 // Exit if no valid wound found
 if (_woundIndex == -1) exitWith { false };
 

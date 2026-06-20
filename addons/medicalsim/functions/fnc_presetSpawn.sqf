@@ -79,7 +79,7 @@ private _catastrophic = [false, false];
 } forEach _airway_catastrophic;
 
 
-// ptx
+// ptxp
 _ptx params ["_ptx_ptxStrength", "_ptx_tptxStrength", "_ptx_hptxStrength", "_ptx_ptxTamponade"];
 
 
@@ -108,7 +108,7 @@ private _ptxTamponade = 0;
     };
 } forEach _ptx_hptxStrength;
 
-private _isTamponade = CHANCE_TO_BOOL(_ptx_ptxTamponade);
+private _isTamponade = CHANCE_TO_BOOL((_ptx_ptxTamponade) select 0);
 if (_isTamponade) then {
     _ptxTamponade = selectRandom [0, 1, 2, 3, 4];
 };
@@ -116,7 +116,7 @@ if (_isTamponade) then {
 // Get fractures
 private _fractureArray = [];
 {
-    private _fractureN = [_x] call FUNC(chanceArrayToValue);
+    private _fractureN = [[_x]] call FUNC(chanceArrayToValue);
     TRACE_1("fractureN",_fractureN);
 
     if (_fractureN > 0) then {
@@ -126,7 +126,7 @@ private _fractureArray = [];
     };
 } forEach _fractures;
 
-TRACE_1("fractureArray",_fractureArray);
+TRACE_2("fractureArray",_fractureArray,_fractures);
 
 // Get misc
 _misc params ["_misc_uncon"];

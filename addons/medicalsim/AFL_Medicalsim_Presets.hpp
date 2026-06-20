@@ -19,16 +19,12 @@ class AFL_Medicalsim_Presets {
             {0}  // Right Leg
         };
         damageTypes[] = { 
-            "bullet",
-            "explosive",
-            "grenade",
-            "shell",
-            "vehiclehit"
+            "medicalsim"
         };
         // Circulation
         // ARREST_TYPE ["none", "asystole", "pea", "vf", "vt"]
         arrestType = 0; // Chance: [0,1); Type: [1..4]
-        refractory = 0; // PAO2: [0..100]
+        refractory = 0; // Chance: [0,1);
 
         // Airway
         occluded[] = {0, 0, 0};

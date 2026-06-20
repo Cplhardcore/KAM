@@ -23,13 +23,13 @@ params ["_args", "_elapsedTime", "_totalTime"];
 _args params ["_medic", "_patient", "_bodyPart"];
 
 private _currentWound = [_medic, _patient, _bodyPart] call FUNC(getNextStitchableWound);
-TRACE_1("_currentWound", _currentWound);
+TRACE_1("_currentWound",_currentWound);
 if (_currentWound isEqualTo []) exitWith {false};
 _currentWound params ["_wound"];
 private _requiredTime = [_wound] call FUNC(getStitchTimeWound);
-TRACE_1("ReqTime", _requiredTime);
+TRACE_1("ReqTime",_requiredTime);
 private _totalStitchTime = ([_patient, _patient, _bodyPart] call FUNC(getStitchTime));
-TRACE_1("stitchTime", _totalStitchTime);
+TRACE_1("stitchTime",_totalStitchTime);
 if (_totalTime - _elapsedTime > (_totalStitchTime - _requiredTime)) exitWith {true};
 // Get all wounds
 private _bandagedWounds  = GET_BANDAGED_WOUNDS(_patient);

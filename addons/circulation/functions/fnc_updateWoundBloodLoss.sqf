@@ -48,7 +48,7 @@ private _bodyExternalPartBleeding = [0,0,0,0,0,0,0,0,0,0,0,0];
             private _category   = _woundClassID % 10;
             private _suffix = ["Minor", "Medium", "Large"] select _category;
             private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-            TRACE_5("updateWoundBloodLoss1",_isPressureApplied,_occlusionLevel,_amountOf,_bleeding,_pressureApplied);
+            TRACE_2("updateWoundBloodLoss1",_amountOf,_bleeding);
             _partBleeding = _partBleeding + (_amountOf * _bleeding);
             if !(_className in ["InternalBleeding"]) then {
                 _bodyExternalPartBleeding set [_partIndex, _partBleeding];

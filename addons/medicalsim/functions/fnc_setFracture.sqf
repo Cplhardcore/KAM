@@ -33,7 +33,7 @@ if (_type == -1) exitWith {ERROR_1("Invalid fracture type %1!",_fracType)};
 _kamfractureArray set [_part, _type];
 
 // set fracture variables for unit
-_unit setVariable [QKEGVAR(surgery,fractures), _kamfractureArray, true];
+_unit setVariable [QEGVAR(surgery,fractures), _kamfractureArray, true];
 _unit setVariable [QACEGVAR(medical,fractures), _fractureArray, true];
 TRACE_2("Set limb fractures.",_fractureArray,_kamfractureArray);
 
