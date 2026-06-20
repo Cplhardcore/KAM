@@ -131,7 +131,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\oxygenTank.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 50;
+            mass = 30;
         };
     };
     class kat_oxygenTank_300_Empty: ACE_ItemCore {
@@ -144,7 +144,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\oxygenTank.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 90;
+            mass = 70;
         };
     };
 };

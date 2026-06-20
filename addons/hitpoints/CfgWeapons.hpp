@@ -89,7 +89,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(ETD_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 5;
+            mass = 4;
         };
     };
     class kat_Israeli_Bandage: ACE_ItemCore {
@@ -102,7 +102,7 @@ class CfgWeapons {
         descriptionUse = CSTRING(Israeli_Bandage_Desc_Use);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 2;
         };
     };
     class kat_Hemostatic_Gauze: ACE_ItemCore {

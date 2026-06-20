@@ -467,7 +467,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(AED_DESCRIPTION);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 60;
+            mass = 45;
         };
     };
     class kat_X_AED: kat_AED {
@@ -478,7 +478,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(X_Desc);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 120;
+            mass = 100;
         };
     };
     class kat_crossPanel: ACE_ItemCore {
@@ -521,7 +521,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\BPCuff.paa);
         icon = "";
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 8;
+            mass = 6;
         };
     };
     class kat_HypertonicSalineIV_500: ACE_salineIV_500 {
