@@ -17,7 +17,7 @@
  */
 
 params ["_unit"];
-
+if (true) exitWith {};
 if (GVAR(kidneyAction)) then {
     [{
         params ["_args", "_idPFH"];
