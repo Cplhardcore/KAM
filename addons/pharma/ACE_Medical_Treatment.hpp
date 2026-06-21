@@ -94,8 +94,8 @@ class ACE_ADDON(Medical_Treatment) {
             dose = 10;
             viscosityChange = -5;
             maxRelief = 0.4;
-            OD50 = -1;
-            LD50 = -1;
+            OD50 = 80;
+            LD50 = 240;
             chanceToOD = -1;
             maxDoseDeviation = 120;
             incompatibleMedication[] = {};
@@ -113,8 +113,8 @@ class ACE_ADDON(Medical_Treatment) {
             dose = 10;
             viscosityChange = -5;
             maxRelief = 0.4;
-            OD50 = -1;
-            LD50 = -1;
+            OD50 = 80;
+            LD50 = 240;
             chanceToOD = -1;
             maxDoseDeviation = 120;
             incompatibleMedication[] = {};

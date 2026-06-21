@@ -42,7 +42,10 @@ if (ACEGVAR(advanced_throwing,enableTempWindInfo) && {!(missionNamespace getVari
 };
 
 _unit setVariable [QACEGVAR(advanced_throwing,inHand), true];
-if (_unit getVariable [QEGVAR(hitpoints,cantThrowJoints), false]) then {
+private _joint = GET_JOINTS(_unit);
+private _armArrays = (_joint select 0) + (_joint select 1);
+private _fractures = _unit getVariable [QACEGVAR(medical_engine,aimFracture), 0];
+if (((selectMax _armArrays) > 0) || (_fractures > 0)) then {
     [LELSTRING(hitpoints,armThrowHurt), 3, _unit, 10] call ACEFUNC(common,displayTextStructured);
 };
 

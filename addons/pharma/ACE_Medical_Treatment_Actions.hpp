@@ -240,7 +240,7 @@ class ACE_Medical_Treatment_Actions {
         displayNameProgress = CSTRING(ManualPressure_progress);
         allowedSelections[] = {"Neck", "Chest", "LeftArm", "RightArm", "UpperLeftArm", "UpperRightArm", "UpperLeftLeg", "UpperRightLeg", "LeftLeg", "RightLeg"};
         category = "advanced";
-        treatmentTime = 3;
+        treatmentTime = 0.1;
         medicRequired = 0;
         items[] = {};
         icon = "";
