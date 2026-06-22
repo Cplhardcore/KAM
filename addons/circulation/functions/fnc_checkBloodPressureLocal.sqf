@@ -37,7 +37,7 @@ private _bpValue = round _bloodPressureLow;
 if (_bloodPressureLow > 40) then {
     if (_medic call ACEFUNC(medical_treatment,isMedic)) then {
         if (GVAR(hardcoreDiagnose)) then {
-            _bpValue = (round (_bloodPressureLow / 10) * 10) + ([5, -5] select (random 1 > 0.5));
+            _bpValue = (round (_bloodPressureHigh / 10) * 10) + ([5, -5] select (random 1 > 0.5));
             _bloodPressureOutput = LSTRING(Check_Bloodpressure_Output_Palp);
             _logOutput = format [LLSTRING(Bloodpressure_Output_Palp), _bpValue];
         } else {

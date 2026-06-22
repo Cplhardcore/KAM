@@ -33,7 +33,7 @@ _patient setVariable [QGVAR(chestTube), [0, 0], true];
 _patient setVariable [QGVAR(attachedVent), false, true];
 _patient setVariable [QGVAR(attachedVentGUI), false, true];
 _patient setVariable [QGVAR(paralysis), 0, true];
-_patient setVariable [QGVAR(ventRate), 4, true];
+_patient setVariable [QGVAR(ventRate), 15, true];
 _patient setVariable [QGVAR(BVM_amount), 0, true];
 _patient setVariable [QGVAR(BVM_provider), 0, true];
 _patient setVariable [QGVAR(bronchospasm), 1, true];

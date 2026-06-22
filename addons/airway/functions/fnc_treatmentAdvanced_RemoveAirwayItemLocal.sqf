@@ -30,7 +30,9 @@ _patient setVariable [QGVAR(airway), false, true];
 _patient setVariable [QGVAR(airwayStatus), [0, 0, 0], true];
 _patient setVariable [QGVAR(occlusionMitigation), [0, 0, 0], true];
 _patient call FUNC(handleAirway);
-
+if (_patient getVariable [QEGVAR(breathing,attachedVent), false]) then {
+    [_medic, _patient] call EFUNC(breathing,detachVent);
+};
 if !(GVAR(ReusableAirwayItems)) exitWith {};
 
 switch (true) do {

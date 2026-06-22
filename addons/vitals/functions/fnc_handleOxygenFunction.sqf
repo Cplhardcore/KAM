@@ -166,11 +166,12 @@ _respDrive = 0;
 _patternApplied = true;
 };
 if (_unit getVariable [QEGVAR(breathing,attachedVent), false]) then {
-    _respiratoryRate = (60 / (_unit getVariable [QEGVAR(breathing,ventRate), 5])) max 1;
+    _respiratoryRate = (_unit getVariable [QEGVAR(breathing,ventRate), 15]) max 5;
     _respiratoryDepth = 12;
-    _baseTidalVolume = (((GET_KAT_SURFACE_AREA(_unit) * (_respiratoryDepth / 10)) min 0.8) max 0.2);
+    _baseTidalVolume = (GET_KAT_SURFACE_AREA(_unit) * (_respiratoryDepth / 10));
     _tidalVolume = _baseTidalVolume;
     _actualVentilation = (_tidalVolume * _respiratoryRate) * _bronchospasm;
+    TRACE_5("ventTidal",_actualVentilation,_tidalVolume,_respiratoryRate,_baseTidalVolume,_respiratoryDepth);
     _patternApplied = true;
     private _acidRepo = _unit getVariable [QEGVAR(pharma,acidRepo), 1.0];
     private _ventRatio =
@@ -613,12 +614,14 @@ private _alveolarVent = (_actualVentilation * (1 - DEAD_SPACE_FRAC)) max 1;
 private _paco2 = _previousCyclePaco2;
 
 if (EGVAR(breathing,paco2Active)) then {
-    TRACE_5("PACO2:ENTRY",
+    TRACE_7("PACO2:ENTRY",
     _previousCyclePaco2,
     _isArrest,
     _ventAttached,
     _airway,
-    _paralysis
+    _paralysis,
+    _actualVentilation,
+    _alveolarVent
 );
 
     if ((_isArrest && !_ventAttached)

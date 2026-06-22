@@ -35,7 +35,7 @@ call FUNC(FAK_updateContents);
         1 max (ACE_player getVariable [QGVAR(Tourniquet_ArmNecrosis), 0]) / 10
     } else {1};
 }, QUOTE(ADDON)] call ACEFUNC(common,addSwayFactor);
-
+#define CBA_SETTINGS_CAT LSTRING(cba_name)
 GVAR(blacklistedItems) = [
     "kat_accuvac",
     "kat_X_AED",
@@ -53,3 +53,10 @@ GVAR(blacklistedItems) = [
     "kat_vacuum",
     "kat_ultrasound"
 ];
+#include "\a3\ui_f\hpp\defineDIKCodes.inc"
+[CBA_SETTINGS_CAT, QGVAR(dropBackpack), CSTRING(dropBackpact), {
+    if (!([ACE_player, objNull, ["isNotEscorting"]] call ACEFUNC(common,canInteractWith))) exitWith { false };
+
+    ACE_player call FUNC(dropBag);
+    true
+}, { false }, [DIK_LCONTROL + DIK_I, [false, false, true]], false] call CBA_fnc_addKeybind;

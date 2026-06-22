@@ -2272,5 +2272,8 @@
             <Turkish>Atel</Turkish>
             <Ukrainian>Шина</Ukrainian>
         </Key>
+        <Key ID="STR_KAT_Misc_dropBackpack">
+            <English>Drop Backpack</English>
+        </Key>
     </Package>
 </Project>
