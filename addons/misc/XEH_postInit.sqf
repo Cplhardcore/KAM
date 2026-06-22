@@ -54,7 +54,7 @@ GVAR(blacklistedItems) = [
     "kat_ultrasound"
 ];
 #include "\a3\ui_f\hpp\defineDIKCodes.inc"
-[CBA_SETTINGS_CAT, QGVAR(dropBackpack), CSTRING(dropBackpact), {
+[CBA_SETTINGS_CAT, QGVAR(dropBackpack), CSTRING(dropBackpack), {
     if (!([ACE_player, objNull, ["isNotEscorting"]] call ACEFUNC(common,canInteractWith))) exitWith { false };
 
     ACE_player call FUNC(dropBag);

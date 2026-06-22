@@ -1,0 +1,8203 @@
+version=54;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	mods[]=
+	{
+		"3denEnhanced"
+	};
+	class ItemIDProvider
+	{
+		nextID=145;
+	};
+	class MarkerIDProvider
+	{
+		nextID=1;
+	};
+	class Camera
+	{
+		pos[]={5010.7222,217.21584,5888.0537};
+		dir[]={-0.38472146,-0.59959584,0.70176512};
+		up[]={-0.28823757,0.80030298,0.52577025};
+		aside[]={0.87687433,-2.9802322e-08,0.48071977};
+	};
+};
+binarizationWanted=0;
+sourceName="KAT_MEDICAL_TESTING_FACILITY";
+addons[]=
+{
+	"A3_Modules_F",
+	"A3_Characters_F",
+	"A3_Weapons_F",
+	"ace_goggles",
+	"ace_nightvision",
+	"A3_Characters_F_Mark",
+	"kat_pharma",
+	"kat_airway",
+	"kat_hitpoints",
+	"kat_breathing",
+	"kat_hypothermia",
+	"ace_medical_treatment",
+	"kat_misc",
+	"kat_circulation",
+	"A3_Structures_F_Enoch_Military_Camps",
+	"A3_Structures_F_Mark_Training",
+	"A3_Structures_F_Orange_Humanitarian_Camps",
+	"A3_Structures_F_System",
+	"A3_Structures_F_Civ_Camping",
+	"ace_dragging",
+	"A3_Structures_F_Items_Electronics",
+	"A3_Supplies_F_Heli_CargoNets",
+	"A3_Modules_F_Curator_Curator",
+	"A3_Ui_F"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=22;
+		class Item0
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="ace_goggles";
+			name="ACE3 - Goggles";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item4
+		{
+			className="ace_nightvision";
+			name="ACE3 - Night Vision";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item5
+		{
+			className="A3_Characters_F_Mark";
+			name="Arma 3 Marksmen - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item6
+		{
+			className="kat_pharma";
+			name="KAT - ADV Medical REDUX: Pharma";
+			author="Katalam";
+			url="https://github.com/KAT-Advanced-Medical/KAM";
+		};
+		class Item7
+		{
+			className="kat_airway";
+			name="KAT - ADV Medical REDUX: Airway";
+			author="Katalam";
+			url="https://github.com/KAT-Advanced-Medical/KAM";
+		};
+		class Item8
+		{
+			className="kat_hitpoints";
+			name="KAT - ADV Medical REDUX: KAT - Hitpoints";
+			author="Katalam";
+			url="https://github.com/KAT-Advanced-Medical/KAM";
+		};
+		class Item9
+		{
+			className="kat_breathing";
+			name="KAT - ADV Medical REDUX: Breathing";
+			author="Katalam";
+			url="https://github.com/KAT-Advanced-Medical/KAM";
+		};
+		class Item10
+		{
+			className="kat_hypothermia";
+			name="KAT - ADV Medical REDUX: Hypothermia";
+			author="Mazinski";
+			url="https://github.com/KAT-Advanced-Medical/KAM";
+		};
+		class Item11
+		{
+			className="ace_medical_treatment";
+			name="ACE3 - Medical Treatment";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item12
+		{
+			className="kat_misc";
+			name="KAT - ADV Medical REDUX: MISC";
+			author="Katalam";
+			url="https://github.com/KAT-Advanced-Medical/KAM";
+		};
+		class Item13
+		{
+			className="kat_circulation";
+			name="KAT - ADV Medical REDUX: Circulation";
+			author="Katalam";
+			url="https://github.com/KAT-Advanced-Medical/KAM";
+		};
+		class Item14
+		{
+			className="A3_Structures_F_Enoch_Military";
+			name="Arma 3 Contact Platform - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item15
+		{
+			className="A3_Structures_F_Mark";
+			name="Arma 3 Marksmen - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item16
+		{
+			className="A3_Structures_F_Orange";
+			name="Arma 3 Orange - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item17
+		{
+			className="A3_Structures_F";
+			name="Arma 3 - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item18
+		{
+			className="ace_dragging";
+			name="ACE3 - Dragging";
+			author="ACE-Team";
+			url="https://ace3.acemod.org/";
+		};
+		class Item19
+		{
+			className="A3_Supplies_F_Heli";
+			name="Arma 3 Helicopters - Ammoboxes and Supplies";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item20
+		{
+			className="A3_Modules_F_Curator";
+			name="Arma 3 Zeus Update - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item21
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+dlcs[]=
+{
+	"Mark",
+	"Orange",
+	"Heli"
+};
+randomSeed=3053779;
+class ScenarioData
+{
+	author="Cplhardcore";
+	briefing=0;
+	debriefing=0;
+	saving=0;
+	disabledAI=1;
+	respawn=3;
+	respawnDelay=6.5841131;
+	class Header
+	{
+		gameType="Coop";
+		minPlayers=1;
+		maxPlayers=19;
+	};
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=2;
+						class Item0
+						{
+							class data
+							{
+								singleType="STRING";
+								value="MenuPosition";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Counter";
+							};
+						};
+					};
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="ENH_saveLoadout";
+			expression="if (!isMultiplayer || !_value || is3DEN || !hasInterface) exitWith {};        0 spawn        {            waitUntil {sleep 1; !isNull player};            player setVariable ['ENH_savedLoadout', getUnitloadout player];            player addMPEventHandler ['MPRespawn',            {                params ['_unit'];                private _loadout = _unit getVariable ['ENH_savedLoadout', []];                if (_loadout isNotEqualTo []) then {_unit setUnitLoadout _loadout};            }];        };";
+			class Value
+			{
+				class data
+				{
+					singleType="BOOL";
+					value=1;
+				};
+			};
+		};
+		nAttributes=2;
+	};
+	class Category1
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="EnableDebugConsole";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=2;
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="Init";
+			expression="if !(is3DEN) then {[] call compile _value;};";
+			class Value
+			{
+				class data
+				{
+					singleType="STRING";
+					value="private _stretchers_1= [" \n " [stretcher_1_1, ""Stretcher 1""],[stretcher_1_2, ""Stretcher 2""]," \n "[stretcher_1_3, ""Stretcher 3""],[stretcher_1_4, ""Stretcher 4""]," \n "[stretcher_1_5, ""Stretcher 5""],[stretcher_1_6, ""Stretcher 6""]," \n "[stretcher_1_7, ""Stretcher 7""],[stretcher_1_8, ""Stretcher 8""]];" \n "[console_1, _stretchers_1] call kat_medicalsim_fnc_addSimMenu;" \n "" \n "private _stretchers_2= [" \n " [stretcher_2_1, ""Stretcher 1""],[stretcher_2_2, ""Stretcher 2""]," \n "[stretcher_2_3, ""Stretcher 3""],[stretcher_2_4, ""Stretcher 4""]," \n "[stretcher_2_5, ""Stretcher 5""],[stretcher_2_6, ""Stretcher 6""]," \n "[stretcher_2_7, ""Stretcher 7""],[stretcher_2_8, ""Stretcher 8""]];" \n "[console_2, _stretchers_2] call kat_medicalsim_fnc_addSimMenu;" \n "" \n "private _stretchers_3= [" \n " [stretcher_3_1, ""Stretcher 1""],[stretcher_3_2, ""Stretcher 2""]," \n "[stretcher_3_3, ""Stretcher 3""],[stretcher_3_4, ""Stretcher 4""]," \n "[stretcher_3_5, ""Stretcher 5""],[stretcher_3_6, ""Stretcher 6""]," \n "[stretcher_3_7, ""Stretcher 7""],[stretcher_3_8, ""Stretcher 8""]];" \n "[console_3, _stretchers_3] call kat_medicalsim_fnc_addSimMenu;";
+				};
+			};
+		};
+		class Attribute2
+		{
+			property="ENH_SPR";
+			expression="if (!is3DEN && _value # 0 > 0 && !isMultiplayer) then            {                ENH_SPR_Ruleset = _value param [0, 0];                ENH_SPR_Delay = _value param [1, 20];                ENH_SPR_CanDie = _value param [2, false];                ENH_SPR_RestoreLoadout = _value param [3, false];                ENH_SPR_OnRespawnCode = compile (_value param [4, '']);                ENH_SPR_Positions =                [                    allMapMarkers select {'respawn_east' in toLower _x} apply {getMarkerPos _x},                    allMapMarkers select {'respawn_west' in toLower _x} apply {getMarkerPos _x},                    allMapMarkers select {'respawn_guerilla' in toLower _x} apply {getMarkerPos _x},                    allMapMarkers select {'respawn_civilian' in toLower _x} apply {getMarkerPos _x}                ];                {                    _x setVariable ['ENH_SPR_OriginalSide', side group _x];                    _x setVariable ['ENH_SPR_OriginalLoadout', getUnitLoadout _x];                    _x addEventHandler ['handleDamage',                    {                        params ['_unit', '', '_damage', '', '', '_index'];                        if (!alive _unit || lifeState _unit isEqualTo 'INCAPACITATED') exitWith {0};                        if (_unit getVariable ['ENH_SPR_Tickets', 0] == 0) then                        {                            _unit removeEventHandler ['handleDamage', _thisEventHandler];                            _damage;                        };                        if (ENH_SPR_CanDie && _index in [1, 2] && _damage >= 1) exitWith                        {                            _unit removeEventHandler ['handleDamage', _thisEventHandler];                            1;                        };                        if (_index < 8 && (_damage min 0.95) == 0.95) then                        {                            setAccTime 1;                            _unit allowDamage false;                            _unit setCaptive true;                            _unit setUnconscious true;                            _unit setVariable ['ENH_SPR_Tickets', (_unit getVariable ['ENH_SPR_Tickets', 0]) - 1];                            if (isPlayer _unit) then {enableTeamSwitch false} else {removeSwitchableUnit _unit};                            moveOut _unit;                            _unit spawn ENH_fnc_SPR_respawnTimer;                        };                        _damage min 0.95;                    }];                } forEach (allUnits select {_x getVariable ['ENH_SPR_Tickets', 0] > 0});                                ENH_fnc_SPR_respawn =                {                    scriptName 'ENH_Attribute_SPR_Respawn';                    params ['_unit'];                    if (isPlayer _unit) then {enableTeamSwitch true} else {addSwitchableUnit _unit};                    if (ENH_SPR_RestoreLoadout) then {_unit setUnitLoadout (_unit getVariable 'ENH_SPR_OriginalLoadout')};                    private _sideID = (_unit getVariable 'ENH_SPR_OriginalSide') call BIS_fnc_sideID;                    private _positions = ENH_SPR_Positions select _sideID;                    if (_positions isNotEqualTo []) then                    {                        switch (ENH_SPR_Ruleset) do                        {                            case 3:                            {                                _unit setPos (([_positions, [], {_unit distance _x}, 'ASCEND'] call BIS_fnc_sortBy) select 0);                            };                            case 2:                            {                                _unit setPos selectRandom _positions;                            };                        };                    };                    _unit setUnconscious false;                    _unit allowDamage true;                    _unit setDamage 0;                    _unit switchMove '';                    _unit call ENH_SPR_OnRespawnCode;                    _unit spawn                    {                        sleep 8;                        _this setCaptive false;                    };                };                                ENH_fnc_SPR_respawnTimer =                {                    scriptName 'ENH_Attribute_SPR_RespawnTimer';                    params ['_unit'];                    private _respawnTime = time + ENH_SPR_Delay;                    if (isPlayer _unit) then                    {                        private _ctrlRespawnTimer = (call BIS_fnc_displayMission) ctrlCreate ['RscStructuredText',-1];                        _ctrlRespawnTimer ctrlSetPosition [0.25, 0, 0.5, 0.06];                        _ctrlRespawnTimer ctrlSetBackgroundColor [0, 0, 0, 0.1];                        _ctrlRespawnTimer ctrlCommit 0;                        ENH_SPR_OriginalVolume = [soundVolume, musicVolume, radioVolume, speechVolume, environmentVolume];                        0 cutText ['', 'BLACK OUT', 0.3];                        0.3 fadeSound 0;                        0.3 fadeMusic 0;                        0.3 fadeRadio 0;                        0.3 fadeSpeech 0;                        0.3 fadeEnvironment 0;                        showChat false;                        while {time < _respawnTime} do                        {                            _ctrlRespawnTimer ctrlSetStructuredText parseText format ['<t size=''1.25'' color=''#218a36'' align=''center''>%1</t>', [(_respawnTime - time), 'HH:MM'] call BIS_fnc_timeToString];                            sleep 0.1;                        };                        ctrlDelete _ctrlRespawnTimer;                        0 cutText ['', 'BLACK IN', 8];                        8 fadeSound (ENH_SPR_OriginalVolume # 0);                        8 fadeMusic (ENH_SPR_OriginalVolume # 1);                        8 fadeRadio (ENH_SPR_OriginalVolume # 2);                        8 fadeSpeech (ENH_SPR_OriginalVolume # 3);                        8 fadeEnvironment (ENH_SPR_OriginalVolume # 4);                        showChat true;                        [                            ['Respawned'],                            [format ['GRID: %1', mapGridPosition _unit]],                            [format ['Tickets left: %1', _unit getVariable 'ENH_SPR_Tickets']]                        ] spawn BIS_fnc_EXP_camp_SITREP;                    }                    else                    {                        private _respawnEH = -1;                        if ((side player getFriend (_unit getVariable 'ENH_SPR_OriginalSide')) >= 0.6) then                        {                            _respawnEH = addMissionEventHandler                            [                                'draw3D',                                {                                    drawIcon3D ['\a3\Modules_f\data\portraitRespawn_ca.paa', [0.13, 0.54, 0.21, 0.8], ASLToAGL ((_thisArgs # 0) modelToWorldVisualWorld [0, 0, 1]), 1, 1, 0, str round ((_thisArgs # 1) - time), 2];                                },                                [_unit, _respawnTime]                            ];                        };                        sleep ENH_SPR_Delay;                        removeMissionEventHandler ['draw3D', _respawnEH];                        [str _unit, 'onEachFrame'] call BIS_fnc_removeStackedEventHandler;                    };                    _unit call ENH_fnc_SPR_respawn;                };            }";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=5;
+						class Item0
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=1;
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="SCALAR";
+								value=20;
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								singleType="BOOL";
+								value=0;
+							};
+						};
+						class Item3
+						{
+							class data
+							{
+								singleType="BOOL";
+								value=0;
+							};
+						};
+						class Item4
+						{
+							class data
+							{
+								singleType="STRING";
+								value="";
+							};
+						};
+					};
+				};
+			};
+		};
+		nAttributes=3;
+	};
+};
+class Mission
+{
+	class Intel
+	{
+		overviewText="Medical Testing Area for KAM redux";
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		wavesForced=1;
+		windForced=1;
+		year=2035;
+		month=7;
+		day=6;
+		hour=12;
+		minute=0;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=80;
+		class Item0
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5026.8198,208.62555,5904.7202};
+				angles[]={6.2665,0.28396508,0.023108158};
+			};
+			areaSize[]={5,-1,5};
+			flags=1;
+			id=0;
+			type="ModuleHideTerrainObjects_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="#filter";
+					expression="_this setVariable [""#filter"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="#hideLocally";
+					expression="_this setVariable [""#hideLocally"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item1
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5005.9565,208.41925,5889.8794};
+			};
+			areaSize[]={5,-1,5};
+			flags=1;
+			id=1;
+			type="ModuleHideTerrainObjects_F";
+			atlOffset=0.60824585;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="#filter";
+					expression="_this setVariable [""#filter"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="#hideLocally";
+					expression="_this setVariable [""#hideLocally"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item2
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4997.5596,208.53592,5925.0825};
+				angles[]={6.2756844,0,0.0049914722};
+			};
+			areaSize[]={5,-1,5};
+			flags=1;
+			id=2;
+			type="ModuleHideTerrainObjects_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="#filter";
+					expression="_this setVariable [""#filter"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="#hideLocally";
+					expression="_this setVariable [""#hideLocally"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item3
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=16;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5001.9502,208.34451,5907.9727};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="Paramedic Leader@Paramedic";
+						isPlayer=1;
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=4;
+					type="B_medic_F";
+					atlOffset=-1.5258789e-05;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5000.9028,208.37852,5909.5156};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=101;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5000.1411,208.41087,5910.9004};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=104;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4999.4258,208.44032,5912.1763};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=106;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5003.4629,208.38068,5908.9648};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=108;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5002.5786,208.40976,5910.356};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=110;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5001.752,208.43658,5911.6396};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=112;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5000.9209,208.44374,5913.0049};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=114;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5004.7661,208.41229,5909.7998};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=116;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5003.8818,208.43181,5911.1909};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=118;
+					type="B_medic_F";
+					atlOffset=-1.5258789e-05;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5003.0552,208.44907,5912.4746};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=120;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5002.2241,208.44701,5913.8398};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=122;
+					type="B_medic_F";
+					atlOffset=1.5258789e-05;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item12
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5006.1338,208.44844,5910.7837};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=124;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item13
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5005.2495,208.4608,5912.1748};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=126;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item14
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5004.4229,208.45461,5913.4585};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=128;
+					type="B_medic_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item15
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5003.5918,208.45042,5914.8237};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Paramedic@Paramedic";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=130;
+					type="B_medic_F";
+					atlOffset=1.5258789e-05;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=3;
+			atlOffset=-1.5258789e-05;
+		};
+		class Item4
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5038.96,210.29669,5894.7422};
+				angles[]={6.2781763,0,0.039985489};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=6;
+			type="Land_MedicalTent_01_NATO_generic_outer_F";
+			atlOffset=1.5258789e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="Door_Hide";
+					expression="_this animateSource ['Door_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"", _value, true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item5
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5041.1533,208.94937,5893.0342};
+				angles[]={6.278182,0,6.2631893};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_1_1";
+				disableSimulation=1;
+			};
+			id=7;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item6
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5039.043,208.92793,5895.2388};
+				angles[]={6.2781763,0,0.039985489};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=8;
+			type="Land_MedicalTent_01_floor_dark_F";
+			atlOffset=1.5258789e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item7
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5036.8472,208.84523,5892.8154};
+				angles[]={6.278182,0,0.039979152};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_1_2";
+				disableSimulation=1;
+			};
+			id=9;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item8
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5036.8765,208.88121,5897.2588};
+				angles[]={6.2681832,0,0.039980642};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_1_3";
+				disableSimulation=1;
+			};
+			id=10;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item9
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5041.1445,209.03087,5897.499};
+				angles[]={6.2731905,0,0.024993783};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_1_4";
+				disableSimulation=1;
+			};
+			id=11;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item10
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5038.5669,210.30519,5909.5806};
+				angles[]={0.0050033992,0,0.014998405};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=12;
+			type="Land_MedicalTent_01_NATO_generic_outer_F";
+			atlOffset=3.0517578e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="Door_Hide";
+					expression="_this animateSource ['Door_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"", _value, true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item11
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5040.7603,209.03883,5907.8726};
+				angles[]={6.2756925,0,6.2457013};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="stretcher_1_5";
+				disableSimulation=1;
+			};
+			id=13;
+			type="ShootingMat_01_Olive_F";
+			atlOffset=0.091033936;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item12
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5038.6499,208.9294,5910.0771};
+				angles[]={0.0050033992,0,0.014998405};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=14;
+			type="Land_MedicalTent_01_floor_dark_F";
+			atlOffset=3.0517578e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item13
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5036.4541,208.96346,5907.6538};
+				angles[]={0.014998405,0,0.019996032};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="stretcher_1_6";
+				disableSimulation=1;
+			};
+			id=15;
+			type="ShootingMat_01_Olive_F";
+			atlOffset=0.0519104;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item14
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5036.4834,208.99136,5912.0972};
+				angles[]={0,0,0.01499443};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="stretcher_1_7";
+				disableSimulation=1;
+			};
+			id=16;
+			type="ShootingMat_01_Olive_F";
+			atlOffset=0.086837769;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5040.7515,209.13902,5912.3374};
+				angles[]={0.0024897563,0,6.2806959};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="stretcher_1_8";
+				disableSimulation=1;
+			};
+			id=17;
+			type="ShootingMat_01_Olive_F";
+			atlOffset=0.1844635;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5039.5391,208.95309,5907.8462};
+				angles[]={0.014998266,0,0.019995542};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=18;
+			type="Land_ClutterCutter_large_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5039.2236,208.95369,5897.0864};
+				angles[]={6.2731876,0,0.034983817};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=19;
+			type="Land_ClutterCutter_large_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item18
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5038.3584,208.95863,5902.4346};
+				angles[]={6.280683,0,0.03498546};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=20;
+			type="Land_ClutterCutter_large_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5032.9976,209.22998,5905.4126};
+				angles[]={6.2631841,4.6531177,0.030002208};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=21;
+			type="Land_CampingTable_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item20
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5033.0283,209.79002,5905.3501};
+				angles[]={6.2631841,4.6569223,0.030002208};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="console_1";
+				disableSimulation=1;
+			};
+			id=22;
+			type="Land_Laptop_unfolded_F";
+			atlOffset=0.81599426;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item21
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5017.7715,208.23445,5889.9697};
+				angles[]={6.258194,1.6604295,0.064907812};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=40;
+			type="Land_MedicalTent_01_floor_dark_F";
+			atlOffset=6.1035156e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item22
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5017.2842,209.58051,5890.0967};
+				angles[]={6.258194,1.6604295,0.064907812};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=41;
+			type="Land_MedicalTent_01_NATO_generic_outer_F";
+			atlOffset=6.1035156e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="Door_Hide";
+					expression="_this animateSource ['Door_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"", _value, true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item23
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5002.957,207.77173,5890.9014};
+				angles[]={6.2581892,1.6607573,0.019996032};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=44;
+			type="Land_MedicalTent_01_floor_dark_F";
+			atlOffset=4.5776367e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item24
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5002.4697,209.13971,5891.0283};
+				angles[]={6.2581892,1.6607573,0.019996032};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=45;
+			type="Land_MedicalTent_01_NATO_generic_outer_F";
+			atlOffset=4.5776367e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="Door_Hide";
+					expression="_this animateSource ['Door_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"", _value, true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item25
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5010.2114,207.93335,5890.4912};
+				angles[]={6.2656851,1.66108,0.022495884};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=46;
+			type="Land_ClutterCutter_large_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item26
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5013.6353,208.57556,5895.978};
+				angles[]={6.2506957,0.030807428,0.057436496};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=47;
+			type="Land_CampingTable_F";
+			atlOffset=-0.00018310547;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item27
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5013.562,209.13277,5895.9824};
+				angles[]={6.2506957,0.034396701,0.0574666};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="console_2";
+				disableSimulation=1;
+			};
+			id=48;
+			type="Land_Laptop_unfolded_F";
+			atlOffset=0.81712341;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item28
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5001.7358,207.73643,5890.4688};
+				angles[]={6.2581892,0,0.019991547};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=49;
+			type="Land_ClutterCutter_large_F";
+		};
+		class Item29
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5020.1577,208.35277,5889.1489};
+				angles[]={6.268187,0,0.034981638};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=50;
+			type="Land_ClutterCutter_large_F";
+			atlOffset=1.5258789e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item30
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5009.4902,207.86754,5888.5132};
+				angles[]={6.2581892,0,0.029980423};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=51;
+			type="Land_ClutterCutter_large_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item31
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5012.3843,207.92778,5886.8306};
+				angles[]={6.2656894,0,0.047457684};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=52;
+			type="Land_ClutterCutter_large_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item32
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5020.4824,208.41817,5891.769};
+				angles[]={6.278182,4.809063,0.024996169};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_2_1";
+				disableSimulation=1;
+			};
+			id=53;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item33
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4975.915,209.25298,5897.8325};
+				angles[]={6.2631893,2.852916,6.248199};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=54;
+			type="Land_MedicalTent_01_NATO_generic_outer_F";
+			atlOffset=0.0087890625;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="Door_Hide";
+					expression="_this animateSource ['Door_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"", _value, true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item34
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4975.9771,207.86626,5897.333};
+				angles[]={6.2631893,2.852916,6.248199};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=55;
+			type="Land_MedicalTent_01_floor_dark_F";
+			atlOffset=0.0087890625;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item35
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4971.311,209.5735,5911.9443};
+				angles[]={6.2606921,2.8533635,0.012496647};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=56;
+			type="Land_MedicalTent_01_NATO_generic_outer_F";
+			atlOffset=0.0088043213;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="Door_Hide";
+					expression="_this animateSource ['Door_Hide',_value,true]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_isMedicalFacility";
+					expression="_this setVariable [""ace_medical_isMedicalFacility"", _value, true];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=3;
+			};
+		};
+		class Item36
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4971.373,208.18846,5911.4443};
+				angles[]={6.2606921,2.8533635,0.012496647};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=57;
+			type="Land_MedicalTent_01_floor_dark_F";
+			atlOffset=0.0088043213;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item37
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4980.0391,208.35838,5903.3955};
+				angles[]={6.2631893,1.2233727,0.0025135824};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=58;
+			type="Land_CampingTable_F";
+			atlOffset=0.0087280273;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item38
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4980.0098,208.91933,5903.4536};
+				angles[]={6.2631893,1.226962,0.0025135824};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="console_3";
+				disableSimulation=1;
+			};
+			id=59;
+			type="Land_Laptop_unfolded_F";
+			atlOffset=0.8241272;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item39
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5019.9829,208.33762,5887.5728};
+				angles[]={6.2631893,4.809063,0.064906895};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_2_2";
+				disableSimulation=1;
+			};
+			id=60;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item40
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5015.5762,208.17548,5892.355};
+				angles[]={6.2656851,4.809063,0.042473838};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_2_3";
+				disableSimulation=1;
+			};
+			id=61;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item41
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5015.188,208.05936,5888.0288};
+				angles[]={6.2656851,4.809063,0.034989785};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_2_4";
+				disableSimulation=1;
+			};
+			id=62;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item42
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5004.875,207.7679,5888.4375};
+				angles[]={6.2581916,4.809063,0.022493234};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_2_5";
+				disableSimulation=1;
+			};
+			id=63;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item43
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5005.1958,207.89188,5892.8521};
+				angles[]={6.2507014,4.809063,0.022495884};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_2_6";
+				disableSimulation=1;
+			};
+			id=64;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item44
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5000.2021,207.79994,5893.1885};
+				angles[]={6.2506995,4.809063,0.019999012};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_2_7";
+				disableSimulation=1;
+			};
+			id=65;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item45
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4999.6147,207.67207,5889.0059};
+				angles[]={6.255693,4.809063,0.0075011365};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_2_8";
+				disableSimulation=1;
+			};
+			id=66;
+			type="ShootingMat_01_Olive_F";
+			atlOffset=1.5258789e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item46
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4968.7573,208.21127,5912.9868};
+				angles[]={6.248199,2.8219988,0.012501417};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_3_1";
+				disableSimulation=1;
+			};
+			id=67;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item47
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4972.9204,208.33844,5914.1636};
+				angles[]={6.2357211,2.8219988,0.019996032};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_3_2";
+				disableSimulation=1;
+			};
+			id=69;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item48
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4969.958,208.13673,5908.9468};
+				angles[]={6.2731905,2.8219988,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_3_3";
+				disableSimulation=1;
+			};
+			id=70;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item49
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4974.103,208.19537,5909.8584};
+				angles[]={6.2606921,2.8219988,0.012496647};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_3_4";
+				disableSimulation=1;
+			};
+			id=71;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item50
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4978.5029,207.83508,5896.0161};
+				angles[]={6.2631893,2.8219988,6.278182};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_3_5";
+				disableSimulation=1;
+			};
+			id=72;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item51
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4977.166,207.92674,5900.3423};
+				angles[]={6.2506995,2.8219988,6.2731848};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_3_6";
+				disableSimulation=1;
+			};
+			id=73;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item52
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4974.3198,207.86765,5895.0386};
+				angles[]={6.2606921,2.8219988,6.258194};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_3_7";
+				disableSimulation=1;
+			};
+			id=74;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item53
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4973.1714,208.0087,5899.1211};
+				angles[]={6.2631893,2.8219988,6.248199};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="stretcher_3_8";
+				disableSimulation=1;
+			};
+			id=75;
+			type="ShootingMat_01_Olive_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item54
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5042.2554,209.7254,5903.2563};
+				angles[]={0.022497294,0,6.2232509};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=79;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=-0.0029907227;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[""kat_oxygenTank_300"",""kat_Carbonate"",""kat_Caffeine"",""kat_Painkiller"",""kat_Penthrox"",""kat_Pervitin"",""KAT_Eyewasher""],[5,100,100,100,100,100,100]],[[""ACE_morphine"",""ACE_adenosine"",""ACE_epinephrine"",""kat_larynx"",""kat_guedel"",""kat_NPA"",""kat_IGEL"",""kat_laryngoscope"",""kat_ETT"",""kat_accuvac"",""kat_suction"",""kat_crikeKit"",""kat_X_AED"",""kat_4X4_Gauze"",""kat_Abdominal_Pad"",""kat_Adhesive_Bandage"",""kat_handWarmer"",""kat_fluidWarmer"",""kat_spaceBlanket"",""kat_TXAAuto"",""kat_phenylephrineAuto"",""kat_atropine"",""kat_Pulseoximeter"",""kat_nasal"",""kat_chestSeal"",""kat_aatKit"",""kat_ncdKit"",""kat_BVM"",""kat_pocketBVM"",""kat_Burn_Dressing"",""kat_Elastic_Wrap"",""kat_ETD"",""kat_Hemostatic_Gauze"",""kat_Hemostatic_Injector"",""kat_Israeli_Bandage"",""kat_Compressed_Gauze"",""kat_Roller_Gauze"",""kat_Ice_Pack"",""kat_Pelvic_Binder"",""ACE_splint"",""ACE_tourniquet"",""kat_fentPatch"",""kat_naloxone"",""ACE_personalAidKit"",""kat_eyecovers"",""kat_10ml_syringe"",""kat_IV_14"",""kat_IV_16"",""kat_IV_20"",""kat_5ml_syringe"",""kat_EZ_IO"",""kat_IO_FAST"",""kat_EJV"",""kat_coag_sense"",""kat_pressureBag"",""kat_vacuum"",""kat_fractureKit"",""kat_reboa"",""ACE_surgicalKit"",""kat_stitchKit"",""kat_BPCuff"",""kat_ultrasound"",""kat_basicDiagnostic"",""kat_stethoscope"",""kat_thermometer"",""kat_adenosineIV"",""kat_alteplase"",""kat_amiodarone"",""kat_atropineIV"",""kat_bicarbonate"",""kat_calciumChloride"",""kat_calciumGluconate"",""kat_doxapram"",""kat_diazepam"",""kat_EACA"",""kat_epinephrineIV"",""kat_etomidate"",""kat_fentanyl"",""kat_flumazenil"",""kat_ketamine"",""kat_lidocaine"",""kat_lorazepam"",""kat_metoprolol"",""kat_morphineIV"",""kat_nalbuphine"",""kat_nitroglycerin"",""kat_norepinephrine"",""kat_ondansetron"",""kat_phenylephrine"",""kat_rocuronium"",""kat_succinylcholine"",""kat_sugammadex"",""kat_TXA""],[30,30,30,30,30,30,30,30,30,10,30,30,30,100,100,100,30,30,30,30,30,30,30,30,30,30,30,20,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,10,100,100,100,100,100,100,100,100,100,10,100,10,100,100,10,100,10,10,10,10,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item55
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5042.3218,209.75595,5901.355};
+				angles[]={6.2806892,0,6.248209};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=80;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=-0.0019989014;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[""kat_bloodIV_O_N"",""kat_bloodIV_O_N_250"",""kat_bloodIV_O_N_500"",""KAT_Empty_bloodIV_250"",""KAT_Empty_bloodIV_500"",""kat_HextendIV"",""kat_HextendIV_250"",""kat_HextendIV_500"",""kat_HypertonicSalineIV_250"",""kat_PackedRBCIV_250"",""kat_PackedRBCIV_500"",""ACE_plasmaIV"",""ACE_plasmaIV_250"",""ACE_plasmaIV_500"",""kat_PlateletIV100"",""kat_RingersLactateIV"",""kat_RingersLactateIV_250"",""kat_RingersLactateIV_500"",""ACE_salineIV"",""kat_salineIV100"",""ACE_salineIV_500"",""ACE_salineIV_250""],[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item56
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5041.1802,209.78679,5917.8887};
+				angles[]={6.2806959,0,0.022498533};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=81;
+			type="B_CargoNet_01_ammo_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[""kat_oxygenTank_300"",""kat_Carbonate"",""kat_Caffeine"",""kat_Painkiller"",""kat_Penthrox"",""kat_Pervitin"",""KAT_Eyewasher""],[5,100,100,100,100,100,100]],[[""ACE_morphine"",""ACE_adenosine"",""ACE_epinephrine"",""kat_larynx"",""kat_guedel"",""kat_NPA"",""kat_IGEL"",""kat_laryngoscope"",""kat_ETT"",""kat_accuvac"",""kat_suction"",""kat_crikeKit"",""kat_X_AED"",""kat_4X4_Gauze"",""kat_Abdominal_Pad"",""kat_Adhesive_Bandage"",""kat_handWarmer"",""kat_fluidWarmer"",""kat_spaceBlanket"",""kat_TXAAuto"",""kat_phenylephrineAuto"",""kat_atropine"",""kat_Pulseoximeter"",""kat_nasal"",""kat_chestSeal"",""kat_aatKit"",""kat_ncdKit"",""kat_BVM"",""kat_pocketBVM"",""kat_Burn_Dressing"",""kat_Elastic_Wrap"",""kat_ETD"",""kat_Hemostatic_Gauze"",""kat_Hemostatic_Injector"",""kat_Israeli_Bandage"",""kat_Compressed_Gauze"",""kat_Roller_Gauze"",""kat_Ice_Pack"",""kat_Pelvic_Binder"",""ACE_splint"",""ACE_tourniquet"",""kat_fentPatch"",""kat_naloxone"",""ACE_personalAidKit"",""kat_eyecovers"",""kat_10ml_syringe"",""kat_IV_14"",""kat_IV_16"",""kat_IV_20"",""kat_5ml_syringe"",""kat_EZ_IO"",""kat_IO_FAST"",""kat_EJV"",""kat_coag_sense"",""kat_pressureBag"",""kat_vacuum"",""kat_fractureKit"",""kat_reboa"",""ACE_surgicalKit"",""kat_stitchKit"",""kat_BPCuff"",""kat_ultrasound"",""kat_basicDiagnostic"",""kat_stethoscope"",""kat_thermometer"",""kat_adenosineIV"",""kat_alteplase"",""kat_amiodarone"",""kat_atropineIV"",""kat_bicarbonate"",""kat_calciumChloride"",""kat_calciumGluconate"",""kat_doxapram"",""kat_diazepam"",""kat_EACA"",""kat_epinephrineIV"",""kat_etomidate"",""kat_fentanyl"",""kat_flumazenil"",""kat_ketamine"",""kat_lidocaine"",""kat_lorazepam"",""kat_metoprolol"",""kat_morphineIV"",""kat_nalbuphine"",""kat_nitroglycerin"",""kat_norepinephrine"",""kat_ondansetron"",""kat_phenylephrine"",""kat_rocuronium"",""kat_succinylcholine"",""kat_sugammadex"",""kat_TXA""],[30,30,30,30,30,30,30,30,30,10,30,30,30,100,100,100,30,30,30,30,30,30,30,30,30,30,30,20,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,10,100,100,100,100,100,100,100,100,100,10,100,10,100,100,10,100,10,10,10,10,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item57
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5041.2466,209.78331,5915.9873};
+				angles[]={6.2606869,0,0.022498533};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=82;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=-6.1035156e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[""kat_bloodIV_O_N"",""kat_bloodIV_O_N_250"",""kat_bloodIV_O_N_500"",""KAT_Empty_bloodIV_250"",""KAT_Empty_bloodIV_500"",""kat_HextendIV"",""kat_HextendIV_250"",""kat_HextendIV_500"",""kat_HypertonicSalineIV_250"",""kat_PackedRBCIV_250"",""kat_PackedRBCIV_500"",""ACE_plasmaIV"",""ACE_plasmaIV_250"",""ACE_plasmaIV_500"",""kat_PlateletIV100"",""kat_RingersLactateIV"",""kat_RingersLactateIV_250"",""kat_RingersLactateIV_500"",""ACE_salineIV"",""kat_salineIV100"",""ACE_salineIV_500"",""ACE_salineIV_250""],[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item58
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5042.4365,209.5856,5888.5439};
+				angles[]={6.2457047,0,6.2581892};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=83;
+			type="B_CargoNet_01_ammo_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[""kat_oxygenTank_300"",""kat_Carbonate"",""kat_Caffeine"",""kat_Painkiller"",""kat_Penthrox"",""kat_Pervitin"",""KAT_Eyewasher""],[5,100,100,100,100,100,100]],[[""ACE_morphine"",""ACE_adenosine"",""ACE_epinephrine"",""kat_larynx"",""kat_guedel"",""kat_NPA"",""kat_IGEL"",""kat_laryngoscope"",""kat_ETT"",""kat_accuvac"",""kat_suction"",""kat_crikeKit"",""kat_X_AED"",""kat_4X4_Gauze"",""kat_Abdominal_Pad"",""kat_Adhesive_Bandage"",""kat_handWarmer"",""kat_fluidWarmer"",""kat_spaceBlanket"",""kat_TXAAuto"",""kat_phenylephrineAuto"",""kat_atropine"",""kat_Pulseoximeter"",""kat_nasal"",""kat_chestSeal"",""kat_aatKit"",""kat_ncdKit"",""kat_BVM"",""kat_pocketBVM"",""kat_Burn_Dressing"",""kat_Elastic_Wrap"",""kat_ETD"",""kat_Hemostatic_Gauze"",""kat_Hemostatic_Injector"",""kat_Israeli_Bandage"",""kat_Compressed_Gauze"",""kat_Roller_Gauze"",""kat_Ice_Pack"",""kat_Pelvic_Binder"",""ACE_splint"",""ACE_tourniquet"",""kat_fentPatch"",""kat_naloxone"",""ACE_personalAidKit"",""kat_eyecovers"",""kat_10ml_syringe"",""kat_IV_14"",""kat_IV_16"",""kat_IV_20"",""kat_5ml_syringe"",""kat_EZ_IO"",""kat_IO_FAST"",""kat_EJV"",""kat_coag_sense"",""kat_pressureBag"",""kat_vacuum"",""kat_fractureKit"",""kat_reboa"",""ACE_surgicalKit"",""kat_stitchKit"",""kat_BPCuff"",""kat_ultrasound"",""kat_basicDiagnostic"",""kat_stethoscope"",""kat_thermometer"",""kat_adenosineIV"",""kat_alteplase"",""kat_amiodarone"",""kat_atropineIV"",""kat_bicarbonate"",""kat_calciumChloride"",""kat_calciumGluconate"",""kat_doxapram"",""kat_diazepam"",""kat_EACA"",""kat_epinephrineIV"",""kat_etomidate"",""kat_fentanyl"",""kat_flumazenil"",""kat_ketamine"",""kat_lidocaine"",""kat_lorazepam"",""kat_metoprolol"",""kat_morphineIV"",""kat_nalbuphine"",""kat_nitroglycerin"",""kat_norepinephrine"",""kat_ondansetron"",""kat_phenylephrine"",""kat_rocuronium"",""kat_succinylcholine"",""kat_sugammadex"",""kat_TXA""],[30,30,30,30,30,30,30,30,30,10,30,30,30,100,100,100,30,30,30,30,30,30,30,30,30,30,30,20,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,10,100,100,100,100,100,100,100,100,100,10,100,10,100,100,10,100,10,10,10,10,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item59
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5042.5029,209.55951,5886.6426};
+				angles[]={6.2806721,0,6.2581892};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=84;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=-9.1552734e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[""kat_bloodIV_O_N"",""kat_bloodIV_O_N_250"",""kat_bloodIV_O_N_500"",""KAT_Empty_bloodIV_250"",""KAT_Empty_bloodIV_500"",""kat_HextendIV"",""kat_HextendIV_250"",""kat_HextendIV_500"",""kat_HypertonicSalineIV_250"",""kat_PackedRBCIV_250"",""kat_PackedRBCIV_500"",""ACE_plasmaIV"",""ACE_plasmaIV_250"",""ACE_plasmaIV_500"",""kat_PlateletIV100"",""kat_RingersLactateIV"",""kat_RingersLactateIV_250"",""kat_RingersLactateIV_500"",""ACE_salineIV"",""kat_salineIV100"",""ACE_salineIV_500"",""ACE_salineIV_250""],[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item60
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5023.938,209.30464,5890.1284};
+				angles[]={6.278182,0.086246222,0.024996169};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=85;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=-1.5258789e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[""kat_oxygenTank_300"",""kat_Carbonate"",""kat_Caffeine"",""kat_Painkiller"",""kat_Penthrox"",""kat_Pervitin"",""KAT_Eyewasher""],[5,100,100,100,100,100,100]],[[""ACE_morphine"",""ACE_adenosine"",""ACE_epinephrine"",""kat_larynx"",""kat_guedel"",""kat_NPA"",""kat_IGEL"",""kat_laryngoscope"",""kat_ETT"",""kat_accuvac"",""kat_suction"",""kat_crikeKit"",""kat_X_AED"",""kat_4X4_Gauze"",""kat_Abdominal_Pad"",""kat_Adhesive_Bandage"",""kat_handWarmer"",""kat_fluidWarmer"",""kat_spaceBlanket"",""kat_TXAAuto"",""kat_phenylephrineAuto"",""kat_atropine"",""kat_Pulseoximeter"",""kat_nasal"",""kat_chestSeal"",""kat_aatKit"",""kat_ncdKit"",""kat_BVM"",""kat_pocketBVM"",""kat_Burn_Dressing"",""kat_Elastic_Wrap"",""kat_ETD"",""kat_Hemostatic_Gauze"",""kat_Hemostatic_Injector"",""kat_Israeli_Bandage"",""kat_Compressed_Gauze"",""kat_Roller_Gauze"",""kat_Ice_Pack"",""kat_Pelvic_Binder"",""ACE_splint"",""ACE_tourniquet"",""kat_fentPatch"",""kat_naloxone"",""ACE_personalAidKit"",""kat_eyecovers"",""kat_10ml_syringe"",""kat_IV_14"",""kat_IV_16"",""kat_IV_20"",""kat_5ml_syringe"",""kat_EZ_IO"",""kat_IO_FAST"",""kat_EJV"",""kat_coag_sense"",""kat_pressureBag"",""kat_vacuum"",""kat_fractureKit"",""kat_reboa"",""ACE_surgicalKit"",""kat_stitchKit"",""kat_BPCuff"",""kat_ultrasound"",""kat_basicDiagnostic"",""kat_stethoscope"",""kat_thermometer"",""kat_adenosineIV"",""kat_alteplase"",""kat_amiodarone"",""kat_atropineIV"",""kat_bicarbonate"",""kat_calciumChloride"",""kat_calciumGluconate"",""kat_doxapram"",""kat_diazepam"",""kat_EACA"",""kat_epinephrineIV"",""kat_etomidate"",""kat_fentanyl"",""kat_flumazenil"",""kat_ketamine"",""kat_lidocaine"",""kat_lorazepam"",""kat_metoprolol"",""kat_morphineIV"",""kat_nalbuphine"",""kat_nitroglycerin"",""kat_norepinephrine"",""kat_ondansetron"",""kat_phenylephrine"",""kat_rocuronium"",""kat_succinylcholine"",""kat_sugammadex"",""kat_TXA""],[30,30,30,30,30,30,30,30,30,10,30,30,30,100,100,100,30,30,30,30,30,30,30,30,30,30,30,20,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,10,100,100,100,100,100,100,100,100,100,10,100,10,100,100,10,100,10,10,10,10,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item61
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5023.8403,209.29369,5888.2285};
+				angles[]={6.278182,0.086246222,0.024996169};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=86;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=0.0009765625;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[""kat_bloodIV_O_N"",""kat_bloodIV_O_N_250"",""kat_bloodIV_O_N_500"",""KAT_Empty_bloodIV_250"",""KAT_Empty_bloodIV_500"",""kat_HextendIV"",""kat_HextendIV_250"",""kat_HextendIV_500"",""kat_HypertonicSalineIV_250"",""kat_PackedRBCIV_250"",""kat_PackedRBCIV_500"",""ACE_plasmaIV"",""ACE_plasmaIV_250"",""ACE_plasmaIV_500"",""kat_PlateletIV100"",""kat_RingersLactateIV"",""kat_RingersLactateIV_250"",""kat_RingersLactateIV_500"",""ACE_salineIV"",""kat_salineIV100"",""ACE_salineIV_500"",""ACE_salineIV_250""],[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item62
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4995.9634,208.54558,5892.5254};
+				angles[]={6.2631927,0,0.012496647};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=87;
+			type="B_CargoNet_01_ammo_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[""kat_oxygenTank_300"",""kat_Carbonate"",""kat_Caffeine"",""kat_Painkiller"",""kat_Penthrox"",""kat_Pervitin"",""KAT_Eyewasher""],[5,100,100,100,100,100,100]],[[""ACE_morphine"",""ACE_adenosine"",""ACE_epinephrine"",""kat_larynx"",""kat_guedel"",""kat_NPA"",""kat_IGEL"",""kat_laryngoscope"",""kat_ETT"",""kat_accuvac"",""kat_suction"",""kat_crikeKit"",""kat_X_AED"",""kat_4X4_Gauze"",""kat_Abdominal_Pad"",""kat_Adhesive_Bandage"",""kat_handWarmer"",""kat_fluidWarmer"",""kat_spaceBlanket"",""kat_TXAAuto"",""kat_phenylephrineAuto"",""kat_atropine"",""kat_Pulseoximeter"",""kat_nasal"",""kat_chestSeal"",""kat_aatKit"",""kat_ncdKit"",""kat_BVM"",""kat_pocketBVM"",""kat_Burn_Dressing"",""kat_Elastic_Wrap"",""kat_ETD"",""kat_Hemostatic_Gauze"",""kat_Hemostatic_Injector"",""kat_Israeli_Bandage"",""kat_Compressed_Gauze"",""kat_Roller_Gauze"",""kat_Ice_Pack"",""kat_Pelvic_Binder"",""ACE_splint"",""ACE_tourniquet"",""kat_fentPatch"",""kat_naloxone"",""ACE_personalAidKit"",""kat_eyecovers"",""kat_10ml_syringe"",""kat_IV_14"",""kat_IV_16"",""kat_IV_20"",""kat_5ml_syringe"",""kat_EZ_IO"",""kat_IO_FAST"",""kat_EJV"",""kat_coag_sense"",""kat_pressureBag"",""kat_vacuum"",""kat_fractureKit"",""kat_reboa"",""ACE_surgicalKit"",""kat_stitchKit"",""kat_BPCuff"",""kat_ultrasound"",""kat_basicDiagnostic"",""kat_stethoscope"",""kat_thermometer"",""kat_adenosineIV"",""kat_alteplase"",""kat_amiodarone"",""kat_atropineIV"",""kat_bicarbonate"",""kat_calciumChloride"",""kat_calciumGluconate"",""kat_doxapram"",""kat_diazepam"",""kat_EACA"",""kat_epinephrineIV"",""kat_etomidate"",""kat_fentanyl"",""kat_flumazenil"",""kat_ketamine"",""kat_lidocaine"",""kat_lorazepam"",""kat_metoprolol"",""kat_morphineIV"",""kat_nalbuphine"",""kat_nitroglycerin"",""kat_norepinephrine"",""kat_ondansetron"",""kat_phenylephrine"",""kat_rocuronium"",""kat_succinylcholine"",""kat_sugammadex"",""kat_TXA""],[30,30,30,30,30,30,30,30,30,10,30,30,30,100,100,100,30,30,30,30,30,30,30,30,30,30,30,20,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,10,100,100,100,100,100,100,100,100,100,10,100,10,100,100,10,100,10,10,10,10,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item63
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4996.0298,208.51553,5890.624};
+				angles[]={6.2681832,0,6.278194};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=88;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=0.15811157;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[""kat_bloodIV_O_N"",""kat_bloodIV_O_N_250"",""kat_bloodIV_O_N_500"",""KAT_Empty_bloodIV_250"",""KAT_Empty_bloodIV_500"",""kat_HextendIV"",""kat_HextendIV_250"",""kat_HextendIV_500"",""kat_HypertonicSalineIV_250"",""kat_PackedRBCIV_250"",""kat_PackedRBCIV_500"",""ACE_plasmaIV"",""ACE_plasmaIV_250"",""ACE_plasmaIV_500"",""kat_PlateletIV100"",""kat_RingersLactateIV"",""kat_RingersLactateIV_250"",""kat_RingersLactateIV_500"",""ACE_salineIV"",""kat_salineIV100"",""ACE_salineIV_500"",""ACE_salineIV_250""],[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item64
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4992.9541,208.91916,5891.0884};
+			};
+			areaSize[]={5,-1,5};
+			flags=1;
+			id=89;
+			type="ModuleHideTerrainObjects_F";
+			atlOffset=1.2532959;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="#filter";
+					expression="_this setVariable [""#filter"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="#hideLocally";
+					expression="_this setVariable [""#hideLocally"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item65
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5000.7124,208.34157,5891.1738};
+			};
+			areaSize[]={5,-1,5};
+			flags=1;
+			id=91;
+			type="ModuleHideTerrainObjects_F";
+			atlOffset=0.60826111;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="#filter";
+					expression="_this setVariable [""#filter"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=15;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="#hideLocally";
+					expression="_this setVariable [""#hideLocally"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item66
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5008.7925,208.65314,5887.6343};
+				angles[]={6.2656889,4.7357945,0.029989703};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=92;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=0.00045776367;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[""kat_oxygenTank_300"",""kat_Carbonate"",""kat_Caffeine"",""kat_Painkiller"",""kat_Penthrox"",""kat_Pervitin"",""KAT_Eyewasher""],[5,100,100,100,100,100,100]],[[""ACE_morphine"",""ACE_adenosine"",""ACE_epinephrine"",""kat_larynx"",""kat_guedel"",""kat_NPA"",""kat_IGEL"",""kat_laryngoscope"",""kat_ETT"",""kat_accuvac"",""kat_suction"",""kat_crikeKit"",""kat_X_AED"",""kat_4X4_Gauze"",""kat_Abdominal_Pad"",""kat_Adhesive_Bandage"",""kat_handWarmer"",""kat_fluidWarmer"",""kat_spaceBlanket"",""kat_TXAAuto"",""kat_phenylephrineAuto"",""kat_atropine"",""kat_Pulseoximeter"",""kat_nasal"",""kat_chestSeal"",""kat_aatKit"",""kat_ncdKit"",""kat_BVM"",""kat_pocketBVM"",""kat_Burn_Dressing"",""kat_Elastic_Wrap"",""kat_ETD"",""kat_Hemostatic_Gauze"",""kat_Hemostatic_Injector"",""kat_Israeli_Bandage"",""kat_Compressed_Gauze"",""kat_Roller_Gauze"",""kat_Ice_Pack"",""kat_Pelvic_Binder"",""ACE_splint"",""ACE_tourniquet"",""kat_fentPatch"",""kat_naloxone"",""ACE_personalAidKit"",""kat_eyecovers"",""kat_10ml_syringe"",""kat_IV_14"",""kat_IV_16"",""kat_IV_20"",""kat_5ml_syringe"",""kat_EZ_IO"",""kat_IO_FAST"",""kat_EJV"",""kat_coag_sense"",""kat_pressureBag"",""kat_vacuum"",""kat_fractureKit"",""kat_reboa"",""ACE_surgicalKit"",""kat_stitchKit"",""kat_BPCuff"",""kat_ultrasound"",""kat_basicDiagnostic"",""kat_stethoscope"",""kat_thermometer"",""kat_adenosineIV"",""kat_alteplase"",""kat_amiodarone"",""kat_atropineIV"",""kat_bicarbonate"",""kat_calciumChloride"",""kat_calciumGluconate"",""kat_doxapram"",""kat_diazepam"",""kat_EACA"",""kat_epinephrineIV"",""kat_etomidate"",""kat_fentanyl"",""kat_flumazenil"",""kat_ketamine"",""kat_lidocaine"",""kat_lorazepam"",""kat_metoprolol"",""kat_morphineIV"",""kat_nalbuphine"",""kat_nitroglycerin"",""kat_norepinephrine"",""kat_ondansetron"",""kat_phenylephrine"",""kat_rocuronium"",""kat_succinylcholine"",""kat_sugammadex"",""kat_TXA""],[30,30,30,30,30,30,30,30,30,10,30,30,30,100,100,100,30,30,30,30,30,30,30,30,30,30,30,20,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,10,100,100,100,100,100,100,100,100,100,10,100,10,100,100,10,100,10,10,10,10,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item67
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5010.6826,208.71126,5887.6577};
+				angles[]={6.2656889,4.7361498,0.029989703};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=93;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=0.0009765625;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[""kat_bloodIV_O_N"",""kat_bloodIV_O_N_250"",""kat_bloodIV_O_N_500"",""KAT_Empty_bloodIV_250"",""KAT_Empty_bloodIV_500"",""kat_HextendIV"",""kat_HextendIV_250"",""kat_HextendIV_500"",""kat_HypertonicSalineIV_250"",""kat_PackedRBCIV_250"",""kat_PackedRBCIV_500"",""ACE_plasmaIV"",""ACE_plasmaIV_250"",""ACE_plasmaIV_500"",""kat_PlateletIV100"",""kat_RingersLactateIV"",""kat_RingersLactateIV_250"",""kat_RingersLactateIV_500"",""ACE_salineIV"",""kat_salineIV100"",""ACE_salineIV_500"",""ACE_salineIV_250""],[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item68
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4978.4634,208.54118,5892.0112};
+				angles[]={6.2606897,1.2723199,6.2731848};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=94;
+			type="B_CargoNet_01_ammo_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[""kat_oxygenTank_300"",""kat_Carbonate"",""kat_Caffeine"",""kat_Painkiller"",""kat_Penthrox"",""kat_Pervitin"",""KAT_Eyewasher""],[5,100,100,100,100,100,100]],[[""ACE_morphine"",""ACE_adenosine"",""ACE_epinephrine"",""kat_larynx"",""kat_guedel"",""kat_NPA"",""kat_IGEL"",""kat_laryngoscope"",""kat_ETT"",""kat_accuvac"",""kat_suction"",""kat_crikeKit"",""kat_X_AED"",""kat_4X4_Gauze"",""kat_Abdominal_Pad"",""kat_Adhesive_Bandage"",""kat_handWarmer"",""kat_fluidWarmer"",""kat_spaceBlanket"",""kat_TXAAuto"",""kat_phenylephrineAuto"",""kat_atropine"",""kat_Pulseoximeter"",""kat_nasal"",""kat_chestSeal"",""kat_aatKit"",""kat_ncdKit"",""kat_BVM"",""kat_pocketBVM"",""kat_Burn_Dressing"",""kat_Elastic_Wrap"",""kat_ETD"",""kat_Hemostatic_Gauze"",""kat_Hemostatic_Injector"",""kat_Israeli_Bandage"",""kat_Compressed_Gauze"",""kat_Roller_Gauze"",""kat_Ice_Pack"",""kat_Pelvic_Binder"",""ACE_splint"",""ACE_tourniquet"",""kat_fentPatch"",""kat_naloxone"",""ACE_personalAidKit"",""kat_eyecovers"",""kat_10ml_syringe"",""kat_IV_14"",""kat_IV_16"",""kat_IV_20"",""kat_5ml_syringe"",""kat_EZ_IO"",""kat_IO_FAST"",""kat_EJV"",""kat_coag_sense"",""kat_pressureBag"",""kat_vacuum"",""kat_fractureKit"",""kat_reboa"",""ACE_surgicalKit"",""kat_stitchKit"",""kat_BPCuff"",""kat_ultrasound"",""kat_basicDiagnostic"",""kat_stethoscope"",""kat_thermometer"",""kat_adenosineIV"",""kat_alteplase"",""kat_amiodarone"",""kat_atropineIV"",""kat_bicarbonate"",""kat_calciumChloride"",""kat_calciumGluconate"",""kat_doxapram"",""kat_diazepam"",""kat_EACA"",""kat_epinephrineIV"",""kat_etomidate"",""kat_fentanyl"",""kat_flumazenil"",""kat_ketamine"",""kat_lidocaine"",""kat_lorazepam"",""kat_metoprolol"",""kat_morphineIV"",""kat_nalbuphine"",""kat_nitroglycerin"",""kat_norepinephrine"",""kat_ondansetron"",""kat_phenylephrine"",""kat_rocuronium"",""kat_succinylcholine"",""kat_sugammadex"",""kat_TXA""],[30,30,30,30,30,30,30,30,30,10,30,30,30,100,100,100,30,30,30,30,30,30,30,30,30,30,30,20,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,10,100,100,100,100,100,100,100,100,100,10,100,10,100,100,10,100,10,10,10,10,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item69
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4976.6621,208.5482,5891.3921};
+				angles[]={6.2656889,1.2724363,6.2731848};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=95;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=-1.5258789e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[""kat_bloodIV_O_N"",""kat_bloodIV_O_N_250"",""kat_bloodIV_O_N_500"",""KAT_Empty_bloodIV_250"",""KAT_Empty_bloodIV_500"",""kat_HextendIV"",""kat_HextendIV_250"",""kat_HextendIV_500"",""kat_HypertonicSalineIV_250"",""kat_PackedRBCIV_250"",""kat_PackedRBCIV_500"",""ACE_plasmaIV"",""ACE_plasmaIV_250"",""ACE_plasmaIV_500"",""kat_PlateletIV100"",""kat_RingersLactateIV"",""kat_RingersLactateIV_250"",""kat_RingersLactateIV_500"",""ACE_salineIV"",""kat_salineIV100"",""ACE_salineIV_500"",""ACE_salineIV_250""],[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item70
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4968.4463,208.88409,5902.4243};
+				angles[]={0,2.9350815,6.2806959};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=96;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=-9.1552734e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[""kat_oxygenTank_300"",""kat_Carbonate"",""kat_Caffeine"",""kat_Painkiller"",""kat_Penthrox"",""kat_Pervitin"",""KAT_Eyewasher""],[5,100,100,100,100,100,100]],[[""ACE_morphine"",""ACE_adenosine"",""ACE_epinephrine"",""kat_larynx"",""kat_guedel"",""kat_NPA"",""kat_IGEL"",""kat_laryngoscope"",""kat_ETT"",""kat_accuvac"",""kat_suction"",""kat_crikeKit"",""kat_X_AED"",""kat_4X4_Gauze"",""kat_Abdominal_Pad"",""kat_Adhesive_Bandage"",""kat_handWarmer"",""kat_fluidWarmer"",""kat_spaceBlanket"",""kat_TXAAuto"",""kat_phenylephrineAuto"",""kat_atropine"",""kat_Pulseoximeter"",""kat_nasal"",""kat_chestSeal"",""kat_aatKit"",""kat_ncdKit"",""kat_BVM"",""kat_pocketBVM"",""kat_Burn_Dressing"",""kat_Elastic_Wrap"",""kat_ETD"",""kat_Hemostatic_Gauze"",""kat_Hemostatic_Injector"",""kat_Israeli_Bandage"",""kat_Compressed_Gauze"",""kat_Roller_Gauze"",""kat_Ice_Pack"",""kat_Pelvic_Binder"",""ACE_splint"",""ACE_tourniquet"",""kat_fentPatch"",""kat_naloxone"",""ACE_personalAidKit"",""kat_eyecovers"",""kat_10ml_syringe"",""kat_IV_14"",""kat_IV_16"",""kat_IV_20"",""kat_5ml_syringe"",""kat_EZ_IO"",""kat_IO_FAST"",""kat_EJV"",""kat_coag_sense"",""kat_pressureBag"",""kat_vacuum"",""kat_fractureKit"",""kat_reboa"",""ACE_surgicalKit"",""kat_stitchKit"",""kat_BPCuff"",""kat_ultrasound"",""kat_basicDiagnostic"",""kat_stethoscope"",""kat_thermometer"",""kat_adenosineIV"",""kat_alteplase"",""kat_amiodarone"",""kat_atropineIV"",""kat_bicarbonate"",""kat_calciumChloride"",""kat_calciumGluconate"",""kat_doxapram"",""kat_diazepam"",""kat_EACA"",""kat_epinephrineIV"",""kat_etomidate"",""kat_fentanyl"",""kat_flumazenil"",""kat_ketamine"",""kat_lidocaine"",""kat_lorazepam"",""kat_metoprolol"",""kat_morphineIV"",""kat_nalbuphine"",""kat_nitroglycerin"",""kat_norepinephrine"",""kat_ondansetron"",""kat_phenylephrine"",""kat_rocuronium"",""kat_succinylcholine"",""kat_sugammadex"",""kat_TXA""],[30,30,30,30,30,30,30,30,30,10,30,30,30,100,100,100,30,30,30,30,30,30,30,30,30,30,30,20,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,10,100,100,100,100,100,100,100,100,100,10,100,10,100,100,10,100,10,10,10,10,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item71
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4967.9912,208.88962,5904.2715};
+				angles[]={6.270689,2.9350815,0.0024897563};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=97;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=0.0010070801;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[""kat_bloodIV_O_N"",""kat_bloodIV_O_N_250"",""kat_bloodIV_O_N_500"",""KAT_Empty_bloodIV_250"",""KAT_Empty_bloodIV_500"",""kat_HextendIV"",""kat_HextendIV_250"",""kat_HextendIV_500"",""kat_HypertonicSalineIV_250"",""kat_PackedRBCIV_250"",""kat_PackedRBCIV_500"",""ACE_plasmaIV"",""ACE_plasmaIV_250"",""ACE_plasmaIV_500"",""kat_PlateletIV100"",""kat_RingersLactateIV"",""kat_RingersLactateIV_250"",""kat_RingersLactateIV_500"",""ACE_salineIV"",""kat_salineIV100"",""ACE_salineIV_500"",""ACE_salineIV_250""],[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item72
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4969.3403,209.20604,5917.5039};
+				angles[]={6.2456999,4.4554548,0.024996169};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=98;
+			type="B_CargoNet_01_ammo_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[""kat_oxygenTank_300"",""kat_Carbonate"",""kat_Caffeine"",""kat_Painkiller"",""kat_Penthrox"",""kat_Pervitin"",""KAT_Eyewasher""],[5,100,100,100,100,100,100]],[[""ACE_morphine"",""ACE_adenosine"",""ACE_epinephrine"",""kat_larynx"",""kat_guedel"",""kat_NPA"",""kat_IGEL"",""kat_laryngoscope"",""kat_ETT"",""kat_accuvac"",""kat_suction"",""kat_crikeKit"",""kat_X_AED"",""kat_4X4_Gauze"",""kat_Abdominal_Pad"",""kat_Adhesive_Bandage"",""kat_handWarmer"",""kat_fluidWarmer"",""kat_spaceBlanket"",""kat_TXAAuto"",""kat_phenylephrineAuto"",""kat_atropine"",""kat_Pulseoximeter"",""kat_nasal"",""kat_chestSeal"",""kat_aatKit"",""kat_ncdKit"",""kat_BVM"",""kat_pocketBVM"",""kat_Burn_Dressing"",""kat_Elastic_Wrap"",""kat_ETD"",""kat_Hemostatic_Gauze"",""kat_Hemostatic_Injector"",""kat_Israeli_Bandage"",""kat_Compressed_Gauze"",""kat_Roller_Gauze"",""kat_Ice_Pack"",""kat_Pelvic_Binder"",""ACE_splint"",""ACE_tourniquet"",""kat_fentPatch"",""kat_naloxone"",""ACE_personalAidKit"",""kat_eyecovers"",""kat_10ml_syringe"",""kat_IV_14"",""kat_IV_16"",""kat_IV_20"",""kat_5ml_syringe"",""kat_EZ_IO"",""kat_IO_FAST"",""kat_EJV"",""kat_coag_sense"",""kat_pressureBag"",""kat_vacuum"",""kat_fractureKit"",""kat_reboa"",""ACE_surgicalKit"",""kat_stitchKit"",""kat_BPCuff"",""kat_ultrasound"",""kat_basicDiagnostic"",""kat_stethoscope"",""kat_thermometer"",""kat_adenosineIV"",""kat_alteplase"",""kat_amiodarone"",""kat_atropineIV"",""kat_bicarbonate"",""kat_calciumChloride"",""kat_calciumGluconate"",""kat_doxapram"",""kat_diazepam"",""kat_EACA"",""kat_epinephrineIV"",""kat_etomidate"",""kat_fentanyl"",""kat_flumazenil"",""kat_ketamine"",""kat_lidocaine"",""kat_lorazepam"",""kat_metoprolol"",""kat_morphineIV"",""kat_nalbuphine"",""kat_nitroglycerin"",""kat_norepinephrine"",""kat_ondansetron"",""kat_phenylephrine"",""kat_rocuronium"",""kat_succinylcholine"",""kat_sugammadex"",""kat_TXA""],[30,30,30,30,30,30,30,30,30,10,30,30,30,100,100,100,30,30,30,30,30,30,30,30,30,30,30,20,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,10,100,100,100,100,100,100,100,100,100,10,100,10,100,100,10,100,10,10,10,10,10,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item73
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4971.1621,209.27637,5918.0532};
+				angles[]={6.2432065,4.4554548,0.027492445};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this call ace_arsenal_fnc_initBox;";
+			};
+			id=99;
+			type="B_CargoNet_01_ammo_F";
+			atlOffset=0.0010070801;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[],[]],[[],[]],[[""kat_bloodIV_O_N"",""kat_bloodIV_O_N_250"",""kat_bloodIV_O_N_500"",""KAT_Empty_bloodIV_250"",""KAT_Empty_bloodIV_500"",""kat_HextendIV"",""kat_HextendIV_250"",""kat_HextendIV_500"",""kat_HypertonicSalineIV_250"",""kat_PackedRBCIV_250"",""kat_PackedRBCIV_500"",""ACE_plasmaIV"",""ACE_plasmaIV_250"",""ACE_plasmaIV_500"",""kat_PlateletIV100"",""kat_RingersLactateIV"",""kat_RingersLactateIV_250"",""kat_RingersLactateIV_500"",""ACE_salineIV"",""kat_salineIV100"",""ACE_salineIV_500"",""ACE_salineIV_250""],[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item74
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=3;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4999.0244,208.28072,5906.4116};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="Training Staff@Training Staff";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=132;
+					type="B_medic_F";
+					atlOffset=-1.5258789e-05;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4997.9658,208.30692,5907.8833};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Training Staff@Training Staff";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=134;
+					type="B_medic_F";
+					atlOffset=-1.5258789e-05;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4997.2124,208.34811,5909.3232};
+						angles[]={0,2.5063279,0};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						description="Training Staff@Training Staff";
+						isPlayable=1;
+						class Inventory
+						{
+							class uniform
+							{
+								typeName="U_B_CombatUniform_mcam_tshirt";
+								isBackpack=0;
+							};
+							class vest
+							{
+								typeName="V_PlateCarrierSpec_rgr";
+								isBackpack=0;
+							};
+							class backpack
+							{
+								typeName="B_Carryall_oli";
+								isBackpack=1;
+								class MagazineCargo
+								{
+									items=3;
+									class Item0
+									{
+										name="kat_Carbonate";
+										count=2;
+										ammoLeft=10;
+									};
+									class Item1
+									{
+										name="kat_Painkiller";
+										count=4;
+										ammoLeft=4;
+									};
+									class Item2
+									{
+										name="kat_Penthrox";
+										count=1;
+										ammoLeft=15;
+									};
+								};
+								class ItemCargo
+								{
+									items=27;
+									class Item0
+									{
+										name="kat_suction";
+										count=5;
+									};
+									class Item1
+									{
+										name="kat_guedel";
+										count=5;
+									};
+									class Item2
+									{
+										name="kat_IGEL";
+										count=4;
+									};
+									class Item3
+									{
+										name="kat_Israeli_Bandage";
+										count=12;
+									};
+									class Item4
+									{
+										name="kat_NPA";
+										count=5;
+									};
+									class Item5
+									{
+										name="kat_TXAAuto";
+										count=10;
+									};
+									class Item6
+									{
+										name="kat_chestSeal";
+										count=8;
+									};
+									class Item7
+									{
+										name="kat_ncdKit";
+										count=8;
+									};
+									class Item8
+									{
+										name="kat_Pulseoximeter";
+										count=2;
+									};
+									class Item9
+									{
+										name="kat_handWarmer";
+										count=8;
+									};
+									class Item10
+									{
+										name="kat_spaceBlanket";
+										count=2;
+									};
+									class Item11
+									{
+										name="kat_Abdominal_Pad";
+										count=2;
+									};
+									class Item12
+									{
+										name="kat_ETD";
+										count=4;
+									};
+									class Item13
+									{
+										name="kat_Hemostatic_Injector";
+										count=8;
+									};
+									class Item14
+									{
+										name="kat_Ice_Pack";
+										count=4;
+									};
+									class Item15
+									{
+										name="ACE_splint";
+										count=8;
+									};
+									class Item16
+									{
+										name="ACE_tourniquet";
+										count=12;
+									};
+									class Item17
+									{
+										name="ACE_salineIV_500";
+										count=4;
+									};
+									class Item18
+									{
+										name="kat_naloxone";
+										count=2;
+									};
+									class Item19
+									{
+										name="kat_IV_14";
+										count=8;
+									};
+									class Item20
+									{
+										name="kat_IV_16";
+										count=6;
+									};
+									class Item21
+									{
+										name="kat_EZ_IO";
+										count=2;
+									};
+									class Item22
+									{
+										name="kat_fentPatch";
+										count=4;
+									};
+									class Item23
+									{
+										name="kat_IO_FAST";
+										count=2;
+									};
+									class Item24
+									{
+										name="kat_Elastic_Wrap";
+										count=4;
+									};
+									class Item25
+									{
+										name="kat_stethoscope";
+										count=1;
+									};
+									class Item26
+									{
+										name="kat_BPCuff";
+										count=1;
+									};
+								};
+							};
+							map="ItemMap";
+							compass="ItemCompass";
+							watch="ItemWatch";
+							radio="ItemRadio";
+							goggles="G_Combat";
+							hmd="NVGoggles";
+							headgear="H_HelmetB_light_desert";
+						};
+					};
+					id=136;
+					type="B_medic_F";
+					atlOffset=-1.5258789e-05;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=1;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=131;
+			atlOffset=-1.5258789e-05;
+		};
+		class Item75
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5000.835,208.31213,5906.8682};
+				angles[]={6.2581892,0,0.012501417};
+			};
+			id=140;
+			type="ModuleCurator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=3;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item76
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4997.2422,208.18927,5904.5688};
+			};
+			id=141;
+			type="ModuleCurator_F";
+			atlOffset=-1.5258789e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=3;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item77
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4995.3569,208.21057,5906.1396};
+			};
+			id=142;
+			type="ModuleCurator_F";
+			atlOffset=-1.5258789e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=3;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item78
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4994.5503,208.27805,5908.1963};
+			};
+			id=143;
+			type="ModuleCurator_F";
+			atlOffset=-1.5258789e-05;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ModuleCurator_F_Owner";
+					expression="_this setVariable ['Owner',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ModuleCurator_F_Forced";
+					expression="_this setVariable ['Forced',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=0;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ModuleCurator_F_Name";
+					expression="_this setVariable ['Name',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ModuleCurator_F_Addons";
+					expression="_this setVariable ['Addons',_value,true];";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=3;
+						};
+					};
+				};
+				nAttributes=4;
+			};
+		};
+		class Item79
+		{
+			dataType="Marker";
+			position[]={5030.3013,208.66328,5879.6992};
+			name="respawn_west";
+			type="Empty";
+			id=144;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ENH_markerShape";
+					expression="if (_value != 'NONE' && isServer) then {_this setMarkerShape _value}";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="NONE";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=4;
+		};
+		class Links
+		{
+			items=4;
+			class Item0
+			{
+				linkID=0;
+				item0=140;
+				item1=4;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=143;
+				item1=136;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=142;
+				item1=134;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=141;
+				item1=132;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+		};
+	};
+};

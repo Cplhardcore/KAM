@@ -21,6 +21,7 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgMissions.hpp"
 #include "AFL_Medicalsim_Presets.hpp"
 #include "ui\RscSimMenu.hpp"
 #include "RscDisplayMain.hpp"

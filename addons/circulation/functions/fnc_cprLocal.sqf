@@ -196,8 +196,8 @@ if !(GVAR(enable_CPR_Chances)) then {
 } else {
     if (_reviveObject in ["LUCAS"]) then {
         if (_epiBoost > 1.5) then {
-            _chance = _chance + (2 ^ (_lucasCount/ 50));
-            _lucasCount = _lucasCount + 0.1;
+            _chance = _chance + (2 ^ (_lucasCount/50));
+            _lucasCount = _lucasCount + 0.05;
             _patient setVariable [QGVAR(lucasCount), _lucasCount, true];
         };
 

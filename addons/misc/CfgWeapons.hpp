@@ -139,6 +139,9 @@ class CfgWeapons {
     };
     class ACE_suture: ACE_ItemCore {
         displayName = CSTRING(Suture_Display);
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 0.05;
+        };
     };
     class ACE_painkillers_Item: ACE_ItemCore {
         displayName = CSTRING(painkillers_Display);
