@@ -39,27 +39,10 @@ private _hypothermiaDelay = 1;
 if (EGVAR(hypothermia,hypothermiaActive)) then {
     _hypothermiaDelay = linearConversion [35, 17, (_patient getVariable [QEGVAR(hypothermia,unitTemperature), 37]), 1, 3, true];
 };
-private _ph = GET_PH(_patient);
-private _ca = GET_CA(_patient);
-// Calcium effect (low Ca = slower clotting)
-private _calciumDelayMult = linearConversion [
-    1.2, 2.4,
-    _ca,
-    2.0, 1.0,        // up to 2× slower clotting
-    true
-];
-private _phDelayMult = linearConversion [
-    7.0, 7.4,
-    _ph,
-    3.0, 1.0,
-    true
-];
 private _woundClotDelayMult = (
                 _alteplaseFixedEffectiveness *
-                (_coagMult + _hypothermiaDelay) *
-                _cwmpFixedEffectiveness *
-                _calciumDelayMult *
-                _phDelayMult
+                (_coagMult * _hypothermiaDelay) *
+                _cwmpFixedEffectiveness
             ) min 10;
 [_patient, "quick_view", LLSTRING(Coag_Sense_Log), [_woundClotDelayMult]] call ACEFUNC(medical_treatment,addToLog);
 if (EGVAR(circulation,abgEnable)) then {

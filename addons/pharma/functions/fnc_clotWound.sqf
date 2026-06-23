@@ -62,33 +62,13 @@ private _fnc_clotWound = {
                 _hypothermiaDelay = linearConversion [35, 30, (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]), 1, 2.5, true];
             };
             if (EGVAR(hypothermia,hypothermiaActive) && (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]) < 30) exitWith {};
-            private _ph = GET_PH(_unit);
-            private _ca = GET_CA(_unit);
-            // Calcium effect (low Ca = slower clotting)
-            private _calciumDelayMult = linearConversion [
-                1.2, 2.4,
-                _ca,
-                2.0, 1.0,        // up to 2× slower clotting
-                true
-            ];
-            private _phDelayMult = linearConversion [
-                7.0, 7.4,
-                _ph,
-                3.0, 1.0,
-                true
-            ];
-            TRACE_2("_ph",_ph,_ca);
-            if (_ph < 6.9) exitWith {};
-            if (_ca < 1.0) exitWith {};
             private _coagMult = linearConversion [0, 600, _coagulationFactor, 3, 1, true];
             private _trauma = _unit getVariable [QEGVAR(vitals,traumaState),0];
             private _coagFail = linearConversion [0.5,1,_trauma,0,0.4,true];
             private _woundClotDelayMult = (
                 _alteplaseFixedEffectiveness *
-                (_coagMult + _hypothermiaDelay) *
-                _cwmpFixedEffectiveness *
-                _calciumDelayMult *
-                _phDelayMult * (1 + _coagFail)
+                (_coagMult * _hypothermiaDelay) *
+                _cwmpFixedEffectiveness * (1 + _coagFail)
             ) min 10;
             TRACE_7("_woundClotDelayMult",_alteplaseFixedEffectiveness,_hypothermiaDelay,_coagMult,_cwmpFixedEffectiveness,_calciumDelayMult,_phDelayMult,_coagFail);
             if (_woundClotDelayMult > 8) exitWith {};
