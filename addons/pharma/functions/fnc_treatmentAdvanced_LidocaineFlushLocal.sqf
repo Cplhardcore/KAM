@@ -1,29 +1,33 @@
 #include "..\script_component.hpp"
 /*
- * Author: 2LT.Mazinski
- * Flushing IV access with saline
+ * Author: Cplhardcore
+ * Handles the overdose effect of Lidocaine
  *
  * Arguments:
- * 0: Medic <OBJECT>
- * 1: Patient <OBJECT>
- * 2: Body Part <STRING>
+ * 0: Patient <OBJECT>
  *
  * Return Value:
  * None
  *
  * Example:
- * [player, cursorTarget, "LeftArm"] call kat_pharma_fnc_treatmentAdvanced_FlushLocal;
+ * [player] call kat_pharma_fnc_treatmentAdvanced_LidocaineOverdoseLocal;
  *
  * Public: No
  */
-
 params ["_medic", "_patient", "_bodyPart"];
+private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
+[{
+    params ["_patient", "_partIndex"];
+    private _anesthesiaArray = _patient getVariable [QEGVAR(pharma,localAnesthesia), [0,0,0,0,0,0,0,0,0,0,0,0]];
+    _anesthesiaArray set [_partIndex, 1];
+    _patient setVariable [VAR_LOCAL_ANESTHESIA, _anesthesiaArray, true];
+}, [_patient,_partIndex], 5] call CBA_fnc_waitAndExecute;
 
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
 private _IVarray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
 _IVarray set [_partIndex, 0];
 _patient setVariable [QGVAR(IVBlockStatus), _IVarray, true];
-
+[_patient, _bodyPart, "syringe_lidocaine_5ml_5"] call FUNC(medicationLocal);
 private _occludedMedications = _patient getVariable [QACEGVAR(medical,occludedMedications), []];
 
 private _occludedFlushed = false;

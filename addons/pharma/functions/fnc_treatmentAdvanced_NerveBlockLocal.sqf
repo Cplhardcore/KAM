@@ -22,3 +22,4 @@ private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
     _anesthesiaArray set [_partIndex, 1];
     _patient setVariable [VAR_LOCAL_ANESTHESIA, _anesthesiaArray, true];
 }, [_patient,_partIndex], 5] call CBA_fnc_waitAndExecute;
+[_patient, _bodyPart, "syringe_Lidocaine_5ml_5"] call FUNC(medicationLocal);

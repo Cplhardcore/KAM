@@ -40,14 +40,11 @@ if (_classname in ["Penthrox", "Carbonate"]) then {
 };
 
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
+if (_partIndex < 0) exitWith {
+    TRACE_2("Invalid body part for medication", _bodyPart, _classname);
+};
 private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVStatusArray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
-// Handle IV blockage
-if ((_IVStatusArray select _partIndex) > 0.3) exitWith {
-    private _occludedMedications = _patient getVariable [QGVAR(occludedMedications), []];
-    _occludedMedications pushBack [_partIndex, _classname, _patient];
-    _patient setVariable [QGVAR(occludedMedications), _occludedMedications, true];
-};
 private _tourniquets = GET_TOURNIQUETS(_patient);
 private _occlusionMap = [
     [4, [4, 5]],
@@ -66,12 +63,18 @@ private _medParts = _classname splitString "_";
 private _hasValidSuffix = count _medParts > 2 && { _medParts select 2 isEqualTo "5ml" };
 private _isOccluded = 
     ({ _tourniquets select _x != 0 } count _result > 0) 
-    && !( ((_IVarray select _partIndex isEqualTo 13) && _hasValidSuffix));
+    && !(((_IVarray select _partIndex isEqualTo 13) && _hasValidSuffix));
 private _isDamaged = [_patient,_partIndex] call EFUNC(hitpoints,damageCheck);
 if (_isDamaged) exitWith {
     TRACE_3("Medication injection site is too damaged",_partIndex,_classname,_patient);
 };
-
+// Handle IV blockage
+if (((_IVStatusArray select _partIndex) > 0.7) && ((_IVarray select _partIndex) in [2,3,4]) && _hasValidSuffix) exitWith {
+    TRACE_3("Medication injection site is blocked",_partIndex,_classname,_patient);
+    private _occludedMedications = _patient getVariable [QACEGVAR(medical,occludedMedications), []];
+    _occludedMedications pushBack [_partIndex, _classname, _patient];
+    _patient setVariable [QACEGVAR(medical,occludedMedications), _occludedMedications, true];
+};
 if (_isOccluded) exitWith {
     TRACE_3("Medication injection site is occluded by tourniquet",_partIndex,_classname,_patient);
     private _occludedMedications = _patient getVariable [QACEGVAR(medical,occludedMedications), []];
@@ -176,18 +179,19 @@ private _currentDose = [_patient, _medicationName] call ACEFUNC(medical_status,g
 if !(_classname in ["CWMP", "Painkillers", "Penthrox", "Carbonate", "BubbleWrap", "Caffeine", "Pervitin", "Naloxone"]) then {
     private _doseConfig = _defaultConfig >> _medicationConfigName;
     _maximumEffectiveDose = GET_NUMBER(_doseConfig >> "maximumEffectiveDose",getNumber (_defaultConfig >> "maximumEffectiveDose"));
-    _maxOverEffective = GET_NUMBER(_doseConfig >> "maxOverEffective",getNumber (_defaultConfig >> "_maxOverEffective"));
+    _maxOverEffective = GET_NUMBER(_doseConfig >> "maxOverEffective",getNumber (_defaultConfig >> "maxOverEffective"));
 } else {
     _maximumEffectiveDose = GET_NUMBER(_medicationConfig >> "maximumEffectiveDose",getNumber (_defaultConfig >> "maximumEffectiveDose"));
-    _maxOverEffective = GET_NUMBER(_medicationConfig >> "_maxOverEffective",getNumber (_defaultConfig >> "maxOverEffective"));
+    _maxOverEffective = GET_NUMBER(_medicationConfig >> "maxOverEffective",getNumber (_defaultConfig >> "maxOverEffective"));
 };
 TRACE_4("medicationEffectivness",_currentDose,_medicationName,_maximumEffectiveDose,_startDose);
 private _doseMult = 1;
-    if ((_currentDose + _startDose) > (_maximumEffectiveDose * (_weightDoseFixed/_weightFixed))) then {
-        private _excess = (_currentDose + _startDose) - _maximumEffectiveDose;
-        private _reductionFactor = linearConversion [0, _maxOverEffective, _excess, 1.0, 0.01, true];
-        _doseMult = _doseMult * _reductionFactor;
-    };
+private _effectiveMax = _maximumEffectiveDose * (_weightDoseFixed / _weightFixed);
+if ((_currentDose + _startDose) > _effectiveMax) then {
+    private _excess = (_currentDose + _startDose) - _effectiveMax;
+    private _reductionFactor = linearConversion [0, _maxOverEffective, _excess, 1.0, 0.01, true];
+    _doseMult = _doseMult * _reductionFactor;
+};
 private _routeMult = 1;
 if ((_IVarray select _partIndex) in [1, 13]) then {
     _routeMult = random [0.7, 0.85, 1];
@@ -262,43 +266,3 @@ if (_medicationName in ["Rocuronium","Succinylcholine"]) then {
 if (_medicationName in ["Ketamine","Adenosine","Lidocaine"]) then {
 [format ["kat_pharma_%1Local", toLower _medicationName], [_patient, _bodyPart, _classname], _patient] call CBA_fnc_targetEvent;
 };
-
-private _TXAmedications = ["syringe_TXA_5ml_10", "syringe_TXA_10ml_10", "TXAAuto"];
-    if (_classname in _TXAmedications) then {
-        TRACE_1("TXADose",_patient);
-        if (_classname in ["TXAAuto"]) then {
-            _medicationName = _classname select [0, count _classname - 4];
-        };
-        private _medicationParts = (_classname splitString "_");
-        if (count _medicationParts > 3) then {
-                _medicationName = _medicationParts select 1;
-        };
-        private _medication = _medicationName;
-        private _administered = _patient getVariable [QGVAR(TXAActive), []];
-        private _effectTriggered = _patient getVariable [QGVAR(TXATriggered), false];
-        if (!(_medication in _administered)) then {
-            _administered pushBack _medication;
-            _patient setVariable [QGVAR(TXAActive), _administered, true];
-        };
-        if (count _administered == 1) then {
-            _patient setVariable [QGVAR(TXATriggered), false, true];
-        [{
-            params ["_patient"];
-            _patient setVariable [QGVAR(TXAWindow), true, true];  
-        },
-        [_patient], 120] call CBA_fnc_waitAndExecute; 
-        [{
-            params ["_patient"];
-            _patient setVariable [QGVAR(TXAWindow), false, true]; 
-        },
-        [_patient], 300] call CBA_fnc_waitAndExecute; 
-        };
-        if ((count _administered == count _TXAmedications) && (_patient getVariable [QGVAR(TXAWindow), false]) && {!_effectTriggered}) then {
-            _effectTriggered = true;
-            [_patient, "EACA_Override", 15, 360] call EFUNC(vitals,addMedicationAdjustment);
-            [_patient, "Body"] call FUNC(treatmentAdvanced_EACALocal);
-            _patient setVariable [QGVAR(TXATriggered), false, true];
-            _patient setVariable [QGVAR(TXAActive), [], true];
-            _patient setVariable [QGVAR(TXAWindow), false, true];
-        };
-    };

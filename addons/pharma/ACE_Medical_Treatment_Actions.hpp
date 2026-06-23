@@ -213,6 +213,7 @@ class ACE_Medical_Treatment_Actions {
     class SalineFlush: Morphine {
         displayName = CSTRING(Saline_Flush);    
         allowedSelections[] = {"Neck", "Chest", "LeftArm", "RightArm", "UpperLeftArm", "UpperRightArm", "UpperLeftLeg", "UpperRightLeg", "LeftLeg", "RightLeg"};
+        category = "advanced";
         allowSelfTreatment = 1;
         medicRequired = QGVAR(medLvl_SalineFlush);
         treatmentTime = QGVAR(treatmentTime_SalineFlush);
@@ -1416,6 +1417,6 @@ class ACE_Medical_Treatment_Actions {
         allowedSelections[] = {"All"};
         condition = QUOTE(FUNC(ivCondition));
         items[] = {"kat_syringe_lidocaine_5ml_10", "kat_syringe_lidocaine_10ml_10"};
-        callbackSuccess = QFUNC(treatmentAdvanced_NerveBlock);
+        callbackSuccess = QFUNC(treatmentAdvanced_LidocaineFlush);
     };
 };
