@@ -36,6 +36,10 @@ private _metabolicDemand = 0;
 private _cnsSuppression = (_unit getVariable [QEGVAR(pharma,cnsSuppression), 0]) min 0.8;
 [_unit] call FUNC(updateSympatheticTone);
 if (IN_CRDC_ARRST(_unit)) then {
+    private _arrestTime = _unit getVariable [QGVAR(arrestTime), -1];
+    _unit setVariable [QGVAR(arrestTime), _arrestTime + _deltaT, _syncValue];
+    private _cprPerfusion = _unit getVariable [QGVAR(cprPerfusion), 100];
+    _unit setVariable [QGVAR(cprPerfusion), ((_cprPerfusion - (_deltaT/6)) max 0), _syncValue];
     if (alive (_unit getVariable [QACEGVAR(medical,CPR_provider), objNull])) then {
         if (_actualHeartRate == 0) then { _syncValue = true };
         _actualHeartRate = random [95, 100, 110];
@@ -44,6 +48,8 @@ if (IN_CRDC_ARRST(_unit)) then {
         _actualHeartRate = 0;
     };
 } else {
+    _unit setVariable [QGVAR(arrestTime), -1, _syncValue];
+    _unit setVariable [QGVAR(cprPerfusion), 100, _syncValue];
     private _defaultHR = _unit getVariable [QEGVAR(circulation,defaultHeartRate), 80];
     private _mapSetpoint = linearConversion [60, 100, _defaultHR, 83, 103, true];
     #define MAP_DEADBAND 3

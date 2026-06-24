@@ -56,7 +56,7 @@ private _medDose = 0;
                 } forEach _medStack;
                 _diazapamMult = linearConversion [0, 90, (_fentanylEffectiveness + _nalbuphineEffectiveness + _morphineEffectiveness * _lorazepamEffectiveness), 1, 4, true];
             };
-        private _drugMult = _drugMult * _diazapamMult;
+        _drugMult = _drugMult * _diazapamMult;
         //TRACE_1("getMedicationCount1",_medDose);
         _medDose = _medDose + (_dose * _effectiveness);
         TRACE_4("getCurrentDoseage",_medDose,_dose,_effectiveness,_drugMult);
