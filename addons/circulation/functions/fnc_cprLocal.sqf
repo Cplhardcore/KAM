@@ -188,11 +188,11 @@ if !(GVAR(enable_CPR_Chances)) then {
             _chance = _chance / 4;
             TRACE_1("refractory",_chance);
         };
-        private _lucasMedBonus = (_epiCPRBonus * 1.15) - _nitroPenalty;
+        private _lucasMedBonus = ((_epiCPRBonus/ 10) * 1.15) - _nitroPenalty;
         _chance = _chance + _lucasMedBonus;
-        private _cprShockBonus = [0, (_amioBonus * 0.2) + (_lidoBonus * 0.2)] select ((_patientState in [4, 3]));
+        private _cprShockBonus = [0, ((_amioBonus/ 10) * 0.2) + ((_lidoBonus/ 10) * 0.2)] select ((_patientState in [4, 3]));
         _chance = _chance + _cprShockBonus;
-        _patient setVariable [QEGVAR(vitals,cprPerfusion), ((_cprPerfusion + 0.2) min 100), true];
+        _patient setVariable [QEGVAR(vitals,cprPerfusion), ((_cprPerfusion + 2) min 100), true];
         _chance = _chance * _perfusionMultiplier;
         _chance = _chance * _arrestMultiplier;
         _chance = _chance max 0;

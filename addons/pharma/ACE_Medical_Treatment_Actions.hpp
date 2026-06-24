@@ -218,7 +218,7 @@ class ACE_Medical_Treatment_Actions {
         medicRequired = QGVAR(medLvl_SalineFlush);
         treatmentTime = QGVAR(treatmentTime_SalineFlush);
         items[] = {"kat_syringe_salineIV_5ml_30"};
-        condition = QUOTE(_patient getVariable [ARR_2(QQGVAR(IVplaced),true)]);
+        condition = QUOTE(FUNC(hasIV));
         callbackSuccess = QFUNC(treatmentAdvanced_Flush);
         sounds[] = {};
     };

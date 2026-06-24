@@ -13,6 +13,7 @@ PREP(handleIVComplications);
 PREP(handleLimbIVComplications);
 PREP(handleNerveBlock);
 PREP(handleRespawn);
+PREP(hasIV);
 PREP(hasIVbag);
 PREP(init);
 PREP(inspectCatheter);

@@ -27,7 +27,14 @@ private _rgb = [0,1,1,1];
 if !(_hasCapno) exitWith {};
 private _etco2 = GET_ETCO2(_unit);
 private _airway = HAS_AIRWAY(_unit);
+private _breathing = GET_BREATHING_RATE(_unit);
 if !(_airway) then {
+    _etco2 = 0;
+};
+if !(alive _unit) then {
+    _etco2 = 0;
+};
+if (_breathing == 0) then {
     _etco2 = 0;
 };
 switch (true) do {
@@ -47,28 +54,28 @@ case (_etco2 > 60): {
     _color = LLSTRING(capnographyRed);
     _rgb = [1,0,0,1];
 };
-case (_etco2 < 14): {
+case (_etco2 < 30): {
     _color = LLSTRING(capnographyYellow);
     _rgb = [1,1,0,1];
 };
-case (_etco2 < 10): {
+case (_etco2 < 20): {
     _color = LLSTRING(capnographyOrange);
     _rgb = [1,0.647,0,1];
 };
-case (_etco2 < 5): {
+case (_etco2 < 10): {
     _color = LLSTRING(capnographyRed);
     _rgb = [1,0,0,1];
 };
-case ((!alive _unit)): {
-    _color = LLSTRING(capnographyWhite);
-    _rgb = [1,1,1,1];
-};
 default {
-    _color = LLSTRING(capnographyWhite);
-    _rgb = [1,1,1,1];
+    _color = LLSTRING(capnographyGreen);
+    _rgb = [0,1,0,1];
 };
 };
 private _entry = format [LLSTRING(capnographyStatus), _color];
 _unit setVariable [QGVAR(capnoStatus), _entry, true];
 _unit setVariable [QGVAR(capnoColor), _rgb, true];
+[{
+    params ["_unit"];
+   [_unit] call FUNC(capnographyPFH);
+}, [_unit], 1] call CBA_fnc_waitAndExecute;
 
