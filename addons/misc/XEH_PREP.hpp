@@ -45,6 +45,7 @@ PREP(init);
 PREP(isInMedicalVehicle);
 PREP(isMedic);
 PREP(isSafe);
+PREP(overpressureDamage);
 PREP(prepare);
 PREP(removeTourniquetTime);
 PREP(serializeState);

@@ -15,6 +15,8 @@ class CfgVehicles {
     };
     class kat_surgerySupplyCrate: ACE_medicalSupplyCrate {
         displayName = CSTRING(surgeryToolbox);
+        scope = 2;
+        scopeCurator = 2;
         class TransportItems {
             MACRO_ADDITEM(kat_etomidate,15);
             MACRO_ADDITEM(kat_flumazenil,15);

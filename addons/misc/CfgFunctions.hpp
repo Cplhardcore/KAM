@@ -32,6 +32,14 @@ class CfgFunctions {
             };
         };
     };
+    class overwrite_ace_overpressure {
+        tag = "ace_overpressure";
+        class ace_overpressure {
+            class overpressureDamage {
+                file = QPATHTOF(functions\fnc_overpressureDamage.sqf);
+            };
+        };
+    };
     class overwrite_medical_treatment {
         tag = "ace_medical_treatment";
         class ace_medical_treatment {

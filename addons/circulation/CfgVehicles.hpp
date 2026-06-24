@@ -194,6 +194,8 @@ class CfgVehicles {
     };
     class kat_medicalSupplyCrate: ACE_medicalSupplyCrate {
         displayName = CSTRING(bloodbank);
+        scope = 2;
+        scopeCurator = 2;
         class TransportItems {
             MACRO_ADDITEM(kat_crossPanel,2);
             MACRO_ADDITEM(kat_IO_FAST,15);
@@ -224,9 +226,6 @@ class CfgVehicles {
             MACRO_ADDITEM(kat_bloodIV_B_N_250,7);
             MACRO_ADDITEM(kat_bloodIV_AB_250,7);
             MACRO_ADDITEM(kat_bloodIV_AB_N_250,7);
-        };
-        class TransportMagazines {
-            MACRO_ADDMAGAZINE(kat_Painkiller,5);
         };
     };
     class Man;

@@ -5,6 +5,7 @@ class CfgPatches {
         name = COMPONENT_NAME;
         requiredVersion = REQUIRED_VERSION;
         units[] = {
+            "kat_surgerySupplyCrate"
         };
         weapons[] = {
             "kat_scalpel",

@@ -8,7 +8,9 @@ class CfgPatches {
             "kat_Armband_Red_Cross_Object",
             "kat_Armband_Medic_Object",
             "kat_Armband_Doctor_Object",
-            "kat_Armband_Kat_Object"
+            "kat_Armband_Kat_Object",
+            "kat_miscSupplyCrate",
+            "kat_basicSupplyCrate"
         };
         weapons[] = {
             "kat_Armband_Doctor_Item",

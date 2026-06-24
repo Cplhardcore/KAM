@@ -34,6 +34,8 @@ class CfgVehicles {
     };
     class kat_miscSupplyCrate: ACE_medicalSupplyCrate {
         displayName = CSTRING(miscSupplyCrate_display);
+        scope = 2;
+        scopeCurator = 2;
         class TransportItems {
             //misc.FAK
             MACRO_ADDITEM(kat_IFAK,15);
@@ -67,6 +69,9 @@ class CfgVehicles {
     };
     class kat_basicSupplyCrate: ACE_medicalSupplyCrate {
         displayName = CSTRING(basicSupplyCrate_display);
+        scope = 2;
+        scopeCurator = 2;
+
         class TransportItems {
             //airway
             MACRO_ADDITEM(kat_larynx,15);
