@@ -21,7 +21,7 @@
     "SLIDER",
     [LSTRING(WoundWrapTime_DisplayName), LSTRING(WoundWrapTime_Description)],
     [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [2, 16, 4, 1],
+    [1, 16, 4, 1],
     true
 ] call CBA_fnc_addSetting;
 

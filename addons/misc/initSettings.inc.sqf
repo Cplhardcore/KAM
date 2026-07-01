@@ -639,8 +639,6 @@
     }
 ] call CBA_fnc_addSetting;
 
-
-
 [
     QGVAR(allowAdvancedStitching),
     "LIST",
