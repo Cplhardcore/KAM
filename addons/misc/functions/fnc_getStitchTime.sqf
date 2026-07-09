@@ -37,8 +37,6 @@ private _calcTime = {
         case 2: { GVAR(largeWoundStitchTime) };
         default { 1 };
     };
-
-    // Optional: scale by class
     private _classIndex = _classID / 10;
     private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
 
@@ -52,7 +50,7 @@ private _calcTime = {
         default {1};
     };
 
-    (_amount max 1) * _baseTime * _typeMultiplier
+    _amount * _baseTime * _typeMultiplier
 };
 {
     if ([_medic,_x] call FUNC(canStitchWound)) then {

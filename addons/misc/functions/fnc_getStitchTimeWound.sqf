@@ -30,8 +30,6 @@ private _calcTime = {
         case 2: { GVAR(largeWoundStitchTime) };
         default { 1 };
     };
-
-    // Optional: scale by class
     private _classIndex = _classID / 10;
     private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
 
@@ -39,10 +37,13 @@ private _calcTime = {
         case "VelocityWound": {1.3};
         case "Avulsion": {1.5};
         case "Laceration": {1.2};
+        case "Crush": {0.8};
+        case "Incision": {0.8};
+        case "Abrasion": {0.6};
         default {1};
     };
 
-    (_amount max 1) * _baseTime * _typeMultiplier
+    _amount * _baseTime * _typeMultiplier
 };
 private _time = [_wound] call _calcTime;
 _time
