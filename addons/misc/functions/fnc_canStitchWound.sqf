@@ -23,6 +23,7 @@ private _classIndex = _classID / 10;
 private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
 
 private _unstitchableTypes = ["ETD", "Israeli_Bandage"];
+if (_type in _unstitchableTypes) exitWith {false};
 if (_className in ["InternalBleeding","Evisceration","Thermal_Burn"]) exitWith {false};
 private _allow = switch (GVAR(allowAdvancedStitching)) do {
     case 0: {true};
@@ -39,6 +40,6 @@ private _allow = switch (GVAR(allowAdvancedStitching)) do {
 };
 if (!_allow && {_className in ["Avulsion","VelocityWound","Laceration"]}) exitWith {false};
 
-if (_type in _unstitchableTypes) exitWith {false};
+
 
 true

@@ -42,7 +42,7 @@ private _hasStitchableBandage = (_bandaged findIf {
     _x params ["_woundClassID", "", "", "", "_type"];
     private _classIndex = _woundClassID / 10;
     private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-    ((_className in ["Avulsion","VelocityWound","Laceration"]) && {_allow}) || (!(_className in ["Avulsion","VelocityWound","Laceration"])&& {!(_type in _unstitchableTypes)})
+    ((_className in ["Avulsion","VelocityWound","Laceration"]) && {_allow}) && (!(_type in _unstitchableTypes))
 }) != -1;
 private _hasStitchableClot = (_coaged findIf {
     _x params ["_woundClassID"];
