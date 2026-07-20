@@ -25,23 +25,18 @@ TRACE_3("medicationLocal",_patient,_bodyPart,_classname);
 if (!alive _patient) exitWith {};
 
 TRACE_1("Running treatmentMedicationLocal with Advanced configuration for",_patient);
-if (_classname in ["CWMP", "Painkillers", "Penthrox", "Caffeine", "Pervitin", "Carbonate"]) then {
-    private _airway = HAS_AIRWAY(_patient);
-    if !(_airway) exitWith {
-        TRACE_1("Medication  is occluded by airway",_airway);
-    };
-    
-};
-if (_classname in ["Penthrox", "Carbonate"]) then {
-    private _breathing = GET_BREATHING_RATE(_patient);
-    if (_breathing < 2) exitWith {
-        TRACE_1("Medication cannot be inhaled",_breathing);
-    };
-};
 
 private _partIndex = ALL_BODY_PARTS find toLower _bodyPart;
 if (_partIndex < 0) exitWith {
     TRACE_2("Invalid body part for medication", _bodyPart, _classname);
+};
+private _airway = HAS_AIRWAY(_patient);
+if ((_classname in ["CWMP", "Painkillers", "Penthrox", "Caffeine", "Pervitin", "Carbonate"]) && (!_airway && ((_patient getVariable [QEGVAR(airway,airway_item), ""]) isEqualTo ""))) exitWith {
+    TRACE_1("Medication  is occluded by airway",_airway);
+};
+private _breathing = GET_BREATHING_RATE(_patient);
+if ((_classname in ["Penthrox", "Carbonate"]) && (_breathing < 2)) then {
+    TRACE_1("Medication cannot be inhaled",_breathing);
 };
 private _IVarray = _patient getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
 private _IVStatusArray = _patient getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
@@ -90,9 +85,9 @@ if (_isInCA && ((_IVarray select _partIndex) in [2,3,4]) && !_isFlushed) exitWit
 };
 
 // Get adjustment attributes for used medication
-
+private _isIM = (!(_hasValidSuffix) && !(_classname in ["CWMP", "Painkillers", "Penthrox", "Caffeine", "Pervitin", "Carbonate"]));
 // Get and calculate medication modifiers
-    private _defaultConfig = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Medication";
+private _defaultConfig = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Medication";
 
 // Medications that should NOT be converted to syringe_x
 private _excludedMeds = [
@@ -193,19 +188,23 @@ if ((_currentDose + _startDose) > _effectiveMax) then {
     _doseMult = _doseMult * _reductionFactor;
 };
 private _routeMult = 1;
+private _imMult = 1;
 if ((_IVarray select _partIndex) in [1, 13]) then {
     _routeMult = random [0.7, 0.85, 1];
 };
 if ((_IVarray select _partIndex) == 14) then {
     _routeMult = random [1.1, 1.25, 1.35];
 };
+if (_isIM) then {
+    _imMult = random [0.5, 0.65, 0.8];
+};
 private _theraputicMult = linearConversion [60, 100, _defaultWeight, 0.5, 1.5, true];
 private _drugMult = _weightMult * _doseMult;
 private _durationMult = sqrt _drugMult;
 TRACE_5("_drugMult",_patient,(GET_BLOOD_VOLUME_LITERS(_patient) / DEFAULT_BLOOD_VOLUME),_drugMult,_weightMult,_doseMult);
 private _painReduce             = GET_NUMBER(_medicationConfig >> "painReduce",getNumber (_defaultConfig >> "painReduce")) * _drugMult;
-private _timeInSystem           = GET_NUMBER(_medicationConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")) * _durationMult * (2 - _routeMult);
-private _timeTillMaxEffect      = GET_NUMBER(_medicationConfig >> "timeTillMaxEffect",getNumber (_defaultConfig >> "timeTillMaxEffect")) * (2 - _routeMult);
+private _timeInSystem           = GET_NUMBER(_medicationConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")) * _durationMult * (2 - _routeMult) * (2 - _imMult);
+private _timeTillMaxEffect      = GET_NUMBER(_medicationConfig >> "timeTillMaxEffect",getNumber (_defaultConfig >> "timeTillMaxEffect")) * (2 - _routeMult) * (2 - _imMult);
 private _viscosityChange        = GET_NUMBER(_medicationConfig >> "viscosityChange",getNumber (_defaultConfig >> "viscosityChange")) * _drugMult;
 private _alphaFactor            = GET_NUMBER(_medicationConfig >> "alphaFactor",getNumber (_defaultConfig >> "alphaFactor")) * _drugMult;
 private _opioidRelief           = GET_NUMBER(_medicationConfig >> "opioidRelief",getNumber (_defaultConfig >> "opioidRelief")) * _drugMult;

@@ -84,20 +84,14 @@ private _bvComp =
         true
     ];
 private _shockClass =
-    _unit getVariable [QGVAR(shockClass), "NONE"];
+    _unit getVariable [QGVAR(shockClass), 0];
 private _globalVaso = GET_VASOCONSTRICTION(_unit);
 private _fixedVaso = 0;
 {
     _fixedVaso = _fixedVaso + _x;
 } forEach _globalVaso;
 private _fixedVaso = (_fixedVaso /12);
-private _vasoTone = switch (_shockClass) do {
-    case "NONE":          { 1.0 };
-    case "COMPENSATED":   { 1.2 };
-    case "DECOMPENSATED": { 1.05 };
-    case "TERMINAL":      { 0.75 };
-    default               { 1.0 };
-};
+private _vasoTone = [_shockClass, 1, 1.2, 0.7, 0.3] call EFUNC(misc,getSineValue);
 private _effectiveVaso =
     _fixedVaso * _vasoTone;
 _effectiveVaso = _effectiveVaso min 1.8 max 0.2;
@@ -156,12 +150,7 @@ private _mapNorm =
         0.65, 1.35,
         true
     ];
-    private _mapShock = switch (_shockClass) do {
-        case "COMPENSATED":   { 1.1 };
-        case "DECOMPENSATED": { 1.0 };
-        case "TERMINAL":      { 0.8 };
-        default               { 1.0 };
-    };
+    private _mapShock = [_shockClass, 1, 1.1, 0.7, 0.4] call EFUNC(misc,getSineValue);
 _mapNorm =
     _mapNorm * _mapShock;
     

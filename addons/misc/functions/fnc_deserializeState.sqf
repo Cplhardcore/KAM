@@ -233,7 +233,7 @@ private _state = [_json] call CBA_fnc_parseJSON;
 [QEGVAR(vitals,biotState), "breath"],
 [QEGVAR(vitals,agonalTimer), 0],
 [QEGVAR(vitals,rrMemory), 0],
-[QEGVAR(vitals,shockClass), "NONE"],
+[QEGVAR(vitals,shockClass), 0],
 [QEGVAR(vitals,ataxicRate), 0],
 [QEGVAR(vitals,ataxicDepth), 0],
 [QEGVAR(vitals,ataxicTimer), 0],

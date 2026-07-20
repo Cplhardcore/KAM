@@ -60,7 +60,7 @@ private _baseTidalVolume = 1;
 private _pao2 = 90;
 private _ph = GET_PH(_unit);
 private _respFatigue = _unit getVariable [QGVAR(respFatigue), 0];
-private _do2Norm = _unit getVariable [QGVAR(oxygenDelivery), 1];
+private _do2 = _unit getVariable [QGVAR(oxygenDelivery), 10];
 private _patternApplied = false;
 private _previousCyclePaco2 = (_bloodGas select 0);
 private _previousCyclePao2  = (_bloodGas select 1);
@@ -78,8 +78,8 @@ private _bvmDyssync = _unit getVariable [QGVAR(bvmDyssync), 0];
 private _sedation = _unit getVariable [QEGVAR(surgery,sedated), 0];
 private _cnsSuppression = (_unit getVariable [QEGVAR(pharma,cnsSuppression), 0]) min 0.8;
 private _isArrest = IN_CRDC_ARRST(_unit);
-if (_do2Norm < 0.4) then {
-    _anerobicPressure = _anerobicPressure + ((0.5 - _do2Norm) * _deltaT);
+if ((_do2/10) < 0.7) then {
+    _anerobicPressure = _anerobicPressure + ((0.5 - (_do2/10)) * _deltaT);
 };
 private _canBreathe =
     _airway
@@ -157,7 +157,7 @@ _respDrive = _respDrive * _respiratoryRateMult;
 private _bvmDyssyncPrev = _unit getVariable [QGVAR(bvmDyssync), 0];
 _respDrive = _respDrive + ((_bvmDyssyncPrev min 0.25) * 0.4);
 _respDrive = _respDrive max 0 min 1;
-if (_do2Norm < 0.3) then {
+if (_do2 < 4) then {
     _respDrive = _respDrive * 0.8;
 };
 TRACE_5("respDrive",_CPP,(1 - (_cnsSuppression * 0.7)),_respiratoryRateMult,((_bvmDyssyncPrev min 0.25) * 0.4),_respDrive);
@@ -517,7 +517,7 @@ if (!_patternApplied) then {
         if (_paralysis) then {
             _respFatigue = (_respFatigue - 0.01) max 0;
         };
-        if (_do2Norm < 0.2) then {
+        if (_do2 < 3) then {
             _respFatigue = (_respFatigue + 0.02 * _deltaT) min 1.2;
         };
         _unit setVariable [QGVAR(respFatigue), _respFatigue, true];
@@ -887,9 +887,7 @@ TRACE_4("BREATH_REST",
 private _hemoglobin = linearConversion [0, 2700, GET_BODY_FLUID_ECB(_unit), 0.2, 1.0, true];
 private _cao2 = 1.34 * _hemoglobin * (_o2Sat * 100);
 private _do2 = _co * _cao2;
-private _do2Norm = linearConversion [3.5, 10, _do2, 0, 1, true];
-TRACE_4("_do2Norm",_do2Norm,_co,_cao2,_do2);
-if (((_actualVentilation / _demandVentilation) <= 0.35) && !(_unit getVariable ["ACE_isUnconscious", false])) then {
+if ((((_actualVentilation / _demandVentilation) <= 0.35) || (_do2 < 6))&& !(_unit getVariable ["ACE_isUnconscious", false])) then {
     private _timer = _unit getVariable [QGVAR(airwayTimer), -1];
     if (_timer == -1) then {
         _timer = 30 + random 15;
@@ -910,7 +908,7 @@ if (((_actualVentilation / _demandVentilation) <= 0.35) && !(_unit getVariable [
     _unit setVariable [QGVAR(airwayElapsed), 0, true];
 };
 
-_unit setVariable [QGVAR(oxygenDelivery), _do2Norm, true];
+_unit setVariable [QGVAR(oxygenDelivery), _do2, true];
 _unit setVariable [QGVAR(pulmonaryShunt), _pulmonaryShunt, true];
 _unit setVariable [QEGVAR(breathing,breathRate), _respiratoryRate, _syncValues];
 _unit setVariable [VAR_RESPIRATORY_DEPTH, _respiratoryDepth, _syncValues];

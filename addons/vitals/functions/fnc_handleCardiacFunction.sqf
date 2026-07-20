@@ -31,7 +31,7 @@ private _icp = GET_ICP(_unit);
 private _map = GET_MAP(_unit);
 private _actualHeartRate = _hrTarget;
 private _painLevel = 0;
-private _shockClass = "NONE";
+private _shockClass = 0;
 private _metabolicDemand = 0;
 private _cnsSuppression = (_unit getVariable [QEGVAR(pharma,cnsSuppression), 0]) min 0.8;
 [_unit] call FUNC(updateSympatheticTone);
@@ -242,13 +242,17 @@ if (IN_CRDC_ARRST(_unit)) then {
 
     _modelHR = _modelHR * (1 - _vagalTone);
     TRACE_2("VAGAL_CMD", _modelHR, _vagalTone);
-    _shockClass = "NONE";
-    private _metShock = _unit getVariable [QGVAR(shockState),0];
-    if (_effectiveSV < 0.06 && _map < 70) then { _shockClass = "COMPENSATED" };
-    if (_effectiveSV < 0.04 && _map < 60) then { _shockClass = "DECOMPENSATED" };
-    if (_effectiveSV < 0.025 || _metShock > 0.85) then {
-        _shockClass = "TERMINAL"
-    };
+    _shockClass = 0;
+    private _metShock = _unit getVariable [QGVAR(shockState), 0];
+    private _svSeverity = linearConversion [0.065, 0.025, _effectiveSV, 0, 1, true];
+    private _mapSeverity = linearConversion [70, 50, _map, 0, 1, true];
+    private _metSeverity = _metShock max 0 min 1;
+    private _base = _svSeverity;
+    private _bonus =
+        (_mapSeverity * 0.25) +
+        (_metSeverity * 0.15);
+
+    private _shockSeverity = (_base + _bonus) min 1;
 
     _unit setVariable [QGVAR(shockClass), _shockClass];
 
@@ -258,10 +262,8 @@ if (IN_CRDC_ARRST(_unit)) then {
         _effectiveSV,
         _map
     );
-    switch (_shockClass) do {
-        case "DECOMPENSATED": { _modelHR = _modelHR * 1.1 };
-        case "TERMINAL":     { _modelHR = _modelHR * 0.6 };
-    };
+    private _hrModifier = [_shockClass, 1.0, 1.2, 0.6, 0.45] call EFUNC(misc,getSineValue);
+    _modelHR = _modelHR * _hrModifier;
     _modelHR = _modelHR
     + (10 * _painLevel * (1 - (_cnsSuppression * 0.75)))
     + (_aceAnFatigue * 40);
@@ -322,7 +324,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     _hrTau =
         _hrTau
         * linearConversion [0, 1, _metabolicDemand, 1, 1.4, true];
-    if (_shockClass != "NONE" || _painLevel > 0.4) then {
+    if (_shockClass != 0 || _painLevel > 0.4) then {
         _hrTau = 1.8;
     };
     _hrMem =

@@ -184,7 +184,7 @@
             <Italian>Pacchetto di Pillole per Medicazioni da Combattimento&lt;br/&gt;Usato per sopprimere il dolore lieve e alleviare i sintomi di incompatibilità del sangue</Italian>
         </Key>
         <Key ID="STR_KAT_Pharma_Painkillers_Box_Display">
-            <English>(Medication) Combat Pill Pack</English>
+            <English>(Med) Combat Pill Pack</English>
             <Japanese>戦闘治療薬パック</Japanese>
             <Spanish>Paquete de Comprimidos de Combate</Spanish>
             <Portuguese>Comprimidos de Combate</Portuguese>
@@ -221,7 +221,7 @@
             <Dutch>Wordt gebruikt om bewustzijn te herstellen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Carbonate_Box_Display">
-            <English>(Medication) Ammonium Carbonate</English>
+            <English>(Med) Ammonium Carbonate</English>
             <German>Ammoniumkarbonat</German>
             <Polish>Sole trzeźwiące</Polish>
             <French>Sels d'Ammoniac</French>
@@ -257,7 +257,7 @@
             <Dutch>Gebruik carbonaat</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Penthrox_Display">
-            <English>(Medication) Penthrox Inhaler</English>
+            <English>(Med) Penthrox Inhaler</English>
             <Japanese>ペンスロックス吸入器</Japanese>
             <French>Inhalateur de Penthrox</French>
             <Korean>펜트록스 흡입기</Korean>
@@ -310,7 +310,7 @@
             <Dutch>Wordt gebruikt om opïode overdossisen tegen te gaan</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Naloxone_Box_Display">
-            <English>(Medication) Naloxone</English>
+            <English>(Med) Naloxone</English>
             <German>Naloxone</German>
             <Polish>Nalokson</Polish>
             <French>Naloxone</French>
@@ -2904,7 +2904,7 @@
             <Dutch>Injecteer EACA</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Pervitin_Capsule_Display">
-            <English>(Medication) Pervitin capsule</English>
+            <English>(Med) Pervitin capsule</English>
             <German>Pervitin Kapsel</German>
             <French>Capsule de pervitine</French>
             <Japanese>ペルビチンカプセル</Japanese>
@@ -3086,7 +3086,7 @@
             <Dutch>Je hoofd begint zich op te helderen, en je stopt met trillen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Caffeine_Bottle_Display">
-            <English>(Medication) Caffeine bottle</English>
+            <English>(Med) Caffeine bottle</English>
             <German>Koffein Kapsel</German>
             <French>Bouteille de caféine</French>
             <Japanese>カフェインボトル</Japanese>
@@ -5850,7 +5850,7 @@
             <English>Treatment time for Fentanyl Patches</English>
         </Key>
         <Key ID="STR_KAT_Pharma_fentpatch_MEDdisplay">
-            <English>(Medication) Fentanyl Patch</English>
+            <English>(Med) Fentanyl Patch</English>
         </Key>
         <Key ID="STR_KAT_Pharma_fentpatchFull_MEDdisplay">
             <English>Fentanyl Patch (Full)</English>

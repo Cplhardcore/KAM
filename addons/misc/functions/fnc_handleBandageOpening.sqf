@@ -40,7 +40,12 @@ private _fnc_processWounds = {
         _partWounds set [_eachIndex, _wounds];
         _bandagedWounds set [_part, _partWounds];
         _target setVariable [_variable, _bandagedWounds, true];
-        if (_newDelay <= 0) then {
+        private _chanceToPop = 0;
+        if (VAR_COAGED_WOUNDS == _variable) then {
+            private _bp = _target call EFUNC(circulation,getBloodPressure);
+            _chanceToPop = linearConversion [100, 160, (_bp select 1), 1, 33, true];
+        }; 
+        if ((_newDelay <= 0) || ((random 100) < _chanceToPop)) then {
             private _openWounds = GET_OPEN_WOUNDS(_target);
             private _woundsOnPart = _openWounds getOrDefault [_part, []];
             if (count _woundsOnPart - 1 < _woundIndex) exitWith { TRACE_2("index bounds",_woundIndex,count _woundsOnPart); };

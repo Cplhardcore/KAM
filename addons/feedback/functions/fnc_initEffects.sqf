@@ -46,11 +46,6 @@ GVAR(lowSpO2) = [
     [1, 1, 0, [0, 0, 0, 0], [0, 0, 0, 1], [0.33, 0.33, 0.33, 0], [0.55, 0.5, 0, 0, 0, 0, 4]]
 ] call _fnc_createEffect;
 
-GVAR(airwayInjury) = [
-    "ColorCorrections",
-    213702,
-    [1, 1, 0, [0, 0, 0, 0], [0, 0, 0, 1], [0.33, 0.33, 0.33, 0], [0.55, 0.5, 0, 0, 0, 0, 4]]
-] call _fnc_createEffect;
 
 GVAR(airwayInjuryColor) = [
     "ColorCorrections",
@@ -77,4 +72,16 @@ GVAR(ppConcussion) = [
     "WetDistortion",
     213711,
     [0.51,0.2,0.2,1,1,1,1,0.05,0.01,0.05,0.01,0.1,0.1,0.2,0.2]
+] call _fnc_createEffect;
+
+GVAR(lowDO2) = [
+    "ColorCorrections",
+    213714,
+    [1, 1, 0, [0, 0, 0, 0], [0, 0, 0, 1], [0.33, 0.33, 0.33, 0], [0.55, 0.5, 0, 0, 0, 0, 4]]
+] call _fnc_createEffect;
+
+GVAR(airwayInjury) = [
+    "ColorCorrections",
+    213715,
+    [1, 1, 0, [0, 0, 0, 0], [0, 0, 0, 1], [0.33, 0.33, 0.33, 0], [0.55, 0.5, 0, 0, 0, 0, 4]]
 ] call _fnc_createEffect;

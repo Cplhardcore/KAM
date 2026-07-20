@@ -29,7 +29,7 @@ _patient setVariable [QGVAR(biotTimer), 0, true];
 _patient setVariable [QGVAR(biotState), "breath", true];
 _patient setVariable [QGVAR(agonalTimer), 0, true];
 _patient setVariable [QGVAR(rrMemory), 15, true];
-_patient setVariable [QGVAR(shockClass), "NONE", true];
+_patient setVariable [QGVAR(shockClass), 0, true];
 _patient setVariable [QGVAR(ataxicRate), 0, true];
 _patient setVariable [QGVAR(ataxicDepth), 0, true];
 _patient setVariable [QGVAR(ataxicTimer), 0, true];
@@ -44,7 +44,7 @@ _patient setVariable [QGVAR(shockState), 0, true];
 _patient setVariable [QGVAR(skinPerfusion), 1, true];
 _patient setVariable [QGVAR(arrestStartTime), 1, true];
 _patient setVariable [QGVAR(cprPerfusion), 1, true];
-_patient setVariable [QGVAR(oxygenDelivery), 1, true];
+_patient setVariable [QGVAR(oxygenDelivery), 10, true];
 if (GVAR(enableSimpleMedical) && !(isPlayer _patient)) then {
     _patient setVariable [QGVAR(simpleMedical), true, true];
 };

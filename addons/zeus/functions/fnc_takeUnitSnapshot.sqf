@@ -386,7 +386,7 @@ diag_log format [
     _rrMemory
 ];
 
-private _shockClass        = _unit getVariable [QGVAR(shockClass), "NONE"];
+private _shockClass        = _unit getVariable [QGVAR(shockClass), 0];
 private _sympatheticTone   = _unit getVariable [QGVAR(sympatheticTone), 0];
 private _catecholamine     = _unit getVariable [QGVAR(catecholamine), 0];
 

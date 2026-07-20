@@ -32,6 +32,9 @@ class CfgFunctions {
             class updateTriageStatus {
                 file = QPATHTOF(functions\fnc_updateTriageStatus.sqf);
             };
+            class updateActions {
+                file = QPATHTOF(functions\fnc_updateActions.sqf);
+            };
             class modifyActionTriageLevel {
                 file = QPATHTOF(functions\fnc_modifyActionTriageLevel.sqf);
             };

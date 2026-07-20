@@ -340,14 +340,14 @@ private _bloodVol = GET_BLOOD_VOLUME_LITERS(_unit);
 private _vasoArray = _unit getVariable [VAR_VASOCONSTRICTION, [1,1,1,1,1,1,1,1,1,1,1,1]];
 {
     private _limbIndex = _forEachIndex;
-    private _bodyPartDamage = linearConversion [0, 40, (_damage select _limbIndex), 0, 0.3, true];
-    private _bloodLoss = linearConversion [0.005, 0.1, (_woundBloodLoss select _limbIndex), 0, -1, true];
+    private _bodyPartDamage = linearConversion [0, 40, (_damage select _limbIndex), 0, 0.6, true];
+    private _bloodLoss = linearConversion [0.005, 0.1, (_woundBloodLoss select _limbIndex), 0, -0.8, true];
     private _bloodVolRemaining = linearConversion [6, 4, _bloodVol, 1, 0.3, true];
     private _vasoconstriction = 1 + (0.7 * (_bloodLoss * _bloodVolRemaining)) + _alphaFactorAdjustment + _bodyPartDamage;
     if (_trauma > 0.7) then {
     _vasoconstriction = _vasoconstriction * (1 - ((_trauma - 0.7) * 1.2));
     };
-    TRACE_5("vaso",_bodyPartDamage,_bloodLoss,_alphaFactorAdjustment,_bloodVolRemaining,(1 + (0.7 * (_bloodLoss * _bloodVolRemaining)) + _alphaFactorAdjustment + _bodyPartDamage));
+    TRACE_6("vaso",_vasoconstriction,_bodyPartDamage,_bloodLoss,_alphaFactorAdjustment,_bloodVolRemaining,(1 + (0.7 * (_bloodLoss * _bloodVolRemaining)) + _alphaFactorAdjustment + _bodyPartDamage));
     _vasoArray set [_limbIndex, (1.9 min (0.2 max _vasoconstriction))];
 } forEach _vasoArray;
 
@@ -358,7 +358,7 @@ _unit setVariable [VAR_BLOOD_PRESS, _bloodPressure, _syncValues];
 
 _bloodPressure params ["_bloodPressureL", "_bloodPressureH"];
 private _map = GET_MAP(_unit);
-private _oxygenDelivery = _unit getVariable [QGVAR(oxygenDelivery),0];
+private _oxygenDelivery = _unit getVariable [QGVAR(oxygenDelivery),10];
 // Statements are ordered by most lethal first.
 switch (true) do {
     case ((_spo2 < EGVAR(breathing,SpO2_dieValue)) && EGVAR(breathing,SpO2_dieActive)): {
@@ -397,7 +397,7 @@ switch (true) do {
             [QEGVAR(conversion,convertCasualty), _unit] call CBA_fnc_localEvent;
         };
     };
-    case (_oxygenDelivery < 0.25): {
+    case (_oxygenDelivery < 4): {
         [QACEGVAR(medical,FatalVitals), _unit] call CBA_fnc_localEvent;
         if ((_unit getVariable [QEGVAR(conversion,convert), false]) && (isPlayer _unit) && EGVAR(conversion,enableAutomaticConversion)) then {
             [QEGVAR(conversion,convertCasualty), _unit] call CBA_fnc_localEvent;
@@ -406,7 +406,7 @@ switch (true) do {
     case (_map < 45 || {_map > 190}): {
         [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
     };
-    case (_oxygenDelivery < 0.35): {
+    case (_oxygenDelivery < 5): {
         [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
     };
     case (_spo2 < EGVAR(breathing,SpO2_unconscious)): {

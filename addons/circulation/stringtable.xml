@@ -585,7 +585,7 @@
             <Dutch>Wordt gebruikt om patiënten te reanimeren</Dutch>
         </Key>
         <Key ID="STR_KAT_Circulation_AED_DISPLAYNAME">
-            <English>(C) Automated External Defibrillator</English>
+            <English>(C) AED</English>
             <Czech>Automatický Externí Defibrilátor</Czech>
             <French>Défibrillateur Automatisé Externe</French>
             <Spanish>Desfibrilador Externo Automático</Spanish>

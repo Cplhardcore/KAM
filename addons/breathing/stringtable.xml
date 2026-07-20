@@ -682,7 +682,7 @@
             <Dutch>Draagbare zuurstoftank, bevat 150L van zuurstof. Helpt met het beademen van kritieke patiënten wanneer verbonden aan een BVM</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_PortableOxygenTank_150_Display">
-            <English>(B) Portable Oxygen Tank (150L)</English>
+            <English>(B) Oxygen Tank (150L)</English>
             <Czech>Přenosná Kyslíková Lahev (150L)</Czech>
             <French>Réservoir à oxygène portable (150L)</French>
             <Spanish>Bombona de oxigeno portátil (150L)</Spanish>
@@ -699,7 +699,7 @@
             <Dutch>Draagbare zuurstoftank (150L)</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_PortableOxygenTank_150_Empty_Display">
-            <English>(B) Empty Portable Oxygen Tank (150L)</English>
+            <English>(B) Empty Oxygen Tank (150L)</English>
             <Czech>Prázdná Kyslíková Lahev (150L)</Czech>
             <French>Réservoir à oxygène portable vide (150L)</French>
             <Spanish>Bombona de oxigeno portátil vacío (150L)</Spanish>
@@ -733,7 +733,7 @@
             <Dutch>Draagbare zuurstoftank, bevat 300L van zuurstof. Helpt met het beademen van kritieke patiënten wanneer verbonden aan een BVM</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_PortableOxygenTank_300_Display">
-            <English>(B) Portable Oxygen Tank (300L)</English>
+            <English>(B) Oxygen Tank (300L)</English>
             <Czech>Přenosná Kyslíková Lahev (300L)</Czech>
             <French>Réservoir à oxygène portable (300L)</French>
             <Spanish>Bombona de oxigeno portátil (300L)</Spanish>
@@ -750,7 +750,7 @@
             <Dutch>Draagbare zuurstoftank (300L)</Dutch>
         </Key>
         <Key ID="STR_KAT_Breathing_PortableOxygenTank_300_Empty_Display">
-            <English>(B) Empty Portable Oxygen Tank (300L)</English>
+            <English>(B) Empty Oxygen Tank (300L)</English>
             <Czech>Prázdná Kyslíková Lahev (300L)</Czech>
             <French>Réservoir à oxygène portable vide (300L)</French>
             <Spanish>Bombona de oxigeno portátil vacío (300L)</Spanish>

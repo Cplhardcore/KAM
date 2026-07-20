@@ -16,6 +16,7 @@ PREP(onMenuOpen);
 PREP(openSyringeMenu);
 PREP(prepSyringe);
 PREP(updateABGStatus);
+PREP(updateActions);
 PREP(updateBodyImage);
 PREP(updateCategories);
 PREP(updateDoses);

@@ -36,3 +36,19 @@ if (_concussion > 0) then {
     };
 };
 
+private _ICP = ACE_player getVariable [QEGVAR(brain,ICP), 15];
+if (_ICP > 17) then {
+    if (CBA_missionTime - ACEGVAR(hearing,time3) < 3) exitWith {};
+    if (!isGameFocused) exitWith {}; // prevent audio from stacking when tabbed out
+    private _effectsVolume = getAudioOptionVolumes#0 * (_ICP/30);
+    _ICP = ACE_player getVariable [QEGVAR(brain,ICP), 0];
+    switch (true) do {
+        case (_ICP > 25): {
+            playSoundUI ["ACE_Combat_Deafness_Heavy_NoRing", _effectsVolume];
+        };
+        default {
+            playSoundUI ["ACE_Combat_Deafness_Medium_NoRing", _effectsVolume];
+        };
+    };
+};
+

@@ -22,7 +22,7 @@ private _calcTime = {
     params ["_wound"];
 
     _wound params ["_classID", "_amount"];
-    private _category = _classID % 10;
+    private _category = floor (_classID % 10);
 
     private _baseTime = switch (_category) do {
         case 0: { GVAR(smallWoundStitchTime) };
