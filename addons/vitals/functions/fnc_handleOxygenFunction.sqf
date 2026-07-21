@@ -78,8 +78,8 @@ private _bvmDyssync = _unit getVariable [QGVAR(bvmDyssync), 0];
 private _sedation = _unit getVariable [QEGVAR(surgery,sedated), 0];
 private _cnsSuppression = (_unit getVariable [QEGVAR(pharma,cnsSuppression), 0]) min 0.8;
 private _isArrest = IN_CRDC_ARRST(_unit);
-if ((_do2/10) < 0.7) then {
-    _anerobicPressure = _anerobicPressure + ((0.5 - (_do2/10)) * _deltaT);
+if (_do2 < 8) then {
+    _anerobicPressure = _anerobicPressure + (linearConversion [8, 5, _do2, 0, 0.6, true]);
 };
 private _canBreathe =
     _airway
@@ -104,7 +104,6 @@ private _monitor  = _unit getVariable [QEGVAR(breathing,etco2Monitor), []];
 if (_monitor isNotEqualTo []) then {
     _bvmTargetRR =
     linearConversion [25, 80, _previousCyclePaco2, BVM_MIN_RR, BVM_MAX_RR, true];
-
     _bvmTargetDepth =
     linearConversion [25, 80, _previousCyclePaco2, 8, 14, true];
 };
