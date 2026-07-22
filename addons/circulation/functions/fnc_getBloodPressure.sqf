@@ -93,7 +93,7 @@ private _map =
     * (_resistance / 100)
     * _exertionSVR
     * _vasoFactor)
-    * (1.06 ^ _occlusionAmount);
+    * (1.045 ^ _occlusionAmount);
 TRACE_4("BP2", _map, _vasoFactor, BASELINE_SVR, _cardiacOutput);
 _map = _map * 0.95;
 private _cushing = [_unit] call EFUNC(vitals,getCushings);

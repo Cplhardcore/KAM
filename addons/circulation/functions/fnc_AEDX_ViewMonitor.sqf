@@ -113,8 +113,8 @@ GVAR(PulseRateReady) = true;
                             switch (true) do {
                                 case (_hr > 130): {_ekgDisplay = QPATHTOF(ui\ekg_sinus_130.paa);};
                                 case (_hr > 110 && _hr < 130): {_ekgDisplay = QPATHTOF(ui\ekg_sinus_120.paa);};
-                                case (_hr > 90 && _hr < 110): {_ekgDisplay = QPATHTOF(ui\ekg_sinus_100.paa);};
-                                case (_hr > 70 && _hr < 90): {_ekgDisplay = QPATHTOF(ui\ekg_sinus.paa);};
+                                case (_hr > 92 && _hr < 110): {_ekgDisplay = QPATHTOF(ui\ekg_sinus_100.paa);};
+                                case (_hr > 70 && _hr < 92): {_ekgDisplay = QPATHTOF(ui\ekg_sinus.paa);};
                                 case (_hr > 50 && _hr < 70): {_ekgDisplay = QPATHTOF(ui\ekg_sinus_60.paa);};
                                 case (_hr > 0): {_ekgDisplay = QPATHTOF(ui\ekg_sinus_40.paa);};
                                 default {
