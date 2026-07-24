@@ -3611,5 +3611,13 @@
         <Key ID="STR_KAT_Breathing_medLvl_VerboseBreathing_Desc">
             <English>Med level for check breathing to tell you what the breathing state is</English>
         </Key>
+        <Key ID="STR_KAT_Breathing_SETTING_enableEverythingOxymask">
+            <English>Ignore oxygen equipment list</English>
+            <Japanese>酸素機器リストを無視</Japanese>
+        </Key>
+        <Key ID="STR_KAT_Breathing_SETTING_enableEverythingOxymask_DESC">
+            <English>Ignore the available oxygen equipment list and make all helmets and goggles can act as oxygen masks</English>
+            <Japanese>酸素供給可能な装備のリストを無視し、すべてのヘルメットとゴーグルを酸素マスクとして機能させます</Japanese>
+        </Key>
     </Package>
 </Project>
