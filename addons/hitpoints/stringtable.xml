@@ -3,78 +3,103 @@
     <Package name="Hitpoints">
         <Key ID="STR_KAT_Hitpoints_Torso">
             <English>Torso</English>
+            <Spanish>Torso</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Body">
             <English>Torso</English>
+            <Spanish>Vientre</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Chest">
             <English>Chest</English>
+            <Spanish>Pecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Neck">
             <English>Neck</English>
+            <Spanish>Cuello</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Head">
             <English>Head</English>
+            <Spanish>Cabeza</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_LeftArm">
             <English>Left Arm</English>
+            <Spanish>Antebrazo izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_UpperLeftArm">
             <English>Upper Left Arm</English>
+            <Spanish>Brazo izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_RightArm">
             <English>Right Arm</English>
+            <Spanish>Antebrazo derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_UpperRightArm">
             <English>Upper Right Arm</English>
+            <Spanish>Brazo derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_LeftLeg">
             <English>Left Leg</English>
+            <Spanish>Pie izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_UpperLeftLeg">
             <English>Upper Left Leg</English>
+            <Spanish>Pierna izquierda</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_RightLeg">
             <English>Right Leg</English>
+            <Spanish>Pie derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_UpperRightLeg">
             <English>Upper Right Leg</English>
+            <Spanish>Pierna derecha</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectHead">
             <English>Select Head</English>
+            <Spanish>Seleccionar cabeza</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectNeck">
             <English>Select Neck</English>
+            <Spanish>Seleccionar cuello</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectChest">
             <English>Select Chest</English>
+            <Spanish>Seleccionar pecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectTorso">
             <English>Select Torso</English>
+            <Spanish>Seleccionar vientre</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectLeftArm">
             <English>Select Lower Left Arm</English>
+            <Spanish>Seleccionar antebrazo izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectUpperLeftArm">
             <English>Select Upper Left Arm</English>
+            <Spanish>Seleccionar brazo izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectRightArm">
             <English>Select Lower Right Arm</English>
+            <Spanish>Seleccionar antebrazo derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectUpperRightArm">
             <English>Select Upper Right Arm</English>
+            <Spanish>Seleccionar brazo derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectLeftLeg">
             <English>Select Lower Left Leg</English>
+            <Spanish>Seleccionar pie izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectUpperLeftLeg">
             <English>Select Upper Left Leg</English>
+            <Spanish>Seleccionar pierna izquierda</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectRightLeg">
             <English>Select Lower Right Leg</English>
+            <Spanish>Seleccionar pie derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SelectUpperRightLeg">
             <English>Select Upper Right Leg</English>
+            <Spanish>Seleccionar pierna derecha</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Actions_TriageCard">
             <English>Triage Card</English>
@@ -95,558 +120,739 @@
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostat">
             <English>Bandage: Hemostatic Injector</English>
+            <Spanish>Vendaje: agente hemostático</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostat_Progress">
             <English>Injecting Hemostatic Granules</English>
+            <Spanish>Inyectando agente hemostático</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostat_Desc_Short">
             <English>Hemostatic Injector with CELOX granules</English>
+            <Spanish>Inyector de gránulos hemostáticos</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostat_Desc_Use">
             <English>Injector loaded with Hemostatic granules for penetrating wounds</English>
+            <Spanish>Inyector cargado con gránulos hemostáticos, apropiados para heridas perforantes</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostat_Display">
             <English>Hemostatic Injector (CELOX)</English>
+            <Spanish>Agente hemostático</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Desc_Short">
             <English>Elastic Bandage for Wrapping Packed Wounds and Splints</English>
+            <Spanish>Vendaje elástico para fijar heridas ya cubiertas y férulas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Desc_Use">
             <English>Elastic Bandage for Wrapping Packed Wounds and Splints</English>
+            <Spanish>Vendaje elástico para fijar heridas ya cubiertas y férulas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Display">
             <English>Bandage: Elastic Wrapping Bandage</English>
+            <Spanish>Vendaje: vendaje elástico de fijación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap">
             <English>Wrap Wounds (Elastic)</English>
+            <Spanish>Fijar vendajes con elástico</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Splint">
             <English>Wrap Splint</English>
+            <Spanish>Fijar férula</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Progress">
             <English>Wrapping Wounds</English>
+            <Spanish>Fijando vendajes</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Splint_Progress">
             <English>Wrapping Splint</English>
+            <Spanish>Fijando férula</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_4X4_Gauze_Desc_Short">
             <English>4X4 Gauze Sponge for Small Wounds</English>
+            <Spanish>Esponja de gasa 4x4 para heridas menores</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_4X4_Gauze_Desc_Use">
             <English>4X4 Gauze Sponge for Small Wounds</English>
+            <Spanish>Esponja de gasa 4x4 para heridas menores</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_4X4_Gauze_Display">
             <English>Bandage: 4X4 Gauze Sponge</English>
+            <Spanish>Vendaje: esponja de gasa 4x4</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_4X4_Gauze">
             <English>Apply Gauze Sponge</English>
+            <Spanish>Aplicar esponja de gasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_4X4_Gauze_Progress">
             <English>Applying Gauze Sponge</English>
+            <Spanish>Aplicando esponja de gasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Compressed_Gauze_Desc_Short">
             <English>Compressed Gauze for Packing Large Wounds</English>
+            <Spanish>Gasa comprimida, para cubrir heridas mayores</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Compressed_Gauze_Desc_Use">
             <English>Compressed Gauze for Packing Large Wounds</English>
+            <Spanish>Gasa comprimida, para cubrir heridas mayores</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Compressed_Gauze_Display">
             <English>Bandage: Compressed Packing Gauze</English>
+            <Spanish>Vendaje: gasa comprimida</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Compressed_Gauze">
             <English>Pack Wound</English>
+            <Spanish>Cubrir herida</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Compressed_Gauze_Progress">
             <English>Packing Wound</English>
+            <Spanish>Cubriendo herida</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Roller_Gauze_Desc_Short">
             <English>Roller Gauze for Wrapping Packed Wounds</English>
+            <Spanish>Rollo de gasa, para fijar heridas ya cubiertas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Roller_Gauze_Desc_Use">
             <English>Roller Gauze for Wrapping Packed Wounds</English>
+            <Spanish>Rollo de gasa, para fijar heridas ya cubiertas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Roller_Gauze_Display">
             <English>Bandage: Roller Gauze</English>
+            <Spanish>Vendaje: rollo de gasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Roller_Gauze">
             <English>Wrap Wounds (Gauze)</English>
+            <Spanish>Fijar vendajes con gasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Roller_Gauze_Progress">
             <English>Wrapping Wounds</English>
+            <Spanish>Fijando vendajes</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Roller_GauzeCoag">
             <English>Wrap Coagulated Wounds (Gauze)</English>
+            <Spanish>Fijar heridas coaguladas (gasa)</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Roller_GauzeCoag_Progress">
             <English>Wrapping Coagulated Wounds</English>
+            <Spanish>Fijando heridas coaguladas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Abdominal_Pad_Desc_Short">
             <English>Abdominal Pad for Extremely Large Wounds On the Torso</English>
+            <Spanish>Compresa abdominal, para heridas en el vientre de extrema gravedad</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Abdominal_Pad_Desc_Use">
             <English>Abdominal Pad for Extremely Large Wounds On the Torso</English>
+            <Spanish>Compresa abdominal, para heridas en el vientre de extrema gravedad</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Abdominal_Pad_Display">
             <English>Bandage: Abdominal Pad</English>
+            <Spanish>Vendaje: compresa abdominal</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Abdominal_Pad">
             <English>Apply Abdominal Pad</English>
+            <Spanish>Colocar compresa abdominal</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Abdominal_Pad_Progress">
             <English>Applying Abdominal Pad</English>
+            <Spanish>Colocando compresa abdominal</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_ETD_Desc_Short">
             <English>Emergency Trauma Dressing for Extremely Large Amounts of Wounds</English>
+            <Spanish>Apósito de emergencia para traumatismos (AET), para cubrir un gran número de heridas en la misma área</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_ETD_Desc_Use">
             <English>Emergency Trauma Dressing for Extremely Large Amounts of Wounds</English>
+            <Spanish>Apósito de emergencia para traumatismos (AET), para cubrir un gran número de heridas en la misma área</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_ETD_Display">
             <English>Emergency Trauma Dressing</English>
+            <Spanish>Apósito de emergencia para traumatismos</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_ETD">
             <English>Apply Emergency Trauma Dressing</English>
+            <Spanish>Colocar apósito de emergencia</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_ETD_Progress">
             <English>Applying Emergency Trauma Dressing</English>
+            <Spanish>Colocando apósito de emergencia</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Israeli_Bandage_Desc_Short">
             <English>Israeli Bandage for General Use</English>
+            <Spanish>Vendaje israelí de uso general</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Israeli_Bandage_Desc_Use">
             <English>Israeli Bandage for General Use</English>
+            <Spanish>Vendaje israelí de uso general</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Israeli_Bandage_Display">
             <English>Bandage: Israeli Bandage</English>
+            <Spanish>Vendaje: vendaje israelí</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Israeli_Bandage">
             <English>Apply Israeli Bandage</English>
+            <Spanish>Colocar vendaje israelí</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Israeli_Bandage_Progress">
             <English>Applying Israeli Bandage</English>
+            <Spanish>Colocando vendaje israelí</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SplintFellOff">
             <English>Splint Fell Off</English>
+            <Spanish>La férula se ha caído</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostatic_Gauze_Desc_Short">
             <English>Hemostatic Gauze for Heavily Bleeding Wounds</English>
+            <Spanish>Gasa hemostática, para heridas con sangrados abundantes</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostatic_Gauze_Desc_Use">
             <English>Hemostatic Gauze for Heavily Bleeding Wounds</English>
+            <Spanish>Gasa hemostática, para heridas con sangrados abundantes</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostatic_Gauze_Display">
             <English>Bandage: Hemostatic Gauze</English>
+            <Spanish>Vendaje: gasa hemostática</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostatic_Gauze">
             <English>Apply Hemostatic Gauze</English>
+            <Spanish>Colocar gasa hemostática</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Hemostatic_Gauze_Progress">
             <English>Applying Hemostatic Gauze</English>
+            <Spanish>Colocando gasa hemostática</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Adhesive_Bandage_Desc_Short">
             <English>Adhesive Bandage for Cuts and Scrapes</English>
+            <Spanish>Apósito adhesivo para pequeños cortes y arañazos</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Adhesive_Bandage_Desc_Use">
             <English>Adhesive Bandage for Cuts and Scrapes</English>
+            <Spanish>Apósito adhesivo para pequeños cortes y arañazos</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Adhesive_Bandage_Display">
             <English>Bandage: Adhesive Bandage</English>
+            <Spanish>Vendaje: apósito adhesivo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Adhesive_Bandage">
             <English>Apply Adhesive Bandage</English>
+            <Spanish>Colocar apósito adhesivo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Adhesive_Bandage_Progress">
             <English>Applying Adhesive Bandage</English>
+            <Spanish>Colocando apósito adhesivo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Burn_Dressing_Desc_Short">
             <English>Burn Dressing for Burns</English>
+            <Spanish>Apósito para quemaduras</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Burn_Dressing_Desc_Use">
             <English>Burn Dressing for Burns</English>
+            <Spanish>Apósito para quemaduras</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Burn_Dressing_Display">
             <English>Bandage: Burn Dressing</English>
+            <Spanish>Vendaje: apósito para quemaduras</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Burn_Dressing">
             <English>Apply Burn Dressing</English>
+            <Spanish>Colocar apósito para quemaduras</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Burn_Dressing_Progress">
             <English>Applying Burn Dressing</English>
+            <Spanish>Colocando apósito para quemaduras</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_InternalBleeding_Minor">
             <English>Light Bruising</English>
+            <Spanish>Contusiones leves</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_InternalBleeding_Medium">
             <English>Medium Bruising</English>
+            <Spanish>Contusiones medias</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_InternalBleeding_Large">
             <English>Heavy Bruising</English>
+            <Spanish>Contusiones graves</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_InternalBleeding_None">
             <English>No Bruising</English>
+            <Spanish>Sin contusiones</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Check_Limb">
             <English>Check Body</English>
+            <Spanish>Comprobar cuerpo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Check_Limb_Progress">
             <English>Checking Body</English>
+            <Spanish>Comprobando cuerpo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_cba_name">
             <English>KAT - ADV Medical: Hitpoints</English>
+            <Spanish>KAT - ADV Medical: Zonas de impacto</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_checkLimbTime">
             <English>Time to Check Body</English>
+            <Spanish>Tiempo para comprobar cuerpo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_checkLimbTime_DESC">
             <English>Time it takes to check a body part for internal bleeding</English>
+            <Spanish>Tiempo que se tarda en comprobar la presencia de sangrados internos en el cuerpo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_WoundWrapTime_Description">
             <English>Time, in seconds, required to wrap a single wound.</English>
+            <Spanish>Tiempo, en segundos, que se tarda en fijar una herida</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_WoundWrapTime_DisplayName">
             <English>Wound Wrap Time</English>
+            <Spanish>Tiempo de fijación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_stoppressure">
             <English>Stop Applying Pressure</English>
+            <Spanish>Dejar de presionar</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_startpressure">
             <English>Started Applying Pressure</English>
+            <Spanish>Presión iniciada</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_cancelpressure">
             <English>Stopped Applying Pressure</English>
+            <Spanish>Presión detenida</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_ApplyPressure">
             <English>Apply Pressure to Limb</English>
-        </Key>
-        <Key ID="STR_KAT_Hitpoints_">
-            <English></English>
+            <Spanish>Presionar las heridas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_setting_enable">
             <English>Enable Catastrophic Injuries</English>
+            <Spanish>Activar heridas catastróficas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Subcatagory_Catastrophic_Injuries">
             <English>Catastrophic Injuries</English>
+            <Spanish>Heridas catastróficas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_setting_enable_desc">
             <English>Enables Catastrophic Injuries such as Eviscerations, Amputations, and others</English>
+            <Spanish>Activa heridas catastróficas como evisceraciones, amputaciones y demás</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_EviscerationChance">
             <English>Percent chance of an Evisceration happening</English>
+            <Spanish>Probabilidad, en porcentaje, de evisceración</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Evisceration_DAMAGE_THRESHOLD">
             <English>Evisceration Damage Threshold</English>
+            <Spanish>Umbral para evisceración</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Evisceration_DAMAGE_THRESHOLD_DESC">
             <English>Damage Threshold to cause an Evisceration</English>
+            <Spanish>Umbral que debe alcanzarse para poder provocar una evisceración</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_EviscerationDamageThreshold_DamageTaken">
             <English>Increase Evisceration chance based on damage</English>
+            <Spanish>Aumentar probabilidad de evisceración según daño recibido</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_EviscerationDamageThreshold_DamageTaken_DESC">
             <English>Increase chance of a Evisceration occurring based on damage taken if over the Evisceration damage threshold</English>
+            <Spanish>Aumenta la probabilidad de que ocurra una evisceración según el daño recibido siempre que se supere el umbral mínimo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_evisceration">
             <English>Evisceration</English>
+            <Spanish>Evisceración</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_woundpackapplied">
             <English>Wound Pack Applied</English>
+            <Spanish>Taponamiento aplicado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_woundvacapplied">
             <English>Wound Vac Applied</English>
+            <Spanish>Cierre por vacío aplicado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_ArterialChance">
             <English>Arterial Bleed Chance</English>
+            <Spanish>Probabilidad de sangrado arterial</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_ArterialChance_DESC">
             <English>Chance for a wound to be an arterial bleed (10% - 45% worse bleeding)</English>
+            <Spanish>Probabilidad de que una herida sea un sangrado arterial (sangrado un 10-45% más severo)</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointChance">
             <English>Percent chance of an Joint Injury happening</English>
+            <Spanish>Probabilidad en porcentaje de una lesión articular</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Joint_DAMAGE_THRESHOLD">
             <English>Joint Injury Damage Threshold</English>
+            <Spanish>Umbral de lesión articular</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Joint_DAMAGE_THRESHOLD_DESC">
             <English>Damage Threshold to cause a Joint Injury</English>
+            <Spanish>Daño que debe superarse para que pueda ocurrir una lesión articular</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_JointDamageThreshold_DamageTaken">
             <English>Increase Joint Injury chance based on damage</English>
+            <Spanish>Aumentar probabilidad de lesión articular según daño recibido</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_JointDamageThreshold_DamageTaken_DESC">
             <English>Increase chance of a Joint Injury occurring based on damage taken if over the Joint Injury damage threshold</English>
+            <Spanish>Aumenta la probabilidad de que ocurra una lesión articular según el daño recibido siempre que se supere el umbral mínimo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Ice_Pack_Desc_Short">
             <English>Ice Pack for Sprains and Strains</English>
+            <Spanish>Bolsa de hielo para torceduras y desagarros</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Ice_Pack_Desc_Use">
             <English>Ice Pack for Sprains and Strains</English>
+            <Spanish>Bolsa de hielo para torceduras y desgarros</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Ice_Pack_Display">
             <English>Ice Pack</English>
+            <Spanish>Bolsa de hielo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Ice_Pack">
             <English>Apply Ice Pack</English>
+            <Spanish>Aplicar hielo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Ice_Pack_Progress">
             <English>Applying Ice Pack</English>
+            <Spanish>Aplicando hielo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_Strain">
             <English>Strained</English>
+            <Spanish>Desgarro</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_Sprain">
             <English>Sprained</English>
+            <Spanish>Torcedura</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_Dislocation">
             <English>Dislocated</English>
+            <Spanish>Dislocación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_Shoulder">
             <English>Shoulder</English>
+            <Spanish>Hombro</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_Elbow">
             <English>Elbow</English>
+            <Spanish>Codo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_Wrist">
             <English>Wrist</English>
+            <Spanish>Muñeca</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_Hip">
             <English>Hip</English>
+            <Spanish>Cadera</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_Knee">
             <English>Knee</English>
+            <Spanish>Rodilla</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_Ankle">
             <English>Ankle</English>
+            <Spanish>Tobillo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Check_Joints">
             <English>Check Joints</English>
+            <Spanish>Comprobar articulaciones</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Check_Joints_Progress">
             <English>Checking Joints</English>
+            <Spanish>Comprobando articulaciones</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointLog">
             <English>%1 has found a %2 %3 on the %4</English>
+            <Spanish>%1 observa %2 %3 en %4</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Pelvic_Binder_Desc_Short">
             <English>Pelvic Binder for securing Pelvic Injuries</English>
+            <Spanish>Inmovilizador pélvico para lesiones pélvicas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Pelvic_Binder_Desc_Use">
             <English>Pelvic Binder for securing Pelvic Injuries</English>
+            <Spanish>Inmovilizador pélvico para lesiones pélvicas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Pelvic_Binder_Display">
             <English>Pelvic Binder</English>
+            <Spanish>Inmovilizador pélvico</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Joint">
             <English>Wrap Joint</English>
+            <Spanish>Envolver articulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Elastic_Wrap_Joint_Progress">
             <English>Wrapping Joint</English>
+            <Spanish>Envolviendo articulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_IcedStrain">
             <English>Iced Strained</English>
+            <Spanish>Hielo aplicado a desgarro</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_IcedSprain">
             <English>Iced Sprained</English>
+            <Spanish>Hielo aplicado a torcedura</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_StabilizedDislocation">
             <English>Stabilised Dislocated</English>
+            <Spanish>Dislocación estabilizada</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_InflamedStrain">
             <English>Inflamed Strained</English>
+            <Spanish>Desgarro inflamado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_InflamedSprain">
             <English>Inflamed Sprained</English>
+            <Spanish>Torcedura inflamada</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_ReducedDislocation">
             <English>Reduced Dislocated</English>
+            <Spanish>Dislocación reducida</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_WrappedStrain">
             <English>Wrapped Strained</English>
+            <Spanish>Desgarro envuelto</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_JointInjury_WrappedSprain">
             <English>Wrapped Sprained</English>
+            <Spanish>Torcedura envuelta</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Stabilize_Joint">
             <English>Stabilize Joint</English>
+            <Spanish>Estabilizar articulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Stabilize_Joint_Progress">
             <English>Stabilizing Joint</English>
+            <Spanish>Estabilizando articulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Reduce_Joint">
             <English>Reduce Joint</English>
+            <Spanish>Reducir articulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Reduce_Joint_Progress">
             <English>Reducing Joint</English>
+            <Spanish>Reduciendo articulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Subcatagory_Joints">
             <English>Joint Injuries</English>
+            <Spanish>Lesiones articulares</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Ice_Timer">
             <English>Time to ice a joint</English>
+            <Spanish>Tiempo en aplicar hielo a articulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Wrap_Timer">
             <English>Time to wrap a joint</English>
+            <Spanish>Tiempo en envolver articulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Stabilize_Timer">
             <English>Time to stabilize a joint</English>
+            <Spanish>Tiempo en estabilizar articulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Reduce_Timer">
             <English>Time to reduce a joint</English>
+            <Spanish>Tiempo en reducir articulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Joint_Care_Medlevel">
             <English>Med Level to take care of joint injuries</English>
+            <Spanish>Nivel médico para tratar lesiones articulares</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_PelvicChance">
             <English>Percent chance of a Pelvic Fracture happening</English>
+            <Spanish>Probabilidad, en porcentaje, de fractura de pelvis</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Pelvic_DAMAGE_THRESHOLD">
             <English>Pelvic Fracture Damage Threshold</English>
+            <Spanish>Umbral de daño para fractura de pelvis</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Pelvic_DAMAGE_THRESHOLD_DESC">
             <English>Damage Threshold to cause an Pelvic Fracture</English>
+            <Spanish>Umbral que debe superarse para que haya probabilidades de fractura de pelvis</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_PelvicDamageThreshold_DamageTaken">
             <English>Increase Pelvic Fracture chance based on damage</English>
+            <Spanish>Aumentar probabilidades de fractura de pelvis según daño</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_PelvicDamageThreshold_DamageTaken_DESC">
             <English>Increase chance of a Pelvic Fracture occurring based on damage taken if over the Pelvic Fracture damage threshold</English>
+            <Spanish>Aumenta las probabilidades de que se produzca una fractura de pelvis según el daño recibido, mientras se supere el umbral mínimo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Bind_Pelvis">
             <English>Bind Pelvis</English>
+            <Spanish>Inmovilizar pelvis</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Bind_Pelvis_Progress">
             <English>Binding Pelvis</English>
+            <Spanish>Inmovilizando pelvis</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_pelvicFracture_log">
             <English>%1 has found a Pelvic Fracture</English>
+            <Spanish>%1 observa una fractura de pelvis</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_stabilizedPelvicFracture_log">
             <English>%1 has found a Stabilized Pelvic Fracture</English>
+            <Spanish>%1 observa una fractura de pelvis estabilizada</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_noPelvicFracture_log">
             <English>%1 did not find a Pelvic Fracture</English>
+            <Spanish>%1 no observa ninguna fractura en la pelvis</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_InternalBleedingEnable">
             <English>Enable Internal Bleeding</English>
+            <Spanish>Activar hemorragias internas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_InternalBleedingEnable_DESC">
             <English>Turns on internal bleeding as a wound type</English>
+            <Spanish>Activa las hemorragias internas como nuevo tipo de herida</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_InternalBleedingChance">
             <English>Chance Internal Bleeding</English>
+            <Spanish>Probabilidad de hemorragia interna</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_InternalBleedingChance_DESC">
             <English>Percentage for a wound to have underlying internal bleeding</English>
+            <Spanish>Probabilidad, en porcentaje, de que una herida tenga una hemorragia interna subyacente</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Remove_Israeli">
             <English>Remove Israeli Bandage</English>
+            <Spanish>Retirar vendaje israelí</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Removing_Israeli">
             <English>Removing Israeli Bandage</English>
+            <Spanish>Retirando vendaje israelí</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Remove_ETD">
             <English>Remove ETD</English>
+            <Spanish>Retirar AET</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Removing_ETD">
             <English>Removing ETD</English>
+            <Spanish>Retirando AET</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_removalTimeETD_Description">
             <English>Time, in seconds, required to remove an ETD.</English>
+            <Spanish>Tiempo, en segundos, que se tarda en retirar un AET</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_removalTimeETD_DisplayName">
             <English>ETD Removal Time</English>
+            <Spanish>Tiempo de retirada de AET</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_removalTimeIsraeli_Description">
             <English>Time, in seconds, required to remove an Israeli Bandage.</English>
+            <Spanish>Tiempo, en segundos, que se tarda en retirar un vendaje israelí</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_removalTimeIsraeli_DisplayName">
             <English>Israeli Bandage Removal Time</English>
+            <Spanish>Tiempo de retirada de vendaje israelí</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Apply_HastyTourniquet">
-           <English>Apply Hasty Tourniquet</English>
+            <English>Apply Hasty Tourniquet</English>
+            <Spanish>Colocar torniquete apresurado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Applying_HastyTourniquet">
             <English>Applying Hasty Tourniquet...</English>
-        </Key> 
+            <Spanish>Colocando torniquete apresurado</Spanish>
+        </Key>
         <Key ID="STR_KAT_Hitpoints_Apply_DelibrateTourniquet">
             <English>Apply Delibrate Tourniquet</English>
+            <Spanish>Colocar torniquete deliberado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Applying_DelibrateTourniquet">
             <English>Applying Delibrate Tourniquet...</English>
+            <Spanish>Colocando torniquete deliberado...</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_TreatmentTimeDelibrateTourniquet_Description">
             <English>Time, in seconds, required to apply a Delibrate tourniquet.</English>
+            <Spanish>Tiempo, en segundos, que se tarda en colocar un torniquete deliberado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_TreatmentTimeDelibrateTourniquet_DisplayName">
             <English>Delibrate Tourniquet Treatment Time</English>
+            <Spanish>Tiempo de tratamiento de torniquete deliberado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_TreatmentTimeHastyTourniquet_Description">
             <English>Time, in seconds, required to apply a Hasty tourniquet.</English>
+            <Spanish>Tiempo, en segundos, que se tarda en colocar un torniquete apresurado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_TreatmentTimeHastyTourniquet_DisplayName">
             <English>Hasty Tourniquet Treatment Time</English>
+            <Spanish>Tiempo de tratamiento de torniquete apresurado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_TreatmentTimeTrainedHastyTourniquet_Description">
             <English>Time, in seconds, required for a unit exceeding required training level to apply a Hasty tourniquet.</English>
+            <Spanish>Tiempo, en segundos, requerido para colocar un torniquete apresurado por una unidad que supere el nivel médico requerido</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_TreatmentTimeTrainedHastyTourniquet_DisplayName">
             <English>Skilled Hasty Tourniquet Treatment Time</English>
+            <Spanish>Tiempo de tratamiento de torniquete apresurado cualificado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_TreatmentTimeTrainedDelibrateTourniquet_Description">
             <English>Time, in seconds, required for a unit exceeding required training level to apply a Delibrate tourniquet.</English>
+            <Spanish>Tiempo, en segundos, requerido para colocar un torniquete deliberado por una unidad que supere el nivel médico requerido</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_TreatmentTimeTrainedDelibrateTourniquet_DisplayName">
             <English>Skilled Delibrate Tourniquet Treatment Time</English>
+            <Spanish>Tiempo de tratamiento de torniquete deliberado cualificado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Convert_HastyTourniquet">
-           <English>Convert Hasty Tourniquet</English>
+            <English>Convert Hasty Tourniquet</English>
+            <Spanish>Arreglar torniquete apresurado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Converting_HastyTourniquet">
             <English>Converting Hasty Tourniquet...</English>
+            <Spanish>Arreglando torniquete apresurado...</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Activity_convertedTourniquet">
             <English>%1 converted a Tourniquet</English>
+            <Spanish>%1 mejoró el torniquete a deliberado</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_armorEffectivness_Description">
             <English>Armor Effectivness Multiplier</English>
+            <Spanish>Multiplicador de eficacia de blindaje</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_armorEffectivness_DisplayName">
             <English>How effective armor is, higher is stronger</English>
+            <Spanish>Cómo de efectivo es el blindaje. Cuanto más alto, mejor</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_Subcatagory_Armor">
             <English>Armor</English>
+            <Spanish>Blindaje</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_jointInjuryGUI">
             <English>Inflamed Joint</English>
+            <Spanish>Articulación inflamada</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_longTermBandages">
             <English>Long Term Bandages</English>
+            <Spanish>Vendajes de larga duración</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_longTermBandages_DESC">
             <English>Greatly increases the time it takes for a wrapped bandage to fall off. Balanced around persistant missions where a stich kit is not often used</English>
+            <Spanish>Aumenta mucho el tiempo que tarda un vendaje fijado en caerse. Apropiado para misiones muy largas en las que no se usan suturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_setting_hardcorepressure">
             <English>Hardcore Pressure</English>
+            <Spanish>Presión en modo difícil</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_setting_hardcorepressure_desc">
             <English>Causes pressure to take up all actions, rather then just a time penalty</English>
+            <Spanish>Hace que aplicar presión en una herida ocupe todas las acciones del jugador en lugar de solamente una penalización de tiempo</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_pressure_already">
             <English>Someone is already applying pressure</English>
+            <Spanish>Ya hay otra persona aplicando presión</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_pressure_ready">
             <English>Started Applying Pressure</English>
+            <Spanish>Presión iniciada</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_pressure_cancel">
             <English>Stopped Applying Pressure</English>
+            <Spanish>Presión detenida</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_pressure_GUI">
             <English>Pressure Applied</English>
+            <Spanish>Presión aplicada</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_EffectDamageThreshold">
             <English>Damage Effect threshold</English>
+            <Spanish>Umbral de efectos por daño</Spanish>
         </Key>
         <Key ID="STR_KAT_Hitpoints_SETTING_EffectDamageThreshold_DESC">
             <English>When damage is above this level, certain actions/treatments will fail and IV fluids will not flow</English>
+            <Spanish>Cuando el daño sea superior a este umbral, algunos tratamientos fallarán y los fluidos IV no fluirán</Spanish>
         </Key>
     </Package>
 </Project>

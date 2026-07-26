@@ -10,6 +10,7 @@
             <Japanese>ケタミン、フェンタニル、ペルビチンなどでオピオイドの効果を有効にします</Japanese>
             <Chinese>啟用 K他命(氯胺酮)、芬太尼、冰毒(甲基苯丙胺) 等 鴉片類藥物的作用</Chinese>
             <Chinesesimp>使阿片类药物对氯胺酮、芬太尼和帕维汀产生作用</Chinesesimp>
+            <Spanish>Activa los efectos opiáceos de la ketamina, el fentanilo y la pervitina</Spanish>
         </Key>
         <Key ID="STR_KAT_Feedback_SETTING_OpioidEffect_display">
             <English>Enable opioid effect</English>
@@ -20,6 +21,7 @@
             <Japanese>オピオイド効果を有効化</Japanese>
             <Chinese>啟用鴉片類藥物效果</Chinese>
             <Chinesesimp>启用阿片类药物作用</Chinesesimp>
+            <Spanish>Activar efectos opiáceos</Spanish>
         </Key>
         <Key ID="STR_KAT_Feedback_SETTING_lowSpO2_DESC">
             <English>Lets you change the SpO2 Value at which you get the Flashing warning indicator and stamina loss effect</English>
@@ -59,18 +61,23 @@
             <Italian>KAT - ADV Medica: Riscontro</Italian>
             <German>KAT - ADV Medical: Feedback</German>
             <Japanese>KAM - フィードバック</Japanese>
+            <Spanish>KAT - ADV Medical: Retroalimentación</Spanish>
         </Key>
         <Key ID="STR_KAT_Feedback_SETTING_effectOverdose_display">
             <English>Enable Overdose effects</English>
+            <Spanish>Activar sobredosis</Spanish>
         </Key>
         <Key ID="STR_KAT_Feedback_SETTING_effectOverdose_DESC">
             <English>Enables Overdose effects on certain medications</English>
+            <Spanish>Activa efectos de sobredosis en algunos medicamentos</Spanish>
         </Key>
         <Key ID="STR_KAT_Feedback_SETTING_braineffect_display">
             <English>Enable Brain Injury Effects</English>
+            <Spanish>Activar efectos de lesiones cerebrales</Spanish>
         </Key>
         <Key ID="STR_KAT_Feedback_SETTING_braineffect_DESC">
             <English>Enables Brain Injury Effects</English>
+            <Spanish>Activa los efectos de lesiones cerebrales</Spanish>
         </Key>
     </Package>
 </Project>

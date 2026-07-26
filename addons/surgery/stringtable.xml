@@ -754,6 +754,7 @@
         </Key>
         <Key ID="STR_KAT_Surgery_Reset_Surgery">
             <English>Reset Surgery</English>
+            <Spanish>Reiniciar cirugía</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Retractor_Action">
             <English>Exposing</English>
@@ -1215,9 +1216,11 @@
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic">
             <English>Left Lung Status: %1</English>
+            <Spanish>Estado del pulmón izquierdo: %1</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_ThorasicRight">
             <English>Right Lung Status: %1</English>
+            <Spanish>Estado del pulmón derecho: %1</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Airway_Compromise">
             <English>Compromised</English>
@@ -1226,6 +1229,7 @@
             <Italian>Compromesso</Italian>
             <German>Kompromittiert</German>
             <Japanese>機能不全</Japanese>
+            <Spanish>Afectado</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Airway_NoActivity">
             <English>No Activity</English>
@@ -1234,24 +1238,31 @@
             <Italian>Nessuna attività</Italian>
             <German>Keine Aktivität</German>
             <Japanese>活動なし</Japanese>
+            <Spanish>Sin actividad</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_PTX">
             <English>Left Side Pneumothorax</English>
+            <Spanish>Neumotórax en lado izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Right_PTX">
             <English>Right Side Pneumothorax</English>
+            <Spanish>Neumotórax en lado derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Hemo">
             <English>Left Side Hemopneumothorax</English>
+            <Spanish>Hemotórax en lado izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Right_Hemo">
             <English>Right Side Hemopneumothorax</English>
+            <Spanish>Hemotórax en lado derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Tension">
             <English>Left Side Tension Pneumothorax</English>
+            <Spanish>Neumotórax a tensión en lado izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Right_Tension">
             <English>Right Side Tension Pneumothorax</English>
+            <Spanish>Neumotórax a tensión en lado derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_NoActivity">
             <English>No Activity</English>
@@ -1259,6 +1270,7 @@
             <French>Aucune activité</French>
             <Japanese>活動なし</Japanese>
             <Chinese>無活動</Chinese>
+            <Spanish>Sin actividad</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Airway_Normal">
             <English>Normal</English>
@@ -1446,6 +1458,7 @@
             <Italian>KAT - ADV Medica: Chirurgia</Italian>
             <German>KAT - ADV Medical: Chirurgie</German>
             <Japanese>KAM - 外科 (Surgery)</Japanese>
+            <Spanish>KAT - ADV Medical: Cirugía</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_fracture_check">
             <English>Check Fracture</English>
@@ -1619,45 +1632,59 @@
         </Key>
         <Key ID="STR_KAT_Surgery_open_Fracture_kit">
             <English>Open Fracture Kit</English>
+            <Spanish>Abrir kit de fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_open_Fracture_kit_Action">
             <English>Opening Fracture Kit</English>
+            <Spanish>Abriendo kit de fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_fractureKit_Display">
             <English>Fracture Kit</English>
+            <Spanish>Kit de fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_fractureKit_Desc_Short">
             <English>Contains equipment for Fracture Care</English>
+            <Spanish>Contiene el equipo necesario para tratar fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_PENALTY_MULT_DISPLAY">
             <English>Time Delay for full repair</English>
+            <Spanish>Tiempo para recuperación total tras fractura</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_PENALTY_MULT_DESC">
             <English>Multiplier for the delay (120-200 seconds) before a fracture is fully healed after surgery (no limping), 0 to disable</English>
+            <Spanish>Multiplicador para el tiempo (120-200 segundos) que un paciente seguirá cojeando después de que su fractura haya sido tratada. 0 para desactivar.</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_lungstatus">
             <English>Lung Volume Status: %1</English>
+            <Spanish>Estado de volumen de pulmones: %1</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Lung_Status_0">
             <English>Normal</English>
+            <Spanish>Normal</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Lung_Status_1">
             <English>Slight Volume Loss</English>
+            <Spanish>Ligera pérdida de volumen</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Lung_Status_2">
             <English>Moderate Volume Loss</English>
+            <Spanish>Pérdida de volumen moderada</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Lung_Status_3">
             <English>Significant Volume Loss</English>
+            <Spanish>Pérdida de volumen importante</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Lung_Status_4">
             <English>Catastrophic Volume Loss</English>
+            <Spanish>Pérdida de volumen catastrófica</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_stitchKit_Display">
             <English>Suture Kit</English>
+            <Spanish>Kit de sutura</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_stitchKit_desc_short">
             <English>Contains equipment to close one surgical wound</English>
+            <Spanish>Contiene el equipo necesario para cerrar una incisión quirúrgica</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_fracture_close">
             <English>Close Incision</English>
@@ -1673,12 +1700,15 @@
         </Key>
         <Key ID="STR_KAT_Surgery_plated">
             <English>Plated</English>
+            <Spanish>Tratada con placa</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Incision">
             <English>Incision Made</English>
+            <Spanish>Incisión abierta</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Status_Error">
             <English>If you are reading this, something broke</English>
+            <Spanish>Si estás leyendo esto, algo ha salido mal</Spanish>
         </Key>
     </Package>
 </Project>

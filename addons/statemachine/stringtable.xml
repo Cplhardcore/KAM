@@ -3,24 +3,31 @@
     <Package name="Statemachine">
         <Key ID="STR_KAT_Statemachine_SubCategory_Seizures">
             <English>Seizures</English>
+            <Spanish>Convulsiones</Spanish>
         </Key>
         <Key ID="STR_KAT_Statemachine_enableSeizure_DisplayName">
             <English>Enable Seizures</English>
+            <Spanish>Activar convulsiones</Spanish>
         </Key>
         <Key ID="STR_KAT_Statemachine_enableSeizure_Description">
             <English>Disabling this setting will prevent seizures from occuring</English>
+            <Spanish>Desactivar este ajuste hará que no ocurran ataques de convulsiones</Spanish>
         </Key>
         <Key ID="STR_KAT_Statemachine_Seizure_Min_Length_DisplayName">
             <English>Minimum Seizure Duration</English>
+            <Spanish>Duración mínima del ataque</Spanish>
         </Key>
         <Key ID="STR_KAT_Statemachine_Seizure_Min_Length_Description">
             <English>Avoid setting this higher than Max Duration or expect incorrect behaviour</English>
+            <Spanish>Es recomendable que no sea mayor que la duración máxima para evitar comportamiento incorrecto</Spanish>
         </Key>
         <Key ID="STR_KAT_Statemachine_Seizure_Max_Length_DisplayName">
             <English>Maximum Seizure Duration</English>
+            <Spanish>Duración máxima del ataque</Spanish>
         </Key>
         <Key ID="STR_KAT_Statemachine_Seizure_Max_Length_Description">
             <English>Avoid setting this lower than Max Duration or expect incorrect behaviour</English>
+            <Spanish>Es recomendable que no sea inferior a la duración mínima para evitar comportamiento incorrecto</Spanish>
         </Key>
     </Package>
 </Project>

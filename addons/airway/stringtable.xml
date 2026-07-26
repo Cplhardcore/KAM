@@ -2556,11 +2556,11 @@
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_breathing_short">
             <English>Patient is Breathing</English>
-            <Spanish>El paciente respira</Spanish>
+            <Spanish>El paciente está respirando</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_breathing">
             <English>Patient is Breathing</English>
-            <Spanish>El paciente respira</Spanish>
+            <Spanish>El paciente está respirando</Spanish>
         </Key>
     </Package>
 </Project>
