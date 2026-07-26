@@ -19,5 +19,5 @@ private _currentWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80]
 private _doseNormalized = linearConversion [10, 30, _dose, 15, 35, true];
 private _weightNormalized = linearConversion [60, 100, _currentWeight, 10, 30, true];
 if (_doseNormalized > _weightNormalized) then {
-    [_patient, "Rocuronium", _timeTillMaxEffect, _timeInSystem, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "false", "true"] call EFUNC(vitals,addMedicationAdjustment);
+    [_patient, "Rocuronium", _timeTillMaxEffect, _timeInSystem, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] call EFUNC(vitals,addMedicationAdjustment);
 };

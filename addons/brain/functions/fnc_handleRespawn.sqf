@@ -32,8 +32,6 @@ _unit setVariable [QGVAR(deoxygenatedTicks),0,true];
 _unit setVariable [QGVAR(mapHighTicks),0,true];
 _unit setVariable [QGVAR(autoregFatigue),0,true];
 _unit setVariable [QEGVAR(brain,reversibleDamage),0,true];
-_unit setVariable [QEGVAR(brain,autoregulationPFH), [_unit] call EFUNC(brain,handleAutoregulation),true];
-_unit setVariable [QEGVAR(brain,activityPFH), [_unit] call EFUNC(brain,handleBrainActivity),true];
 _unit setVariable [QEGVAR(brain,concussionPFH),nil,true];
 _unit setVariable [QEGVAR(brain,concussion),0,true];
 _unit setVariable [QGVAR(edema),0,true];

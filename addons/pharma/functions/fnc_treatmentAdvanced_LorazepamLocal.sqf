@@ -16,18 +16,10 @@
  */
 
 params ["_patient", "_dose"];
-
-private _random = random 3;
-if (_random <= 1) then {
-    private _hrValue = [-40, -30, -50];
-    private _hrAdjust = selectRandom _hrValue;
-    [_patient, "BRADYCARDIA", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
-};
-private _currentWeight = _patient getVariable [QEGVAR(vitals,currentWeight), 80];
-private _doseNormalized = linearConversion [10, 30, _dose, 15, 35, true];
-private _weightNormalized = linearConversion [60, 100, _currentWeight, 10, 30, true];
-if (_doseNormalized > _weightNormalized) then {
-    [_patient, "Lorazepam", 10, 600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "true"] call EFUNC(vitals,addMedicationAdjustment);
+private _doseLevel = ([_patient, "LorazepamSedation", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel < 0.01) then {
+    private _cns = random [0.2, 0.25, 0.3];
+    [_patient, "LorazepamSedation", 10, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, _cns] call EFUNC(vitals,addMedicationAdjustment);
     [_patient, true] call ACEFUNC(medical,setUnconscious);
 };
 

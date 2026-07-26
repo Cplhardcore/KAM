@@ -35,24 +35,6 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    QGVAR(IVdropEnable),
-    "CHECKBOX",
-    [LLSTRING(IV_DROP_ENABLE)],
-    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [true],
-    true
-] call CBA_Settings_fnc_init;
-
-[
-    QGVAR(IVdrop),
-    "SLIDER",
-    [LLSTRING(IV_DROP),LLSTRING(IV_DROP_TIME_DESC)],
-    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [60, 1200, 600, 0],
-    true
-] call CBA_Settings_fnc_init;
-
-[
     QGVAR(IVreuse),
     "CHECKBOX",
     [LLSTRING(IV_REUSE)],
@@ -430,23 +412,6 @@
 
 
 // TXA Settings Category
-[
-    QGVAR(allowStackScript_TXA),
-    "CHECKBOX",
-    [LLSTRING(SETTING_allowStackScript_TXA), LLSTRING(SETTING_allowStackScript_TXA_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_TXA)],
-    [true],
-    true
-] call CBA_Settings_fnc_init;
-
-[
-    QGVAR(keepScriptRunning_TXA),
-    "CHECKBOX",
-    [LLSTRING(SETTING_keepScriptRunning_TXA), LLSTRING(SETTING_keepScriptRunning_TXA_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_TXA)],
-    [true],
-    true
-] call CBA_Settings_fnc_init;
 
 [
     QGVAR(medLvl_TXA),
@@ -490,25 +455,6 @@
     [LLSTRING(SETTING_bandageCycleTime_TXA), LLSTRING(SETTING_bandageCycleTime_TXA_DESC)],
     [CBA_SETTINGS_CAT, LSTRING(SubCategory_TXA)],
     [1, 180, 5],
-    true
-] call CBA_Settings_fnc_init;
-
-
-[
-    QGVAR(allowStackScript_EACA),
-    "CHECKBOX",
-    [LLSTRING(SETTING_allowStackScript_EACA), LLSTRING(SETTING_allowStackScript_EACA_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_EACA)],
-    [true],
-    true
-] call CBA_Settings_fnc_init;
-
-[
-    QGVAR(keepScriptRunning_EACA),
-    "CHECKBOX",
-    [LLSTRING(SETTING_keepScriptRunning_EACA), LLSTRING(SETTING_keepScriptRunning_EACA_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_EACA)],
-    [true],
     true
 ] call CBA_Settings_fnc_init;
 
@@ -776,15 +722,6 @@
     true
 ] call CBA_Settings_fnc_init;
 
-[
-    QGVAR(coagulation_factor_regenerate_time),
-    "TIME",
-    [LLSTRING(SETTING_Coagulation_Factor_Regenerate_Time), LLSTRING(SETTING_Coagulation_Factor_Regenerate_Time_DESC)],
-    [CBA_SETTINGS_CAT, LSTRING(SubCategory_Coagulation)],
-    [1, 120, 30],
-    true
-] call CBA_Settings_fnc_init;
-
 // Stamina Settings
 [
     QGVAR(staminaMedication),
@@ -1047,9 +984,9 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    QGVAR(medLvl_LidocaineIM),
+    QGVAR(medLvl_NerveBlock),
     "LIST",
-    [LLSTRING(medLvl_LidocaineIM)],
+    [LLSTRING(medLvl_NerveBlock)],
     [CBA_SETTINGS_CAT, LSTRING(SubCategory_Medications)],
     [[0, 1, 2], [ACELSTRING(medical_treatment,Anyone), ACELSTRING(medical_treatment,Medics), ACELSTRING(medical_treatment,Doctors)], 0],
     true
@@ -1182,5 +1119,14 @@
     [LLSTRING(medLvl_Succinylcholine)],
     [CBA_SETTINGS_CAT, LSTRING(SubCategory_Medications)],
     [[0, 1, 2], [ACELSTRING(medical_treatment,Anyone), ACELSTRING(medical_treatment,Medics), ACELSTRING(medical_treatment,Doctors)], 0],
+    true
+] call CBA_Settings_fnc_init;
+
+[
+    QGVAR(treatmentTime_NerveBlock),
+    "SLIDER",
+    [LLSTRING(treatmentTime_NerveBlock)],
+    [CBA_SETTINGS_CAT, LSTRING(SubCategory_ApplyIV)],
+    [0.1, 10, 7, 1],
     true
 ] call CBA_Settings_fnc_init;

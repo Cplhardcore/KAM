@@ -1,4 +1,3 @@
-
 #include "..\script_component.hpp"
 /*
  * Author: Glowbal, Mazinski
@@ -61,7 +60,6 @@ if (EGVAR(hypothermia,hypothermiaActive)) then {
     _temperature = [_unit, _altitudeTempImpact, _bloodVolume, _deltaT, _syncValues] call FUNC(handleTemperatureFunction);
 };
 
-// Set variables for synchronizing information across the net
 private _hemorrhage = switch (true) do {
     case (_bloodVolume < BLOOD_VOLUME_CLASS_4_HEMORRHAGE): { 4 };
     case (_bloodVolume < BLOOD_VOLUME_CLASS_3_HEMORRHAGE): { 3 };
@@ -92,7 +90,7 @@ if (_tourniquetPain > 0) then {
     [_unit, _tourniquetPain] call ACEFUNC(medical_status,adjustPainLevel);
 };
 
-// Get Medication Adjustments:
+
 private _hrTargetAdjustment = 0;
 private _painSupressAdjustment = 0;
 private _peripheralResistanceAdjustment = 0;
@@ -104,17 +102,18 @@ private _respiratoryRateAdjustment = 1;
 private _contractilityAdjustment = 1;
 private _nauseaMultAdjustment = 1;
 private _sedationAdjustment = 0;
+private _cnsSuppressionAdjustment = 0;
 private _paralysisAdjustment = 0;
 private _effectRatio = 0;
 
 private _adjustments = _unit getVariable [VAR_MEDICATIONS,[]];
 
 private _ph = GET_PH(_unit);
-private _metabolismMult = linearConversion [7.4, 7.0, _ph, 1.0, 0.4, true];
-private _onsetMult = linearConversion [7.4, 7.0, _ph, 1.0, 1.6, true];
+private _metabolismMult = 1;//linearConversion [7.4, 7.0, _ph, 1.0, 0.4, true];
+private _onsetMult = 1;//linearConversion [7.4, 7.0, _ph, 1.0, 1.6, true];
 
 private _effectiveDose = 1;
-if (_ph < 7.1) then {
+/*if (_ph < 7.1) then {
     _effectiveDose = linearConversion [7.1, 6.8, _ph, 1.0, 1.4, true];;
 };
 private _ph = GET_PH(_unit);
@@ -136,15 +135,15 @@ private _phVasoMult = linearConversion [
     true
 ];
 private _calciumVasoMult = linearConversion [
-            2.0,    // hypocalcemia
-            3.0,    // hypercalcemia
-            _ca,
-            0.6,    // poor response
-            1.3,    // exaggerated response
-            true
-];
-private _vasoEffectMult = _phVasoMult * _calciumVasoMult;
-private _vasodilatorMult = _phDilationMult * (1 / _calciumVasoMult);
+    2.0,    // hypocalcemia
+    3.0,    // hypercalcemia
+    _ca,
+    0.6,    // poor response
+    1.3,    // exaggerated response
+    true
+];*/
+private _vasoEffectMult = 1;//_phVasoMult * _calciumVasoMult;
+private _vasodilatorMult = 1;//_phDilationMult * (1 / _calciumVasoMult);*/
 TRACE_1("HUV",_adjustments);
 _vasoEffectMult = (_vasoEffectMult max 0.25) min 1.5;
 _vasodilatorMult = (_vasodilatorMult max 0.6) min 1.8;
@@ -157,47 +156,143 @@ if (_adjustments isNotEqualTo []) then {
             "_hrAdjust", "_painAdjust", "_flowAdjust", "_dose", "_alphaFactor",
             "_opioidRelief", "_opioidEffect", "_opioidDepression",
             "_respiratoryRate", "_contractility", "_nauseaMult",
-            "_sedation", "_paralysis", "_linear"
+            "_sedation", "_paralysis", "_medGraph", "_cnsSuppression", "_admin"
         ];
-
+        _admin params ["_ld50", "_od50", "_chanceToOD", "_bloodBased", "_weightMult", "_theraputic", "_infusion"];
         private _scaledMaxTime = _maxTimeInSystem / _metabolismMult;
         private _scaledTimeToMax = _timeTillMaxEffect * _onsetMult;
         private _timeInSystem = CBA_missionTime - _timeAdded;
-
+        if ((typeName _medication) != "STRING") then {
+            diag_log format ["Hey, this is a bad array, %1",_x];
+            ["Hey, if you see this, make a bug report and include your RPT", 2, _unit, 5] call ACEFUNC(common,displayTextStructured);
+            continue};
+        private _medLower = toLower _medication;
+        private _blockedWords = ["overdose", "override", "bradycardia", "tachycardia", "sedation"];
+        private _found = _blockedWords findIf { _medLower find _x != -1 };
+        if ((_admin select 1 > 0) && (_found == -1) && (_admin select 0 > 0)) then {
+            [_unit, _medication, _ld50, _od50, _chanceToOD] call FUNC(handleOverdoses);
+        };
+        TRACE_3("TIS",_medication,_timeInSystem,_scaledMaxTime);
         if (_timeInSystem >= _scaledMaxTime) then {
             _deleted = true;
-            _adjustments set [_forEachIndex, objNull];
+            _adjustments deleteAt _forEachIndex;
         } else {
-
-            if (_linear == "true") then {
-                _effectRatio = 1;
-            } else {
-                _effectRatio =
-                    (((_timeInSystem / _scaledTimeToMax) ^ 2) min 1)
-                    * ((_scaledMaxTime - _timeInSystem) / _scaledMaxTime);
+            switch (_medGraph) do {
+                case 1: {
+                    _effectRatio = 1;
+                };
+                case 2: {
+                    private _fadeOutDuration = _scaledTimeToMax * 5;
+                    private _rampUp = ((_timeInSystem / _scaledTimeToMax) ^ 2) min 1;
+                    private _timeRemaining = _scaledMaxTime - _timeInSystem;
+                    private _step = ((_timeRemaining / _fadeOutDuration) max 0) min 1;
+                    _effectRatio = _rampUp * (_step * _step * (3 - 2 * _step));
+                };
+                default {
+                    _effectRatio = (((_timeInSystem / _scaledTimeToMax) ^ 2) min 1) * ((_scaledMaxTime - _timeInSystem) / _scaledMaxTime);
+                };
             };
-
-            if (_hrAdjust != 0) then { _hrTargetAdjustment = _hrTargetAdjustment + _hrAdjust * _effectRatio * _effectiveDose; };
-            if (_painAdjust != 0) then { _painSupressAdjustment = _painSupressAdjustment + _painAdjust * _effectRatio * _effectiveDose; };
-            if (_flowAdjust >= 0) then { _peripheralResistanceAdjustment = _peripheralResistanceAdjustment + _flowAdjust * _effectRatio * _effectiveDose * _vasoEffectMult; };
-            if (_alphaFactor >= 0) then { _alphaFactorAdjustment = _alphaFactorAdjustment + _alphaFactor * _effectRatio * _effectiveDose * _vasoEffectMult; };
-            if (_flowAdjust < 0) then { _peripheralResistanceAdjustment = _peripheralResistanceAdjustment + _flowAdjust * _effectRatio * _effectiveDose * _vasodilatorMult; };
-            if (_alphaFactor < 0) then { _alphaFactorAdjustment = _alphaFactorAdjustment + _alphaFactor * _effectRatio * _effectiveDose * _vasodilatorMult; };
-            if (_opioidRelief != 0) then { _opioidAdjustment = _opioidAdjustment + _opioidRelief * _effectRatio * _effectiveDose; };
-            if (_opioidEffect != 0) then { _opioidEffectAdjustment = _opioidEffectAdjustment + _opioidEffect * _effectRatio * _effectiveDose; };
-            if (_opioidDepression != 0) then { _opioidDepressionAdjustment = _opioidDepressionAdjustment + _opioidDepression * _effectRatio * _effectiveDose; };
-            if (_respiratoryRate != 0) then { _respiratoryRateAdjustment = _respiratoryRateAdjustment + _respiratoryRate * _effectRatio * _effectiveDose; };
-            if (_contractility != 0) then { _contractilityAdjustment = _contractilityAdjustment + _contractility * _effectRatio * _effectiveDose; };
-            if (_nauseaMult != 0) then { _nauseaMultAdjustment = (_nauseaMultAdjustment + (_nauseaMult * _effectRatio)) max 0.1; };
-            if (_sedation == "true") then { _sedationAdjustment = (_sedationAdjustment + (1 * _effectRatio)) min 1; };
-            if (_paralysis == "true") then { _paralysisAdjustment = (_paralysisAdjustment + (1 * _effectRatio)) min 1; };
+            private _dampening = {
+                params ["_total", "_effect", "_cap", "_base"];
+                if (abs (_total * _effect) > _base) then {
+                    _total = _total + (_effect * (1 - (abs _total / _cap)));
+                } else {
+                    _total = _total + _effect;
+                };
+                _total
+            };
+            private _diazapamMult = 1;
+            if (toLower _medication == "diazapam") then {
+                private _medStack = _unit call ACEFUNC(medical_status,getAllMedicationCount);
+                private _fentanylEffectiveness = 0;
+                private _nalbuphineEffectiveness = 0;
+                private _morphineEffectiveness = 0;
+                private _lorazepamEffectiveness = 0;
+                {
+                    private _medName = toLower (_x select 0);
+                    private _effectiveness = _x select 2;
+                    private _dose = _x select 1;
+                    if ("fentanyl" in _medName) then {
+                        _fentanylEffectiveness = _fentanylEffectiveness max (_dose * _effectiveness);
+                    };
+                    if ("nalbuphine" in _medName) then {
+                        _nalbuphineEffectiveness = _nalbuphineEffectiveness max (_dose * _effectiveness);
+                    };
+                    if ("morphine" in _medName) then {
+                        _morphineEffectiveness = _morphineEffectiveness max (_dose * _effectiveness);
+                    };
+                    if ("lorazepam" in _medName) then {
+                        _lorazepamEffectiveness = _lorazepamEffectiveness max (_dose * _effectiveness);
+                    };
+                } forEach _medStack;
+                _diazapamMult = linearConversion [0, 90, (_fentanylEffectiveness + _nalbuphineEffectiveness + _morphineEffectiveness * _lorazepamEffectiveness), 1, 4, true];
+            };
+            private _ODblockedWords = ["overdose"];
+            private _ODfound = _ODblockedWords findIf { _medLower find _x != -1 };
+            private _overdoseMult = 1;
+            private _currentDose = [_unit, _medication] call EFUNC(misc,getCurrentDosage);
+            if (_ODfound != -1) then {
+                _overdoseMult = linearConversion [0, _ld50 -_od50, _od50 - _currentDose, 0.6, 3, true];
+            };
+            private _hemocrit = 1;
+            if (_bloodBased == 1) then {
+                _hemocrit = (GET_BODY_FLUID_ECB(_unit)/GET_BODY_FLUID_ECP(_unit)) / (DEFAULT_ECB/DEFAULT_ECP)
+            } else {
+                _hemocrit = (GET_BODY_FLUID_ECP(_unit)/GET_BODY_FLUID_ECB(_unit)) / (DEFAULT_ECP/DEFAULT_ECB)
+            };
+            private _drugMult = ((((GET_BLOOD_VOLUME_LITERS(_unit) / DEFAULT_BLOOD_VOLUME) * _hemocrit) max 0.2) min 2) * _diazapamMult * _overdoseMult;
+            if (_found == -1) then {
+                if (_hrAdjust != 0) then { _hrTargetAdjustment = [_hrTargetAdjustment, _hrAdjust * _drugMult * _effectRatio * _effectiveDose, 125, 0] call _dampening };
+                if (_painAdjust != 0) then { _painSupressAdjustment = [_painSupressAdjustment, _painAdjust * _drugMult * _effectRatio * _effectiveDose, 1.25, 0] call _dampening };
+                if (_flowAdjust >= 0) then { _peripheralResistanceAdjustment = [_peripheralResistanceAdjustment * _drugMult + _flowAdjust * _effectRatio * _effectiveDose * _vasoEffectMult, 1.25, 0] call _dampening };
+                if (_alphaFactor >= 0) then { _alphaFactorAdjustment = [_alphaFactorAdjustment,  _alphaFactor * _drugMult * _effectRatio * _effectiveDose * _vasoEffectMult, 1.25, 0] call _dampening};
+                if (_flowAdjust < 0) then { _peripheralResistanceAdjustment = [_peripheralResistanceAdjustment * _drugMult + _flowAdjust * _effectRatio * _effectiveDose * _vasodilatorMult, 1.25, 0] call _dampening};
+                if (_alphaFactor < 0) then { _alphaFactorAdjustment = [_alphaFactorAdjustment, _alphaFactor * _drugMult * _effectRatio * _effectiveDose * _vasodilatorMult, 1.25, 0] call _dampening };
+                if (_opioidRelief != 0) then { _opioidAdjustment = [_opioidAdjustment, _opioidRelief * _drugMult * _effectRatio * _effectiveDose, 1.25, 0] call _dampening };
+                if (_opioidEffect != 0) then { _opioidEffectAdjustment = [_opioidEffectAdjustment, _opioidEffect * _drugMult * _effectRatio * _effectiveDose, 1.25, 0] call _dampening };
+                if (_opioidDepression != 0) then { _opioidDepressionAdjustment = [_opioidDepressionAdjustment, _opioidDepression * _drugMult * _effectRatio * _effectiveDose, 12.5, 0] call _dampening };
+                if (_respiratoryRate != 0) then { _respiratoryRateAdjustment = [_respiratoryRateAdjustment, _respiratoryRate * _drugMult * _effectRatio * _effectiveDose, 1.25, 1] call _dampening };
+                if (_contractility != 0) then { _contractilityAdjustment = [_contractilityAdjustment, _contractility * _drugMult * _effectRatio * _effectiveDose, 1.25, 1] call _dampening };
+                if (_nauseaMult != 0) then { _nauseaMultAdjustment = ([_nauseaMultAdjustment, (_nauseaMult * _effectRatio * _drugMult), 1.25, 1] call _dampening ) max 0.1};
+                if (_sedation == 1) then { _sedationAdjustment = (_sedationAdjustment + (1 * _effectRatio)) min 1; };
+                if (_paralysis == 1) then { _paralysisAdjustment = (_paralysisAdjustment + (1 * _effectRatio)) min 1; };
+                if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = [_cnsSuppressionAdjustment, _cnsSuppression * _drugMult * _effectRatio * _effectiveDose, 1.25, 0] call _dampening};
+            } else {
+                if (_hrAdjust != 0) then { _hrTargetAdjustment = _hrTargetAdjustment + (_hrAdjust * _drugMult * _effectRatio * _effectiveDose); };
+                if (_painAdjust != 0) then { _painSupressAdjustment = _painSupressAdjustment + (_painAdjust * _drugMult * _effectRatio * _effectiveDose); };
+                if (_flowAdjust >= 0) then { _peripheralResistanceAdjustment = _peripheralResistanceAdjustment + (_flowAdjust * _drugMult  * _effectRatio * _effectiveDose * _vasoEffectMult); };
+                if (_alphaFactor >= 0) then { _alphaFactorAdjustment = _alphaFactorAdjustment + (_alphaFactor * _drugMult * _effectRatio * _effectiveDose * _vasoEffectMult); };
+                if (_flowAdjust < 0) then { _peripheralResistanceAdjustment = _peripheralResistanceAdjustment + (_flowAdjust * _drugMult * _effectRatio * _effectiveDose * _vasodilatorMult); };
+                if (_alphaFactor < 0) then { _alphaFactorAdjustment = _alphaFactorAdjustment + (_alphaFactor * _drugMult * _effectRatio * _effectiveDose * _vasodilatorMult); };
+                if (_opioidRelief != 0) then { _opioidAdjustment = _opioidAdjustment + (_opioidRelief * _drugMult * _effectRatio * _effectiveDose); };
+                if (_opioidEffect != 0) then { _opioidEffectAdjustment = _opioidEffectAdjustment + (_opioidEffect * _drugMult * _effectRatio * _effectiveDose); };
+                if (_opioidDepression != 0) then { _opioidDepressionAdjustment = _opioidDepressionAdjustment + (_opioidDepression * _drugMult * _effectRatio * _effectiveDose); };
+                if (_respiratoryRate != 0) then { _respiratoryRateAdjustment = _respiratoryRateAdjustment + (_respiratoryRate * _drugMult * _effectRatio * _effectiveDose); };
+                if (_contractility != 0) then { _contractilityAdjustment = _contractilityAdjustment + (_contractility * _drugMult * _effectRatio * _effectiveDose); };
+                if (_nauseaMult != 0) then { _nauseaMultAdjustment = (_nauseaMultAdjustment + (_nauseaMult * _effectRatio * _drugMult)) max 0.1; };
+                if (_sedation == 1) then { _sedationAdjustment = (_sedationAdjustment + (1 * _effectRatio)) min 1; };
+                if (_paralysis == 1) then { _paralysisAdjustment = (_paralysisAdjustment + (1 * _effectRatio)) min 1; };
+                if (_cnsSuppression != 0) then { _cnsSuppressionAdjustment = _cnsSuppressionAdjustment + (_cnsSuppression * _drugMult * _effectRatio * _effectiveDose); };
+            };
+            if (_currentDose > _theraputic) then {
+                private _overage = (_dose - _theraputic);
+                if (_medication in ["EACA", "TXA"]) then {
+                    [format ["kat_pharma_%1Local", toLower _medication], [_unit, _deltaT], _unit] call CBA_fnc_targetEvent;
+                };
+                if (_medication in ["Lorazepam","Etomidate","Sugammadex","Flumazenil"]) then {
+                    [format ["kat_pharma_%1Local", toLower _medication], [_unit, _overage], _unit] call CBA_fnc_targetEvent;
+                };
+                if (_medication in ["Atropine","Alteplase"]) then {
+                    [format ["kat_pharma_%1Local", toLower _medication], [_unit], _unit] call CBA_fnc_targetEvent;
+                };
+                
+            }
         };
 
     } forEach _adjustments;
-
-    if (_deleted) then {
-        _unit setVariable [VAR_MEDICATIONS, _adjustments - [objNull], true];
+    if (_deleted) then {   
         _syncValues = true;
+        _unit setVariable [VAR_MEDICATIONS, _adjustments - [objNull], true];
     };
 };
 
@@ -206,13 +301,13 @@ if (_adjustments isNotEqualTo []) then {
 [_unit, _peripheralResistanceAdjustment, _deltaT, _syncValues] call ACEFUNC(medical_vitals,updatePeripheralResistance);
 [_unit, _opioidAdjustment, _deltaT, _syncValues] call FUNC(updateOpioidRelief);
 [_unit, _opioidEffectAdjustment, _deltaT, _syncValues] call FUNC(updateOpioidEffect);
-[_unit, _opioidDepressionAdjustment, _deltaT, _syncValues] call FUNC(updateOpioidDepression);
+[_unit, _opioidDepressionAdjustment, _deltaT, _syncValues] call FUNC(updateOpioidDepression);//resp depth
 [_unit, _respiratoryRateAdjustment, _deltaT, _syncValues] call FUNC(updateRespiratoryRate);
 [_unit, _contractilityAdjustment, _deltaT, _syncValues] call FUNC(updateContractility);
 [_unit, _nauseaMultAdjustment, _deltaT, _syncValues] call FUNC(updateNauseaMult);
 [_unit, _sedationAdjustment, _deltaT, _syncValues] call FUNC(updateSedation);
 [_unit, _paralysisAdjustment, _deltaT, _syncValues] call FUNC(updateParalysis);
-
+[_unit, _cnsSuppressionAdjustment, _deltaT, _syncValues] call FUNC(updateCnsSuppression);
 private _aceAnFatigue = 0;
 private _aceAnReserve = 0;
 if (_unit getVariable [QGVAR(fatigueEnabled), false]) then {
@@ -222,7 +317,7 @@ if (_unit getVariable [QGVAR(fatigueEnabled), false]) then {
 if (_unit getVariable [QGVAR(fatigueEnabled), false]) then {
     _aceAnReserve = [_unit] call FUNC(returnReserve);
 };
-
+[_unit] call FUNC(updateShockController);
 private _heartRate = [_unit, _hrTargetAdjustment, 0, _bloodVolume, _aceAnFatigue, _aceAnReserve, _deltaT, _syncValues] call FUNC(handleCardiacFunction);
 
 private _spo2 = 97;
@@ -236,13 +331,23 @@ if (EGVAR(breathing,enable)) then {
 };
 
 private _woundBloodLoss = GET_BODY_BLEED_RATE(_unit);
+private _totalBloodLoss = 0;
+{ _totalBloodLoss = _totalBloodLoss + _x } forEach _woundBloodLoss;
 private _damage = GET_BODYPART_DAMAGE(_unit);
+private _trauma = _unit getVariable [QGVAR(traumaState),0];
+private _bloodVol = GET_BLOOD_VOLUME_LITERS(_unit);
 // Vasoconstriction from Wound Blood Loss and Alpha Adjustment
 private _vasoArray = _unit getVariable [VAR_VASOCONSTRICTION, [1,1,1,1,1,1,1,1,1,1,1,1]];
 {
     private _limbIndex = _forEachIndex;
-    private _bodyPartDamage = linearConversion [0, 20, (_damage select _limbIndex), 0, 1, true];
-    private _vasoconstriction = 1 + (0.5 * (_woundBloodLoss select _limbIndex)) + _alphaFactorAdjustment + (0.5 * _bodyPartDamage);
+    private _bodyPartDamage = linearConversion [0, 40, (_damage select _limbIndex), 0, 0.6, true];
+    private _bloodLoss = linearConversion [0.005, 0.1, (_woundBloodLoss select _limbIndex), 0, -0.8, true];
+    private _bloodVolRemaining = linearConversion [6, 4, _bloodVol, 1, 0.3, true];
+    private _vasoconstriction = 1 + (0.7 * (_bloodLoss * _bloodVolRemaining)) + _alphaFactorAdjustment + _bodyPartDamage;
+    if (_trauma > 0.7) then {
+    _vasoconstriction = _vasoconstriction * (1 - ((_trauma - 0.7) * 1.2));
+    };
+    TRACE_6("vaso",_vasoconstriction,_bodyPartDamage,_bloodLoss,_alphaFactorAdjustment,_bloodVolRemaining,(1 + (0.7 * (_bloodLoss * _bloodVolRemaining)) + _alphaFactorAdjustment + _bodyPartDamage));
     _vasoArray set [_limbIndex, (1.9 min (0.2 max _vasoconstriction))];
 } forEach _vasoArray;
 
@@ -253,14 +358,14 @@ _unit setVariable [VAR_BLOOD_PRESS, _bloodPressure, _syncValues];
 
 _bloodPressure params ["_bloodPressureL", "_bloodPressureH"];
 private _map = GET_MAP(_unit);
-
+private _oxygenDelivery = _unit getVariable [QGVAR(oxygenDelivery),10];
 // Statements are ordered by most lethal first.
 switch (true) do {
     case ((_spo2 < EGVAR(breathing,SpO2_dieValue)) && EGVAR(breathing,SpO2_dieActive)): {
         TRACE_3("O2 Fatal",_unit,EGVAR(breathing,SpO2_dieValue),_spo2);
         [_unit, "Fatal_Blood_Oxygen"] call ACEFUNC(medical_status,setDead);
     };
-    case ((_bloodVolume + GET_REBOA_VOLUME(_unit)) < BLOOD_VOLUME_FATAL): {
+    case ((_bloodVolume) < BLOOD_VOLUME_FATAL): {
         TRACE_3("BloodVolume Fatal",_unit,BLOOD_VOLUME_FATAL,_bloodVolume);
         [QACEGVAR(medical,Bleedout), _unit] call CBA_fnc_localEvent;
     };
@@ -272,7 +377,7 @@ switch (true) do {
         };
         [QACEGVAR(medical,FatalVitals), _unit] call CBA_fnc_localEvent;
     };
-    case ((_bloodVolume + GET_REBOA_VOLUME(_unit)) < BLOOD_VOLUME_CLASS_4_HEMORRHAGE): {
+    case ((_bloodVolume) < BLOOD_VOLUME_CLASS_4_HEMORRHAGE): {
         TRACE_3("Class IV Hemorrhage",_unit,_hemorrhage,_bloodVolume);
         if ((_unit getVariable [QEGVAR(conversion,convert), false]) && (isPlayer _unit) && EGVAR(conversion,enableAutomaticConversion)) then {
             [QEGVAR(conversion,convertCasualty), _unit] call CBA_fnc_localEvent;
@@ -292,31 +397,63 @@ switch (true) do {
             [QEGVAR(conversion,convertCasualty), _unit] call CBA_fnc_localEvent;
         };
     };
+    case (_oxygenDelivery < 4): {
+        [QACEGVAR(medical,FatalVitals), _unit] call CBA_fnc_localEvent;
+        if ((_unit getVariable [QEGVAR(conversion,convert), false]) && (isPlayer _unit) && EGVAR(conversion,enableAutomaticConversion)) then {
+            [QEGVAR(conversion,convertCasualty), _unit] call CBA_fnc_localEvent;
+        };
+    };
     case (_map < 45 || {_map > 190}): {
+        [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
+    };
+    case (_oxygenDelivery < 5): {
         [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
     };
     case (_spo2 < EGVAR(breathing,SpO2_unconscious)): {
         [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
     };
-    case (_woundBloodLoss > BLOOD_LOSS_KNOCK_OUT_THRESHOLD): {
+    case (_totalBloodLoss > BLOOD_LOSS_KNOCK_OUT_THRESHOLD): {
         [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
     };
-    case (_woundBloodLoss > 0): {
+    case (_totalBloodLoss > 0): {
         [QACEGVAR(medical,LoweredVitals), _unit] call CBA_fnc_localEvent;
     };
     case (_inPain): {
         [QACEGVAR(medical,LoweredVitals), _unit] call CBA_fnc_localEvent;
     };
 };
+[_unit] call EFUNC(misc,handleBandageOpening);
+[_unit] call EFUNC(misc,updateDamageEffects);
+[_unit] call EFUNC(misc,handleTourniquetEffects);
 
-#ifdef DEBUG_MODE_FULL
-private _cardiacOutput = [_unit] call ACEFUNC(medical_status,getCardiacOutput);
-if (!isPlayer _unit) then {
-    private _painLevel = _unit getVariable [VAR_PAIN, 0];
-    hintSilent format["blood volume: %1, blood loss: [%2, %3]\nhr: %4, bp: %5, vasoconstriction: %6", round(_bloodVolume * 100) / 100, round(_woundBloodLoss * 1000) / 1000, round((_woundBloodLoss / (0.001 max _cardiacOutput)) * 100) / 100, round(_heartRate), _bloodPressure, _vasoconstriction];
+
+private _isUnconscious  = _unit getVariable ["ACE_isUnconscious", false];
+if (_isUnconscious) then {
+    [_unit, _deltaT] call EFUNC(airway,airwayDeterioration);
 };
-#endif
+[_unit, _deltaT] call EFUNC(airway,handlePuking);
+[_unit] call EFUNC(airway,handleAirwayEffects);
 
+if (_unit getVariable [QEGVAR(brain,concussion), 0] > 0) then {
+    [_unit, _deltaT] call EFUNC(brain,concussionPFH);
+};
+[_unit, _deltaT] call EFUNC(brain,handleAutoregulation);
+[_unit, _deltaT] call EFUNC(brain,handleBrainActivity);
+{
+private _side = _x;
+[_unit, _side, _deltaT] call EFUNC(breathing,handleHemothoraxTreatment);
+[_unit, _side, 0, _deltaT] call EFUNC(breathing,handleHemothoraxDeterioration);
+[_unit, _side, _deltaT] call EFUNC(breathing,handlePneumothoraxDeterioration);
+[_unit, _side, _deltaT] call EFUNC(breathing,handlePneumothoraxTreatment);
+} forEach [0, 1];
+[_unit, _deltaT] call EFUNC(breathing,handleTamponade);
+
+[_unit, _deltaT] call EFUNC(pharma,updatePharmaEffects);
+[_unit] call EFUNC(hypothermia,updateHypothermiaEffects);
+[_unit] call EFUNC(breathing,updateTACOEffects);
+[_unit] call EFUNC(breathing,handlePulseoximeter);
+[_unit] call EFUNC(airway,airwayDeterioration);
+[_unit,_deltaT] call EFUNC(hitpoints,updateJointInjuries);
 END_COUNTER(Vitals);
 
 //placed outside the counter as 3rd-party code may be called from this event

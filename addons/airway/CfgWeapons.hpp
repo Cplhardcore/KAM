@@ -11,7 +11,7 @@ class CfgWeapons {
         model = QPATHTOF(models\larynx_tube\tube.p3d);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1.5;
+            mass = 2.5;
         };
     };
     class kat_guedel: ACE_ItemCore {
@@ -34,7 +34,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\npa.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 0.75;
         };
     };
     class kat_IGEL: ACE_ItemCore {
@@ -45,7 +45,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\igel.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 2.5;
         };
     };
     class kat_laryngoscope: ACE_ItemCore {
@@ -56,7 +56,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\Laryngoscope.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 5;
+            mass = 6;
         };
     };
     class kat_ETT: ACE_ItemCore {
@@ -67,7 +67,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\ETT.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 2;
         };
     };
     class kat_accuvac: ACE_ItemCore {
@@ -79,7 +79,7 @@ class CfgWeapons {
         model = QPATHTOF(models\accuvac\accuvac.p3d);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 30;
+            mass = 50;
         };
     };
     class kat_suction: ACE_ItemCore {
@@ -90,7 +90,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\suction_normal.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2;
+            mass = 4;
         };
     };
     class kat_crikeKit: ACE_ItemCore {
@@ -101,7 +101,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\CrikeKit.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2.5;
+            mass = 4;
         };
     };
     class kat_surgAirway: ACE_ItemCore {
@@ -112,7 +112,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\SurgAirway.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
     class kat_airwayStrap: ACE_ItemCore {
@@ -123,7 +123,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\AirwayStrap.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
 };

@@ -1,29 +1,5 @@
 #include "script_component.hpp"
 
-["Land_IntravenStand_01_empty_F", 0, ["ACE_MainActions"],
-    [QGVAR(addIV_1), LLSTRING(Action_add_IV_Display), "", {[_target, _player, 1000] call FUNC(addIVbag)}, {[_player, "ACE_salineIV"] call FUNC(conditionIVstand)}] call ACEFUNC(interact_menu,createAction)
-] call ACEFUNC(interact_menu,addActionToClass);
-
-["Land_IntravenStand_01_empty_F", 0, ["ACE_MainActions"],
-    [QGVAR(addIV_5), LLSTRING(Action_add_IV_Display_500), "", {[_target, _player, 500] call FUNC(addIVbag)}, {[_player, "ACE_salineIV_500"] call FUNC(conditionIVstand)}] call ACEFUNC(interact_menu,createAction)
-] call ACEFUNC(interact_menu,addActionToClass);
-
-["Land_IntravenStand_01_empty_F", 0, ["ACE_MainActions"],
-    [QGVAR(addIV_2), LLSTRING(Action_add_IV_Display_250), "", {[_target, _player, 250] call FUNC(addIVbag)}, {[_player, "ACE_salineIV_250"] call FUNC(conditionIVstand)}] call ACEFUNC(interact_menu,createAction)
-] call ACEFUNC(interact_menu,addActionToClass);
-
-["Land_IntravenStand_01_1bag_F", 0, ["ACE_MainActions"],
-    [QGVAR(addIV), LLSTRING(Action_add_IV_Display), "", {[_target, _player, 1000] call FUNC(addIVbag)}, {[_player, "ACE_salineIV"] call FUNC(conditionIVstand)}] call ACEFUNC(interact_menu,createAction)
-] call ACEFUNC(interact_menu,addActionToClass);
-
-["Land_IntravenStand_01_1bag_F", 0, ["ACE_MainActions"],
-    [QGVAR(addIV_5), LLSTRING(Action_add_IV_Display_500), "", {[_target, _player, 500] call FUNC(addIVbag)}, {[_player, "ACE_salineIV_500"] call FUNC(conditionIVstand)}] call ACEFUNC(interact_menu,createAction)
-] call ACEFUNC(interact_menu,addActionToClass);
-
-["Land_IntravenStand_01_1bag_F", 0, ["ACE_MainActions"],
-    [QGVAR(addIV_2), LLSTRING(Action_add_IV_Display_250), "", {[_target, _player, 250] call FUNC(addIVbag)}, {[_player, "ACE_salineIV_250"] call FUNC(conditionIVstand)}] call ACEFUNC(interact_menu,createAction)
-] call ACEFUNC(interact_menu,addActionToClass);
-
 if (GVAR(incompatibilityWarning)) then {
     call FUNC(incompatibilityWarning);
 };
@@ -59,3 +35,28 @@ call FUNC(FAK_updateContents);
         1 max (ACE_player getVariable [QGVAR(Tourniquet_ArmNecrosis), 0]) / 10
     } else {1};
 }, QUOTE(ADDON)] call ACEFUNC(common,addSwayFactor);
+#define CBA_SETTINGS_CAT LSTRING(cba_name)
+GVAR(blacklistedItems) = [
+    "kat_accuvac",
+    "kat_X_AED",
+    "kat_AED",
+    "kat_laryngoscope",
+    "kat_suction",
+    "kat_pocketBVM",
+    "kat_BVM",
+    "kat_stethoscope",
+    "kat_BPCuff",
+    "kat_fluidWarmer",
+    "kat_thermometer",
+    "kat_pressureBag",
+    "kat_coag_sense",
+    "kat_vacuum",
+    "kat_ultrasound"
+];
+#include "\a3\ui_f\hpp\defineDIKCodes.inc"
+[CBA_SETTINGS_CAT, QGVAR(dropBackpack), CSTRING(dropBackpack), {
+    if (!([ACE_player, objNull, ["isNotEscorting"]] call ACEFUNC(common,canInteractWith))) exitWith { false };
+
+    ACE_player call FUNC(dropBag);
+    true
+}, { false }, [DIK_LCONTROL + DIK_I, [false, false, true]], false] call CBA_fnc_addKeybind;

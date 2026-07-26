@@ -89,7 +89,7 @@
             <Spanish>Kit de constantes que devuelve el pulso, la presión sanguínea y el ritmo respiratorio del paciente</Spanish>
         </Key>
         <Key ID="STR_KAT_Vitals_basicDiagnostic_display">
-            <English>Basic Vitals Kit</English>
+            <English>(V) Kit: Basic Vitals</English>
             <Czech>Základní Vitální Sada</Czech>
             <French>Kit de diagnostic vital de base</French>
             <Italian>Kit diagnostico per la misurazione di parametri vitali</Italian>

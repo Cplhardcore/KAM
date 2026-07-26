@@ -26,28 +26,11 @@ private _medicationArray = _patient getVariable [QACEGVAR(medical,medications), 
         _medicationArray deleteAt (_medicationArray find _x);
     };
 } forEach _medicationArray;
-
 _patient setVariable [QACEGVAR(medical,medications), _medicationArray, true];
-[{
-    params ["_patient"];
-        [{
-            params ["_args", "_idPFH"];
-            _args params ["_patient", "_AlteplaseTarget"];
-            _AlteplaseTarget = _AlteplaseTarget + 1;
-            _args set [1, _AlteplaseTarget];
-            if (!(alive _patient)) exitWith {
-                [_idPFH] call CBA_fnc_removePerFrameHandler;
-            };
-                _AlteplaseTarget = _AlteplaseTarget + 1;
-                _args set [1, _AlteplaseTarget];
-                if (_AlteplaseTarget > 24) exitWith {
-                [_idPFH] call CBA_fnc_removePerFrameHandler;};
-                private _surfaceArea = (_patient getVariable [QEGVAR(breathing,lungSurfaceArea), 400]) + 5;
-                if (_surfaceArea < 400) then {
-                    _patient setVariable [QEGVAR(breathing,lungSurfaceArea), _surfaceArea, true];
-                };
-                private _bloodlevels = GET_BODY_FLUID(_patient);
-                _bloodlevels set [5, ((_bloodlevels select 5) - 5) max 0];
-                _patient setVariable [QEGVAR(circulation,bodyFluid), _bloodlevels, true];
-        }, 10, [_patient,0]] call CBA_fnc_addPerFrameHandler;
-}, [_patient], 15] call CBA_fnc_waitAndExecute;
+private _surfaceArea = (_patient getVariable [QEGVAR(breathing,lungSurfaceArea), 400]) + 5;
+if (_surfaceArea < 400) then {
+    _patient setVariable [QEGVAR(breathing,lungSurfaceArea), _surfaceArea, true];
+};
+private _bloodlevels = GET_BODY_FLUID(_patient);
+_bloodlevels set [5, ((_bloodlevels select 5) - 2) max 0];
+_patient setVariable [QEGVAR(circulation,bodyFluid), _bloodlevels, true];

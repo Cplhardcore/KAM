@@ -30,7 +30,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 15;
+        mass = 20;
     };
 
     class kat_AFAK_Magazine: CA_Magazine {
@@ -46,7 +46,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 25;
+        mass = 40;
     };
 
     class kat_MFAK_Magazine: CA_Magazine {
@@ -62,7 +62,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 50;
+        mass = 100;
     };
     class kat_MEDPACK_Magazine: CA_Magazine {
         scope = 2;
@@ -76,6 +76,6 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 25;
+        mass = 60;
     };
 };

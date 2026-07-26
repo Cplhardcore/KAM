@@ -57,6 +57,8 @@ class CfgVehicles {
     };
     class kat_pharmaMedicalCrate: ACE_medicalSupplyCrate {
         displayName = CSTRING(pharmaSupplyCrate_displayName);
+        scope = 2;
+        scopeCurator = 2;
         class TransportItems {
             MACRO_ADDITEM(kat_naloxone,20);
             MACRO_ADDITEM(kat_EACA,20);

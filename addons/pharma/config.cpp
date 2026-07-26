@@ -6,6 +6,7 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         units[] = {
             "kat_PainkillerItem",
+            "kat_pharmaMedicalCrate"
         };
         weapons[] = {
             "kat_IV_16",

@@ -38,7 +38,7 @@ class ACE_Medical_Treatment_Actions {
     class CheckBreathing: CheckPulse {
         displayName = CSTRING(Check_Breathing);
         displayNameProgress = CSTRING(Check_Breathing_Progress);
-        category = "airway";
+        category = "examine";
         allowedSelections[] = {"Head"};
         allowSelfTreatment = 1;
         medicRequired = 0;
@@ -73,7 +73,7 @@ class ACE_Medical_Treatment_Actions {
     class Pulseoximeter {
         displayName = CSTRING(Pulseoximeter_Display);
         displayNameProgress = CSTRING(placing);
-        category = "examine";
+        category = "advanced";
         treatmentLocations = 0;
         allowedSelections[] = {"LeftArm", "RightArm"};
         allowSelfTreatment = 1;
@@ -97,7 +97,7 @@ class ACE_Medical_Treatment_Actions {
     class RemovePulseoximeter {
         displayName = CSTRING(Pulseoximeter_Display_Remove);
         displayNameProgress = CSTRING(remove);
-        category = "examine";
+        category = "advanced";
         treatmentLocations = 0;
         allowedSelections[] = {"LeftArm", "RightArm"};
         allowSelfTreatment = 1;
@@ -149,7 +149,7 @@ class ACE_Medical_Treatment_Actions {
     class FingerThoracostomy {
         displayName = CSTRING(FingerThoracostomy_display);
         displayNameProgress = CSTRING(treating);
-        category = "airway";
+        category = "surgery";
         treatmentLocations = 0;
         allowedSelections[] = {"Chest"};
         allowSelfTreatment = 0;
@@ -206,7 +206,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(PulseOximeter_Action_removeSound);
         displayNameProgress = "";
         icon = "";
-        category = "examine";
+        category = "advanced";
         treatmentLocations = 0;
         medicRequired = 0;
         allowSelfTreatment = 1;
@@ -282,7 +282,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(AttachVent);
         displayNameProgress = CSTRING(AttachingVent);
         category = "airway";
-        treatmentLocations = 1;
+        treatmentLocations = 3;
         allowedSelections[] = {"Head"};
         allowSelfTreatment = 0;
         medicRequired = QGVAR(medLvl_Vent);
@@ -315,19 +315,19 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(IncreaseVent);
         displayNameProgress = CSTRING(IncreasingVent);
         medicRequired = QGVAR(medLvl_Vent);
-        treatmentTime = 1;
+        treatmentTime = 0.01;
         items[] = {};
         condition = QFUNC(canAdjustRate);
-        callbackSuccess = QUOTE([ARR_3(_medic,_patient,-1)] call FUNC(adjustVentRate));
+        callbackSuccess = QUOTE([ARR_3(_medic,_patient,1)] call FUNC(adjustVentRate));
     };
     class SlowDownVent: AttachVent {
         displayName = CSTRING(DecreaseVent);
         displayNameProgress = CSTRING(DecreasingVent);
         medicRequired = QGVAR(medLvl_Vent);
-        treatmentTime = 1;
+        treatmentTime = 0.01;
         items[] = {};
         condition = QFUNC(canAdjustRate);
-        callbackSuccess = QUOTE([ARR_3(_medic,_patient,1)] call FUNC(adjustVentRate));
+        callbackSuccess = QUOTE([ARR_3(_medic,_patient,-1)] call FUNC(adjustVentRate));
     };
     class NasalCannula {
         displayName = CSTRING(NasalCannula_Display);

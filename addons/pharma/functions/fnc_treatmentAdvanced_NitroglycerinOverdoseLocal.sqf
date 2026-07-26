@@ -15,11 +15,13 @@
  * Public: No
  */
 params ["_patient"];
-private _hrValue = [-20, -25, -30, -35, -40, -45, 20, 25, 30, 35, 40, 45];
-private _hrAdjust = selectRandom _hrValue;
-
-[_patient, "NitroglycerinOverdose", 30, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
-if (random 3 < 1) then {
+private _doseLevel = ([_patient, "NitroglycerinOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel < 0.01) then {
+    private _hrValue = [-20, -25, -30, -35, -40, -45, 20, 25, 30, 35, 40, 45];
+    private _hrAdjust = selectRandom _hrValue;
+    [_patient, "NitroglycerinOverdose", 30, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+};
+if (random 100 < 3) then {
     private _randomValue = [3, 4];
     private _randomRhythm = selectRandom _randomValue;
     _patient setVariable [QEGVAR(circulation,cardiacArrestType), _randomRhythm, true];

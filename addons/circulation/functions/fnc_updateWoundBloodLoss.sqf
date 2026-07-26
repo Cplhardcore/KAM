@@ -36,17 +36,10 @@ private _bodyExternalPartBleeding = [0,0,0,0,0,0,0,0,0,0,0,0];
 
 {
     private _partIndex = ALL_BODY_PARTS find _x;
-    private _appliedPressure = GET_APPLIEDPRESSURE(_unit);
-    private _pressureApplied = _appliedPressure select _partIndex;
 
     private _idx = _occlusionMap findIf { _x#0 == _partIndex };
     private _result = if (_idx != -1) then { _occlusionMap select _idx select 1 } else { [] };
     private _isOccluded = { _tourniquets select _x >= 1 } count _result > 0;
-    private _occlusionLevel = if (_result isNotEqualTo []) then { selectMax (_result apply { _tourniquets select _x }) } else { 0 };
-
-    private _damageAmount = [_unit,_idx] call EFUNC(hitpoints,damageAmount);
-    private _damageFixed = linearConversion [0, 40, _damageAmount, 0, 1, true];
-    private _isPressureApplied = _pressureApplied > 0;
     if (!_isOccluded) then {
         private _partBleeding = 0;
         {
@@ -55,25 +48,8 @@ private _bodyExternalPartBleeding = [0,0,0,0,0,0,0,0,0,0,0,0];
             private _category   = _woundClassID % 10;
             private _suffix = ["Minor", "Medium", "Large"] select _category;
             private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-            TRACE_5("updateWoundBloodLoss1",_isPressureApplied,_occlusionLevel,_amountOf,_bleeding,_pressureApplied);
-            if (_isPressureApplied || (_occlusionLevel > 0)) then {
-                switch (true) do {
-                    case (_suffix == "Minor"): {
-                        _partBleeding = _partBleeding + ((_amountOf * _bleeding) * (1 - (_pressureApplied * 1.5)) * (1 - _occlusionLevel) * (1 - _damageFixed));
-                    };
-                    case (_suffix == "Medium"): {
-                        _partBleeding = _partBleeding + ((_amountOf * _bleeding) * (1 - _pressureApplied) * (1 - _occlusionLevel) * (1 - _damageFixed));
-                    };
-                    case (_suffix == "Large"): {
-                        _partBleeding = _partBleeding + ((_amountOf * _bleeding) * (1 - (_pressureApplied * 0.7)) * (1 - _occlusionLevel) * (1 - _damageFixed));
-                    };
-                    default {
-                        _partBleeding = _partBleeding + ((_amountOf * _bleeding) * (1 - _pressureApplied) * (1 - _occlusionLevel) * (1 - _damageFixed));
-                    };
-                };
-            } else {
-                _partBleeding = _partBleeding + (_amountOf * _bleeding);
-            };
+            TRACE_2("updateWoundBloodLoss1",_amountOf,_bleeding);
+            _partBleeding = _partBleeding + (_amountOf * _bleeding);
             if !(_className in ["InternalBleeding"]) then {
                 _bodyExternalPartBleeding set [_partIndex, _partBleeding];
                 TRACE_3("updateWoundBloodLossExternal",_partBleeding,_bodyExternalPartBleeding,_partIndex);
@@ -81,7 +57,7 @@ private _bodyExternalPartBleeding = [0,0,0,0,0,0,0,0,0,0,0,0];
         } forEach _y;
         _bodyPartBleeding set [_partIndex, _partBleeding];
         TRACE_3("updateWoundBloodLoss",_partBleeding,_bodyPartBleeding,_partIndex);
-        _unit setVariable [VAR_BODY_BLEED_RATE, _bodyExternalPartBleeding, true];
+        _unit setVariable [VAR_EXTERNAL_BODY_BLEED_RATE, _bodyExternalPartBleeding, true];
     };
 } forEach GET_OPEN_WOUNDS(_unit);
 if (selectMax _bodyPartBleeding == 0) exitWith {
@@ -93,6 +69,6 @@ if (selectMax _bodyPartBleeding == 0) exitWith {
 _bodyPartBleeding params ["_headBleeding","_neckBleeding", "_chestBleeding", "_bodyBleeding", "_leftArmBleeding","_leftUpperArmBleeding", "_rightArmBleeding","_rightUpperArmBleeding", "_leftLegBleeding","_leftUpperLegBleeding", "_rightLegBleeding", "_rightUpperLegBleeding"];
 private _bodyBleedingRate = ((_headBleeding min 0.9) + (_neckBleeding min 0.9) + (_chestBleeding min 1.0) + (_bodyBleeding min 1.0)) min 1.0;
 private _limbBleedingRate = ((_leftArmBleeding min 0.3) + (_leftUpperArmBleeding min 0.3) + (_rightArmBleeding min 0.3) + (_rightUpperArmBleeding min 0.3) + (_leftLegBleeding min 0.5) + (_leftUpperLegBleeding min 0.5) + (_rightLegBleeding min 0.5) + (_rightUpperLegBleeding min 0.5)) min 1.0;
-
+_unit setVariable [VAR_BODY_BLEED_RATE, _bodyPartBleeding, true];
 TRACE_3("updateWoundBloodLoss-bleeding",_unit,_bodyBleedingRate,_limbBleedingRate);
 _unit setVariable [VAR_WOUND_BLEEDING, _bodyBleedingRate + _limbBleedingRate, true];

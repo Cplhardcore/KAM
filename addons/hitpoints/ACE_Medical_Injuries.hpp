@@ -12,7 +12,7 @@ class ACE_Medical_Injuries {
         };
         // Occur when an entire structure or part of it is forcibly pulled away, such as the loss of a permanent tooth or an ear lobe. Explosions, gunshots, and animal bites may cause avulsions.
         class Avulsion {
-            bleeding = 0.07;
+            bleeding = 0.05;
             pain = 1.0;
             causeLimping = 1;
         };
@@ -24,7 +24,7 @@ class ACE_Medical_Injuries {
         };
         // Occur when a heavy object falls onto a person, splitting the skin and shattering or tearing underlying structures.
         class Crush {
-            bleeding = 0.04;
+            bleeding = 0.025;
             pain = 0.8;
             causeLimping = 1;
             causeFracture = 1;
@@ -41,14 +41,14 @@ class ACE_Medical_Injuries {
         };
         // Also called velocity wounds, they are caused by an object entering the body at a high speed, typically a bullet or small peices of shrapnel.
         class VelocityWound {
-            bleeding = 0.12;
+            bleeding = 0.08;
             pain = 0.9;
             causeLimping = 1;
             causeFracture = 1;
         };
         // Deep, narrow wounds produced by sharp objects such as nails, knives, and broken glass.
         class PunctureWound {
-            bleeding = 0.03;
+            bleeding = 0.025;
             pain = 0.5;
             causeLimping = 1;
         };
@@ -64,7 +64,7 @@ class ACE_Medical_Injuries {
             pain = 0.1;
         };
         class Incision {
-            bleeding = 0.2;
+            bleeding = 0.1;
             pain = 0.8;
         };
     };
@@ -123,6 +123,34 @@ class ACE_Medical_Injuries {
                 weighting[] = {{1, 1}, {0.35, 0}};
                 // velocity wounds will tend to be medium or large
                 sizeMultiplier = 0.9;
+            };
+        };
+        class medicalsim {
+            // bullets only create multiple wounds when the damage is very high
+            thresholds[] = {{20, 8}, {18, 6}, {15, 5},  {12, 4}, {10, 3}, {8, 2}, {5, 1}, {0, 1}};
+            class Avulsion {
+                // at damage, weight. between points, weight is interpolated then wound is chosen by weighted random.
+                // as with thresholds, but result is not rounded (decimal values used as-is)
+                weighting[] = {{1, 1}, {0.35, 0}};
+            };
+            class VelocityWound {
+                weighting[] = {{1.5, 1}, {1.1, 1}, {0.7, 0}};
+            };
+            class PunctureWound {
+                weighting[] = {{0.9, 2}, {0.7, 1}, {0.35, 0}};
+            };
+            class Cut {
+                weighting[] = {{0.7, 2}, {0.35, 1}, {0.35, 0}};
+            };
+            class Laceration {
+                weighting[] = {{1.5, 1}, {0.35, 1}, {0, 0}};
+            };
+            class Contusion {
+                weighting[] = {{0.35, 0}, {0.35, 1}};
+                // bruises caused by bullets hitting the plate are big
+                sizeMultiplier = 3.2;
+                // increase the pain to allow for bruises to actually knock out on repeated hits
+                painMultiplier = 2.2;
             };
         };
         class grenade {

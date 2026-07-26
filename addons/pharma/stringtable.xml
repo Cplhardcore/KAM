@@ -11,7 +11,7 @@
             <Korean>IV 설정 허용</Korean>
             <German>Erlaubt die Anwendung von IV</German>
             <Japanese>IVの使用許可</Japanese>
-            <Spanish>Permitir colocar 16g IV</Spanish>
+            <Spanish>Permitir colocar IV</Spanish>
             <Portuguese>Permitir aplicar IV</Portuguese>
             <Finnish>Salli hakeminen IV</Finnish>
             <Russian>Разрешить внутривенное введение</Russian>
@@ -25,7 +25,7 @@
             <Chinese>改变设置静脉注射所需的医疗级别</Chinese>
             <Chinesesimp>改变设置 IV 所需的医疗级别</Chinesesimp>
             <Italian>Cambia il livello medico richiesto per impostare le IV</Italian>
-            <Spanish>Cambia el nivel médico que se requiere para colocar las 16g IVs</Spanish>
+            <Spanish>Cambia el nivel médico que se requiere para colocar las IVs</Spanish>
             <Korean>IV를 설정하는 데 필요한 의료 레벨 수준 변경</Korean>
             <Turkish>IV'leri'ları ayarlamak için gereken tıbbi düzeyi değiştirir</Turkish>
             <Czech>Změní, která zdravotnická úroveň je potřeba k zavedení IV</Czech>
@@ -37,19 +37,15 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Apply14IV">
             <English>Allow applying 14g IV</English>
-            <Spanish>Permitir colocar 14g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Apply14IV_Desc">
             <English>Changes what medical level is required to set 14 gauge IVs</English>
-            <Spanish>Cambia el nivel médico que se requiere para colocar las 14g IVs</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Apply20IV">
             <English>Allow applying 20g IV</English>
-            <Spanish>Permitir colocar 20g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Apply20IV_Desc">
             <English>Changes what medical level is required to set 20 gauge IVs</English>
-            <Spanish>Cambia el nivel médico que se requiere para colocar las 20g IVs</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_ApplyIO">
             <English>Allow applying IO</English>
@@ -188,7 +184,7 @@
             <Italian>Pacchetto di Pillole per Medicazioni da Combattimento&lt;br/&gt;Usato per sopprimere il dolore lieve e alleviare i sintomi di incompatibilità del sangue</Italian>
         </Key>
         <Key ID="STR_KAT_Pharma_Painkillers_Box_Display">
-            <English>Combat Pill Pack</English>
+            <English>(Med) Combat Pill Pack</English>
             <Japanese>戦闘治療薬パック</Japanese>
             <Spanish>Paquete de Comprimidos de Combate</Spanish>
             <Portuguese>Comprimidos de Combate</Portuguese>
@@ -225,7 +221,7 @@
             <Dutch>Wordt gebruikt om bewustzijn te herstellen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Carbonate_Box_Display">
-            <English>Ammonium Carbonate</English>
+            <English>(Med) Ammonium Carbonate</English>
             <German>Ammoniumkarbonat</German>
             <Polish>Sole trzeźwiące</Polish>
             <French>Sels d'Ammoniac</French>
@@ -261,7 +257,7 @@
             <Dutch>Gebruik carbonaat</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Penthrox_Display">
-            <English>Penthrox Inhaler</English>
+            <English>(Med) Penthrox Inhaler</English>
             <Japanese>ペンスロックス吸入器</Japanese>
             <French>Inhalateur de Penthrox</French>
             <Korean>펜트록스 흡입기</Korean>
@@ -314,7 +310,7 @@
             <Dutch>Wordt gebruikt om opïode overdossisen tegen te gaan</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Naloxone_Box_Display">
-            <English>Naloxone</English>
+            <English>(Med) Naloxone</English>
             <German>Naloxone</German>
             <Polish>Nalokson</Polish>
             <French>Naloxone</French>
@@ -368,7 +364,7 @@
             <Dutch>Wordt gebruikt om hartstilstand te bestrijden</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Amiodarone_Box_Display">
-            <English>Vial: Amiodarone</English>
+            <English>(Vial) Amiodarone</English>
             <German>Amiodaron</German>
             <Polish>Amiodaron</Polish>
             <French>Amiodarone</French>
@@ -387,11 +383,9 @@
         </Key>
         <Key ID="STR_KAT_Pharma_Alteplase_DescShort">
             <English>Used to reverse TXA and EACA overdose</English>
-            <Spanish>Revierte los efectos de sobredosis de ATX y EACA</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Alteplase_Display">
-            <English>Vial: Alteplase</English>
-            <Spanish>Alteplasa</Spanish>
+            <English>(Vial) Alteplase</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Amiodarone">
             <English>Push Amiodarone</English>
@@ -430,7 +424,7 @@
             <Dutch>Wordt gebruikt om hartstilstand te bestrijden</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Lidocaine_Box_Display">
-            <English>Vial: Lidocaine</English>
+            <English>(Vial) Lidocaine</English>
             <German>Lidocain</German>
             <Polish>Lidokaina</Polish>
             <French>Lidocaïne</French>
@@ -484,14 +478,14 @@
             <Dutch>Wordt gebruikt om chemische blootstelling en bradycardie te behandelen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Atropine_Box_Display">
-            <English>Atropine Autoinjector</English>
+            <English>(Autoinjector) Atropine</English>
             <German>Atropin</German>
             <Polish>Atropina</Polish>
             <French>Atropine</French>
             <Chinese>阿托品</Chinese>
             <Chinesesimp>阿托品</Chinesesimp>
             <Italian>Atropina</Italian>
-            <Spanish>Atropina autoinyectable</Spanish>
+            <Spanish>Atropina</Spanish>
             <Korean>아트로핀</Korean>
             <Turkish>Atropin</Turkish>
             <Czech>Atropin</Czech>
@@ -502,8 +496,7 @@
             <Dutch>Atropine autoinjector</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_AtropineIV_Display">
-            <English>Vial: Atropine</English>
-            <Spanish>Atropina</Spanish>
+            <English>(Vial) Atropine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Atropine">
             <English>Inject Atropine</English>
@@ -513,7 +506,7 @@
             <Chinese>推动阿托品</Chinese>
             <Chinesesimp>推注阿托品</Chinesesimp>
             <Italian>Iniettare l'atropina</Italian>
-            <Spanish>Administrar atropina autoinyectable</Spanish>
+            <Spanish>Administrar Atropina</Spanish>
             <Korean>아트로핀 투여</Korean>
             <Turkish>Atropin itin</Turkish>
             <Czech>Aplikovat Atropin</Czech>
@@ -525,7 +518,6 @@
         </Key>
         <Key ID="STR_KAT_Pharma_Take_AtropineIV">
             <English>Inject Atropine IV</English>
-            <Spanish>Administrar atropina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_TXA_DescShort">
             <English>Encourages clot formation</English>
@@ -546,7 +538,7 @@
             <Dutch>Bevorderd bloedstolling</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_TXA_Box_Display">
-            <English>Vial: TXA</English>
+            <English>(Vial) TXA</English>
             <German>TXA</German>
             <Polish>TXA</Polish>
             <French>Acide Tranexamique</French>
@@ -600,7 +592,7 @@
             <Dutch>Wordt gebruikt om de bloeddruk te verhogen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Norep_Box_Display">
-            <English>Vial: Norepinephrine</English>
+            <English>(Vial) Norepinephrine</English>
             <German>Noradrenalin</German>
             <Polish>Noradrenalina</Polish>
             <French>Noradrénaline</French>
@@ -654,7 +646,7 @@
             <Dutch>Wordt gebruikt om de bloeddruk te verhogen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Phenyl_Box_Display">
-            <English>Vial: Phenylephrine</English>
+            <English>(Vial) Phenylephrine</English>
             <German>Phenylephrin</German>
             <Polish>Fenylefryna</Polish>
             <French>Phényléphrine</French>
@@ -690,7 +682,7 @@
             <Dutch>Injecteer Fenylefrine (IV)</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_PhenylAuto_Box_Display">
-            <English>Phenylephrine Autoinjector</English>
+            <English>(Autoinjector) Phenylephrine</English>
             <Russian>Автоинъектор фенилэфрина</Russian>
             <Spanish>Autoinyector de Fenilefrina</Spanish>
             <Japanese>フェニレフリン自動注射器</Japanese>
@@ -704,7 +696,6 @@
             <Japanese>血圧を上げるために使用される</Japanese>
             <Italian>Usato per aumentare la pressione sanguigna</Italian>
             <French>Utilisé pour augmenter la pression artérielle</French>
-            <Spanish>Se utiliza para aumentar la presión arterial</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Phenyl_Auto">
             <English>Inject Phenylephrine</English>
@@ -742,7 +733,7 @@
             <Dutch>Wordt gebruikt om de bloeddruk te laten dalen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Nitro_Box_Display">
-            <English>Vial: Nitroglycerin</English>
+            <English>(Vial) Nitroglycerin</English>
             <German>Nitroglycerin</German>
             <Polish>Nitrogliceryna</Polish>
             <French>Nitroglycérine</French>
@@ -816,7 +807,7 @@
             <English>You hit the cheek, but patient still asleep!</English>
             <German>Du hast die Wange getroffen, aber Patient schläft noch!</German>
             <Polish>Uderzyłeś w policzek, ale pacjent nadal śpi!</Polish>
-            <Spanish>¡Golpeaste al paciente, pero sigue dormido!</Spanish>
+            <Spanish>¡Cacheteaste el paciente pero sigue dormido!</Spanish>
             <Chinese>你打你的脸颊，但病人还在睡觉！</Chinese>
             <Chinesesimp>患者仍未苏醒</Chinesesimp>
             <Czech>Udeřil jsi do tváře, ale pacient stále spí!</Czech>
@@ -939,56 +930,22 @@
             <Dutch>%1 gebruikte %2</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_16_Display">
-            <English>16g IV</English>
-            <German>16g IV</German>
-            <Polish>16g IV</Polish>
-            <Spanish>16g IV</Spanish>
-            <Chinese>16g IV</Chinese>
-            <Chinesesimp>16g IV</Chinesesimp>
-            <Czech>16g IV</Czech>
-            <Korean>16g IV</Korean>
-            <French>16g IV</French>
-            <Turkish>16g IV</Turkish>
-            <Italian>16g IV</Italian>
-            <Japanese>16g IV</Japanese>
-            <Russian>16г IV</Russian>
-            <Portuguese>16g IV</Portuguese>
-            <Finnish>16g IV</Finnish>
-            <Dutch>16g IV</Dutch>
+            <English>(P) 16g IV</English>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_14_Display">
-            <English>14g IV</English>
-            <German>14g IV</German>
-            <Polish>14g IV</Polish>
-            <Spanish>14g IV</Spanish>
-            <Chinese>14g IV</Chinese>
-            <Chinesesimp>14g IV</Chinesesimp>
-            <Czech>14g IV</Czech>
-            <Korean>14g IV</Korean>
-            <French>14g IV</French>
-            <Turkish>14g IV</Turkish>
-            <Italian>14g IV</Italian>
-            <Japanese>14g IV</Japanese>
-            <Russian>14r IV</Russian>
-            <Portuguese>14g IV</Portuguese>
-            <Finnish>14g IV</Finnish>
+            <English>(P) 14g IV</English>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_20_Display">
+            <English>(P) 20g IV</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IV_16_DisplayGUI">
+            <English>16g IV</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IV_14_DisplayGUI">
+            <English>14g IV</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IV_20_DisplayGUI">
             <English>20g IV</English>
-            <German>20g IV</German>
-            <Polish>20g IV</Polish>
-            <Spanish>20g IV</Spanish>
-            <Chinese>20g IV</Chinese>
-            <Chinesesimp>20g IV</Chinesesimp>
-            <Czech>20g IV</Czech>
-            <Korean>20g IV</Korean>
-            <French>20g IV</French>
-            <Turkish>20g IV</Turkish>
-            <Italian>20g IV</Italian>
-            <Japanese>20g IV</Japanese>
-            <Russian>20r IV</Russian>
-            <Portuguese>20g IV</Portuguese>
-            <Finnish>20g IV</Finnish>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_DescShort">
             <English>Intravenous Needle</English>
@@ -1009,22 +966,10 @@
             <Dutch>intraveneuze canule</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_IO_45_Display">
+            <English>(P) FAST IO</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IO_45_DisplayGUI">
             <English>FAST IO</English>
-            <German>FAST IO</German>
-            <Polish>FAST IO</Polish>
-            <Spanish>FAST IO</Spanish>
-            <Chinese>FAST IO</Chinese>
-            <Chinesesimp>FAST IO</Chinesesimp>
-            <Czech>FAST IO</Czech>
-            <Korean>FAST IO</Korean>
-            <French>FAST IO</French>
-            <Turkish>FAST IO</Turkish>
-            <Italian>FAST IO</Italian>
-            <Japanese>FAST IO</Japanese>
-            <Russian>FAST IO</Russian>
-            <Portuguese>FAST IO</Portuguese>
-            <Finnish>FAST IO</Finnish>
-            <Dutch>FAST IO</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_IO_DescShort">
             <English>Intraosseous Needle</English>
@@ -1258,14 +1203,12 @@
             <Japanese>IV/IO流量操作を有効化</Japanese>
             <Italian>Abilita il controllo del flusso IV/IO</Italian>
             <French>Activer les opérations de flux IV/IO</French>
-            <Spanish>Activar control de flujo IV/IO</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_IV_FLOW_CONTROL_DESC">
             <English>Enables the IV/IO flow control menu which gives the medic fine control over the volume running through the active line</English>
             <Japanese>IV/IO流量操作メニューを有効にし、輸液がラインを流れる液量を衛生兵が細かく制御できるようにします。</Japanese>
             <Italian>Abilita il menu di controllo del flusso IV/IO che consente al medico di controllare con precisione il volume che scorre attraverso la linea attiva.</Italian>
             <French>Active le menu de contrôle du débit IV/IO qui permet à l'infirmier de contrôler finement le volume circulant dans la ligne active.</French>
-            <Spanish>Activa el menú de control de flujo IV/IO, que permite al médico controlar con precisión el volumen que circula por la vía activa</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_Reorientation_Slap">
             <English>Reorientation slap sound</English>
@@ -1452,7 +1395,7 @@
             <Dutch>Behandelingstijd voor heroriëntatie</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Etomidate_displayName">
-            <English>Vial: Etomidate</English>
+            <English>(Vial) Etomidate</English>
             <Chinesesimp>依托咪酯</Chinesesimp>
             <Italian>Etomidato</Italian>
             <Czech>Etomidát</Czech>
@@ -1516,7 +1459,7 @@
             <Dutch>Injecteer Etomidaat</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Lorazepam_displayName">
-            <English>Vial: Lorazepam</English>
+            <English>(Vial) Lorazepam</English>
             <Chinesesimp>劳拉西泮</Chinesesimp>
             <Italian>Lorazepam</Italian>
             <Czech>Lorazepam</Czech>
@@ -1580,7 +1523,7 @@
             <Dutch>Injecteer Lorazepam</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Flumazenil_displayName">
-            <English>Flumazenil</English>
+            <English>(Vial) Flumazenil</English>
             <Chinesesimp>氟马西尼</Chinesesimp>
             <Italian>Flumazenil</Italian>
             <Czech>Flumazenil</Czech>
@@ -1660,7 +1603,7 @@
             <Dutch>Injecteer Ketamine</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Ketamine_Box_Display">
-            <English>Vial: Ketamine</English>
+            <English>(Vial) Ketamine</English>
             <Chinesesimp>氯胺酮</Chinesesimp>
             <Italian>Ketamina</Italian>
             <Czech>Ketamin</Czech>
@@ -1700,7 +1643,7 @@
             <Dutch>Injecteer Fentanyl</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Fentanyl_Box_Display">
-            <English>Vial: Fentanyl</English>
+            <English>(Vial) Fentanyl</English>
             <Chinesesimp>芬太尼</Chinesesimp>
             <Italian>Fentanil</Italian>
             <Czech>Fentanyl</Czech>
@@ -1741,7 +1684,7 @@
             <Dutch>Injecteer Nalbufine</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Nalbuphine_Box_Display">
-            <English>Vial: Nalbuphine</English>
+            <English>(Vial) Nalbuphine</English>
             <Chinesesimp>纳布啡</Chinesesimp>
             <Italian>Nalbufina (Nubain)</Italian>
             <Czech>Nalbufin</Czech>
@@ -1925,11 +1868,9 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_TXAIM">
             <English>Medical level required for IM TXA</English>
-            <Spanish>Nivel médico requerido para el ATX intramuscular</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_TXAIM">
             <English>Treatment time for IM TXA</English>
-            <Spanish>Tiempo de tratamiento para el ATX IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Norepinephrine">
             <English>Medical level required for Norepinephrine</English>
@@ -2061,11 +2002,9 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Alteplase">
             <English>Medical level required for Alteplase</English>
-            <Spanish>Nivel médico requerido para la alteplasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_Alteplase">
             <English>Treatment time for Alteplase</English>
-            <Spanish>Tiempo para uso de la alteplasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Lidocaine">
             <English>Medical level required for Lidocaine</English>
@@ -2099,13 +2038,11 @@
             <Russian>Время обработки Лидокаином</Russian>
             <Dutch>Behandeltijd van Lidocaïne</Dutch>
         </Key>
-        <Key ID="STR_KAT_Pharma_medLvl_LidocaineIM">
-            <English>Medical level required for IM Lidocaine</English>
-            <Spanish>Nivel médico requerido para la lidocaína intramuscular</Spanish>
+        <Key ID="STR_KAT_Pharma_medLvl_NerveBlock">
+            <English>Medical level required for Nerve Block</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_treatmentTime_LidocaineIM">
-            <English>Treatment time for IM Lidocaine</English>
-            <Spanish>Tiempo para uso de la lidocaína IM</Spanish>
+        <Key ID="STR_KAT_Pharma_treatmentTime_NerveBlock">
+            <English>Treatment time for Nerve Block</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Atropine">
             <English>Medical level required for Atropine</English>
@@ -2141,11 +2078,9 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_AtropineIV">
             <English>Medical level required for Atropine IV</English>
-            <Spanish>Nivel médico requerido para la atropina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_AtropineIV">
             <English>Treatment time for Atropine IV</English>
-            <Spanish>Tiempo para uso de la atropina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_EACA">
             <English>Medical level required for EACA</English>
@@ -2309,11 +2244,9 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_KetamineIM">
             <English>Medical level required for IM Ketamine</English>
-            <Spanish>Nivel médico requerido para la ketamina intramuscular</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_KetamineIM">
             <English>Treatment time for IM Ketamine</English>
-            <Spanish>Tiempo para uso de la ketamina IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Fentanyl">
             <English>Medical level required for Fentanyl</English>
@@ -2349,11 +2282,9 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_FentanylIM">
             <English>Medical level required for IM Fentanyl</English>
-            <Spanish>Nivel médico requerido para el fentanilo intramuscular</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_FentanylIM">
             <English>Treatment time for IM Fentanyl</English>
-            <Spanish>Tiempo para uso del fentanilo IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Nalbuphine">
             <English>Medical level required for Nalbuphine</English>
@@ -2389,11 +2320,9 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_NalbuphineIM">
             <English>Medical level required for IM Nalbuphine</English>
-            <Spanish>Nivel médico requerido para la nalbufina intramuscular</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_NalbuphineIM">
             <English>Treatment time for IM Nalbuphine</English>
-            <Spanish>Tiempo para uso de la nalbufina IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_medLvl_Penthrox">
             <English>Medical level required for Penthrox Inhaler</English>
@@ -2459,7 +2388,6 @@
             <Italian>Impostazioni CWMP</Italian>
             <German>CWMP Einstellungen</German>
             <Japanese>戦闘傷病治療薬(CWMP)設定</Japanese>
-            <Spanish>Parámetros de los comprimidos de combate</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_ApplyIO">
             <English>IO Settings</English>
@@ -2637,7 +2565,6 @@
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Alteplase">
             <English>Alteplase Settings</English>
-            <Spanish>Parámetros de la alteplasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Lidocaine">
             <English>Lidocaine Settings</English>
@@ -2812,7 +2739,7 @@
             <Finnish>%1 suoritti suolaliuoksen huuhtelun</Finnish>
             <Dutch>%1 voerde een salinespoeling uit</Dutch>
         </Key>
-        <Key ID="STR_KAT_Pharma_IVblock_closed">
+        <Key ID="STR_KAT_Pharma_IVblock5">
             <English>Patient's IV is blocked</English>
             <Italian>La IV del paziente è ostruita/bloccata</Italian>
             <Czech>IV pacienta je blokována</Czech>
@@ -2846,11 +2773,9 @@
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_Kidney_Action">
             <English>Enable Ph/ Calcium effects</English>
-            <Spanish>Activar efectos de Ph/calcio</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_Kidney_Action_DESC">
             <English>Enables Ph and Calcium loops, requiring management of saline and blood products</English>
-            <Spanish>Activa los ciclos de Ph y calcio, que requieren control de los productos de salino y sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_Block_Chance">
             <English>IV Block Chance</English>
@@ -2861,7 +2786,7 @@
             <German>Chance des IVs zu blockieren</German>
             <Chinesesimp>IV 阻塞几率</Chinesesimp>
             <Japanese>IV閉塞の確率</Japanese>
-            <Spanish>Probabilidad del bloqueo de IV</Spanish>
+            <Spanish>Probabilidad del bloquéo de IV</Spanish>
             <Polish>Szansa na zablokowanie IV</Polish>
             <Portuguese>Chance de Bloqueio IV</Portuguese>
             <Finnish>Mahdollisuus estää IV:t</Finnish>
@@ -2877,7 +2802,7 @@
             <German>Möglichkeit einer Blockade der IV durch Medikamentengabe ohne Kochsalzspülung</German>
             <Chinesesimp>由于没有盐水协助的药物注射导致 IV 阻塞的机会</Chinesesimp>
             <Japanese>生理食塩水を流さずに薬を注入することによるIV閉塞の可能性</Japanese>
-            <Spanish>Probabilidad de que una IV se bloquee por administrar fármacos sin enjuagar con salino</Spanish>
+            <Spanish>Probabilidad de que una IV se bloquée por administrar fármacos sin enjuagar con salino</Spanish>
             <Polish>Szansa na zablokowanie IV z powodu podawania leków bez przepłukiwania roztworem soli fizjologicznej</Polish>
             <Portuguese>Probabilidade de bloqueio intravenoso devido a injeções de medicamentos sem solução salina</Portuguese>
             <Finnish>IV-tukoksen mahdollisuus lääkityksen painamisesta ilman suolaliuosta</Finnish>
@@ -2947,7 +2872,7 @@
             <Dutch>Schakelt geadvanceerde coagulatie functies in, en veranderd het gedrag van TXA en EACA naar behoren</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_EACA_Display">
-            <English>Vial: EACA</English>
+            <English>(Vial) EACA</English>
             <Italian>EACA (Acido aminocaproico Epsilon)</Italian>
             <Czech>EACA</Czech>
             <French>Acide aminocaproïque</French>
@@ -2979,7 +2904,7 @@
             <Dutch>Injecteer EACA</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Pervitin_Capsule_Display">
-            <English>Pervitin capsule</English>
+            <English>(Med) Pervitin capsule</English>
             <German>Pervitin Kapsel</German>
             <French>Capsule de pervitine</French>
             <Japanese>ペルビチンカプセル</Japanese>
@@ -3057,7 +2982,7 @@
             <Italian>Ottieni una corsa improvvisa!</Italian>
             <Portuguese>Você sente uma ânimo repentino!</Portuguese>
             <Polish>Zyskujesz nagły skok energii!</Polish>
-            <Spanish>¡Te entra un subidón repentino!</Spanish>
+            <Spanish>¡Te entra un subidon repentino!</Spanish>
             <Czech>Dostal jsi se do rauše!</Czech>
             <Finnish>Saat äkillisen kiireen!</Finnish>
             <Russian>Ты получаешь внезапный прилив сил!</Russian>
@@ -3072,7 +2997,7 @@
             <Italian>Ottieni un'altra corsa improvvisa!</Italian>
             <Portuguese>Você sente um ânimo novamente!</Portuguese>
             <Polish>Zyskujesz nagły skok energii!</Polish>
-            <Spanish>¡Te entra otro subidón!</Spanish>
+            <Spanish>¡Te entra otro subidon!</Spanish>
             <Czech>Dostal jsi se do dalšího rauše!</Czech>
             <Finnish>Saat uuden kiireen!</Finnish>
             <Russian>Ты получаешь еще один прилив сил!</Russian>
@@ -3144,7 +3069,6 @@
             <French>KAT - ADV Medical : Pharmacie</French>
             <German>KAT - ADV Medical: Medikamente</German>
             <Italian>KAT - ADV Medica: Farmaceutica</Italian>
-            <Spanish>KAT - ADV Medical: Farmacología</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pervitin_chrom3">
             <English>Your head starts to clear up and you stop twitching...</English>
@@ -3162,7 +3086,7 @@
             <Dutch>Je hoofd begint zich op te helderen, en je stopt met trillen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_Caffeine_Bottle_Display">
-            <English>Caffeine bottle</English>
+            <English>(Med) Caffeine bottle</English>
             <German>Koffein Kapsel</German>
             <French>Bouteille de caféine</French>
             <Japanese>カフェインボトル</Japanese>
@@ -3291,7 +3215,7 @@
             <French>Effectuer une dialyse</French>
             <Korean>투석 수행</Korean>
             <Portuguese>Realizar Diálise</Portuguese>
-            <Spanish>Efectuar diálisis</Spanish>
+            <Spanish>Efectuar dialisis</Spanish>
             <Finnish>Suorita dialyysi</Finnish>
             <Russian>Провести Диализ</Russian>
             <Dutch>Voer dialyse uit</Dutch>
@@ -3329,15 +3253,12 @@
         </Key>
         <Key ID="STR_KAT_Pharma_dialysis_Start">
             <English>%1 Started dialysis</English>
-            <Spanish>%1 comenzó diálisis</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_dialysis_Finished">
             <English>Finished dialysis</English>
-            <Spanish>Diálisis completada</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_dialysis_Failed">
             <English>Dialysis Failed</English>
-            <Spanish>Diálisis fallida</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_pharmaSupplyCrate_displayName">
             <English>[KAM] Medicines crate</English>
@@ -3441,12 +3362,7 @@
             <Italian>Tempo del ciclo TXA</Italian>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_bandageCycleTime_TXA_DESC">
-            <English>The time it takes for TXA to close a wound</English>
-            <Japanese>TXAが創傷を塞ぐのに掛かる時間</Japanese>
-            <Spanish>El tiempo que tarda el ATX en cerrar una herida</Spanish>
-            <Dutch>Hoe lang het duurt voordat TXA een wond dicht</Dutch>
-            <French>Temps requis pour permettre au TXA de refermer une blessure</French>
-            <Italian>Il tempo necessario affinché TXA chiuda una ferita</Italian>
+            <English>The time it takes between wounds for TXA to start to close a wound</English>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Coagulation">
             <English>Coagulation Settings</English>
@@ -3772,7 +3688,7 @@
             <Polish>Tors</Polish>
             <Portuguese>Torso</Portuguese>
             <Czech>Trup</Czech>
-            <Spanish>Vientre</Spanish>
+            <Spanish>Torso</Spanish>
             <Italian>Torso</Italian>
             <Japanese>胴体</Japanese>
             <Korean>몸통</Korean>
@@ -3785,7 +3701,7 @@
             <English>Left Arm</English>
             <German>Linker Arm</German>
             <Russian>Левая рука</Russian>
-            <Spanish>Antebrazo izquierdo</Spanish>
+            <Spanish>Brazo Izquierdo</Spanish>
             <French>Bras gauche</French>
             <Polish>Lewa ręka</Polish>
             <Portuguese>Braço Esquerdo</Portuguese>
@@ -3802,7 +3718,7 @@
             <English>Right Arm</English>
             <German>Rechter Arm</German>
             <Russian>Правая рука</Russian>
-            <Spanish>Antebrazo derecho</Spanish>
+            <Spanish>Brazo Derecho</Spanish>
             <French>Bras droit</French>
             <Polish>Prawa ręka</Polish>
             <Portuguese>Braço Direito</Portuguese>
@@ -3819,7 +3735,7 @@
             <English>Left Leg</English>
             <German>Linkes Bein</German>
             <Russian>Левая нога</Russian>
-            <Spanish>Pie izquierdo</Spanish>
+            <Spanish>Pierna Izquierda</Spanish>
             <French>Jambe gauche</French>
             <Polish>Lewa noga</Polish>
             <Portuguese>Perna Esquerda</Portuguese>
@@ -3836,7 +3752,7 @@
             <English>Right Leg</English>
             <German>Rechtes Bein</German>
             <Russian>Правая нога</Russian>
-            <Spanish>Pie derecho</Spanish>
+            <Spanish>Pierna Derecha</Spanish>
             <French>Jambe droite</French>
             <Polish>Prawa noga</Polish>
             <Portuguese>Perna Direita</Portuguese>
@@ -3851,39 +3767,30 @@
         </Key>
         <Key ID="STR_KAT_Pharma_Chest">
             <English>Chest</English>
-            <Spanish>Pecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Neck">
             <English>Neck</English>
-            <Spanish>Cuello</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_UpperLeftArm">
             <English>Upper Left Arm</English>
-            <Spanish>Brazo izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_UpperRightArm">
             <English>Upper Right Arm</English>
-            <Spanish>Brazo derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_UpperLeftLeg">
             <English>Upper Left Leg</English>
-            <Spanish>Pierna izquierda</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_UpperRightLeg">
             <English>Upper Right Leg</English>
-            <Spanish>Pierna derecha</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Coag_Sense_Display">
-            <English>Portable Blood Tester</English>
-            <Spanish>Analizador de sangre portátil</Spanish>
+            <English>(P) Portable Blood Tester</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Coag_Sense_Display_DESC">
             <English>The Portable Blood Tester is a blood monitoring system that can both measure the efficiency of your blood clotting and your ABG</English>
-            <Spanish>El analizador de sangre portátil es un sistema de control sanguíneo que permite medir tanto la eficacia de la coagulación de la sangre como los gases en sangre arterial (GSA)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Coag_Sense_Log">
             <English>Blood Tester concludes: Patient has an INR of %1</English>
-            <Spanish>El analizador de sangre concluye: El paciente tiene un INR del 1 %.</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckCoag_DisplayName">
             <English>Take Blood Sample</English>
@@ -3918,7 +3825,6 @@
             <Italian>Tempo di trattamento per il CWMP</Italian>
             <German>Anwendungszeit für CWMP</German>
             <Japanese>戦闘傷病治療薬(CWMP)の所要時間</Japanese>
-            <Spanish>Tiempo para uso de comprimidos de combate</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_Caffeine">
             <English>Treatment time for Caffeine</English>
@@ -3926,7 +3832,6 @@
             <Italian>Tempo di trattamento per la Caffeina</Italian>
             <German>Anwendungszeit für Koffein</German>
             <Japanese>カフェインの所要時間</Japanese>
-            <Spanish>Tiempo para uso de cafeína</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_CWMP">
             <English>Allow using CWMP</English>
@@ -3934,7 +3839,6 @@
             <Italian>Consenti l'uso dei CWMP</Italian>
             <German>Erlaube die Verwendung von CWMP</German>
             <Japanese>戦闘傷病治療薬(CWMP)の許可</Japanese>
-            <Spanish>Permitir comprimidos de combate</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Caffeine">
             <English>Allow using Caffeine</English>
@@ -3942,7 +3846,6 @@
             <Italian>Consenti l'uso della caffeina</Italian>
             <German>Erlaube die Verwendung von Koffein</German>
             <Japanese>カフェインの許可</Japanese>
-            <Spanish>Permitir cafeína</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckCoag_slightly_aboveINR">
             <English>Sligtly Above normal INR</English>
@@ -3982,19 +3885,15 @@
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Coag_Sense">
             <English>Blood Tester Settings</English>
-            <Spanish>Ajustes del analizador de sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_CheckCoag_MedLevel">
             <English>Medical level required for Blood Tester</English>
-            <Spanish>Nivel médico requerido para el analizador de sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_CheckCoag_Location">
             <English>Locations Blood Tester</English>
-            <Spanish>Localizaciones del analizador de sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_CheckCoag_treatmentTime">
             <English>Treatment time for taking a blood sample</English>
-            <Spanish>Tiempo en tomar una muestra de sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_allowStackScript_EACA">
             <English>Allow Stacking</English>
@@ -4083,7 +3982,7 @@
             <Italian>Epinefrina IV</Italian>
         </Key>
         <Key ID="STR_KAT_Pharma_EpinephrineIV_displayName">
-            <English>Vial: Epinephrine</English>
+            <English>(Vial) Epinephrine</English>
             <Japanese>アドレナリン静脈注射 (IV)</Japanese>
             <Spanish>Epinefrina IV</Spanish>
             <Dutch>IV Adrenaline</Dutch>
@@ -4099,294 +3998,221 @@
             <Italian>Somministra Epinefrina</Italian>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_5_Display">
-            <English>5ml Syringe</English>
-            <Spanish>Jeringa de 5ml</Spanish>
+            <English>(P) 5ml Syringe</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_5_DescShort">
             <English>For IV medications</English>
-            <Spanish>Para medicamentos intravenosos</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_10_Display">
-            <English>10ml Syringe</English>
-            <Spanish>Jeringa de 10ml</Spanish>
+            <English>(P) 10ml Syringe</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_10_DescShort">
             <English>For IM medications</English>
-            <Spanish>Para medicamentos intramusculares</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Apply_IV_14">
             <English>Establish 14g IV</English>
-            <Spanish>Colocar 14g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Apply_IV_20">
             <English>Establish 20g IV</English>
-            <Spanish>Colocar 20g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_PrepSyringe">
             <English>Syringe Prep level</English>
-            <Spanish>Nivel para preparar jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_PrepSyringe_Desc">
             <English>Medical level required to prep syringes</English>
-            <Spanish>Nivel médico requerido para preparar jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_prepTime_PrepSyringe">
             <English>Syringe Prep Time</English>
-            <Spanish>Tiempo para preparar jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_prepTime_PrepSyringe_Desc">
             <English>Time required to prep syringes</English>
-            <Spanish>Tiempo requerido para preparar jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_advancedMedicationSystem">
             <English>Enable Advanced Medication System</English>
-            <Spanish>Activar sistema farmacológico avanzado</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_advancedMedicationSystem_Desc">
             <English>Enables Advanced Medication System and disables Basic System
             REQUIRED: Medications Require IV/IO, Fluid Require inserted IV/IO</English>
-            <Spanish>Activa el sistema avanzado de medicación y desactiva el sistema básico
-            REQUISITOS: Los medicamentos requieren vía intravenosa o intraósea; los fluidos requieren una vía intravenosa o intraósea insertada</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Morphine">
             <English>KAT Morphine Settings</English>
-            <Spanish>Ajustes de morfina KAT</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_MorphineIV_DescShort">
             <English>Morphine IV</English>
-            <Spanish>Morfina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_MorphineIV_displayName">
-            <English>Vial: Morphine</English>
-            <Spanish>Morfina</Spanish>
+            <English>(Vial) Morphine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_MorphineIV">
             <English>Medical level required for Morphine IV</English>
-            <Spanish>Nivel médico requerido para morfina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_MorphineIV">
             <English>Treatment time for Morphine IV</English>
-            <Spanish>Tiempo de uso para morfina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_MorphineIM">
             <English>Medical level required for IM Morphine</English>
-            <Spanish>Nivel médico requerido para morfina IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_MorphineIM">
             <English>Treatment time for IM Morphine</English>
-            <Spanish>Tiempo de uso para morfina IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_MorphineIV">
             <English>Push Morphine IV</English>
-            <Spanish>Administrar morfina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_AdenosineIV">
             <English>Adenosine IV</English>
-            <Spanish>Adenosina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_AdenosineIV">
             <English>Medical level required for Adenosine IV</English>
-            <Spanish>Nivel médico requerido para adenosina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_AdenosineIV">
             <English>Treatment time for Adenosine IV</English>
-            <Spanish>Tiempo de uso para adenosina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_AdenosineIV_DescShort">
             <English>Adenosine IV</English>
-            <Spanish>Adenosina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_AdenosineIV_displayName">
-            <English>Vial: Adenosine</English>
-            <Spanish>Adenosina</Spanish>
+            <English>(Vial) Adenosine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_AdenosineIV">
             <English>Push Adenosine IV</English>
-            <Spanish>Administrar adenosina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckVein_DisplayName">
             <English>Check Veins</English>
-            <Spanish>Comprobar venas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckVein_DisplayNameProgress">
             <English>Checking Veins</English>
-            <Spanish>Comrpobando venas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_CheckVein_MedLevel">
             <English>Medical level required to Check Veins</English>
-            <Spanish>Nivel médico requerido para comprobar venas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_CheckVein_treatmentTime">
             <English>Treatment time to Check Veins</English>
-            <Spanish>Tiempo para comprobar venas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckVein_VeinBlown">
             <English>The Veins are Blown</English>
-            <Spanish>Las venas han reventado</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckVein_VeinFine">
             <English>The Veins are Normal</English>
-            <Spanish>Las venas son normales</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_prepTime_PrepInfusion">
             <English>Infusion Prep Time</English>
-            <Spanish>Tiempo de preparación de infusiones</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_prepTime_PrepInfusion_Desc">
             <English>Time required to prep Infusions</English>
-            <Spanish>Tiempo requerido para preparar una infusión</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_SalineFlush_Display">
             <English>5ml Saline Flush</English>
-            <Spanish>Lavado con salino 5ml</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_SalineFlush_DescShort">
             <English>Uses to flush and clear IVs and IOs</English>
-            <Spanish>Se usa para limpiar y desbloquear IVs y IOs</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_SalineFlush">
             <English>Saline Flush Med Level</English>
-            <Spanish>Nivel médico requerido para usar el lavado de salino</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_SalineFlush_Desc">
             <English>Changes what medical level is required to do a Saline Flush</English>
-            <Spanish>Cambia el nivel médico requerido para poder hacer un lavado de salino</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IVComplications">
             <English>IV Complications</English>
-            <Spanish>Complicaciones de IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IVComplications_Desc">
             <English>Enables whole body negative effects when overpushing fluids</English>
-            <Spanish>Activa efectos negativos al administrarse demasiados fluidos</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_LimbIVComplications">
             <English>Limb IV Complications</English>
-            <Spanish>Complicaciones de IV en articulaciones</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_LimbIVComplications_Desc">
             <English>Enables IV complications from overpushing fluids including blown veins and cannulas</English>
-            <Spanish>Provoca complicaciones en la vía intravenosa por la administración excesiva de líquidos, como venas reventadas y cánulas dañadas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IVFailures">
             <English>IV Failure Rate</English>
-            <Spanish>Índice de fracaso de la vía intravenosa</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IVFailures_Desc">
             <English>Chance for a failed IV placement without taking damage or fractures into account</English>
-            <Spanish>Probabilidad de que falle la colocación de la vía intravenosa, sin tener en cuenta daños o fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_SalineFlush">
             <English>Time to preform a Saline Flush</English>
-            <Spanish>Tiempo necesario para realizar un lavado con solución salina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Actions_Packed_RBC_250">
             <English>Give Packed RBC IV (250ml)</English>
-            <Spanish>Dar hematocritos IV (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Actions_Packed_RBC_500">
             <English>Give Packed RBC IV (500ml)</English>
-            <Spanish>Dar hematocritos IV (500ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Actions_Ringers_Lactate">
             <English>Give Ringers Lactate IV (1000ml)</English>
-            <Spanish>Dar solución láctica IV (1000ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Actions_Ringers_Lactate_250">
             <English>Give Ringers Lactate IV (250ml)</English>
-            <Spanish>Dar solución láctica IV (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Actions_Ringers_Lactate_500">
             <English>Give Ringers Lactate IV (500ml)</English>
-            <Spanish>Dar solución láctica IV (500ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingPacked_RBCIvVolume">
             <English>Receiving Packed RBC IV [%1ml]</English>
-            <Spanish>Recibiendo hematocritos IV [%1ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingRingers_LactateIvVolume">
             <English>Receiving Ringers Lactate IV [%1ml]</English>
-            <Spanish>Recibiendo solución láctica de Ringer IV [%1ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Transfusing_Packed_RBC">
             <English>Transfusing Packed RBC...</English>
-            <Spanish>Transfundiendo hematocritos...</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Transfusing_Ringers_Lactate">
             <English>Transfusing Ringers Lactate...</English>
-            <Spanish>Transfundiendo solución láctica de Ringer...</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Transfuse_Packed_RBC">
             <English>Transfuse Packed RBC</English>
-            <Spanish>Transfundir hematocritos</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Transfuse_Ringers_Lactate">
             <English>Transfuse Ringers Lactate</English>
-            <Spanish>Transfundir solución láctica</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Doxapram">
             <English>Doxapram</English>
-            <Spanish>Doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Doxapram">
             <English>Medical level required for Doxapram</English>
-            <Spanish>Nivel médico requerido para usar doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_Doxapram">
             <English>Treatment time for Doxapram</English>
-            <Spanish>Tiempo de uso de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Doxapram_DescShort">
             <English>Doxapram Is a Respiratory Stimulant that increases Breathing Rate and Depth</English>
-            <Spanish>El doxapram es un estimulante respiratorio que aumenta la frecuencia y la profundidad de la respiración.</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Doxapram_Display">
-            <English>Vial: Doxapram</English>
-            <Spanish>Doxapram</Spanish>
+            <English>(Vial) Doxapram</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Doxapram">
             <English>Push Doxapram</English>
-            <Spanish>Administrar doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_push_Doxapram_IV_1">
             <English>Push 0.5mg Doxapram</English>
-            <Spanish>Administrar 0,5mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_push_Doxapram_IV_3">
             <English>Push 1mg Doxapram</English>
-            <Spanish>Administrar 1mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Doxapram_5ml_Dose1">
             <English>0.5mg</English>
-            <Spanish>0,5mg</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Doxapram_5ml_Dose3">
             <English>1mg</English>
-            <Spanish>1mg</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_pushing_Doxapram_IV_1">
             <English>Pushing 0.5mg Doxapram</English>
-            <Spanish>Administrando 0,5mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_pushing_Doxapram_IV_3">
             <English>Pushing 1mg Doxapram</English>
-            <Spanish>Administrando 1mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_Doxapram_5_1_Display">
             <English>5ml Syringe/0.5mg Doxapram</English>
-            <Spanish>Jeringa de 5ml/0,5mg doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_Doxapram_5_1_DescShort">
             <English>5ml Syringe loaded with 0.5 mg of Doxapram</English>
-            <Spanish>Jeringa de 5ml cargada con 0,5mg doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_Doxapram_5_3_Display">
             <English>5ml Syringe/1mg Doxapram</English>
-            <Spanish>Jeringa de 5ml/1mg doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_Doxapram_5_3_DescShort">
             <English>5ml Syringe loaded with 1mg of Doxapram</English>
-            <Spanish>Jeringa de 5ml cargada con 1mg doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Atropine_DescShort">
             <English>Used to treat chemical exposure and bradycardia</English>
@@ -4396,7 +4222,7 @@
             <Chinese>用于治疗心动过缓</Chinese>
             <Chinesesimp>用于治疗心动过缓</Chinesesimp>
             <Italian>Usato per trattare la bradicardia</Italian>
-            <Spanish>Se utiliza para tratar la bradicardia y la exposición química</Spanish>
+            <Spanish>Se utiliza para tratar la bradicardia</Spanish>
             <Korean>서맥 치료에 사용</Korean>
             <Turkish>Bradikardi tedavisinde kullanılır</Turkish>
             <Czech>Používá se k léčbě bradykardie</Czech>
@@ -4407,1060 +4233,799 @@
             <Dutch>Wordt gebruikt om chemische blootstelling en bradycardie te behandelen</Dutch>
         </Key>
         <Key ID="STR_KAT_Pharma_TXAAuto_Box_Display">
-            <English>TXA Autoinjector</English>
-            <Spanish>ATX autoinyectable</Spanish>
+            <English>(Autoinjector) TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_TXAAuto">
             <English>Inject TXA</English>
-            <Spanish>Inyectar ATX</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SalineIV_5ml_Dose3">
             <English>Saline Flush</English>
-            <Spanish>Lavado de salino</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_TXAAuto">
             <English>Medical level required for TXA Autoinjector</English>
-            <Spanish>Nivel médico requerido para usar el ATX autoinyectable</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_TXAAuto">
             <English>Treatment time for TXA Autoinjector</English>
-            <Spanish>Tiempo de uso ATX autoinyectable</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingDoxapramIVInfusionVolume">
             <English>Receiving Doxapram Infusion [%1ml]</English>
-            <Spanish>Recibiendo infusión de doraxpram [%1ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingEpinephrineIVInfusionVolume">
             <English>Receiving Epinephrine Infusion [%1ml]</English>
-            <Spanish>Recibiendo infusión de epinefrina [%1ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingEtomidateIVInfusionVolume">
             <English>Receiving Etomidate Infusion [%1ml]</English>
-            <Spanish>Recibiendo infusión de etomidato [%1ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingMorphineIVInfusionVolume">
             <English>Receiving Morphine Infusion [%1ml]</English>
-            <Spanish>Recibiendo infusión de morfina [%1ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingNitroglycerinIVInfusionVolume">
             <English>Receiving Nitroglycerin Infusion [%1ml]</English>
-            <Spanish>Recibiendo infusión de nitroglicerina [%1ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingNorepinephrineIVInfusionVolume">
             <English>Receiving Norepinephrine Infusion [%1ml]</English>
-            <Spanish>Recibiendo infusión de norepinefrina [%1ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingPlateletsVolume">
             <English>Receiving Platelets [%1ml]</English>
-            <Spanish>Recibiendo plaquetas [%1ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_drawingbloodvolume">
             <English>Drawing Blood [%1ml]</English>
-            <Spanish>Extrayendo sangre [%1ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemovingSalineIV_Progress">
             <English>Removing Saline IV bags</English>
-            <Spanish>Retirando bolsas de salino IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemovingPlasmaIV_Progress">
             <English>Removing Plasma IV bags</English>
-            <Spanish>Retirando bolsas de plasma IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemovingBloodIV_Progress">
             <English>Removing Blood IV bags</English>
-            <Spanish>Retirando bolsas de sangre IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemovingPackedRBCIV_Progress">
             <English>Removing Packed RBC IV bags</English>
-            <Spanish>Retirando bolsas de hematocritos IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemovingRingersLactateIV_Progress">
             <English>Removing Ringers Lactate IV bags</English>
-            <Spanish>Retirando bolsas de solución láctica de Ringer IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemovingHypertonicSalineIV_Progress">
             <English>Removing Hypertonic Saline IV bags</English>
-            <Spanish>Retirando bolsas de salino hipertónico IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemovingHextendIV_Progress">
             <English>Removing Hextend IV bags</English>
-            <Spanish>Retirando bolsas de hidroxietil-almidón IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_removingfbtk_Progress">
             <English>Removing FBTK</English>
-            <Spanish>Retirando kit de transfusión</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemoveSaline">
             <English>Remove Saline IV bags</English>
-            <Spanish>Retirar bolsas de salino IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemovePlasma">
             <English>Remove Plasma IV bags</English>
-            <Spanish>Retirar bolsas de plasma IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemoveBlood">
             <English>Remove Blood IV bags</English>
-            <Spanish>Retirar bolsas de sangre IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemovePackedRBC">
             <English>Remove Packed RBC IV bags</English>
-            <Spanish>Retirar bolsas de hematocritos IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemoveRingersLactate">
             <English>Remove Ringers Lactate IV bags</English>
-            <Spanish>Retirar bolsas de solución láctica de Ringer IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemoveHypertonicSaline">
             <English>Remove Hypertonic Saline IV bags</English>
-            <Spanish>Retirar bolsas de salino hipertónico IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemoveHextend">
             <English>Remove Hextend IV bags</English>
-            <Spanish>Retirar bolsas de hidroxietil-almidón IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_RemoveFBTK">
             <English>Remove Filled FBTK</English>
-            <Spanish>Retirar kit de transfusión lleno</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Apply_EZ_IO">
             <English>Establish EZ IO</English>
-            <Spanish>Establecer EZ IO</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_EZ_IO_Display">
+            <English>(P) EZ IO</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_EZ_IO_DisplayGUI">
             <English>EZ IO</English>
-            <Spanish>EZ IO</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_ApplyEZIO">
             <English>Allow applying EZ IO</English>
-            <Spanish>Permitir EZ IO</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_ApplyEZIO_Desc">
             <English>Changes what medical level is required to set EZ IOs</English>
-            <Spanish>Cambia el nivel médico requerido para establecer un EZ IO</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_ApplyEZIO">
             <English>Time to establish EZ IOs</English>
-            <Spanish>Tiempo para establecer EZ IOs</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Apply_EJV">
             <English>Establish EJV</English>
-            <Spanish>Establecer CVY</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Applying_EJV">
             <English>Establishing External Jugular Vein Access</English>
-            <Spanish>Establecer catéter de vena yugular</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_EJV_Display">
-            <English>Central Line Kit</English>
-            <Spanish>Kit de línea central</Spanish>
+            <English>(P) Kit: Central Line</English>
         </Key>
         <Key ID="STR_KAT_Pharma_EJV_DESCSHORT">
             <English>Allows for External Jugular Vein Access</English>
-            <Spanish>Permite colocar una línea central mediante un catéter de vena yugular</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_EJV_InjuryDisplay">
             <English>EJV</English>
-            <Spanish>CVY</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_ApplyEJV">
             <English>Allow External Jugular Vein Access</English>
-            <Spanish>Permitir catéter de vena yugular</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_ApplyEJV_Desc">
             <English>Changes what medical level is required to set External Jugular Vein Access</English>
-            <Spanish>Cambia el nivel médico requerido para establecer un catéter de vena yugular</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_ApplyEJV">
             <English>Time to establish External Jugular Vein Access</English>
-            <Spanish>Tiempo para establecer catéter de vena yugular</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_txa_10ml_10">
-            <English>Push 1g TXA</English>
-            <Spanish>Administrar 1g ATX</Spanish>
+            <English>Inject 1g TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_txa_10ml_10">
-            <English>Pushing 1g TXA</English>
-            <Spanish>Administrando 1g ATX</Spanish>
+            <English>Injecting 1g TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_txa_10ml_10">
             <English>10ml Syringe / 1g TXA</English>
-            <Spanish>Jeringa 10ml/1g ATX</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_txa_10ml_20">
-            <English>Push 2g TXA</English>
-            <Spanish>Administrar 2g ATX</Spanish>
+            <English>Inject 2g TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_txa_10ml_20">
-            <English>Pushing 2g TXA</English>
-            <Spanish>Administrando 2g ATX</Spanish>
+            <English>Injecting 2g TXA</English>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_txa_10ml_20">
             <English>10ml Syringe / 2g TXA</English>
-            <Spanish>Jeringa 10ml/2g ATX</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_txa_5ml_10">
             <English>Push 1g TXA</English>
-            <Spanish>Administrar 1g ATX</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_txa_5ml_10">
             <English>Pushing 1g TXA</English>
-            <Spanish>Administrando 1g ATX</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_txa_5ml_10">
             <English>5ml Syringe / 1g TXA</English>
-            <Spanish>Jeringa 5ml/1g ATX</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_txa_5ml_20">
             <English>Push 2g TXA</English>
-            <Spanish>Administrar 2g ATX</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_txa_5ml_20">
             <English>Pushing 2g TXA</English>
-            <Spanish>Administrando 2g ATX</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_txa_5ml_20">
             <English>5ml Syringe / 2g TXA</English>
-            <Spanish>Jeringa 5ml/2g ATX</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_morphineIV_5ml_10">
             <English>Push 3mg Morphine</English>
-            <Spanish>Administrar 3mg morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_morphineIV_5ml_10">
             <English>Pushing 3mg Morphine</English>
-            <Spanish>Administrando 3mg morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_morphineIV_5ml_10">
             <English>5ml Syringe / 3mg(60kg) Morphine</English>
-            <Spanish>Jeringa 5ml/3mg (60kg) morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_morphineIV_5ml_16">
             <English>Push 3.5mg Morphine</English>
-            <Spanish>Administrar 3,5mg morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_morphineIV_5ml_16">
             <English>Pushing 3.5mg Morphine</English>
-            <Spanish>Administrando 3,5mg morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_morphineIV_5ml_16">
             <English>5ml Syringe / 3.5mg(70kg) Morphine</English>
-            <Spanish>Jeringa 5ml/3,5mg (70kg) morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_morphineIV_5ml_20">
             <English>Push 4mg Morphine</English>
-            <Spanish>Administrar 4mg morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_morphineIV_5ml_20">
             <English>Pushing 4mg Morphine</English>
-            <Spanish>Administrando 4mg morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_morphineIV_5ml_20">
             <English>5ml Syringe / 4mg(80kg) Morphine</English>
-            <Spanish>Jeringa 5ml/4mg (80kg) morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_morphineIV_5ml_26">
             <English>Push 4.5mg Morphine</English>
-            <Spanish>Administrar 4,5mg morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_morphineIV_5ml_26">
             <English>Pushing 4.5mg Morphine</English>
-            <Spanish>Administrando 4,5mg morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_morphineIV_5ml_26">
             <English>5ml Syringe / 4.5mg(90kg) Morphine</English>
-            <Spanish>Jeringa 5ml/4,5mg (90kg) morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_morphineIV_5ml_30">
             <English>Push 5mg Morphine</English>
-            <Spanish>Administrar 5mg morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_morphineIV_5ml_30">
             <English>Pushing 5mg Morphine</English>
-            <Spanish>Administrando 5mg morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_morphineIV_5ml_30">
             <English>5ml Syringe / 5mg(100kg) Morphine</English>
-            <Spanish>Jeringa 5ml/5mg (100kg) morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ondansetron_5ml_10">
             <English>Push 3mg Ondansetron</English>
-            <Spanish>Administrar 3mg ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ondansetron_5ml_10">
             <English>Pushing 3mg Ondansetron</English>
-            <Spanish>Administrando 3mg ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ondansetron_5ml_10">
             <English>5ml Syringe / 3mg(60kg) Ondansetron</English>
-            <Spanish>Jeringa 5ml/3mg (60kg) ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ondansetron_5ml_16">
             <English>Push 3.5mg Ondansetron</English>
-            <Spanish>Administrar 3,5mg ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ondansetron_5ml_16">
             <English>Pushing 3.5mg Ondansetron</English>
-            <Spanish>Administrando 3,5mg ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ondansetron_5ml_16">
             <English>5ml Syringe / 3.5mg(70kg) Ondansetron</English>
-            <Spanish>Jeringa 5ml/3,5mg (70kg) ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ondansetron_5ml_20">
             <English>Push 4mg Ondansetron</English>
-            <Spanish>Administrar 4mg ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ondansetron_5ml_20">
             <English>Pushing 4mg Ondansetron</English>
-            <Spanish>Administrando 4mg ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ondansetron_5ml_20">
             <English>5ml Syringe / 4mg(80kg) Ondansetron</English>
-            <Spanish>Jeringa 5ml/4mg (80kg) ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ondansetron_5ml_26">
             <English>Push 4.5mg Ondansetron</English>
-            <Spanish>Administrar 4,5mg ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ondansetron_5ml_26">
             <English>Pushing 4.5mg Ondansetron</English>
-            <Spanish>Administrando 4,5mg ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ondansetron_5ml_26">
             <English>5ml Syringe / 4.5mg(90kg) Ondansetron</English>
-            <Spanish>Jeringa 5ml/4,5mg (90kg) ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ondansetron_5ml_30">
             <English>Push 5mg Ondansetron</English>
-            <Spanish>Administrar 5mg ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ondansetron_5ml_30">
             <English>Pushing 5mg Ondansetron</English>
-            <Spanish>Administrando 5mg ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ondansetron_5ml_30">
             <English>5ml Syringe / 5mg(100kg) Ondansetron</English>
-            <Spanish>Jeringa 5ml/5mg (100kg) ondansetrón</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_morphineIV_10ml_10">
             <English>Inject 3mg Morphine</English>
-            <Spanish>Inyectar 3mg de morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_morphineIV_10ml_10">
             <English>Injecting 3mg Morphine</English>
-            <Spanish>Inyectando 3mg de morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_morphineIV_10ml_10">
             <English>10ml Syringe / 3mg(60kg) Morphine</English>
-            <Spanish>Jeringa 10ml/3mg (60kg) morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_morphineIV_10ml_16">
             <English>Inject 3.5mg Morphine</English>
-            <Spanish>Inyectar 3,5mg de morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_morphineIV_10ml_16">
             <English>Injecting 3.5mg Morphine</English>
-            <Spanish>Inyectando 3,5mg de morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_morphineIV_10ml_16">
             <English>10ml Syringe / 3.5mg(70kg) Morphine</English>
-            <Spanish>Jeringa 10ml/3,5mg (70kg) morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_morphineIV_10ml_20">
             <English>Inject 4mg Morphine</English>
-            <Spanish>Inyectar 4mg de morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_morphineIV_10ml_20">
             <English>Injecting 4mg Morphine</English>
-            <Spanish>Inyectando 4mg de morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_morphineIV_10ml_20">
             <English>10ml Syringe / 4mg(80kg) Morphine</English>
-            <Spanish>Jeringa 10ml/4mg (80kg) morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_morphineIV_10ml_26">
             <English>Inject 4.5mg Morphine</English>
-            <Spanish>Inyectar 4,5mg de morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_morphineIV_10ml_26">
             <English>Injecting 4.5mg Morphine</English>
-            <Spanish>Inyectando 4,5mg de morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_morphineIV_10ml_26">
             <English>10ml Syringe / 4.5mg(90kg) Morphine</English>
-            <Spanish>Jeringa 10ml/4,5mg (90kg) morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_morphineIV_10ml_30">
             <English>Inject 5mg Morphine</English>
-            <Spanish>Inyectar 5mg de morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_morphineIV_10ml_30">
             <English>Injecting 5mg Morphine</English>
-            <Spanish>Inyectando 5mg de morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_morphineIV_10ml_30">
             <English>10ml Syringe / 5mg(100kg) Morphine</English>
-            <Spanish>Jeringa 10ml/5mg (100kg) morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_10">
             <English>Inject 30mg Ketamine</English>
-            <Spanish>Inyectar 30mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_10">
             <English>Injecting 30mg Ketamine</English>
-            <Spanish>Inyectando 30mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_10">
             <English>10ml Syringe / 30mg(60kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/30mg (60kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_12">
             <English>Inject 32mg Ketamine</English>
-            <Spanish>Inyectar 32mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_12">
             <English>Injecting 32mg Ketamine</English>
-            <Spanish>Inyectando 32mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_12">
             <English>10ml Syringe / 32mg(64kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/32mg (64kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_14">
             <English>Inject 34mg Ketamine</English>
-            <Spanish>Inyectar 34mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_14">
             <English>Injecting 34mg Ketamine</English>
-            <Spanish>Inyectando 34mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_14">
             <English>10ml Syringe / 34mg(68kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/34mg (68kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_16">
             <English>Inject 36mg Ketamine</English>
-            <Spanish>Inyectar 36mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_16">
             <English>Injecting 36mg Ketamine</English>
-            <Spanish>Inyectando 36mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_16">
             <English>10ml Syringe / 36mg(72kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/36mg (72kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_18">
             <English>Inject 38mg Ketamine</English>
-            <Spanish>Inyectar 38mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_18">
             <English>Injecting 38mg Ketamine</English>
-            <Spanish>Inyectando 38mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_18">
             <English>10ml Syringe / 38mg(76kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/38mg (76kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_20">
             <English>Inject 40mg Ketamine</English>
-            <Spanish>Inyectar 40mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_20">
             <English>Injecting 40mg Ketamine</English>
-            <Spanish>Inyectando 40mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_20">
             <English>10ml Syringe / 40mg(80kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/40mg (80kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_22">
             <English>Inject 42mg Ketamine</English>
-            <Spanish>Inyectar 42mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_22">
             <English>Injecting 42mg Ketamine</English>
-            <Spanish>Inyectando 42mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_22">
             <English>10ml Syringe / 42mg(84kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/42mg (84kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_24">
             <English>Inject 44mg Ketamine</English>
-            <Spanish>Inyectar 44mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_24">
             <English>Injecting 44mg Ketamine</English>
-            <Spanish>Inyectando 44mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_24">
             <English>10ml Syringe / 44mg(88kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/44mg (88kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_26">
             <English>Inject 46mg Ketamine</English>
-            <Spanish>Inyectar 46mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_26">
             <English>Injecting 46mg Ketamine</English>
-            <Spanish>Inyectando 46mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_26">
             <English>10ml Syringe / 46mg(92kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/46mg (92kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_28">
             <English>Inject 48mg Ketamine</English>
-            <Spanish>Inyectar 48mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_28">
             <English>Injecting 48mg Ketamine</English>
-            <Spanish>Inyectando 48mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_28">
             <English>10ml Syringe / 48mg(96kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/48mg (96kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_10ml_30">
             <English>Inject 50mg Ketamine</English>
-            <Spanish>Inyectar 50mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_ketamine_10ml_30">
             <English>Injecting 50mg Ketamine</English>
-            <Spanish>Inyectando 50mg de ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_ketamine_10ml_30">
             <English>10ml Syringe / 50mg(100kg) Ketamine</English>
-            <Spanish>Jeringa 10ml/50mg (100kg) ketamina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_10">
             <English>Inject 30mcg Fentanyl</English>
-            <Spanish>Inyectar 30mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_10">
             <English>Injecting 30mcg Fentanyl</English>
-            <Spanish>Inyectando 30mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_10">
             <English>10ml Syringe / 30mcg(60kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/30mcg (60kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_12">
             <English>Inject 32mcg Fentanyl</English>
-            <Spanish>Inyectar 32mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_12">
             <English>Injecting 32mcg Fentanyl</English>
-            <Spanish>Inyectando 32mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_12">
             <English>10ml Syringe / 32mcg(64kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/32mcg (64kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_14">
             <English>Inject 34mcg Fentanyl</English>
-            <Spanish>Inyectar 34mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_14">
             <English>Injecting 34mcg Fentanyl</English>
-            <Spanish>Inyectando 34mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_14">
             <English>10ml Syringe / 34mcg(68kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/34mcg (68kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_16">
             <English>Inject 36mcg Fentanyl</English>
-            <Spanish>Inyectar 36mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_16">
             <English>Injecting 36mcg Fentanyl</English>
-            <Spanish>Inyectando 36mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_16">
             <English>10ml Syringe / 36mcg(72kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/36mcg (72kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_18">
             <English>Inject 38mcg Fentanyl</English>
-            <Spanish>Inyectar 38mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_18">
             <English>Injecting 38mcg Fentanyl</English>
-            <Spanish>Inyectando 38mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_18">
             <English>10ml Syringe / 38mcg(76kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/38mcg (76kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_20">
             <English>Inject 40mcg Fentanyl</English>
-            <Spanish>Inyectar 40mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_20">
             <English>Injecting 40mcg Fentanyl</English>
-            <Spanish>Inyectando 40mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_20">
             <English>10ml Syringe / 40mcg(80kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/40mcg (80kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_22">
             <English>Inject 42mcg Fentanyl</English>
-            <Spanish>Inyectar 42mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_22">
             <English>Injecting 42mcg Fentanyl</English>
-            <Spanish>Inyectando 42mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_22">
             <English>10ml Syringe / 42mcg(84kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/42mcg (84kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_24">
             <English>Inject 44mcg Fentanyl</English>
-            <Spanish>Inyectar 44mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_24">
             <English>Injecting 44mcg Fentanyl</English>
-            <Spanish>Inyectando 44mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_24">
             <English>10ml Syringe / 44mcg(88kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/44mcg (88kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_26">
             <English>Inject 46mcg Fentanyl</English>
-            <Spanish>Inyectar 46mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_26">
             <English>Injecting 46mcg Fentanyl</English>
-            <Spanish>Inyectando 46mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_26">
             <English>10ml Syringe / 46mcg(92kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/46mcg (92kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_28">
             <English>Inject 48mcg Fentanyl</English>
-            <Spanish>Inyectar 48mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_28">
             <English>Injecting 48mcg Fentanyl</English>
-            <Spanish>Inyectando 48mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_28">
             <English>10ml Syringe / 48mcg(96kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/48mcg (96kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_10ml_30">
             <English>Inject 50mcg Fentanyl</English>
-            <Spanish>Inyectar 50mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_10ml_30">
             <English>Injecting 50mcg Fentanyl</English>
-            <Spanish>Inyectando 50mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_10ml_30">
             <English>10ml Syringe / 50mcg(100kg) Fentanyl</English>
-            <Spanish>Jeringa 10ml/50mcg (100kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_10">
             <English>Inject 10mg Nalbuphine</English>
-            <Spanish>Inyectar 10mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_10">
             <English>Injecting 10mg Nalbuphine</English>
-            <Spanish>Inyectando 10mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_10">
             <English>10ml Syringe / 10mg(60kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/10mg (60kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_12">
             <English>Inject 12mg Nalbuphine</English>
-            <Spanish>Inyectar 12mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_12">
             <English>Injecting 12mg Nalbuphine</English>
-            <Spanish>Inyectando 12mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_12">
             <English>10ml Syringe / 12mg(64kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/12mg (64kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_14">
             <English>Inject 14mg Nalbuphine</English>
-            <Spanish>Inyectar 14mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_14">
             <English>Injecting 14mg Nalbuphine</English>
-            <Spanish>Inyectando 14mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_14">
             <English>10ml Syringe / 14mg(68kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/14mg (68kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_16">
             <English>Inject 16mg Nalbuphine</English>
-            <Spanish>Inyectar 16mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_16">
             <English>Injecting 16mg Nalbuphine</English>
-            <Spanish>Inyectando 16mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_16">
             <English>10ml Syringe / 16mg(72kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/16mg (72kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_18">
             <English>Inject 18mg Nalbuphine</English>
-            <Spanish>Inyectar 18mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_18">
             <English>Injecting 18mg Nalbuphine</English>
-            <Spanish>Inyectando 18mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_18">
             <English>10ml Syringe / 18mg(76kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/18mg (76kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_20">
             <English>Inject 20mg Nalbuphine</English>
-            <Spanish>Inyectar 20mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_20">
             <English>Injecting 20mg Nalbuphine</English>
-            <Spanish>Inyectando 20mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_20">
             <English>10ml Syringe / 20mg(80kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/20mg (80kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_22">
             <English>Inject 22mg Nalbuphine</English>
-            <Spanish>Inyectar 22mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_22">
             <English>Injecting 22mg Nalbuphine</English>
-            <Spanish>Inyectando 22mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_22">
             <English>10ml Syringe / 22mg(84kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/22mg (84kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_24">
             <English>Inject 24mg Nalbuphine</English>
-            <Spanish>Inyectar 24mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_24">
             <English>Injecting 24mg Nalbuphine</English>
-            <Spanish>Inyectando 24mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_24">
             <English>10ml Syringe / 24mg(88kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/24mg (88kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_26">
             <English>Inject 26mg Nalbuphine</English>
-            <Spanish>Inyectar 26mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_26">
             <English>Injecting 26mg Nalbuphine</English>
-            <Spanish>Inyectando 26mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_26">
             <English>10ml Syringe / 26mg(92kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/26mg (92kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_28">
             <English>Inject 28mg Nalbuphine</English>
-            <Spanish>Inyectar 28mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_28">
             <English>Injecting 28mg Nalbuphine</English>
-            <Spanish>Inyectando 28mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_28">
             <English>10ml Syringe / 28mg(96kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/28mg (96kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_10ml_30">
             <English>Inject 30mg Nalbuphine</English>
-            <Spanish>Inyectar 30mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_10ml_30">
             <English>Injecting 30mg Nalbuphine</English>
-            <Spanish>Inyectando 30mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_10ml_30">
             <English>10ml Syringe / 30mg(100kg) Nalbuphine</English>
-            <Spanish>Jeringa 10ml/30mg (100kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_10">
             <English>Push 30mcg Fentanyl</English>
-            <Spanish>Administrar 30mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_10">
             <English>Pushing 30mcg Fentanyl</English>
-            <Spanish>Administrando 30mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_10">
             <English>5ml Syringe / 30mcg(60kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/30mcg (60kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_12">
             <English>Push 32mcg Fentanyl</English>
-            <Spanish>Administrar 32mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_12">
             <English>Pushing 32mcg Fentanyl</English>
-            <Spanish>Administrando 32mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_12">
             <English>5ml Syringe / 32mcg(64kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/32mcg (64kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_14">
             <English>Push 34mcg Fentanyl</English>
-            <Spanish>Administrar 34mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_14">
             <English>Pushing 34mcg Fentanyl</English>
-            <Spanish>Administrando 34mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_14">
             <English>5ml Syringe / 34mcg(68kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/34mcg (68kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_16">
             <English>Push 36mcg Fentanyl</English>
-            <Spanish>Administrar 36mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_16">
             <English>Pushing 36mcg Fentanyl</English>
-            <Spanish>Administrando 36mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_16">
             <English>5ml Syringe / 36mcg(72kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/36mcg (72kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_18">
             <English>Push 38mcg Fentanyl</English>
-            <Spanish>Administrar 38mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_18">
             <English>Pushing 38mcg Fentanyl</English>
-            <Spanish>Administrando 38mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_18">
             <English>5ml Syringe / 38mcg(76kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/38mcg (76kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_20">
             <English>Push 40mcg Fentanyl</English>
-            <Spanish>Administrar 40mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_20">
             <English>Pushing 40mcg Fentanyl</English>
-            <Spanish>Administrando 40mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_20">
             <English>5ml Syringe / 40mcg(80kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/40mcg (80kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_22">
             <English>Push 42mcg Fentanyl</English>
-            <Spanish>Administrar 42mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_22">
             <English>Pushing 42mcg Fentanyl</English>
-            <Spanish>Administrando 42mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_22">
             <English>5ml Syringe / 42mcg(84kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/42mcg (84kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_24">
             <English>Push 44mcg Fentanyl</English>
-            <Spanish>Administrar 44mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_24">
             <English>Pushing 44mcg Fentanyl</English>
-            <Spanish>Administrando 44mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_24">
             <English>5ml Syringe / 44mcg(88kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/44mcg (88kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_26">
             <English>Push 46mcg Fentanyl</English>
-            <Spanish>Administrar 46mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_26">
             <English>Pushing 46mcg Fentanyl</English>
-            <Spanish>Administrando 46mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_26">
             <English>5ml Syringe / 46mcg(92kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/46mcg (92kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_28">
             <English>Push 48mcg Fentanyl</English>
-            <Spanish>Administrar 48mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_28">
             <English>Pushing 48mcg Fentanyl</English>
-            <Spanish>Administrando 48mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_28">
             <English>5ml Syringe / 48mcg(96kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/48mcg (96kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_fentanyl_5ml_30">
             <English>Push 50mcg Fentanyl</English>
-            <Spanish>Administrar 50mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_fentanyl_5ml_30">
             <English>Pushing 50mcg Fentanyl</English>
-            <Spanish>Administrando 50mcg de fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_fentanyl_5ml_30">
             <English>5ml Syringe / 50mcg(100kg) Fentanyl</English>
-            <Spanish>Jeringa 5ml/50mcg (100kg) fentanilo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_10">
             <English>Push 10mg Nalbuphine</English>
-            <Spanish>Administrar 10mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_10">
             <English>Pushing 10mg Nalbuphine</English>
-            <Spanish>Administrando 10mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_10">
             <English>5ml Syringe / 10mg(60kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/10mg (60kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_12">
             <English>Push 12mg Nalbuphine</English>
-            <Spanish>Administrar 12mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_12">
             <English>Pushing 12mg Nalbuphine</English>
-            <Spanish>Administrando 12mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_12">
             <English>5ml Syringe / 12mg(64kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/12mg (64kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_14">
             <English>Push 14mg Nalbuphine</English>
-            <Spanish>Administrar 14mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_14">
             <English>Pushing 14mg Nalbuphine</English>
-            <Spanish>Administrando 14mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_14">
             <English>5ml Syringe / 14mg(68kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/14mg (68kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_16">
             <English>Push 16mg Nalbuphine</English>
-            <Spanish>Administrar 16mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_16">
             <English>Pushing 16mg Nalbuphine</English>
-            <Spanish>Administrando 16mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_16">
             <English>5ml Syringe / 16mg(72kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/16mg (72kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_18">
             <English>Push 18mg Nalbuphine</English>
-            <Spanish>Administrar 18mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_18">
             <English>Pushing 18mg Nalbuphine</English>
-            <Spanish>Administrando 18mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_18">
             <English>5ml Syringe / 18mg(76kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/18mg (76kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_20">
             <English>Push 20mg Nalbuphine</English>
-            <Spanish>Administrar 20mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_20">
             <English>Pushing 20mg Nalbuphine</English>
-            <Spanish>Administrando 20mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_20">
             <English>5ml Syringe / 20mg(80kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/20mg (80kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_22">
             <English>Push 22mg Nalbuphine</English>
-            <Spanish>Administrar 22mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_22">
             <English>Pushing 22mg Nalbuphine</English>
-            <Spanish>Administrando 22mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_22">
             <English>5ml Syringe / 22mg(84kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/22mg (84kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_24">
             <English>Push 24mg Nalbuphine</English>
-            <Spanish>Administrar 24mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_24">
             <English>Pushing 24mg Nalbuphine</English>
-            <Spanish>Administrando 24mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_24">
             <English>5ml Syringe / 24mg(88kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/24mg (88kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_26">
             <English>Push 26mg Nalbuphine</English>
-            <Spanish>Administrar 26mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_26">
             <English>Pushing 26mg Nalbuphine</English>
-            <Spanish>Administrando 26mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_26">
             <English>5ml Syringe / 26mg(92kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/26mg (92kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_28">
             <English>Push 28mg Nalbuphine</English>
-            <Spanish>Administrar 28mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_28">
             <English>Pushing 28mg Nalbuphine</English>
-            <Spanish>Administrando 28mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_28">
             <English>5ml Syringe / 28mg(96kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/28mg (96kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_nalbuphine_5ml_30">
             <English>Push 30mg Nalbuphine</English>
-            <Spanish>Administrar 30mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pushing_nalbuphine_5ml_30">
             <English>Pushing 30mg Nalbuphine</English>
-            <Spanish>Administrando 30mg de nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SyringeDisplay_nalbuphine_5ml_30">
             <English>5ml Syringe / 30mg(100kg) Nalbuphine</English>
-            <Spanish>Jeringa 5ml/30mg (100kg) nalbufina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_ketamine_5ml_10">
             <English>Push 15mg(Analgesia) Ketamine</English>
@@ -5903,22 +5468,22 @@
         <Key ID="STR_KAT_Pharma_SyringeDisplay_etomidate_5ml_30">
             <English>5ml Syringe / 30mg(100kg) Etomidate</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_Push_epinephrineIV_5ml_10">
+        <Key ID="STR_KAT_Pharma_Push_epinephrineIV_5ml_20">
             <English>Push 10mcg Epinephrine</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_Pushing_epinephrineIV_5ml_10">
+        <Key ID="STR_KAT_Pharma_Pushing_epinephrineIV_5ml_20">
             <English>Pushing 10mcg Epinephrine</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_SyringeDisplay_epinephrineIV_5ml_10">
+        <Key ID="STR_KAT_Pharma_SyringeDisplay_epinephrineIV_5ml_20">
             <English>5ml Syringe / 10mcg Epinephrine</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_Push_epinephrineIV_5ml_20">
+        <Key ID="STR_KAT_Pharma_Push_epinephrineIV_5ml_30">
             <English>Push 1mg Epinephrine</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_Pushing_epinephrineIV_5ml_20">
+        <Key ID="STR_KAT_Pharma_Pushing_epinephrineIV_5ml_30">
             <English>Pushing 1mg Epinephrine</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_SyringeDisplay_epinephrineIV_5ml_20">
+        <Key ID="STR_KAT_Pharma_SyringeDisplay_epinephrineIV_5ml_30">
             <English>5ml Syringe / 1mg Epinephrine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_adenosineIV_5ml_10">
@@ -6012,7 +5577,7 @@
             <English>Ondansetron, For relief of nausea</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Ondansetron_displayName">
-            <English>Vial: Ondansetron</English>
+            <English>(Vial) Ondansetron</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Ondansetron">
             <English>Medical level required for Ondansetron</English>
@@ -6126,7 +5691,7 @@
             <English>Succinylcholine, For RSI</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Succinylcholine_displayName">
-            <English>Vial: Succinylcholine</English>
+            <English>(Vial) Succinylcholine</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Succinylcholine">
             <English>Medical level required for Succinylcholine</English>
@@ -6144,7 +5709,7 @@
             <English>Sugammadex, For reversal of Rocuronium</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Sugammadex_displayName">
-            <English>Vial: Sugammadex</English>
+            <English>(Vial) Sugammadex</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Push_rocuronium_5ml_10">
             <English>Push 90mg Rocuronium</English>
@@ -6252,7 +5817,7 @@
             <English>Rocuronium, For RSI</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Rocuronium_displayName">
-            <English>Vial: Rocuronium</English>
+            <English>(Vial) Rocuronium</English>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Rocuronium">
             <English>Medical level required for Rocuronium/Sugammadex</English>
@@ -6285,7 +5850,7 @@
             <English>Treatment time for Fentanyl Patches</English>
         </Key>
         <Key ID="STR_KAT_Pharma_fentpatch_MEDdisplay">
-            <English>Fentanyl Patch</English>
+            <English>(Med) Fentanyl Patch</English>
         </Key>
         <Key ID="STR_KAT_Pharma_fentpatchFull_MEDdisplay">
             <English>Fentanyl Patch (Full)</English>
@@ -6363,7 +5928,7 @@
             <English>Removing Pressure Bag</English>
         </Key>
         <Key ID="STR_KAT_Pharma_pressureBag_displayName">
-            <English>Pressure Bag</English>
+            <English>(P) Pressure Bag</English>
         </Key>
         <Key ID="STR_KAT_Pharma_pressureBag_DescShort">
             <English>Pressure Bag, increases flow rate of fluid bags when attached</English>
@@ -6426,13 +5991,13 @@
             <English>5ml Syringe / 10mg Diazepam</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Diazepam_Box_Display">
-            <English>Vial: Diazepam</English>
+            <English>(Vial) Diazepam</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Diazepam_DescShort">
             <English>Used to reduce Respiratory Rate</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Metoprolol_Box_Display">
-            <English>Vial: Metoprolol</English>
+            <English>(Vial) Metoprolol</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Metoprolol_DescShort">
             <English>Used to reduce heart rate</English>
@@ -6468,7 +6033,7 @@
             <English>Medical level required for Bicarbonate</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Bicarbonate_Box_Display">
-            <English>Vial: Bicarbonate</English>
+            <English>(Vial) Bicarbonate</English>
         </Key>
         <Key ID="STR_KAT_Pharma_Bicarbonate_DescShort">
             <English>Used to manage Ph</English>
@@ -6486,7 +6051,7 @@
             <English>Medical level required for Calcium Chloride</English>
         </Key>
         <Key ID="STR_KAT_Pharma_CalciumChloride_Box_Display">
-            <English>Vial: Calcium Chloride</English>
+            <English>(Vial) Calcium Chloride</English>
         </Key>
         <Key ID="STR_KAT_Pharma_CalciumChloride_DescShort">
             <English>Used to manage calcium</English>
@@ -6504,7 +6069,7 @@
             <English>Medical level required for Calcium Gluconate</English>
         </Key>
         <Key ID="STR_KAT_Pharma_calciumGluconate_Box_Display">
-            <English>Vial: Calcium Gluconate</English>
+            <English>(Vial) Calcium Gluconate</English>
         </Key>
         <Key ID="STR_KAT_Pharma_calciumGluconate_DescShort">
             <English>Used to manage calcium</English>
@@ -6548,14 +6113,62 @@
         <Key ID="STR_KAT_Pharma_Transfusing_Hextend">
             <English>Transfusing Hextend...</English>
         </Key>
-        <Key ID="STR_KAT_Pharma_ivSiteCompromised">
-            <English>IV Site Leaking</English>
+        <Key ID="STR_KAT_Pharma_ivSiteCompromised1">
+            <English>Minor IV Site Leakage</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_ivSiteCompromised2">
+            <English>Significant IV Site Leakage</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_ivSiteCompromised3">
+            <English>Major IV Site Leakage</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_ivSiteCompromised4">
+            <English>Catastrophic IV Site Leakage</English>
         </Key>
         <Key ID="STR_KAT_Pharma_ivSiteBlown">
             <English>IV Site Blown</English>
         </Key>
         <Key ID="STR_KAT_Pharma_activeDialysis">
             <English>Active Dialysis</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_ivSiteStatus1">
+            <English>IV Site Inflamed</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_ivSiteStatus2">
+            <English>IV Site Swelling</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IVblock4">
+            <English>Patient's IV is severely occluded</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IVblock3">
+            <English>Patient's IV is majorly occluded</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IVblock2">
+            <English>Patient's IV is partially occluded</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_IVblock1">
+            <English>Patient's IV is slightly occluded</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Place_Nerve_Block">
+            <English>Place Nerve Block</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Placing_Nerve_Block">
+            <English>Placing Nerve Block</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Flush_Catheter_Lidocaine">
+            <English>Flush IV with Lidocaine</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Flushing_Catheter_Lidocaine">
+            <English>Flushing IV with Lidocaine</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_epinephrineAutoinjector">
+            <English>(Autoinjector) Epinephrine</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_morphineAutoinjector">
+            <English>(Autoinjector) Morphine</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_adenosineAutoinjector">
+            <English>(Autoinjector) Adenosine</English>
         </Key>
     </Package>
 </Project>

@@ -20,33 +20,50 @@
 params ["_unit", "_deltaT", "_syncValues"];
 
 private _bloodLoss = GET_BODY_BLEED_RATE(_unit);
-private _internalBleeding = GET_INTERNAL_BLEEDING(_unit);
+private _exBloodLoss = GET_EXTERNAL_BODY_BLEED_RATE(_unit);
 private _bloodPressure = GET_BLOOD_PRESSURE(_unit);
 private _vasoconstriction = GET_VASOCONSTRICTION(_unit);
+private _appliedPressure = GET_APPLIEDPRESSURE(_unit);
 private _ECP = GET_BODY_FLUID_ECP(_unit);
 private _ECB = GET_BODY_FLUID_ECB(_unit);
 private _defaultHR = (_unit getVariable [QEGVAR(circulation,defaultHeartRate), 80]);
+private _externalBloodLoss = (_unit getVariable [QEGVAR(circulation,externalBloodLoss), 0]);
 _bloodPressure params ["_bloodPressureL", "_bloodPressureH"];
 private _map = GET_MAP(_unit);
 private _correctedMap = linearConversion [14.3333, 174.3333, _map, 0.05, 2, true];
 TRACE_3("correctedMAP",_correctedMap,_map,_bloodPressure);
 private _heartRate = GET_HEART_RATE(_unit);
 
+private _trauma = _unit getVariable [QEGVAR(vitals,traumaState),0];
+private _capLeak = linearConversion [0.4,0.9,_trauma,0,0.002,true];
+
 private _lossVolumeChange = 0;
 {
-    _lossVolumeChange = _lossVolumeChange + (-_deltaT * ((((_bloodLoss select _forEachIndex) + (_internalBleeding select _forEachIndex)) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) / (_vasoconstriction select _forEachIndex)));
+    private _occlusionLevel = [_unit,_forEachIndex] call FUNC(occlusionLevel);
+    private _pressureApplied = _appliedPressure select _forEachIndex;
+    _lossVolumeChange = _lossVolumeChange + (-(_deltaT/18) * (((_bloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex) * (1 - _pressureApplied) * (1 - _occlusionLevel)));
+    TRACE_9("_lossVolumeChange",_lossVolumeChange,-(_deltaT/18),(_bloodLoss select _forEachIndex),(_heartRate / _defaultHR),_correctedMap,(((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))),(_vasoconstriction select _forEachIndex),(1 - _pressureApplied),(1 - _occlusionLevel));
 } forEach _bloodLoss;
+_lossVolumeChange = _lossVolumeChange + _capLeak;
+private _externalLossVolumeChange = 0;
+{
+    private _occlusionLevel = [_unit,_forEachIndex] call FUNC(occlusionLevel);
+    private _pressureApplied = _appliedPressure select _forEachIndex;
+    _externalLossVolumeChange = _externalLossVolumeChange + ((_deltaT/18) * (((_exBloodLoss select _forEachIndex) * (_heartRate / _defaultHR) * _correctedMap * (((_ECP/_ECB) / (DEFAULT_ECP/DEFAULT_ECB))) min 2) * (_vasoconstriction select _forEachIndex) * (1 - _pressureApplied) * (1 - _occlusionLevel)));
+} forEach _exBloodLoss;
 private _enableFluidShift = EGVAR(vitals,enableFluidShift);
 private _fluidVolume = GET_BODY_FLUID(_unit);
-TRACE_4("gbvc",_internalBleeding,_bloodLoss,_heartRate,_lossVolumeChange);
+TRACE_4("gbvc",_bloodLoss,_heartRate,_lossVolumeChange,_externalLossVolumeChange);
 _fluidVolume params ["_ECB","_ECP","_SRBC","_ISP","_fullVolume","_platelets"];
 
 _ECP = (_ECP + (_lossVolumeChange * LITERS_TO_ML) / 2) max 100;
 _ECB = (_ECB + (_lossVolumeChange * LITERS_TO_ML) / 2) max 100;
 _platelets = (_platelets + ((_lossVolumeChange * LITERS_TO_ML) / 10)) max 0;
+_unit setVariable [QEGVAR(circulation,externalBloodLoss), _externalBloodLoss + _externalLossVolumeChange, _syncValues];
 if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
     private _bloodBags = _unit getVariable [QACEGVAR(medical,ivBags), []];
     private _IVarray = _unit getVariable [QGVAR(IV), [0,0,0,0,0,0,0,0,0,0,0,0]];
+    private _IVStatusArray = _unit getVariable [QGVAR(IVBlockStatus), [0,0,0,0,0,0,0,0,0,0,0,0]];
     private _flowCalculation = (ACEGVAR(medical,ivFlowRate) * _deltaT * 3.16);
     private _hypothermia = EGVAR(hypothermia,hypothermiaActive);
     private _vasoconstriction = GET_VASOCONSTRICTION(_unit);
@@ -73,8 +90,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
         private _idx = _occlusionMap findIf { _x#0 == _bodyPart };
         private _result = if (_idx != -1) then { _occlusionMap select _idx select 1 } else { [] };
         private _isOccluded = ({ _tourniquets select _x != 0 } count _result > 0) && (_IVarray select _bodyPart isNotEqualTo 13);
-        if ((!_isOccluded) && ([7,8,9,15] find (_IVarray select _bodyPart) == -1)) then {
-            if (_type in ["Blood", "Saline", "Plasma", "Ringers Lactate", "PackedRBC", "Hypertonic Saline", "Hextend", "FBTK_500", "FBTK_250"]) then {
+        if ((!_isOccluded) && ((_IVStatusArray select _bodyPart) != 1)) then {
+            if (_type in ["Blood", "Saline", "Plasma", "Ringers Lactate", "PackedRBC", "Hypertonic Saline", "Hextend", "FBTK_500", "FBTK_250", "Platelets"]) then {
             private _IVflow = _unit getVariable [QGVAR(IVflow), [0,0,0,0,0,0,0,0,0,0,0,0]];
             private _IVrate = _unit getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
             private _pressureBag = _unit getVariable [QGVAR(pressureBag), [0,0,0,0,0,0,0,0,0,0,0,0]];
@@ -85,10 +102,17 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 _flowCalculation = _flowCalculation * 0.6;
             };
             private _bagChange = 0;
-            if (_type in ["Blood", "Saline", "Plasma", "Ringers Lactate", "PackedRBC", "Hypertonic Saline", "Hextend"]) then {
-            _bagChange = (_flowCalculation * (_IVflow select _bodyPart) * (_IVrate select _bodyPart) * (1 + (_pressureBag select _bodyPart)) * _rateCoef) min _bagVolumeRemaining; // absolute value of the change in miliLiters
-            if ((_IVarray select _bodyPart) in [2,3,4,10,11,12]) then {
-                _bagChange = _bagChange * ((2 - (_vasoconstriction select _bodyPart)) max 0.2);
+            if (_type in ["Blood", "Saline", "Plasma", "Ringers Lactate", "PackedRBC", "Hypertonic Saline", "Hextend", "Platelets"]) then {
+            _bagChange = (_flowCalculation * (_IVflow select _bodyPart) * (1 - (((_IVStatusArray select _bodyPart) min 1) max 0)) * (_IVrate select _bodyPart) * (1 + (_pressureBag select _bodyPart)) * _rateCoef) min _bagVolumeRemaining; // absolute value of the change in miliLiters
+            if ((_IVarray select _bodyPart) in [2,3,4]) then {
+                _bagChange = _bagChange * ((1 * (_vasoconstriction select _bodyPart)) max 0.2);
+            };
+            if (_plateletAmount > 0) then {
+                if ((random 100) < 2) then {
+                    private _amount = linearConversion [0, 2, _plateletAmount, 0.001, 0.03];
+                    _IVStatusArray set [_bodyPart, (_IVStatusArray select _bodyPart) + _amount];
+                    _unit setVariable [QGVAR(IVBlockStatus),_IVStatusArray, true];
+                };
             };
             _bagVolumeRemaining = _bagVolumeRemaining - _bagChange;
             _incomingFlowAmount set [_bodyPart, ((_incomingFlowAmount select _bodyPart) + _bagChange)];
@@ -99,8 +123,14 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             } forEach _incomingFlowAmount;
             TRACE_8("IV",_bagChange,_IVrate,_IVflow,_IVarray,_isOccluded,_rateCoef,_flowCalculation,_bodyPart);
             TRACE_2("IV2",_bagVolumeRemaining,_incomingFlowAmount);
-            if ((GVAR(LimbIVComplications)) && ((((_incomingFlowAmount select _bodyPart) max 0.01) / ((_IVrate select _bodyPart) max 0.01)) > (5 * ((2 - (_vasoconstriction select _bodyPart)) max 0.2))) && ((random 100) < 20)) then {
-                private _incomingFlowDifference = (_incomingFlowAmount select _bodyPart) - (5 * ((2 - (_vasoconstriction select _bodyPart)) max 0.2));
+            private _flowRatio = ((_incomingFlowAmount select _bodyPart) max 0.01) / ((_IVrate select _bodyPart) max 0.01);
+            private _vasoFactor = 1 / ((_vasoconstriction select _bodyPart) max 0.2);
+            private _capacity = 4 * _vasoFactor * ((_IVrate select _bodyPart) max 0.01);
+            private _pressure = 1 + (_pressureBag select _bodyPart);
+            private _overload = (_flowRatio * _pressure) / _capacity;
+            private _chance = linearConversion [1, 3, _overload, 0, 100, true];
+            if ((GVAR(LimbIVComplications)) && (_overload > 1) && ((random 100) < _chance)) then {
+                private _incomingFlowDifference = (_incomingFlowAmount select _bodyPart) - (5 * ((1 * (_vasoconstriction select _bodyPart)) max 0.2));
                 [_unit, _bodyPart, _incomingFlowDifference] call FUNC(handleLimbIVComplications)};
             if (GVAR(IVComplications)) then {
                 private _hr = GET_HEART_RATE(_unit);
@@ -115,7 +145,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                     _fixedVaso = _fixedVaso + _x;
                 } forEach _vasoconstriction;
                 private _fixedVaso = (_fixedVaso /12);
-                private _maxSafeFlow = (20 * ((2 - _fixedVaso) max 0.2)) / _riskCoef;
+                private _maxSafeFlow = (20 * ((1 * _fixedVaso) max 0.2)) / _riskCoef;
                 if (_totalFlow > _maxSafeFlow) then {
                     [_unit, (_totalFlow - _maxSafeFlow)] call FUNC(handleIVComplications)
                     };
@@ -132,26 +162,12 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 if !([_unit, _treatment] call EFUNC(circulation,compatible)) then {
                     private _medCount = [_unit, "BloodPoisoning"] call ACEFUNC(medical_status,getMedicationCount) select 1;
                     if (_medCount < 0.05) then {
-                        [_unit, "BloodPoisoning", 0, 30, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.3, 0, 0, "false", "false", "true"] call EFUNC(vitals,addMedicationAdjustment);
+                        [_unit, "BloodPoisoning_Override", 0, 30, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.3, 0, 0, 0, 0, 1] call EFUNC(vitals,addMedicationAdjustment);
                     };
-                    private _hasPFH = _unit getVariable [QGVAR(hemolysisPFH), -1] isNotEqualTo -1;
-                    if !(_hasPFH) then {
-                        private _hemolysisPFH = [{
-                            params ["_args", "_idPFH"];
-                            _args params ["_unit"];
-                            private _medCount = [_unit, "BloodPoisoning"] call ACEFUNC(medical_status,getMedicationCount) select 1;
-                            if ((_medCount == 0) || !(alive _unit)) exitWith {
-                                _unit setVariable [QGVAR(hemolysisPFH), -1, true];
-                                [_idPFH] call CBA_fnc_removePerFrameHandler;
-                            };
-                            private _bloodlevels = GET_BODY_FLUID(_unit);
-                            _bloodlevels set [0, ((_bloodlevels select 0) - 8) max 0];
-                            _bloodlevels set [1, ((_bloodlevels select 1) + 8) max 0];
-                            _bloodlevels set [5, ((_bloodlevels select 5) - 3) max 0];
-                            _unit setVariable [QEGVAR(circulation,bodyFluid), _bloodlevels, true];
-                        }, 1, [_unit]] call CBA_fnc_addPerFrameHandler;
-                        _unit setVariable [QGVAR(hemolysisPFH), _hemolysisPFH, true];
-                    };
+                    private _bloodlevels = GET_BODY_FLUID(_unit);
+                    _bloodlevels set [0, ((_bloodlevels select 0) - 8) max 0];
+                    _bloodlevels set [1, ((_bloodlevels select 1) + 8) max 0];
+                    _bloodlevels set [5, ((_bloodlevels select 5) - 3) max 0];
                 };
             };
             // Plasma adds to ECP. Saline splits between the ECP and ISP. Blood adds to ECB/ECP
@@ -165,7 +181,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             };
             } else {
                 _bagChange = (_flowCalculation * (_IVrate select _bodyPart) *  _rateCoef); // absolute value of the change in miliLiters
-                if ((_IVarray select _bodyPart) in [2,3,4,10,11,12]) then {
+                if ((_IVarray select _bodyPart) in [2,3,4]) then {
                     _bagChange = _bagChange * ((2 - (_vasoconstriction select _bodyPart)) max 0.2);
                 };
             };
@@ -176,11 +192,11 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                     
                 case(_type == "Saline"): { 
                     if (_enableFluidShift) then {
-                        _ECP = _ECP + _bagChange / 2; 
-                        _ISP = _ISP + _bagChange / 2; 
+                        _ECP = _ECP + (_bagChange / 2); 
+                        _ISP = _ISP + (_bagChange / 2); 
                         _lossVolumeChange = _lossVolumeChange + (_bagChange / 2000);
                     } else {
-                        { _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS); };
+                        _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS);
                     };
                     private _salineFlow = _unit getVariable [QEGVAR(brain,salineFlow), 0];
                     _unit setVariable [QEGVAR(brain,salineFlow), _salineFlow + _bagChange, true];
@@ -188,17 +204,17 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 };
                 case(_type == "Ringers Lactate"): {
                     if (_enableFluidShift) then {
-                        _ECP = _ECP + _bagChange * 0.75; 
-                        _ISP = _ISP + _bagChange * 0.25; 
+                        _ECP = _ECP + (_bagChange * 0.75); 
+                        _ISP = _ISP + (_bagChange * 0.25); 
                         _lossVolumeChange = _lossVolumeChange + (_bagChange / 2000);
                     } else {
-                        { _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS); };
+                        _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS);
                     };
                     _platelets = (_platelets + (_plateletAmount * _bagChange)) max 0;
                 };
                 case(_type == "Blood"): { 
-                    _ECB = _ECB + _bagChange / 2; 
-                    _ECP = _ECP + _bagChange / 2; 
+                    _ECB = _ECB + (_bagChange / 2); 
+                    _ECP = _ECP + (_bagChange / 2); 
                     _lossVolumeChange = _lossVolumeChange + (_bagChange / 2000);
                     _platelets = (_platelets + (_plateletAmount * _bagChange)) max 0; 
                 };
@@ -226,7 +242,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                     
                         _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS);
                     } else {
-                        { _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS); };
+                        _ECP = _ECP + _bagChange; _lossVolumeChange = _lossVolumeChange + (_bagChange / ML_TO_LITERS);
                     };
                     private _salineFlow = _unit getVariable [QEGVAR(brain,salineFlow), 0];
                     _unit setVariable [QEGVAR(brain,salineFlow), _salineFlow + (_bagChange * 3), true];
@@ -245,8 +261,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 case(_type == "FBTK_250"): {
                     if (_bagVolumeRemaining < 250) then {
                         _bagVolumeRemaining = (_bagVolumeRemaining + _bagChange) min 250;
-                        _ECB = _ECB - _bagChange / 2; 
-                        _ECP = _ECP - _bagChange / 2;
+                        _ECB = _ECB - (_bagChange / 2); 
+                        _ECP = _ECP - (_bagChange / 2);
                         _platelets = _platelets - (0.1 * _bagChange);
                         _lossVolumeChange = _lossVolumeChange - (_bagChange / ML_TO_LITERS); 
                     };
@@ -254,8 +270,8 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 case(_type == "FBTK_500"): {
                     if (_bagVolumeRemaining < 500) then {
                         _bagVolumeRemaining = (_bagVolumeRemaining + _bagChange) min 500;
-                        _ECB = _ECB - _bagChange / 2; 
-                        _ECP = _ECP - _bagChange / 2;
+                        _ECB = _ECB - (_bagChange / 2); 
+                        _ECP = _ECP - (_bagChange / 2);
                         _platelets = _platelets - (0.1 * _bagChange);
                         _lossVolumeChange = _lossVolumeChange - (_bagChange / ML_TO_LITERS); 
                     };
@@ -271,6 +287,14 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 _platelets = _platelets - _leakAmount;
                 _ISP = _ISP - _leakAmount;
             };
+            private _leakAmount = ((_unit getVariable [QGVAR(IVLeakStatus), [0,0,0,0,0,0,0,0,0,0,0,0]]) select _bodyPart);
+            if (_leakAmount > 0) then {
+                private _leak = _bagChange * (1 - _leakAmount);
+                _ECB = _ECB - _leak;
+                _ECP = _ECP - _leak;
+                _platelets = _platelets - _leak;
+                _ISP = _ISP - _leak;
+            };
         } else {
             private _IVflow = _unit getVariable [QGVAR(IVflow), [0,0,0,0,0,0,0,0,0,0,0,0]];
             private _IVrate = _unit getVariable [QGVAR(IVrate), [0,0,0,0,0,0,0,0,0,0,0,0]];
@@ -279,32 +303,30 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             _bagVolumeRemaining = _bagVolumeRemaining - _bagChange;
             _incomingFlowAmount set [_bodyPart, ((_incomingFlowAmount select _bodyPart) + _bagChange)];
             _unit setVariable [QGVAR(IVincomingFlowAmount), _incomingFlowAmount, true];
-            private _defaultHeartRate = _unit getVariable [QEGVAR(circulation,defaultHeartRate), 80];
-            private _heartRateRatio = GET_HEART_RATE(_unit) / _defaultHeartRate;
-            private _hemocrit = (GET_BODY_FLUID_ECP(_unit)/GET_BODY_FLUID_ECB(_unit)) / (DEFAULT_ECP/DEFAULT_ECB);
-            private _drugMult = (((((GET_BLOOD_VOLUME_LITERS(_unit))/ DEFAULT_BLOOD_VOLUME) * (_heartRateRatio) * _hemocrit) max 0.2) min 2.5);
             private _defaultConfig = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "IV";
             private _ivConfig = _defaultConfig >> _treatment;
-            private _painReduce             = (GET_NUMBER(_ivConfig >> "painReduce",getNumber (_defaultConfig >> "painReduce")) * _medicationMult) * _drugMult;
-            private _timeInSystem           = (GET_NUMBER(_ivConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")) * _medicationMult) * _drugMult;
-            private _timeTillMaxEffect      = (GET_NUMBER(_ivConfig >> "timeTillMaxEffect",getNumber (_defaultConfig >> "timeTillMaxEffect")) * _medicationMult) * _drugMult;
-            private _viscosityChange        = (GET_NUMBER(_ivConfig >> "viscosityChange",getNumber (_defaultConfig >> "viscosityChange")) * _medicationMult) * _drugMult;
+            private _painReduce             = (GET_NUMBER(_ivConfig >> "painReduce",getNumber (_defaultConfig >> "painReduce")) * _medicationMult);
+            private _viscosityChange        = (GET_NUMBER(_ivConfig >> "viscosityChange",getNumber (_defaultConfig >> "viscosityChange")) * _medicationMult);
+            private _timeInSystem           = (GET_NUMBER(_ivConfig >> "timeInSystem",getNumber (_defaultConfig >> "timeInSystem")));
+            private _timeTillMaxEffect      = (GET_NUMBER(_ivConfig >> "timeTillMaxEffect",getNumber (_defaultConfig >> "timeTillMaxEffect")) * _medicationMult);
             private _hrIncreaseLow          = GET_ARRAY(_ivConfig >> "hrIncreaseLow",getArray (_defaultConfig >> "hrIncreaseLow"));
             private _hrIncreaseNormal       = GET_ARRAY(_ivConfig >> "hrIncreaseNormal",getArray (_defaultConfig >> "hrIncreaseNormal"));
             private _hrIncreaseHigh         = GET_ARRAY(_ivConfig >> "hrIncreaseHigh",getArray (_defaultConfig >> "hrIncreaseHigh"));
-            private _alphaFactor            = (GET_NUMBER(_ivConfig >> "alphaFactor",getNumber (_defaultConfig >> "alphaFactor")) * _medicationMult) * _drugMult;
-            private _maxRelief              = (GET_NUMBER(_ivConfig >> "maxRelief",getNumber (_defaultConfig >> "maxRelief")) * _medicationMult) * _drugMult;
-            private _opioidRelief           = (GET_NUMBER(_ivConfig >> "opioidRelief",getNumber (_defaultConfig >> "opioidRelief")) * _medicationMult) * _drugMult;
-            private _opioidEffect           = (GET_NUMBER(_ivConfig >> "opioidEffect",getNumber (_defaultConfig >> "opioidEffect")) * _medicationMult) * _drugMult;
-            private _dose                   = (GET_NUMBER(_ivConfig >> "dose",getNumber (_defaultConfig >> "dose")) * _medicationMult) * _drugMult;
-            private _respiratoryRate        = (GET_NUMBER(_ivConfig >> "respiratoryRate",getNumber (_defaultConfig >> "respiratoryRate")) * _medicationMult) * _drugMult;
-            private _opioidDepression       = (GET_NUMBER(_ivConfig >> "opioidDepression",getNumber (_defaultConfig >> "opioidDepression")) * _medicationMult) * _drugMult;
-            private _contractility          = (GET_NUMBER(_ivConfig >> "contractility",getNumber (_defaultConfig >> "contractility"))* _medicationMult) * _drugMult;
-            private _nauseaMult             = (GET_NUMBER(_ivConfig >> "nauseaMult",getNumber (_defaultConfig >> "nauseaMult")) * _medicationMult) * _drugMult;
+            private _alphaFactor            = (GET_NUMBER(_ivConfig >> "alphaFactor",getNumber (_defaultConfig >> "alphaFactor")) * _medicationMult);
+            private _maxRelief              = (GET_NUMBER(_ivConfig >> "maxRelief",getNumber (_defaultConfig >> "maxRelief")) * _medicationMult);
+            private _opioidRelief           = (GET_NUMBER(_ivConfig >> "opioidRelief",getNumber (_defaultConfig >> "opioidRelief")) * _medicationMult);
+            private _opioidEffect           = (GET_NUMBER(_ivConfig >> "opioidEffect",getNumber (_defaultConfig >> "opioidEffect")) * _medicationMult);
+            private _dose                   = (GET_NUMBER(_ivConfig >> "dose",getNumber (_defaultConfig >> "dose")) * _medicationMult);
+            private _respiratoryRate        = (GET_NUMBER(_ivConfig >> "respiratoryRate",getNumber (_defaultConfig >> "respiratoryRate")) * _medicationMult);
+            private _opioidDepression       = (GET_NUMBER(_ivConfig >> "opioidDepression",getNumber (_defaultConfig >> "opioidDepression")) * _medicationMult);
+            private _contractility          = (GET_NUMBER(_ivConfig >> "contractility",getNumber (_defaultConfig >> "contractility"))* _medicationMult);
+            private _nauseaMult             = (GET_NUMBER(_ivConfig >> "nauseaMult",getNumber (_defaultConfig >> "nauseaMult")) * _medicationMult);
+            private _cnsSuppression         = (GET_NUMBER(_ivConfig >> "cnsSuppression",getNumber (_defaultConfig >> "cnsSuppression")) * _medicationMult);
+            private _theraputicDose        = (GET_NUMBER(_ivConfig >> "theraputicDose",getNumber (_defaultConfig >> "theraputicDose")));
             private _heartRate = GET_HEART_RATE(_unit);
             private _hrIncrease = [_hrIncreaseLow, _hrIncreaseNormal, _hrIncreaseHigh] select (floor ((0 max _heartRate min 110) / 55));
             _hrIncrease params ["_minIncrease", "_maxIncrease"];
-            private _heartRateChange = ((_minIncrease + random (_maxIncrease - _minIncrease)) * _medicationMult) * _drugMult;
+            private _heartRateChange = ((_minIncrease + random (_maxIncrease - _minIncrease)) * _medicationMult);
 
             private _presentPain = GET_PAIN(_unit);
             if (_maxRelief > 0) then {
@@ -315,9 +337,48 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             private _medicationName = (_type splitString "_") select 0;
             TRACE_6("adjustments1",_unit,_medicationName,_timeTillMaxEffect,_timeInSystem,_heartRateChange,_painReduce);
             TRACE_7("adjustments2",_viscosityChange,_dose,_alphaFactor,_opioidRelief,_opioidEffect,_opioidDepression,_respiratoryRate);
-
-            [_unit, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult] call EFUNC(vitals,addMedicationAdjustment);
-            [_unit, _medicationName] call ACEFUNC(medical_treatment,onMedicationUsage);
+            private _drugMult = linearConversion [0, 4, _medicationMult, 0.01, 4];
+            private _adjustments = _unit getVariable [VAR_MEDICATIONS, []];
+            private _index = _adjustments findIf {
+                (_x select 0) isEqualTo _medicationName
+                && {((_x select 19) select 6) == 1}
+            };
+            if (_index > -1) then {
+                private _entry = _adjustments select _index;
+                _entry params [
+                    "_med", "_timeAdded", "_timeTillMaxEffect", "_maxTimeInSystem",
+                    "_hrAdjust", "_painAdjust", "_flowAdjust", "_olddose", "_oldalphaFactor",
+                    "_oldopioidRelief", "_oldopioidEffect", "_oldopioidDepression",
+                    "_oldrespiratoryRate", "_oldcontractility", "_oldnauseaMult",
+                    "_sedation", "_paralysis", "_medGraph", "_oldcnsSuppression", "_admin"
+                ];
+                _adjustments set [_index, [
+                    _med,
+                    _timeAdded,
+                    _timeTillMaxEffect,
+                    _maxTimeInSystem + 1.5,
+                    _hrAdjust + ((_heartRateChange - _hrAdjust) * 0.25),
+                    _painAdjust + ((_painReduce - _painAdjust) * 0.25),
+                    _flowAdjust + ((_viscosityChange - _flowAdjust) * 0.25),
+                    _olddose + ((_dose - _olddose) * 0.25),
+                    _oldalphaFactor + ((_alphaFactor - _oldalphaFactor) * 0.25),
+                    _oldopioidRelief + ((_opioidRelief - _oldopioidRelief) * 0.25),
+                    _oldopioidEffect + ((_opioidEffect - _oldopioidEffect) * 0.25),
+                    _oldopioidDepression + ((_opioidDepression - _oldopioidDepression) * 0.25),
+                    _oldrespiratoryRate + ((_respiratoryRate - _oldrespiratoryRate) * 0.25),
+                    _oldcontractility + ((_contractility - _oldcontractility) * 0.25),
+                    _oldnauseaMult + ((_nauseaMult - _oldnauseaMult) * 0.25),
+                    _sedation,
+                    _paralysis,
+                    _medGraph,
+                    _oldcnsSuppression + ((_cnsSuppression - _oldcnsSuppression) * 0.25),
+                    _admin
+                ]];
+                _unit setVariable [VAR_MEDICATIONS, _adjustments, true];
+            } else {
+                [_unit, _medicationName, _timeTillMaxEffect, _timeInSystem, _heartRateChange, _painReduce, _viscosityChange, _dose, _alphaFactor, _opioidRelief, _opioidEffect, _opioidDepression, _respiratoryRate, _contractility, _nauseaMult, 0, 0, 1, _cnsSuppression, [-1, -1, -1, 0, _drugMult, _theraputicDose, 1]] call EFUNC(vitals,addMedicationAdjustment);
+            }; 
+            
 
             if (_hypothermia) then {
                 // If fluid warmers are on the line, fluids are "warmed" and added to the warmer. If there is no fluid warmer on the line, the fluids stayed cooled
@@ -345,6 +406,12 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                 private _leakAmount = _bagChange * (1 - _lostFluids);
                 _ECP = _ECP - _leakAmount;
                 _ISP = _ISP - _leakAmount;
+            };
+            private _leakAmount = ((_unit getVariable [QGVAR(IVLeakStatus), [0,0,0,0,0,0,0,0,0,0,0,0]]) select _bodyPart);
+            if (_leakAmount > 0) then {
+                private _leak = _bagChange * (1 - _leakAmount);
+                _ECP = _ECP - _leak;
+                _ISP = _ISP - _leak;
             };
         };
     };

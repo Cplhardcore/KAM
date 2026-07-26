@@ -11,13 +11,72 @@ class ace_medical_gui_TriageToggle: RscButton {
     x = QUOTE(POS_X(14.33));
     w = QUOTE(POS_W(10.3));
 };
-
 class ace_medical_gui_TriageSelect: RscControlsGroupNoScrollbars {
+    idc = IDC_TRIAGE_SELECT;
     x = QUOTE(POS_X(14.33));
+    y = QUOTE(POS_Y(16.6));
     w = QUOTE(POS_W(10.3));
+    h = QUOTE(POS_H(6.6));
     class controls {
         class None: RscButton {
+            idc = -1;
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),0)] call FUNC(handleTriageSelect));
+            style = 2;
+            text = ACECSTRING(medical_treatment,Triage_Status_None);
+            x = 0;
+            y = 0;
             w = QUOTE(POS_W(10.3));
+            h = QUOTE(POS_H(1.1));
+            shadow = 0;
+            colorText[] = {TRIAGE_TEXT_COLOR_NONE};
+            colorFocused[] = {TRIAGE_COLOR_NONE};
+            colorBackground[] = {TRIAGE_COLOR_NONE};
+            colorBackgroundActive[] = {TRIAGE_COLOR_NONE};
+        };
+        class Minimal: None {
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),1)] call ACEFUNC(medical_gui,handleTriageSelect));
+            text = ACECSTRING(medical_treatment,Triage_Status_Minimal);
+            y = QUOTE(POS_H(1.1));
+            colorText[] = {TRIAGE_TEXT_COLOR_MINIMAL};
+            colorFocused[] = {TRIAGE_COLOR_MINIMAL};
+            colorBackground[] = {TRIAGE_COLOR_MINIMAL};
+            colorBackgroundActive[] = {TRIAGE_COLOR_MINIMAL};
+        };
+        class Delayed: None {
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),2)] call ACEFUNC(medical_gui,handleTriageSelect));
+            text = ACECSTRING(medical_treatment,Triage_Status_Delayed);
+            y = QUOTE(POS_H(2.2));
+            colorText[] = {TRIAGE_TEXT_COLOR_DELAYED};
+            colorFocused[] = {TRIAGE_COLOR_DELAYED};
+            colorBackground[] = {TRIAGE_COLOR_DELAYED};
+            colorBackgroundActive[] = {TRIAGE_COLOR_DELAYED};
+        };
+        class Immediate: None {
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),3)] call ACEFUNC(medical_gui,handleTriageSelect));
+            text = ACECSTRING(medical_treatment,Triage_Status_Immediate);
+            y = QUOTE(POS_H(3.3));
+            colorText[] = {TRIAGE_TEXT_COLOR_IMMEDIATE};
+            colorFocused[] = {TRIAGE_COLOR_IMMEDIATE};
+            colorBackground[] = {TRIAGE_COLOR_IMMEDIATE};
+            colorBackgroundActive[] = {TRIAGE_COLOR_IMMEDIATE};
+        };
+        class Expectant: None {
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),4)] call ACEFUNC(medical_gui,handleTriageSelect));
+            text = CSTRING(Triage_Status_Expectant);
+            y = QUOTE(POS_H(4.4));
+            colorText[] = {TRIAGE_TEXT_COLOR_EXPECTANT};
+            colorFocused[] = {TRIAGE_COLOR_EXPECTANT};
+            colorBackground[] = {TRIAGE_COLOR_EXPECTANT};
+            colorBackgroundActive[] = {TRIAGE_COLOR_EXPECTANT};
+        };
+        class Deceased: None {
+            onButtonClick = QUOTE([ARR_3(ctrlParent (_this select 0),ACEGVAR(medical_gui,target),5)] call ACEFUNC(medical_gui,handleTriageSelect));
+            text = ACECSTRING(medical_treatment,Triage_Status_Deceased);
+            y = QUOTE(POS_H(5.5));
+            colorText[] = {TRIAGE_TEXT_COLOR_DECEASED};
+            colorFocused[] = {TRIAGE_COLOR_DECEASED};
+            colorBackground[] = {TRIAGE_COLOR_DECEASED};
+            colorBackgroundActive[] = {TRIAGE_COLOR_DECEASED};
         };
     };
 };
@@ -49,6 +108,16 @@ class ACEGVAR(medical_gui,BodyImage): RscControlsGroupNoScrollbars {
         class Head_NPA: Head_GuedelTube {
             idc = IDC_BODY_HEAD_NPA;
             text = QPATHTOF(data\body_image\NPA.paa);
+        };
+        class Head_CATASTROPHIC: Head_GuedelTube {
+            idc = IDC_BODY_HEAD_CATASTROPHIC;
+            text = QPATHTOF(data\body_image\catastrophicAirway.paa);
+            colorText[] = {1, 0, 0, 1};
+        };
+        class Neck_CATASTROPHIC: Head_GuedelTube {
+            idc = IDC_BODY_NECK_CATASTROPHIC;
+            text = QPATHTOF(data\body_image\catastrophicAirway1.paa);
+            colorText[] = {1, 0, 0, 1};
         };
         class Neck_CRIKE: Head_GuedelTube {
             idc = IDC_BODY_NECK_CRIKE;
@@ -877,7 +946,9 @@ class ACE_Medical_Menu {
                 idc = IDC_TEST_CA; // LOOK HERE
                 x = QUOTE(POS_X(46));
             };
-        class Triage: RscActivePicture {};
+        class Triage: RscActivePicture {
+            onButtonClick = QUOTE([ARR_2(ACE_player,ACEGVAR(medical_gui,target))] call EFUNC(triagecard,openCard));
+        };
         class Surgery: Triage {
             idc = IDC_SURGERY;
             onButtonClick = QUOTE(ace_medical_gui_selectedCategory = 'surgery');
@@ -1087,9 +1158,9 @@ class ACE_Medical_Menu {
             onButtonClick = QUOTE(ACEGVAR(medical_gui,selectedBodyPart) = 4);
             tooltip = CSTRING(SelectLeftArm);
             x = QUOTE(POS_X(21.1));
-            y = QUOTE(POS_Y(7.4));
+            y = QUOTE(POS_Y(7.2));
             w = QUOTE(POS_W(1.1));
-            h = QUOTE(POS_H(2.3));
+            h = QUOTE(POS_H(2.5));
         };
         class SelectArmLeft: SelectUpperArmLeft {
             onButtonClick = QUOTE(ACEGVAR(medical_gui,selectedBodyPart) = 5);
@@ -1097,15 +1168,15 @@ class ACE_Medical_Menu {
             x = QUOTE(POS_X(21.1));
             y = QUOTE(POS_Y(5.1));
             w = QUOTE(POS_W(1.1));
-            h = QUOTE(POS_H(2.3));
+            h = QUOTE(POS_H(2.1));
         };
         class SelectUpperArmRight: SelectUpperArmLeft {
             onButtonClick = QUOTE(ACEGVAR(medical_gui,selectedBodyPart) = 6);
             tooltip = CSTRING(SelectRightArm);
             x = QUOTE(POS_X(17.8));
-            y = QUOTE(POS_Y(7.4));
+            y = QUOTE(POS_Y(7.2));
             w = QUOTE(POS_W(1.1));
-            h = QUOTE(POS_H(2.3));
+            h = QUOTE(POS_H(2.5));
         };
         class SelectArmRight: SelectUpperArmRight {
             onButtonClick = QUOTE(ACEGVAR(medical_gui,selectedBodyPart) = 7);
@@ -1113,39 +1184,39 @@ class ACE_Medical_Menu {
             x = QUOTE(POS_X(17.8));
             y = QUOTE(POS_Y(5.1));
             w = QUOTE(POS_W(1.1));
-            h = QUOTE(POS_H(2.3));
+            h = QUOTE(POS_H(2.1));
         };
         class SelectUpperLegLeft: SelectHead {
             onButtonClick = QUOTE(ACEGVAR(medical_gui,selectedBodyPart) = 8);
             tooltip = CSTRING(SelectLeftLeg);
             x = QUOTE(POS_X(20.0));
-            y = QUOTE(POS_Y(11.7));
+            y = QUOTE(POS_Y(11));
             w = QUOTE(POS_W(1.1));
-            h = QUOTE(POS_H(2.1));
+            h = QUOTE(POS_H(3.2));
         };
         class SelectLegLeft: SelectUpperLegLeft {
             onButtonClick = QUOTE(ACEGVAR(medical_gui,selectedBodyPart) = 9);
             tooltip = CSTRING(SelectUpperLeftLeg);
             x = QUOTE(POS_X(20.0));
-            y = QUOTE(POS_Y(8.1));
+            y = QUOTE(POS_Y(8.3));
             w = QUOTE(POS_W(1.1));
-            h = QUOTE(POS_H(3.6));
+            h = QUOTE(POS_H(2.7));
         };
         class SelectUpperLegRight: SelectHead {
             onButtonClick = QUOTE(ACEGVAR(medical_gui,selectedBodyPart) = 10);
             tooltip = CSTRING(SelectRightLeg);
             x = QUOTE(POS_X(18.9));
-            y = QUOTE(POS_Y(11.7));
+            y = QUOTE(POS_Y(11));
             w = QUOTE(POS_W(1.1));
-            h = QUOTE(POS_H(2.1));
+            h = QUOTE(POS_H(3.2));
         };
         class SelectLegRight: SelectUpperLegRight {
             onButtonClick = QUOTE(ACEGVAR(medical_gui,selectedBodyPart) = 11);
             tooltip = CSTRING(SelectUpperRightLeg);
             x = QUOTE(POS_X(18.9));
-            y = QUOTE(POS_Y(8.1));
+            y = QUOTE(POS_Y(8.3));
             w = QUOTE(POS_W(1.1));
-            h = QUOTE(POS_H(3.6));
+            h = QUOTE(POS_H(2.7));
         };
     };
 };

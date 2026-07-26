@@ -137,4 +137,4 @@ private _fnc_displayMsg = {
 
     [_dlg, -1] call _fnc_displayMsg;
     [false] call _fnc_showDialog;
-}, [_dlg, _fnc_displayMsg, _fnc_showDialog], 3600] call CBA_fnc_waitUntilAndExecute;
+}, [_dlg, _fnc_displayMsg, _fnc_showDialog], 10800] call CBA_fnc_waitUntilAndExecute;

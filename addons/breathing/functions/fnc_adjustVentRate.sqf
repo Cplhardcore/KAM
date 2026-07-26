@@ -17,7 +17,7 @@
  */
 
 params ["_medic", "_target", "_adjust"];
-private _ventRate = _target getVariable [QGVAR(ventRate), 2];
-_target setVariable [QGVAR(ventRate), (((_ventRate + _adjust) min 8) max 1), true];
-private _hint = format [LLSTRING(ventRate), round (60 / (((_ventRate + _adjust) min 8) max 1))];
+private _ventRate = _target getVariable [QGVAR(ventRate), 15];
+_target setVariable [QGVAR(ventRate), (((_ventRate + _adjust) min 30) max 5), true];
+private _hint = format [LLSTRING(ventRate), round ((((_ventRate + _adjust) min 30) max 5))];
 [_hint, 2, _medic] call ACEFUNC(common,displayTextStructured);

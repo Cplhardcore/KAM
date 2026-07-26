@@ -18,10 +18,14 @@
 params ["_unit"];
 
 if !(GVAR(coagulation)) exitWith {};
-
+private _lastTimeUpdated = _unit getVariable [QGVAR(lastTimeClotUpdated), 0];
+private _deltaT = (CBA_missionTime - _lastTimeUpdated) min 20;
+TRACE_1("deltaT",_deltaT);
+if (_deltaT < 15) exitWith { false }; 
+_unit setVariable [QGVAR(lastTimeClotUpdated), CBA_missionTime];
 private _fnc_clotWound = {
     params ["_unit", "_bodyPart", "_wounds", "_txaEffectiveness"];
-
+    TRACE_4("_fnc_clotWound",_unit,_bodyPart,_wounds,_txaEffectiveness);
         {
             _x params ["_woundClassID", "_amountOf", "_bleeding", "_damage"];
             private _category = _woundClassID % 10;
@@ -58,31 +62,15 @@ private _fnc_clotWound = {
                 _hypothermiaDelay = linearConversion [35, 30, (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]), 1, 2.5, true];
             };
             if (EGVAR(hypothermia,hypothermiaActive) && (_unit getVariable [QEGVAR(hypothermia,unitTemperature), 37]) < 30) exitWith {};
-            private _ph = GET_PH(_unit);
-            private _ca = GET_CA(_unit);
-            // Calcium effect (low Ca = slower clotting)
-            private _calciumDelayMult = linearConversion [
-                1.2, 2.4,
-                _ca,
-                2.0, 1.0,        // up to 2× slower clotting
-                true
-            ];
-            private _phDelayMult = linearConversion [
-                7.0, 7.4,
-                _ph,
-                3.0, 1.0,
-                true
-            ];
-            if (_ph < 6.9) exitWith {};
-            if (_ca < 1.0) exitWith {};
             private _coagMult = linearConversion [0, 600, _coagulationFactor, 3, 1, true];
+            private _trauma = _unit getVariable [QEGVAR(vitals,traumaState),0];
+            private _coagFail = linearConversion [0.5,1,_trauma,0,0.4,true];
             private _woundClotDelayMult = (
                 _alteplaseFixedEffectiveness *
-                (_coagMult + _hypothermiaDelay) *
-                _cwmpFixedEffectiveness *
-                _calciumDelayMult *
-                _phDelayMult
+                (_coagMult * _hypothermiaDelay) *
+                _cwmpFixedEffectiveness * (1 + _coagFail)
             ) min 10;
+            TRACE_7("_woundClotDelayMult",_alteplaseFixedEffectiveness,_hypothermiaDelay,_coagMult,_cwmpFixedEffectiveness,_calciumDelayMult,_phDelayMult,_coagFail);
             if (_woundClotDelayMult > 8) exitWith {};
             switch (_suffix) do {
                 case "Minor": {
@@ -91,34 +79,40 @@ private _fnc_clotWound = {
                             _woundClotTime = round ((random (_coagulation_time_minor / 2)) + _coagulation_time_minor / 2) * _woundClotDelayMult * random [0.6, 0.8, 0.9];
                             _bandageToUse = "BloodClotMinor";
                             _factorCountToRemove = round (random [5, 9, 15]);
-                            _chance = GVAR(coagulation_chance_MinorWounds) * 1.25;
+                            _chance = GVAR(coagulation_chance_MinorWounds) * 1.25 * (1 - _coagFail);
                         };
                         case (_classname in ["Laceration", "PunctureWound"]): {
                             _woundClotTime = round ((random (_coagulation_time_minor / 2)) + _coagulation_time_minor / 2) * _woundClotDelayMult;
                            _bandageToUse = "BloodClotMinor";
                             _factorCountToRemove = round (random [8, 16, 25]);
-                            _chance = GVAR(coagulation_chance_MinorWounds);
+                            _chance = GVAR(coagulation_chance_MinorWounds) * (1 - _coagFail);
                         };
                         case (_classname in ["VelocityWound", "Avulsion"]): {
                             _woundClotTime = round ((random (_coagulation_time_minor/ 2)) + _coagulation_time_minor / 2) * _woundClotDelayMult * random [1.1, 1.4, 1.8];
                             _bandageToUse = "BloodClotMinor";
                             _factorCountToRemove = round (random [15, 19, 30]);
-                            _chance = GVAR(coagulation_chance_MinorWounds) * 0.75;
+                            _chance = GVAR(coagulation_chance_MinorWounds) * 0.75 * (1 - _coagFail);
                         };
                         case (_classname in ["InternalBleeding", "Evisceration"]): {
                             _woundClotTime = round ((random (_coagulation_time_minor / 2)) + _coagulation_time_minor / 2) * _woundClotDelayMult;
                             _bandageToUse = "BloodClotMinor";
                             _factorCountToRemove = round (random [4, 8, 15]);
-                            _chance = GVAR(coagulation_chance_MinorWounds) * 1.5;
+                            _chance = GVAR(coagulation_chance_MinorWounds) * 1.5 * (1 - _coagFail);
                         };
                         default {
                             _woundClotTime = round ((random (_coagulation_time_minor / 2)) + _coagulation_time_minor / 2) * _woundClotDelayMult;
                             _bandageToUse = "BloodClotMinor";
                             _factorCountToRemove = round (random [8, 14, 20]);
-                            _chance = GVAR(coagulation_chance_MinorWounds);
+                            _chance = GVAR(coagulation_chance_MinorWounds) * (1 - _coagFail);
                         };
                     };
-                    if !((missionNamespace getVariable [QGVAR(coagulation_allow_MinorWounds), true]) && (_classname == "InternalBleeding")) then { continue; };
+                    TRACE_4("Small",_factorCountToRemove,_bleeding,_woundClotTime,_chance);
+                    if (
+                        !(missionNamespace getVariable [QGVAR(coagulation_allow_MinorWounds), true])
+                        && { _classname != "InternalBleeding" }
+                    ) then {
+                        continue;
+                    };
                 };
                 case "Medium": {
                     switch (true) do {
@@ -126,34 +120,40 @@ private _fnc_clotWound = {
                             _woundClotTime = round ((random (_coagulation_time_medium / 2)) + _coagulation_time_medium / 2) * _woundClotDelayMult * random [0.6, 0.8, 0.9];
                             _bandageToUse = "BloodClotMedium";
                             _factorCountToRemove = round (random [10, 15, 25]);
-                            _chance = GVAR(coagulation_chance_MediumWounds) * 1.25;
+                            _chance = GVAR(coagulation_chance_MediumWounds) * 1.25 * (1 - _coagFail);
                         };
                         case (_classname in ["Laceration", "PunctureWound"]): {
                             _woundClotTime = round ((random (_coagulation_time_medium / 2)) + _coagulation_time_medium / 2) * _woundClotDelayMult;
                            _bandageToUse = "BloodClotMedium";
                             _factorCountToRemove = round (random [18, 26, 35]);
-                            _chance = GVAR(coagulation_chance_MediumWounds);
+                            _chance = GVAR(coagulation_chance_MediumWounds) * (1 - _coagFail);
                         };
                         case (_classname in ["VelocityWound", "Avulsion"]): {
                             _woundClotTime = round ((random (_coagulation_time_medium/ 2)) + _coagulation_time_medium / 2) * _woundClotDelayMult * random [1.1, 1.4, 1.8];
                             _bandageToUse = "BloodClotMedium";
                             _factorCountToRemove = round (random [22, 29, 40]);
-                            _chance = GVAR(coagulation_chance_MediumWounds) * 0.75;
+                            _chance = GVAR(coagulation_chance_MediumWounds) * 0.75 * (1 - _coagFail);
                         };
                         case (_classname in ["InternalBleeding", "Evisceration"]): {
                             _woundClotTime = round ((random (_coagulation_time_medium / 2)) + _coagulation_time_medium / 2) * _woundClotDelayMult;
                             _bandageToUse = "BloodClotMedium";
                             _factorCountToRemove = round (random [8, 15, 21]);
-                            _chance = GVAR(coagulation_chance_MediumWounds) * 1.5;
+                            _chance = GVAR(coagulation_chance_MediumWounds) * 1.5 * (1 - _coagFail);
                         };
                         default {
                             _woundClotTime = round ((random (_coagulation_time_medium / 2)) + _coagulation_time_medium / 2) * _woundClotDelayMult;
                             _bandageToUse = "BloodClotMedium";
                             _factorCountToRemove = round (random [14, 21, 30]);
-                            _chance = GVAR(coagulation_chance_MediumWounds);
+                            _chance = GVAR(coagulation_chance_MediumWounds) * (1 - _coagFail);
                         };
                     };
-                    if !(!(missionNamespace getVariable [QGVAR(coagulation_allow_MediumWounds), true]) && (_classname == "InternalBleeding")) then { continue; };
+                    TRACE_4("Medium",_factorCountToRemove,_bleeding,_woundClotTime,_chance);
+                    if (
+                        !(missionNamespace getVariable [QGVAR(coagulation_allow_MediumWounds), true])
+                        && { _classname != "InternalBleeding" }
+                    ) then {
+                        continue;
+                    };
                 };
                 default {
                     switch (true) do {
@@ -161,37 +161,44 @@ private _fnc_clotWound = {
                             _woundClotTime = round ((random (_coagulation_time_large / 2)) + _coagulation_time_large / 2) * _woundClotDelayMult * random [0.6, 0.8, 0.9];
                             _bandageToUse = "BloodClotLarge";
                             _factorCountToRemove = round (random [15, 23, 35]);
-                            _chance = GVAR(coagulation_chance_LargeWounds) * 1.25;
+                            _chance = GVAR(coagulation_chance_LargeWounds) * 1.25 * (1 - _coagFail);
                         };
                         case (_classname in ["Laceration", "PunctureWound"]): {
                             _woundClotTime = round ((random (_coagulation_time_large / 2)) + _coagulation_time_large / 2) * _woundClotDelayMult;
                            _bandageToUse = "BloodClotLarge";
                             _factorCountToRemove = round (random [24, 32, 45]);
-                            _chance = GVAR(coagulation_chance_LargeWounds);
+                            _chance = GVAR(coagulation_chance_LargeWounds) * (1 - _coagFail);
                         };
                         case (_classname in ["VelocityWound", "Avulsion"]): {
                             _woundClotTime = round ((random (_coagulation_time_large/ 2)) + _coagulation_time_large / 2) * _woundClotDelayMult * random [1.1, 1.4, 1.8];
                             _bandageToUse = "BloodClotLarge";
                             _factorCountToRemove = round (random [35, 41, 50]);
-                            _chance = GVAR(coagulation_chance_LargeWounds) * 0.75;
+                            _chance = GVAR(coagulation_chance_LargeWounds) * 0.75 * (1 - _coagFail);
                         };
                         case (_classname in ["InternalBleeding", "Evisceration"]): {
                             _woundClotTime = round ((random (_coagulation_time_large / 2)) + _coagulation_time_large / 2) * _woundClotDelayMult;
                             _bandageToUse = "BloodClotLarge";
                             _factorCountToRemove = round (random [14, 25, 33]);
-                            _chance = GVAR(coagulation_chance_LargeWounds) * 1.5;
+                            _chance = GVAR(coagulation_chance_LargeWounds) * 1.5 * (1 - _coagFail);
                         };
                         default {
                             _woundClotTime = round ((random (_coagulation_time_large / 2)) + _coagulation_time_large / 2) * _woundClotDelayMult;
                             _bandageToUse = "BloodClotLarge";
                             _factorCountToRemove = round (random [22, 31, 40]);
-                            _chance = GVAR(coagulation_chance_LargeWounds);
+                            _chance = GVAR(coagulation_chance_LargeWounds) * (1 - _coagFail);
                         };
                     };
-                    if !((missionNamespace getVariable [QGVAR(coagulation_allow_LargeWounds), true]) && (_classname == "InternalBleeding")) then { continue; };
+                    TRACE_4("Large",_factorCountToRemove,_bleeding,_woundClotTime,_chance);
+                    if (
+                        !(missionNamespace getVariable [QGVAR(coagulation_allow_LargeWounds), true])
+                        && { _classname != "InternalBleeding" }
+                    ) then {
+                        continue;
+                    };
                 };
             };
             _factorCountToRemove = ceil (_factorCountToRemove * (1 + ( _bleeding * 0.5)));
+            TRACE_4("_factorCountToRemove",_factorCountToRemove,_bleeding,_woundClotTime,_chance);
             if (_amountOf * _bleeding > 0) exitWith {
 
                 if (_txaEffectiveness > 0.2) then {
@@ -240,67 +247,58 @@ private _fnc_clotWound = {
         } forEach _wounds;
 };
 
-[{
-    params ["_args", "_idPFH"];
-    _args params ["_unit", "_fnc_clotWound"];
 
-    private _alive = alive _unit;
-
-    if !(_alive) exitWith {
-        [_idPFH] call CBA_fnc_removePerFrameHandler;
+private _alive = alive _unit;
+if !(_alive) exitWith {};
+// Check allowOnAI setting to save performance
+if (!(GVAR(coagulation_allowOnAI)) && (ACE_player != _unit)) exitWith {};
+TRACE_1("ACE_player",ACE_player);
+private _openWounds = _unit getVariable [VAR_OPEN_WOUNDS, createHashMap];
+private _pulse = _unit getVariable [VAR_HEART_RATE, 80];
+private _coagulationFactor = GET_BODY_FLUID_PLATELETS(_unit);
+private _txaEffectiveness = [_unit, "TXA", false] call ACEFUNC(medical_status,getMedicationCount) select 1;
+private _hasWoundToBandageArray = [];
+if (_openWounds isEqualTo createHashMap) exitWith {}; // Exit when hashmap not initialized (Will not work when hashmap is set, cause ace only changes value of "woundCount" to 0)
+TRACE_1("_openWounds",_openWounds);
+if (_coagulationFactor <= 0) exitWith {}; // Exit when no coagFactors left
+TRACE_1("_coagulationFactor",_coagulationFactor);
+if (GET_BLOOD_VOLUME_LITERS(_unit) < GVAR(coagulation_requireBV)) exitWith {}; // Blood volume check
+TRACE_1("GET_BLOOD_VOLUME_LITERS(_unit)",GET_BLOOD_VOLUME_LITERS(_unit));
+if ((_pulse < 20) && GVAR(coagulation_requireHR)) exitWith {}; // Has pulse & require setting
+TRACE_1("_pulse",_pulse);
+private _shuffledKeys = keys _openWounds call BIS_fnc_arrayShuffle; // Shuffel Keys to switch bodypart after each bandage for on_all_Bodyparts setting
+{
+    private _bodyPartN = ALL_BODY_PARTS find _x;
+    if (([_unit,_bodyPartN] call EFUNC(pharma,occlusionCheck)) && (missionNamespace getVariable [QGVAR(coagulation_tourniquetBlock), true])) then { // Check for tourniqet
+        continue;
+        TRACE_1("continue",_unit);
     };
-    // Check allowOnAI setting to save performance
-    if (!(GVAR(coagulation_allowOnAI)) && (ACE_player != _unit)) exitWith {
-        [_idPFH] call CBA_fnc_removePerFrameHandler;
-    };
-
-    private _openWounds = _unit getVariable [VAR_OPEN_WOUNDS, createHashMap];
-    private _pulse = _unit getVariable [VAR_HEART_RATE, 80];
-    private _coagulationFactor = GET_BODY_FLUID_PLATELETS(_unit);
-    private _txaEffectiveness = [_unit, "TXA", false] call ACEFUNC(medical_status,getMedicationCount) select 1;
-    private _hasWoundToBandageArray = [];
-
-    if (_openWounds isEqualTo createHashMap) exitWith {}; // Exit when hashmap not initialized (Will not work when hashmap is set, cause ace only changes value of "woundCount" to 0)
-    if (_coagulationFactor <= 0) exitWith {}; // Exit when no coagFactors left
-    if (GET_BLOOD_VOLUME_LITERS(_unit) < GVAR(coagulation_requireBV)) exitWith {}; // Blood volume check
-    if ((_pulse < 20) && GVAR(coagulation_requireHR)) exitWith {}; // Has pulse & require setting
-
-    private _shuffledKeys = keys _openWounds call BIS_fnc_arrayShuffle; // Shuffel Keys to switch bodypart after each bandage for on_all_Bodyparts setting
-
     {
-        private _bodyPartN = ALL_BODY_PARTS find _x;
-        if ([_unit,_bodyPartN] call EFUNC(pharma,occlusionCheck) && missionNamespace getVariable [QGVAR(coagulation_tourniquetBlock), true]) then { // Check for tourniqet
-            continue;
-        };
-
-        {
-            _x params ["_woundClassID", "_amountOf", "_bleeding", "_damage"];
-
-            private _category = _woundClassID % 10;
-            private _suffix = ["Minor", "Medium", "Large"] select _category;
-            private _classIndex = _woundClassID / 10;
-            private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-            switch (_suffix) do {
-                case "Minor": {
-                    if ((missionNamespace getVariable [QGVAR(coagulation_allow_MinorWounds), true] || (_className isEqualTo "InternalBleeding")) && _amountOf * _bleeding > 0) then {
-                        _hasWoundToBandageArray pushBack true;
-                    };
-                };
-                case "Medium": {
-                    if ((missionNamespace getVariable [QGVAR(coagulation_allow_MediumWounds), true] || (_className isEqualTo "InternalBleeding")) && _amountOf * _bleeding > 0) then {
-                        _hasWoundToBandageArray pushBack true;
-                    };
-                };
-                default {
-                    if ((missionNamespace getVariable [QGVAR(coagulation_allow_LargeWounds), true] || (_className isEqualTo "InternalBleeding")) && (_amountOf * _bleeding > 0)) then {
-                        _hasWoundToBandageArray pushBack true;
-                    };
+        _x params ["_woundClassID", "_amountOf", "_bleeding", "_damage"];
+        private _category = _woundClassID % 10;
+        private _suffix = ["Minor", "Medium", "Large"] select _category;
+        private _classIndex = _woundClassID / 10;
+        private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+        switch (_suffix) do {
+            case "Minor": {
+                if ((missionNamespace getVariable [QGVAR(coagulation_allow_MinorWounds), true] || (_className isEqualTo "InternalBleeding")) && (_amountOf * _bleeding > 0) && (_className isNotEqualTo "Incision")) then {
+                    _hasWoundToBandageArray pushBack true;
                 };
             };
-        } forEach (_openWounds get _x); // Sets array that specifies if there is a open wound that coag can bandage in body part (here for performance so that the fnc does not get called every time)
-
-        if (true in _hasWoundToBandageArray) then { // Check if there is a wound to bandage for coag, if not loop through next interiation of forEach
-            [_unit, _x, _openWounds get _x, _txaEffectiveness] call _fnc_clotWound;
+            case "Medium": {
+                if ((missionNamespace getVariable [QGVAR(coagulation_allow_MediumWounds), true] || (_className isEqualTo "InternalBleeding")) && (_amountOf * _bleeding > 0) && (_className isNotEqualTo "Incision")) then {
+                    _hasWoundToBandageArray pushBack true;
+                };
+            };
+            default {
+                if ((missionNamespace getVariable [QGVAR(coagulation_allow_LargeWounds), true] || (_className isEqualTo "InternalBleeding")) && (_amountOf * _bleeding > 0) && (_className isNotEqualTo "Incision")) then {
+                    _hasWoundToBandageArray pushBack true;
+                };
+            };
         };
-    } forEach _shuffledKeys;
-}, missionNamespace getVariable [QGVAR(coagulation_time), 5], [_unit, _fnc_clotWound]] call CBA_fnc_addPerFrameHandler;
+    } forEach (_openWounds get _x); // Sets array that specifies if there is a open wound that coag can bandage in body part (here for performance so that the fnc does not get called every time)
+    TRACE_1("_hasWoundToBandageArray",_hasWoundToBandageArray);
+    if (true in _hasWoundToBandageArray) then { // Check if there is a wound to bandage for coag, if not loop through next interiation of forEach
+        [_unit, _x, _openWounds get _x, _txaEffectiveness] call _fnc_clotWound;
+    };
+} forEach _shuffledKeys;

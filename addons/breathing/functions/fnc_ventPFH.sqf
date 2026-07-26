@@ -27,4 +27,4 @@ if (!_inVehicle || !_attachedVent) exitWith {
     playSound3D [QPATHTOF_SOUND(audio\squeeze_BVM.ogg), _unit, false, getPosASL _unit, 6, 1, 8];
     playSound3D [QPATHTOF_SOUND(audio\respiratorTone.ogg), _unit, false, getPosASL _unit, 6, 1, 8];
     _unit call FUNC(ventPFH);
-}, [_unit], (_unit getVariable [QGVAR(ventRate), 2])] call CBA_fnc_waitAndExecute;
+}, [_unit], ((60 / (_unit getVariable [QGVAR(ventRate), 2])))] call CBA_fnc_waitAndExecute;

@@ -180,7 +180,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(AEDX_Action_ConnectMonitor);
         displayNameProgress = CSTRING(AEDX_Action_Connecting_Progress);
         allowedSelections[] = {"UpperLeftArm", "UpperRightArm"};
-        category = "examine";
+        category = "advanced";
         items[] = {"kat_X_AED"};
         treatmentTime = QGVAR(AEDX_VitalsMonitor_AttachTime);
         condition = QUOTE([ARR_2(_medic,_patient)] call FUNC(AEDX_VitalsMonitor_CheckCondition));
@@ -210,7 +210,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(AEDX_Action_DisableAudio);
         displayNameProgress = "";
         icon = QPATHTOF(ui\icon_aedx_volume_off.paa);
-        category = "examine";
+        category = "advanced";
         treatmentLocations = 0;
         medicRequired = QGVAR(medLvl_AED_X);
         allowedSelections[] = {"Head","LeftArm","RightArm","Body","LeftLeg","RightLeg", "Chest", "UpperLeftArm", "UpperRightArm", "UpperLeftLeg", "UpperRightLeg", "Neck"};
@@ -259,7 +259,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(AttachLucas);
         displayNameProgress = CSTRING(AttachingLucas);
         category = "advanced";
-        treatmentLocations = 1;
+        treatmentLocations = 3;
         allowedSelections[] = {"Chest"};
         allowSelfTreatment = 0;
         medicRequired = QGVAR(medLvl_Lucas);
@@ -292,7 +292,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(TurnOnLUCAS);
         displayNameProgress = CSTRING(TurnOnLUCAS_action);
         medicRequired = QGVAR(medLvl_Lucas);
-        treatmentTime = 1;
+        treatmentTime = 0.01;
         items[] = {};
         condition = QUOTE([ARR_2(_patient,false)] call FUNC(lucasStateCondition));
         callbackSuccess = QUOTE([ARR_2(_patient,true)] call FUNC(lucasState));
@@ -301,7 +301,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(TurnOffLUCAS);
         displayNameProgress = CSTRING(TurnOnLUCAS_action);
         medicRequired = QGVAR(medLvl_Lucas);
-        treatmentTime = 1;
+        treatmentTime = 0.01;
         items[] = {};
         condition = QUOTE([ARR_2(_patient,true)] call FUNC(lucasStateCondition));
         callbackSuccess = QUOTE([ARR_2(_patient,false)] call FUNC(lucasState));
@@ -325,6 +325,18 @@ class ACE_Medical_Treatment_Actions {
         allowedSelections[] = {"RightArm", "LeftArm"};
         allowSelfTreatment = 1;
         callbackSuccess = QFUNC(checkCapRefill);
+        condition = "true";
+        animationPatient = "";
+        animationPatientUnconscious = "AinjPpneMstpSnonWrflDnon_rolltoback";
+        animationPatientUnconsciousExcludeOn[] = {"ainjppnemstpsnonwrfldnon", "kat_recoveryposition"};
+    };
+    class CheckSkin: CheckPulse {
+        displayName = CSTRING(CheckSkin);
+        displayNameProgress = CSTRING(CheckSkin_Action);
+        treatmentTime = 3;
+        allowedSelections[] = {"All"};
+        allowSelfTreatment = 1;
+        callbackSuccess = QFUNC(checkSkin);
         condition = "true";
         animationPatient = "";
         animationPatientUnconscious = "AinjPpneMstpSnonWrflDnon_rolltoback";

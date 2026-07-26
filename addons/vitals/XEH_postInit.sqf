@@ -23,3 +23,20 @@
 }, 10, [_unit]] call CBA_fnc_addPerFrameHandler;
 }] call CBA_fnc_addEventHandler;
 
+["ace_medical_death", {
+    params ["_unit"];
+    [{
+    params ["_args", "_idPFH"];
+    _args params ["_unit"];
+    private _alive = alive _unit;
+    if (_alive) exitWith {
+        [_idPFH] call CBA_fnc_removePerFrameHandler;
+    };
+    private _perf = _unit getVariable [QGVAR(skinPerfusion), 1];
+    if (_perf < 0) exitWith {
+        [_idPFH] call CBA_fnc_removePerFrameHandler;
+    };
+    private _perf = _perf - 0.001;
+    _unit setVariable [QGVAR(skinPerfusion), _perf, true];
+}, 10, [_unit]] call CBA_fnc_addPerFrameHandler;
+}] call CBA_fnc_addEventHandler;

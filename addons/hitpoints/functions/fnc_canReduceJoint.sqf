@@ -41,7 +41,7 @@ if (_jointGroupIndex != -1) then {
     };
     {
     private _jointInjury = _limbJointStatus select _x;
-    if (_jointInjury in [3, 6]) exitWith {
+    if (_jointInjury == 3) exitWith {
         _canReduceJoint = true;
     };
     } forEach _selectedJointIndexes;

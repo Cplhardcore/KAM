@@ -48,5 +48,29 @@ if (_bandagedWounds isNotEqualTo []) then {
         };
     } forEach _bandagedWounds;
 };
+private _wrappedWounds = GET_WRAPPED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
 
+if (_wrappedWounds isNotEqualTo []) then {
+    { // ace_medical_treatment_fnc_canBandage 
+        _x params ["_woundClassID"];
+        private _classIndex = _woundClassID / 10;
+        private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+        if !(_classname in ["InternalBleeding"]) exitWith {
+            _isNotInternal = true;
+        };
+    } forEach _wrappedWounds;
+};
+
+private _coagWounds = GET_COAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
+
+if (_coagWounds isNotEqualTo []) then {
+    { // ace_medical_treatment_fnc_canBandage 
+        _x params ["_woundClassID"];
+        private _classIndex = _woundClassID / 10;
+        private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+        if !(_classname in ["InternalBleeding"]) exitWith {
+            _isNotInternal = true;
+        };
+    } forEach _coagWounds;
+};
 (_isBleeding || _isNotInternal);

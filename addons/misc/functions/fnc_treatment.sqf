@@ -45,25 +45,31 @@ private _treatmentTime = if (isText (_config >> "treatmentTime")) then {
 };
 
 if (_treatmentTime == 0) exitWith {false};
-if (_isInZeus) then {
-    _treatmentTime = 1;
-};
-if (GVAR(treatmentModifiers)) then {
-    private _pain = GET_PAIN_PERCEIVED(_medic);
-    private _treatMult = linearConversion [0, 1, _pain, 1, 2];
-    _treatmentTime = _treatmentTime * _treatMult;
-};
+if (_treatmentTime > 0.5) then {
+    if (GVAR(treatmentModifiers)) then {
+        private _fractureTime = 0;
+        private _pain = GET_PAIN_PERCEIVED(_medic);
+        private _treatMult = linearConversion [0, 1, _pain, 1, 1.5, true];
+        private _painTime = (_treatmentTime * _treatMult) - _treatmentTime;
+        
+        if (((selectMax ((_medic getVariable [VAR_FRACTURES, DEFAULT_FRACTURE_VALUES]) select [4, 4])) != 0)) then {
+            _fractureTime = (_treatmentTime * 1.25) - _treatmentTime;
+        };
 
-if ((_medic getVariable [QEGVAR(airway,overstretching), false]) && (GVAR(treatmentModifiers))) then {
-    _treatmentTime = _treatmentTime + 3;
-};
+        if ((_medic getVariable [QEGVAR(airway,overstretching), false])) then {
+            _treatmentTime = _treatmentTime + 3;
+        };
 
-if ((_medic getVariable [QEGVAR(pharma,pressureIVApplied), false]) && (GVAR(treatmentModifiers))) then {
-    _treatmentTime = _treatmentTime + 3;
-};
+        if ((_medic getVariable [QEGVAR(pharma,pressureIVApplied), false]) ) then {
+            _treatmentTime = _treatmentTime + 3;
+        };
 
-if (((selectMax ((_medic getVariable [VAR_FRACTURES, DEFAULT_FRACTURE_VALUES]) select [4, 4])) != 0) && (GVAR(treatmentModifiers))) then {
-    _treatmentTime = _treatmentTime * 1.25;
+        
+        _treatmentTime = _treatmentTime + ((_fractureTime max _painTime) min 10)
+    };
+    if (_isInZeus) then {
+        _treatmentTime = 1;
+    };
 };
 // Consume one of the treatment items if needed
 // Store item user so that used item can be returned on failure

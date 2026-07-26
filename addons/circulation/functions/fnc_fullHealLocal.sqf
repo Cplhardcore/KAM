@@ -19,9 +19,10 @@ params ["_patient"];
 TRACE_1("fullHealLocal",_patient);
 
 _patient setVariable [QGVAR(cprCount), 2, true];
+_patient setVariable [QGVAR(lucasCount), 2, true];
 _patient setVariable [QGVAR(CPR_time), 0, true];
 _patient setVariable [QGVAR(activeCPR), false, true];
-_patient setVariable [QGVAR(heartRestart), false, true];
+_patient setVariable [QGVAR(aedPause), false, true];
 _patient setVariable [QGVAR(cardiacArrestType), 0, true];
 _patient setVariable [QGVAR(refractoryCA), false, true];
 _patient setVariable [QGVAR(AED_X_VitalsStatus), "", true];
@@ -50,4 +51,5 @@ _patient setVariable [QGVAR(attachedLucas), false, true];
 _patient setVariable [QGVAR(attachedLucasState), false, true];
 _patient setVariable [QGVAR(heartRestart), false, true];
 _patient setVariable [QGVAR(AEDEffectiveness), 1, true];
+_patient setVariable [QGVAR(externalBloodLoss), 0, true];
 

@@ -22,6 +22,9 @@ class CfgFunctions {
             class handleUnitVitals {
                 file = QPATHTOF(functions\fnc_handleUnitVitals.sqf);
             };
+            class updatePainSuppress {
+                file = QPATHTOF(functions\fnc_updatePainSuppress.sqf);
+            };
         };
     };
 };

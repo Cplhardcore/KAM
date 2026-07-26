@@ -28,10 +28,10 @@ if (!(_unit getVariable [QEGVAR(breathing,PneumoBreathCooldownOn), false])) then
     if (_soundTargets isNotEqualTo []) then {
         [QEGVAR(breathing,playCough), [_unit], _soundTargets] call CBA_fnc_targetEvent;
     };
-
+    private _delay = linearConversion [0, 30, GET_BREATHING_RATE(_unit), 20, 5, true];
     [{
         params["_unit"];
         _unit setVariable [QEGVAR(breathing,PneumoBreathCooldownOn), false, true];
     },
-    [_unit], 10] call CBA_fnc_waitAndExecute;
+    [_unit], _delay] call CBA_fnc_waitAndExecute;
 };

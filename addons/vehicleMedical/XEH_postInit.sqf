@@ -106,4 +106,4 @@
     [_type, 1, ["ACE_SelfActions", "MIRA_Medical"], _action, false] call ace_interact_menu_fnc_addActionToClass;
 }] call CBA_fnc_addEventHandler;
 
-[QUOTE(GVAR(UnloadPatientForce)), { _this call FUNC(unloadPatientForceHandler) }] call cba_fnc_addEventHandler;
+[QUOTE(GVAR(UnloadPatientForce)), {call FUNC(unloadPatientForceHandler) }] call cba_fnc_addEventHandler;

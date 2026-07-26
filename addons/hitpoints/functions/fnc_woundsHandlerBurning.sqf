@@ -39,7 +39,7 @@ TRACE_3("woundsHandlerBurning",_unit,_allDamages,_typeOfDamage);
 
             private _bodyPart = ["leftarm", "rightarm", "leftleg", "rightleg", "upperleftarm", "upperrightarm", "upperleftleg", "upperrightleg", "body", "chest"];
             {
-	             private _storedDamage = (_unit getVariable [QACEGVAR(medical_damage,storedBurnDamage), 0]) / 2;
+	            private _storedDamage = (_unit getVariable [QACEGVAR(medical_damage,storedBurnDamage), 0]);
                 [QACEGVAR(medical,woundReceived), [_unit, [[_storedDamage, _x, _storedDamage]], _unit, "burn"]] call CBA_fnc_localEvent;
             } forEach _bodyPart;
             _unit setVariable [QACEGVAR(medical_damage,storedBurnDamage), 0, true];

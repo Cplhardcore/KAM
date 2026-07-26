@@ -10,7 +10,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Scalpel_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.2;
+            mass = 0.5;
         };
     };
     class kat_retractor: ACE_ItemCore {
@@ -21,7 +21,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Retractor_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 2;
         };
     };
     class kat_clamp: ACE_ItemCore {
@@ -32,7 +32,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Clamp_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 2;
         };
     };
     class kat_plate: ACE_ItemCore {
@@ -43,7 +43,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Plate_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.3;
+            mass = 3;
         };
     };
     class kat_vacuum: ACE_ItemCore {
@@ -54,7 +54,7 @@ class CfgWeapons {
         descriptionShort = CSTRING(Vacuum_DescShort);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 5;
+            mass = 40;
         };
     };
     class kat_ultrasound: ACE_ItemCore {
@@ -64,7 +64,7 @@ class CfgWeapons {
         model = "\A3\Props_F_Exp_A\Military\Equipment\Tablet_02_F.p3d";
         descriptionShort = CSTRING(Ultra_DescShort);
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 5;
+            mass = 20;
         };
     };
     class kat_reboa: ACE_ItemCore {
@@ -73,7 +73,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\reboa.paa);
         descriptionShort = CSTRING(Reboa_DescShort);
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 1;
+            mass = 4;
         };
     };
     class kat_fractureKit: ACE_ItemCore {
@@ -83,7 +83,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\fractureKit.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 2;
+            mass = 6;
         };
     };
     class kat_stitchKit: ACE_ItemCore {
@@ -93,7 +93,7 @@ class CfgWeapons {
         picture = QPATHTOF(ui\sutureKit.paa);
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 0.5;
+            mass = 1;
         };
     };
 };

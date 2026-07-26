@@ -15,7 +15,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 20;
+        mass = 120;
         ACE_isMedicalItem = 1;
         ACE_asItem = 1;
     };
@@ -33,7 +33,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 10;
+        mass = 60;
         ACE_isMedicalItem = 1;
         ACE_asItem = 1;
     };
@@ -51,7 +51,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 5;
+        mass = 20;
         ACE_isMedicalItem = 1;
         ACE_asItem = 1;
     };

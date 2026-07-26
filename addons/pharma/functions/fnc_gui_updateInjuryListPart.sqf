@@ -25,19 +25,12 @@ private _IVactual = _placed select _selectionN;
 
 if (_IVactual > 0) then {
     switch (_IVactual) do {
-        case 1: { _entries pushBack [LLSTRING(IO_45_Display), [0.3, 0.6, 0.3, 1]]};
-        case 2: { _entries pushBack [LLSTRING(IV_16_Display), [0.3, 0.6, 0.3, 1]]};
-        case 3: { _entries pushBack [LLSTRING(IV_14_Display), [0.3, 0.6, 0.3, 1]]};
-        case 4: { _entries pushBack [LLSTRING(IV_20_Display), [0.3, 0.6, 0.3, 1]]};
-        case 7: { _entries pushBack [LLSTRING(IV_16_Display), [0.3, 0.6, 0.3, 1]]};
-        case 8: { _entries pushBack [LLSTRING(IV_14_Display), [0.3, 0.6, 0.3, 1]]};
-        case 9: { _entries pushBack [LLSTRING(IV_20_Display), [0.3, 0.6, 0.3, 1]]};
-        case 10: { _entries pushBack [LLSTRING(IV_16_Display), [0.3, 0.6, 0.3, 1]]};
-        case 11: { _entries pushBack [LLSTRING(IV_14_Display), [0.3, 0.6, 0.3, 1]]};
-        case 12: { _entries pushBack [LLSTRING(IV_20_Display), [0.3, 0.6, 0.3, 1]]};
-        case 13: { _entries pushBack [LLSTRING(EZ_IO_Display), [0.3, 0.6, 0.3, 1]]};
+        case 1: { _entries pushBack [LLSTRING(IO_45_DisplayGUI), [0.3, 0.6, 0.3, 1]]};
+        case 2: { _entries pushBack [LLSTRING(IV_16_DisplayGUI), [0.3, 0.6, 0.3, 1]]};
+        case 3: { _entries pushBack [LLSTRING(IV_14_DisplayGUI), [0.3, 0.6, 0.3, 1]]};
+        case 4: { _entries pushBack [LLSTRING(IV_20_DisplayGUI), [0.3, 0.6, 0.3, 1]]};
+        case 13: { _entries pushBack [LLSTRING(EZ_IO_DisplayGUI), [0.3, 0.6, 0.3, 1]]};
         case 14: { _entries pushBack [LLSTRING(EJV_InjuryDisplay), [0.3, 0.6, 0.3, 1]]};
-        case 15: { _entries pushBack [LLSTRING(ivSiteBlown), [1, 0, 0, 1]]};
         default {};
         };
 };
@@ -64,12 +57,38 @@ if (_hasPatch) then {
         _entries pushBack [LLSTRING(FentPatch_MEDDisplay), [0.73, 0.24, 0.11, 1]];
     };
 };
-  
-private _damageAmount = [_target,_selectionN] call EFUNC(hitpoints,damageAmount);
-if ((_damageAmount > GVAR(ivLeakageThreshold)) && GVAR(ivCheckLimbDamage) && (_IVactual in [2,3,4,5,6,7,8,9,10,11,12])) then {
-    private _lostFluids = linearConversion [GVAR(ivLeakageThreshold), 50, _damageAmount, 1, 0, true];
-    if (_lostFluids < 0.8) then {
-        _entries pushBack [LLSTRING(ivSiteCompromised), [1, 0, 0, 1]];
+private _condition = ((_target getVariable [QGVAR(IVcondition),[0,0,0,0,0,0,0,0,0,0,0,0]]) select _selectionN);
+switch (_condition) do {
+    case (3): {
+        _entries pushBack [LLSTRING(ivSiteBlown), [1, 0, 0, 1]];
+    };
+    case (2): {
+        _entries pushBack [LLSTRING(ivSiteStatus2), [1, 0.05, 0.05, 1]];
+    };
+    case (1): {
+        _entries pushBack [LLSTRING(ivSiteStatus1), [1, 0.1, 0.1, 1]];
+    };
+    default {
+    };
+};
+
+if (GVAR(ivCheckLimbDamage) && (_IVactual in [2,3,4])) then {
+    private _damageAmount = [_target,_selectionN] call EFUNC(hitpoints,damageAmount);
+    private _fluidLoss = linearConversion [GVAR(ivLeakageThreshold), 50, _damageAmount, 1, 0, true];
+    private _lostFluids = (1 - ((_target getVariable [QGVAR(IVLeakStatus),[0,0,0,0,0,0,0,0,0,0,0,0]]) select _selectionN)) max _fluidLoss;
+    switch (true) do {
+        case (_lostFluids < 0.4): {
+            _entries pushBack [LLSTRING(ivSiteCompromised4), [1, 0, 0, 1]];
+        };
+        case (_lostFluids < 0.6): {
+            _entries pushBack [LLSTRING(ivSiteCompromised3), [1, 0.05, 0.05, 1]];
+        };
+        case (_lostFluids < 0.75): {
+            _entries pushBack [LLSTRING(ivSiteCompromised2), [1, 0.1, 0.1, 1]];
+        };
+        case (_lostFluids < 0.9): {
+            _entries pushBack [LLSTRING(ivSiteCompromised1), [1,0.15,0.15,1]];
+        };
     };
 };
 

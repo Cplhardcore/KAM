@@ -17,7 +17,7 @@
             <Dutch>de AFAK kan uitgepakt worden om nuttige producten te verschaffen</Dutch>
         </Key>
         <Key ID="STR_KAT_Misc_AFAK_Display">
-            <English>Advanced First Aid Kit</English>
+            <English>(KIT) Advanced First Aid Kit</English>
             <Czech>Pokročilá Lékárnička</Czech>
             <French>Trousse de secours avancée</French>
             <Spanish>Botiquín de primeros auxilios avanzado</Spanish>
@@ -153,7 +153,7 @@
             <English>Armband Medic</English>
             <Czech>Páska Medic</Czech>
             <French>Brassard d'infirmier</French>
-            <Spanish>Brazalete de médico</Spanish>
+            <Spanish>Brazalete de medico</Spanish>
             <Italian>Fasciatura per arto Medico</Italian>
             <Portuguese>Braçadeira de médico</Portuguese>
             <Russian>Повязка медика</Russian>
@@ -423,7 +423,6 @@
         </Key>
         <Key ID="STR_KAT_Misc_SubCategory_MEDPACK">
             <English>Medication Case</English>
-            <Spanish>Caja de medicación</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_BloodGroupPatch_B_N">
             <English>Blood Group Patch B-</English>
@@ -957,7 +956,7 @@
             <Dutch>De IFAK kan uitgepakt worden om nuttige producten te verschaffen</Dutch>
         </Key>
         <Key ID="STR_KAT_Misc_IFAK_Display">
-            <English>Individual First Aid Kit</English>
+            <English>(KIT) Individual First Aid Kit</English>
             <Czech>Individuální Lékárnička</Czech>
             <French>Trousse individuelle du combattant</French>
             <Spanish>Kit individual de primeros auxilios</Spanish>
@@ -1015,7 +1014,7 @@
             <Dutch>De MFAK kan uitgepakt worden om nuttige producten te verschaffen</Dutch>
         </Key>
         <Key ID="STR_KAT_Misc_MFAK_Display">
-            <English>Multiple First Aid Kit</English>
+            <English>(KIT) Multiple First Aid Kit</English>
             <Czech>Vícenásobná Lékárnička</Czech>
             <French>Trousse de secours multiple</French>
             <Spanish>Botiquín de primeros auxilios múltiple</Spanish>
@@ -1788,7 +1787,7 @@
             <English>Stopped carrying %1</English>
             <Czech>Přestal nést %1</Czech>
             <French>Arrêt du transport de %1</French>
-            <Spanish>Soltó al paciente %1</Spanish>
+            <Spanish>Solto al paciente %1</Spanish>
             <Italian>Trasporto interrotto di %1</Italian>
             <Portuguese>Parou de carregar %1</Portuguese>
             <Russian>Прекратил нести %1</Russian>
@@ -1912,13 +1911,12 @@
             <Italian>KAT- ADV Medica: Vari</Italian>
             <German>KAT - ADV Medical: Sonstiges</German>
             <Japanese>KAM - その他</Japanese>
-            <Spanish>KAT - ADV Medical: Otros</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_incompatibilityWarning_Desc">
             <English>[KAM WARNING] Incompatible addon(s) that could negatively affect correct functionality detected. KAT - Advanced Medical REWRITE Development Team strongly advises to remove these addons: %1</English>
             <Czech>[KAM VAROVÁNÍ] Nekompatibilní addon(y), které by mohly negativně ovlivnit správnou funkcionalitu detekovány. KAT - Advanced Medical REWRITE Developerský Tým silně doporučuje odebrat tyto addony: %1</Czech>
             <French>[AVERTISSEMENT KAM] Un(des) addon(s) incompatible(s) pouvant affecter le fonctionnement correct de KAT ont été détectés. L'équipe de développement de KAT - Advanced Medical REWRITE recommande fortement de retirer ces addons : %1</French>
-            <Spanish>[ADVERTENCIA DE KAM] Addon(s) incompatibles que podrían afectar negativamente el funcionamiento del mod fueron detectados. El equipo de desarollo de KAT - Advanced Medical REDUX  recomienda fuertemente remover estos addons. %1</Spanish>
+            <Spanish>[ADVERTENCIA DE KAM] Addon(s) incompatibles que podrían afectar negativamente el funcionamiento del mod fueron detectados. El equipo de desarollo de KAT - Advanced Medical REWRITE recomienda fuertemente remover estos addons. %1</Spanish>
             <Italian>[AVVISO KAM]  E' stata rilevato almeno un addon che potrebbe influenzare negativamente il corretto funzionamenot della KAT. Gli sviluppatori della KAT consigliando vivamente di rumuovere questi addons.</Italian>
             <Polish>[KAM WARNING] Niekompatybilny mod, który może wywoływać błędy został wykryty. Zespół deweloperski KAT - Advanced Medical REWRITE stanowczo odradza użycie następujących modów: %1</Polish>
             <Portuguese>[AVISO DO KAM] Detectados addons incompatíveis que podem afetar negativamente a funcionalidade correta. KAT - A equipe de desenvolvimento do Advanced Medical REWRITE recomenda fortemente a remoção destes complementos: %1</Portuguese>
@@ -1935,155 +1933,347 @@
             <English>[KAM] Misc Items</English>
             <Italian>[KAM] Oggetti vari</Italian>
             <Japanese>[KAM] その他物資箱</Japanese>
-            <Spanish>[KAM] Objetos misceláneos</Spanish>
         </Key>
-        <Key ID="STR_KAT_Misc_MEDPACK_Display">
-            <English>Medication Case</English>
-            <Spanish>Caja de medicación</Spanish>
+         <Key ID="STR_KAT_Misc_MEDPACK_Display">
+            <English>(KIT) Medication Case</English>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_DESC">
             <English>The Medication Case can be unpacked to provide useful Medications, Syringes, and IV/IO's</English>
-            <Spanish>Esta caja se puede desempaquetar para obtener medicamentos, jeringas, IV/IOs...</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Unpack">
             <English>Med Case</English>
-            <Spanish>Caja de medicación</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_1_Hint">
             <English>Syringe Section:</English>
-            <Spanish>Jeringas:</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_2_Hint">
             <English>IV/IO Section:</English>
-            <Spanish>IV/IOs:</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_3_Hint">
             <English>Trauma Med Section:</English>
-            <Spanish>Trauma:</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_4_Hint">
             <English>Cardiac Med Section:</English>
-            <Spanish>Circulación:</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_5_Hint">
             <English>Surgery Med Section:</English>
-            <Spanish>Cirugía:</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_6_Hint">
             <English>Pain Med Section:</English>
-            <Spanish>Analgesia:</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_7_Hint">
             <English>Fluid Section:</English>
-            <Spanish>Fluidos:</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_8_Hint">
             <English>Miscellaneous Section:</English>
-            <Spanish>Otros:</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_1">
             <English>Unpack Syringe Section</English>
-            <Spanish>Abrir sección de jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_2">
             <English>Unpack IV/IO Section</English>
-            <Spanish>Abrir sección de IV/IOs</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_3">
             <English>Unpack Trauma Med Section</English>
-            <Spanish>Abrir sección de trauma</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_4">
             <English>Unpack Cardiac Med Section</English>
-            <Spanish>Arbrir sección de circulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_5">
             <English>Unpack Surgery Med Section</English>
-            <Spanish>Abrir sección de cirugía</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_6">
             <English>Unpack Pain Med Section</English>
-            <Spanish>Abrir sección de analgesia</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_7">
             <English>Unpack Fluid Section</English>
-            <Spanish>Abrir sección de fluidos</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_8">
             <English>Unpack Miscellaneous Section</English>
-            <Spanish>Abrir sección otros</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_1_Repack">
             <English>Repack Syringe Section</English>
-            <Spanish>Cerrar sección de jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_2_Repack">
             <English>Repack IV/IO Section</English>
-            <Spanish>Cerrar sección de IV/IOs</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_3_Repack">
             <English>Repack Trauma Med Section</English>
-            <Spanish>Cerrar sección de trauma</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_4_Repack">
             <English>Repack Cardiac Med Section</English>
-            <Spanish>Cerrar sección de circulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_5_Repack">
             <English>Repack Surgery Med Section</English>
-            <Spanish>Cerrar sección de cirugía</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_6_Repack">
             <English>Repack Pain Med Section</English>
-            <Spanish>Cerrar sección de analgesia</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_7_Repack">
             <English>Repack Fluid Section</English>
-            <Spanish>Cerrar sección de fluidos</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_MEDPACK_Slot_8_Repack">
             <English>Repack Miscellaneous Section</English>
-            <Spanish>Cerrar sección otros</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_SETTING_MEDPACKFirstSlot_Item">
             <English>Syringe Section Items &amp; Quantity</English>
-            <Spanish>Objetos y cantidades en sección de jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_SETTING_MEDPACKSecondSlot_Item">
             <English>IV/IO Section Items &amp; Quantity</English>
-            <Spanish>Objetos y cantidades en sección de IV/IOs</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_SETTING_MEDPACKThirdSlot_Item">
             <English>Trauma Med Section Items &amp; Quantity</English>
-            <Spanish>Objetos y cantidades en sección de trauma</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_SETTING_MEDPACKFourthSlot_Item">
             <English>Cardiac Med Section Items &amp; Quantity</English>
-            <Spanish>Objetos y cantidades en sección de circulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_SETTING_MEDPACKFifthSlot_Item">
             <English>Surgery Med Section Items &amp; Quantity</English>
-            <Spanish>Objetos y cantidades en sección de cirugía</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_SETTING_MEDPACKSixthSlot_Item">
             <English>Pain Med Section Items &amp; Quantity</English>
-            <Spanish>Objetos y cantidades en sección de analgesia</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_SETTING_MEDPACKSeventhSlot_Item">
             <English>Fluid Section Items &amp; Quantity</English>
-            <Spanish>Objetos y cantidades en sección de fluidos</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_SETTING_MEDPACKEighthSlot_Item">
             <English>Miscellaneous Section Items &amp; Quantity</English>
-            <Spanish>Objetos y cantidades en sección de otros</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_SETTING_treatmentModifiers">
             <English>Injured Treatment Time Modifiers</English>
-            <Spanish>Modificador al tiempo de acciones en caso de heridas</Spanish>
         </Key>
         <Key ID="STR_KAT_Misc_SETTING_treatmentModifiers_DESC">
             <English>Adds modifiers to treatment time if the medic is injured or providing continuous aid (Hyperextension or squeezing IV bag)</English>
-            <Spanish>Añade modificaciones al tiempo de las acciones si el médico está herido o proporcionando acciones continuas (hiperextendiendo cuellos o apretando bolsas de IV)</Spanish>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_smallWoundStitchTime">
+            <English>Small wound stitch time</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_mediumWoundStitchTime">
+            <English>Medium wound stitch time</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_largeWoundStitchTime">
+            <English>Large wound stitch time</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_allowAdvancedStitching_Description">
+            <English>Enables/disables the ability to stitch traumatic wounds outside of medical facilities/vehicles</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_allowAdvancedStitching_DisplayName">
+            <English>Allow Traumatic Wound Stitching</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_TreatmentItemCount_Crate">
+            <English>in nearby crates</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_allowCrateEquipment">
+            <English>Use Crate Supplies</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_allowCrateEquipment_DESC">
+            <English>Allows units to use medical supplies directly from nearby crates/vehicles</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_medicCrateEquipment">
+            <English>Med Level for Crate Supplies</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_medicCrateEquipment_DESC">
+            <English>Restricts pulling from nearby crates/vehicles to a certain medical level</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_crateEquipmentRange">
+            <English>Crate/Vehicle Range</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_crateEquipmentRange_DESC">
+            <English>Range at which you can interact with vehicle only actions/pull from crates/vehicles</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_crateAccess">
+            <English>Crate Access</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_SETTING_crateAccess_DESC">
+            <English>Limit to what items/vehicles medical supplies can be pulled from</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_Bags">
+            <English>Bags</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_CratesBags">
+            <English>Crates/Bags</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_VehiclesCratesBags">
+            <English>Vehicles/Crates/Bags</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_dropBag">
+            <English>Drop Backpack</English>
+        </Key>
+        <Key ID="STR_KAT_Misc_Bandage_Basic_Display">
+            <English>(I) Bandage: (Basic)</English>
+            <Czech>Obvaz (Standardní)</Czech>
+            <French>Pansement individuel</French>
+            <Spanish>Vendaje (Básico)</Spanish>
+            <Italian>Bendaggio (Base)</Italian>
+            <Polish>Bandaż (jałowy)</Polish>
+            <Portuguese>Bandagem(Básico)</Portuguese>
+            <Russian>Повязка (обычная)</Russian>
+            <German>Bandage (Einfach)</German>
+            <Korean>붕대 (기본)</Korean>
+            <Japanese>包帯 (緊急圧迫止血)</Japanese>
+            <Chinese>基礎繃帶</Chinese>
+            <Chinesesimp>绷带（基础型）</Chinesesimp>
+            <Turkish>Bandaj (Basit)</Turkish>
+            <Hungarian>Kötszer (Általános)</Hungarian>
+            <Ukrainian>Пов'язка (звичайна)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Misc_Aid_Kit_Display">
+            <English>(Misc) Personal Aid Kit</English>
+            <Czech>Osobní lékárnička (PAK)</Czech>
+            <French>Trousse sanitaire</French>
+            <Spanish>Equipo de primeros auxilios</Spanish>
+            <Italian>Kit di Pronto Soccorso (PAK)</Italian>
+            <Polish>Apteczka osobista</Polish>
+            <Portuguese>Kit De Primeiros Socorros Pessoal</Portuguese>
+            <Russian>Аптечка</Russian>
+            <German>Persönliches Erste-Hilfe-Set</German>
+            <Korean>개인응급키트</Korean>
+            <Japanese>個人用治療キット (PAK)</Japanese>
+            <Chinese>個人急救包</Chinese>
+            <Chinesesimp>个人急救包</Chinesesimp>
+            <Turkish>Kişisel Yardım Seti</Turkish>
+            <Hungarian>Elsősegélycsomag</Hungarian>
+            <Ukrainian>Аптечка першої допомоги</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Misc_Bandage_Elastic_Display">
+            <English>(I) Bandage: (Elastic)</English>
+            <Czech>Obvaz (Elastický)</Czech>
+            <French>Bande extensible</French>
+            <Spanish>Vendaje (Elástico)</Spanish>
+            <Italian>Benda (Elastica)</Italian>
+            <Polish>Bandaż (elastyczny)</Polish>
+            <Portuguese>Bandagem (Elástica)</Portuguese>
+            <Russian>Повязка (давящая)</Russian>
+            <German>Bandage (Elastisch)</German>
+            <Korean>붕대 (압박)</Korean>
+            <Japanese>包帯 (伸縮)</Japanese>
+            <Chinese>繃帶（彈性型）</Chinese>
+            <Chinesesimp>绷带（弹性型）</Chinesesimp>
+            <Turkish>Bandaj (Elastik)</Turkish>
+            <Hungarian>Rögzító kötszer</Hungarian>
+            <Ukrainian>Пов'язка (давить)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Misc_Packing_Bandage_Display">
+            <English>(I) Bandage: (Packing)</English>
+            <Czech>Obvaz (Tlakový)</Czech>
+            <French>Bande compressive</French>
+            <Spanish>Vendaje compresivo</Spanish>
+            <Italian>Bendaggio (Compressivo)</Italian>
+            <Polish>Bandaż (uciskowy)</Polish>
+            <Portuguese>Bandagem de Compressão</Portuguese>
+            <Russian>Тампонирующая повязка</Russian>
+            <German>Bandage (Mullbinde)</German>
+            <Korean>붕대 (거즈)</Korean>
+            <Japanese>包帯 (弾性)</Japanese>
+            <Chinese>繃帶（包紮型）</Chinese>
+            <Chinesesimp>绷带（包扎型）</Chinesesimp>
+            <Turkish>Bandaj (Paket)</Turkish>
+            <Hungarian>Nyomókötszer</Hungarian>
+            <Ukrainian>Тампонувальна пов'язка</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Misc_QuikClot_Display">
+            <English>(I) Bandage: (QuikClot)</English>
+            <Czech>Hemostatický obvaz (QuikClot)</Czech>
+            <French>Pansement hémostatique (Quikclot)</French>
+            <Spanish>Vendaje básico (QuickClot)</Spanish>
+            <Italian>Bendaggio Emostatico (QuikClot)</Italian>
+            <Polish>Opatrunek QuikClot ACS</Polish>
+            <Portuguese>Bandagem básica (Coagulante)</Portuguese>
+            <Russian>Первичный перевязочный пакет (QuikClot)</Russian>
+            <German>Bandage (QuikClot)</German>
+            <Korean>붕대 (퀵 클롯)</Korean>
+            <Japanese>包帯 (クイッククロット)</Japanese>
+            <Chinese>繃帶 (止血粉)</Chinese>
+            <Chinesesimp>绷带（止血型）</Chinesesimp>
+            <Hungarian>Általános zárókötszer (QuikClot)</Hungarian>
+            <Ukrainian>Первинний перев'язувальний пакет (QuikClot)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Misc_SurgicalKit_Display">
+            <English>(S) Surgical Kit</English>
+            <Czech>Chirurgická sada</Czech>
+            <French>Trousse chirurgicale</French>
+            <Spanish>Kit quirúrgico</Spanish>
+            <Italian>Kit chirurgico</Italian>
+            <Polish>Zestaw do szycia ran</Polish>
+            <Portuguese>Kit Cirúrgico</Portuguese>
+            <Russian>Хирургический набор</Russian>
+            <German>Operationsset</German>
+            <Korean>봉합 키트</Korean>
+            <Japanese>手術キット</Japanese>
+            <Chinese>手術包</Chinese>
+            <Chinesesimp>手术包</Chinesesimp>
+            <Turkish>Cerrahi Kit</Turkish>
+            <Hungarian>Sebészeti készlet</Hungarian>
+            <Ukrainian>Хірургічний набір</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Misc_Suture_Display">
+            <English>(S) Suture</English>
+            <French>Suture</French>
+            <Spanish>Sutura</Spanish>
+            <Italian>Sutura</Italian>
+            <Polish>Szew</Polish>
+            <Portuguese>Sutura</Portuguese>
+            <Russian>Нить</Russian>
+            <German>Naht</German>
+            <Korean>봉합술</Korean>
+            <Japanese>糸付縫合針</Japanese>
+            <Chinesesimp>缝合线</Chinesesimp>
+            <Ukrainian>Нитка</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Misc_Tourniquet_Display">
+            <English>(I) Tourniquet (CAT)</English>
+            <Czech>Škrtidlo (CAT)</Czech>
+            <French>Garrot (CAT)</French>
+            <Spanish>Torniquete (CAT)</Spanish>
+            <Italian>Laccio Emostatico (CAT)</Italian>
+            <Polish>Staza taktyczna (CAT)</Polish>
+            <Portuguese>Torniquete (CAT)</Portuguese>
+            <Russian>Жгут</Russian>
+            <German>Tourniquet [CAT]</German>
+            <Korean>지혈대 [CAT]</Korean>
+            <Japanese>止血帯 (CAT)</Japanese>
+            <Chinese>軍用止血帶</Chinese>
+            <Chinesesimp>止血带（军用型）</Chinesesimp>
+            <Turkish>Turnike (CAT)</Turkish>
+            <Hungarian>Érszorító (CAT)</Hungarian>
+            <Ukrainian>Турнікет</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Misc_painkillers_Display">
+            <English>(Medication) Painkillers</English>
+            <Czech>Léky proti bolesti</Czech>
+            <French>Analgésiques</French>
+            <Spanish>Analgésicos</Spanish>
+            <Italian>Antidolorifici</Italian>
+            <Polish>Środki przeciwbólowe</Polish>
+            <Portuguese>Analgésicos</Portuguese>
+            <Russian>Болеутоляющее</Russian>
+            <German>Schmerztabellen</German>
+            <Korean>진통제</Korean>
+            <Japanese>鎮痛剤</Japanese>
+            <Chinese>止痛藥</Chinese>
+            <Chinesesimp>止痛药</Chinesesimp>
+            <Turkish>Ağrı kesici</Turkish>
+            <Ukrainian>Болезаспокійливе</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Misc_splint_Display">
+            <English>(I) Splint</English>
+            <Czech>Dlaha</Czech>
+            <French>Attelle</French>
+            <Spanish>Férula</Spanish>
+            <Italian>Gessatura</Italian>
+            <Polish>Szyna</Polish>
+            <Portuguese>Tala</Portuguese>
+            <Russian>Шина</Russian>
+            <German>Schiene</German>
+            <Korean>부목</Korean>
+            <Japanese>添え木</Japanese>
+            <Chinese>固定板</Chinese>
+            <Chinesesimp>夹板</Chinesesimp>
+            <Turkish>Atel</Turkish>
+            <Ukrainian>Шина</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Misc_dropBackpack">
+            <English>Drop Backpack</English>
         </Key>
     </Package>
 </Project>

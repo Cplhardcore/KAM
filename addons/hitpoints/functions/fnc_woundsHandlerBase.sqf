@@ -17,8 +17,8 @@
  * Public: No
  */
 
-params ["_unit", "_allDamages", "_typeOfDamage"];
-TRACE_3("woundsHandlerBase",_unit,_allDamages,_typeOfDamage);
+params ["_unit", "_allDamages", "_typeOfDamage", "", ["_notSelectionSpecific", false], ["_causeAdditionalInjuries", true]];
+TRACE_4("woundsHandlerBase",_unit,_allDamages,_typeOfDamage,_notSelectionSpecific);
 
 if !(_typeOfDamage in ACEGVAR(medical_damage,damageTypeDetails)) then {
     WARNING_1("damage type %1 not found",_typeOfDamage);
@@ -40,6 +40,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
 // process wounds separately for each body part hit
 {   // forEach _allDamages
     _x params ["_damage", "_bodyPart"];
+    TRACE_2("_x",_damage,_bodyPart);
     _bodyPart = toLowerANSI _bodyPart;
     if (_typeOfDamage != "explosive") then {
         if (_bodyPart == "head") then {
@@ -63,6 +64,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         TRACE_2("Damage created zero wounds",_damage,_typeOfDamage);
         continue
     };
+    TRACE_2("_nWounds",_bodyPart,_nWounds);
     private _dmgPerWound = _damage/_nWounds;
 
     // find the available injuries for this damage type and damage amount
@@ -73,7 +75,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         _weightedWoundTypes pushBack _x;
         _weightedWoundTypes pushBack _woundWeight;
     } forEach _damageWoundDetails;
-
+    TRACE_1("_weightedWoundTypes",_weightedWoundTypes);
     if (_weightedWoundTypes isEqualTo []) then {
         TRACE_2("No valid wounds",_damage,_typeOfDamage);
         continue
@@ -87,13 +89,13 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
             WARNING_4("No valid wound types %1-%2-%3-%4",_damage,_dmgPerWound,_typeOfDamage,_bodyPart);
             continue
         };
-        if (_woundTypeToAdd in ["Avulsion", "Velocity Wound", "Contusion"] && (random 100 < GVAR(InternalBleedingChance)) && (GVAR(InternalBleedingEnable))) then {
+        if (_woundTypeToAdd in ["Avulsion", "Velocity Wound", "Contusion"] && (random 100 < GVAR(InternalBleedingChance)) && (GVAR(InternalBleedingEnable)) && (_causeAdditionalInjuries)) then {
             private _woundTypeToAdd = "InternalBleeding";
             ACEGVAR(medical_damage,woundDetails) get _woundTypeToAdd params ["","_injuryBleedingRate","_injuryPain","_causeLimping","_causeFracture"];
             private _woundClassIDToAdd = ACEGVAR(medical_damage,woundClassNames) find _woundTypeToAdd;
             TRACE_2("wounds",_woundTypeToAdd,_woundClassIDToAdd);
             // Add a bit of random variance to wounds
-            private _woundDamage = _dmgPerWound * _dmgMultiplier * random [0.3, 0.5, 0.7] ;
+            private _woundDamage = _dmgPerWound * _dmgMultiplier * random [0.3, 0.5, 0.7];
 
             _bodyPartDamage set [_bodyPartNToAdd, (_bodyPartDamage select _bodyPartNToAdd) + _woundDamage];
 
@@ -109,8 +111,23 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
             _painLevel = _painLevel + _pain;
 
             private _arterialRate = 1;
-            if (random 100 < GVAR(ArterialChance)) then {
-                _arterialRate  = random [1.1, 1.3, 1.6];
+            private _arterialChance = switch (_bodyPart) do {
+                case "neck": {0.75};
+                case "head": {0.20};
+                case "chest": {0.25};
+                case "body": {0.25};
+                case "leftarm": {0.30};
+                case "rightarm": {0.30};
+                case "leftleg": {0.30};
+                case "rightleg": {0.30};
+                case "upperleftarm": {0.40};
+                case "upperrightarm": {0.40};
+                case "upperleftleg": {0.50};
+                case "upperrightleg": {0.50};
+                default {0.1};
+            };
+            if (random 100 < (GVAR(ArterialChance) * _arterialChance)) then {
+                _arterialRate  = random [1.8, 2.3, 2.9];
             };
             private _bleeding = (_woundSize * _bleedMultiplier * _injuryBleedingRate) * _arterialRate;
             TRACE_6("BleedingRate",_bleeding,_woundSize,_bleedMultiplier,_injuryBleedingRate,_arterialRate,GVAR(ArterialChance));
@@ -135,14 +152,15 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
             {
                 _x params ["_classID", "_oldAmountOf", "_oldBleeding", "_oldDamage"];
                 if (
-                        (_classComplex == _classID) &&
-                        {(_bodyPart isNotEqualTo "") || {(_woundDamage < PENETRATION_THRESHOLD) isEqualTo (_oldDamage < PENETRATION_THRESHOLD)}} && 
-                        {(_bodyPartNToAdd > 7) || {!_causeLimping} || {(_woundDamage <= LIMPING_DAMAGE_THRESHOLD) isEqualTo (_oldDamage <= LIMPING_DAMAGE_THRESHOLD)}} // ensure limping damage is stacked correctly
-                        ) exitWith {
+                    (_classComplex == _classID) &&
+                    {
+                        (_bodyPart isNotEqualTo "")
+                    }
+                ) exitWith {
                     TRACE_2("merging with existing wound",_injury,_x);
                     private _newAmountOf = _oldAmountOf + 1;
                     _x set [1, _newAmountOf];
-                    private _newBleeding = (_oldAmountOf * _oldBleeding + _bleeding) / _newAmountOf;
+                    private _newBleeding = (_oldAmountOf * _oldBleeding + _bleeding);
                     _x set [2, _newBleeding];
                     private _newDamage = (_oldAmountOf * _oldDamage + _woundDamage) / _newAmountOf;
                     _x set [3, _newDamage];
@@ -162,7 +180,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         private _woundDamage = _dmgPerWound * _dmgMultiplier * random [0.9, 1, 1.1];
 
         _bodyPartDamage set [_bodyPartNToAdd, (_bodyPartDamage select _bodyPartNToAdd) + _woundDamage];
-        _bodyPartVisParams set [[1,1,1,2,2,2,3,3,3,4,4,4] select _bodyPartNToAdd, true]; // Mark the body part index needs updating
+        _bodyPartVisParams set [[1,1,2,2,3,3,3,3,4,4,4,4] select _bodyPartNToAdd, true]; // Mark the body part index needs updating
 
         // Anything above this value is guaranteed worst wound possible
         private _worstDamage = 6;
@@ -177,9 +195,24 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         _painLevel = _painLevel + _pain;
 
         private _arterialRate = 1;
-        if (random 100 < GVAR(ArterialChance)) then {
-            _arterialRate  = random [1.1, 1.3, 1.6];
-            };
+        private _arterialChance = switch (_bodyPart) do {
+            case "neck": {0.75};
+            case "head": {0.20};
+            case "chest": {0.25};
+            case "body": {0.25};
+            case "leftarm": {0.30};
+            case "rightarm": {0.30};
+            case "leftleg": {0.30};
+            case "rightleg": {0.30};
+            case "upperleftarm": {0.40};
+            case "upperrightarm": {0.40};
+            case "upperleftleg": {0.50};
+            case "upperrightleg": {0.50};
+            default {0.1};
+        };
+        if (random 100 < (GVAR(ArterialChance) * _arterialChance)) then {
+            _arterialRate  = random [1.8, 2.3, 2.9];
+        };
         private _bleeding = (_woundSize * _bleedMultiplier * _injuryBleedingRate) * _arterialRate * random [0.8, 1, 1.2];;
         TRACE_6("BleedingRate",_bleeding,_woundSize,_bleedMultiplier,_injuryBleedingRate,_arterialRate,GVAR(ArterialChance));
         // large wounds are > LARGE_WOUND_THRESHOLD
@@ -213,7 +246,8 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
                 && {ACEGVAR(medical,fractures) > 0}
                 && {_bodyPartNToAdd > 3}
                 && {_woundDamage > FRACTURE_DAMAGE_THRESHOLD}
-                && {random 1 < (_fractureMultiplier * ACEGVAR(medical,fractureChance))}
+                && {random 1 < (_fractureMultiplier * ACEGVAR(medical,fractureChance))
+                && (_causeAdditionalInjuries)}
             ): {
                 private _fractures = GET_FRACTURES(_unit);
                 _fractures set [_bodyPartNToAdd, 1];
@@ -238,22 +272,37 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         private _createNewWound = true;
         private _existingWounds = _openWounds getOrDefault [_bodyPart, [], true];
         {
-            _x params ["_classID", "_oldAmountOf", "_oldBleeding", "_oldDamage"];
-            if (
+                _x params ["_classID", "_oldAmountOf", "_oldBleeding", "_oldDamage"];
+                if (
                     (_classComplex == _classID) &&
-                    {(_bodyPart isNotEqualTo "") || {(_woundDamage < PENETRATION_THRESHOLD) isEqualTo (_oldDamage < PENETRATION_THRESHOLD)}} && 
-                    {(_bodyPartNToAdd > 7) || {!_causeLimping} || {(_woundDamage <= LIMPING_DAMAGE_THRESHOLD) isEqualTo (_oldDamage <= LIMPING_DAMAGE_THRESHOLD)}} // ensure limping damage is stacked correctly
-                    ) exitWith {
-                TRACE_2("merging with existing wound",_injury,_x);
-                private _newAmountOf = _oldAmountOf + 1;
-                _x set [1, _newAmountOf];
-                private _newBleeding = (_oldAmountOf * _oldBleeding + _bleeding) / _newAmountOf;
-                _x set [2, _newBleeding];
-                private _newDamage = (_oldAmountOf * _oldDamage + _woundDamage) / _newAmountOf;
-                _x set [3, _newDamage];
-                _createNewWound = false;
-            };
-        } forEach _existingWounds;
+                    {
+                        (_bodyPart isNotEqualTo "") ||
+                        {(_woundDamage < PENETRATION_THRESHOLD) isEqualTo (_oldDamage < PENETRATION_THRESHOLD)}
+                    } &&
+                    {
+                        (_bodyPartNToAdd > 7) ||
+                        {!_causeLimping} ||
+                        {(_woundDamage <= LIMPING_DAMAGE_THRESHOLD) isEqualTo (_oldDamage <= LIMPING_DAMAGE_THRESHOLD)}
+                    } &&
+                    {
+                        private _arterialMerge = if (_bleeding >= ARTERIAL_BLEED_THRESHOLD) then {
+                            (_bleeding >= ARTERIAL_BLEED_THRESHOLD) isEqualTo ((_oldBleeding/_oldAmountOf) >= ARTERIAL_BLEED_THRESHOLD)
+                        } else {
+                            (_bleeding < ARTERIAL_BLEED_THRESHOLD) isEqualTo ((_oldBleeding/_oldAmountOf) < ARTERIAL_BLEED_THRESHOLD)
+                        };
+                        _arterialMerge
+                    }// ensure limping damage is stacked correctly
+                ) exitWith {
+                    TRACE_2("merging with existing wound",_injury,_x);
+                    private _newAmountOf = _oldAmountOf + 1;
+                    _x set [1, _newAmountOf];
+                    private _newBleeding = (_oldAmountOf * _oldBleeding + _bleeding);
+                    _x set [2, _newBleeding];
+                    private _newDamage = (_oldAmountOf * _oldDamage + _woundDamage) / _newAmountOf;
+                    _x set [3, _newDamage];
+                    _createNewWound = false;
+                };
+            } forEach _existingWounds;
 
         if (_createNewWound) then {
             TRACE_1("adding new wound",_injury);
@@ -263,7 +312,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
     };
 
     // selection-specific damage only hits the first part
-    if (_selectionSpecific > 0) then {
+    if (_selectionSpecific > 0 && (!_notSelectionSpecific)) then {
         break;
     };
 } forEach _allDamages;

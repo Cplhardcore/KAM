@@ -30,18 +30,26 @@ _patient setVariable [QGVAR(airway), false, true];
 _patient setVariable [QGVAR(airwayStatus), [0, 0, 0], true];
 _patient setVariable [QGVAR(occlusionMitigation), [0, 0, 0], true];
 _patient call FUNC(handleAirway);
-
+if (_patient getVariable [QEGVAR(breathing,attachedVent), false]) then {
+    [_medic, _patient] call EFUNC(breathing,detachVent);
+};
 if !(GVAR(ReusableAirwayItems)) exitWith {};
 
 switch (true) do {
     case (_item isEqualTo "Larynxtubus"): {
         [_medic, "kat_larynx"] call ACEFUNC(common,addToInventory);
+        [_patient, "blockRadio", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
+        [_patient, "blockSpeaking", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
     };
     case (_item isEqualTo "IGEL"): {
         [_medic, "kat_IGEL"] call ACEFUNC(common,addToInventory);
+        [_patient, "blockRadio", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
+        [_patient, "blockSpeaking", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
     };
     case (_item isEqualTo "ETT"): {
         [_medic, "kat_ETT"] call ACEFUNC(common,addToInventory);
+        [_patient, "blockRadio", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
+        [_patient, "blockSpeaking", "kat_airwayItem", false] call ACEFUNC(common,statusEffect_set);
     };
     case (_item isEqualTo "NPA"): {
         [_medic, "kat_NPA"] call ACEFUNC(common,addToInventory);

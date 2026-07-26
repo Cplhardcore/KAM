@@ -33,6 +33,6 @@ _patient setVariable [QGVAR(fractures), [0,0,0,0,0,0,0,0,0,0,0,0], true];
 _patient setVariable [QGVAR(lidocaine), false, true];
 _patient setVariable [QGVAR(etomidate), false, true];
 _patient setVariable [QGVAR(sedated), 0, true];
-_patient setVariable [QGVAR(imaging), false, true];
-_patient setVariable [QGVAR(reboa), false, true];
+_patient setVariable [QGVAR(imaging), [0,0,0,0,0,0,0,0,0,0,0,0], true];
+_patient setVariable [QGVAR(reboa), [false, false], true];
 _patient setVariable [QGVAR(surgicalBlock), [0,0,0,0,0,0,0,0,0,0,0,0], true];

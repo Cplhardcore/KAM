@@ -114,3 +114,28 @@
 #define IDC_BODY_LEGUPPERLEFT_S 6101
 #define IDC_BODY_LEGRIGHT_S 6105
 #define IDC_BODY_LEGUPPERRIGHT_S 6106
+
+#define FIRE_MANAGER_PFH_DELAY 0.25
+#define FLARE_SIZE_MODIFIER 5
+#define PRONE_ROLLING_ANIMS [\
+    "amovppnemstpsnonwnondnon_amovppnemevasnonwnondl",\
+    "amovppnemstpsnonwnondnon_amovppnemevasnonwnondr",\
+    "amovppnemstpsraswrfldnon_amovppnemevaslowwrfldl",\
+    "amovppnemstpsraswrfldnon_amovppnemevaslowwrfldr",\
+    "amovppnemstpsraswpstdnon_amovppnemevaslowwpstdl",\
+    "amovppnemstpsraswpstdnon_amovppnemevaslowwpstdr",\
+    "amovppnemstpsoptwbindnon_amovppnemevasoptwbindl",\
+    "amovppnemstpsoptwbindnon_amovppnemevasoptwbindr"\
+]
+
+#define BURN_MAX_INTENSITY 10
+#define BURN_MIN_INTENSITY 1
+
+#define INTENSITY_DECREASE_MULT_PAT_DOWN 0.8
+#define INTENSITY_DECREASE_MULT_ROLLING 1.4
+
+#define INTENSITY_LOSS 0.02
+#define INTENSITY_UPDATE 2
+#define BURN_PROPAGATE_UPDATE 1
+#define BURN_PROPAGATE_DISTANCE 2
+#define BURN_THRESHOLD_INTENSE 3

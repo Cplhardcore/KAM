@@ -202,6 +202,8 @@
 #define VAR_TOURNIQUET        QACEGVAR(medical,tourniquets)
 #define VAR_FRACTURES         QACEGVAR(medical,fractures)
 #define VAR_JOINTS            QEGVAR(hitpoints,joints)
+#define VAR_WRAPPED_JOINTS            QEGVAR(hitpoints,wrappedJoints)
+#define VAR_ICEPACKS            QEGVAR(hitpoints,icePacks)
 
 // - Unit Functions ---------------------------------------------------
 // Retrieval macros for common unit values
@@ -350,7 +352,7 @@
 
 // Breathing
 #define VAR_SURFACE_AREA                QEGVAR(breathing,lungSurfaceArea)
-#define GET_KAT_SURFACE_AREA(unit)      ((unit getVariable [VAR_SURFACE_AREA, 400]) - (((unit getVariable [QEGVAR(breathing,pneumothorax), [0, 0]] select 0) + (unit getVariable [QEGVAR(breathing,pneumothorax), [0, 0]] select 1)) * 20) + (((unit getVariable [QEGVAR(breathing,hemopneumothorax), [0, 0]] select 0) + (unit getVariable [QEGVAR(breathing,hemopneumothorax), [0, 0]] select 1)) * 60))
+#define GET_KAT_SURFACE_AREA(unit)      ((unit getVariable [VAR_SURFACE_AREA, 400]) - (((unit getVariable [QEGVAR(breathing,pneumothorax), [0, 0]] select 0) + (unit getVariable [QEGVAR(breathing,pneumothorax), [0, 0]] select 1)) * 20) + (((unit getVariable [QEGVAR(breathing,hemopneumothorax), [0, 0]] select 0) + (unit getVariable [QEGVAR(breathing,hemopneumothorax), [0, 0]] select 1)) * 60) + ((unit getVariable [QEGVAR(breathing,TACO), 0]) * 10))
 
 #define VAR_BLOOD_GAS                  QEGVAR(circulation,bloodGas)
 #define VAR_BREATHING_RATE             QEGVAR(breathing,breathRate)
@@ -404,7 +406,6 @@
 // Pharma
 #define VAR_VASOCONSTRICTION           QEGVAR(pharma,alphaAction)
 #define GET_VASOCONSTRICTION(unit)     (unit getVariable [VAR_VASOCONSTRICTION, [1,1,1,1,1,1,1,1,1,1,1,1]])
-#define GET_LOCAL_VASOCONSTRICTION(unit,partindex)      ((unit getVariable [VAR_LOCAL_ANESTHESIA, [1,1,1,1,1,1,1,1,1,1,1,1]]) select _partindex)
 
 #define VAR_LOCAL_ANESTHESIA            QEGVAR(pharma,localAnesthesia)
 #define GET_LOCAL_ANESTHESIA(unit,partindex)      ((unit getVariable [VAR_LOCAL_ANESTHESIA, DEFAULT_LOCAL_ANESTHESIA]) select _partindex)
@@ -541,13 +542,20 @@
 #define HAS_APPLIEDPRESSURE_ON(unit,index) ((GET_APPLIEDPRESSURE(unit) select index) > 0)
 
 #define VAR_BODY_BLEED_RATE   QEGVAR(hitpoints,limbBleedRate)
+#define VAR_EXTERNAL_BODY_BLEED_RATE   QEGVAR(hitpoints,externalBleedRate)
 #define GET_BODY_BLEED_RATE(unit)   (unit getVariable [VAR_BODY_BLEED_RATE, DEFAULT_BODY_BLEED_RATE_VALUES])
 #define GET_BODY_PART_RATE(unit,index) (GET_BODY_BLEED_RATE(unit) select index)
 #define HAS_LIMB_BLEEDING(unit,index) ((GET_BODY_BLEED_RATE(unit) select index) > 0)
 
+#define GET_EXTERNAL_BODY_BLEED_RATE(unit)   (unit getVariable [VAR_EXTERNAL_BODY_BLEED_RATE, DEFAULT_BODY_BLEED_RATE_VALUES])
+#define GET_EXTERNAL_BODY_PART_RATE(unit,index) (GET_EXTERNAL_BODY_BLEED_RATE(unit) select index)
+#define HAS_EXTERNAL_LIMB_BLEEDING(unit,index) ((GET_EXTERNAL_BODY_BLEED_RATE(unit) select index) > 0)
+
 #define GET_JOINTS(unit)   (unit getVariable [VAR_JOINTS, DEFAULT_JOINT_VALUES])
 #define GET_LIMB_JOINT(unit,limbindex)   ((unit getVariable [VAR_JOINTS, DEFAULT_JOINT_VALUES]) select _limbindex)
 
+#define GET_WRAPPED_JOINTS(unit)   (unit getVariable [VAR_WRAPPED_JOINTS, DEFAULT_JOINT_VALUES])
+#define GET_ICEPACKS(unit)   (unit getVariable [VAR_ICEPACKS, DEFAULT_JOINT_VALUES])
 
 #define INTERNAL_BLEEDING_RATE(unit,index) ([unit, index] call EFUNC(hitpoints,internalBleedingRate))
 #define PART_BLEEDING_RATE(unit,index) ([unit, index] call EFUNC(hitpoints,partBleedingRate))
@@ -653,4 +661,15 @@
 #define NOTMEDIC_LOWHR_THRESHOLD 50
 #define NOTMEDIC_LOWBP_THRESHOLD 90
 
+
+#undef PAIN_FADE_TIME
+#define PAIN_FADE_TIME 7200
 #define HAS_AIRWAY(unit)  (unit call EFUNC(airway,airwayCheck))
+
+#define TRIAGE_COLOR_EXPECTANT 0, 0, 1, 0.9
+
+#define TRIAGE_TEXT_COLOR_EXPECTANT 1, 1, 1, 1
+#define VAR_KAT_FRACTURES               QEGVAR(surgery,fractures)
+#define GET_KAT_FRACTURES(unit)         (unit getVariable [VAR_KAT_FRACTURES, DEFAULT_FRACTURE_VALUES])
+
+#define ARTERIAL_BLEED_THRESHOLD 0.2

@@ -28,7 +28,7 @@ private _newBandagedWounds = [];
 private _newWrappedWounds = _wrappedWounds getOrDefault [_bodyPart, []];
 
 {
-    _x params ["_id", "_amount", "_bleeding", "_damage", "_bandage"];
+    _x params ["_id", "_amount", "_bleeding", "_damage", "_bandage", "_index", "_oldDelay"];
     TRACE_4("aaa",_id,_amount,_bleeding,_bandage);
     private _classIndex = _id / 10;
      private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
@@ -37,18 +37,27 @@ private _newWrappedWounds = _wrappedWounds getOrDefault [_bodyPart, []];
         // Create wrapped wound
         private _newClassID = _id + 0.01;
         private _newBandage = _bandage + "_wrapped";
-        private _newWound = [_newClassID, _amount, _bleeding, _damage, _newBandage];
+        private _reopeningMinDelay = DEFAULT_BANDAGE_REOPENING_MIN_DELAY;
+        private _reopeningMaxDelay = DEFAULT_BANDAGE_REOPENING_MAX_DELAY;
+        private _config = configFile >> QUOTE(ACE_ADDON(Medical_Treatment)) >> "Bandaging";
+        if (isClass (_config >> _bandage)) then {
+            _config = _config >> _bandage;
+            _reopeningMinDelay = getNumber (_config >> "reopeningMinDelay");
+            _reopeningMaxDelay = getNumber (_config >> "reopeningMaxDelay") max _reopeningMinDelay;
+        } else {
+            WARNING_2("No config for bandage [%1] config base [%2]",_bandage,_config);
+        };
+        private _delay = ((_reopeningMinDelay + random (_reopeningMaxDelay - _reopeningMinDelay)));
+        if (GVAR(longTermBandages)) then {
+            _delay = _delay * random [3, 6, 10];
+        };
+        private _delay = _delay + _oldDelay;
+        private _newWound = [_newClassID, _amount, _bleeding, _damage, _newBandage, _index, _delay];
 
         TRACE_2("Wound Before/After Wrap",_x,_newWound);
 
         // Add to wrapped wounds
         _newWrappedWounds pushBack _newWound;
-
-        // Call ACE handling
-        private _impact = 1;
-        private _woundIndex = count _newWrappedWounds - 1;
-        [_patient, _impact, _bodyPart, _woundIndex, _newWound, _newBandage, false] call EFUNC(misc,handleWrappedReopening);
-
         _wrappedAny = true;
     } else {
         _newBandagedWounds pushBack _x; // keep unwrapped wounds

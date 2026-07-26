@@ -72,16 +72,9 @@ playSound3D [QEPATHTOF_SOUND(surgery,sounds\reduction.wav), _patient, false, get
 {
     private _jointInjury = _limbJointStatus select _x;
     if (_jointInjury == 3) exitWith {
-        _limbJointStatus set [_x, _jointInjury + 6];
-        [_patient] call EFUNC(misc,updateDamageEffects);
-        _patient setVariable [QACEGVAR(medical,isLimping), false, true];
-        [_patient, "blockSprint", QACEGVAR(medical,fracture), false] call ACEFUNC(common,statusEffect_set);
-    };
-    if (_jointInjury == 6) exitWith {
-        _limbJointStatus set [_x, _jointInjury + 3];
-        [_patient] call EFUNC(misc,updateDamageEffects);
-        _patient setVariable [QACEGVAR(medical,isLimping), false, true];
-        [_patient, "blockSprint", QACEGVAR(medical,fracture), false] call ACEFUNC(common,statusEffect_set);
+        _limbJointStatus set [_x, 2.9];
+        _jointArray set [_jointGroupIndex, _limbJointStatus];
+        _patient setVariable [VAR_JOINTS, _limbJointStatus, true];
     };
 } forEach _selectedJointIndexes;
 

@@ -42,8 +42,16 @@ class ACE_Medical_Treatment_Actions {
         displayNameProgress = CSTRING(Burn_Dressing_Progress);
         icon = QPATHTOF(ui\Burn_Dressing.paa);
         condition = QFUNC(canBurnBandage);
-        callbackSuccess = QFUNC(burnDressing);
         items[] = {"kat_Burn_Dressing"};
+        treatmentTime = 3;
+    };
+    class Bruise_Dressing: BasicBandage {
+        displayName = CSTRING(Bruise_Dressing);
+        displayNameProgress = CSTRING(Bruise_Dressing_Progress);
+        icon = QPATHTOF(ui\Elastic_Wrap.paa);
+        condition = QFUNC(canBruiseBandage);
+        items[] = {"kat_Elastic_Wrap", "kat_Roller_Gauze"};
+        treatmentTime = 5;
     };
     class Abdominal_Pad: BasicBandage {
         displayName = CSTRING(Abdominal_Pad);
@@ -179,7 +187,7 @@ class ACE_Medical_Treatment_Actions {
         displayName = CSTRING(Check_Joints);
         displayNameProgress = CSTRING(Check_Joints_Progress);
         category = "examine";
-        condition = "true";
+        condition = QFUNC(canCheckJoints);
         allowedSelections[] = {"LeftArm", "RightArm", "LeftLeg", "RightLeg", "UpperLeftArm", "UpperRightArm", "UpperLeftLeg", "UpperRightLeg", "Body"};
         allowSelfTreatment = 1;
         medicRequired = 0;
@@ -215,7 +223,7 @@ class ACE_Medical_Treatment_Actions {
     class StopPressure: ApplyPressure {
         displayName = CSTRING(StopPressure);
         displayNameProgress = CSTRING(StopPressure);
-        treatmentTime = 1;
+        treatmentTime = 0.01;
         callbackSuccess = QFUNC(manualPressureStop);
         condition = QFUNC(manualPressureStopCondition);
     };
@@ -264,5 +272,18 @@ class ACE_Medical_Treatment_Actions {
         condition = QUOTE(!([ARR_2(_patient,_bodyPart)] call ACEFUNC(medical_treatment,hasTourniquetAppliedTo)) && ([ARR_2(_patient,_bodyPart)] call EFUNC(surgery,hasAdditionalTourniquetAppliedTo)));
         callbackSuccess = QUOTE([ARR_8(_medic,_patient,_bodyPart,_classname,_itemUser,_usedItem,_createLitter,2)] call FUNC(tourniquet));
         allowedUnderwater = 0;
+    };
+    class WashBody: CheckPulse {
+        displayName = CSTRING(WashBody);
+        displayNameProgress = CSTRING(WashingBody);
+        category = "advanced";
+        medicRequired = 0;
+        allowedSelections[] = {"Head","LeftArm","RightArm","Body","LeftLeg","RightLeg", "Chest", "UpperLeftArm", "UpperRightArm", "UpperLeftLeg", "UpperRightLeg", "Neck"};
+        treatmentTime = 15;
+        items[] = {};
+        consumeItem = 0;
+        condition = "true";
+        callbackStart = "";
+        callbackSuccess = QFUNC(washBody);
     };
 };

@@ -15,32 +15,16 @@
  * Public: No
  */
 params ["_patient"];
-[{
-    params ["_patient"];
-        [{
-            params ["_args", "_idPFH"];
-            _args params ["_patient", "_KetamineOverdoseTarget"];
-            _KetamineOverdoseTarget = _KetamineOverdoseTarget + 1;
-            _args set [1, _KetamineOverdoseTarget];
-            if (!(alive _patient)) exitWith {
-                [_idPFH] call CBA_fnc_removePerFrameHandler;
-            };
-                _KetamineOverdoseTarget =  + 1;
-                if (_KetamineOverdoseTarget > 12) exitWith {
-                    if (random(100) < 25) then {
-                    [{
-                        params ["_args", "_idPFH"];
-                        _args params ["_patient"];
-                        if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
-                                [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
-                        };
-                    }, [_patient], 15] call CBA_fnc_waitAndExecute;
-                    };
-                    [_idPFH] call CBA_fnc_removePerFrameHandler;
-                };
-                private _rr = (_patient getVariable [QEGVAR(breathing,respiratoryRateMultiplier), 1]) - 0.04;
-                _patient setVariable [QEGVAR(breathing,respiratoryRateMultiplier), _rr, true];
-                private _depression = (_patient getVariable [QEGVAR(pharma,opioidDepression), 0]) + 0.04;
-                _patient setVariable [QEGVAR(pharma,opioidDepression), _depression, true];
-        }, 15, [_patient,0]] call CBA_fnc_addPerFrameHandler;
-}, [_patient], 15] call CBA_fnc_waitAndExecute;
+private _doseLevel = ([_patient, "ketamineOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel < 0.01) exitWith {
+    [_patient, "ketamineOverdose", 20, 2400, 0, 0, 0, 0, -0.1, 0, 0, 0, -0.15, 0, 0, 0, 0, 0, 0.5] call EFUNC(vitals,addMedicationAdjustment);
+};
+if (random(100) < 5) then {
+    [{
+        params ["_args", "_idPFH"];
+        _args params ["_patient"];
+        if (_patient getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
+                [QACEGVAR(medical,FatalVitals), _patient] call CBA_fnc_localEvent;
+        };
+    }, [_patient], 15] call CBA_fnc_waitAndExecute;
+};

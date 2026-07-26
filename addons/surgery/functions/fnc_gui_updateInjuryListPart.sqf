@@ -21,7 +21,11 @@
 params ["_ctrl", "_target", "_selectionN", "_entries"];
 
 if (GET_SURGICAL_TOURNIQUETS(_target) select _selectionN != 0) then {
-    _entries pushBack [LLSTRING(Reboa_Status), [0.77, 0.20, 0.08, 1]];
+    if (GET_SURGICAL_TOURNIQUETS(_target) select 3 != 0) then {
+        _entries pushBack [LLSTRING(Reboa_Status), [0.77, 0.20, 0.08, 1]];
+    } else {
+        _entries pushBack [LLSTRING(Reboa_Status2), [0.77, 0.20, 0.08, 1]];
+    };
 };
 
 if ((_target getVariable [QGVAR(fractures), [0,0,0,0,0,0,0,0,0,0,0,0]]) select _selectionN != 0) then {

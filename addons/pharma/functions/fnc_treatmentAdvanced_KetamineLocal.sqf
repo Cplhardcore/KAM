@@ -29,6 +29,6 @@ private _isMatch = _lastTwo in [
 ];
 if (_isMatch) then {
     private _timeInSystem = linearConversion [22, 30, (parseNumber (_parts select -1)), 60, 300];
-    [_patient, "Ketamine", 10, _timeInSystem, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "true"] call EFUNC(vitals,addMedicationAdjustment);
+    [_patient, "Ketamine", 10, _timeInSystem, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] call EFUNC(vitals,addMedicationAdjustment);
     [_patient, true] call ACEFUNC(medical,setUnconscious);
 };

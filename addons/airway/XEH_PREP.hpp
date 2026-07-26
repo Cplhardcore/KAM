@@ -10,6 +10,7 @@ PREP(gui_updateBodyImage);
 PREP(gui_updateInjuryListGeneral);
 PREP(gui_updateInjuryListPart);
 PREP(handleAirway);
+PREP(handleAirwayEffects);
 PREP(handleAirwayHit);
 PREP(handleAwakePuking);
 PREP(handlePuking);

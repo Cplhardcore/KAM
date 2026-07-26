@@ -37,7 +37,7 @@ if (GVAR(pneumothoraxDamageThreshold_TakenDamage)) then {
 private _side = selectRandom [0, 1];
 // Damage threshold passed & pneumothorax given
 if (floor (random 100) < (GVAR(hptxChance) + _chanceIncrease)) then {
-    private _amount = linearConversion [1, 9, _engineDamage, 1, 5, true];
+    private _amount = linearConversion [1, 9, _engineDamage, 1, 4, true];
     [_unit, _side, _amount] call FUNC(handleHemothoraxDeterioration);
 };
 if (floor (random 100) < (GVAR(pneumothoraxChance) + _chanceIncrease)) then {
@@ -84,6 +84,6 @@ _unit setVariable [QGVAR(activeChestSeal), _activeChestSeal, true];
 // Unit already has it or got lucky
 if ((_unit getVariable [QEGVAR(circulation,effusion), 0]) != 0 || floor (random 100) > EGVAR(circulation,tamponadeChance)) exitWith {_this};
 
-[_unit] call FUNC(createTamponade);
+_unit setVariable [QEGVAR(circulation,effusion), 1, true];
 
 _this // return

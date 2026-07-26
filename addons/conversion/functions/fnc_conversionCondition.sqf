@@ -57,6 +57,6 @@ private _hasInjury = false;
 } forEach _jointInjuries;
 if ((_hasInjury) && (GVAR(conversionRequirements) > 1)) exitWith { false };
 
-if ((_unit getVariable [QEGVAR(surgery,reboa), false]) && (GVAR(conversionRequirements) > 1)) exitWith { false };
+if (((_unit getVariable [QEGVAR(surgery,reboa), false] select 0) || (_unit getVariable [QEGVAR(surgery,reboa), false] select 1)) && (GVAR(conversionRequirements) > 1)) exitWith { false };
 
 true

@@ -18,7 +18,6 @@
  */
 
 params ["_medic", "_patient"];
-
 private _cricothyrotomy = _patient getVariable [QGVAR(cricothyrotomy), 0];
 
 _cricothyrotomy = _cricothyrotomy + 0.1;

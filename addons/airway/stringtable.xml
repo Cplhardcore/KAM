@@ -180,7 +180,7 @@
             <Dutch>ACCUVAC is een mobiel apparaat voor medische suctie bij spoedeisende hulp</Dutch>
         </Key>
         <Key ID="STR_KAT_Airway_Accuvac_Display">
-            <English>ACCUVAC</English>
+            <English>(A) ACCUVAC</English>
             <Czech>ACCUVAC</Czech>
             <French>ACCUVAC</French>
             <Spanish>ACCUVAC</Spanish>
@@ -284,11 +284,9 @@
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_Obstruction">
             <English>You fond a Collapsed Airway</English>
-            <Spanish>Las vías aéreas están colapsadas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_Obstruction_short">
             <English>Collapsed Airway</English>
-            <Spanish>Vías aéreas colapsadas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_Occlusion">
             <English>Airway is occluded, medical suction needed</English>
@@ -334,7 +332,6 @@
             <Japanese>気道はひどく水膨れしている</Japanese>
             <Chinese>氣道嚴重膨脹</Chinese>
             <Chinesesimp>气道严重膨胀</Chinesesimp>
-            <Spanish>Las vías aéreas presentan ampollas graves</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_mitigatedObstruction">
             <English>Obstruction is temporarily mitigated</English>
@@ -618,7 +615,7 @@
             <Dutch>De Guedel-tube wordt gebruikt om de luchtweg veilig te stellen</Dutch>
         </Key>
         <Key ID="STR_KAT_Airway_Guedeltubus_Display">
-            <English>Guedel Tube</English>
+            <English>(A) Guedel Tube</English>
             <Czech>Guedel Tuba</Czech>
             <French>Canule de Guedel</French>
             <Spanish>Cánula de Guedel</Spanish>
@@ -816,7 +813,7 @@
             <Dutch>De King LT wordt gebruikt om de luchtweg veilig te stellen</Dutch>
         </Key>
         <Key ID="STR_KAT_Airway_Larynxtubus_Display">
-            <English>King LT</English>
+            <English>(A) King LT</English>
             <Czech>King LT</Czech>
             <French>Tube laryngé</French>
             <Spanish>Tubo laríngeo</Spanish>
@@ -1290,11 +1287,9 @@
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_occlusion_repeatTimer">
             <English>Puke repeat timer</English>
-            <Spanish>Temporizador de repetición del vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_occlusion_repeatTimer_desc">
             <English>time it takes for the puke system to loop once</English>
-            <Spanish>Duración de un ciclo de vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_puking_sound">
             <English>Activate the puking sound?</English>
@@ -1433,7 +1428,7 @@
             <Dutch>De handmatige suctiepomp is een apparaat om handmatig de luchtwegen af te zuigen. Dit is een alternatief voor electrische apparaten</Dutch>
         </Key>
         <Key ID="STR_KAT_Airway_Suction_Display">
-            <English>Manual Suction Pump</English>
+            <English>(A) Manual Suction Pump</English>
             <Czech>Manuální odsávací pumpa</Czech>
             <French>Pompe d'aspiration manuelle</French>
             <Spanish>Bomba de succión manual</Spanish>
@@ -1772,7 +1767,6 @@
             <Italian>KAT - ADV Medicale: Vie Aeree</Italian>
             <German>KAT - ADV Medical: Atemwege</German>
             <Japanese>KAM - 気道 (Airway)</Japanese>
-            <Spanish>KAT- ADV Medical: Vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_checkAirway">
             <English>Check Airway</English>
@@ -1820,7 +1814,6 @@
             <German>%1 überprüfte die Atemwege: Starke Blasenbildung</German>
             <Japanese>%1 が気道を確認: ひどい水膨れ</Japanese>
             <Chinesesimp>%1 条检查气道: 严重起泡</Chinesesimp>
-            <Spanish>%1 comprobó las vías aéreas: ampollas graves</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_headTurning_begin">
             <English>Begin Head Turning</English>
@@ -1929,267 +1922,201 @@
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_obstructionDamageThreshold">
             <English>Obstruction Damage Threshold</English>
-            <Spanish>Margen de daño para obstrucciones</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_obstructionDamageThreshold_DESC">
             <English>Damage Threshold to cause a injury-based Obstruction</English>
-            <Spanish>Daño que debe alcanzarse para poder sufrir una obstrucción</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_occlusionDamageThreshold">
             <English>Occlusion Damage Threshold</English>
-            <Spanish>Margen de daño para oclusiones</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_occlusionDamageThreshold_DESC">
             <English>Damage Threshold to cause a injury-based Occlusion</English>
-            <Spanish>Daño que debe alcanzarse para poder sufrir una oclusión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_pukeChance">
             <English>Vomit Chance</English>
-            <Spanish>Probabilidad de vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_pukeChance_DESC">
             <English>Chance to Vomit</English>
-            <Spanish>Probabilidad de vomitar</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_catastrophicAirwaychance">
             <English>Catastrophic Chance</English>
-            <Spanish>Probabilidad de daño catastrófico</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_catastrophicAirwaychance_DESC">
             <English>Chance to have a Catastrophic Airway Injury</English>
-            <Spanish>Probabilidad de tener una lesión catastrófica en las vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_CatastrophicAirwayDamageThreshold">
             <English>Catastrophic Airway Damage Threshold</English>
-            <Spanish>Margen para daño catastrófico en vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_CatastrophicAirwayDamageThreshold_DESC">
             <English>Damage Threshold to cause a injury-based Catastrophic Airway</English>
-            <Spanish>Daño que debe alcanzarse para sufrir una lesión catastrófica de vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_DeterioratingAirways_Chance">
             <English>Deteriorating Airways Chance</English>
-            <Spanish>Probabilidad de deterioro en vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_DeterioratingAirways_Chance_DESC">
             <English>Chance to have an Airway deteriorate due to bleeding/leakage</English>
-            <Spanish>Probabilidad de que un sangrado o fuga deteriore las vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_deterioratingAirways_Interval">
             <English>Deteriorating Airways Interval</English>
-            <Spanish>Intervalo de deterioro en vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_DeterioratingAirways_Interval_DESC">
             <English>Interval between having an Airway deteriorate due to bleeding/leakage</English>
-            <Spanish>Intervalo entre niveles de deterioro en las vías aéreas debido a sangrados o fugas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_airwayCollapse">
             <English>Airway Collapse Time</English>
-            <Spanish>Tiempo para colapso de vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_airwayCollapse_DESC">
             <English>Time it takes to have an Airway collapse</English>
-            <Spanish>Tiempo que tardan las vías aéreas en colapsar</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_noAirwayInjuries">
             <English>You found no Airway injuries</English>
-            <Spanish>No se detectan lesiones en vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_noAirwayInjuries_short">
             <English>Airways are Clear</English>
-            <Spanish>Vías aéreas despejadas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralCatastrophic">
             <English>You found a Catastropic Oral Injury</English>
-            <Spanish>Lesión oral catastrófica encontrada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralCatastrophic_short">
             <English>Catastropic Oral Injury</English>
-            <Spanish>Lesión oral catastrófica</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_catastrophic">
             <English>You found a Catastropic Injury</English>
-            <Spanish>Lesión catastrófica encontrada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_catastrophic_short">
             <English>Catastropic Injury</English>
-            <Spanish>Lesión catastrófica</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralTongueBloodPukeObstruction">
             <English>You found a Tongue Obstructed Airway with Blood And Vomit</English>
-            <Spanish>Las vías están obstruidas por la lengua, sangre y vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralTongueBloodPukeObstruction_short">
             <English>Tongue Obstructed w/ Blood/Vomit</English>
-            <Spanish>Obstrucción de la lengua con sangre/vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralTongueBloodObstruction">
             <English>You found a Tongue Obstructed Airway with Blood</English>
-            <Spanish>Las vías están obstruidas por la lengua y sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralTongueBloodObstruction_short">
             <English>Tongue Obstructed w/ Blood</English>
-            <Spanish>Lengua obstruida con sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralTongueObstruction">
             <English>You found a Tongue Obstructed Airway</English>
-            <Spanish>Las vías están obstruidas por la lengua</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralTongueObstruction_short">
             <English>Tongue Obstructed</English>
-            <Spanish>Lengua obstruida</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralBloodPukeOcclusion">
             <English>You found a Oral Airway blocked by Blood and Vomit</English>
-            <Spanish>Las vías orales están bloqueadas por sangre y vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralBloodPukeOcclusion_short">
             <English>Oral Airway blocked by Blood/Vomit</English>
-            <Spanish>Vías orales bloqueadas por sangre/vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralBloodOcclusion">
             <English>You found a Oral Airway blocked by Blood</English>
-            <Spanish>Las vías orales están bloqueadas por sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_oralBloodOcclusion_short">
             <English>Oral Airway blocked by Blood</English>
-            <Spanish>Vías orales bloqueadas por sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_bloodPukeOcclusion">
             <English>You found a Airway blocked by Blood and Vomit</English>
-            <Spanish>Vías aéreas bloqueadas por sangre y vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_bloodPukeOcclusion_short">
             <English>Airway blocked by Blood/Vomit</English>
-            <Spanish>Vías aéreas bloqueadas por sangre/vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_bloodOcclusion">
             <English>You found a Airway blocked by Blood</English>
-            <Spanish>Vías aéreas bloqueadas por sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_bloodOcclusion_short">
             <English>Airway blocked by Blood</English>
-            <Spanish>Vías aéreas bloqueadas por sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_catastrophicAirwayDamageThreshold_DamageTaken">
             <English>Increase Catastrophic Airway chance based on damage</English>
-            <Spanish>Aumentar probabilidad de lesiones catastróficas dependiendo del daño recibido</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_catastrophicAirwayDamageThreshold_DamageTaken_DESCRIPTION">
             <English>Increase chance of a Catastrophic Airway occurring based on damage taken if over the Catastrophic Airway damage threshold</English>
-            <Spanish>Aumenta las probabilidades de que ocurra una lesión catastrófica en las vías aéreas dependiendo del daño recibido, si este supera el margen de daño catastrófico</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_OcclusionDamageThreshold_DamageTaken">
             <English>Increase Occlusion chance based on damage</English>
-            <Spanish>Aumentar probabilidad de oclusiones dependiendo del daño recibido</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_OcclusionDamageThreshold_DamageTaken_DESCRIPTION">
             <English>Increase chance of a Occlusion occurring based on damage taken if over the Occlusion damage threshold</English>
-            <Spanish>Aumenta las probabilidades de que ocurra una oclusión en las vías aéreas dependiendo del daño recibido, si este supera el margen de daño de oclusión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_ObstructionDamageThreshold_DamageTaken">
             <English>Increase Obstruction chance based on damage</English>
-            <Spanish>Aumentar probabilidad de obstrucciones dependiendo del daño recibido</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_ObstructionDamageThreshold_DamageTaken_DESCRIPTION">
             <English>Increase chance of a Obstruction occurring based on damage taken if over the Obstruction damage threshold</English>
-            <Spanish>Aumenta las probabilidades de que ocurra una obstrucción en las vías aéreas dependiendo del daño recibido, si este supera el margen de daño de obstrucción</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_RemoveIGEL_Log">
             <English>%1 removed I-GEL</English>
-            <Spanish>%1 retiró el I-GEL</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_IGEL_DESC_Short">
             <English>The I-GEL is used to maintain and secure the Airway</English>
-            <Spanish>El I-GEL mantiene y asegura las vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_IGEL_Display">
-            <English>I-GEL</English>
-            <Spanish>I-GEL</Spanish>
+            <English>(A) I-GEL</English>
         </Key>
         <Key ID="STR_KAT_Airway_RemoveNPA_Log">
             <English>%1 removed Nasopharyngeal Airway</English>
-            <Spanish>%1 retiró la cánula nasofaríngea</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_NPA_DESC_Short">
             <English>A Nasopharyngeal Airway is used to maintain and secure the Airway when a Oral airway isnt suitable</English>
-            <Spanish>La cánula nasofaríngea se usa para mantener y asegurar las vías aéreas cuando las vías orales no son apropiadas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_NPA_Display">
-            <English>Nasopharyngeal Airway</English>
-            <Spanish>Cánula nasofaríngea</Spanish>
+            <English>(A) Nasopharyngeal Airway</English>
         </Key>
         <Key ID="STR_KAT_Airway_ALLOW_NPA">
             <English>Allow Nasopharyngeal Airway</English>
-            <Spanish>Permitir cánula nasofaríngea</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_ALLOW_NPA_DESC">
             <English>Training level required to use a Nasopharyngeal Airway</English>
-            <Spanish>Nivel de entrenamiento requerido para la cánula nasofaríngea</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_TIME_NPA">
             <English>Time for Nasopharyngeal Airway</English>
-            <Spanish>Tiempo cánula nasofaríngea</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_TIME_NPA_DESC">
             <English>How long it will take to use Nasopharyngeal Airway</English>
-            <Spanish>Cuánto tardará la cánula nasofaríngea en ser colocada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Cancel_NPA">
             <English>Remove NPA</English>
-            <Spanish>Retirar CNF</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_ALLOW_IGEL">
             <English>Allow I-GEL</English>
-            <Spanish>Permitir I-GEL</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_ALLOW_IGEL_DESC">
             <English>Training level required to use a I-GEL</English>
-            <Spanish>Nivel de entrenamiento requerido para el I-GEL</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_TIME_IGEL">
             <English>Time for I-GEL</English>
-            <Spanish>Tiempo I-GEL</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_TIME_IGEL_DESC">
             <English>How long it will take to use I-GEL</English>
-            <Spanish>Cuánto tardará el I-GEL en ser colocado</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Cancel_IGEL">
             <English>Remove I-GEL</English>
-            <Spanish>Retirar I-GEL</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Suction_begin">
             <English>Begin Suction</English>
-            <Spanish>Comenzar succión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Suction_cancelled">
             <English>Suction cancelled</English>
-            <Spanish>Succión cancelada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Suction_info">
             <English>Suction performed, Airways are still not clear</English>
-            <Spanish>Succión completada, las vías aún no están despejadas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Suction_start">
             <English>Suction Started</English>
-            <Spanish>Succión iniciada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Suction_stop">
             <English>Stop Suction</English>
-            <Spanish>Detener succión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Suction_success">
             <English>Occlusion removed</English>
-            <Spanish>Oclusión retirada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Activity_Suction">
             <English>%1 finished Suction (x%2)</English>
-            <Spanish>%1 completó succión (x%2)</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SUCCES_SUCTION">
             <English>Success probability for Suction</English>
-            <Spanish>Probabilidad de éxito de la succión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SUCCES_SUCTION_DESC">
             <English>Higher, the better the probability of success</English>
@@ -2212,355 +2139,285 @@
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_SUCTION_Interval">
             <English>Suction Interval</English>
-            <Spanish>Intervalo de succión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_SUCTION_Interval_DESC">
             <English>Time between Suction attempts</English>
-            <Spanish>Tiempo entre intentos de succión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_ENABLE_Catastrophic">
             <English>Catastrophic Airways</English>
-            <Spanish>Vías aéreas catastróficas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_ENABLE_Catastrophic_DESC">
             <English>Enables Catastrophic Airways, needing surgery to correct</English>
-            <Spanish>Activa vías aéreas catastróficas, que deben corregirse con cirugía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_RemoveETT_Log">
             <English>%1 removed Endotracheal Airway</English>
-            <Spanish>%1 retiró tubo endotraqueal</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Cancel_ETT">
             <English>Remove Endotracheal Airway</English>
-            <Spanish>Retirar tubo endotraqueal</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_ETT_DESC_Short">
             <English>A Endotracheal Airway is used to maintain and secure the Airway</English>
-            <Spanish>El tubo endotraqueal sirve para mantener y asegurar las vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_ETT_Display">
-            <English>Endotracheal Airway</English>
-            <Spanish>Tubo endotraqueal</Spanish>
+            <English>(A) Endotracheal Airway</English>
         </Key>
         <Key ID="STR_KAT_Airway_ALLOW_ETT">
             <English>Allow Endotracheal Airway</English>
-            <Spanish>Permitir tubo endotraqueal</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_ALLOW_ETT_DESC">
             <English>Training level required to use a Endotracheal Airway</English>
-            <Spanish>Nivel de entrenamiento requerido para usar el tubo endotraqueal</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_TIME_ETT">
             <English>Time for Endotracheal Airway</English>
-            <Spanish>Tiempo para tubo endotraqueal</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_TIME_ETT_DESC">
             <English>How long it will take to use Endotracheal Airway</English>
-            <Spanish>Cuánto tardará el tubo endotraqueal en ser colocado</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_laryngoscope_DESC_Short">
             <English>A Laryngoscope is used during RSI to secure the airway</English>
-            <Spanish>El laringoscopio se usa durante las SIR para asegurar las vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_laryngoscope_Display">
-            <English>Laryngoscope</English>
-            <Spanish>Laringoscopia</Spanish>
+            <English>(A) Laryngoscope</English>
         </Key>
         <Key ID="STR_KAT_Airway_TIME_Visualization">
             <English>Time To visulize the Vocal Cords</English>
-            <Spanish>Tiempo en visualizar las cuerdas vocales</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_TIME_Visualization_DESC">
             <English>How long it will take to visulize the Vocal Cords</English>
-            <Spanish>Cuánto se tardará en visualizar las cuerdas vocales</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Visualization_begin">
             <English>Begin Visualization</English>
-            <Spanish>Comenzar visualización</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Visualization_cancelled">
             <English>Visualization cancelled</English>
-            <Spanish>Visualización cancelada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Visualization_info">
             <English>Visualization performed, Unable to locate Vocal Cords</English>
-            <Spanish>Visualización completa, no se encontraron las cuerdas vocales</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Visualization_start">
             <English>Visualization Started</English>
-            <Spanish>Visualización iniciada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Visualization_failure">
             <English>Visualization failure</English>
-            <Spanish>Visualización fallida</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Visualization_stop">
             <English>Stop Visualization</English>
-            <Spanish>Detener visualización</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Visualization_success">
             <English>Visualized Airway</English>
-            <Spanish>Vías aéreas visualizadas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Visualization_display">
             <English>Visualize Airway</English>
-            <Spanish>Visualizar vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Activity_Visualization">
             <English>%1 finished Visualization (x%2)</English>
-            <Spanish>%1 completó visualización (x%2)</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Visualization_place">
-            <English>(Double Click) Place ETT</English>
-            <Spanish>(Doble clic) Colocar TET</Spanish>
+            <English>Place ETT</English>
         </Key>
         <Key ID="STR_KAT_Airway_SUCCES_Visualization">
             <English>Success probability for Visualization</English>
-            <Spanish>Probabilidad de éxito en la visualización</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SUCCES_Visualization_DESC">
             <English>Additional chance for visulization to succeed</English>
-            <Spanish>Probabilidades adicionales de que la visualización tenga éxito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_Visualization_Interval">
             <English>Visualization Interval</English>
-            <Spanish>Intervalo de visualización</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_Visualization_Interval_DESC">
             <English>Time between Visualization attempts</English>
-            <Spanish>Tiempo entre intentos de visualización</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_ChestTube_log">
             <English>%1 %2</English>
-            <Spanish>%1 %2</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_incision_log">
             <English>%1 Prepared the Neck</English>
-            <Spanish>%1 ha preparado el cuello</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_chest_tube_fail">
             <English>Surgical Airway Action Failed</English>
-            <Spanish>Vía aérea quirúrgica fallida</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Scalpel_Use">
             <English>Perform Incision</English>
-            <Spanish>Iniciar incisión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Scalpel_Action">
             <English>Performing Incision</English>
-            <Spanish>Realizando incisión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Guide_Use">
             <English>Prep Area</English>
-            <Spanish>Preparar el área</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Guide_Action">
             <English>Preparing Area</English>
-            <Spanish>Preparando el área</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Place_Use">
             <English>Place Surgical Airway</English>
-            <Spanish>Colocar vía aérea quirúrgica</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Place_Action">
             <English>Placing Surgical Airway</English>
-            <Spanish>Colocando vía aérea quirúrgica</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Surgical_Airway_Use">
             <English>Secure Surgical Airway</English>
-            <Spanish>Asegurar vía aérea quirúrgica</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Surgical_Airway_Action">
             <English>Securing Surgical Airway</English>
-            <Spanish>Asegurando vía aérea quirúrgica</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Incision">
             <English>Made an Incision</English>
-            <Spanish>Incisión completada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_PLACED">
             <English>Placed A Surgical Airway</English>
-            <Spanish>Vía aérea quirúrgica colocada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_crike_LOCATION">
             <English>Locations to perform a cricothyrotomy</English>
-            <Spanish>Ubicaciones para cricotomía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_crike_ACTION_MEDLEVEL">
             <English>Allow Cricothyrotomy</English>
-            <Spanish>Permitir cricotomía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_INTERMEDIATE_TIMER">
             <English>Time to Prep for a Cricothyrotomy</English>
-            <Spanish>Tiempo de preparación de cricotomía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_OPEN_TIMER">
             <English>Cricothyrotomy Placement Time</English>
-            <Spanish>Tiempo de colocacón de cricotomía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SURGICAL_TIMER">
             <English>Cricothyrotomy Action Time</English>
-            <Spanish>Tiempo de acción de cricotomía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SECURE_TIMER">
             <English>Cricothyrotomy Secure Time</English>
-            <Spanish>Tiempo de asegurado de cricotomía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_INCISION_TIMER">
             <English>Perform Incision Time</English>
-            <Spanish>Tiempo de incisión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_hardcorecrike">
             <English>Hardcore Crike Effects</English>
-            <Spanish>Modo difícil para cricotomías</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_hardcorecrike_desc">
             <English>If enabled, disables speaking and radio usage if a crike is performed</English>
-            <Spanish>Si se activa, no se podrá hablar ni usar la radio tras recibir una cricotomía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_cricothyrotomy_fail">
             <English>Cricothyrotomy Failed</English>
-            <Spanish>Cricotomía fallida</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_CrikeKit_DESC_Short">
             <English>A Cricothyrotomy Kit cotains all implements to preform one Cricothyrotomy</English>
-            <Spanish>Un kit de cricotomía que contiene el equipo necesario para realizar una cricotomía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_CrikeKit_Display">
-            <English>Cricothyrotomy Kit</English>
-            <Spanish>Kit de cricotomía</Spanish>
+            <English>(A) Kit: Cricothyrotomy</English>
         </Key>
         <Key ID="STR_KAT_Airway_SurgAirway_DESC_Short">
             <English>Surgical Airway</English>
-            <Spanish>Vía aérea quirúrgica</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SurgAirway_Display">
-            <English>Surgical Airway</English>
-            <Spanish>Vía aérea quirúrgica</Spanish>
+            <English>(A) Surgical Airway</English>
         </Key>
         <Key ID="STR_KAT_Airway_Surgical_Airway_Display">
-            <English>Surgical Airway</English>
-            <Spanish>Vía aérea quirúrgica</Spanish>
+            <English>(A) Surgical Airway</English>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStrap_DESC_Short">
             <English>Used to secure a Surgical Airway</English>
-            <Spanish>Se usa para asegurar una vía aérea quirúrgica</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStrap_Display">
-            <English>Surgical Airway Strap</English>
-            <Spanish>Correa para vías aéreas quirúrgicas</Spanish>
+            <English>(A) Surgical Airway Strap</English>
         </Key>
         <Key ID="STR_KAT_Airway_open_crike_kit">
             <English>Open Cricothyrotomy Kit</English>
-            <Spanish>Kit de cricotomía abierto</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_open_crike_kit_Action">
             <English>Opening Cricothyrotomy Kit</English>
-            <Spanish>Abriendo kit de cricotomía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_Catastrophic_Display">
             <English>Catastrophic Airway Damage</English>
-            <Spanish>Daño catastrófico en vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_BloodVomitAirway_Display">
             <English>Bloody Mouth w/ Vomit</English>
-            <Spanish>Boca ensangrentada con vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_BloodAirway_Display">
             <English>Bloody Mouth</English>
-            <Spanish>Boca ensangrentada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_TraumaticObstruction_Display">
             <English>Traumatic Obstruction</English>
-            <Spanish>Obstrucción traumática</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_HasExternallyPuked">
             <English>Vomited</English>
-            <Spanish>Ha vomitado</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SubCategory_Crike">
             <English>Cricothyrotomy Settings</English>
-            <Spanish>Ajustes de cricotomía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SubCategory_AirwayInjury">
             <English>Airway Injury Settings</English>
-            <Spanish>Ajustes de vías aéreas quirúrgicas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_capnographyYellow">
             <English>Yellow</English>
-            <Spanish>Amarillo</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_capnographyGreen">
             <English>Green</English>
-            <Spanish>Verde</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_capnographyOrange">
             <English>Orange</English>
-            <Spanish>Naranja</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_capnographyRed">
             <English>Red</English>
-            <Spanish>Rojo</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_capnographyWhite">
             <English>White</English>
-            <Spanish>Blanco</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_capnographyStatus">
             <English>Capnograph: %1</English>
-            <Spanish>Capnógrafo: %1</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_ENABLE_capnograph">
             <English>Enable Capnography</English>
-            <Spanish>Activar capnografía</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_ENABLE_capnograph_DESC">
             <English>Enables Capnography, allowing for an approximate reading of ETCo2 with a placed SGA/ETT</English>
-            <Spanish>Activa la capnografía, que permite una lectura aproximada de ETCo2 si hay un TET o una VAC colocados</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_minPukeTime">
             <English>Minimal Puke Timer</English>
-            <Spanish>Temporizador mínimo de vómito</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_minPukeTime_DESC">
             <English>Minimal time in seconds for a unit to puke after all modifiers are applied</English>
-            <Spanish>Tiempo mínimo, en segundos, que tarda una unidad en vomitar después de todos los modificadores</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_minOcclusionTime">
             <English>Minimal Occlusion Timer</English>
-            <Spanish>Temporizador mínimo de oclusión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SETTING_minOcclusionTime_DESC">
             <English>Minimal time in seconds for a unit to Occlude after all modifiers are applied</English>
-            <Spanish>Tiempo mínimo, en segundos, que tarda una unidad en sufrir una oclusión después de añadir todos los modificadores</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SuctionEffectiveness">
             <English>Suction Effectiveness</English>
-            <Spanish>Efectividad de la succión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_SuctionEffectiveness_DESC">
             <English>Multiplier to how effective suction is at clearing the airway</English>
-            <Spanish>Multiplicador que determina cómo de efectiva es la succión limpiando las vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_reset_crike">
             <English>Close Neck Incision</English>
-            <Spanish>Cerrar incisión de cuello</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_reset_crike_action">
             <English>Closing Incision</English>
-            <Spanish>Cerrando incisión</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_closedcrike">
             <English>Closed Neck Incision</English>
-            <Spanish>Incisión de cuello cerrada</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_breathing_short">
             <English>Patient is Breathing</English>
-            <Spanish>El paciente está respirando</Spanish>
         </Key>
         <Key ID="STR_KAT_Airway_AirwayStatus_breathing">
             <English>Patient is Breathing</English>
-            <Spanish>El paciente está respirando</Spanish>
+        </Key>
+        <Key ID="STR_KAT_Airway_PartialCricothyrotomy_1">
+            <English>Prepped</English>
+        </Key>
+        <Key ID="STR_KAT_Airway_PartialCricothyrotomy_3">
+            <English>Incision</English>
+        </Key>
+        <Key ID="STR_KAT_Airway_PartialCricothyrotomy_5">
+            <English>Placed</English>
+        </Key>
+        <Key ID="STR_KAT_airway_AirwayETT_Place_Action">
+            <English>Placing ETT</English>
+        </Key>
+        <Key ID="STR_KAT_airway_AirwayETT_Placed">
+            <English>Placed ETT</English>
+        </Key>
+        <Key ID="STR_KAT_airway_AirwayETT_Failed">
+            <English>Failed to place ETT</English>
         </Key>
     </Package>
 </Project>

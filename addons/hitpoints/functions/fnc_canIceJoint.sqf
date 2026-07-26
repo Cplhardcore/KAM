@@ -22,7 +22,6 @@ params ["", "_patient", "_bodyPart"];
 if (_patient call ACEFUNC(common,isSwimming)) exitWith {false};
 private _partIndex = ALL_BODY_PARTS find _bodyPart;
 private _jointArray = GET_JOINTS(_patient);
-private _canIceJoint = false;
 private _jointGroupIndex = switch (true) do {
 case (_partIndex in [4, 5]): { 0 };
 case (_partIndex in [6, 7]): { 1 };
@@ -31,25 +30,5 @@ case (_partIndex in [10, 11]): { 3 };
 default { -1 };
 };
 private _jointCheck = (_patient getVariable [QGVAR(jointCheck), [false, false, false, false]]) select _jointGroupIndex;
-
-if !(_jointCheck) exitWith {
-    _canIceJoint};
-if (_jointGroupIndex != -1) then {
-    private _limbJointStatus = _jointArray select _jointGroupIndex;
-    private _selectedJointIndexes = if (["upper", _bodyPart] call BIS_fnc_inString) then {
-    [0, 1]
-    } else {
-    [1, 2]
-    };
-    {
-    private _jointInjury = _limbJointStatus select _x;
-    if (_jointInjury in [1, 2]) exitWith {
-        _canIceJoint = true;
-        TRACE_1("CanIceJoint1",_canIceJoint);
-    };
-    } forEach _selectedJointIndexes;
-};
-TRACE_1("CanIceJoint2",_canIceJoint);
-_canIceJoint
-
+_jointCheck
 

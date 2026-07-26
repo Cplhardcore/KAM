@@ -52,20 +52,29 @@ _patient setVariable [QGVAR(jointCheck), _jointCheck, true];
     _patient setVariable [QGVAR(jointCheck), _jointCheck, true];
 }, [_patient, _jointGroupIndex], 300] call CBA_fnc_waitAndExecute;
 private _limbJointStatus = _jointArray select _jointGroupIndex;
+private _icepackArray = GET_ICEPACKS(_patient);
+private _wrappedJointArray = GET_WRAPPED_JOINTS(_patient);
+
+private _limbIceStatus = _icepackArray select _jointGroupIndex;
+private _limbWrapStatus = _wrappedJointArray select _jointGroupIndex;
 {
     _x params ["_level"];
+    private _isIced = (_limbIceStatus select _forEachIndex) > 0;
+    private _isWrapped = (_limbWrapStatus select _forEachIndex) > 0;
+    TRACE_3("level",_isWrapped,_isIced,_level);
     private _typeLabel = switch (true) do {
+        case (_level == 4): { localize LSTRING(JointInjury_Dislocation) };
+        case (_level == 3): { localize LSTRING(JointInjury_StabilizedDislocation) };
+        case (((_level > 0) && (_level < 1))  && (_isIced) && (_isWrapped)): { localize LSTRING(JointInjury_IcedWrappedStrain) };
+        case (((_level >= 1) && (_level < 3)) && (_isIced) && (_isWrapped)): { localize LSTRING(JointInjury_IcedWrappedSprain) };
+        case (((_level > 0) && (_level < 1)) && (_isWrapped)): { localize LSTRING(JointInjury_WrappedStrain) };
+        case (((_level >= 1) && (_level < 3)) && (_isWrapped)): { localize LSTRING(JointInjury_WrappedSprain) };
+        case (((_level > 0) && (_level < 1)) && (_isIced)): { localize LSTRING(JointInjury_IcedStrain) };
+        case (((_level >= 1) && (_level < 3)) && (_isIced)): { localize LSTRING(JointInjury_IcedSprain) };
+        case ((_level > 0) && (_level < 1)): { localize LSTRING(JointInjury_Strain) };
+        case ((_level >= 1) && (_level < 3)): { localize LSTRING(JointInjury_Sprain) };
         case (_level == 1): { localize LSTRING(JointInjury_InflamedStrain) };
-        case (_level == 2): { localize LSTRING(JointInjury_InflamedSprain) };
-        case (_level == 3): { localize LSTRING(JointInjury_Dislocation) };
-        case (_level == 4): { localize LSTRING(JointInjury_IcedStrain) };
-        case (_level == 5): { localize LSTRING(JointInjury_IcedSprain) };
-        case (_level == 6): { localize LSTRING(JointInjury_StabilizedDislocation) };
-        case (_level == 7): { localize LSTRING(JointInjury_Strain) };
-        case (_level == 8): { localize LSTRING(JointInjury_Sprain) };
-        case (_level == 9): { localize LSTRING(JointInjury_ReducedDislocation) };
-        case (_level == 10): { localize LSTRING(JointInjury_WrappedStrain) };
-        case (_level == 11): { localize LSTRING(JointInjury_WrappedSprain) };
+        case ((_level == 2)): { localize LSTRING(JointInjury_InflamedSprain) };
         default {""};
     };
     private _limbLabel = switch (true) do {
@@ -84,11 +93,12 @@ private _limbJointStatus = _jointArray select _jointGroupIndex;
         case ((_jointGroupIndex in [2, 3]) && (_forEachIndex == 2)): { localize LSTRING(JointInjury_Ankle) };
         default {};
     };
-    if ((_typeLabel != "") && (GVAR(JointChance) > 0)) then {
+    TRACE_3("level",_typeLabel,_joint,_limbLabel);
+    if (_typeLabel != "") then {
         [_patient, "quick_view", LSTRING(JointLog)] call EFUNC(circulation,removeLog);
         [_patient, "quick_view", LSTRING(JointLog), [[_medic] call ACEFUNC(common,getName), _typeLabel, _joint, _limbLabel]] call ACEFUNC(medical_treatment,addToLog);
     };
-    } forEach _limbJointStatus;
+} forEach _limbJointStatus;
 };
 
 

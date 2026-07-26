@@ -54,7 +54,22 @@ private _localAnesthesia = (_patient getVariable [QEGVAR(pharma,localAnesthesia)
     ) then {
         [_patient, [0.7, 0.8, 0.9] select (floor random 3)] call ACEFUNC(medical_status,adjustPainLevel);
     };
-
+private _openWounds = GET_OPEN_WOUNDS(_patient);
+private _existingWounds = _openWounds getOrDefault ["chest", [], true];
+private _woundTypeToAdd = "Incision";
+TRACE_4("create_Incision1",_openWounds,_existingWounds,_bodyPartDamage,_woundTypeToAdd);
+private _woundClassIDToAdd = ACEGVAR(medical_damage,woundClassNames) find _woundTypeToAdd;
+private _injuryBleedingRate = random [0.01, 0.03, 0.04];
+private _bleedMultiplier = random [0.8, 1, 1.2];
+private _woundSize = 1;
+private _bleeding = _woundSize * _bleedMultiplier * _injuryBleedingRate;
+private _classComplex = 10 * _woundClassIDToAdd + _woundSize;
+// Create a new injury. Format [0:classComplex, 1:amountOf, 2:bleedingRate, 3:woundDamage]
+private _injury = [_classComplex, 1, _bleeding, 1];
+TRACE_1("adding new wound",_injury);
+_existingWounds pushBack _injury;
+_patient setVariable [VAR_OPEN_WOUNDS, _openWounds, true];
+[_patient] call ACEFUNC(medical_status,updateWoundBloodLoss);
 private _chestTubeArray = _patient getVariable [QGVAR(chestTube), [0,0]];
 private _liveTube = _chestTubeArray select _side;
 
@@ -81,18 +96,17 @@ _patient setVariable [QGVAR(chestTube), _chestTubeArray, true];
         [_idPFH] call CBA_fnc_removePerFrameHandler;
         _patient setVariable [QGVAR(etomidate_Pain), false]
     };
-    private _activeLoadingDose = _patient getVariable [QEGVAR(pharma,activeEtomidateLoadingDose), false];
 
-    if (((GVAR(ChestTube_ConsciousnessRequirement) in [0,1]) && (!(IS_UNCONSCIOUS(_patient))) && (_count <= 0.2) && (_activeLoadingDose)) || (GVAR(Surgery_ConsciousnessRequirement) == 3 && _count <= 0.2 && (_activeLoadingDose))) exitWith {
+    if (((GVAR(ChestTube_ConsciousnessRequirement) in [0,1]) && (!(IS_UNCONSCIOUS(_patient))) && (_count <= 0.6)) || (GVAR(ChestTube_ConsciousnessRequirement) == 3 && _count <= 0.6)) exitWith {
         if !(_patient getVariable [QGVAR(etomidate_Pain), false]) then {
-            [_patient, "Pain", 2, 10, 120, 0.6, 40] call ACEFUNC(medical_status,addMedicationAdjustment);
+            [_patient, "Pain_Override", 2, 10, 120, 0.6, 40] call ACEFUNC(medical_status,addMedicationAdjustment);
             _patient setVariable [QGVAR(etomidate_Pain), true]};
         [_patient, true] call ACEFUNC(medical,setUnconscious);
     };
 
-    if (GVAR(ChestTube_ConsciousnessRequirement) == 2 && _count <= 0.2) then {
+    if (GVAR(ChestTube_ConsciousnessRequirement) == 2 && _count <= 0.6) then {
         if !(_patient getVariable [QGVAR(etomidate_Pain), false]) then {
-            [_patient, "Pain", 2, 10, 120, 0.6, 40] call ACEFUNC(medical_status,addMedicationAdjustment);
+            [_patient, "Pain_Override", 2, 10, 120, 0.6, 40] call ACEFUNC(medical_status,addMedicationAdjustment);
             _patient setVariable [QGVAR(etomidate_Pain), true]
         };
     };

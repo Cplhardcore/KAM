@@ -1,49 +1,4 @@
 class CfgVehicles {
-    class Land_IntravenStand_01_base_F;
-
-    class Land_IntravenStand_01_empty_F: Land_IntravenStand_01_base_F {
-        ace_cargo_size = 2;
-        ace_cargo_canLoad = 1;
-
-        // Dragging
-        ace_dragging_canDrag = 1;
-        ace_dragging_dragPosition[] = {0, 1.2, 1};
-        ace_dragging_dragDirection = 0;
-
-        // Carrying
-        ace_dragging_canCarry = 1;
-        ace_dragging_carryPosition[] = {0, 1.2, 1};
-        ace_dragging_carryDirection = 0;
-    };
-    class Land_IntravenStand_01_1bag_F: Land_IntravenStand_01_base_F {
-        ace_cargo_size = 2;
-        ace_cargo_canLoad = 1;
-
-        // Dragging
-        ace_dragging_canDrag = 1;
-        ace_dragging_dragPosition[] = {0, 1.2, 1};
-        ace_dragging_dragDirection = 0;
-
-        // Carrying
-        ace_dragging_canCarry = 1;
-        ace_dragging_carryPosition[] = {0, 1.2, 1};
-        ace_dragging_carryDirection = 0;
-    };
-    class Land_IntravenStand_01_2bags_F: Land_IntravenStand_01_base_F {
-        ace_cargo_size = 2;
-        ace_cargo_canLoad = 1;
-
-        // Dragging
-        ace_dragging_canDrag = 1;
-        ace_dragging_dragPosition[] = {0, 1.2, 1};
-        ace_dragging_dragDirection = 0;
-
-        // Carrying
-        ace_dragging_canCarry = 1;
-        ace_dragging_carryPosition[] = {0, 1.2, 1};
-        ace_dragging_carryDirection = 0;
-    };
-
     class Items_base_F;
     class kat_Armband_Red_Cross_Object: Items_base_F {
         scope = 2;
@@ -79,6 +34,8 @@ class CfgVehicles {
     };
     class kat_miscSupplyCrate: ACE_medicalSupplyCrate {
         displayName = CSTRING(miscSupplyCrate_display);
+        scope = 2;
+        scopeCurator = 2;
         class TransportItems {
             //misc.FAK
             MACRO_ADDITEM(kat_IFAK,15);
@@ -112,6 +69,9 @@ class CfgVehicles {
     };
     class kat_basicSupplyCrate: ACE_medicalSupplyCrate {
         displayName = CSTRING(basicSupplyCrate_display);
+        scope = 2;
+        scopeCurator = 2;
+
         class TransportItems {
             //airway
             MACRO_ADDITEM(kat_larynx,15);
@@ -1515,6 +1475,15 @@ class CfgVehicles {
                         condition = QUOTE(!([ARR_4(_player,'kat_MEDPACK_Magazine',2,8)] call FUNC(FAK_checkSlot)) && [ARR_4(_player,'kat_MEDPACK_Magazine',2,8)] call FUNC(FAK_checkRepack));
                         statement = QUOTE([ARR_4(_player,'kat_MEDPACK_Magazine',2,8)] call FUNC(FAK_repack));
                     };
+                };
+            };
+            class ACE_Equipment {
+                class Slot1_Repack {
+                    displayName = CSTRING(dropBag);
+                    condition = QUOTE([ARR_1(_player)] call FUNC(hasBag));
+                    statement = QUOTE([ARR_1(_player)] call FUNC(dropBag));
+                    exceptions[] = {};
+                    showDisabled = 0;
                 };
             };
         };

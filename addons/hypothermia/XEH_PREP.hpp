@@ -16,5 +16,6 @@ PREP(removeFluidWarmerLocal);
 PREP(removeSpaceBlanket);
 PREP(removeSpaceBlanketLocal);
 PREP(removeWarmer);
+PREP(updateHypothermiaEffects);
 PREP(useHandWarmer);
 PREP(useHandWarmerLocal);

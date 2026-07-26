@@ -7,7 +7,6 @@
 [QGVAR(adenosineLocal), LINKFUNC(treatmentAdvanced_AdenosineLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(amiodaroneLocal), LINKFUNC(treatmentAdvanced_AmiodaroneLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(txaLocal), LINKFUNC(treatmentAdvanced_TXALocal)] call CBA_fnc_addEventHandler;
-[QGVAR(txaautoLocal), LINKFUNC(treatmentAdvanced_TXAAutoLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(reorientationLocal), LINKFUNC(treatmentAdvanced_ReorientationLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(medicationLocal), LINKFUNC(medicationLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(eacaLocal), LINKFUNC(treatmentAdvanced_EACALocal)] call CBA_fnc_addEventHandler;
@@ -23,11 +22,11 @@
 [QGVAR(nalbuphineLocal), LINKFUNC(treatmentAdvanced_NalbuphineLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(fentanylLocal), LINKFUNC(treatmentAdvanced_FentanylLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(caffeineLocal), LINKFUNC(treatmentAdvanced_CaffeineLocal)] call CBA_fnc_addEventHandler;
-[QGVAR(lidocaineLocal), LINKFUNC(treatmentAdvanced_LidocaineLocal)] call CBA_fnc_addEventHandler;
+[QGVAR(nerveBlockLocal), LINKFUNC(treatmentAdvanced_NerveBlockLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(succinylcholineLocal), LINKFUNC(treatmentAdvanced_SuccinylcholineLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(rocuroniumLocal), LINKFUNC(treatmentAdvanced_RocuroniumLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(sugammadexLocal), LINKFUNC(treatmentAdvanced_SugammadexLocal)] call CBA_fnc_addEventHandler;
-
+[QGVAR(LidocaineFlushLocal), LINKFUNC(treatmentAdvanced_LidocaineFlushLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(fentanylPatchLocal), LINKFUNC(treatmentAdvanced_FentanylPatchLocal)] call CBA_fnc_addEventHandler;
 [QGVAR(removeFentanylPatchLocal), LINKFUNC(treatmentAdvanced_RemoveFentanylPatchLocal)] call CBA_fnc_addEventHandler;
 

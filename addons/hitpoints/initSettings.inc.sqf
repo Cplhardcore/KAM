@@ -21,7 +21,17 @@
     "SLIDER",
     [LSTRING(WoundWrapTime_DisplayName), LSTRING(WoundWrapTime_Description)],
     [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [2, 16, 4, 1],
+    [1, 16, 4, 1],
+    true
+] call CBA_fnc_addSetting;
+
+
+[
+    QGVAR(splintFalloff),
+    "LIST",
+    [LSTRING(SETTING_splintFalloff), LSTRING(SETTING_splintFalloff_DESC)],
+    [CBA_SETTINGS_CAT, LSTRING(Subcatagory_Joints)],
+    [[0, 1, 2], [LSTRING(SETTING_splintFalloff0), LSTRING(SETTING_splintFalloff1), LSTRING(SETTING_splintFalloff2)], 0],
     true
 ] call CBA_fnc_addSetting;
 
@@ -67,7 +77,7 @@
     "SLIDER",
     [LLSTRING(SETTING_ArterialChance), LLSTRING(SETTING_ArterialChance_DESC)],
     [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [0, 100, 1.5, 1],
+    [0, 100, 15, 1],
     true
 ] call CBA_fnc_addSetting;
 

@@ -64,9 +64,6 @@ if (floor (random 100) <= _concussionChance) then {
     _unit setVariable [QGVAR(bleeding),   _bleeding,     true];
     _unit setVariable [QGVAR(necrosis),   _necrosis,     true];
 
-    if (isNil {_unit getVariable QGVAR(concussionPFH)}) then {
-        [_unit] call FUNC(concussionPFH);
-    };
 };
 
 _this

@@ -22,7 +22,7 @@ params ["_medic", "_patient","_classname", "_usedItem", ["_requireClear", true]]
 private _occlusion = ((_patient getVariable [QGVAR(occlusion), [0, 0, 0]]) findIf { _x > 4 }) != -1;
 private _obstruction = ((_patient getVariable [QGVAR(obstruction), [0, 0, 0]]) findIf { _x != 0 }) != -1;
 
-if ((_occlusion || (_obstruction && !(_patient getVariable [QGVAR(overstretch), false])) ) && !(_classname in ["NPA"])) exitWith {
+if ((_occlusion || (_obstruction && !(_patient getVariable [QGVAR(overstretch), false]))) && !(_classname in ["NPA"])) exitWith {
     [QGVAR(airwayFeedback), [_medic, LLSTRING(AirwayStatus_NotClearForItem)], _medic] call CBA_fnc_targetEvent;
     [_medic, _usedItem] call ACEFUNC(common,addToInventory);
 };
@@ -50,7 +50,7 @@ switch (true) do {
         _patient setVariable [QGVAR(visualizationActive), false, true];
     };
     case (_usedItem isEqualTo "kat_NPA"): {
-        _patient setVariable [QGVAR(airwayStatus), [1, 0, 0], true];
+        _patient setVariable [QGVAR(airwayStatus), [2, 0, 0], true];
     };
     case (_usedItem isEqualTo "kat_guedel"): {
         _patient setVariable [QGVAR(airwayStatus), [1, 0, 0], true];
@@ -68,6 +68,8 @@ if (_classname in ["Larynxtubus", "IGEL", "ETT"]) then {
     if (GVAR(capnographEnable)) then {
         [QGVAR(capnoPFH), [_patient], _patient] call CBA_fnc_targetEvent;
     };
+    [_patient, "blockRadio", "kat_airwayItem", true] call ACEFUNC(common,statusEffect_set);
+    [_patient, "blockSpeaking", "kat_airwayItem", true] call ACEFUNC(common,statusEffect_set);
 };
 [_patient, _usedItem] call ACEFUNC(medical_treatment,addToTriageCard);
 [_patient, "activity", LSTRING(airway_log), [[_medic] call ACEFUNC(common,getName), getText (configFile >> "CfgWeapons" >> _usedItem >> "displayName")]] call ACEFUNC(medical_treatment,addToLog);

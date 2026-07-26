@@ -24,11 +24,11 @@ private _logNeckOutput = LSTRING(Check_Neck_Output_3_log);
 private _tptx = _patient getVariable [QEGVAR(breathing,tensionpneumothorax), [false, false]];
 private _hptx = _patient getVariable [QEGVAR(breathing,hemopneumothorax), [0, 0]];
 private _ptx = _patient getVariable [QEGVAR(breathing,pneumothorax), [0, 0]];
-private _trali = _patient getVariable [QEGVAR(breathing,TRALI), 0];
+private _trali = _patient getVariable [QEGVAR(breathing,TACO), 0];
 private _effusion = _patient getVariable [QEGVAR(circulation,effusion), 0];
 
 if ((_trali > 5) || (_effusion > 0) || ((_ptx select 0 > 2) || (_ptx select 1 > 2) || (_tptx select 0) || (_tptx select 1) || ((_hptx select 0) > 0.3) || ((_hptx select 1) > 0.3))) then {
-    if ((_trali > 15) || (_effusion > 2) || ((_ptx select 0 > 6) || (_ptx select 1 > 6) || (_tptx select 0) || (_tptx select 1) || ((_hptx select 0) > 0.6) || ((_hptx select 1) > 0.6))) then{
+    if ((_trali > 12) || (_effusion > 2) || ((_ptx select 0 > 6) || (_ptx select 1 > 6) || (_tptx select 0) || (_tptx select 1) || ((_hptx select 0) > 0.6) || ((_hptx select 1) > 0.6))) then{
         _neckOutput = LSTRING(Check_Neck_Output_2);
         _logNeckOutput = LSTRING(Check_Neck_Output_2_log);
     } else {

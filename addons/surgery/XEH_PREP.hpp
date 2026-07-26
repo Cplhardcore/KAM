@@ -1,4 +1,6 @@
+PREP(canAdvanceReboa);
 PREP(canNPWT);
+PREP(closeIncision);
 PREP(closedReduction);
 PREP(closedReductionLocal);
 PREP(fractureCheck);
@@ -10,6 +12,9 @@ PREP(getNPWTTime);
 PREP(gui_updateInjuryListPart);
 PREP(handleRespawn);
 PREP(hasAdditionalTourniquetAppliedTo);
+PREP(hasImaging);
+PREP(hasReboa);
+PREP(hasReboaSpecific);
 PREP(hasTourniquetAppliedToAdditional);
 PREP(incision);
 PREP(incisionLocal);

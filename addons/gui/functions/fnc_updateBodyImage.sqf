@@ -1,4 +1,5 @@
 #include "..\script_component.hpp"
+#pragma hemtt suppress pw3_padded_arg file
 /*
  * Author: Glowbal, kymckay, mharis001
  * Updates the body image for given target.

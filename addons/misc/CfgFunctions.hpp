@@ -16,6 +16,28 @@ class CfgFunctions {
             class updateDamageEffects {
                 file = QPATHTOF(functions\fnc_updateDamageEffects.sqf);
             };
+            class damageBodyPart {
+                file = QPATHTOF(functions\fnc_damageBodyPart.sqf);
+            };
+        };
+    };
+    class overwrite_ace_medical_ai {
+        tag = "ace_medical_ai";
+        class ace_medical_ai {
+            class healingLogic {
+                file = QPATHTOF(functions\fnc_healingLogic.sqf);
+            };
+            class isSafe {
+                file = QPATHTOF(functions\fnc_isSafe.sqf);
+            };
+        };
+    };
+    class overwrite_ace_overpressure {
+        tag = "ace_overpressure";
+        class ace_overpressure {
+            class overpressureDamage {
+                file = QPATHTOF(functions\fnc_overpressureDamage.sqf);
+            };
         };
     };
     class overwrite_medical_treatment {
@@ -57,6 +79,12 @@ class CfgFunctions {
             class isMedic {
                 file = QPATHTOF(functions\fnc_isMedic.sqf);
             };
+            class hasItem {
+                file = QPATHTOF(functions\fnc_hasItem.sqf);
+            };
+            class isInMedicalVehicle {
+                file = QPATHTOF(functions\fnc_isInMedicalVehicle.sqf);
+            };
         };
     };
     class ace_medical {
@@ -82,8 +110,8 @@ class CfgFunctions {
             class canCheckDogtag {
                 file = QPATHTOF(functions\fnc_canCheckDogtag.sqf);
             };
-            class showDogtagData {
-                file = QPATHTOF(functions\fnc_showDogtagData.sqf);
+            class showDogtag {
+                file = QPATHTOF(functions\fnc_showDogtag.sqf);
             };
         };
     };
@@ -92,6 +120,25 @@ class CfgFunctions {
         class ace_medical_feedback {
             class handleEffects {
                 file = QPATHTOF(functions\fnc_handleEffects.sqf);
+            };
+        };
+    };
+    class overwrite_medical_status {
+        tag = "ace_medical_status";
+        class ace_medical_status {
+            class getMedicationCount {
+                file = QPATHTOF(functions\fnc_getMedicationCount.sqf);
+            };
+        };
+    };
+    class overwrite_ace_advanced_throwing {
+        tag = "ace_advanced_throwing";
+        class ace_advanced_throwing {
+            class throw {
+                file = QPATHTOF(functions\fnc_throw.sqf);
+            };
+            class prepare {
+                file = QPATHTOF(functions\fnc_prepare.sqf);
             };
         };
     };

@@ -20,6 +20,42 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(allowCrateEquipment),
+    "CHECKBOX",
+    [LLSTRING(SETTING_allowCrateEquipment), LLSTRING(SETTING_allowCrateEquipment_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [true],
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(medicCrateEquipment),
+    "LIST",
+    [LLSTRING(SETTING_medicCrateEquipment), LLSTRING(SETTING_medicCrateEquipment_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [[0, 1, 2], [ACELSTRING(medical_treatment,Anyone), ACELSTRING(medical_treatment,Medics), ACELSTRING(medical_treatment,Doctors)], 0],
+    true
+] call CBA_Settings_fnc_init;
+
+[
+    QGVAR(crateAccess),
+    "LIST",
+    [LLSTRING(SETTING_crateAccess), LLSTRING(SETTING_crateAccess_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [[0, 1, 2], [LSTRING(Bags), LSTRING(CratesBags), LSTRING(VehiclesCratesBags)], 0],
+    true
+] call CBA_Settings_fnc_init;
+
+[
+    QGVAR(crateEquipmentRange),
+    "SLIDER",
+    [LLSTRING(SETTING_crateEquipmentRange), LLSTRING(SETTING_crateEquipmentRange_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [1, 15, 5, 1],
+    true
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(treatmentModifiers),
     "CHECKBOX",
     [LLSTRING(SETTING_treatmentModifiers), LLSTRING(SETTING_treatmentModifiers_DESC)],
@@ -603,13 +639,39 @@
     }
 ] call CBA_fnc_addSetting;
 
-//Enable's Stitching of the Full Body 
 [
-    QGVAR(enableStitchFullBody),
-    "CHECKBOX",
-    [LLSTRING(SETTING_EnableStitchFullBody), LLSTRING(SETTING_EnableStitchFullBody_DESC)],
+    QGVAR(allowAdvancedStitching),
+    "LIST",
+    [LLSTRING(SETTING_allowAdvancedStitching_DisplayName), LLSTRING(SETTING_allowAdvancedStitching_Description)],
     [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
-    [false],
+    [[0, 1, 2, 3], [ACELSTRING(common,Anywhere), ACELSTRING(common,Vehicle), ACELSTRING(medical_treatment,MedicalFacilities), ACELSTRING(medical_treatment,VehiclesAndFacilities)], 2],
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(smallWoundStitchTime),
+    "SLIDER",
+    [LLSTRING(SETTING_smallWoundStitchTime)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [1, 60, 1, 1],
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(mediumWoundStitchTime),
+    "SLIDER",
+    [LLSTRING(SETTING_mediumWoundStitchTime)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [1, 60, 2, 1],
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(largeWoundStitchTime),
+    "SLIDER",
+    [LLSTRING(SETTING_largeWoundStitchTime)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [1, 60, 3, 1],
     true
 ] call CBA_fnc_addSetting;
 
@@ -780,3 +842,4 @@
         call FUNC(FAK_updateContents);
     }
 ] call CBA_Settings_fnc_init;
+

@@ -18,15 +18,16 @@
 params ["_unit"];
 
 private _bloodVolume = GET_BLOOD_VOLUME_LITERS(_unit);
-if (_bloodVolume < ACEGVAR(medical,const_stableVitalsBloodThreshold)) exitWith { false };
+if (_bloodVolume < BLOOD_VOLUME_CLASS_4_HEMORRHAGE) exitWith { false };
 
 if IN_CRDC_ARRST(_unit) exitWith { false };
 if ((_unit getVariable [QEGVAR(surgery,sedated), 0]) > 0.1) exitWith { false };
-if (_unit getVariable [QEGVAR(surgery,reboa), false]) exitWith { false };
+if (((_unit getVariable [QEGVAR(surgery,reboa), false]) select 0) || ((_unit getVariable [QEGVAR(surgery,reboa), false]) select 1)) exitWith { false };
 
-private _cardiacOutput = [_unit] call ACEFUNC(medical_status,getCardiacOutput);
-private _bloodLoss = _unit call ACEFUNC(medical_status,getBloodLoss);
-if (_bloodLoss > (ACEGVAR(medical,const_bloodLossKnockOutThreshold) * _cardiacOutput / 2)) exitWith { false };
+private _cardiacOutput = [_unit] call FUNC(getCardiacOutput);
+private _bleedRate = GET_BLOOD_LOSS(_unit);
+private _bleedRateKO = BLOOD_LOSS_KNOCK_OUT_THRESHOLD * (_cardiacOutput max 0.05);
+if (_bleedRate > _bleedRateKO) exitWith { false };
 
 private _map = GET_MAP(_unit);
 if (_map < 60 || _map > 120) exitWith { false };

@@ -16,29 +16,20 @@
  */
 
 params ["_unit"];
-// =======================
-// BASELINE CONSTANTS
-// =======================
+
 #define BASELINE_SV 0.0879        // 87.9 mL
 #define BASELINE_EF 0.6
 #define BASELINE_EDV (BASELINE_SV / BASELINE_EF)
 #define BASELINE_ESV (BASELINE_EDV - BASELINE_SV)
 #define BASELINE_MAP 93  
 
-// =======================
-// INPUTS
-// =======================
+
 private _map = GET_MAP(_unit);
 private _defaultCVP = 6;
 private _heartRate = GET_HEART_RATE(_unit);
 private _bloodVolumeRatio = GET_BLOOD_VOLUME_LITERS(_unit) / DEFAULT_BLOOD_VOLUME;
 
-private _contractility =
-    (_unit getVariable [QEGVAR(pharma,heartContractility), 1]) max 0.2;
-
-// =======================
-// OBSTRUCTIVE FACTORS
-// =======================
+private _contractility = linearConversion [1, 0, (_unit getVariable [QEGVAR(pharma,heartContractility), 1]), 1, 0.5, true];
 private _ptxArray = (_unit getVariable [QEGVAR(breathing,pneumothorax), [0,0]]);
 private _tptxArray = (_unit getVariable [QEGVAR(breathing,tensionpneumothorax), [0,0]]);
 private _hptxArray = (_unit getVariable [QEGVAR(breathing,hemopneumothorax), [0,0]]);
@@ -47,51 +38,43 @@ private _hptx = ((_hptxArray select 0) + (_hptxArray select 1));
 
 
 private _tamponade = _unit getVariable [QEGVAR(circulation,effusion), 0];
-private _trali = _unit getVariable [QEGVAR(breathing,TRALI), 0];
+private _trali = _unit getVariable [QEGVAR(breathing,TACO), 0];
 
 private _vrEff =
     1
     - (linearConversion [0,16,_ptx,0,0.3,true])
-    - (linearConversion [0,2,_hptx,0,0.4,true])
+    - (linearConversion [0,2,_hptx,0,0.3,true])
     - (linearConversion [0,4,_tamponade,0,0.5,true])
-    - (linearConversion [0,30,_trali,0,0.2,true]);
+    - (linearConversion [0,20,_trali,0,0.2,true]);
 
-_vrEff = _vrEff max 0.1;
+_vrEff = _vrEff max 0.3;
 private _rvAfterload = 1;
 private _rvFailure = 1;
 if ((_tptxArray select 0) || (_tptxArray select 1)) then {
     _rvAfterload =
         linearConversion
     [
-        0, 16,          // PTX scale
+        0, 16,
         _ptx,
-        1.0, 2.5,       // RV afterload multiplier
+        1.0, 2.5,
         true
     ];
-
-// RV stroke limitation (Frank–Starling failure)
     _rvFailure =
         linearConversion
     [
-        0.3, 1.5,       // mild → severe RV strain
+        0.3, 2.5,
         _rvAfterload,
-        1.0, 0.35,      // full → failing RV
+        1.0, 0.35,
         true
     ];
 
 };
 
-// =======================
-// HEART RATE FILLING
-// =======================
 private _fillTime =
     linearConversion [40, 160, _heartRate, 1.2, 0.6, true];
 
 private _fillPortion = 1 - exp (-3 * _fillTime);
 
-// =======================
-// VENOUS COMPENSATION
-// =======================
 private _bvComp =
     linearConversion
     [
@@ -101,43 +84,30 @@ private _bvComp =
         true
     ];
 private _shockClass =
-    _unit getVariable [QGVAR(shockClass), "NONE"];
+    _unit getVariable [QGVAR(shockClass), 0];
 private _globalVaso = GET_VASOCONSTRICTION(_unit);
 private _fixedVaso = 0;
 {
     _fixedVaso = _fixedVaso + _x;
 } forEach _globalVaso;
 private _fixedVaso = (_fixedVaso /12);
-private _vasoTone = switch (_shockClass) do {
-    case "NONE":          { 1.0 };
-    case "COMPENSATED":   { 1.2 };   // strong sympathetic response
-    case "DECOMPENSATED": { 1.05 };  // partial failure
-    case "TERMINAL":      { 0.75 };  // vasoplegia
-    default               { 1.0 };
-};
+private _vasoTone = [_shockClass, 1, 1.2, 0.7, 0.3] call EFUNC(misc,getSineValue);
 private _effectiveVaso =
     _fixedVaso * _vasoTone;
-
-_effectiveVaso = _effectiveVaso min 1.4 max 0.6;
-private _effectiveCVP =
-    _defaultCVP
-    * _bvComp
-    * _effectiveVaso
-    * _vrEff;
-TRACE_8(
+_effectiveVaso = _effectiveVaso min 1.8 max 0.2;
+private _venousFactor = linearConversion [0.2, 1.8,_effectiveVaso,1.25, 0.75,true];
+private _effectiveCVP = _defaultCVP * _bvComp * _venousFactor * _vrEff;
+TRACE_7(
     "_effectiveCVP",
     _defaultCVP,
     _bvComp,
     _effectiveVaso,
-    _globalVaso,
     _vasoTone,
     _fillPortion,
     _effectiveCVP,
     _defaultCVP
 );
-// =======================
-// PRELOAD & STARLING
-// =======================
+
 private _preload =
     (_effectiveCVP / _defaultCVP)
     * _rvFailure
@@ -155,17 +125,16 @@ private _edvRel = _edv / _restEDV;
 private _starlingGain =
     linearConversion
     [
-        0.7, 1.2,        // relative EDV range
+        0.7, 1.2,
         _edvRel,
-        0.8, 1.15,      // gain range
+        0.8, 1.15,
         true
     ];
 
 _starlingGain = _starlingGain min 1.35;
-TRACE_8(
+TRACE_7(
     "_starlingGain",
     _starlingGain,
-    _edvNorm,
     _edv,
     BASELINE_EDV,
     _preload,
@@ -173,34 +142,19 @@ TRACE_8(
     _effectiveCVP,
     _defaultCVP
 );
-// =======================
-// AFTERLOAD & ESV
-// =======================
 private _mapNorm =
     linearConversion
     [
-        50, 130,     // hypotension → severe HTN
+        50, 130,
         _map,
-        0.65, 1.35,  // afterload multiplier
+        0.65, 1.35,
         true
     ];
-    private _mapShock = switch (_shockClass) do {
-        case "COMPENSATED":   { 1.1 };
-        case "DECOMPENSATED": { 1.0 };
-        case "TERMINAL":      { 0.8 };
-        default               { 1.0 };
-    };
+    private _mapShock = [_shockClass, 1, 1.1, 0.7, 0.4] call EFUNC(misc,getSineValue);
 _mapNorm =
     _mapNorm * _mapShock;
     
-private _vasoAfterload =
-    linearConversion
-    [
-        0.6, 1.4,
-        _effectiveVaso,
-        0.85, 1.25,
-        true
-    ];
+_vasoAfterload = linearConversion [0.6,1.4,_effectiveVaso,1.25,0.75,true];
 private _afterload =
     _mapNorm
     * _vasoAfterload;
@@ -218,9 +172,7 @@ TRACE_5(
     _bloodVolumeRatio
 );
 _esv = _esv min (_edv * 0.95);
-// =======================
-// FINAL STROKE VOLUME
-// =======================
+
 private _strokeVol = (_edv - _esv) max 0.001;
 
 TRACE_6(

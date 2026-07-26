@@ -15,7 +15,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 0.5;
+        mass = 1;
         ACE_isMedicalItem = 1;
         ACE_asItem = 1;
     };
@@ -33,7 +33,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 1;
+        mass = 2;
         ACE_isMedicalItem = 1;
         ACE_asItem = 1;
     };
@@ -51,7 +51,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 1;
+        mass = 2;
         ACE_isMedicalItem = 1;
         ACE_asItem = 1;
     };
@@ -69,7 +69,7 @@ class CfgMagazines {
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 1;
+        mass = 3;
         ACE_isMedicalItem = 1;
         ACE_asItem = 1;
     };
@@ -83,11 +83,11 @@ class CfgMagazines {
         picture = QPATHTOF(ui\icon_penthrox.paa);
 
         ammo = "";
-        count = 10;
+        count = 15;
         initSpeed = 0;
         tracersEvery = 0;
         lastRoundsTracer = 0;
-        mass = 1;
+        mass = 6;
         ACE_isMedicalItem = 1;
         ACE_asItem = 1;
     };

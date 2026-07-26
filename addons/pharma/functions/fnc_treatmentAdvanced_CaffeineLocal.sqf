@@ -20,19 +20,7 @@ if (ACE_Player != _patient) exitWith {};
 
 /// ACE Fatigue
 if (ACEGVAR(advanced_fatigue,enabled)) then {
-
-    [{
-        params ["_patient"];
-        ACEGVAR(advanced_fatigue,anReserve) = ACEGVAR(advanced_fatigue,anReserve) + 700;
-    },
-    [_patient], 2.5] call CBA_fnc_waitAndExecute;
-
+    ACEGVAR(advanced_fatigue,anReserve) = ACEGVAR(advanced_fatigue,anReserve) + 0.7;
 } else {
-
-    [{
-        params ["_patient"];
-        _patient setStamina(getStamina _patient + 300);
-    },
-    [_patient], 2.5] call CBA_fnc_waitAndExecute;
-
+    _patient setStamina(getStamina _patient + 0.3);
 };

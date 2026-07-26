@@ -141,14 +141,15 @@ class ACE_Medical_Treatment_Actions {
         sounds[] = {{QPATHTO_R(sounds\vacuum.ogg),8,1,15}};
         consumeItem = 0;
         callbackProgress = QFUNC(npwtTreatmentProgress);
-        callbackSuccess = "";
+        callbackSuccess = QEFUNC(misc,surgicalKitEnd);
+        callbackFailure = QEFUNC(misc,surgicalKitEnd);
     };
      class Ultrasound: BasicBandage {
         displayName = CSTRING(Ultra_Use);
         displayNameProgress = CSTRING(Ultra_Action);
         category = "surgery";
         treatmentLocations = QGVAR(ultrasoundLocation);
-        allowedSelections[] = {"Chest"};
+        allowedSelections[] = {"Chest", "UpperRightLeg", "UpperLeftLeg"};
         allowSelfTreatment = 0;
         medicRequired = QGVAR(ultrasoundAction_MedLevel);
         treatmentTime = QGVAR(ultrasoundTime);
@@ -157,49 +158,91 @@ class ACE_Medical_Treatment_Actions {
         consumeItem = 0;
         callbackSuccess = QFUNC(ultraAssessment);
     };
-    class ReboaPlacement: BasicBandage {
+    class RightReboaPlacement: BasicBandage {
         displayName = CSTRING(Reboa_Use);
         displayNameProgress = CSTRING(Reboa_Action);
         category = "surgery";
         treatmentLocations = QGVAR(reboaLocation);
-        allowedSelections[] = {"UpperLeftLeg", "UpperRightLeg"};
+        allowedSelections[] = {"UpperRightLeg"};
         allowSelfTreatment = 0;
         medicRequired = QGVAR(reboa_MedLevel);
         treatmentTime = QGVAR(reboaTime);
         items[] = {"kat_reboa"};
-        condition = QUOTE((_patient getVariable [ARR_2(QQGVAR(imaging),false)]) && (!(_patient getVariable [ARR_2(QQGVAR(reboa),false)])));
+        condition = QUOTE((([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasImaging))) && !(([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasReboa))));
         consumeItem = 1;
         callbackSuccess = QFUNC(reboaApply);
     };
-    class ReboaAdvancement: ReboaPlacement {
+    class LeftReboaPlacement: RightReboaPlacement {
+        displayName = CSTRING(Reboa_Use);
+        displayNameProgress = CSTRING(Reboa_Action);
+        category = "surgery";
+        treatmentLocations = QGVAR(reboaLocation);
+        allowedSelections[] = {"UpperLeftLeg"};
+        allowSelfTreatment = 0;
+        medicRequired = QGVAR(reboa_MedLevel);
+        treatmentTime = QGVAR(reboaTime);
+        items[] = {"kat_reboa"};
+        condition = QUOTE((([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasImaging))) && !(([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasReboa))));
+        consumeItem = 1;
+        callbackSuccess = QFUNC(reboaApply);
+    };
+    class LeftReboaAdvancement: RightReboaPlacement {
         displayName = CSTRING(Reboa_Deep_Use);
         displayNameProgress = CSTRING(Reboa_Deep_Action);
         category = "surgery";
         treatmentLocations = QGVAR(reboaLocation);
-        allowedSelections[] = {"UpperLeftLeg", "UpperRightLeg"};
+        allowedSelections[] = {"UpperLeftLeg"};
         allowSelfTreatment = 0;
         medicRequired = QGVAR(reboa_MedLevel);
         treatmentTime = QGVAR(reboaTime);
         items[] = {"kat_ultrasound"};
-        condition = QUOTE(_patient getVariable [ARR_2(QQGVAR(reboa),false)]);
+        condition = QUOTE((([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasImaging))) && (([ARR_3(_medic,_patient,0)] call FUNC(canAdvanceReboa))));
         consumeItem = 0;
         callbackSuccess = QFUNC(reboaDeepApply);
     };
-    class ReboaRemoval: ReboaPlacement {
+    class RightReboaAdvancement: RightReboaPlacement {
+        displayName = CSTRING(Reboa_Deep_Use);
+        displayNameProgress = CSTRING(Reboa_Deep_Action);
+        category = "surgery";
+        treatmentLocations = QGVAR(reboaLocation);
+        allowedSelections[] = {"UpperRightLeg"};
+        allowSelfTreatment = 0;
+        medicRequired = QGVAR(reboa_MedLevel);
+        treatmentTime = QGVAR(reboaTime);
+        items[] = {"kat_ultrasound"};
+        condition = QUOTE((([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasImaging))) && (([ARR_3(_medic,_patient,1)] call FUNC(canAdvanceReboa))));
+        consumeItem = 0;
+        callbackSuccess = QFUNC(reboaDeepApply);
+    };
+    class LeftReboaRemoval: RightReboaPlacement {
         displayName = CSTRING(Reboa_Remove_Use);
         displayNameProgress = CSTRING(Reboa_Remove_Action);
         category = "surgery";
         treatmentLocations = QGVAR(reboaLocation);
-        allowedSelections[] = {"UpperLeftLeg", "UpperRightLeg"};
+        allowedSelections[] = {"UpperLeftLeg"};
         allowSelfTreatment = 0;
         medicRequired = QGVAR(reboa_MedLevel);
         treatmentTime = QGVAR(reboaTime);
         items[] = {"kat_ultrasound"};
-        condition = QUOTE(_patient getVariable [ARR_2(QQGVAR(reboa),false)]);
+        condition = QUOTE((([ARR_3(_medic,_patient,0)] call FUNC(hasReboaSpecific))));
         consumeItem = 0;
         callbackSuccess = QFUNC(reboaRemove);
     };
-    class PericardialTap: ReboaPlacement {
+    class RightReboaRemoval: RightReboaPlacement {
+        displayName = CSTRING(Reboa_Remove_Use);
+        displayNameProgress = CSTRING(Reboa_Remove_Action);
+        category = "surgery";
+        treatmentLocations = QGVAR(reboaLocation);
+        allowedSelections[] = {"UpperRightLeg"};
+        allowSelfTreatment = 0;
+        medicRequired = QGVAR(reboa_MedLevel);
+        treatmentTime = QGVAR(reboaTime);
+        items[] = {"kat_ultrasound"};
+        condition = QUOTE((([ARR_3(_medic,_patient,1)] call FUNC(hasReboaSpecific))));
+        consumeItem = 0;
+        callbackSuccess = QFUNC(reboaRemove);
+    };
+    class PericardialTap: RightReboaPlacement {
         displayName = CSTRING(Pericardial_Tap_Use);
         displayNameProgress = CSTRING(Pericardial_Tap_Action);
         category = "surgery";
@@ -209,7 +252,7 @@ class ACE_Medical_Treatment_Actions {
         medicRequired = QGVAR(pericardialtapAction_MedLevel);
         treatmentTime = QGVAR(pericardialtapTime);
         items[] = {"kat_10ml_syringe", "kat_5ml_syringe"};
-        condition = QUOTE(_patient getVariable [ARR_2(QQGVAR(imaging),false)]);
+        condition = QUOTE(([ARR_3(_medic,_patient,_bodyPart)] call FUNC(hasImaging)));
         consumeItem = 0;
         callbackSuccess = QFUNC(pericardialTap);
     };

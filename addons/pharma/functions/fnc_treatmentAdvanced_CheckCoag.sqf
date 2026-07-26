@@ -39,27 +39,10 @@ private _hypothermiaDelay = 1;
 if (EGVAR(hypothermia,hypothermiaActive)) then {
     _hypothermiaDelay = linearConversion [35, 17, (_patient getVariable [QEGVAR(hypothermia,unitTemperature), 37]), 1, 3, true];
 };
-private _ph = GET_PH(_patient);
-private _ca = GET_CA(_patient);
-// Calcium effect (low Ca = slower clotting)
-private _calciumDelayMult = linearConversion [
-    1.2, 2.4,
-    _ca,
-    2.0, 1.0,        // up to 2× slower clotting
-    true
-];
-private _phDelayMult = linearConversion [
-    7.0, 7.4,
-    _ph,
-    3.0, 1.0,
-    true
-];
 private _woundClotDelayMult = (
                 _alteplaseFixedEffectiveness *
-                (_coagMult + _hypothermiaDelay) *
-                _cwmpFixedEffectiveness *
-                _calciumDelayMult *
-                _phDelayMult
+                (_coagMult * _hypothermiaDelay) *
+                _cwmpFixedEffectiveness
             ) min 10;
 [_patient, "quick_view", LLSTRING(Coag_Sense_Log), [_woundClotDelayMult]] call ACEFUNC(medical_treatment,addToLog);
 if (EGVAR(circulation,abgEnable)) then {
@@ -68,7 +51,7 @@ if (EGVAR(circulation,abgEnable)) then {
     private _ca = GET_CA(_patient);
     private _patientName = [_patient] call ACEFUNC(common,getName);
     private _output = format ["Patient: %1, PaCO2: %2, PaO2: %3, SpO2: %4", _patientName, _paCO2 toFixed 2, _paO2 toFixed 2, _spO2 toFixed 2];
-    private _output1 = format ["Patient: %1, HCO3: %2, pH: %3, Ca %4", _patientName, _hCO3 toFixed 2, _pH toFixed 2, _ca toFixed 2];
+    private _output1 = format ["Patient: %1, HCO3: %2, pH: %3, Ca: %4", _patientName, _hCO3 toFixed 2, _pH toFixed 2, _ca toFixed 2];
     [_output, 3, _medic] call ACEFUNC(common,displayTextStructured);
     [_patient, "quick_view", _output, [_medic]] call ACEFUNC(medical_treatment,addToLog);
     [_patient, "quick_view", _output1, [_medic]] call ACEFUNC(medical_treatment,addToLog);

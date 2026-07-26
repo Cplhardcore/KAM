@@ -12,7 +12,7 @@ class ACE_Medical_Treatment_Actions {
             "ACE_salineIV",
             "ACE_salineIV_500",
             "ACE_salineIV_250",
-            "KAT_salineIV100",
+            "kat_salineIV100",
             "kat_RingersLactateIV",
             "kat_RingersLactateIV_500",
             "kat_RingersLactateIV_250",

@@ -33,7 +33,7 @@ _patient setVariable [QGVAR(chestTube), [0, 0], true];
 _patient setVariable [QGVAR(attachedVent), false, true];
 _patient setVariable [QGVAR(attachedVentGUI), false, true];
 _patient setVariable [QGVAR(paralysis), 0, true];
-_patient setVariable [QGVAR(ventRate), 2, true];
+_patient setVariable [QGVAR(ventRate), 15, true];
 _patient setVariable [QGVAR(BVM_amount), 0, true];
 _patient setVariable [QGVAR(BVM_provider), 0, true];
 _patient setVariable [QGVAR(bronchospasm), 1, true];
@@ -41,6 +41,9 @@ _patient setVariable [QGVAR(biotTimer), 0, true];
 _patient setVariable [QGVAR(biotState), "", true];
 _patient setVariable [QGVAR(agonalTimer), 0, true];
 _patient setVariable [QGVAR(drainRate), [0, 0], true];
+_patient setVariable [QEGVAR(breathing,TACO), 0, true];
+_patient setVariable [QEGVAR(breathing,TACOStrain), 0, true];
+_patient setVariable [QEGVAR(breathing,TACOState), 0, true];
 
 
 if (ACEGVAR(advanced_fatigue,enabled)) then {

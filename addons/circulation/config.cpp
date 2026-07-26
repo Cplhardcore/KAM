@@ -6,7 +6,8 @@ class CfgPatches {
         requiredVersion = REQUIRED_VERSION;
         units[] = {
             "kat_X_AEDItem",
-            "kat_AEDItem"
+            "kat_AEDItem",
+            "kat_medicalSupplyCrate"
         };
         weapons[] = {
             "kat_bloodIV_O",

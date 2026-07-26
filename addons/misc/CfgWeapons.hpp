@@ -110,7 +110,40 @@ class CfgWeapons {
         editorPreview = QPATHTOF(ui\MedicationCase.paa);
         picture = QPATHTOF(ui\MedicationCase.paa);
         class ItemInfo: CBA_MiscItem_ItemInfo {
-            mass = 40;
+            mass = 60;
         };
+    };
+    class ACE_fieldDressing: ACE_ItemCore {
+        displayName = CSTRING(Bandage_Basic_Display);
+    };
+    class ACE_packingBandage: ACE_ItemCore {
+        displayName = CSTRING(Packing_Bandage_Display);
+    };
+    class ACE_elasticBandage: ACE_ItemCore {
+        displayName = CSTRING(Bandage_Elastic_Display);
+    };
+    class ACE_tourniquet: ACE_ItemCore {
+        displayName = CSTRING(Tourniquet_Display);
+    };
+    class ACE_splint: ACE_ItemCore {
+        displayName = CSTRING(splint_Display);
+    };
+    class ACE_quikclot: ACE_ItemCore {
+        displayName = CSTRING(QuikClot_Display);
+    };
+    class ACE_personalAidKit: ACE_ItemCore {
+        displayName = CSTRING(Aid_Kit_Display);
+    };
+    class ACE_surgicalKit: ACE_ItemCore {
+        displayName= CSTRING(SurgicalKit_Display);
+    };
+    class ACE_suture: ACE_ItemCore {
+        displayName = CSTRING(Suture_Display);
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 0.05;
+        };
+    };
+    class ACE_painkillers_Item: ACE_ItemCore {
+        displayName = CSTRING(painkillers_Display);
     };
 };

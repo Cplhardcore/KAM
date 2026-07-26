@@ -28,6 +28,11 @@ if ((floor (random 100) < (GVAR(advPtxChance)) || _deteriorated) && !(_tensionSt
     private _ht = _unit getVariable [QEGVAR(circulation,ht), []];
     if ((_ht findIf {_x isEqualTo "tension"}) == -1) then {
     _ht pushBack "tension";
+    if (floor (random 100) < 25) then {
+        if (_unit getVariable [QEGVAR(circulation,cardiacArrestType), 0] == 0) then {
+            [QACEGVAR(medical,FatalVitals), _unit] call CBA_fnc_localEvent;
+        };
+    };
     _unit setVariable [QEGVAR(circulation,ht), _ht, true];
     };
 };

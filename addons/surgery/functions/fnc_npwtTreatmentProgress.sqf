@@ -30,7 +30,7 @@ private _isBleeding = false;
 } forEach ((GET_OPEN_WOUNDS(_patient)) getOrDefault [_bodyPart, []]);
 
 // Stop treatment if there are no treatable wounds left
-if (!_isBleeding && (GET_BANDAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []]) isEqualTo []) exitWith {false};
+if (!_isBleeding && ((GET_BANDAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []]) isEqualTo []) && ((GET_WRAPPED_WOUNDS(_patient) getOrDefault [_bodyPart, []]) isEqualTo []) && ((GET_COAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []]) isEqualTo [])) exitWith {false};
 
 if (_totalTime - _elapsedTime > ([_patient, _patient, _bodyPart] call FUNC(getNPWTTime)) - GVAR(npwtTime)) exitWith {true};
 
@@ -39,9 +39,15 @@ if (_isBleeding) then {
 };
 
 private _bandagedWounds = GET_BANDAGED_WOUNDS(_patient);
-private _bandagedWoundsOnPart = _bandagedWounds get _bodyPart;
+private _bandagedWoundsOnPart = _bandagedWounds getOrDefault [_bodyPart, []];
 
-if (_bandagedWoundsOnPart isEqualTo []) exitWith {false};
+private _wrappedWounds = GET_WRAPPED_WOUNDS(_patient);
+private _wrappedWoundsOnPart = _wrappedWounds getOrDefault [_bodyPart, []];
+
+private _coagedWounds = GET_COAGED_WOUNDS(_patient);
+private _coagedWoundsOnPart = _coagedWounds getOrDefault [_bodyPart, []];
+
+if ((_bandagedWoundsOnPart isEqualTo []) && (_wrappedWoundsOnPart isEqualTo []) && (_coagedWoundsOnPart isEqualTo [])) exitWith {false};
 
 if (_bodypart isEqualTo "Body" && (EGVAR(hitpoints,EviscerationChance) > 0)) then {
     _patient setVariable [QGVAR(evisceration), 0, true];
@@ -50,18 +56,30 @@ if (_bodypart isEqualTo "Body" && (EGVAR(hitpoints,EviscerationChance) > 0)) the
 
 // Remove the first stitchable wound from the bandaged wounds
 private _treatedWound = [];
-private _woundCount = count _bandagedWoundsOnPart;
+private _woundSources = [
+    [_bandagedWoundsOnPart, "bandaged"],
+    [_wrappedWoundsOnPart, "wrapped"],
+    [_coagedWoundsOnPart, "coaged"]
+];
 
-for "_i" from (_woundCount - 1) to 0 step -1 do {
-    private _wound = _bandagedWoundsOnPart select _i;
-    private _treatedID = _wound select 0;
-    private _classIndex = _treatedID / 10;
-    private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
-    if !(_className in ["InternalBleeding"]) then {
-        _treatedWound = _bandagedWoundsOnPart deleteAt _i;
-        break;
+{
+    _x params ["_woundArray", "_type"];
+    TRACE_2("totalNPWT Time",_woundArray,_woundSources);
+    for "_i" from ((count _woundArray) - 1) to 0 step -1 do {
+        private _wound = _woundArray select _i;
+
+        _wound params ["_treatedID"];
+
+        private _classIndex = _treatedID / 10;
+        private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+
+        if !(_className in ["InternalBleeding"]) exitWith {
+            _treatedWound = _woundArray deleteAt _i;
+        };
     };
-};
+
+    if (_treatedWound isNotEqualTo []) exitWith {};
+} forEach _woundSources;
 
 _treatedWound params ["_treatedID", "_treatedAmountOf", "", "_treatedDamageOf"];
 
@@ -80,8 +98,12 @@ if (_woundIndex == -1) then {
     private _wound = _stitchedWoundsOnPart select _woundIndex;
     _wound set [1, (_wound select 1) + _treatedAmountOf];
 };
-
+_coagedWounds set [_bodyPart, _coagedWoundsOnPart];
+_wrappedWounds set [_bodyPart, _wrappedWoundsOnPart];
+_bandagedWounds set [_bodyPart, _bandagedWoundsOnPart];
 _patient setVariable [VAR_BANDAGED_WOUNDS, _bandagedWounds, true];
+_patient setVariable [VAR_COAGED_WOUNDS, _coagedWounds, true];
+_patient setVariable [VAR_WRAPPED_WOUNDS, _wrappedWounds, true];
 _patient setVariable [VAR_STITCHED_WOUNDS, _stitchedWounds, true];
 
 private _partIndex = ALL_BODY_PARTS find _bodyPart;
@@ -97,9 +119,13 @@ _patient setVariable [QACEGVAR(medical,bodyPartDamage), _bodyPartDamage, true];
 
 switch (_bodyPart) do {
     case "head": {[_patient, true, false, false, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
+    case "neck": {[_patient, true, false, false, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
     case "body": {[_patient, false, true, false, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
-    case "leftarm";
+    case "chest": {[_patient, false, true, false, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
+    case "leftarm": {[_patient, false, false, true, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
     case "rightarm": {[_patient, false, false, true, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
+    case "upperleftarm": {[_patient, false, false, true, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
+    case "upperrightarm": {[_patient, false, false, true, false] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
     default {[_patient, false, false, false, true] call ACEFUNC(medical_engine,updateBodyPartVisuals);};
 };
 

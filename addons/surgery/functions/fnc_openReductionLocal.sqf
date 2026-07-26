@@ -30,7 +30,7 @@ if (_exit) exitWith {
     } else {
         _liveFracture = 3;
     };
-
+    [_medic, _patient, _bodyPart] call FUNC(closeIncision);
     _fractureArray set [_part, _liveFracture];
     _patient setVariable [QGVAR(fractures), _fractureArray, true];
 
@@ -42,6 +42,7 @@ if ((_liveFracture == 2.7) || (_liveFracture == 3.7)) exitWith {
     _liveFracture = 0;
     private _delayMult = missionNamespace getVariable [QGVAR(penaltyMult),0.5];
     private _delay = (random [120, 200, 240]) * _delayMult;
+    [_medic, _patient, _bodyPart] call FUNC(closeIncision);
     if (_delay > 15) then {
         _activeFracture set [_part, -3];
         _fractureArray set [_part, _liveFracture];

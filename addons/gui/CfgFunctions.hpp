@@ -29,6 +29,23 @@ class CfgFunctions {
             class displayPatientInformation {
                 file = QPATHTOF(functions\fnc_displayPatientInformation.sqf);
             };
+            class updateTriageStatus {
+                file = QPATHTOF(functions\fnc_updateTriageStatus.sqf);
+            };
+            class updateActions {
+                file = QPATHTOF(functions\fnc_updateActions.sqf);
+            };
+            class modifyActionTriageLevel {
+                file = QPATHTOF(functions\fnc_modifyActionTriageLevel.sqf);
+            };
+        };
+    };
+    class overwrite_medical_treatment {
+        tag = "ace_medical_treatment";
+        class ace_medical_treatment {
+            class getTriageStatus {
+                file = QPATHTOF(functions\fnc_getTriageStatus.sqf);
+            };
         };
     };
 };

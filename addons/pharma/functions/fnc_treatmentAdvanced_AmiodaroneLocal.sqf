@@ -15,8 +15,11 @@
  * Public: No
  */
 params ["_patient"];
+private _doseLevel = ([_patient, "AmiodaroneBrady", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
+if (_doseLevel > 0.01) exitWith {};
 private _random = random 3;
 if (_random <= 1) then {
-    private _hrAdjust = -50 + floor random ((-30 - -50) + 1);
+    private _hrAdjust = -30 + floor random ((-10 - -30) + 1);
     [_patient, "BRADYCARDIA", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+    [_patient, "AmiodaroneBrady", 120, 1200] call EFUNC(vitals,addMedicationAdjustment);
 };

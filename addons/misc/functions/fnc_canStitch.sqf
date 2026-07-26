@@ -22,11 +22,40 @@ params ["_medic", "_patient", "_bodyPart"];
 if ((ACEGVAR(medical_treatment,consumeSurgicalKit) == 2) && {!([_medic, _patient, ["ACE_suture"]] call ACEFUNC(medical_treatment,hasItem))}) exitWith {false};
 private _unstitchableTypes = ["ETD", "Israeli_Bandage"];
 private _bandaged = GET_BANDAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
-private _hasStitchableBandage = (_bandaged findIf {
-    _x params ["", "", "", "", "_type"];
-    !(_type in _unstitchableTypes)
-}) != -1;
+private _coaged = GET_COAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
+private _wrapped = GET_WRAPPED_WOUNDS(_patient) getOrDefault [_bodyPart, []];
 private _isBleeding = false;
+private _allow = switch (GVAR(allowAdvancedStitching)) do {
+    case 0: {true};
+    case 1: { 
+        IN_MED_VEHICLE(_medic)
+    };
+    case 2: {
+        IN_MED_FACILITY(_medic)
+    };
+    case 3: {
+        IN_MED_VEHICLE(_medic) || {IN_MED_FACILITY(_medic)}
+    };
+    default {false};
+};
+private _hasStitchableBandage = (_bandaged findIf {
+    _x params ["_woundClassID", "", "", "", "_type"];
+    private _classIndex = _woundClassID / 10;
+    private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+    ((_className in ["Avulsion","VelocityWound","Laceration"]) && {_allow}) && (!(_type in _unstitchableTypes))
+}) != -1;
+private _hasStitchableClot = (_coaged findIf {
+    _x params ["_woundClassID"];
+    private _classIndex = _woundClassID / 10;
+    private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+    _allow && {_className in ["Avulsion","VelocityWound","Laceration"]}
+}) != -1;
+private _hasStitchableWrapped = (_wrapped findIf {
+    _x params ["_woundClassID"];
+    private _classIndex = _woundClassID / 10;
+    private _className = ACEGVAR(medical_damage,woundClassNames) select _classIndex;
+    _allow && {_className in ["Avulsion","VelocityWound","Laceration"]}
+}) != -1;
 {
     _x params ["_woundClassID", "_amountOf", "_bleedingRate"];
     private _classIndex = _woundClassID / 10;
@@ -42,6 +71,6 @@ private _isBleeding = false;
 
 (!(_isBleeding) && (
     (_hasStitchableBandage)||
-    (GET_COAGED_WOUNDS(_patient) getOrDefault [_bodyPart, []]) isNotEqualTo [] ||
-    (GET_WRAPPED_WOUNDS(_patient) getOrDefault [_bodyPart, []]) isNotEqualTo []
+    (_hasStitchableClot)||
+    (_hasStitchableWrapped)
 )) // return

@@ -19,10 +19,10 @@
 
 params ["_medic", "_patient"];
 private _cricothyrotomy = _patient getVariable [QGVAR(cricothyrotomy), 0];
-
-
+TRACE_1("crikeLocal",_patient);
 if (_cricothyrotomy == 0.5)  exitWith {
     _cricothyrotomy = 1;
+    [_medic, _patient, "neck"] call EFUNC(surgery,closeIncision);
     _patient setVariable [QGVAR(cricothyrotomy), _cricothyrotomy, true];
     _patient setVariable [QGVAR(airway_item), "Surgical_Airway", true];
     _patient setVariable [QGVAR(airway), true, true];
