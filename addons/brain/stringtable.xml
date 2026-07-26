@@ -3,7 +3,7 @@
     <Package name="Brain">
         <Key ID="STR_KAT_Brain_cba_Name">
             <English>KAT - ADV Medical: Brain</English>
-            <Spanish>KAT- ADV Mevidal: Cerebro</Spanish>
+            <Spanish>KAT- ADV Medical: Cerebro</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_SETTING_enable">
             <English>Enable Brain Simulation</English>

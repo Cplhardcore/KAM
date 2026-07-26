@@ -3,7 +3,7 @@
     <Package name="Fatigue">
         <Key ID="STR_KAT_Fatigue_cba_Name">
             <English>KAT - ADV Medical: Fatigue</English>
-            <Spanish>KAT - ADV Medical: fatiga</Spanish>
+            <Spanish>KAT - ADV Medical: Fatiga</Spanish>
         </Key>
     </Package>
 </Project>
