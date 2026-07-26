@@ -26,8 +26,16 @@ if (_doseLevel < 0.01) then {
     };
     [_patient, "EtomidateOverdose", 120, 1200, _hrAdjust, 0, 0, 0, 0, 0, 0, 0.3, -0.25] call EFUNC(vitals,addMedicationAdjustment);
         
+} else {
+    private _medications = _patient getVariable [VAR_MEDICATIONS, []];
+    {
+        if ((_x # 0) isEqualTo "EtomidateOverdose") exitWith {
+            _x set [3, (_x # 3) + 1.2];
+        };
+    } forEach _medications;
+    _patient setVariable [VAR_MEDICATIONS, _medications, true];
 };
-    if (random(100) < 2) then {
+if (random(100) < 2) then {
     [{
         params ["_args", "_idPFH"];
         _args params ["_patient"];

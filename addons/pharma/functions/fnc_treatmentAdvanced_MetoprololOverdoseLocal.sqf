@@ -19,4 +19,12 @@ private _doseLevel = ([_patient, "MetoprololOverdose", false] call ACEFUNC(medic
 if (_doseLevel < 0.01) then {
     private _hrAdjust = -20 + floor random ((-20 - -40) + 1);
     [_patient, "MetoprololOverdose", 60, 600, _hrAdjust, 0, 0, 0, 0, 0, 0, 0, -0.2] call EFUNC(vitals,addMedicationAdjustment);
+} else {
+    private _medications = _patient getVariable [VAR_MEDICATIONS, []];
+    {
+        if ((_x # 0) isEqualTo "MetoprololOverdose") exitWith {
+            _x set [3, (_x # 3) + 1.2];
+        };
+    } forEach _medications;
+    _patient setVariable [VAR_MEDICATIONS, _medications, true];
 };

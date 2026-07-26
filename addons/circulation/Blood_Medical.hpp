@@ -285,6 +285,18 @@ class Norepinephrine_IVInfusion100: SalineIV {
     displayNameProgress = CSTRING(Transfusing_Norepinephrine_Infusion100);
     callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
 };
+class Mannitol_IVInfusion: SalineIV {
+    displayName = CSTRING(Actions_MannitolInfusion);
+    items[] = {"kat_MannitolInfusion"};
+    displayNameProgress = CSTRING(Transfusing_Mannitol_Infusion);
+    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
+};
+class Mannitol_IVInfusion100: SalineIV {
+    displayName = CSTRING(Actions_MannitolInfusion100);
+    items[] = {"kat_MannitolInfusion100"};
+    displayNameProgress = CSTRING(Transfusing_Mannitol_Infusion100);
+    callbackSuccess = "[_medic, _patient, _bodyPart, _className, _itemUser, _usedItem] call ace_medical_treatment_fnc_ivBag;";
+};
 class KAT_DrawBlood500: BloodIV {
     displayName = CSTRING(DrawBlood500_Action_Use);
     displayNameProgress = CSTRING(DrawBlood_Action_Progress);

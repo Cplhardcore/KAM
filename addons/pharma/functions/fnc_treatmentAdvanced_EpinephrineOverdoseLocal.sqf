@@ -20,6 +20,14 @@ private _doseLevel = ([_patient, "EpinephrineOverdose", false] call ACEFUNC(medi
 if (_doseLevel < 0.01) then {
     private _hrAdjust = 30 + floor random ((60 - 30) + 1);
     [_patient, "EpinephrineOverdose", 30, 1200,_hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+} else {
+    private _medications = _patient getVariable [VAR_MEDICATIONS, []];
+    {
+        if ((_x # 0) isEqualTo "EpinephrineOverdose") exitWith {
+            _x set [3, (_x # 3) + 1.2];
+        };
+    } forEach _medications;
+    _patient setVariable [VAR_MEDICATIONS, _medications, true];
 };
 if (random 100 < 1) then {
     private _randomValue = [3, 4];

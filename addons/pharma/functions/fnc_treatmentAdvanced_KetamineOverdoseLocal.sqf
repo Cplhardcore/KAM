@@ -18,6 +18,14 @@ params ["_patient"];
 private _doseLevel = ([_patient, "ketamineOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
 if (_doseLevel < 0.01) exitWith {
     [_patient, "ketamineOverdose", 20, 2400, 0, 0, 0, 0, -0.1, 0, 0, 0, -0.15, 0, 0, 0, 0, 0, 0.5] call EFUNC(vitals,addMedicationAdjustment);
+} else {
+    private _medications = _patient getVariable [VAR_MEDICATIONS, []];
+    {
+        if ((_x # 0) isEqualTo "ketamineOverdose") exitWith {
+            _x set [3, (_x # 3) + 1.2];
+        };
+    } forEach _medications;
+    _patient setVariable [VAR_MEDICATIONS, _medications, true];
 };
 if (random(100) < 5) then {
     [{

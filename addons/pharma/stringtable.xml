@@ -6170,5 +6170,44 @@
         <Key ID="STR_KAT_Pharma_adenosineAutoinjector">
             <English>(Autoinjector) Adenosine</English>
         </Key>
+        <Key ID="STR_KAT_Pharma_medLvl_Mannitol">
+            <English>Medical level required for Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Push_Mannitol_5ml_10">
+            <English>Push 10g Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Pushing_Mannitol_5ml_10">
+            <English>Pushing 10g Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_SyringeDisplay_Mannitol_5ml_10">
+            <English>5ml Syringe / 10g Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Push_Mannitol_5ml_20">
+            <English>Push 20g Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Pushing_Mannitol_5ml_20">
+            <English>Pushing 20g Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_SyringeDisplay_Mannitol_5ml_20">
+            <English>5ml Syringe / 20g Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Push_Mannitol_5ml_30">
+            <English>Push 30g Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Pushing_Mannitol_5ml_30">
+            <English>Pushing 30g Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_SyringeDisplay_Mannitol_5ml_30">
+            <English>5ml Syringe / 30g Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Mannitol_DescShort">
+            <English>Mannitol, For treatment of increased ICP</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_Mannitol_displayName">
+            <English>(Vial) Mannitol</English>
+        </Key>
+        <Key ID="STR_KAT_Pharma_medlevel_Mannitol">
+            <English>Mannitol</English>
+        </Key>
     </Package>
 </Project>

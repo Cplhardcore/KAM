@@ -270,7 +270,7 @@ class ACE_Medical_Treatment_Actions {
         displayNameProgress = CSTRING(Open_Crike_Kit_Action);
         category = "surgery";
         treatmentLocations = QGVAR(CrikeLocation);
-        allowedSelections[] = {"all"};
+        allowedSelections[] = {"Neck"};
         allowSelfTreatment = 1;
         medicRequired = QGVAR(CrikeAction_MedLevel);
         treatmentTime = 5;

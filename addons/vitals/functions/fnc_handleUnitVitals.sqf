@@ -188,6 +188,9 @@ if (_adjustments isNotEqualTo []) then {
                     private _step = ((_timeRemaining / _fadeOutDuration) max 0) min 1;
                     _effectRatio = _rampUp * (_step * _step * (3 - 2 * _step));
                 };
+                case 3: {
+                    _effectRatio = 1;
+                };
                 default {
                     _effectRatio = (((_timeInSystem / _scaledTimeToMax) ^ 2) min 1) * ((_scaledMaxTime - _timeInSystem) / _scaledMaxTime);
                 };
@@ -391,7 +394,7 @@ switch (true) do {
         };
         [QACEGVAR(medical,FatalVitals), _unit] call CBA_fnc_localEvent;
     };
-    case (_map < 25 || {_map > 240}): {
+    case (_map < 25 || {_map > 190}): {
         [QACEGVAR(medical,FatalVitals), _unit] call CBA_fnc_localEvent;
         if ((_unit getVariable [QEGVAR(conversion,convert), false]) && (isPlayer _unit) && EGVAR(conversion,enableAutomaticConversion)) then {
             [QEGVAR(conversion,convertCasualty), _unit] call CBA_fnc_localEvent;
@@ -403,7 +406,7 @@ switch (true) do {
             [QEGVAR(conversion,convertCasualty), _unit] call CBA_fnc_localEvent;
         };
     };
-    case (_map < 45 || {_map > 190}): {
+    case (_map < 45 || {_map > 150}): {
         [QACEGVAR(medical,CriticalVitals), _unit] call CBA_fnc_localEvent;
     };
     case (_oxygenDelivery < 5): {

@@ -19,8 +19,15 @@ private _doseLevel = ([_patient, "FlumazenilOverdose", false] call ACEFUNC(medic
 if (_doseLevel < 0.01) then {
     private _hrAdjust = 20 + floor random ((40 - 20) + 1);
     [_patient, "FlumazenilOverdose", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+} else {
+    private _medications = _patient getVariable [VAR_MEDICATIONS, []];
+    {
+        if ((_x # 0) isEqualTo "FlumazenilOverdose") exitWith {
+            _x set [3, (_x # 3) + 1.2];
+        };
+    } forEach _medications;
+    _patient setVariable [VAR_MEDICATIONS, _medications, true];
 };
-
 /*if (EGVAR(feedback,effectOverdose)) then
     {
     PP_wetD = ppEffectCreate ["WetDistortion",300];

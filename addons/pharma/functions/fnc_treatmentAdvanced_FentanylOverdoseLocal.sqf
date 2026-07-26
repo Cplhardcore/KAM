@@ -18,6 +18,14 @@ params ["_patient"];
 private _doseLevel = ([_patient, "FentanylOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
 if (_doseLevel < 0.01) then {
     [_patient, "FentanylOverdose", 10, 2400, 0, 0, 0, 0, 0.4, 0, 0, 0.17, -0.1, 0, 0, 0, 0, 0, 0.8] call EFUNC(vitals,addMedicationAdjustment);
+} else {
+    private _medications = _patient getVariable [VAR_MEDICATIONS, []];
+    {
+        if ((_x # 0) isEqualTo "FentanylOverdose") exitWith {
+            _x set [3, (_x # 3) + 1.2];
+        };
+    } forEach _medications;
+    _patient setVariable [VAR_MEDICATIONS, _medications, true];
 };
 private _ht = _patient getVariable [QEGVAR(circulation,ht), []];
 if (((_ht findIf {_x isEqualTo "opioidOD"}) == -1) && ((random 100) < 10)) then {

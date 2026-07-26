@@ -19,5 +19,13 @@ private _doseLevel = ([_patient, "RocuroniumOverdose", false] call ACEFUNC(medic
 if (_doseLevel < 0.01) then {
     private _hrAdjust = 20 + floor random ((50 - 20) + 1);
     [_patient, "RocuroniumOverdose", 10, 600, _hrAdjust, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] call EFUNC(vitals,addMedicationAdjustment);
+} else {
+    private _medications = _patient getVariable [VAR_MEDICATIONS, []];
+    {
+        if ((_x # 0) isEqualTo "RocuroniumOverdose") exitWith {
+            _x set [3, (_x # 3) + 1.2];
+        };
+    } forEach _medications;
+    _patient setVariable [VAR_MEDICATIONS, _medications, true];
 };
 

@@ -19,3 +19,4 @@
 params ["_medic", "_patient"];
 _patient setVariable [QGVAR(attachedLucas), false, true];
 _patient setVariable [QGVAR(attachedLucasState), false, true];
+[_medic, "kat_lucas"] call ACEFUNC(common,addToInventory);

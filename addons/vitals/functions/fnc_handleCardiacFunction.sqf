@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 #pragma hemtt suppress pw3_padded_arg file
 /*

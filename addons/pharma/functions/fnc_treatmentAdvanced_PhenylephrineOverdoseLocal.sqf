@@ -22,6 +22,14 @@ private _hrAdjust = selectRandom _hrValue;
 private _alphaValue = [-0.7, -0.6, -0.8];
 private _alphaAdjust = selectRandom _alphaValue;
 [_patient, "PhenylephrineOverdose", 30, 1200, _hrAdjust, 0, 0, 0, _alphaAdjust] call EFUNC(vitals,addMedicationAdjustment);
+} else {
+    private _medications = _patient getVariable [VAR_MEDICATIONS, []];
+    {
+        if ((_x # 0) isEqualTo "PhenylephrineOverdose") exitWith {
+            _x set [3, (_x # 3) + 1.2];
+        };
+    } forEach _medications;
+    _patient setVariable [VAR_MEDICATIONS, _medications, true];
 };
 if (random 50 < 3) then {
     private _randomValue = [3, 4];

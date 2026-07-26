@@ -46,7 +46,13 @@ private _keyCategoryPairs = _allCategories createHashMapFromArray NUMBER_KEYS;
 
 private _temp_category = "";
 private _temp_idc = 0;
+private _lastPress = uiNamespace getVariable [QGVAR(lastKeyPress), 0];
 
+if ((CBA_missionTime - _lastPress) < 0.1) exitWith {
+    false
+};
+
+uiNamespace setVariable [QGVAR(lastKeyPress), CBA_missionTime];
 switch (true) do {
 // Dynamically assign number keys to visible categories
     {

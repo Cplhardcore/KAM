@@ -33,54 +33,167 @@ variantDelay = 0;
     private _tamponade = (_patient getVariable [QEGVAR(circulation,effusion), 0]);
 
     private _heartDelay = _hr/180;
-
+    private _speed = switch (_hr) do {
+        case (_hr < 60):{
+            1
+        };
+        case (_hr > 110):{
+            3
+        };
+        default {
+            2
+        };
+    };
     if(!(soundPlaying)) then {
-        switch (_tamponade) do {
+        switch (_speed) do {
             case 1: {
-                playSoundUI [QPATHTOF(audio\slow_2.wav), _volume, 1];
-                variantDelay = 1;
-                soundPlaying = true;
-                [{
-                    params ["_medic","_patient"];
-                    soundPlaying = false;
-                }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                switch (_tamponade) do {
+                    case 1: {
+                        playSoundUI [QPATHTOF(audio\slow_2.wav), _volume, 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    case 2: {
+                        playSoundUI [QPATHTOF(audio\slow_2.wav), (_volume * 0.75), 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    case 3: {
+                        playSoundUI [QPATHTOF(audio\slow_2.wav), (_volume * 0.5), 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    case 4: {
+                        playSoundUI [QPATHTOF(audio\slow_2.wav), (_volume * 0.25), 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    default {
+                        playSoundUI [QPATHTOF(audio\norm_2.wav), _volume, 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                };
             };
             case 2: {
-                playSoundUI [QPATHTOF(audio\slow_2.wav), (_volume * 0.75), 1];
-                variantDelay = 1;
-                soundPlaying = true;
-                [{
-                    params ["_medic","_patient"];
-                    soundPlaying = false;
-                }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                switch (_tamponade) do {
+                    case 1: {
+                        playSoundUI [QPATHTOF(audio\norm_2.wav), _volume, 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    case 2: {
+                        playSoundUI [QPATHTOF(audio\norm_2.wav), (_volume * 0.75), 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    case 3: {
+                        playSoundUI [QPATHTOF(audio\norm_2.wav), (_volume * 0.5), 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    case 4: {
+                        playSoundUI [QPATHTOF(audio\norm_2.wav), (_volume * 0.25), 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    default {
+                        playSoundUI [QPATHTOF(audio\norm_2.wav), _volume, 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                };
             };
             case 3: {
-                playSoundUI [QPATHTOF(audio\slow_2.wav), (_volume * 0.5), 1];
-                variantDelay = 1;
-                soundPlaying = true;
-                [{
-                    params ["_medic","_patient"];
-                    soundPlaying = false;
-                }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                switch (_tamponade) do {
+                    case 1: {
+                        playSoundUI [QPATHTOF(audio\fast_1.wav), _volume, 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    case 2: {
+                        playSoundUI [QPATHTOF(audio\fast_1.wav), (_volume * 0.75), 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    case 3: {
+                        playSoundUI [QPATHTOF(audio\fast_1.wav), (_volume * 0.5), 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    case 4: {
+                        playSoundUI [QPATHTOF(audio\fast_1.wav), (_volume * 0.25), 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                    default {
+                        playSoundUI [QPATHTOF(audio\fast_1.wav), _volume, 1];
+                        variantDelay = 1;
+                        soundPlaying = true;
+                        [{
+                            params ["_medic","_patient"];
+                            soundPlaying = false;
+                        }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
+                    };
+                };
             };
-            case 4: {
-                playSoundUI [QPATHTOF(audio\slow_2.wav), (_volume * 0.25), 1];
-                variantDelay = 1;
-                soundPlaying = true;
-                [{
-                    params ["_medic","_patient"];
-                    soundPlaying = false;
-                }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
-            };
-            default {
-                playSoundUI [QPATHTOF(audio\norm_2.wav), _volume, 1];
-                variantDelay = 1;
-                soundPlaying = true;
-                [{
-                    params ["_medic","_patient"];
-                    soundPlaying = false;
-                }, [_medic,_patient], variantDelay + _heartDelay] call CBA_fnc_waitAndExecute;
-            };
-        };
+        };  
+            
     };
 }, 0, [_medic,_patient,_volume]] call CBA_fnc_addPerFrameHandler;

@@ -52,7 +52,8 @@ class CfgPatches {
             "kat_EJV",
             "kat_pressureBag",
             "kat_calciumChloride",
-            "kat_bicarbonate"
+            "kat_bicarbonate",
+            "kat_mannitol"
         };
         magazines[] = { };
         requiredAddons[] = {

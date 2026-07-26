@@ -64,6 +64,50 @@
         <Key ID="STR_KAT_Brain_check_icp_output_log">
             <English>Measuring Optic Nerve Sheath</English>
         </Key>
-        
+        <Key ID="str_kat_brain_checkpupils">
+            <English>Check Pupils</English>
+        </Key>
+        <Key ID="str_kat_brain_action_checking">
+            <English>Checking Pupils</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilstatus_clear">
+            <English>Pupils are PERRL</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilstatus_clear_short">
+            <English>PERRL</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilstatus_fixeddilatedpupil">
+            <English>Pupils are Fixed and Dilated</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilstatus_fixeddilatedpupil_short">
+            <English>Fixed and Dilated</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilstatus_dilatedsluggish">
+            <English>Pupils are Dilated and Sluggish</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilstatus_dilatedsluggish_short">
+            <English>Dilated and Sluggish</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilstatus_verysluggish">
+            <English>Pupils are Very Sluggish</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilstatus_verysluggish_short">
+            <English>Very Sluggish</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilstatus_sluggish">
+            <English>Pupils are Sluggish</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilstatus_sluggish_short">
+            <English>Sluggish</English>
+        </Key>
+        <Key ID="str_kat_brain_checkpupil_log">
+            <English>%1 Checked pupils: %2</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilAction_MedLevel">
+            <English>Pupil Check Med Level</English>
+        </Key>
+        <Key ID="str_kat_brain_pupilAction_MedLevel_desc">
+            <English>Medical level to check pupils</English>
+        </Key>
     </Package>
 </Project>

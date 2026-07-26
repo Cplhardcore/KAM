@@ -82,8 +82,19 @@ if (_mapHighTicks >= 25) then {
     _ICP_delta = _ICP_delta * _fatigueIcpAmplify;
     _ICP_delta = (_ICP_delta min 3) max 1;
 };
-private _metoprololCount = ([_unit, "Metoprolol", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-private _metoprolol = linearConversion [0, 1, _metoprololCount, 1, 0.6, true];
-private _newICP = (_ICP + _ICP_delta) * _metoprolol;
+private _mannitolCount = (([_unit, "Mannitol"] call EFUNC(misc,getCurrentDosage)) / 20);
+private _mannitolReduction = 8 * (_mannitolCount min 2.2);
+private _brainMannitol = _unit getVariable [QGVAR(brainMannitol), 0];
+if (_mannitolCount > 0) then {
+    private _BBBLeak =
+        linearConversion [20, 60, _ICP, 0.0, 0.02, true];
+    _brainMannitol = _brainMannitol + (_mannitolCount * _BBBLeak * _deltaT);
+};
+_brainMannitol = (_brainMannitol - (0.002 * _deltaT)) max 0;
+
+_unit setVariable [QGVAR(brainMannitol), _brainMannitol, true];
+private _newICP = (_ICP + _ICP_delta) - _mannitolReduction;
+private _reboundICP = 6 * _brainMannitol;
+_newICP = _newICP + _reboundICP;
 _newICP = (5 max _newICP) min 60;
 _unit setVariable [QGVAR(ICP), _newICP, true];

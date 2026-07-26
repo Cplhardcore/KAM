@@ -16,7 +16,6 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "DiazepamOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.01) exitWith {};
 private _medStack = _patient call ACEFUNC(medical_status,getAllMedicationCount);
 private _fentanylEffectiveness = 0;
 private _nalbuphineEffectiveness = 0;
@@ -43,4 +42,14 @@ private _lorazepamEffectiveness = 0;
     };
 } forEach _medStack;
 private _diazapamMult = linearConversion [0, 90, (_fentanylEffectiveness + _nalbuphineEffectiveness + _morphineEffectiveness + _lorazepamEffectiveness), 1, 3, true];
-[_patient, "DiazepamOverdose", 30, 600, 0, 0, 0, 0, 0, 0, 0, -(random [0.1, 0.15, 0.3] * _diazapamMult)] call EFUNC(vitals,addMedicationAdjustment);
+if (_doseLevel < 0.01) then {
+    [_patient, "DiazepamOverdose", 30, 600, 0, 0, 0, 0, 0, 0, 0, -(random [0.1, 0.15, 0.3] * _diazapamMult)] call EFUNC(vitals,addMedicationAdjustment);
+} else {
+    private _medications = _patient getVariable [VAR_MEDICATIONS, []];
+    {
+        if ((_x # 0) isEqualTo "DiazepamOverdose") exitWith {
+            _x set [3, (_x # 3) + (1.2  * _diazapamMult)];
+        };
+    } forEach _medications;
+    _patient setVariable [VAR_MEDICATIONS, _medications, true];
+};

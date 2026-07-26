@@ -59,16 +59,15 @@ _unit setVariable [QGVAR(CMR),_CMR,true];
 private _ICP = _unit getVariable [QGVAR(ICP),15];
 
 if !(_unit getVariable [QGVAR(isSwelling), false]) then {
-	
 	//Reduce ICP if no longer swelling
-	private _salineFlow = ((_unit getVariable [QGVAR(salineFlow), 0]) / 5) min 5;
-	private _metoprololCount = ([_unit, "Metoprolol", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-	private _metoprolol = linearConversion [0, 1, _metoprololCount, 1, 1.5];
-	private _icpReduction = GVAR(ICPreduction) * (1 + _salineFlow) * GVAR(ICPreductionMult) * _metoprolol;
+	private _salineFlow = ((_unit getVariable [QGVAR(salineFlow), 0])) min 5;
+	private _HTSsalineFlow = ((_unit getVariable [QGVAR(HTSsalineFlow), 0])) min 5;
+	private _flowMultiplier = 1 + (_salineFlow * 0.5) + (_HTSsalineFlow * 1.0);
+	private _icpReduction = ((GVAR(ICPreduction) * 0.3) * (1 + (_salineFlow * 0.25))) + ((GVAR(ICPreduction) * 0.7) * (_HTSsalineFlow * 1.5));
+	_icpReduction = _icpReduction * GVAR(ICPreductionMult);
 	private _newICP = _ICP - _icpReduction;
-	private _hasSaline = [_unit] call FUNC(findSaline);
 	// Set "floors" for ICP, preventing ICP from returning to normal levels without saline
-	if (_salineFlow == 0 && !_hasSaline) then {
+	if ((_salineFlow == 0) && (_HTSsalineFlow == 0)) then {
 		switch (true) do {
 			case (_ICP >= 45): {
 				_newICP = 45 max _newICP;

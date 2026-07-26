@@ -17,30 +17,39 @@
  */
 params ["_patient"];
 private _doseLevel = ([_patient, "PervitinOverdose", false] call ACEFUNC(medical_status,getMedicationCount)) select 1;
-if (_doseLevel > 0.01) exitWith {};
-private _randomNumber = floor (random 3) + 1;
-switch (_randomNumber) do {
-    case 1: {
-        private _hrAdjust = 30 + floor random ((50 - 30) + 1);
-        [_patient, "PervitinOverdose", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+if (_doseLevel < 0.01) then {
+    private _randomNumber = floor (random 3) + 1;
+    switch (_randomNumber) do {
+        case 1: {
+            private _hrAdjust = 30 + floor random ((50 - 30) + 1);
+            [_patient, "PervitinOverdose", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+        };
+        case 2: {
+            private _hrAdjust = 30 + floor random ((50 - 30) + 1);
+            [_patient, "PervitinOverdose", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+            private _randomValue = [3, 4];
+            private _randomRhythm = selectRandom _randomValue;
+            _patient setVariable [QEGVAR(circulation,cardiacArrestType), _randomRhythm, true];
+        };
+        case 3: {
+            private _hrAdjust = 30 + floor random ((50 - 30) + 1);
+            [_patient, "PervitinOverdose", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+            private _randomValue = [3, 4];
+            private _randomRhythm = selectRandom _randomValue;
+            _patient setVariable [QEGVAR(circulation,cardiacArrestType), _randomRhythm, true];
+        };
+        case 4: {
+            private _hrAdjust = 30 + floor random ((50 - 30) + 1);
+            [_patient, "PervitinOverdose", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
+            _patient setVariable [QEGVAR(circulation,cardiacArrestType), 0, true];
+        };
     };
-    case 2: {
-        private _hrAdjust = 30 + floor random ((50 - 30) + 1);
-        [_patient, "PervitinOverdose", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
-        private _randomValue = [3, 4];
-        private _randomRhythm = selectRandom _randomValue;
-        _patient setVariable [QEGVAR(circulation,cardiacArrestType), _randomRhythm, true];
-    };
-    case 3: {
-        private _hrAdjust = 30 + floor random ((50 - 30) + 1);
-        [_patient, "PervitinOverdose", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
-        private _randomValue = [3, 4];
-        private _randomRhythm = selectRandom _randomValue;
-        _patient setVariable [QEGVAR(circulation,cardiacArrestType), _randomRhythm, true];
-    };
-    case 4: {
-        private _hrAdjust = 30 + floor random ((50 - 30) + 1);
-        [_patient, "PervitinOverdose", 120, 1200, _hrAdjust] call EFUNC(vitals,addMedicationAdjustment);
-        _patient setVariable [QEGVAR(circulation,cardiacArrestType), 0, true];
-    };
+} else {
+    private _medications = _patient getVariable [VAR_MEDICATIONS, []];
+    {
+        if ((_x # 0) isEqualTo "PervitinOverdose") exitWith {
+            _x set [3, (_x # 3) + 1.2];
+        };
+    } forEach _medications;
+    _patient setVariable [VAR_MEDICATIONS, _medications, true];
 };

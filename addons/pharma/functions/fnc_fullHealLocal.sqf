@@ -96,7 +96,7 @@ _patient setVariable [QGVAR(microcirculation), 0, true];
 _patient setVariable [QGVAR(mitoFailure), 0, true];
 _patient setVariable [QGVAR(lastTimeCoagUpdated), 0, true];
 _patient setVariable [QGVAR(lastTimeClotUpdated), 0, true];
-
+_patient setVariable [VAR_FENT_PATCH, [0,0,0,0,0,0,0,0,0,0,0,0], true];
 /// Clear Stamina & weapon sway
 if (ACEGVAR(advanced_fatigue,enabled)) then {
     ["kat_PDF"] call ACEFUNC(advanced_fatigue,removeDutyFactor);

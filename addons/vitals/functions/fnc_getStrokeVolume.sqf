@@ -70,10 +70,10 @@ if ((_tptxArray select 0) || (_tptxArray select 1)) then {
 
 };
 
-private _fillTime =
-    linearConversion [40, 160, _heartRate, 1.2, 0.6, true];
-
-private _fillPortion = 1 - exp (-3 * _fillTime);
+private _cycle = 60 / (_heartRate max 1);
+private _systole = linearConversion [40, 160, _heartRate, 0.34, 0.25, true];
+private _diastole = (_cycle - _systole) max 0.08;
+private _fillPortion = 1 - exp (-5 * _diastole);
 
 private _bvComp =
     linearConversion

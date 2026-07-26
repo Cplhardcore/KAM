@@ -274,7 +274,7 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {-4, -7};
             hrIncreaseNormal[] = {-4, -10};
             hrIncreaseHigh[] = {-7, -12};
-            timeInSystem = 7200;
+            timeInSystem = 3600;
             timeTillMaxEffect = 10;
             dose = 1;
             viscosityChange = -10;
@@ -298,7 +298,7 @@ class ACE_ADDON(Medical_Treatment) {
             hrIncreaseLow[] = {5, 10};
             hrIncreaseNormal[] = {5, 10};
             hrIncreaseHigh[] = {5, 10};
-            timeInSystem = 3600;
+            timeInSystem = 7200;
             timeTillMaxEffect = 15;
             dose = 1;
             viscosityChange = 5;
@@ -592,6 +592,24 @@ class ACE_ADDON(Medical_Treatment) {
             onOverDose = "";
             maximumEffectiveDose = 30;
             therapeutic = 16;
+        };
+        class syringe_Mannitol {
+            painReduce = 0.0;
+            hrIncreaseLow[] = {0, 0};
+            hrIncreaseNormal[] = {0, 0};
+            hrIncreaseHigh[] = {0, 0};
+            timeInSystem = 1500;
+            timeTillMaxEffect = 180;
+            dose = 1;
+            alphaFactor = 0.0;
+            contractility = 0.0;
+            OD50 = 80;
+            LD50 = 150;
+            chanceToOD = 2;
+            maxDoseDeviation = 25;
+            incompatibleMedication[] = {};
+            onOverDose = "";
+            maximumEffectiveDose = 40;
         };
         class syringe_Metoprolol  {
             painReduce = 0.0;

@@ -366,6 +366,17 @@ class CfgWeapons {
             mass = 0.75;
         };
     };
+    class kat_mannitol: ACE_ItemCore {
+        scope = 2;
+        displayName = CSTRING(Mannitol_displayName);
+        picture = QPATHTOF(ui\icon_Mannitol.paa);
+        model = "\A3\Structures_F_EPA\Items\Medical\Painkillers_F.p3d";
+        descriptionShort = CSTRING(Mannitol_DescShort);
+        ACE_isMedicalItem = 1;
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 0.75;
+        };
+    };
     class kat_adenosineIV: ACE_ItemCore {
         scope = 2;
         displayName = CSTRING(AdenosineIV_displayName);
@@ -918,6 +929,15 @@ class CfgWeapons {
     };
     class kat_syringe_diazepam_5ml_30: kat_syringe_diazepam_5ml_10 {
         displayName = KATDISPLAYCSTRING(diazepam,5ml,30);
+    };
+    class kat_syringe_mannitol_5ml_10: kat_syringe_txa_5ml_10 {
+        displayName = KATDISPLAYCSTRING(mannitol,5ml,10);
+    };
+    class kat_syringe_mannitol_5ml_20: kat_syringe_mannitol_5ml_10 {
+        displayName = KATDISPLAYCSTRING(mannitol,5ml,20);
+    };
+    class kat_syringe_mannitol_5ml_30: kat_syringe_mannitol_5ml_10 {
+        displayName = KATDISPLAYCSTRING(mannitol,5ml,30);
     };
     class kat_diazepam: ACE_ItemCore {
         scope = 2;

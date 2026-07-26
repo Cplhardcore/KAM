@@ -1012,6 +1012,15 @@
 ] call CBA_Settings_fnc_init;
 
 [
+    QGVAR(medLvl_Mannitol),
+    "LIST",
+    [LLSTRING(medLvl_Mannitol)],
+    [CBA_SETTINGS_CAT, LSTRING(SubCategory_Medications)],
+    [[0, 1, 2], [ACELSTRING(medical_treatment,Anyone), ACELSTRING(medical_treatment,Medics), ACELSTRING(medical_treatment,Doctors)], 2],
+    true
+] call CBA_Settings_fnc_init;
+
+[
     QGVAR(medLvl_morphineIV),
     "LIST",
     [LLSTRING(medLvl_MorphineIV)],

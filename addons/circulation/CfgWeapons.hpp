@@ -434,6 +434,28 @@ class CfgWeapons {
             mass = 2;
         };
     };
+    class kat_MannitolInfusion100: ACE_salineIV_250 {
+        scope = 1;
+        author = "Cplhardcore";
+        displayName = CSTRING(Mannitol100_Infusion);
+        descriptionShort = CSTRING(Mannitol_Infusion_Desc_Short);
+        descriptionUse = CSTRING(Mannitol_Infusion_Desc_Use);
+        ACE_isMedicalItem = 1;
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 1;
+        };
+    };
+    class kat_MannitolInfusion: ACE_salineIV_250 {
+        scope = 1;
+        author = "Cplhardcore";
+        displayName = CSTRING(Mannitol100_Infusion);
+        descriptionShort = CSTRING(Mannitol_Infusion_Desc_Short);
+        descriptionUse = CSTRING(Mannitol_Infusion_Desc_Use);
+        ACE_isMedicalItem = 1;
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 5;
+        };
+    };
     class KAT_Empty_bloodIV_500: ACE_bloodIV
     {
         displayName = CSTRING(FieldBloodTK500_Display);
@@ -479,6 +501,16 @@ class CfgWeapons {
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 100;
+        };
+    };
+    class kat_Lucas: ACE_ItemCore {
+        scope = 2;
+        displayName = CSTRING(LUCAS_ITEM_Display);
+        picture = QPATHTOF(ui\LUCAS.paa);
+        descriptionShort = CSTRING(LUCAS_Desc);
+        ACE_isMedicalItem = 1;
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 70;
         };
     };
     class kat_crossPanel: ACE_ItemCore {

@@ -33,6 +33,8 @@ _patient setVariable [QGVAR(autoregFatigue),0,true];
 _patient setVariable [QGVAR(edema),0,true];
 _patient setVariable [QGVAR(bleeding),0,true];
 _patient setVariable [QGVAR(isSwelling),false,true];
-
+_patient setVariable [QGVAR(HTSsalineFlow),0,true];
+_patient setVariable [QGVAR(salineFlow),0,true];
+_patient setVariable [QGVAR(brainMannitol),0,true];
 _patient setVariable [QGVAR(concussionPFH),nil,true];
 _patient setVariable [QGVAR(concussion),0,true];

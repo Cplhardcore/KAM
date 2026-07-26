@@ -3901,7 +3901,7 @@
             <English>Transfuse Norepinephrine Infusion (100ml)</English>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Norepinephrine_Infusion100">
-            <English>Transfusing Norepinephrine Infusion (100ml)t...</English>
+            <English>Transfusing Norepinephrine Infusion (100ml)...</English>
         </Key>
         <Key ID="STR_KAT_Circulation_ALLOW_Lucas">
             <English>Allow LUCAS</English>
@@ -4390,6 +4390,36 @@
             <Turkish>Plasma IV (500ml)</Turkish>
             <Hungarian>Vérplazma-infúzió (500ml)</Hungarian>
             <Ukrainian>Плазма для в/в вливання (500 мл)</Ukrainian>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Mannitol_Infusion">
+            <English>Mannitol Infusion IV (250ml)</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Mannitol100_Infusion">
+            <English>Mannitol Infusion IV (100ml)</English>
+        </Key>
+        <Key ID="str_kat_circulation_mannitol_infusion_desc_use">
+            <English>Mannitol Infusion</English>
+        </Key>
+        <Key ID="str_kat_circulation_mannitol_infusion_desc_short">
+            <English>Mannitol Infusion</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Actions_MannitolInfusion">
+            <English>Transfuse Mannitol Infusion (250ml)</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Transfusing_Mannitol_Infusion">
+            <English>Transfusing Mannitol Infusion (250ml)...</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Actions_MannitolInfusion100">
+            <English>Transfuse Mannitol Infusion (100ml)</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_Transfusing_Mannitol_Infusion100">
+            <English>Transfusing Mannitol Infusion (100ml)...</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_LUCAS_ITEM_Display">
+            <English>(C) LUCAS</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_LUCAS_Desc">
+            <English>A portable mechanical CPR device</English>
         </Key>
     </Package>
 </Project>

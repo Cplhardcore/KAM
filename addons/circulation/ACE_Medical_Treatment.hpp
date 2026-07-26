@@ -546,6 +546,36 @@ class ACE_Medical_Treatment {
             type = "Norepinephrine_IVInfusion";
             incompatibleMedication[] = {};
         };
+        class Mannitol_IVInfusion: SalineIV_250 {
+            painReduce = 0;
+            hrIncreaseLow[] = {0, 0};
+            hrIncreaseNormal[] = {0, 0};
+            hrIncreaseHigh[] = {0, 0};
+            timeInSystem = 30;
+            timeTillMaxEffect = 10;
+            dose = 20;
+            alphaFactor = 0;
+            volume = 250;
+            rateCoef = 1.4;
+            contractility = 0;
+            type = "Mannitol_IVInfusion";
+            incompatibleMedication[] = {};
+        };
+        class Mannitol_IVInfusion100: SalineIV_250 {
+            painReduce = 0;
+            hrIncreaseLow[] = {0, 0};
+            hrIncreaseNormal[] = {0, 0};
+            hrIncreaseHigh[] = {0, 0};
+            timeInSystem = 30;
+            timeTillMaxEffect = 10;
+            dose = 20;
+            alphaFactor = 0;
+            volume = 100;
+            rateCoef = 1.4;
+            contractility = 0;
+            type = "Mannitol_IVInfusion";
+            incompatibleMedication[] = {};
+        };
         class HypertonicSalineIV_500: SalineIV {
             volume = 500;
             type = "Hypertonic Saline";

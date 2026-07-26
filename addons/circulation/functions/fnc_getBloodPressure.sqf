@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 #pragma hemtt suppress pw3_padded_arg file
 /*
@@ -19,8 +20,8 @@
  */
 params ["_unit"];
 #define BASELINE_MAP 94.7
-#define BASELINE_CO  0.1054056 // L/s
-#define BASELINE_SVR (94.7 / 0.1054056 )  // ≈ 860
+#define BASELINE_CO  0.111668 // L/s
+#define BASELINE_SVR (94.7 / 0.111668)
 private _cardiacOutput = [_unit] call EFUNC(vitals,getCardiacOutput);
 private _strokeVolume  = [_unit] call EFUNC(vitals,getStrokeVolume);
 private _heartRate     = GET_HEART_RATE(_unit);
@@ -32,12 +33,10 @@ if (_unit getVariable [QEGVAR(vitals,fatigueEnabled), false]) then {
     (_aceAnFatigue * 1200)
     + ((2200 - _aceAnReserve) * 0.4);
     _exertionSVR = linearConversion [0, 2600, _totalFatigue, 1, 0.75, true];
-} else {
-    _exertionSVR = linearConversion [60, 130, _heartRate, 1.05, 0.75, true];
 };
 private _resistance        = _unit getVariable [VAR_PERIPH_RES, DEFAULT_PERIPH_RES];
 private _vasoconstrictionArray  = GET_VASOCONSTRICTION(_unit);
-private _tourniquets       = GET_TOURNIQUETS(_unit);
+private _tourniquets       = GET_KAT_TOURNIQUETS(_unit);
 private _icp               = GET_ICP(_unit);
 
 private _occlusionMap = [
@@ -68,7 +67,7 @@ private _occlusionAmount = 0;
 {
     _occlusionAmount = _occlusionAmount + _x;
 } forEach _partOcclusion;
-
+TRACE_3("occlusion", _occlusionMap, _occlusionAmount, _partOcclusion);
 private _prevMAP = GET_MAP(_unit);
 private _vasoconstriction = 0;
 private _weight = 0;
@@ -80,7 +79,7 @@ private _weight = 0;
 if (_weight > 0) then {
     _vasoconstriction = _vasoconstriction / _weight;
 };
-private _vasoFactor = linearConversion [0.2, 1.8, _vasoconstriction, 1.25, 0.75, true];
+private _vasoFactor = linearConversion [0.2, 1.8, _vasoconstriction, 1.2, 0.8, true];
 if (_icp > 25) then {
     private _cpp = _prevMAP - _icp;
     if (_cpp < 60) then {
@@ -92,9 +91,9 @@ private _map =
     * BASELINE_SVR
     * (_resistance / 100)
     * _exertionSVR
-    * _vasoFactor)
-    * (1.045 ^ _occlusionAmount);
-TRACE_4("BP2", _map, _vasoFactor, BASELINE_SVR, _cardiacOutput);
+    * _vasoFactor
+    * (1.035 ^ _occlusionAmount));
+TRACE_6("BP2", _map, _vasoFactor, BASELINE_SVR, _cardiacOutput, _exertionSVR, _occlusionAmount);
 _map = _map * 0.95;
 private _cushing = [_unit] call EFUNC(vitals,getCushings);
 if (_cushing > 0) then {

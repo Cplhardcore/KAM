@@ -33,7 +33,7 @@ variantDelay = 0;
     if (!(_medic getVariable [QGVAR(usingStethoscope), false]) || !(alive _patient) || _BR isEqualTo 0) exitWith {
         [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
-    private _tension = ((_patient getVariable [QGVAR(tensionpneumothorax), [false, false]]) select _side) || (((_patient getVariable [QGVAR(pneumothorax), [0,0]]) select _side) > 0);
+    private _tension = ((_patient getVariable [QGVAR(tensionpneumothorax), [false, false]]) select _side) || (((_patient getVariable [QGVAR(pneumothorax), [0,0]]) select _side) > 1);
     private _hemo = (_patient getVariable [QGVAR(hemopneumothorax), [0, 0]]) select _side;
 
     private _breathDelay = _BR/60;
@@ -42,7 +42,7 @@ variantDelay = 0;
 
     private _type = 3;
 
-    if((_hemo > 0.3) && _random >= 0.5) then {_type = 1};
+    if((_hemo > 0.2) && _random >= 0.5) then {_type = 1};
     if(_tension && _random >= 0.5) then {_type = 2};
 
     if(!(soundPlaying)) then {

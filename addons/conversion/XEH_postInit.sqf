@@ -12,13 +12,15 @@
     private _loadout = [player] call CBA_fnc_getLoadout;
     private _unit = _group createUnit [_type, [0,0,0], [], 0, "NONE"];
     [player, _loadout] call CBA_fnc_setLoadout;
-
+    private _team = assignedTeam _previousUnit;
     _previousUnit setVariable [QEGVAR(vitals,simpleMedical), false, true];
     _previousUnit setVariable [QGVAR(currentlyConverted), true, true];
     _previousUnit setVariable [QACEGVAR(medical_statemachine,AIUnconsciousness), true, true];
-
     selectPlayer _unit; 
-
+    if (!isNull _grp) then {
+        [_unit] joinSilent (group _previousUnit);
+        _unit assignTeam _team;
+    };
     [QGVAR(unitTransfer), [_previousUnit]] call CBA_fnc_serverEvent;
 
     _previousUnit setName _setName;

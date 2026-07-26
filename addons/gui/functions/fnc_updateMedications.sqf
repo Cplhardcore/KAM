@@ -29,7 +29,7 @@ _syringeListBox ctrlAddEventHandler ["LBSelChanged", {
         "kat_norepinephrine", "kat_phenylephrine", "kat_TXA", "kat_morphineIV",
         "kat_adenosineIV", "kat_alteplase", "kat_doxapram", "ACE_salineIV_250", "kat_ondansetron",
         "kat_rocuronium", "kat_succinylcholine", "kat_sugammadex", "kat_salineIV100", "kat_metoprolol", "kat_diazepam",
-        "kat_bicarbonate", "kat_calciumChloride", "kat_calciumGluconate"
+        "kat_bicarbonate", "kat_calciumChloride", "kat_calciumGluconate", "kat_mannitol"
     ];
 
     private _inventory = (items player) + (magazines player);
@@ -58,17 +58,17 @@ _syringeListBox ctrlAddEventHandler ["LBSelChanged", {
     if (_selectedSyringe == "") exitWith {};
 
     private _salineIVWhitelist = [
-        "kat_epinephrineIV", "kat_morphineIV", "kat_etomidate", "kat_doxapram", "kat_norepinephrine", "kat_nitroglycerin"
+        "kat_epinephrineIV", "kat_morphineIV", "kat_etomidate", "kat_doxapram", "kat_norepinephrine", "kat_nitroglycerin", "kat_mannitol"
     ];
     private _salineIV100Whitelist = [
-        "kat_epinephrineIV", "kat_morphineIV", "kat_etomidate", "kat_doxapram", "kat_norepinephrine", "kat_nitroglycerin"
+        "kat_epinephrineIV", "kat_morphineIV", "kat_etomidate", "kat_doxapram", "kat_norepinephrine", "kat_nitroglycerin", "kat_mannitol"
     ];
     private _5mlWhitelist = [
         "kat_amiodarone", "kat_atropine", "kat_EACA", "kat_epinephrineIV",
         "kat_etomidate", "kat_fentanyl", "kat_flumazenil", "kat_ketamine",
         "kat_lidocaine", "kat_lorazepam", "kat_nalbuphine", "kat_phenylephrine", "kat_TXA", "kat_morphineIV",
         "kat_adenosineIV", "kat_atropineIV", "kat_alteplase", "kat_doxapram", "ACE_salineIV_250", "kat_ondansetron",
-        "kat_rocuronium", "kat_succinylcholine", "kat_sugammadex", "kat_metoprolol", "kat_diazepam", "kat_bicarbonate", "kat_calciumChloride", "kat_calciumGluconate"
+        "kat_rocuronium", "kat_succinylcholine", "kat_sugammadex", "kat_metoprolol", "kat_diazepam", "kat_bicarbonate", "kat_calciumChloride", "kat_calciumGluconate", "kat_mannitol"
     ];
     private _10mlWhitelist = [
         "kat_fentanyl", "kat_ketamine",

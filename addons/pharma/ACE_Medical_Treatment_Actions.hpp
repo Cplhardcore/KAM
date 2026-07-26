@@ -1291,6 +1291,22 @@ class ACE_Medical_Treatment_Actions {
         displayName = KATPUSHCSTRING(sugammadex,5ml,20);
         displayNameProgress = KATPUSHINGCSTRING(sugammadex,5ml,20);
     };
+    class syringe_mannitol_5ml_10: syringe_EACA_5ml_10 {
+        displayName = KATPUSHCSTRING(mannitol,5ml,10);
+        displayNameProgress = KATPUSHINGCSTRING(mannitol,5ml,10);
+        medicRequired = QGVAR(medLvl_mannitol);
+        items[] = {"kat_syringe_mannitol_5ml_10"};
+    };
+    class syringe_mannitol_5ml_20: syringe_mannitol_5ml_10 {
+        displayName = KATPUSHCSTRING(mannitol,5ml,20);
+        displayNameProgress = KATPUSHINGCSTRING(mannitol,5ml,20);
+        items[] = {"kat_syringe_mannitol_5ml_20"};
+    };
+    class syringe_mannitol_5ml_30: syringe_mannitol_5ml_10 {
+        displayName = KATPUSHCSTRING(mannitol,5ml,30);
+        displayNameProgress = KATPUSHINGCSTRING(mannitol,5ml,30);
+        items[] = {"kat_syringe_mannitol_5ml_30"};
+    };
     class CheckVein: CheckPulse {
         displayName = CSTRING(CheckVein_DisplayName);
         displayNameProgress = CSTRING(CheckVein_DisplayNameProgress);

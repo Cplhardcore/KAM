@@ -9,6 +9,15 @@
 	true
 ] call CBA_Settings_fnc_init;
 
+[
+    QGVAR(pupilAction_MedLevel),
+    "LIST",
+    [LLSTRING(pupilAction_MedLevel),LLSTRING(pupilAction_MedLevel_DESC)],
+    [CBA_SETTINGS_CAT, ELSTRING(GUI,SubCategory_Basic)],
+    [[0, 1, 2], ["STR_ACE_Medical_Treatment_Anyone", "STR_ACE_Medical_Treatment_Medics", "STR_ACE_Medical_Treatment_Doctors"], 1],
+    true
+] call CBA_fnc_addSetting;
+
 //Amount to reduce ICP by when brain is not actively swelling
 [
 	QGVAR(ICPreduction),
