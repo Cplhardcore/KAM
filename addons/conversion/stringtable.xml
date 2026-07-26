@@ -123,7 +123,7 @@
         </Key>
         <Key ID="STR_KAT_conversion_conversion_REQUIREMENTS_DESC">
             <English>Changes what is required to convert a casualty back into tickets at a medical facility</English>
-            <Spanish>Configura los requisitos para poder convertir una baja y ganar sus tickets en una instalaciñón médica</Spanish>
+            <Spanish>Configura los requisitos para poder convertir una baja y ganar sus tickets en una instalación médica</Spanish>
         </Key>
         <Key ID="STR_KAT_conversion_conversion_requirements_0">
             <English>Nothing</English>
@@ -139,13 +139,15 @@
         </Key>
         <Key ID="STR_KAT_CONVERSION_conversionRespawn_Vehicle">
             <English>RESPAWN HERE</English>
+            <Spanish>REAPARECER AQUÍ</Spanish>
         </Key>
         <Key ID="STR_KAT_CONVERSION_useMedVehicle_DESC">
             <English>Use conversion medical vehicle</English>
+            <Spanish>Usar vehículo médico para conversión</Spanish>
         </Key>
         <Key ID="STR_KAT_CONVERSION_useMedVehicle">
             <English>Use conversion medical vehicle as the respawn point</English>
+            <Spanish>Usar vehículo médico para reaparición</Spanish>
         </Key>
-
     </Package>
 </Project>

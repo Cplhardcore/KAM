@@ -3,72 +3,95 @@
     <Package name="triagecard">
         <Key ID="str_kat_triagecard_cba_name">
             <English>Triage Card</English>
+            <Spanish>Tarjeta de clasificación</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_opentriagecard">
             <English>Open Triage Card</English>
+            <Spanish>Abrir tarjeta de clasificación</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_openingtriagecard">
             <English>Opening Triage Card</English>
+            <Spanish>Abriendo tarjeta de clasificación</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_urgent">
             <English>Urgent</English>
+            <Spanish>Urgente</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_priority">
             <English>Priority</English>
+            <Spanish>Prioridad</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_routine">
             <English>Routine</English>
+            <Spanish>Rutina</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_flipcard">
             <English>Flip Card</English>
+            <Spanish>Girar tarjeta</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_setname">
             <English>Dbl Click to Set Name</English>
+            <Spanish>Doble clic para nombre</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_setSSN">
             <English>Dbl Click to Set SSN</English>
+            <Spanish>Doble clic para Nº SS</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_tqtype_cat">
             <English>CAT</English>
+            <Spanish>CAT</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_tqtype_hasty">
             <English>HSTY</English>
+            <Spanish>HIST</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_jan">
             <English>JAN</English>
+            <Spanish>ENE</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_feb">
             <English>FEB</English>
+            <Spanish>FEB</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_mar">
             <English>MAR</English>
+            <Spanish>MAR</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_apr">
             <English>APR</English>
+            <Spanish>ABR</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_may">
             <English>MAY</English>
+            <Spanish>MAY</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_jun">
             <English>JUN</English>
+            <Spanish>JUN</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_jul">
             <English>JUL</English>
+            <Spanish>JUL</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_aug">
             <English>AUG</English>
+            <Spanish>AGO</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_sep">
             <English>SEP</English>
+            <Spanish>SEP</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_oct">
             <English>OCT</English>
+            <Spanish>OCT</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_nov">
             <English>NOV</English>
+            <Spanish>NOV</Spanish>
         </Key>
         <Key ID="str_kat_triagecard_dec">
             <English>DEC</English>
+            <Spanish>DIC</Spanish>
         </Key>
     </Package>
 </Project>

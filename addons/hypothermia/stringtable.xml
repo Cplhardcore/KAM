@@ -294,6 +294,7 @@
             <Italian>Impostazioni Ipotermia</Italian>
             <German>Hypothermieeinstellungen</German>
             <Japanese>低体温症設定</Japanese>
+            <Spanish>Ajustes de hipotermia</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_Use_Handwarmer">
             <English>Use Hand Warmer</English>
@@ -331,6 +332,7 @@
             <Italian>KAT - ADV Medica: Ipotermia</Italian>
             <German>KAT - ADV Medical: Hypothermie</German>
             <Japanese>KAM - 低体温症 (Hypothermia)</Japanese>
+            <Spanish>KAT - ADV Medical: Hipotermia</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_perform">
             <English>Performing</English>
@@ -388,6 +390,7 @@
             <German>Der Patient fühlt sich heiß an</German>
             <Japanese>患者は熱を帯びている</Japanese>
             <Chinese>患者覺得熱</Chinese>
+            <Spanish>El paciente se siente muy cálido</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_temperature_mild">
             <English>Patient feels mildly cool</English>
@@ -415,49 +418,63 @@
         </Key>
         <Key ID="STR_KAT_Hypothermia_spaceblanket_DescShort">
             <English>Thin mylar blanket, acts as an effective insulator</English>
+            <Spanish>Fina manta de plástico y aluminio que actúa como aislante</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_spaceblanket_displayName">
             <English>(H) Space Blanket</English>
+            <Spanish>(H) Manta isotérmica</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_apply_spaceblanket">
             <English>Wrap w/ Space Blanket</English>
+            <Spanish>Usar manta isotérmica</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_remove_spaceblanket">
             <English>Remove Space Blanket</English>
+            <Spanish>Retirar manta isotérmica</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_thermalBlanket_FallOff">
             <English>Your Thermal Blanket Fell off</English>
+            <Spanish>Tu manta isotérmica se ha caído</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_Check_TemperatureThermo">
             <English>Check Thermometer Temperature</English>
+            <Spanish>Comprobar temperatura con termómetro</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_Check_TemperatureThermo_Progress">
             <English>Checking Temperature</English>
+            <Spanish>Comprobando temperatura</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_Thermometer_DescShort">
             <English>Small, multi use Thermometer</English>
+            <Spanish>Termómetro compacto y multiusos</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_Thermometer_displayName">
             <English>(V) Thermometer</English>
+            <Spanish>(V) Termómetro</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_Thermometer_log">
             <English>%1 has a Temperature of %2°c</English>
+            <Spanish>%1 tiene una temperatura de %2ºC</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_PRESSURE_ENABLE">
             <English>Enable barometric pressure change</English>
             <Japanese>気圧の変化を有効化</Japanese>
+            <Spanish>Activar los cambios de presión barométrica</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_PRESSURE_ENABLE_DESC">
             <English>Enables barometric pressure changes with altitude that affect Vitals such as oxygen calculations.</English>
             <Japanese>酸素の計算などバイタルに影響を与える高度による気圧の変化を有効化します。</Japanese>
+            <Spanish>Activa los cambios de presión con la altura que afectan al cálculo de vitales como el oxígeno</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_PRESSURE_ACE">
             <English>Use ACE barometric pressure</English>
             <Japanese>ACEの大気圧を使用</Japanese>
+            <Spanish>Usar presión barométrica de ACE</Spanish>
         </Key>
         <Key ID="STR_KAT_Hypothermia_PRESSURE_ACE_DESC">
             <English>Use ACE calculation instead of KAM simplified calculation for barometric pressure value. (Requires ACE Weather)</English>
             <Japanese>気圧の値にKAMによる簡易化された計算ではなく、ACEによる計算を使用します。 (ACE Weather 天候システム が必要です)</Japanese>
+            <Spanish>Usar los cálculos de ACE en lugar de los de KAM para una presión simplificada (requiere ACE Weather)</Spanish>
         </Key>
     </Package>
 </Project>

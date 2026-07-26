@@ -124,7 +124,7 @@
             <English>Comminuted Fracture</English>
             <Czech>Rozdrcená zlomenina</Czech>
             <French>Fracture coominutive</French>
-            <Spanish>Fractura Conminuta</Spanish>
+            <Spanish>Fractura conminuta</Spanish>
             <Italian>Frattura pluriframmentaria</Italian>
             <Polish>Złamanie z przemieszczeniem</Polish>
             <Portuguese>Fratura cominutiva</Portuguese>
@@ -141,7 +141,7 @@
             <English>Compound Fracture</English>
             <Czech>Otevřená zlomenina</Czech>
             <French>Fracture ouverte</French>
-            <Spanish>Fractura Compuesta</Spanish>
+            <Spanish>Fractura compuesta</Spanish>
             <Italian>Frattura composta</Italian>
             <Polish>Złamanie złożone</Polish>
             <Portuguese>Fratura composta</Portuguese>
@@ -413,7 +413,7 @@
             <English>Allow NPWT</English>
             <Czech>Povolit NPWT</Czech>
             <French>Autoriser le NPWT</French>
-            <Spanish>Permitir NPWT</Spanish>
+            <Spanish>Permitir vendaje al vacío</Spanish>
             <Italian>Consenti NPWT</Italian>
             <Portuguese>Permitir curativo a vácuo</Portuguese>
             <Russian>Разрешить NPWT</Russian>
@@ -427,7 +427,7 @@
             <English>Locations NPWT</English>
             <Czech>Lokace pro NPWT</Czech>
             <French>Lieux du NPWT</French>
-            <Spanish>Localizaciones para NPWT</Spanish>
+            <Spanish>Localizaciones para vendaje al vacío</Spanish>
             <Italian>Posizioni NPWT</Italian>
             <Portuguese>Locais para curativo a vácuo</Portuguese>
             <Russian>Места NPWT</Russian>
@@ -458,7 +458,7 @@
             <English>Allow Pericardial Tap</English>
             <Czech>Povolit Perikardiální Kohoutek</Czech>
             <French>Niveau médical pour le prélèvement péricardique</French>
-            <Spanish>Permitir realizar Pericardiocentesis</Spanish>
+            <Spanish>Permitir realizar pericardiocentesis</Spanish>
             <Italian>Consenti Puntura Pericardica</Italian>
             <German>Perikardpunktion zulassen</German>
             <Japanese>心膜穿刺術の許可</Japanese>
@@ -470,7 +470,7 @@
             <English>Locations for Pericardial Tap</English>
             <Czech>Lokace pro Perikardiální Kohoutek</Czech>
             <French>Emplacements du prélèvement péricardique</French>
-            <Spanish>Zonas para Pericardiocentesis</Spanish>
+            <Spanish>Zonas para pericardiocentesis</Spanish>
             <Italian>Posizioni per Puntura Pericardica</Italian>
             <German>Standorte für die Perikardpunktion</German>
             <Japanese>心膜穿刺術が使用できる場所</Japanese>
@@ -482,7 +482,7 @@
             <English>Time to perform Pericardial Tap</English>
             <Czech>Čas pro umístění Perikardiálního Kohoutku</Czech>
             <French>Temps nécessaire pour effectuer le prélèvement péricardique</French>
-            <Spanish>Tiempo para realizar Pericardiocentesis</Spanish>
+            <Spanish>Tiempo para realizar pericardiocentesis</Spanish>
             <Italian>Tempo per eseguire la Puntura Pericardica</Italian>
             <German>Dauer einer Perikardpunktion</German>
             <Japanese>心膜穿刺術の所要時間</Japanese>
@@ -494,7 +494,7 @@
             <English>Sets how long it takes to perform a Pericardial Tap</English>
             <Czech>Nastavuje, jak dlouho potrvá umístění Perikardiálního Kohoutku</Czech>
             <French>Défini le temps nécessaire pour effectuer le prélèvement péricardique</French>
-            <Spanish>Establece cuanto tiempo lleva realizar una Pericardiocentesis</Spanish>
+            <Spanish>Establece cuanto tiempo lleva realizar una pericardiocentesis</Spanish>
             <Italian>Imposta quanto tempo ci vuole per eseguire una Puntura Pericardica</Italian>
             <German>Legt fest, wie lange die Durchführung einer Perikardpunktion dauert</German>
             <Japanese>心膜穿刺術にかかる時間を設定します</Japanese>
@@ -658,7 +658,7 @@
             <English>Advance REBOA Unit</English>
             <Czech>Zavést REBOA Jednotka</Czech>
             <French>Avancer l'unité REBOA</French>
-            <Spanish>Avanzar Unidad REBOA</Spanish>
+            <Spanish>Avanzar unidad REBOA</Spanish>
             <Italian>Avanza l'unità REBOA</Italian>
             <Portuguese>Avançar Unidade REBOA</Portuguese>
             <Russian>Продвинуть REBOA</Russian>
@@ -714,7 +714,7 @@
             <English>Remove REBOA Unit</English>
             <Czech>Odstranit REBOA jednotku</Czech>
             <French>Retirer l'unité REBOA</French>
-            <Spanish>Eliminar Unidad REBOA</Spanish>
+            <Spanish>Eliminar unidad REBOA</Spanish>
             <Italian>Rimuovi l'unità REBOA</Italian>
             <Portuguese>Remover Unidade REBOA</Portuguese>
             <Russian>Удалить REBOA</Russian>
@@ -726,15 +726,17 @@
         </Key>
         <Key ID="STR_KAT_Surgery_Reboa_Status">
             <English>REBOA (ZONE 1)</English>
+            <Spanish>REBOA (ZONA 1)</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Reboa_Status2">
             <English>REBOA (ZONE 3)</English>
+            <Spanish>REBOA (ZONA 3)</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Reboa_Use">
             <English>Place REBOA Unit</English>
             <Czech>Umístit REBOA Jednotku</Czech>
             <French>Placé l'unité REBOA</French>
-            <Spanish>Colocar Unidad REBOA</Spanish>
+            <Spanish>Colocar unidad REBOA</Spanish>
             <Italian>Posiziona l'unità REBOA</Italian>
             <Portuguese>Colocar Unidade REBOA</Portuguese>
             <Russian>Установить REBOA</Russian>
@@ -746,6 +748,7 @@
         </Key>
         <Key ID="STR_KAT_Surgery_Reset_Surgery">
             <English>Reset Surgery</English>
+            <Spanish>Cirugía de recolocado</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Retractor_Action">
             <English>Exposing</English>
@@ -802,7 +805,7 @@
             <English>(S) Retractor</English>
             <Czech>Retraktor</Czech>
             <French>Rétracteur</French>
-            <Spanish>Retractor</Spanish>
+            <Spanish>(C) Retractor</Spanish>
             <Italian>Divaricatore</Italian>
             <Polish>Hak chirurgiczny</Polish>
             <Portuguese>Retrator</Portuguese>
@@ -1068,7 +1071,7 @@
             <English>(S) Scalpel</English>
             <Czech>Skalpel</Czech>
             <French>Scalpel</French>
-            <Spanish>Bisturí</Spanish>
+            <Spanish>(C) Bisturí</Spanish>
             <Italian>Bisturi</Italian>
             <Polish>Skalpel</Polish>
             <Portuguese>Bisturi</Portuguese>
@@ -1102,7 +1105,7 @@
             <English>Dressing Vacuum (NPWT) Settings</English>
             <Czech>Laváž (NPWT) Nastavení</Czech>
             <French>Paramètres du pansement sous vide (NPWT)</French>
-            <Spanish>Opciones para Vendado de Vacío (NPWT)</Spanish>
+            <Spanish>Opciones para vendado de vacío (NPWT)</Spanish>
             <Italian>Impostazioni del sistema di aspirazione per medicazioni (NPWT)</Italian>
             <Portuguese>Configurações do curativo a vácuo</Portuguese>
             <Russian>Настройки вакуума для перевязки (NPWT)</Russian>
@@ -1133,7 +1136,7 @@
             <English>Allow Ultrasound</English>
             <Czech>Povolit Ultrazvuk</Czech>
             <French>Niveau médical pour effectuer un ultrason</French>
-            <Spanish>Permitir Ultrasonido</Spanish>
+            <Spanish>Permitir ultrasonidos</Spanish>
             <Italian>Consenti Ecografia</Italian>
             <German>Ultraschall zulassen</German>
             <Japanese>超音波スキャナーの許可</Japanese>
@@ -1145,7 +1148,7 @@
             <English>Locations for Ultrasound</English>
             <Czech>Lokace pro Ultrazvuk</Czech>
             <French>Emplacements de l'ultrason</French>
-            <Spanish>Zonas para Ultrasonido</Spanish>
+            <Spanish>Zonas para ultrasonidos</Spanish>
             <Italian>Posizioni per Ecografia</Italian>
             <German>Standorte für Ultraschall</German>
             <Japanese>超音波スキャナーが使用できる場所</Japanese>
@@ -1157,7 +1160,7 @@
             <English>Time to perform Ultrasound actions</English>
             <Czech>Čas pro provedení akcí Ultrazvuku</Czech>
             <French>Temps pour effectuer les actions de l'ultrason</French>
-            <Spanish>Tiempo para realizar acciones de Ultrasonidos</Spanish>
+            <Spanish>Tiempo para realizar acciones de ultrasonidos</Spanish>
             <Italian>Tempo per eseguire le azioni Ecografia</Italian>
             <German>Dauer von Ultraschallmaßnahmen</German>
             <Japanese>超音波スキャナーの所要時間</Japanese>
@@ -1169,7 +1172,7 @@
             <English>Sets how long it takes to perform an ultrasound exam</English>
             <Czech>Nastavuje, jak dlouho potrvá vyšetření Ultrazvukem</Czech>
             <French>Défini le temps nécessaire pour effectuer une examination à l'ultrason</French>
-            <Spanish>Establece cuánto tiempo lleva realizar un examen de Ultrasonidos</Spanish>
+            <Spanish>Establece cuánto tiempo lleva realizar un examen de ultrasonidos</Spanish>
             <Italian>Imposta quanto tempo ci vuole per eseguire un esame ecografico</Italian>
             <German>Legt fest, wie lange die Durchführung einer Ultraschalluntersuchung dauert</German>
             <Japanese>超音波スキャナーの動作にかかる時間を設定します</Japanese>
@@ -1207,9 +1210,11 @@
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic">
             <English>Left Lung Status: %1</English>
+            <Spanish>Estado del pulmón izquierdo: %1</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_ThorasicRight">
             <English>Right Lung Status: %1</English>
+            <Spanish>Estado del pulmón derecho: %1</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Airway_Compromise">
             <English>Compromised</English>
@@ -1218,6 +1223,7 @@
             <Italian>Compromesso</Italian>
             <German>Kompromittiert</German>
             <Japanese>機能不全</Japanese>
+            <Spanish>Comprometido</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Airway_NoActivity">
             <English>No Activity</English>
@@ -1226,24 +1232,31 @@
             <Italian>Nessuna attività</Italian>
             <German>Keine Aktivität</German>
             <Japanese>活動なし</Japanese>
+            <Spanish>Sin actividad</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_PTX">
             <English>Left Side Pneumothorax</English>
+            <Spanish>Neumotórax izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Right_PTX">
             <English>Right Side Pneumothorax</English>
+            <Spanish>Neumotórax derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Hemo">
             <English>Left Side Hemopneumothorax</English>
+            <Spanish>Hemotórax izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Right_Hemo">
             <English>Right Side Hemopneumothorax</English>
+            <Spanish>Hemotórax derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Tension">
             <English>Left Side Tension Pneumothorax</English>
+            <Spanish>Neumotórax a tensión izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_Right_Tension">
             <English>Right Side Tension Pneumothorax</English>
+            <Spanish>Neumotórax a tensión derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Thorasic_NoActivity">
             <English>No Activity</English>
@@ -1251,6 +1264,7 @@
             <French>Aucune activité</French>
             <Japanese>活動なし</Japanese>
             <Chinese>無活動</Chinese>
+            <Spanish>Sin actividad</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Airway_Normal">
             <English>Normal</English>
@@ -1270,7 +1284,7 @@
             <English>Cardiac Status: %1</English>
             <Czech>Stav srdce: %1</Czech>
             <French>Statut cardiaque :%1</French>
-            <Spanish>Estado Cardíaco: %1</Spanish>
+            <Spanish>Estado cardíaco: %1</Spanish>
             <Italian>Stato cardiaco: %1</Italian>
             <Portuguese>Estado cardíaco: %1</Portuguese>
             <Russian>Сердце: %1</Russian>
@@ -1284,7 +1298,7 @@
             <English>Arrest - Shockable</English>
             <Czech>Zástava - Šokovatelné</Czech>
             <French>Arrêt cardiaque - Choquable</French>
-            <Spanish>Parada - Impactable</Spanish>
+            <Spanish>Parada - Desfibrilable</Spanish>
             <Italian>Arresto - Defibrillabile</Italian>
             <Portuguese>Parada - Chocável</Portuguese>
             <Russian>Остановка - шоковая</Russian>
@@ -1298,7 +1312,7 @@
             <English>Tamponade</English>
             <Czech>Tamponáda</Czech>
             <French>Tamponnade cardiaque</French>
-            <Spanish>Taponado</Spanish>
+            <Spanish>Taponamiento</Spanish>
             <Italian>Tamponamento</Italian>
             <Portuguese>Tamponado</Portuguese>
             <Russian>Тампонада</Russian>
@@ -1312,7 +1326,7 @@
             <English>Arrest - Not Shockable</English>
             <Czech>Zástava - Nešokovatelné</Czech>
             <French>Arrêt cardiaque - Non choquable</French>
-            <Spanish>Parada - No Impactable</Spanish>
+            <Spanish>Parada - No desfibrilable</Spanish>
             <Italian>Arresto - Non defibrillabile</Italian>
             <Portuguese>Parada - Não Chocável</Portuguese>
             <Russian>Остановка - безшоковая</Russian>
@@ -1340,7 +1354,7 @@
             <English>(V) Handheld Ultrasound</English>
             <Czech>Ruční ultrazvuk</Czech>
             <French>Échographie portable</French>
-            <Spanish>Ultrasonidos Portátil</Spanish>
+            <Spanish>Ultrasonidos portátil</Spanish>
             <Italian>Ecografo portatile</Italian>
             <Portuguese>Ultrassom Portátil</Portuguese>
             <Russian>Портативный Ультразвук</Russian>
@@ -1354,7 +1368,7 @@
             <English>Conduct Ultrasound Assessment</English>
             <Czech>Provést Ultrazvukové Vyšetření</Czech>
             <French>Effectuer une évaluation échographique</French>
-            <Spanish>Realizar Comprobación de Ultrasonidos</Spanish>
+            <Spanish>Realizar comprobación de ultrasonidos</Spanish>
             <Italian>Esegui valutazione ecografica</Italian>
             <Portuguese>Realizar verificação com ultrassom</Portuguese>
             <Russian>Провести ультразвуковое обследование</Russian>
@@ -1419,7 +1433,7 @@
             <English>(S) Dressing Vacuum (NPWT)</English>
             <Czech>Vakuový obvaz</Czech>
             <French>Pansement sous vide</French>
-            <Spanish>Vendaje al vacío</Spanish>
+            <Spanish>(C) Vendaje al vacío</Spanish>
             <Italian>Sottovuoto per medicazione</Italian>
             <Polish>NPWT</Polish>
             <Portuguese>Curativo a vácuo</Portuguese>
@@ -1438,6 +1452,7 @@
             <Italian>KAT - ADV Medica: Chirurgia</Italian>
             <German>KAT - ADV Medical: Chirurgie</German>
             <Japanese>KAM - 外科 (Surgery)</Japanese>
+            <Spanish>KAT - ADV Medical: Cirugía</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_fracture_check">
             <English>Check Fracture</English>
@@ -1477,7 +1492,7 @@
             <English>Perform Closed Reduction</English>
             <Czech>Provést uzavřenou repozici</Czech>
             <French>Effectuer une réduction fermée</French>
-            <Spanish>Realizar Reducción Cerrada</Spanish>
+            <Spanish>Realizar reducción cerrada</Spanish>
             <Italian>Esegui la riduzione ortopedica chiusa</Italian>
             <Polish>Przeprowadź zamkniętą redukcję</Polish>
             <Portuguese>Realizar redução fechada</Portuguese>
@@ -1494,7 +1509,7 @@
             <English>Surgical Action Failed</English>
             <Czech>Chirurgická akce selhala</Czech>
             <French>Echec de l'action chirurgicale</French>
-            <Spanish>La acción quirúrgico falló</Spanish>
+            <Spanish>La acción quirúrgica falló</Spanish>
             <Italian>Azione chirurgica fallita</Italian>
             <Polish>Akcja chirurgiczna nie powiodła się</Polish>
             <Portuguese>Falha na ação cirúrgica</Portuguese>
@@ -1528,7 +1543,7 @@
             <English>Perform Open Reduction</English>
             <Czech>Provést otevřenou repozici</Czech>
             <French>Effectuer une réduction ouverte</French>
-            <Spanish>Realizar Reducción Abierta</Spanish>
+            <Spanish>Realizar teducción abierta</Spanish>
             <Italian>Esegui la riduzione a cielo aperto</Italian>
             <Polish>Przeprowadź otwartą redukcję</Polish>
             <Portuguese>Realizar redução aberta</Portuguese>
@@ -1579,7 +1594,7 @@
             <English>[KAM] Surgery Box</English>
             <Czech>[KAM] Chirurgický Box</Czech>
             <French>[KAM] Boîte de chirurgie</French>
-            <Spanish>[KAM] Caja quirurgica</Spanish>
+            <Spanish>[KAM] Caja quirúrgica</Spanish>
             <Italian>[KAT]  Box chirurgico</Italian>
             <Polish>[KAM] Skrzynia chirugiczna</Polish>
             <Portuguese>[KAM] Caixa cirúrgica</Portuguese>
@@ -1611,51 +1626,65 @@
         </Key>
         <Key ID="STR_KAT_Surgery_open_Fracture_kit">
             <English>Open Fracture Kit</English>
+            <Spanish>Abrir kit de fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_open_Fracture_kit_Action">
             <English>Opening Fracture Kit</English>
+            <Spanish>Abriendo kit de fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_fractureKit_Display">
             <English>(S) Kit: Fracture</English>
+            <Spanish>(C) Kit de fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_fractureKit_Desc_Short">
             <English>Contains equipment for Fracture Care</English>
+            <Spanish>Contiene equipamiento para tratar fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_PENALTY_MULT_DISPLAY">
             <English>Time Delay for full repair</English>
+            <Spanish>Retraso hasta tratamiento completo</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_PENALTY_MULT_DESC">
             <English>Multiplier for the delay (120-200 seconds) before a fracture is fully healed after surgery (no limping), 0 to disable</English>
+            <Spanish>Multiplicador para el retraso (120-200s) antes de que una fractura quede completamente curada después de la cirugía (es decir, sin cojera). Para desactivar, 0</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_lungstatus">
             <English>Lung Volume Status: %1</English>
+            <Spanish>Volumen del pulmón: %1</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Lung_Status_0">
             <English>Normal</English>
+            <Spanish>Normal</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Lung_Status_1">
             <English>Slight Volume Loss</English>
+            <Spanish>Ligera pérdida de volumen</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Lung_Status_2">
             <English>Moderate Volume Loss</English>
+            <Spanish>Pérdida moderada de volumen</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Lung_Status_3">
             <English>Significant Volume Loss</English>
+            <Spanish>Pérdida significativa de volumen</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Ultra_Lung_Status_4">
             <English>Catastrophic Volume Loss</English>
+            <Spanish>Pérdida catastrófica de volumen</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_stitchKit_Display">
             <English>(S) Suture Kit</English>
+            <Spanish>(C) Kit de sutura</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_stitchKit_desc_short">
             <English>Contains equipment to close one surgical wound</English>
+            <Spanish>Contiene equipamiento para suturar una herida</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_fracture_close">
             <English>Close Incision</English>
             <Czech>Uzavřít řez</Czech>
             <French>Fermer l'incision</French>
-            <Spanish>Cerrar Incisión</Spanish>
+            <Spanish>Cerrar incisión</Spanish>
             <Italian>Chiudere incisione</Italian>
             <German>Schnitt schließen</German>
             <Japanese>切開口を閉じる</Japanese>
@@ -1665,12 +1694,15 @@
         </Key>
         <Key ID="STR_KAT_Surgery_plated">
             <English>Plated</English>
+            <Spanish>Inmovilizada</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Incision">
             <English>Incision Made</English>
+            <Spanish>Incisión cerrada</Spanish>
         </Key>
         <Key ID="STR_KAT_Surgery_Status_Error">
             <English>If you are reading this, something broke</English>
+            <Spanish>Si estás leyendo esto, ha ocurrido un error en el mod y algo se ha roto</Spanish>
         </Key>
     </Package>
 </Project>

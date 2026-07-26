@@ -581,15 +581,19 @@
         </Key>
         <Key ID="STR_KAT_GUI_Incision">
             <English>Incision</English>
+            <Spanish>Incision</Spanish>
         </Key>
         <Key ID="STR_KAT_GUI_Incision_Large">
             <English>Large Incision</English>
+            <Spanish>Incisión grande</Spanish>
         </Key>
         <Key ID="STR_KAT_GUI_Incision_Medium">
             <English>Medium Incision</English>
+            <Spanish>Incisión media</Spanish>
         </Key>
         <Key ID="STR_KAT_GUI_Incision_Minor">
             <English>Minor Incision</English>
+            <Spanish>Incisión menor</Spanish>
         </Key>
         <Key ID="STR_KAT_GUI_Contusion">
             <English>Bruise</English>
@@ -1105,6 +1109,7 @@
         </Key>
         <Key ID="STR_KAT_GUI_Triage_Status_Expectant">
             <English>Expectant</English>
+            <Spanish>Expectante</Spanish>
         </Key>
     </Package>
 </Project>
