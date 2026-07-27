@@ -11,7 +11,7 @@
             <Korean>IV 설정 허용</Korean>
             <German>Erlaubt die Anwendung von IV</German>
             <Japanese>IVの使用許可</Japanese>
-            <Spanish>Permitir colocar IV</Spanish>
+            <Spanish>Permitir colocar 16g IV</Spanish>
             <Portuguese>Permitir aplicar IV</Portuguese>
             <Finnish>Salli hakeminen IV</Finnish>
             <Russian>Разрешить внутривенное введение</Russian>
@@ -25,7 +25,7 @@
             <Chinese>改变设置静脉注射所需的医疗级别</Chinese>
             <Chinesesimp>改变设置 IV 所需的医疗级别</Chinesesimp>
             <Italian>Cambia il livello medico richiesto per impostare le IV</Italian>
-            <Spanish>Cambia el nivel médico que se requiere para colocar las IVs</Spanish>
+            <Spanish>Cambia el nivel médico que se requiere para colocar las 16g IVs</Spanish>
             <Korean>IV를 설정하는 데 필요한 의료 레벨 수준 변경</Korean>
             <Turkish>IV'leri'ları ayarlamak için gereken tıbbi düzeyi değiştirir</Turkish>
             <Czech>Změní, která zdravotnická úroveň je potřeba k zavedení IV</Czech>
@@ -37,15 +37,19 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Apply14IV">
             <English>Allow applying 14g IV</English>
+            <Spanish>Permitir colocar 14g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Apply14IV_Desc">
             <English>Changes what medical level is required to set 14 gauge IVs</English>
+            <Spanish>Cambia el nivel médico que se requiere para colocar las 14g IVs</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Apply20IV">
             <English>Allow applying 20g IV</English>
+            <Spanish>Permitir colocar 20g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Apply20IV_Desc">
             <English>Changes what medical level is required to set 20 gauge IVs</English>
+            <Spanish>Cambia el nivel médico que se requiere para colocar las 20g IVs</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_ApplyIO">
             <English>Allow applying IO</English>
@@ -150,12 +154,15 @@
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_ApplyIV">
             <English>Time to establish a 16g IV</English>
+            <Spanish>Tiempo para establecer una 16g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_Apply14IV">
             <English>Time to establish a 14g IV</English>
+            <Spanish>Tiempo para establecer una 14g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_Apply20IV">
             <English>Time to establish a 20g IV</English>
+            <Spanish>Tiempo para establecer una 20g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_ApplyIO">
             <English>Time to establish IOs</English>
@@ -226,7 +233,7 @@
             <Polish>Sole trzeźwiące</Polish>
             <French>Sels d'Ammoniac</French>
             <Italian>Carbonato d'ammonio</Italian>
-            <Spanish>Carbonato de amonio</Spanish>
+            <Spanish>(Med) Carbonato de amonio</Spanish>
             <Chinese>碳酸铵</Chinese>
             <Chinesesimp>碳酸铵</Chinesesimp>
             <Korean>탄산암모늄</Korean>
@@ -263,7 +270,7 @@
             <Korean>펜트록스 흡입기</Korean>
             <German>Penthrox-Inhalator</German>
             <Portuguese>Inalador de Penthrox</Portuguese>
-            <Spanish>Inhalador Penthrox</Spanish>
+            <Spanish>(Med) Inhalador penthrox</Spanish>
             <Finnish>Penthrox inhalaattori</Finnish>
             <Russian>Ингалятор Пентрокс</Russian>
             <Dutch>Penthrox inhalator</Dutch>
@@ -277,7 +284,7 @@
             <Korean>펜트록스 흡입기 사용</Korean>
             <German>Verwende Penthrox-Inhalator</German>
             <Portuguese>Usar Inalador de Penthrox</Portuguese>
-            <Spanish>Usar inhalador Penthrox</Spanish>
+            <Spanish>Usar inhalador penthrox</Spanish>
             <Finnish>Käytä penthrox-inhalaattoria</Finnish>
             <Russian>Использовать ингалятор Пентрокс</Russian>
             <Dutch>Gebruik Penthrox inhalator</Dutch>
@@ -315,7 +322,7 @@
             <Polish>Nalokson</Polish>
             <French>Naloxone</French>
             <Italian>Naloxone</Italian>
-            <Spanish>Naloxona</Spanish>
+            <Spanish>(Med) Naloxona</Spanish>
             <Chinese>纳洛酮</Chinese>
             <Chinesesimp>纳洛酮</Chinesesimp>
             <Korean>날록손</Korean>
@@ -333,7 +340,7 @@
             <Polish>Użyj Naloksonu</Polish>
             <French>Administrer Naloxone</French>
             <Italian>Somministrare Naloxone</Italian>
-            <Spanish>Administrar Naloxona</Spanish>
+            <Spanish>Administrar naloxona</Spanish>
             <Chinese>使用纳洛酮</Chinese>
             <Chinesesimp>使用纳洛酮</Chinesesimp>
             <Korean>날록손 복용</Korean>
@@ -371,7 +378,7 @@
             <Chinese>胺碘酮</Chinese>
             <Chinesesimp>胺碘酮</Chinesesimp>
             <Italian>Amiodarone</Italian>
-            <Spanish>Amiodarona</Spanish>
+            <Spanish>(Vial) Amiodarona</Spanish>
             <Korean>아미오다론</Korean>
             <Turkish>Amiodaron</Turkish>
             <Czech>Amiodaron</Czech>
@@ -383,9 +390,11 @@
         </Key>
         <Key ID="STR_KAT_Pharma_Alteplase_DescShort">
             <English>Used to reverse TXA and EACA overdose</English>
+            <Spanish>Se utiliza para revertir sobredosis de ATX y EACA</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Alteplase_Display">
             <English>(Vial) Alteplase</English>
+            <Spanish>(Vial) Alteplasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Amiodarone">
             <English>Push Amiodarone</English>
@@ -497,6 +506,7 @@
         </Key>
         <Key ID="STR_KAT_Pharma_AtropineIV_Display">
             <English>(Vial) Atropine</English>
+            <Spanish>(Vial) Atropina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Atropine">
             <English>Inject Atropine</English>
@@ -518,6 +528,7 @@
         </Key>
         <Key ID="STR_KAT_Pharma_Take_AtropineIV">
             <English>Inject Atropine IV</English>
+            <Spanish>Administrar Atropina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_TXA_DescShort">
             <English>Encourages clot formation</English>
@@ -543,7 +554,7 @@
             <Polish>TXA</Polish>
             <French>Acide Tranexamique</French>
             <Italian>TXA</Italian>
-            <Spanish>ATX</Spanish>
+            <Spanish>(Vial) ATX</Spanish>
             <Chinese>TXA</Chinese>
             <Chinesesimp>血栓素</Chinesesimp>
             <Korean>TXA</Korean>
@@ -599,7 +610,7 @@
             <Chinese>去甲肾上腺素</Chinese>
             <Chinesesimp>去甲肾上腺素</Chinesesimp>
             <Italian>Norepinefrina</Italian>
-            <Spanish>Norepinefrina</Spanish>
+            <Spanish>(Vial) Norepinefrina</Spanish>
             <Korean>노르에피네프린</Korean>
             <Turkish>Norepinefrin</Turkish>
             <Czech>Norepinefrin</Czech>
@@ -617,7 +628,7 @@
             <Chinese>推动去甲肾上腺素</Chinese>
             <Chinesesimp>推注去甲肾上腺素</Chinesesimp>
             <Italian>Iniettare la norepinefrina</Italian>
-            <Spanish>Administrar Norepinefrina</Spanish>
+            <Spanish>Administrar norepinefrina</Spanish>
             <Korean>노르에피네프린 투여</Korean>
             <Turkish>Norepinefrin itin</Turkish>
             <Czech>Aplikovat Norepinefrin</Czech>
@@ -653,7 +664,7 @@
             <Chinese>苯肾上腺素</Chinese>
             <Chinesesimp>苯肾上腺素</Chinesesimp>
             <Italian>Fenilefrina</Italian>
-            <Spanish>Fenilefrina</Spanish>
+            <Spanish>(Vial) Fenilefrina</Spanish>
             <Korean>페닐에프린</Korean>
             <Turkish>Fenilefrin</Turkish>
             <Czech>Fenylefrin</Czech>
@@ -671,7 +682,7 @@
             <Chinese>推注苯肾上腺素</Chinese>
             <Chinesesimp>推注苯肾上腺素</Chinesesimp>
             <Italian>Iniettare la fenilefrina</Italian>
-            <Spanish>Administrar Fenilefrina</Spanish>
+            <Spanish>Administrar fenilefrina IV</Spanish>
             <Korean>페닐에프린 투여</Korean>
             <Turkish>Fenilefrin itin</Turkish>
             <Czech>Aplikovat Fenylefrin</Czech>
@@ -684,7 +695,7 @@
         <Key ID="STR_KAT_Pharma_PhenylAuto_Box_Display">
             <English>(Autoinjector) Phenylephrine</English>
             <Russian>Автоинъектор фенилэфрина</Russian>
-            <Spanish>Autoinyector de Fenilefrina</Spanish>
+            <Spanish>Fenilefrina</Spanish>
             <Japanese>フェニレフリン自動注射器</Japanese>
             <French>Autoinjecteur de Phényléphrine</French>
             <Portuguese>Autoinjetor de Fenilefrina</Portuguese>
@@ -696,6 +707,7 @@
             <Japanese>血圧を上げるために使用される</Japanese>
             <Italian>Usato per aumentare la pressione sanguigna</Italian>
             <French>Utilisé pour augmenter la pression artérielle</French>
+            <Spanish>Se utiliza para aumentar la presión arterial</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Phenyl_Auto">
             <English>Inject Phenylephrine</English>
@@ -705,7 +717,7 @@
             <Chinese>推注苯肾上腺素</Chinese>
             <Chinesesimp>推注苯肾上腺素</Chinesesimp>
             <Italian>Iniettare la fenilefrina</Italian>
-            <Spanish>Administrar Fenilefrina</Spanish>
+            <Spanish>Inyectar fenilefrina</Spanish>
             <Korean>페닐에프린 투여</Korean>
             <Turkish>Fenilefrin itin</Turkish>
             <Czech>Aplikovat Fenylefrin</Czech>
@@ -740,7 +752,7 @@
             <Chinese>硝化甘油</Chinese>
             <Chinesesimp>硝化甘油</Chinesesimp>
             <Italian>Nitroglicerina</Italian>
-            <Spanish>Nitroglicerina</Spanish>
+            <Spanish>(Vial) Nitroglicerina</Spanish>
             <Korean>니트로글리세린</Korean>
             <Turkish>Nitrogliserin</Turkish>
             <Czech>Nitroglycerin</Czech>
@@ -758,7 +770,7 @@
             <Chinese>推动硝化甘油</Chinese>
             <Chinesesimp>推注硝化甘油</Chinesesimp>
             <Italian>Iniettare la nitroglicerina</Italian>
-            <Spanish>Administrar Nitroglicerina</Spanish>
+            <Spanish>Administrar nitroglicerina IV</Spanish>
             <Korean>니트로글리세린 투여</Korean>
             <Turkish>Nitrogliserin itin</Turkish>
             <Czech>Aplikovat Nitroglycerin</Czech>
@@ -776,7 +788,7 @@
             <Chinese>调整病人的方向</Chinese>
             <Chinesesimp>刺激患者</Chinesesimp>
             <Italian>Stimolare il paziente</Italian>
-            <Spanish>Estimular al paciente</Spanish>
+            <Spanish>Estimular paciente</Spanish>
             <Korean>환자 깨우기</Korean>
             <Czech>Reorientovat pacienta</Czech>
             <Japanese>患者を刺激する</Japanese>
@@ -807,7 +819,7 @@
             <English>You hit the cheek, but patient still asleep!</English>
             <German>Du hast die Wange getroffen, aber Patient schläft noch!</German>
             <Polish>Uderzyłeś w policzek, ale pacjent nadal śpi!</Polish>
-            <Spanish>¡Cacheteaste el paciente pero sigue dormido!</Spanish>
+            <Spanish>¡Golpease al paciente, pero sigue inconsciente!</Spanish>
             <Chinese>你打你的脸颊，但病人还在睡觉！</Chinese>
             <Chinesesimp>患者仍未苏醒</Chinesesimp>
             <Czech>Udeřil jsi do tváře, ale pacient stále spí!</Czech>
@@ -931,27 +943,33 @@
         </Key>
         <Key ID="STR_KAT_Pharma_IV_16_Display">
             <English>(P) 16g IV</English>
+            <Spanish>(P) 16g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_14_Display">
             <English>(P) 14g IV</English>
+            <Spanish>(P) 14g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_20_Display">
             <English>(P) 20g IV</English>
+            <Spanish>(P) 20g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_16_DisplayGUI">
             <English>16g IV</English>
+            <Spanish>16g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_14_DisplayGUI">
             <English>14g IV</English>
+            <Spanish>14g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_20_DisplayGUI">
             <English>20g IV</English>
+            <Spanish>20g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IV_DescShort">
             <English>Intravenous Needle</English>
             <German>Intravenöse Kanüle</German>
             <Polish>Kaniula dożylna (wenflon)</Polish>
-            <Spanish>Catéter Intravenoso</Spanish>
+            <Spanish>Catéter intravenoso</Spanish>
             <Chinese>用於舒緩疼痛</Chinese>
             <Chinesesimp>静脉注射(IV)针头</Chinesesimp>
             <Czech>Nitrožilní jehla</Czech>
@@ -967,15 +985,17 @@
         </Key>
         <Key ID="STR_KAT_Pharma_IO_45_Display">
             <English>(P) FAST IO</English>
+            <Spanish>(P) FAST IO</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IO_45_DisplayGUI">
             <English>FAST IO</English>
+            <Spanish>FAST IO</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IO_DescShort">
             <English>Intraosseous Needle</English>
             <German>Intraossäre Kanüle</German>
             <Polish>Igła doszpikowa</Polish>
-            <Spanish>Catéter Intraóseo</Spanish>
+            <Spanish>Catéter intraóseo</Spanish>
             <Chinese>用於舒緩疼痛</Chinese>
             <Chinesesimp>骨髓注射(IO)针头</Chinesesimp>
             <Czech>Intraoseální jehla</Czech>
@@ -1120,7 +1140,7 @@
             <German>Flüssigkeiten Erfordert eingefügtes IV/IO</German>
             <Japanese>輸液にIV/IO刺入を要求する</Japanese>
             <Russian>Требовать установки IV/IO</Russian>
-            <Spanish>Los Fluidos requieren que se inserte la IV/IO</Spanish>
+            <Spanish>Los fluidos requieren que se inserte una IV/IO</Spanish>
             <French>Les fluides nécessitent une IV/IO insérée</French>
             <Portuguese>Fluido necessita de inserção IV/IO</Portuguese>
             <Dutch>Vloeistoffen vereisen een aangelegde IV/IO</Dutch>
@@ -1203,12 +1223,14 @@
             <Japanese>IV/IO流量操作を有効化</Japanese>
             <Italian>Abilita il controllo del flusso IV/IO</Italian>
             <French>Activer les opérations de flux IV/IO</French>
+            <Spanish>Habilitar control de flujo de IV/IO</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_IV_FLOW_CONTROL_DESC">
             <English>Enables the IV/IO flow control menu which gives the medic fine control over the volume running through the active line</English>
             <Japanese>IV/IO流量操作メニューを有効にし、輸液がラインを流れる液量を衛生兵が細かく制御できるようにします。</Japanese>
             <Italian>Abilita il menu di controllo del flusso IV/IO che consente al medico di controllare con precisione il volume che scorre attraverso la linea attiva.</Italian>
             <French>Active le menu de contrôle du débit IV/IO qui permet à l'infirmier de contrôler finement le volume circulant dans la ligne active.</French>
+            <Spanish>Activa el menú de control de flujo IV/IO, que permite al personal sanitario controlar con precisión el volumen que circula por la vía activa.</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_Reorientation_Slap">
             <English>Reorientation slap sound</English>
@@ -1404,7 +1426,7 @@
             <Korean>에토미데이트</Korean>
             <German>Etomidat</German>
             <Japanese>エトミデート</Japanese>
-            <Spanish>Etomidato</Spanish>
+            <Spanish>(Vial) Etomidato</Spanish>
             <Portuguese>Etomidato</Portuguese>
             <Finnish>Etomidaatti</Finnish>
             <Russian>Этомидат</Russian>
@@ -1420,7 +1442,7 @@
             <Korean>일반적인 마취제</Korean>
             <German>Allgemeines Anästhetikum</German>
             <Japanese>全身麻酔</Japanese>
-            <Spanish>Anestesia general</Spanish>
+            <Spanish>Anestético general</Spanish>
             <Portuguese>Anestésico Geral</Portuguese>
             <Finnish>Yleinen anestesia</Finnish>
             <Russian>Общий анестетик</Russian>
@@ -1468,7 +1490,7 @@
             <Korean>로라제팜</Korean>
             <German>Lorazepam</German>
             <Japanese>ロラゼパム</Japanese>
-            <Spanish>Lorazepam</Spanish>
+            <Spanish>(Vial) Lorazepam</Spanish>
             <Portuguese>Lorazepam</Portuguese>
             <Finnish>Loratsepaami</Finnish>
             <Russian>Лоразепам</Russian>
@@ -1532,7 +1554,7 @@
             <Korean>플루마제닐</Korean>
             <German>Flumazenil</German>
             <Japanese>フルマゼニル</Japanese>
-            <Spanish>Flumazenil</Spanish>
+            <Spanish>(Vial) Flumazenil</Spanish>
             <Portuguese>Flumazenil</Portuguese>
             <Finnish>Flumatseniili</Finnish>
             <Russian>Флумазенил</Russian>
@@ -1612,7 +1634,7 @@
             <Korean>케타민</Korean>
             <German>Ketamin</German>
             <Japanese>ケタミン</Japanese>
-            <Spanish>Ketamina</Spanish>
+            <Spanish>(Vial) Ketamina</Spanish>
             <Portuguese>Cetamina</Portuguese>
             <Finnish>Ketamiini</Finnish>
             <Russian>Кетамин</Russian>
@@ -1652,7 +1674,7 @@
             <Korean>펜타닐</Korean>
             <German>Fentanyl</German>
             <Japanese>フェンタニル</Japanese>
-            <Spanish>Fentanilo</Spanish>
+            <Spanish>(Vial) Fentanilo</Spanish>
             <Portuguese>Fentanil</Portuguese>
             <Finnish>fentanyyli</Finnish>
             <Russian>Фентанил</Russian>
@@ -1693,7 +1715,7 @@
             <Korean>날부핀</Korean>
             <German>Nalbuphin</German>
             <Japanese>ナルブフィン</Japanese>
-            <Spanish>Nalbufina</Spanish>
+            <Spanish>(Vial) Nalbufina</Spanish>
             <Portuguese>Nalbufina</Portuguese>
             <Finnish>Nalbufiini</Finnish>
             <Russian>Налбуфин</Russian>
@@ -1868,9 +1890,11 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_TXAIM">
             <English>Medical level required for IM TXA</English>
+            <Spanish>Nivel médico requerido para el ATX IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_TXAIM">
             <English>Treatment time for IM TXA</English>
+            <Spanish>Tiempo de uso del ATX IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Norepinephrine">
             <English>Medical level required for Norepinephrine</English>
@@ -2002,9 +2026,11 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Alteplase">
             <English>Medical level required for Alteplase</English>
+            <Spanish>Nivel médico requerido para la alteplasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_Alteplase">
             <English>Treatment time for Alteplase</English>
+            <Spanish>Tiempo para uso de la alteplasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Lidocaine">
             <English>Medical level required for Lidocaine</English>
@@ -2040,9 +2066,11 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_NerveBlock">
             <English>Medical level required for Nerve Block</English>
+            <Spanish>Nivel médico requerido para el bloqueo nervioso</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_NerveBlock">
             <English>Treatment time for Nerve Block</English>
+            <Spanish>Tiempo para uso del bloqueo nervioso</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Atropine">
             <English>Medical level required for Atropine</English>
@@ -2078,9 +2106,11 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_AtropineIV">
             <English>Medical level required for Atropine IV</English>
+            <Spanish>Nivel médico requerido para la atropina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_AtropineIV">
             <English>Treatment time for Atropine IV</English>
+            <Spanish>Tiempo para uso de la atropina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_EACA">
             <English>Medical level required for EACA</English>
@@ -2244,9 +2274,11 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_KetamineIM">
             <English>Medical level required for IM Ketamine</English>
+            <Spanish>Nivel médico requerido para la ketamina IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_KetamineIM">
             <English>Treatment time for IM Ketamine</English>
+            <Spanish>Tiempo para uso de la ketamina IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Fentanyl">
             <English>Medical level required for Fentanyl</English>
@@ -2258,7 +2290,7 @@
             <Korean>펜타닐을 사용하는 데 필요한 의료 레벨 수준 변경</Korean>
             <German>Benötigter medizinischer Grad, für die Gabe von Fentanyl</German>
             <Japanese>フェンタニルの許可</Japanese>
-            <Spanish>Nivel médico requerido para el Fentalino</Spanish>
+            <Spanish>Nivel médico requerido para el fentanilo</Spanish>
             <Portuguese>Nível médico exigido para uso de Fentanil</Portuguese>
             <Finnish>Fentanyylille vaadittu lääketieteellinen koulutustaso</Finnish>
             <Russian>Медицинский уровень, необходимый для использования Фентанила</Russian>
@@ -2274,7 +2306,7 @@
             <Korean>펜타닐로 치료하는 시간</Korean>
             <German>Anwendungszeit für Fentanyl</German>
             <Japanese>フェンタニルの所要時間</Japanese>
-            <Spanish>Tiempo para uso del Fentalino</Spanish>
+            <Spanish>Tiempo para uso del fentanilo</Spanish>
             <Portuguese>Tempo de uso de Fentanil</Portuguese>
             <Finnish>Fentanyylin hoitoaika</Finnish>
             <Russian>Время обработки Фентанилом</Russian>
@@ -2282,9 +2314,11 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_FentanylIM">
             <English>Medical level required for IM Fentanyl</English>
+            <Spanish>Nivel médico requerido para el fentanilo IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_FentanylIM">
             <English>Treatment time for IM Fentanyl</English>
+            <Spanish>Tiempo para uso del fentanilo IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Nalbuphine">
             <English>Medical level required for Nalbuphine</English>
@@ -2320,9 +2354,11 @@
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_NalbuphineIM">
             <English>Medical level required for IM Nalbuphine</English>
+            <Spanish>Nivel médico requerido para la nalbufina IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_NalbuphineIM">
             <English>Treatment time for IM Nalbuphine</English>
+            <Spanish>Tiempo para uso de la nalbufina IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_medLvl_Penthrox">
             <English>Medical level required for Penthrox Inhaler</English>
@@ -2388,6 +2424,7 @@
             <Italian>Impostazioni CWMP</Italian>
             <German>CWMP Einstellungen</German>
             <Japanese>戦闘傷病治療薬(CWMP)設定</Japanese>
+            <Spanish>Ajustes del vendaje de vacío</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_ApplyIO">
             <English>IO Settings</English>
@@ -2565,6 +2602,7 @@
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Alteplase">
             <English>Alteplase Settings</English>
+            <Spanish>Parámetros de la alteplasa</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Lidocaine">
             <English>Lidocaine Settings</English>
@@ -2640,7 +2678,7 @@
             <Korean>펜타닐 설정</Korean>
             <German>Fentanyl Einstellungen</German>
             <Japanese>フェンタニル設定</Japanese>
-            <Spanish>Parámetros del Fentalino</Spanish>
+            <Spanish>Parámetros del fentanilo</Spanish>
             <Portuguese>Configurações de Fentanil</Portuguese>
             <Finnish>Fentanyyliasetukset</Finnish>
             <Russian>Настройки Фентанила</Russian>
@@ -2773,9 +2811,11 @@
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_Kidney_Action">
             <English>Enable Ph/ Calcium effects</English>
+            <Spanish>Activar efectos del pH/calcio</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_Kidney_Action_DESC">
             <English>Enables Ph and Calcium loops, requiring management of saline and blood products</English>
+            <Spanish>Activa los bucles de pH y calcio, lo que requiere la gestión de soluciones salinas y hemoderivados</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_Block_Chance">
             <English>IV Block Chance</English>
@@ -2786,7 +2826,7 @@
             <German>Chance des IVs zu blockieren</German>
             <Chinesesimp>IV 阻塞几率</Chinesesimp>
             <Japanese>IV閉塞の確率</Japanese>
-            <Spanish>Probabilidad del bloquéo de IV</Spanish>
+            <Spanish>Probabilidad del bloqueo de IV</Spanish>
             <Polish>Szansa na zablokowanie IV</Polish>
             <Portuguese>Chance de Bloqueio IV</Portuguese>
             <Finnish>Mahdollisuus estää IV:t</Finnish>
@@ -2802,7 +2842,7 @@
             <German>Möglichkeit einer Blockade der IV durch Medikamentengabe ohne Kochsalzspülung</German>
             <Chinesesimp>由于没有盐水协助的药物注射导致 IV 阻塞的机会</Chinesesimp>
             <Japanese>生理食塩水を流さずに薬を注入することによるIV閉塞の可能性</Japanese>
-            <Spanish>Probabilidad de que una IV se bloquée por administrar fármacos sin enjuagar con salino</Spanish>
+            <Spanish>Probabilidad de que una IV se bloquee por administrar fármacos sin enjuagar con salino</Spanish>
             <Polish>Szansa na zablokowanie IV z powodu podawania leków bez przepłukiwania roztworem soli fizjologicznej</Polish>
             <Portuguese>Probabilidade de bloqueio intravenoso devido a injeções de medicamentos sem solução salina</Portuguese>
             <Finnish>IV-tukoksen mahdollisuus lääkityksen painamisesta ilman suolaliuosta</Finnish>
@@ -2818,7 +2858,7 @@
             <German>Maximaler Flüssigkeitsbeutelstapel</German>
             <Chinesesimp>注射液堆叠上限</Chinesesimp>
             <Japanese>輸液袋の最大スタック数</Japanese>
-            <Spanish>Máxima cantidad de bolsas de fluidos simultaneas</Spanish>
+            <Spanish>Máxima cantidad de bolsas de fluidos simultáneas</Spanish>
             <Polish>Maksymalna ilość worków z płynami dla jednego pajenta</Polish>
             <Portuguese>Pilha Máxima de Sacos de Fluidos</Portuguese>
             <Finnish>Suurin nestepussipino</Finnish>
@@ -3069,6 +3109,7 @@
             <French>KAT - ADV Medical : Pharmacie</French>
             <German>KAT - ADV Medical: Medikamente</German>
             <Italian>KAT - ADV Medica: Farmaceutica</Italian>
+            <Spanish>KAT - ADV Medical: Farmacéutica</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Pervitin_chrom3">
             <English>Your head starts to clear up and you stop twitching...</English>
@@ -3094,7 +3135,7 @@
             <Italian>Bottiglia di Caffeina</Italian>
             <Portuguese>Garrafa de Cafeína</Portuguese>
             <Polish>Kofeina</Polish>
-            <Spanish>Bote de cafeina</Spanish>
+            <Spanish>(Med) Bote de cafeína</Spanish>
             <Czech>Kofeinová lahev</Czech>
             <Finnish>Kofeiinipullo</Finnish>
             <Russian>Бутылка с Кофеином</Russian>
@@ -3119,7 +3160,7 @@
             <Italian>Assumi Caffeina</Italian>
             <Portuguese>Administrar Cafeína</Portuguese>
             <Polish>Użyj kofeinę</Polish>
-            <Spanish>Tomar cafeina</Spanish>
+            <Spanish>Tomar cafeína</Spanish>
             <Czech>Dát si Kofein</Czech>
             <Finnish>Ota kofeiinia</Finnish>
             <Russian>Выпить Кофеин</Russian>
@@ -3151,7 +3192,7 @@
             <German>Katheter untersuchen</German>
             <Chinesesimp>检查导管</Chinesesimp>
             <Japanese>カテーテルを検査する</Japanese>
-            <Spanish>Inspeccionar Catéter</Spanish>
+            <Spanish>Inspeccionar catéter</Spanish>
             <Portuguese>Inspecionar cateter</Portuguese>
             <Finnish>Tarkista katetri</Finnish>
             <Russian>Осмотрите катетер</Russian>
@@ -3198,7 +3239,7 @@
             <German>Ob die IV an der zu stark beschädigten Gliedmaße angewendet werden kann oder nicht. In der Standardeinstellung ist dies deaktiviert.</German>
             <Chinesesimp>是否可以将 IV 应用于受损的肢体。 默认情况下，这是禁用的。</Chinesesimp>
             <Japanese>あまりにも損傷した手足に点滴を適用できるかどうか。 デフォルトでは無効。</Japanese>
-            <Spanish>Si se puede o no aplicar una IV en extramidades demasiado dañadas. En predeterminado, esto esta desactivado.</Spanish>
+            <Spanish>Si se puede o no aplicar una IV en extremidades demasiado dañadas. En predeterminado, esto está desactivado.</Spanish>
             <Polish>Czy można zastosować IV na zbyt uszkodzoną kończynę. Domyślnie jest to wyłączone.</Polish>
             <Portuguese>Se você pode ou não aplicar o IV ao membro muito danificado. Por padrão, isto é desativado.</Portuguese>
             <Finnish>Voitko laittaa IV vaurioituneeseen raajaan vai et. Tämä on oletuksena pois käytöstä.</Finnish>
@@ -3215,7 +3256,7 @@
             <French>Effectuer une dialyse</French>
             <Korean>투석 수행</Korean>
             <Portuguese>Realizar Diálise</Portuguese>
-            <Spanish>Efectuar dialisis</Spanish>
+            <Spanish>Efectuar diálisis</Spanish>
             <Finnish>Suorita dialyysi</Finnish>
             <Russian>Провести Диализ</Russian>
             <Dutch>Voer dialyse uit</Dutch>
@@ -3245,7 +3286,7 @@
             <Korean>%1 이(가) 투석을 수행했습니다</Korean>
             <German>%1 hat eine Dialyse durchgeführt</German>
             <Japanese>%1 が透析を行った</Japanese>
-            <Spanish>%1 realizó una dialisis</Spanish>
+            <Spanish>%1 realizó una diálisis</Spanish>
             <Portuguese>%1 realizou diálise</Portuguese>
             <Finnish>%1 suoritettu dialyysi</Finnish>
             <Russian>%1 провел диализ</Russian>
@@ -3253,12 +3294,15 @@
         </Key>
         <Key ID="STR_KAT_Pharma_dialysis_Start">
             <English>%1 Started dialysis</English>
+            <Spanish>%1 comenzó diálisis</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_dialysis_Finished">
             <English>Finished dialysis</English>
+            <Spanish>Diálisis completada</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_dialysis_Failed">
             <English>Dialysis Failed</English>
+            <Spanish>Diálisis fallida</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_pharmaSupplyCrate_displayName">
             <English>[KAM] Medicines crate</English>
@@ -3363,6 +3407,7 @@
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_bandageCycleTime_TXA_DESC">
             <English>The time it takes between wounds for TXA to start to close a wound</English>
+            <Spanish>Pausa entre cierre de heridas del ATX</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Coagulation">
             <English>Coagulation Settings</English>
@@ -3688,7 +3733,7 @@
             <Polish>Tors</Polish>
             <Portuguese>Torso</Portuguese>
             <Czech>Trup</Czech>
-            <Spanish>Torso</Spanish>
+            <Spanish>Vientre</Spanish>
             <Italian>Torso</Italian>
             <Japanese>胴体</Japanese>
             <Korean>몸통</Korean>
@@ -3701,7 +3746,7 @@
             <English>Left Arm</English>
             <German>Linker Arm</German>
             <Russian>Левая рука</Russian>
-            <Spanish>Brazo Izquierdo</Spanish>
+            <Spanish>Antebrazo izquierdo</Spanish>
             <French>Bras gauche</French>
             <Polish>Lewa ręka</Polish>
             <Portuguese>Braço Esquerdo</Portuguese>
@@ -3718,7 +3763,7 @@
             <English>Right Arm</English>
             <German>Rechter Arm</German>
             <Russian>Правая рука</Russian>
-            <Spanish>Brazo Derecho</Spanish>
+            <Spanish>Antebrazo derecho</Spanish>
             <French>Bras droit</French>
             <Polish>Prawa ręka</Polish>
             <Portuguese>Braço Direito</Portuguese>
@@ -3735,7 +3780,7 @@
             <English>Left Leg</English>
             <German>Linkes Bein</German>
             <Russian>Левая нога</Russian>
-            <Spanish>Pierna Izquierda</Spanish>
+            <Spanish>Pie izquierdo</Spanish>
             <French>Jambe gauche</French>
             <Polish>Lewa noga</Polish>
             <Portuguese>Perna Esquerda</Portuguese>
@@ -3752,7 +3797,7 @@
             <English>Right Leg</English>
             <German>Rechtes Bein</German>
             <Russian>Правая нога</Russian>
-            <Spanish>Pierna Derecha</Spanish>
+            <Spanish>Pie derecho</Spanish>
             <French>Jambe droite</French>
             <Polish>Prawa noga</Polish>
             <Portuguese>Perna Direita</Portuguese>
@@ -3767,35 +3812,44 @@
         </Key>
         <Key ID="STR_KAT_Pharma_Chest">
             <English>Chest</English>
+            <Spanish>Pecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Neck">
             <English>Neck</English>
+            <Spanish>Cuello</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_UpperLeftArm">
             <English>Upper Left Arm</English>
+            <Spanish>Brazo izquierdo</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_UpperRightArm">
             <English>Upper Right Arm</English>
+            <Spanish>Brazo derecho</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_UpperLeftLeg">
             <English>Upper Left Leg</English>
+            <Spanish>Pierna izquierda</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_UpperRightLeg">
             <English>Upper Right Leg</English>
+            <Spanish>Pierna derecha</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Coag_Sense_Display">
             <English>(P) Portable Blood Tester</English>
+            <Spanish>(P) Analizador de sangre portátil</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Coag_Sense_Display_DESC">
             <English>The Portable Blood Tester is a blood monitoring system that can both measure the efficiency of your blood clotting and your ABG</English>
+            <Spanish>El analizador de sangre portátil es un sistema de control sanguíneo que permite medir tanto la eficacia de la coagulación de la sangre como los gases en sangre arterial (GSA).</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Coag_Sense_Log">
             <English>Blood Tester concludes: Patient has an INR of %1</English>
+            <Spanish>El analizador de sangre concluye que el paciente tiene un INR de %1.</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckCoag_DisplayName">
             <English>Take Blood Sample</English>
             <Japanese>PT/INRを測定する</Japanese>
-            <Spanish>Medir PT/INR</Spanish>
+            <Spanish>Toma muerstra de sangre</Spanish>
             <Portuguese>Medir PT/INR</Portuguese>
             <Dutch>Meet PT-INR</Dutch>
             <French>Mesurer le PT/INR</French>
@@ -3804,7 +3858,7 @@
         <Key ID="STR_KAT_Pharma_CheckCoag_DisplayNameProgress">
             <English>Taking Blood Sample,</English>
             <Japanese>血液サンプルを取得、</Japanese>
-            <Spanish>Tomar muestra de sangre,</Spanish>
+            <Spanish>Tomando muestra de sangre</Spanish>
             <Portuguese>Coletando amostra sanguínea,</Portuguese>
             <Dutch>Bloedstaal wordt genomen</Dutch>
             <French>Prélè¨vement de sang,</French>
@@ -3813,7 +3867,7 @@
         <Key ID="STR_KAT_Pharma_CheckCoag_slightly_lowINR">
             <English>Slightly Below Normal INR</English>
             <Japanese>正常INRより少し低い</Japanese>
-            <Spanish>ligeramente por debajo del INR normal</Spanish>
+            <Spanish>Ligeramente por debajo del INR normal</Spanish>
             <Portuguese>INR ligeiramente abaixo do normal</Portuguese>
             <Dutch>Lichtelijk onder normaal INR</Dutch>
             <French>légèrement inférieur à l'INR normal</French>
@@ -3825,6 +3879,7 @@
             <Italian>Tempo di trattamento per il CWMP</Italian>
             <German>Anwendungszeit für CWMP</German>
             <Japanese>戦闘傷病治療薬(CWMP)の所要時間</Japanese>
+            <Spanish>Tiempo de uso del vendaje de vacío</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_Caffeine">
             <English>Treatment time for Caffeine</English>
@@ -3832,6 +3887,7 @@
             <Italian>Tempo di trattamento per la Caffeina</Italian>
             <German>Anwendungszeit für Koffein</German>
             <Japanese>カフェインの所要時間</Japanese>
+            <Spanish>Tiempo de uso de la cafeína</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_CWMP">
             <English>Allow using CWMP</English>
@@ -3839,6 +3895,7 @@
             <Italian>Consenti l'uso dei CWMP</Italian>
             <German>Erlaube die Verwendung von CWMP</German>
             <Japanese>戦闘傷病治療薬(CWMP)の許可</Japanese>
+            <Spanish>Permitir vendaje de vacío</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Caffeine">
             <English>Allow using Caffeine</English>
@@ -3846,6 +3903,7 @@
             <Italian>Consenti l'uso della caffeina</Italian>
             <German>Erlaube die Verwendung von Koffein</German>
             <Japanese>カフェインの許可</Japanese>
+            <Spanish>Permitir cafeína</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckCoag_slightly_aboveINR">
             <English>Sligtly Above normal INR</English>
@@ -3885,15 +3943,19 @@
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Coag_Sense">
             <English>Blood Tester Settings</English>
+            <Spanish>Ajustes del analizador de sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_CheckCoag_MedLevel">
             <English>Medical level required for Blood Tester</English>
+            <Spanish>Nivel médico requerido para el analizador de sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_CheckCoag_Location">
             <English>Locations Blood Tester</English>
+            <Spanish>Ubicaciones del analizador de sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_CheckCoag_treatmentTime">
             <English>Treatment time for taking a blood sample</English>
+            <Spanish>Tiempo de tratamiento para la toma de una muestra de sangre</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_allowStackScript_EACA">
             <English>Allow Stacking</English>
@@ -3984,7 +4046,7 @@
         <Key ID="STR_KAT_Pharma_EpinephrineIV_displayName">
             <English>(Vial) Epinephrine</English>
             <Japanese>アドレナリン静脈注射 (IV)</Japanese>
-            <Spanish>Epinefrina IV</Spanish>
+            <Spanish>(Vial) Epinefrina</Spanish>
             <Dutch>IV Adrenaline</Dutch>
             <French>Epinéphrine IV</French>
             <Italian>Epinefrina IV</Italian>
@@ -3999,220 +4061,293 @@
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_5_Display">
             <English>(P) 5ml Syringe</English>
+            <Spanish>(P) Jeringa 5ml</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_5_DescShort">
             <English>For IV medications</English>
+            <Spanish>Para medicamentos intravenosos</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_10_Display">
             <English>(P) 10ml Syringe</English>
+            <Spanish>(P) Jeringa 10ml</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_10_DescShort">
             <English>For IM medications</English>
+            <Spanish>Para medicamentos intramusculares</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Apply_IV_14">
             <English>Establish 14g IV</English>
+            <Spanish>Establecer 14g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Apply_IV_20">
             <English>Establish 20g IV</English>
+            <Spanish>Establecer 20g IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_PrepSyringe">
             <English>Syringe Prep level</English>
+            <Spanish>Nivel de preparación de jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_PrepSyringe_Desc">
             <English>Medical level required to prep syringes</English>
+            <Spanish>Nivel médico necesario para preparar jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_prepTime_PrepSyringe">
             <English>Syringe Prep Time</English>
+            <Spanish>Tiempo de preparación de jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_prepTime_PrepSyringe_Desc">
             <English>Time required to prep syringes</English>
+            <Spanish>Tiempo necesario para preparar jeringas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_advancedMedicationSystem">
             <English>Enable Advanced Medication System</English>
+            <Spanish>Habilitar el sistema avanzado de medicación</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_advancedMedicationSystem_Desc">
             <English>Enables Advanced Medication System and disables Basic System
             REQUIRED: Medications Require IV/IO, Fluid Require inserted IV/IO</English>
+            <Spanish>Habilita el sistema avanzado de medicación y deshabilita el sistema básico
+            REQUISITO: Los medicamentos requieren vía intravenosa o intraósea; los fluidos requieren una vía intravenosa o intraósea insertada</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Morphine">
             <English>KAT Morphine Settings</English>
+            <Spanish>Ajustes de morfina KAT</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_MorphineIV_DescShort">
             <English>Morphine IV</English>
+            <Spanish>Morfina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_MorphineIV_displayName">
             <English>(Vial) Morphine</English>
+            <Spanish>(Vial) Morfina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_MorphineIV">
             <English>Medical level required for Morphine IV</English>
+            <Spanish>Nivel médico requerido para la morfina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_MorphineIV">
             <English>Treatment time for Morphine IV</English>
+            <Spanish>Tiempo de tratamiento de la morfina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_MorphineIM">
             <English>Medical level required for IM Morphine</English>
+            <Spanish>Nivel médico requerido para la morfina IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_MorphineIM">
             <English>Treatment time for IM Morphine</English>
+            <Spanish>Tiempo de tratamiento de la morfina IM</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_MorphineIV">
             <English>Push Morphine IV</English>
+            <Spanish>Administrar morfina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_AdenosineIV">
             <English>Adenosine IV</English>
+            <Spanish>Adenosina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_AdenosineIV">
             <English>Medical level required for Adenosine IV</English>
+            <Spanish>Nivel médico necesario para la adenosina IV.</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_AdenosineIV">
             <English>Treatment time for Adenosine IV</English>
+            <Spanish>Tiempo de tratamiento de la adenosina IV.</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_AdenosineIV_DescShort">
             <English>Adenosine IV</English>
+            <Spanish>Adenosina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_AdenosineIV_displayName">
             <English>(Vial) Adenosine</English>
+            <Spanish>(Vial) Adenosina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_AdenosineIV">
             <English>Push Adenosine IV</English>
+            <Spanish>Administrar adenosina IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckVein_DisplayName">
             <English>Check Veins</English>
+            <Spanish>Revisar venas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckVein_DisplayNameProgress">
             <English>Checking Veins</English>
+            <Spanish>Revisando venas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_CheckVein_MedLevel">
             <English>Medical level required to Check Veins</English>
+            <Spanish>Nivel médico necesario para revisar las venas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SETTING_CheckVein_treatmentTime">
             <English>Treatment time to Check Veins</English>
+            <Spanish>Tiempo para revisar las venas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckVein_VeinBlown">
             <English>The Veins are Blown</English>
+            <Spanish>Las venas están dilatadas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_CheckVein_VeinFine">
             <English>The Veins are Normal</English>
+            <Spanish>Las venas están normales</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_prepTime_PrepInfusion">
             <English>Infusion Prep Time</English>
+            <Spanish>Tiempo de preparación de la infusión</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_prepTime_PrepInfusion_Desc">
             <English>Time required to prep Infusions</English>
+            <Spanish>Tiempo necesario para preparar las infusiones</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_SalineFlush_Display">
             <English>5ml Saline Flush</English>
+            <Spanish>Lavado con solución salina 5ml</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_SalineFlush_DescShort">
             <English>Uses to flush and clear IVs and IOs</English>
+            <Spanish>Se utiliza para lavar y despejar vías intravenosas e intraóseas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_SalineFlush">
             <English>Saline Flush Med Level</English>
+            <Spanish>Nivel médico para el lavado con solución salina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_SalineFlush_Desc">
             <English>Changes what medical level is required to do a Saline Flush</English>
+            <Spanish>Determina el nivel médico necesario para realizar un lavado con solución salina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IVComplications">
             <English>IV Complications</English>
+            <Spanish>Complicaciones de las IVs</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IVComplications_Desc">
             <English>Enables whole body negative effects when overpushing fluids</English>
+            <Spanish>Activa efectos negativos en todo el cuerpo cuando se administran líquidos en exceso</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_LimbIVComplications">
             <English>Limb IV Complications</English>
+            <Spanish>Complicaciones de la vía intravenosa en las extremidades</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_LimbIVComplications_Desc">
             <English>Enables IV complications from overpushing fluids including blown veins and cannulas</English>
+            <Spanish>Activa complicaciones de la vía intravenosa derivadas de la administración excesiva de líquidos, incluyendo venas y cánulas reventadas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IVFailures">
             <English>IV Failure Rate</English>
+            <Spanish>Índice de fracaso IV</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_IVFailures_Desc">
             <English>Chance for a failed IV placement without taking damage or fractures into account</English>
+            <Spanish>Probabilidad de que falle la colocación de una vía intravenosa sin tener en cuenta daños ni fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_SalineFlush">
             <English>Time to preform a Saline Flush</English>
+            <Spanish>Tiempo necesario para realizar un lavado con solución salina</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Actions_Packed_RBC_250">
             <English>Give Packed RBC IV (250ml)</English>
+            <Spanish>Administrar concentrado de hematíes IV (250 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Actions_Packed_RBC_500">
             <English>Give Packed RBC IV (500ml)</English>
+            <Spanish>Administrar concentrado de hematíes IV (500 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Actions_Ringers_Lactate">
             <English>Give Ringers Lactate IV (1000ml)</English>
+            <Spanish>Administrar lactato de Ringer IV (1000 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Actions_Ringers_Lactate_250">
             <English>Give Ringers Lactate IV (250ml)</English>
+            <Spanish>Administrar lactato de Ringer IV (250 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Actions_Ringers_Lactate_500">
             <English>Give Ringers Lactate IV (500ml)</English>
+            <Spanish>Administrar lactato de Ringer IV (500 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingPacked_RBCIvVolume">
             <English>Receiving Packed RBC IV [%1ml]</English>
+            <Spanish>Recibiendo concentrado de hematíes IV [%1 ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_receivingRingers_LactateIvVolume">
             <English>Receiving Ringers Lactate IV [%1ml]</English>
+            <Spanish>Recibiendo lactato de Ringer IV [%1 ml]</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Transfusing_Packed_RBC">
             <English>Transfusing Packed RBC...</English>
+            <Spanish>Transfundiendo concentrado de hematíes...</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Transfusing_Ringers_Lactate">
             <English>Transfusing Ringers Lactate...</English>
+            <Spanish>Transfundiendo lactato de Ringer...</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Transfuse_Packed_RBC">
             <English>Transfuse Packed RBC</English>
+            <Spanish>Administrar concentrado de hematíes</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Transfuse_Ringers_Lactate">
             <English>Transfuse Ringers Lactate</English>
+            <Spanish>Administrar lactato de Ringer</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_SubCategory_Doxapram">
             <English>Doxapram</English>
+            <Spanish>Doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_medLvl_Doxapram">
             <English>Medical level required for Doxapram</English>
+            <Spanish>Nivel médico requerido para el doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_treatmentTime_Doxapram">
             <English>Treatment time for Doxapram</English>
+            <Spanish>Duración del tratamiento con doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Doxapram_DescShort">
             <English>Doxapram Is a Respiratory Stimulant that increases Breathing Rate and Depth</English>
+            <Spanish>El doxapram es un estimulante respiratorio que aumenta la frecuencia y la profundidad de la respiración</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Doxapram_Display">
             <English>(Vial) Doxapram</English>
+            <Spanish>(Vial) Doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Take_Doxapram">
             <English>Push Doxapram</English>
+            <Spanish>Administrar doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_push_Doxapram_IV_1">
             <English>Push 0.5mg Doxapram</English>
+            <Spanish>Administrar 0,5 mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_push_Doxapram_IV_3">
             <English>Push 1mg Doxapram</English>
+            <Spanish>Administrar 1 mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Doxapram_5ml_Dose1">
             <English>0.5mg</English>
+            <Spanish>0,5 mg</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Doxapram_5ml_Dose3">
             <English>1mg</English>
+            <Spanish>1 mg</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_pushing_Doxapram_IV_1">
             <English>Pushing 0.5mg Doxapram</English>
+            <Spanish>Administrando 0,5 mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_pushing_Doxapram_IV_3">
             <English>Pushing 1mg Doxapram</English>
+            <Spanish>Administrando 1 mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_Doxapram_5_1_Display">
             <English>5ml Syringe/0.5mg Doxapram</English>
+            <Spanish>Jeringa de 5 ml/0,5 mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_Doxapram_5_1_DescShort">
             <English>5ml Syringe loaded with 0.5 mg of Doxapram</English>
+            <Spanish>Jeringa de 5 ml cargada con 0,5 mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_Doxapram_5_3_Display">
             <English>5ml Syringe/1mg Doxapram</English>
+            <Spanish>Jeringa de 5 ml/1 mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Syringe_Doxapram_5_3_DescShort">
             <English>5ml Syringe loaded with 1mg of Doxapram</English>
+            <Spanish>Jeringa de 5 ml cargada con 1 mg de doxapram</Spanish>
         </Key>
         <Key ID="STR_KAT_Pharma_Atropine_DescShort">
             <English>Used to treat chemical exposure and bradycardia</English>

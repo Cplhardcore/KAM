@@ -3,169 +3,223 @@
     <Package name="MedicalSim">
         <Key ID="STR_KAT_MedicalSim_Airway_Obstructed">
             <English>Obstructed:</English>
+            <Spanish>Obstrucción:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Airway_Occluded">
             <English>Occluded:</English>
+            <Spanish>Oclusión:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Airway_Catastrophic">
             <English>Catastrophic:</English>
+            <Spanish>D. catastrófico:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Airway_Title">
             <English>Airways</English>
+            <Spanish>Vías aéreas</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_BodyPart_Head">
             <English>Head:</English>
+            <Spanish>Cabeza:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_BodyPart_LeftArm">
             <English>Left Arm:</English>
+            <Spanish>Brazo IZDO:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_BodyPart_LeftLeg">
             <English>Left Leg:</English>
+            <Spanish>Pierna IZDA:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_BodyPart_RightArm">
             <English>Right Arm:</English>
+            <Spanish>Brazo DCHO:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_BodyPart_RightLeg">
             <English>Right Leg:</English>
+            <Spanish>Pierna DCHA:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_BodyPart_Torso">
             <English>Torso:</English>
+            <Spanish>Torso:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Button_Cancel">
             <English>CANCEL</English>
+            <Spanish>CANCELAR</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Button_Clear">
             <English>CLEAR</English>
+            <Spanish>BORRAR</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Button_ClearAll">
             <English>CLEAR ALL</English>
+            <Spanish>BORRAR TODO</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Button_Confirm">
             <English>CONFIRM?</English>
+            <Spanish>CONFIRMAR</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Button_Spawn">
             <English>SPAWN</English>
+            <Spanish>GENERAR</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Button_SpawnAll">
             <English>SPAWN ALL</English>
+            <Spanish>GENERAR TODOS</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Cardiac_Arrest">
             <English>Cardiac Arrest Type:</English>
+            <Spanish>Tipo de paro cardiaco:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Cardiac_Arrest_Asystole">
             <English>Asystole</English>
+            <Spanish>Asístole</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Cardiac_Arrest_None">
             <English>None</English>
+            <Spanish>Ninguno</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Cardiac_Arrest_PEA">
             <English>PEA</English>
+            <Spanish>AESP</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Cardiac_Arrest_VF">
             <English>VF</English>
+            <Spanish>FV</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Cardiac_Arrest_VT">
             <English>VT</English>
+            <Spanish>TV</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Cardiac_PAO2">
             <English>PAO2:</English>
+            <Spanish>PAO2:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Cardiac_Title">
             <English>Circulation</English>
+            <Spanish>Circulación</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Fractures_Title">
             <English>Fractures</English>
+            <Spanish>Fracturas</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Fractures_Type_Comminuted">
             <English>Comminuted</English>
+            <Spanish>Conminuta</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Fractures_Type_Compound">
             <English>Compound</English>
+            <Spanish>Compuesta</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Fractures_Type_None">
             <English>None</English>
+            <Spanish>Ninguna</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Fractures_Type_Simple">
             <English>Simple</English>
+            <Spanish>Simple</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Misc_Title">
             <English>Misc</English>
+            <Spanish>Otros</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Misc_Uncon">
             <English>Unconscious:</English>
+            <Spanish>Inconsciente:</Spanish>
         </Key>
-        <Key ID="STR_KAT_MedicalSim_PTX_Deteriorate"></Key>
         <Key ID="STR_KAT_MedicalSim_PTX_Strength">
             <English>Pneumothorax:</English>
+            <Spanish>Neumotórax:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_PTX_Tamponade">
             <English>Tamponade:</English>
+            <Spanish>Taponamiento:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_PTX_Title">
             <English>Pneumothorax</English>
+            <Spanish>Neumotórax</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_PTX_Type">
             <English>Type:</English>
+            <Spanish>Tipo:</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_PTX_Type_Hemo">
             <English>Hemo</English>
+            <Spanish>Hemo</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_PTX_Type_Initial">
             <English>Initial</English>
+            <Spanish>Inicial</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_PTX_Type_None">
             <English>None</English>
+            <Spanish>Ninguno</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_PTX_Type_Tension">
             <English>Tension</English>
+            <Spanish>A tensión</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Presets_Title">
             <English>Presets</English>
+            <Spanish>Presets</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Stretchers_Title">
             <English>Stretchers</English>
+            <Spanish>Camillas</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Title">
             <English>KAT Medical Simulator</English>
+            <Spanish>Simulador Médico KAT</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Wounds_Title">
             <English>Wounds</English>
+            <Spanish>Heridas</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_tptx">
             <English>Tension Pnumothorax</English>
+            <Spanish>Neumotórax a tensión</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_hptx_strength">
             <English>Hemothorax</English>
+            <Spanish>Hemotórax</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_typeDamage">
             <English>Type of Damage</English>
+            <Spanish>Tipo de daño</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_Gunshot">
             <English>bullet</English>
+            <Spanish>bala</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_Explosion">
             <English>explosion</English>
+            <Spanish>explosión</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_Grenade">
             <English>grenade</English>
+            <Spanish>granada</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_Shell">
             <English>shell</English>
+            <Spanish>proyectil</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Damage_Type_vehiclehit">
             <English>vehiclehit</English>
+            <Spanish>atropello</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Mission">
             <English>Medic Training</English>
+            <Spanish>Entrenamiento Médico</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_Mission_tooltip">
             <English>For all your medical simulation needs</English>
+            <Spanish>Para todas tus necesidades de simulación médica</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_damageOverride">
             <English>DMG Ovrrde</English>
+            <Spanish>DMG Ovrrde</Spanish>
         </Key>
         <Key ID="STR_KAT_MedicalSim_damageOverride_tooltip">
             <English>If enabled, this will pass damage through all wound handlers, rather than just creating wounds. &lt;br/&gt; Additionally, this will cause the other options on this menu to not work</English>
+            <Spanish>Si se activa, el daño se aplicará a través de todos los mecanismos de gestión de heridas, en lugar de limitarse a crear heridas. &lt;br/&gt; Además, esto hará que las demás opciones de este menú dejen de funcionar.</Spanish>
         </Key>
     </Package>
 </Project>
