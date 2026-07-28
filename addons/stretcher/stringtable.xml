@@ -5,7 +5,7 @@
             <English>Attach Stretcher</English>
             <Czech>Připevnit nosítka</Czech>
             <French>Attacher la civière</French>
-            <Spanish>Adjuntar Camilla</Spanish>
+            <Spanish>Anclar camilla</Spanish>
             <Italian>Attacca la barella</Italian>
             <Polish>Przyczep nosze</Polish>
             <Portuguese>Anexar maca</Portuguese>
@@ -23,7 +23,7 @@
             <English>Deploy Stretcher</English>
             <Czech>Rozložit nosítka</Czech>
             <French>Déployer le brancard</French>
-            <Spanish>Desplegar Camilla</Spanish>
+            <Spanish>Desplegar camilla</Spanish>
             <Italian>Dispiegare la barella</Italian>
             <Polish>Wypuść nosze</Polish>
             <German>Trage ausklappen</German>
@@ -36,7 +36,7 @@
             <English>Detach Stretcher</English>
             <Czech>Odpojit nosítka</Czech>
             <French>Détacher le brancard</French>
-            <Spanish>Desanclar Camilla</Spanish>
+            <Spanish>Desanclar camilla</Spanish>
             <Italian>Staccare la barella</Italian>
             <Polish>Odczep nosze</Polish>
             <German>Trage lösen</German>
@@ -49,7 +49,7 @@
             <English>Allows you to attach a Stretcher to a helicopter (Double click)</English>
             <Czech>Umožňuje připevnit nosítka na helikoptéru(Dvojtým kliknutím)</Czech>
             <French>Vous permet d'attacher une civière sur hélicoptère (double clic)</French>
-            <Spanish>Le permite adjuntar una camilla a un helicóptero (doble clic)</Spanish>
+            <Spanish>Permite anclar una camilla a un helicóptero (doble clic)</Spanish>
             <Italian>Consente di collegare una barella sull'elicottero (doppio clic)</Italian>
             <Polish>Pozwala podczepić nosze do śmigłowca(Podwójne kliknięcie)</Polish>
             <Portuguese>Permite anexar uma maca a um helicóptero (clique duplo)</Portuguese>
@@ -67,7 +67,7 @@
             <English>Attachable Helistretcher</English>
             <Czech>Připevnitelná helinosítka</Czech>
             <French>Hélicivière amovible</French>
-            <Spanish>Camilla de helicóptero adjuntable</Spanish>
+            <Spanish>Camilla de helicóptero anclable</Spanish>
             <Italian>Elibarella agganciabile</Italian>
             <Polish>Nosze śmigłowcowe</Polish>
             <Portuguese>Maca de helicóptero acoplável</Portuguese>
@@ -85,7 +85,7 @@
             <English>KAT Helistretcher</English>
             <Czech>KAT Helinosítka</Czech>
             <French>Brancard d'hélicoptère KAT</French>
-            <Spanish>KAT Camilla de Helicóptero</Spanish>
+            <Spanish>KAT Camilla de helicóptero</Spanish>
             <Italian>KAT Barella per elicotteri</Italian>
             <German>KAT Helikoptertrage</German>
             <Japanese>KAT ヘリコプター用担架</Japanese>
@@ -97,7 +97,7 @@
             <English>Lower Stretcher</English>
             <Czech>Snížit nosítka</Czech>
             <French>Baisser la civière</French>
-            <Spanish>Bajar la Camilla</Spanish>
+            <Spanish>Bajar camilla</Spanish>
             <Italian>Barella inferiore</Italian>
             <Polish>Opuść nosze</Polish>
             <Portuguese>Abaixar a maca</Portuguese>
@@ -141,7 +141,7 @@
             <English>Packing Stretcher...</English>
             <Czech>Balení nosítek...</Czech>
             <French>Le brancard est emballé</French>
-            <Spanish>Empaquetando Camilla...</Spanish>
+            <Spanish>Empaquetando camilla...</Spanish>
             <Italian>Imballaggio della barella...</Italian>
             <Polish>Pakowanie noszy...</Polish>
             <German>Trage einpacken...</German>
@@ -154,7 +154,7 @@
             <English>Placing Stretcher...</English>
             <Czech>Umisťování nosítek...</Czech>
             <French>Mise en place du brancard...</French>
-            <Spanish>Colocando Camilla...</Spanish>
+            <Spanish>Colocando camilla...</Spanish>
             <Italian>Posizionamento della barella...</Italian>
             <Polish>Rozkładanie noszy...</Polish>
             <German>Trage platzieren...</German>
@@ -167,7 +167,7 @@
             <English>Raise Stretcher</English>
             <Czech>Vytáhnout nosítka</Czech>
             <French>Elever la civière</French>
-            <Spanish>Subir la Camilla</Spanish>
+            <Spanish>Subir camilla</Spanish>
             <Italian>Alzare la barella</Italian>
             <Polish>Wciągnij nosze</Polish>
             <Portuguese>Elevar a maca</Portuguese>
@@ -185,7 +185,7 @@
             <English>Retract Stretcher</English>
             <Czech>Zatáhnout nosítka</Czech>
             <French>Rétracter le brancard</French>
-            <Spanish>Recoger Camilla</Spanish>
+            <Spanish>Recoger camilla</Spanish>
             <Italian>Ritirare la barella</Italian>
             <Polish>Przywołaj nosze</Polish>
             <German>Trage einholen</German>
@@ -198,7 +198,7 @@
             <English>Stretcher (Packed)</English>
             <Czech>Nosítka (Zabalená)</Czech>
             <French>Civière (Emballée)</French>
-            <Spanish>Camilla (Plegada)</Spanish>
+            <Spanish>Camilla (plegada)</Spanish>
             <Italian>Barella (Imballo)</Italian>
             <Polish>Nosze (Zapakowane)</Polish>
             <Portuguese>Maca (Embalada)</Portuguese>
@@ -234,7 +234,7 @@
             <English>Deploy Stretcher</English>
             <Czech>Rozložit nosítka</Czech>
             <French>Déployer le brancard</French>
-            <Spanish>Desplegar Camilla</Spanish>
+            <Spanish>Desplegar camilla</Spanish>
             <Italian>Dispiegare la barella</Italian>
             <Polish>Rozstaw nosze</Polish>
             <German>Trage aufbauen</German>

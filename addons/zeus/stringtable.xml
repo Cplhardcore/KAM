@@ -363,21 +363,27 @@
         </Key>
         <Key ID="STR_KAT_Zeus_takeUnitSnapshot_Module_displayname">
             <English>Take Unit Snapshot</English>
+            <Spanish>Tomar instantánea de la unidad</Spanish>
         </Key>
         <Key ID="STR_KAT_Zeus_serializeState_Module_displayname">
             <English>Serialize Unit State</English>
+            <Spanish>Serializar el estado de la unidad</Spanish>
         </Key>
         <Key ID="STR_KAT_Zeus_deserializeState_Module_displayname">
             <English>Deserialize Unit State</English>
+            <Spanish>Deserializar el estado de la unidad</Spanish>
         </Key>
         <Key ID="STR_KAT_Zeus_noJSON">
             <English>No appropriate state saved, save one using Serialize State</English>
+            <Spanish>No hay ningún estado adecuado guardado; guarda uno mediante «serializar estado»</Spanish>
         </Key>
         <Key ID="STR_KAT_Zeus_SerializeString_Module_State">
             <English>Import Serialized String</English>
+            <Spanish>Importar cadena serializada</Spanish>
         </Key>
         <Key ID="STR_KAT_Zeus_toClipboard">
             <English>Serialized String copied to clipboard</English>
+            <Spanish>Cadena serializada copiada al portapapeles</Spanish>
         </Key>
     </Package>
 </Project>

@@ -30,6 +30,7 @@
         </Key>
         <Key ID="STR_kat_vehiclemedical_Shared_Confirm">
             <Original>Confirm</Original>
+            <Spanish>Confirmar</Spanish>
         </Key>
         <Key ID="STR_kat_vehiclemedical_Shared_Heart_Rate_None">
             <Original>None</Original>
@@ -82,7 +83,7 @@
             <Chinesesimp>%1 已经阵亡。</Chinesesimp>
             <Italian>Stai visualizzando %1, che è attualmente deceduto.</Italian>
             <French>Vous regardez %1, qui est actuellement décédé.</French>
-            <Spanish>Estás viendo %1, quien esta actualmente fallecido.</Spanish>
+            <Spanish>Estás viendo a %1, quien esta actualmente fallecido.</Spanish>
         </Key>
         <Key ID="STR_kat_vehiclemedical_Unstable_Cardiac_Arrest">
             <Original>Cardiac Arrest</Original>
@@ -96,14 +97,14 @@
             <Chinesesimp>正在流血</Chinesesimp>
             <Italian>Sanguinamento</Italian>
             <French>Saignement</French>
-            <Spanish>Sangrado</Spanish>
+            <Spanish>Sangrando</Spanish>
         </Key>
         <Key ID="STR_kat_vehiclemedical_Unstable_Low_Heart_Rate">
             <Original>Heart Rate (%1)</Original>
             <Chinesesimp>心率 (%1)</Chinesesimp>
             <Italian>Frequenza Cardiaca (%1)</Italian>
             <French>Fréquence cardiaque (%1)</French>
-            <Spanish>Ritmo Cardiaco (%1)</Spanish>
+            <Spanish>Ritmo cardiaco (%1)</Spanish>
         </Key>
         <Key ID="STR_kat_vehiclemedical_Unstable_Low_Blood_Pressure">
             <Original>Blood Pressure (%1)</Original>
@@ -151,7 +152,7 @@
             <Original>Take Dogtags</Original>
             <Italian>Prendi Piastrine</Italian>
             <French>Prenez les plaques d'identité</French>
-            <Spanish>Llevar placas de identificación</Spanish>
+            <Spanish>Tomar placas de identificación</Spanish>
         </Key>
         <Key ID="STR_kat_vehiclemedical_Unstable_Dogtags_Already_Taken">
             <Original>Dogtags Missing</Original>
@@ -159,54 +160,54 @@
             <French>Plaques d'identité manquantes</French>
             <Spanish>Faltan placas de identificación</Spanish>
         </Key>
-            <Key ID="STR_kat_vehiclemedical_Unstable_KAT_SpO2">
-                <Original>SpO2 (%1%2)</Original>
-                <Italian>SpO2 (%1%2)</Italian>
-                <French>SpO2 (%1%2)</French>
-                <Spanish>SpO2 (%1%2)</Spanish>
-            </Key>
-            <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Pneumothorax">
-                <Original>Pneumothorax</Original>
-                <Italian>Pneumotorace</Italian>
-                <French>Pneumothorax</French>
-                <Spanish>Neumotórax</Spanish>
-            </Key>
-            <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Hemopneumothorax">
-                <Original>Hemopneumothorax</Original>
-                <Italian>Emopneumotorace</Italian>
-                <French>Hémopneumothorax</French>
-                <Spanish>Hemoneumotórax</Spanish>
-            </Key>
-            <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Tension_Pneumothorax">
-                <Original>Tension Pneumothorax</Original>
-                <Italian>Pneumotorace Iperteso</Italian>
-                <French>Pneumothorax compressif</French>
-                <Spanish>Tensión neumotoraxica</Spanish>
-            </Key>
-            <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Multiple_Pneumothorax">
-                <Original>Pneumothoraces</Original>
-                <Italian>Pneumotoraci</Italian>
-                <French>Pneumothorax</French>
-                <Spanish>Neumotórax</Spanish>
-            </Key>
-            <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Airway_Occluded">
-                <Original>Airway Occluded</Original>
-                <Italian>Vie Aeree Occluse</Italian>
-                <French>Occlusion de voies respiratoires</French>
-                <Spanish>Vía respiratoria ocluida</Spanish>
-            </Key>
-            <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Airway_Obstructed">
-                <Original>Airway Obstructed</Original>
-                <Italian>Vie Aeree Ostruite</Italian>
-                <French>Voies respiratoires obstruées</French>
-                <Spanish>Vías respiratoria obstruidas</Spanish>
-            </Key>
-            <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Airway_Blocked">
-                <Original>Airway Blocked</Original>
-                <Italian>Vie Aeree Bloccate</Italian>
-                <French>Voies respiratoires bloquées</French>
-                <Spanish>Vía respiratoria bloqueada</Spanish>
-            </Key>
+        <Key ID="STR_kat_vehiclemedical_Unstable_KAT_SpO2">
+            <Original>SpO2 (%1%2)</Original>
+            <Italian>SpO2 (%1%2)</Italian>
+            <French>SpO2 (%1%2)</French>
+            <Spanish>SpO2 (%1%2)</Spanish>
+        </Key>
+        <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Pneumothorax">
+            <Original>Pneumothorax</Original>
+            <Italian>Pneumotorace</Italian>
+            <French>Pneumothorax</French>
+            <Spanish>Neumotórax</Spanish>
+        </Key>
+        <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Hemopneumothorax">
+            <Original>Hemopneumothorax</Original>
+            <Italian>Emopneumotorace</Italian>
+            <French>Hémopneumothorax</French>
+            <Spanish>Hemoneumotórax</Spanish>
+        </Key>
+        <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Tension_Pneumothorax">
+            <Original>Tension Pneumothorax</Original>
+            <Italian>Pneumotorace Iperteso</Italian>
+            <French>Pneumothorax compressif</French>
+            <Spanish>Neumotórax a tensión</Spanish>
+        </Key>
+        <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Multiple_Pneumothorax">
+            <Original>Pneumothoraces</Original>
+            <Italian>Pneumotoraci</Italian>
+            <French>Pneumothorax</French>
+            <Spanish>Neumotóraxes</Spanish>
+        </Key>
+        <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Airway_Occluded">
+            <Original>Airway Occluded</Original>
+            <Italian>Vie Aeree Occluse</Italian>
+            <French>Occlusion de voies respiratoires</French>
+            <Spanish>Vía aérea ocluida</Spanish>
+        </Key>
+        <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Airway_Obstructed">
+            <Original>Airway Obstructed</Original>
+            <Italian>Vie Aeree Ostruite</Italian>
+            <French>Voies respiratoires obstruées</French>
+            <Spanish>Vías aérea obstruida</Spanish>
+        </Key>
+        <Key ID="STR_kat_vehiclemedical_Unstable_KAT_Airway_Blocked">
+            <Original>Airway Blocked</Original>
+            <Italian>Vie Aeree Bloccate</Italian>
+            <French>Voies respiratoires bloquées</French>
+            <Spanish>Vía aérea bloqueada</Spanish>
+        </Key>
         <Key ID="STR_kat_vehiclemedical_Stable_Bandage">
             <Original>Bandage (%1)</Original>
             <Chinesesimp>包扎 (%1)</Chinesesimp>
@@ -281,7 +282,7 @@
             <Original>KAT Vehicle Medical</Original>
             <Italian>KAT Veicolo Medico</Italian>
             <French>KAT Véhicule Médical</French>
-            <Spanish>KAT vehículo médico</Spanish>
+            <Spanish>Vehículo médico KAT</Spanish>
         </Key>
         <Container name="General">
             <Key ID="STR_kat_vehiclemedical_Settings_General_Category">
@@ -324,7 +325,7 @@
                 <Original>Display a popup and play a click sound when you view someone who is dead (Rare)</Original>
                 <Italian>Visualizza un popup e riproduci un clic quando vedi qualcuno che è morto (Raro)</Italian>
                 <French>Affichez une fenêtre contextuelle et jouez un clic lorsque vous voyez quelqu'un qui est mort (Rare)</French>
-                <Spanish>Muestre una notificación y reproduzca un sonido de clic cuando vea a alguien que está muerto (raro)</Spanish>
+                <Spanish>Mostrar una notificación y reproducir un sonido de clic cuando vea a alguien que está muerto (raro)</Spanish>
             </Key>
             <Key ID="STR_kat_vehiclemedical_Settings_General_Cache_Interval">
                 <Original>Cache Lifetime</Original>
@@ -336,7 +337,7 @@
                 <Original>The speed at which AVM updates in seconds, a lower value will provide more accurate updates, while a higher value will be more performant but be less accurate.</Original>
                 <Italian>La velocità con cui AVM si aggiorna in secondi, un valore più basso fornirà aggiornamenti più accurati, mentre un valore più alto sarà più performante ma meno accurato.</Italian>
                 <French>La vitesse à laquelle AVM se met à jour en secondes, une valeur inférieure fournira des mises à jour plus précises, tandis qu'une valeur plus élevée fonctionnera mieux mais moins précise.</French>
-                <Spanish>La velocidad a la que AVM se actualiza en segundos, un valor más bajo proporcionará actualizaciones más precisas, mientras que un valor más alto será más eficaz pero menos preciso.</Spanish>
+                <Spanish>La velocidad a la que AVM se actualiza en segundos, un valor más bajo proporcionará actualizaciones más precisas, mientras que un valor más alto será más eficiente pero menos preciso.</Spanish>
             </Key>
             <Key ID="STR_kat_vehiclemedical_Settings_Incapacitated_Category">
                 <Original>Incapacitated</Original>
@@ -570,9 +571,11 @@
             </Key>
             <Key ID="STR_kat_vehiclemedical_Settings_Unstable_Allow_Unload">
                 <Original>Enable Unload</Original>
+                <Spanish>Habilitar descarga</Spanish>
             </Key>
             <Key ID="STR_kat_vehiclemedical_Settings_Unstable_Allow_Unload_Tooltip">
                 <Original>Adds an action to unload unconscious or dead units.</Original>
+                <Spanish>Añade una acción para descargar unidades inconscientes o muertas</Spanish>
             </Key>
         </Container>
         <Container name="Unstable_KAT">
@@ -580,13 +583,13 @@
                 <Original>Track KAM SpO2</Original>
                 <Italian>Controlla KAM SpO2</Italian>
                 <French>Vérifiez KAM SpO2</French>
-                <Spanish>Seguimiento de KAM SpO2</Spanish>
+                <Spanish>Seguimiento de SpO2</Spanish>
             </Key>
             <Key ID="STR_kat_vehiclemedical_Settings_Unstable_KAT_Track_SpO2_Tooltip">
                 <Original>KAT Advanced Medical SpO2 will be monitored and reported by AVM</Original>
                 <Italian>KAT Advanced Medical SpO2 sarà monitorata e segnalata da AVM</Italian>
                 <French>KAT Advanced Medical SpO2 sera surveillé et signalé par AVM</French>
-                <Spanish>AVM controlará y notificará KAT Advanced Medical SpO2</Spanish>
+                <Spanish>El SpO2 será monitorizado por AVM</Spanish>
             </Key>
             <Key ID="STR_kat_vehiclemedical_Settings_Unstable_KAT_Track_Pneumothorax">
                 <Original>Track KAM Pneumothroax</Original>
@@ -636,13 +639,13 @@
                 <Original>Show Number of Stable</Original>
                 <Italian>Mostra numero di stabili</Italian>
                 <French>Afficher le nombre de stables</French>
-                <Spanish>Mostrar número de estable</Spanish>
+                <Spanish>Mostrar número de estables</Spanish>
             </Key>
             <Key ID="STR_kat_vehiclemedical_Settings_Stable_Show_Count_Tooltip">
                 <Original>Display the number of stable units on the root action</Original>
                 <Italian>Visualizza il numero di unità stabili sul root action</Italian>
                 <French>Affiche le nombre d'unités stables sur le root action</French>
-                <Spanish>Muestra el número de unidades estables en la acción raíz.</Spanish>
+                <Spanish>Muestra el número de unidades estables en la acción raíz</Spanish>
             </Key>
             <Key ID="STR_kat_vehiclemedical_Settings_Stable_Track_Open_Wounds">
                 <Original>Track Open Wounds</Original>
@@ -668,7 +671,6 @@
                 <French>Les parties du corps suturables seront surveillées et signalées par AVM</French>
                 <Spanish>Las partes del cuerpo que se pueden coser serán monitoreadas e informadas por AVM</Spanish>
             </Key>
-
             <Key ID="STR_kat_vehiclemedical_Settings_Stable_Track_Low_Blood_Pressure">
                 <Original>Track Low Blood Pressure</Original>
                 <Italian>Controlla Pressione Saguigna Bassa</Italian>
@@ -777,13 +779,13 @@
                 <Original>Enable on Car</Original>
                 <Italian>Abilita su Auto</Italian>
                 <French>Activer sur voiture</French>
-                <Spanish>Habilitar en automóviles</Spanish>
+                <Spanish>Habilitar en coches</Spanish>
             </Key>
             <Key ID="STR_kat_vehiclemedical_Settings_Vehicles_Car_Tooltip">
                 <Original>AVM is enabled for Cars</Original>
                 <Italian>AVM é abilitato su Auto</Italian>
                 <French>AVM est activé sur voiture</French>
-                <Spanish>AVM está habilitado para automóviles</Spanish>
+                <Spanish>AVM está habilitado para coches</Spanish>
             </Key>
             <Key ID="STR_kat_vehiclemedical_Settings_Vehicles_Helicopter">
                 <Original>Enable on Helicopter</Original>

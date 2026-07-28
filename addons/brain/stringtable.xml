@@ -3,67 +3,87 @@
     <Package name="Brain">
         <Key ID="STR_KAT_Brain_cba_Name">
             <English>KAT - ADV Medical: Brain</English>
+            <Spanish>KAT- ADV Medical: Cerebro</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_SETTING_enable">
             <English>Enable Brain Simulation</English>
+            <Spanish>Activar simulación cerebral</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_icpreduction">
             <English>ICP Reduction Amount</English>
+            <Spanish>Reducción de presión intracraneal</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_icpreductionMult">
             <English>ICP Reduction Multiplier</English>
+            <Spanish>Multiplicador de reducción de presión intracraneal</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_cmrunconsciousthreshold">
             <English>CMR Uncon Threshold</English>
+            <Spanish>Margen de TMC para inconsciencia</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_stableCMR">
             <English>Stable CMR</English>
+            <Spanish>TMC estable</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_cmrunconsciouschance">
             <English>CMR Uncon Chance</English>
+            <Spanish>Probabilidad de inconsciencia por TMC</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_concussionchance">
             <English>Concussion Chance</English>
+            <Spanish>Probabilidad de concusión</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_icpbradycardiathreshold">
             <English>ICP Bradycardia Threshold</English>
+            <Spanish>Margen de bradicardia por presión intracraneal</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_icpbradycardiachance">
             <English>ICP Bradycardia Chance</English>
+            <Spanish>Probabilidad de bradicardia por presión intracraneal</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_subcategory_concussions">
             <English>Concussions</English>
+            <Spanish>Concusiones</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_reversibledamageloss">
             <English>Reversible Damage Loss</English>
+            <Spanish>Pérdida de daño reversible</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_subcategory_braindeath">
             <English>Brain Death</English>
+            <Spanish>Muerte cerebral</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_necrosisticks">
             <English>Tissue Necrosis Ticks</English>
+            <Spanish>Ticks de necrosis de tejidos</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_necrosisthreshold">
             <English>Necrosis Threshold</English>
+            <Spanish>Aumento de la necrosis</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_setting_necrosisincrease">
             <English>Necrosis Increase Amount</English>
+            <Spanish>Cantidad que aumenta la necrosis</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_Check_ICP_Output">
             <English>%1 found an optic nerve sheath of %2mm</English>
+            <Spanish>%1 ha medido la vaina del nervio óptico en %2mm</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_Check_ICP_OutputMod">
             <English>%1 found an optic nerve sheath of %2mm</English>
+            <Spanish>%1 ha medido la vaina del nervio óptico en %2mm</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_UltraICP_Use">
             <English>Measure Optic Nerve Sheath</English>
+            <Spanish>Medir vaina del nervio óptico</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_UltraICP_Action">
             <English>Measuring Optic Nerve Sheath</English>
+            <Spanish>Midiendo vaina del nervio óptico</Spanish>
         </Key>
         <Key ID="STR_KAT_Brain_check_icp_output_log">
             <English>Measuring Optic Nerve Sheath</English>
+            <Spanish>Midiendo vaina del nervio óptico</Spanish>
         </Key>
-        
     </Package>
 </Project>

@@ -1161,6 +1161,7 @@
             <German>Blutdruck mit Manschette prüfen</German>
             <Japanese>血圧カフで血圧を確認</Japanese>
             <Chinese>用血壓計量血壓</Chinese>
+            <Spanish>Medir PS con tensiómetro</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_CheckHRSteth">
             <English>Check HR w/ Stethoscope</English>
@@ -1170,6 +1171,7 @@
             <German>Herzfrequenz mit Stethoskop prüfen</German>
             <Japanese>聴診器で脈拍を確認</Japanese>
             <Chinese>用聽診器檢查心率</Chinese>
+            <Spanish>Medir RC con estetoscopio</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_CheckingBloodPressureCuff">
             <English>Checking BP with BP Cuff</English>
@@ -1179,6 +1181,7 @@
             <German>Überprüfung des Blutdruck mittels Manschette</German>
             <Japanese>血圧カフで血圧を確認中</Japanese>
             <Chinese>用血壓計量血壓中</Chinese>
+            <Spanish>Midiendo PS con tensiómetro</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_CheckingHRSteth">
             <English>Checking HR with Stethoscope</English>
@@ -1188,6 +1191,7 @@
             <German>Überprüfung der HF mittels Stethoskop</German>
             <Japanese>聴診器で脈拍を確認中</Japanese>
             <Chinese>用聽診器檢查心率中</Chinese>
+            <Spanish>Midiendo RC con estetoscopio</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Activity_AttachPads">
             <English>%1 attached defibrillator pads (%2)</English>
@@ -1345,6 +1349,7 @@
             <German>Medizinisches Gerät zur genauen Bestimmung des Blutdrucks</German>
             <Japanese>患者の血圧を正確に測定する医療機器</Japanese>
             <Chinese>一種準確測量病人血壓的醫療裝置</Chinese>
+            <Spanish>Un dispositivo médico para determinar con precisión la presión arterial de un paciente</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_BPCuff_display">
             <English>(V) Blood Pressure Cuff</English>
@@ -1354,6 +1359,7 @@
             <German>Blutdruckmanschette</German>
             <Japanese>血圧カフ</Japanese>
             <Chinese>血壓計</Chinese>
+            <Spanish>(V) Tensiómetro</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_BloodIV_A">
             <English>(IV) Blood IV (1000ml) BT: A+</English>
@@ -1807,6 +1813,7 @@
             <German>%1 per Palpitation</German>
             <Japanese>触診による拡張期血圧は %1</Japanese>
             <Chinese>比觸診高 %1</Chinese>
+            <Spanish>%1 por palpitación</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CPR_MaxChance_Default">
             <English>Max CPR Chance for Default</English>
@@ -1935,6 +1942,7 @@
             <Japanese>モニタリングする装置を変更</Japanese>
             <Chinese>更換監控設備</Chinese>
             <Chinesesimp>更换监控设备</Chinesesimp>
+            <Spanish>Cambiar dispositivo de monitorización</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Bloodpressure_Output_Palp">
             <English>You find a blood pressure of %4 over Palp</English>
@@ -1944,6 +1952,7 @@
             <German>Du misst einen Blutdruck von %4 per Palpitation</German>
             <Japanese>触診で計測した拡張期血圧は %4 でした</Japanese>
             <Chinese>你發現血壓比觸診高 %4</Chinese>
+            <Spanish>La presión arterial por palpitación es de %4</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Pulse_Output">
             <English>You find a Pulse Rate of %2</English>
@@ -1953,6 +1962,7 @@
             <German>Du misst eine Herzfrequenz von %2</German>
             <Japanese>計測した脈拍は %2 でした</Japanese>
             <Chinese>你發現脈搏率為 %2</Chinese>
+            <Spanish>Encuentras un pulso de %2</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Defibrillator_Action_CancelCharge">
             <English>Cancel Charge</English>
@@ -2300,6 +2310,7 @@
             <German>%1 PPM</German>
             <Japanese>%1 PPM</Japanese>
             <Chinese>%1 PPM</Chinese>
+            <Spanish>%1 PPM</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_AEDStation_AllowInteraction">
             <English>Allow AED/X Station Interaction</English>
@@ -2562,6 +2573,7 @@
             <Italian>Abilità la possibilità di pressione prolungata di H e T durante l'arresto</Italian>
             <German>H&amp;Ts halten Herzstillstand aufrecht</German>
             <Japanese>心停止回復のH&amp;T症状による阻害を有効化</Japanese>
+            <Spanish>Activar condiciones H&amp;T para recuperación de pulso</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_AdvRhythm_Hardcore_Enable">
             <English>Hardcore Rhythms</English>
@@ -2597,6 +2609,7 @@
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_AdvRhythm_PEAEnabled">
             <English>Enable PEA</English>
+            <Spanish>Activar AESP</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_AdvRhythm_VTChance">
             <English>VT Chance</English>
@@ -2754,6 +2767,7 @@
             <German>Blutdruckmanschette erlauben</German>
             <Japanese>血圧カフの許可</Japanese>
             <Chinese>允許使用血壓計</Chinese>
+            <Spanish>Activar tensiómetro</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_BPCuff_DESC">
             <English>Training Level for use of the BP Cuff</English>
@@ -2763,6 +2777,7 @@
             <German>Ausbildungslevel für Blutdruckmanschette</German>
             <Japanese>血圧カフの使用に必要な医療スキルのレベルを設定します。</Japanese>
             <Chinese>使用血壓計的訓練等級</Chinese>
+            <Spanish>Nivel de entrenamiento mínimo para tensiómetro</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_CPR_CHANCES">
             <English>Enable different CPR chances per medical level</English>
@@ -2960,6 +2975,7 @@
             <German>Stethoskop zur Herzfrequenzmessung erlauben</German>
             <Japanese>聴診器による脈拍確認の許可</Japanese>
             <Chinese>允許使用聽診器檢查心率</Chinese>
+            <Spanish>Activar medición de RC con estetoscopio</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_StethHR_DESC">
             <English>Training Level for use of the Stethoscope to measure HR</English>
@@ -2969,6 +2985,7 @@
             <German>Ausbildungslevel zur Herzfrequenzmessung mit Stethoskop</German>
             <Japanese>聴診器による脈拍の測定に必要な医療スキルのレベルを設定します。</Japanese>
             <Chinese>使用聽診器測量心率的訓練等級</Chinese>
+            <Spanish>Nivel de entrenamiento necesario para medir el RC con un estetoscopio</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_Threshold_SpO2Warning">
             <English>AED-X alarm SpO2 threshold</English>
@@ -2995,6 +3012,7 @@
             <Japanese>ABGテストを有効化</Japanese>
             <Chinese>啟用 ABG 測試</Chinese>
             <Chinesesimp>启用ABG测试</Chinesesimp>
+            <Spanish>Habilitar gasometría arterial</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_abg_enable_DESC">
             <English>Enables ABG Testing and ACE Menu Visibility</English>
@@ -3005,6 +3023,7 @@
             <Japanese>ABGテストを有効化しACEメニューに表示します</Japanese>
             <Chinese>啟用 ABG 測試和 ACE 選單可見性</Chinese>
             <Chinesesimp>启用ABG测试和ACE菜单可见性</Chinesesimp>
+            <Spanish>Habilita las gasometrías arteriales y la visibilidad del menú ACE</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_bloodtype_assign">
             <English>Blood Type Assignment</English>
@@ -3251,6 +3270,7 @@
             <German>Aktiviere Hardcore-Messung von Blutdruck und Puls</German>
             <Japanese>ハードコア脈拍および血圧診断を有効化</Japanese>
             <Chinese>啟用硬核心率和血壓診斷</Chinese>
+            <Spanish>Habilitar diagnóstico hardcore de PS y RC</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_hardcoreDiagnose_DESC">
             <English>Makes measuring BP and HR imprecise without tools (Stethoscope or BP cuff)</English>
@@ -3260,6 +3280,7 @@
             <German>Ungenaue Blutdruck- und Pulsmessungen, wenn keine Werkzeuge verwendet werden (Manschette und Stethoskop)</German>
             <Japanese>器具(聴診器または血圧カフ)なしでは脈拍および血圧を正確に測定出来なくします</Japanese>
             <Chinese>在沒有工具（聽診器或血壓計）的情況下，測量血壓和心率會不準確</Chinese>
+            <Spanish>Hace que las medicionesde PS y RC sean imprecisas sin las herramientas correspondientes (tensiómetro o estetoscopio)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_tamponadeChance">
             <English>Chance for tamponade in penetrating wounds</English>
@@ -3472,6 +3493,7 @@
         </Key>
         <Key ID="STR_KAT_Circulation_VitalsMonitor_StatusLog_HasEtco2Monitor">
             <English>AED-X: HR: %1 BP: %2/%3 SpO2: %4 ETCo2: %5 RR: %6</English>
+            <Spanish>DEA-X: RC: %1 PS: %2/%3 SpO2: %4 ETCo2: %5 RR: %6</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_VitalsMonitor_VMActive_StatusLog">
             <English>AED-X: PR: %1 BP: %2/%3 SpO2: %4</English>
@@ -3491,6 +3513,7 @@
         </Key>
         <Key ID="STR_KAT_Circulation_VitalsMonitor_VMActive_StatusLog_HasEtco2Monitor">
             <English>AED-X: PR: %1 BP: %2/%3 SpO2: %4 ETCo2: %5 RR: %6</English>
+            <Spanish>DEA-X: RC: %1 PS: %2/%3 SpO2: %4 ETCo2: %5 RR: %6</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_VitalsMonitor_VMInactive_StatusLog">
             <English>AED-X: HR: %1 BP: --/-- SpO2: ---</English>
@@ -3511,6 +3534,7 @@
         </Key>
         <Key ID="STR_KAT_Circulation_VitalsMonitor_VMInactive_StatusLog_HasEtco2Monitor">
             <English>AED-X: HR: %1 BP: --/-- SpO2: --- ETCo2: %2 RR: %3</English>
+            <Spanish>DEA-X: RC: %1 PS: --/-- SpO2: --- ETCo2: %2 RR: %3</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_X_Desc">
             <English>Used to monitor vitals and resuscitate patients</English>
@@ -3586,6 +3610,7 @@
             <Italian>KAT - ADV Medica: Circolazione</Italian>
             <German>KAT - ADV Medical: Zirkulation</German>
             <Japanese>KAM - 循環器系 (Circulation)</Japanese>
+            <Spanish>KAT - ADV Medical: Circulación</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_crosspanel">
             <English>Blood groups cheat sheet</English>
@@ -3707,6 +3732,7 @@
             <German>Dauer der Blutdruckmessung mit Manschette</German>
             <Japanese>血圧カフによる血圧測定の所要時間</Japanese>
             <Chinese>用血壓計量血壓所需時間</Chinese>
+            <Spanish>Tiempo que se tarda en medir la PS con el tensiómetro</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_treatmentTime_StethHR">
             <English>Time to measure HR with a Stethoscope</English>
@@ -3716,519 +3742,691 @@
             <German>Dauer der Pulsmessung mit Stethoskop</German>
             <Japanese>聴診器による脈拍測定の所要時間</Japanese>
             <Chinese>用聽診器測量心率所需時間</Chinese>
+            <Spanish>Tiempo que se tarda en medir el RC con el estetoscopio</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Morphine_Infusion">
             <English>Morphine Infusion IV (250ml)</English>
+            <Spanish>Infusión de morfina IV (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Morphine_Infusion100">
             <English>Morphine Infusion IV (100ml)</English>
+            <Spanish>Infusión de morfina IV (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Morphine_Infusion_Desc_Short">
             <English>Morphine Infusion IV, for management of pain</English>
+            <Spanish>Infusión de morfina IV para gestión del dolor</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Morphine_Infusion_Desc_Use">
             <English>A Infusion of Morphine and Saline introduced into the blood system through an IV.</English>
+            <Spanish>Una infusión de morfina y salino introducida en el cuerpo por vía intravenosa.</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Epinephrine_Infusion">
             <English>Epinephrine Infusion IV (250ml)</English>
+            <Spanish>Infusión de epinefrina IV (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Epinephrine_Infusion100">
             <English>Epinephrine Infusion IV (100ml)</English>
+            <Spanish>Infusión de epinefrina IV (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Epinephrine_Infusion_Desc_Short">
             <English>Epinephrine Infusion IV, for management of blood pressure</English>
+            <Spanish>Infusión de epinefrina IV para gestión de la presión arterial</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Epinephrine_Infusion_Desc_Use">
             <English>A Infusion of Epinephrine and Saline introduced into the blood system through an IV.</English>
+            <Spanish>Una infusión de morfina y salino introducida en el cuerpo por vía intravenosa</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Etomidate_Infusion">
             <English>Etomidate Infusion IV (250ml)</English>
+            <Spanish>Infusión de etomidato IV (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Etomidate100_Infusion">
             <English>Etomidate Infusion IV (100ml)</English>
+            <Spanish>Infusión de etomidato IV (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Etomidate_Infusion_Desc_Short">
             <English>Etomidate Infusion IV, for management of pain and sedation during surgery</English>
+            <Spanish>Infusión de etomidato IV para gestión del dolor y sedación durante cirugías</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Etomidate_Infusion_Desc_Use">
             <English>A Infusion of Etomidate and Saline introduced into the blood system through an IV.</English>
+            <Spanish>Una infusión de etomidato y salino introducida en el cuerpo por vía intravenosa</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_MorphineIVInfusion100">
             <English>Transfuse Morphine Infusion (100ml)</English>
+            <Spanish>Administrar infusión de morfina (100 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Morphine_Infusion100">
             <English>Transfusing Morphine Infusion (100ml)...</English>
+            <Spanish>Administrando infusión de morfina (100 ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_EpinephrineInfusion100">
             <English>Transfuse Epinephrine Infusion (100ml)</English>
+            <Spanish>Administrar infusión de epinefrina (100 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Epinephrine_Infusion100">
             <English>Transfusing Epinephrine Infusion (100ml)...</English>
+            <Spanish>Administrando infusión de epinefrina (100 ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_EtomidateInfusion100">
             <English>Transfuse Etomidate Infusion (100ml)</English>
+            <Spanish>Administrar infusión de etomidato (100 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Etomidate_Infusion100">
             <English>Transfusing Etomidate Infusion (100ml)...</English>
+            <Spanish>Administrando infusión de etomidato (100 ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_MorphineIVInfusion">
             <English>Transfuse Morphine Infusion (250ml)</English>
+            <Spanish>Administrar infusión de morfina (250 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Morphine_Infusion">
             <English>Transfusing Morphine Infusion (250ml)...</English>
+            <Spanish>Administrando infusión de morfina (250 ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_EpinephrineInfusion">
             <English>Transfuse Epinephrine Infusion (250ml)</English>
+            <Spanish>Administrar infusión de epinefrina (250 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Epinephrine_Infusion">
             <English>Transfusing Epinephrine Infusion (250ml)...</English>
+            <Spanish>Administrando infusión de epinefrina (250 ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_EtomidateInfusion">
             <English>Transfuse Etomidate Infusion (250ml)</English>
+            <Spanish>Administrar infusión de etomidato (250 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Etomidate_Infusion">
             <English>Transfusing Etomidate Infusion (250ml)...</English>
+            <Spanish>Administrando infusión de etomidato (250 ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Ringers_Lactate_IV">
             <English>(IV) Ringers Lactate IV (1000ml)</English>
+            <Spanish>(IV) Lactato de Ringer IV (1000ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Ringers_Lactate_IV_250">
             <English>(IV) Ringers Lactate IV (250ml)</English>
+            <Spanish>(IV) Lactato de Ringer IV (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Ringers_Lactate_IV_500">
             <English>(IV) Ringers Lactate IV (500ml)</English>
+            <Spanish>(IV) Lactato de Ringer IV (500ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Ringers_Lactate_IV_Desc_Short">
             <English>Ringers Lactate IV, for restoring a patients fluids</English>
+            <Spanish>Solución láctica de Ringer, para reponer los fluidos del paciente.</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Ringers_Lactate_IV_Desc_Use">
             <English>A medical volume-replenishing agent introduced into the blood system through an IV infusion.</English>
+            <Spanish>Agente médico de reposición de volumen que se administra en el sistema circulatorio mediante una infusión intravenosa.</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Hypertonic_Saline_IV_500">
             <English>(IV) HT Saline IV (23.4%) (500ml)</English>
+            <Spanish>(IV) Salino hipertónico (23,4%) IV (500ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Hypertonic_Saline_IV_250">
             <English>(IV) HT Saline IV (23.4%) (250ml)</English>
+            <Spanish>(IV) Salino hipertónico (23,4%) IV (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Hypertonic_Saline_IV_100">
             <English>(IV) HT Saline IV (23.4%) (100ml)</English>
+            <Spanish>(IV) Salino hipertónico (23,4%) IV (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Hypertonic_Saline_iv_Desc_Short">
             <English>Hypertonic Saline, for reducing a patients ICP</English>
+            <Spanish>Solución salina hipertónica, para reducir la presión intracraneal (PIC) de los pacientes.</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Hypertonic_Saline_iv_Desc_Use">
             <English>A medical volume-replenishing agent introduced into the blood system through an IV infusion.</English>
+            <Spanish>Agente médico de reposición de volumen que se administra en el sistema circulatorio mediante una infusión intravenosa.</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Packed_RBC_IV_250">
             <English>(IV) Packed RBC IV (250ml)</English>
+            <Spanish>(IV) Concentrado de hematíes IV (250 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Packed_RBC_IV_500">
             <English>(IV) Packed RBC IV (500ml)</English>
+            <Spanish>(IV) Concentrado de hematíes IV (500 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Packed_RBC_IV_Desc_Short">
             <English>(IV) Packed Red Blood Cells, for restoring a patients blood in conjunction with plasma</English>
+            <Spanish>(IV) Concentrado de hematíes, para reponer la sangre del paciente junto con plasma</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Packed_RBC_IV_Desc_Use">
             <English>O Negative infusion blood used in strict and rare events to replenish blood supply usually conducted in the transport phase of medical care.</English>
+            <Spanish>Sangre para infusión del grupo O negativo, utilizada en casos excepcionales y muy poco frecuentes para reponer el volumen sanguíneo; su administración suele realizarse durante la fase de transporte de la asistencia médica.</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Doxapram_Infusion">
             <English>Doxapram Infusion IV (250ml)</English>
+            <Spanish>Infusión de doxapram IV (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Doxapram100_Infusion">
             <English>Doxapram Infusion IV (100ml)</English>
+            <Spanish>Infusión de doxapram IV (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Doxapram_Infusion_Desc_Short">
             <English>Doxapram Infusion IV, for management of respiratory issues</English>
+            <Spanish>Infusión intravenosa de doxapram, para el tratamiento de problemas respiratorios</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Doxapram_Infusion_Desc_Use">
             <English>A Infusion of Doxapram and Saline introduced into the blood system through an IV.</English>
+            <Spanish>Infusión de doxapram y solución salina que se administra en el torrente sanguíneo por vía intravenosa.</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_DoxapramInfusion">
             <English>Transfuse Doxapram Infusion (250ml)</English>
+            <Spanish>Administrar infusión de doxapram (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Doxapram_Infusion">
             <English>Transfusing Doxapram Infusion (250ml)...</English>
+            <Spanish>Administrando infusión de doxapram (250ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_DoxapramInfusion100">
             <English>Transfuse Doxapram Infusion (100ml)</English>
+            <Spanish>Administrar infusión de doxapram (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Doxapram_Infusion100">
             <English>Transfusing Doxapram Infusion (100ml)...</English>
+            <Spanish>Administrando infusión de doxapram (100ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Nitroglycerin_Infusion">
             <English>Nitroglycerin Infusion IV (250ml)</English>
+            <Spanish>Infusión de nitroglicerina IV (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Nitroglycerin100_Infusion">
             <English>Nitroglycerin Infusion IV (100ml)</English>
+            <Spanish>Infusión de nitroglicerina IV (100 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Nitroglycerin_Infusion_Desc_Short">
             <English>Nitroglycerin Infusion IV, for management of blood pressure</English>
+            <Spanish>Infusión de nitroglicerina IV, para el control de la presión arterial</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Nitroglycerin_Infusion_Desc_Use">
             <English>A Infusion of Nitroglycerin and Saline introduced into the blood system through an IV.</English>
+            <Spanish>Infusión de nitroglicerina y solución salina que se administra en el torrente sanguíneo por vía intravenosa.</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_NitroglycerinInfusion">
             <English>Transfuse Nitroglycerin Infusion (250ml)</English>
+            <Spanish>Administrar infusión de nitroglicerina (250 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Nitroglycerin_Infusion">
             <English>Transfusing Nitroglycerin Infusion (250ml)...</English>
+            <Spanish>Administrando infusión de nitroglicerina (250 ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_NitroglycerinInfusion100">
             <English>Transfuse Nitroglycerin Infusion (100ml)</English>
+            <Spanish>Administrar infusión de nitroglicerina (100 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Nitroglycerin_Infusion100">
             <English>Transfusing Nitroglycerin Infusion (100ml)...</English>
+            <Spanish>Administrando infusión de nitroglicerina (100 ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Norepinephrine_Infusion">
             <English>Norepinephrine Infusion IV (250ml)</English>
+            <Spanish>Infusión de norepinefrina IV (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Norepinephrine100_Infusion">
             <English>Norepinephrine Infusion IV (100ml)</English>
+            <Spanish>Infusión de norepinefrina IV (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Norepinephrine_Infusion_Desc_Short">
             <English>Norepinephrine Infusion IV, for management of blood pressure</English>
+            <Spanish>Infusión intravenosa de norepinefrina, para el control de la presión arterial</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Norepinephrine_Infusion_Desc_Use">
             <English>A Infusion of Norepinephrine and Saline introduced into the blood system through an IV.</English>
+            <Spanish>Una infusión de norepinefrina y solución salina que se administra en el torrente sanguíneo a través de una vía intravenosa.</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_NorepinephrineInfusion">
             <English>Transfuse Norepinephrine Infusion (250ml)</English>
+            <Spanish>Administrar infusión de norepinefrina (250ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Norepinephrine_Infusion">
             <English>Transfusing Norepinephrine Infusion (250ml)...</English>
+            <Spanish>Administrando infusión de norepinefrina (250ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Actions_NorepinephrineInfusion100">
             <English>Transfuse Norepinephrine Infusion (100ml)</English>
+            <Spanish>Administrar infusión de norepinefrina (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Transfusing_Norepinephrine_Infusion100">
             <English>Transfusing Norepinephrine Infusion (100ml)t...</English>
+            <Spanish>Administrando infusión de norepinefrina (100ml)...</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_ALLOW_Lucas">
             <English>Allow LUCAS</English>
+            <Spanish>Habilitar LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_training_level_lucas">
             <English>Medical Level to attach or detach LUCAS</English>
+            <Spanish>Nivel médico para conectar o desconectar el LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_LUCAS_Display">
             <English>LUCAS</English>
+            <Spanish>LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_TurnOnLUCAS">
             <English>Turn On LUCAS</English>
+            <Spanish>Encender el LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_TurnOnLUCAS_action">
             <English>Turning On LUCAS</English>
+            <Spanish>Encendiendo el LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_TurnOffLUCAS">
             <English>Turn Off LUCAS</English>
+            <Spanish>Apagar el LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_TurnOffLUCAS_action">
             <English>Turning Off LUCAS</English>
+            <Spanish>Apagando el LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_AttachLucas">
             <English>Attach LUCAS</English>
+            <Spanish>Conectar el LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_AttachingLucas">
             <English>Attaching LUCAS</English>
+            <Spanish>Conectando el LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_DetachLucas">
             <English>Detach LUCAS</English>
+            <Spanish>Desconectar el LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_DetachingLucas">
             <English>Detaching LUCAS</English>
+            <Spanish>Desconectando el LUCAS</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_LucasActive">
             <English>LUCAS Active</English>
+            <Spanish>LUCAS activo</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_LucasInactive">
             <English>LUCAS Inactive</English>
+            <Spanish>LUCAS inactivo</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_salineIV_100">
             <English>(IV) Saline IV (100ml)</English>
+            <Spanish>(IV) Salino IV (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_SalineIV100">
             <English>Give Saline IV (100ml)</English>
+            <Spanish>Administrar salino IV (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CPR_Active">
             <English>%1 CPR (%2)</English>
+            <Spanish>%1 RCP (%2)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_hardcoreAED">
             <English>Enable Hardcore AED-X</English>
+            <Spanish>Activar DEA-X hardcore</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_hardcoreAED_desc">
             <English>Hides the vitals monitor from the medical menu, only allowing the manual monitor</English>
+            <Spanish>Oculta el monitor de vitales del menú médico y permite consultarlo solamente en el monitor manual</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output_1">
             <English>You find a Slightly Distended Jugular vein</English>
+            <Spanish>Se observa una vena yugular ligeramente distendida</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output_2">
             <English>You find a Very Distended Jugular vein</English>
+            <Spanish>Se observa una vena yugular muy distendida</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output_3">
             <English>You find a normal Jugular vein</English>
+            <Spanish>Se observa una vena yugular normal</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output_4">
             <English>You find a normal Trachea</English>
+            <Spanish>Se observa una tráquea normal</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output_5">
             <English>You find Significant Tracheal Deviation</English>
+            <Spanish>Se observa una desviación traqueal significativa</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output_1_log">
             <English>Slightly Distended Jugular vein</English>
+            <Spanish>Vena yugular ligeramente distendida</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output_2_log">
             <English>Very Distended Jugular vein</English>
+            <Spanish>Vena yugular muy distendida</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output_3_log">
             <English>Normal Jugular Vein</English>
+            <Spanish>Vena yugular normal</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output_4_log">
             <English>%1 finds a normal Trachea</English>
+            <Spanish>%1 observa una tráquea normal</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output_5_log">
             <English>%1 finds Significant Tracheal Deviation</English>
+            <Spanish>%1 observa una desviación traqueal significativa</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckNeck">
             <English>Check Neck</English>
+            <Spanish>Comprobar cuello</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckNeck_Action">
             <English>Checking Neck</English>
+            <Spanish>Comprobando cuello</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Neck_Output">
             <English>%1 finds %2</English>
+            <Spanish>%1 observa %2</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckCapRefill">
             <English>Check Capillary Refill</English>
+            <Spanish>Comprobar el relleno capilar</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckCapRefill_Action">
             <English>Checking Capillary Refill</English>
+            <Spanish>Comprobando el relleno capilar</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Normal">
             <English>You find a Capillary Refill time of ~1.5 seconds</English>
+            <Spanish>Se observa un tiempo de relleno capilar de ~1,5 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_NoRefill">
             <English>You find no Capillary Refill</English>
+            <Spanish>No se observa relleno capilar</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Delayed">
             <English>You find a Capillary Refill time of ~3 seconds</English>
+            <Spanish>Se observa un tiempo de relleno capilar de ~3 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_SeverelyDelayed">
             <English>You find a Capillary Refill time of ~5 seconds</English>
+            <Spanish>Se observa un tiempo de relleno capilar de ~5 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Normal_log">
             <English>a Capillary Refill time of ~1.5 seconds</English>
+            <Spanish>un tiempo de relleno capilar de ~1,5 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_NoRefill_log">
             <English>No Capillary Refill</English>
+            <Spanish>No se observa relleno capilar</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Delayed_log">
             <English>a Capillary Refill time of ~3 seconds</English>
+            <Spanish>un tiempo de relleno capilar de ~3 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_SeverelyDelayed_log">
             <English>a Capillary Refill time of ~5 seconds</English>
+            <Spanish>un tiempo de relleno capilar de ~5 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Normal_Mottled">
             <English>You find a Refill time of ~1.5 seconds, Skin appears mottled</English>
+            <Spanish>Se observa un tiempo de relleno de ~1,5 segundos; la piel presenta un aspecto moteado</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Delayed_Mottled">
             <English>You find a Refill time of ~3 seconds, Skin appears mottled</English>
+            <Spanish>Se observa un tiempo de relleno de ~3 segundos; la piel presenta un aspecto moteado</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_SeverelyDelayed_Mottled">
             <English>You find a Refill time of ~5 seconds, Skin appears mottled</English>
+            <Spanish>Se observa un tiempo de relleno de ~5 segundos; la piel presenta un aspecto moteado</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Normal_Mottled_log">
             <English>a Refill time of ~1.5 seconds, Skin appears mottled</English>
+            <Spanish>un tiempo de relleno de ~1,5 segundos; la piel presenta un aspecto moteado</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_Delayed_Mottled_log">
             <English>a Refill time of ~3 seconds, Skin appears mottled</English>
+            <Spanish>un tiempo de relleno de ~3 segundos; la piel presenta un aspecto moteado</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_capRefill_Output_SeverelyDelayed_Mottled_log">
             <English>a Refill time of ~5 seconds, Skin appears mottled</English>
+            <Spanish>un tiempo de relleno de ~5 segundos; la piel presenta un aspecto moteado</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckSkin">
             <English>Check Skin</English>
+            <Spanish>Comprobar la piel</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckSkin_Action">
             <English>Checking Skin</English>
+            <Spanish>Comprobando la piel</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckSkin_Output_Normal">
             <English>You find skin that is warm and pink</English>
+            <Spanish>Observas que la piel está caliente y rosada</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Skin_Output_NoRefill">
             <English>You find skin that is cool and pink</English>
+            <Spanish>Observas que la piel está fría y rosada</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckSkin_Output_SlightlyDelayed">
             <English>You find skin that is warm and pale</English>
+            <Spanish>Observas que la piel está caliente y pálida</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckSkin_Output_Delayed">
             <English>You find skin that is cool and pale</English>
+            <Spanish>Observas que la piel está fría y pálida</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckSkin_Output_SeverelyDelayed">
             <English>You find skin that is cool and grey</English>
+            <Spanish>Observas que la piel está fría y gris</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckSkin_Output_Normal_log">
             <English>finds skin that is warm and pink</English>
+            <Spanish>observa que la piel está caliente y rosada</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_Skin_Output_NoRefill_log">
             <English>finds skin that is cool and pink</English>
+            <Spanish>observa que la piel está fría y rosada</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckSkin_Output_SlightlyDelayed_log">
             <English>finds skin that is warm and pale</English>
+            <Spanish>observa que la piel está caliente y pálida</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckSkin_Output_Delayed_log">
             <English>finds skin that is cool and pale</English>
+            <Spanish>observa que la piel está fría y pálida</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_CheckSkin_Output_SeverelyDelayed_log">
             <English>finds skin that is cool and grey</English>
+            <Spanish>observa que la piel está fría y gris</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_Normal">
             <English>You find a Venous Return time of ~1.5 seconds</English>
+            <Spanish>Se observa un tiempo de relleno venoso de ~1,5 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_NoRefill">
             <English>You find no Venous Return</English>
+            <Spanish>No se observa relleno venoso</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_Delayed">
             <English>You find a Venous Return time of ~3 seconds</English>
+            <Spanish>Se observa un tiempo de relleno venoso de ~3 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_SeverelyDelayed">
             <English>You find a Venous Return time of ~5 seconds</English>
+            <Spanish>Se observa un tiempo de relleno venoso de ~5 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_Normal_log">
             <English>a Venous Return time of ~1.5 seconds</English>
+            <Spanish>Un tiempo de relleno venoso de ~1,5 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_NoRefill_log">
             <English>No Venous Return</English>
+            <Spanish>No hay relleno venoso</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_Delayed_log">
             <English>a Venous Return time of ~3 seconds</English>
+            <Spanish>Un tiempo de relleno venoso de ~3 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Check_venousReturn_Output_SeverelyDelayed_log">
             <English>a Venous Return time of ~5 seconds</English>
+            <Spanish>Un tiempo de relleno venoso de ~5 segundos</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV">
             <English>(IV) Hextend IV (1000ml)</English>
+            <Spanish>(IV) Hidroxietilalmidón IV (1000 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV_250">
             <English>(IV) Hextend IV (250ml)</English>
+            <Spanish>(IV) Hidroxietilalmidón IV (250 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV_500">
             <English>(IV) Hextend IV (500ml)</English>
+            <Spanish>(IV) Hidroxietilalmidón IV (500 ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV_Desc_Short">
             <English>(IV) Hextend IV, for restoring a patients fluids</English>
+            <Spanish>(IV) Hidroxietilalmidón IV, para reponer los líquidos del paciente</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Hextend_IV_Desc_Use">
             <English>A medical volume-replenishing agent introduced into the blood system through an IV infusion.</English>
+            <Spanish>Agente médico de reposición de volumen que se administra en el sistema circulatorio mediante una infusión intravenosa.</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_refractoryChance">
             <English>Refractory Cardiac Arrest Chance</English>
+            <Spanish>Probabilidad de paro cardíaco refractario</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_SETTING_refractoryChance_DESC">
             <English>Chance for shockable cardiac arrest to be refractory, causing shocks to be much less effective</English>
+            <Spanish>Probabilidad de que un paro cardíaco susceptible de desfibrilación sea refractario, lo que hace que las descargas sean mucho menos eficaces</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_platelet_IV">
             <English>(IV) Platelets (100ml)</English>
+            <Spanish>(IV) Plaquetas (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_PlateletIV100">
             <English>Give Platelets (100ml)</English>
+            <Spanish>Administrar plaquetas (100ml)</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Platelet_IV_Desc_Short">
             <English>Concentrated Platelets IV, for restoring a patients Platelets</English>
+            <Spanish>Concentrado de plaquetas por vía intravenosa, para reponer las plaquetas del paciente</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_250_FBTKBloodIV_A">
             <English>Give FBTK Blood IV (250ml) BT: A+</English>
+            <Spanish>Transfundir sangre donada IV (250 ml) A+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_250_FBTKBloodIV_AB">
             <English>Give FBTK Blood IV (250ml) BT: AB+</English>
+            <Spanish>Transfundir sangre donada IV (250 ml) AB+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_250_FBTKBloodIV_AB_N">
             <English>Give FBTK Blood IV (250ml) BT: AB-</English>
+            <Spanish>Trasfundir sangre donada IV (250 ml) AB-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_250_FBTKBloodIV_A_N">
             <English>Give FBTK Blood IV (250ml) BT: A-</English>
+            <Spanish>Transfundir sangre donada IV (250 ml) A-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_250_FBTKBloodIV_B">
             <English>Give FBTK Blood IV (250ml) BT: B+</English>
+            <Spanish>Transfundir sangre donada IV (250 ml) B+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_250_FBTKBloodIV_B_N">
             <English>Give FBTK Blood IV (250ml) BT: B-</English>
+            <Spanish>Transfundir sangre donada IV (250 ml) B-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_250_FBTKBloodIV_O">
             <English>Give FBTK Blood IV (250ml) BT: 0+</English>
+            <Spanish>Trasfundir sangre donada IV (250 ml) 0+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_250_FBTKBloodIV_O_N">
             <English>Give FBTK Blood IV (250ml) BT: 0-</English>
+            <Spanish>Trasfundir sangre donada IV (250 ml) 0-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_500_FBTKBloodIV_A">
             <English>Give FBTK Blood IV (500ml) BT: A+</English>
+            <Spanish>Transfundir sangre donada IV (500 ml) A+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_500_FBTKBloodIV_AB">
             <English>Give FBTK Blood IV (500ml) BT: AB+</English>
+            <Spanish>Transfundir sangre donada IV (500 ml) AB+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_500_FBTKBloodIV_AB_N">
             <English>Give FBTK Blood IV (500ml) BT: AB-</English>
+            <Spanish>Transfundir sangre donada IV (500 ml) AB-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_500_FBTKBloodIV_A_N">
             <English>Give FBTK Blood IV (500ml) BT: A-</English>
+            <Spanish>Trasfundir sangre donada IV (500 ml) A-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_500_FBTKBloodIV_B">
             <English>Give FBTK Blood IV (500ml) BT: B+</English>
+            <Spanish>Trasfundir sangre donada IV (500 ml) B+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_500_FBTKBloodIV_B_N">
             <English>Give FBTK Blood IV (500ml) BT: B-</English>
+            <Spanish>Trasfundir sangre donada IV (500 ml) B-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_500_FBTKBloodIV_O">
             <English>Give FBTK Blood IV (500ml) BT: 0+</English>
+            <Spanish>Trasfundir sangre donada IV (500 ml) 0+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Action_500_FBTKBloodIV_O_N">
             <English>Give FBTK Blood IV (500ml) BT: 0-</English>
+            <Spanish>Transfundir sangre donada IV (500 ml) 0-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_AB_250">
             <English>FBTK Blood IV (250ml) BT: AB+</English>
+            <Spanish>Sangre donada IV (250 ml) AB+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_AB_250_N">
             <English>FBTK Blood IV (250ml) BT: AB-</English>
+            <Spanish>Sangre donada IV (250 ml) AB-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_AB_500">
             <English>FBTK Blood IV (500ml) BT: AB+</English>
+            <Spanish>Sangre donada IV (500 ml) AB+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_AB_500_N">
             <English>FBTK Blood IV (500ml) BT: AB-</English>
+            <Spanish>Sangre donada IV (500 ml) AB-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_A_250">
             <English>FBTK Blood IV (250ml) BT: A+</English>
+            <Spanish>Sangre donada IV (250 ml) A+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_A_250_N">
             <English>FBTK Blood IV (250ml) BT: A-</English>
+            <Spanish>Sangre donada IV (250 ml) A-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_A_500">
             <English>FBTK Blood IV (500ml) BT: A+</English>
+            <Spanish>Sangre donada IV (500 ml) A+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_A_500_N">
             <English>FBTK Blood IV (500ml) BT: A-</English>
+            <Spanish>Sangre donada IV (500 ml) A-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_B_250">
             <English>FBTK Blood IV (250ml) BT: B+</English>
+            <Spanish>Sangre donada IV (250 ml) B+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_B_250_N">
             <English>FBTK Blood IV (250ml) BT: B-</English>
+            <Spanish>Sangre donada IV (250 ml) B-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_B_500">
             <English>FBTK Blood IV (500ml) BT: B+</English>
+            <Spanish>Sangre donada IV (500 ml) B+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_B_500_N">
             <English>FBTK Blood IV (500ml) BT: B-</English>
+            <Spanish>Sangre donada IV (500 ml) B-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_O_250">
             <English>FBTK Blood IV (250ml) BT: 0+</English>
+            <Spanish>Sangre donada IV (250 ml) 0+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_O_250_N">
             <English>FBTK Blood IV (250ml) BT: 0-</English>
+            <Spanish>Sangre donada IV (250 ml) 0-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_O_500">
             <English>FBTK Blood IV (500ml) BT: 0+</English>
+            <Spanish>Sangre donada IV (500 ml) 0+</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_FBTKBloodIV_O_500_N">
             <English>FBTK Blood IV (500ml) BT: 0-</English>
+            <Spanish>Sangre donada IV (500 ml) 0-</Spanish>
         </Key>
         <Key ID="STR_KAT_Circulation_Blood_IV">
             <English>(IV) Blood IV (1000ml)</English>
