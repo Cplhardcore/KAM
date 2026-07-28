@@ -1,5 +1,6 @@
 #include "..\script_component.hpp"
 #pragma hemtt suppress pw3_padded_arg file
+
 /*
  * Author: Glowbal, Mazinski
  * Update heart rate
@@ -59,7 +60,6 @@ if (IN_CRDC_ARRST(_unit)) then {
     #define MIN_HR 20
     #define MAX_HR 220
     _metabolicDemand = linearConversion [2200, 400, _aceAnReserve, 0, 1, true];
-
     _painLevel = GET_PAIN(_unit);
 
     private _lastHR = GET_HEART_RATE(_unit);

@@ -312,7 +312,7 @@ if (_adjustments isNotEqualTo []) then {
 [_unit, _paralysisAdjustment, _deltaT, _syncValues] call FUNC(updateParalysis);
 [_unit, _cnsSuppressionAdjustment, _deltaT, _syncValues] call FUNC(updateCnsSuppression);
 private _aceAnFatigue = 0;
-private _aceAnReserve = 0;
+private _aceAnReserve = 2200;
 if (_unit getVariable [QGVAR(fatigueEnabled), false]) then {
     _aceAnFatigue = [_unit] call FUNC(returnFatigue);
 };
