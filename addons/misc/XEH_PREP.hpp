@@ -66,5 +66,6 @@ PREP(treatment);
 PREP(treatmentSuccess);
 PREP(unSlingArmband);
 PREP(unloadAndCarryPatient);
+PREP(unloadAndCarryPatientVehicle);
 PREP(updateDamageEffects);
 PREP(useItem);

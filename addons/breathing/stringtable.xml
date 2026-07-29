@@ -3619,5 +3619,11 @@
             <English>Ignore the available oxygen equipment list and make all helmets and goggles can act as oxygen masks</English>
             <Japanese>酸素供給可能な装備のリストを無視し、すべてのヘルメットとゴーグルを酸素マスクとして機能させます</Japanese>
         </Key>
+        <Key ID="STR_KAT_Breathing_changeBVMRate">
+            <English>Change BVM Rate</English>
+        </Key>
+        <Key ID="STR_KAT_Breathing_BVMRate_gui">
+            <English>BVM Rate: %1 Breaths/Min</English>
+        </Key>
     </Package>
 </Project>

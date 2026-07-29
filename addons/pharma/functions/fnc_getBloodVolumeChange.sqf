@@ -161,7 +161,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
             };
             if ((_type == "Blood") && (_bagChange > 1)) then {
                 if !([_unit, _treatment] call EFUNC(circulation,compatible)) then {
-                    private _medCount = [_unit, "BloodPoisoning"] call ACEFUNC(medical_status,getMedicationCount) select 1;
+                    private _medCount = [_unit, "BloodPoisoning_Override"] call ACEFUNC(medical_status,getMedicationCount) select 1;
                     if (_medCount < 0.05) then {
                         [_unit, "BloodPoisoning_Override", 0, 30, 0, 0, 0, 0, 0, 0, 0, 0.2, 0.3, 0, 0, 0, 0, 1] call EFUNC(vitals,addMedicationAdjustment);
                     };
@@ -169,6 +169,7 @@ if (count (_unit getVariable [QACEGVAR(medical,ivBags), []]) > 0) then {
                     _bloodlevels set [0, ((_bloodlevels select 0) - 8) max 0];
                     _bloodlevels set [1, ((_bloodlevels select 1) + 8) max 0];
                     _bloodlevels set [5, ((_bloodlevels select 5) - 3) max 0];
+                    _unit setVariable [QEGVAR(circulation,bodyFluid), _bloodlevels, true];
                 };
             };
             // Plasma adds to ECP. Saline splits between the ECP and ISP. Blood adds to ECB/ECP

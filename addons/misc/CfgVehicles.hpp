@@ -130,7 +130,7 @@ class CfgVehicles {
                     condition = QUOTE(_target getVariable [ARR_2('ACE_isUnconscious',false)] && {!(isNull (objectParent _target))} && {isNull (objectParent _player)});
                     statement = QUOTE([ARR_2(_player,_target)] call FUNC(unloadAndCarryPatient));
                     icon = QACEPATHTOF(dragging,UI\icons\person_carry.paa);
-                };     
+                };
                 class KAT_IFAK_Item {
                     displayName = CSTRING(IFAK_Unpack);
                     condition = QUOTE([ARR_4(_target,'kat_IFAK',0,0)] call FUNC(FAK_checkSlot) && !([_target] call ACEFUNC(common,isAwake)));

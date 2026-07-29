@@ -22,7 +22,7 @@ params ["_unit"];
 private _airways = ["Larynxtubus", "IGEL", "ETT"];
 private _monitor  = _unit getVariable [QEGVAR(breathing,etco2Monitor), []];
 private _hasCapno = (_airways findIf { _x in _monitor }) != -1;
-private _color = LLSTRING(capnographyGreen);
+private _color = LLSTRING(capnographyWhite);
 private _rgb = [0,1,1,1];
 if !(_hasCapno) exitWith {};
 private _etco2 = GET_ETCO2(_unit);

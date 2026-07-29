@@ -1,3 +1,4 @@
+#define DEBUG_MODE_FULL
 #include "..\script_component.hpp"
 /*
  * Author: apo_tle
@@ -91,10 +92,14 @@ if (_mannitolCount > 0) then {
     _brainMannitol = _brainMannitol + (_mannitolCount * _BBBLeak * _deltaT);
 };
 _brainMannitol = (_brainMannitol - (0.002 * _deltaT)) max 0;
-
+private _cbfICP = (((_CBF - _targetCBF) / 300) min 0) max -5;
+TRACE_2("brain_CBF",_cbfExcess,_cbfICP);
 _unit setVariable [QGVAR(brainMannitol), _brainMannitol, true];
-private _newICP = (_ICP + _ICP_delta) - _mannitolReduction;
 private _reboundICP = 6 * _brainMannitol;
-_newICP = _newICP + _reboundICP;
+private _newICP =
+    (_ICP + _ICP_delta)
+    - _mannitolReduction
+    + _reboundICP
+    + _cbfICP;
 _newICP = (5 max _newICP) min 60;
 _unit setVariable [QGVAR(ICP), _newICP, true];

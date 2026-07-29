@@ -27,7 +27,7 @@ params ["_medic", "_patient", ["_pocket", false], ["_useOxygen", false], ["_oxyg
 _patient setVariable [QGVAR(BVMInUse), true, true];
 _medic setVariable [QGVAR(isPerformingBVM), true, true];
 GVAR(BVMTarget) = _patient;
-
+GVAR(BVMTarget) setVariable [QGVAR(BVMRate), 12 , true];
 GVAR(BVMCancel_EscapeID) = [0x01, [false, false, false], {
     GVAR(BVMTarget) setVariable [QGVAR(BVMInUse), false, true];
 }, "keydown", "", false, 0] call CBA_fnc_addKeyHandler;
@@ -47,6 +47,18 @@ GVAR(CPRDevice_Iterate) = [0xF1, [false, false, false], {
     true
 }, "keydown", "", false, 0] call CBA_fnc_addKeyHandler;
 
+GVAR(BVMSpeedUp) = [0xF8, [false, false, false], {
+    private _rate = GVAR(BVMTarget) getVariable [QGVAR(BVMRate), 15];
+    GVAR(BVMTarget) setVariable [QGVAR(BVMRate), ((_rate + 1) min 25) , true];
+    private _name = format [LLSTRING(BVMRate_gui), ((_rate + 1) min 25)];
+    [_name, 1.5, _medic] call ACEFUNC(common,displayTextStructured);
+}, "keydown", "", false, 0] call CBA_fnc_addKeyHandler;
+GVAR(BVMSpeedDown) = [0xF9, [false, false, false], {
+    private _rate = GVAR(BVMTarget) getVariable [QGVAR(BVMRate), 15];
+    GVAR(BVMTarget) setVariable [QGVAR(BVMRate), ((_rate - 1) max 5) , true];
+    private _name = format [LLSTRING(BVMRate_gui), ((_rate - 1) max 5)];
+    [_name, 1.5, _medic] call ACEFUNC(common,displayTextStructured);
+}, "keydown", "", false, 0] call CBA_fnc_addKeyHandler;
 [{
     params ["_args", "_idPFH"];
     _args params ["_medic", "_patient"];
@@ -111,7 +123,7 @@ GVAR(BVM_timeOut) = true;
 [{
     params ["_medic", "_patient", "_pocket", "_useOxygen", "_oxygenOrigin", "_notInVehicle"];
 
-    [LLSTRING(UseBVM_PutAway), LELSTRING(circulation,ChangeCPRDevice), ""] call ACEFUNC(interaction,showMouseHint);
+    [LLSTRING(UseBVM_PutAway), LELSTRING(circulation,ChangeCPRDevice), LLSTRING(changeBVMRate)] call ACEFUNC(interaction,showMouseHint);
     [LLSTRING(UseBVM_Start), 1.5, _medic] call ACEFUNC(common,displayTextStructured);
 
     [{
@@ -134,6 +146,8 @@ GVAR(BVM_timeOut) = true;
             [GVAR(BVMCancel_EscapeID), "keydown"] call CBA_fnc_removeKeyHandler;
             [GVAR(BVMCancel_MouseID), "keydown"] call CBA_fnc_removeKeyHandler;
             [GVAR(BVMDevice_Iterate), "keydown"] call CBA_fnc_removeKeyHandler;
+            [GVAR(BVMSpeedUp), "keydown"] call CBA_fnc_removeKeyHandler;
+            [GVAR(BVMSpeedDown), "keydown"] call CBA_fnc_removeKeyHandler;
 
             if (_notInVehicle) then {
                 [_medic, "AinvPknlMstpSnonWnonDnon_medicEnd", 2] call ACEFUNC(common,doAnimation);
@@ -240,8 +254,8 @@ GVAR(BVM_timeOut) = true;
             };
 
             playSound3D [QPATHTOF_SOUND(audio\squeeze_BVM.ogg), _patient, false, getPosASL _patient, 8, 1, 15];
-            private _breathrate = GET_BREATHING_RATE(_patient);
-            private _bvmRate = 60/_breathrate;
+            private _rate = _patient getVariable [QGVAR(BVMRate), 15];
+            private _bvmRate = 60/_rate;
             [{ // Squeeze BVM every 5 seconds
                 params ["_patient"];
 

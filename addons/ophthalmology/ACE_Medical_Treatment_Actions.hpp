@@ -33,7 +33,7 @@ class ACE_Medical_Treatment_Actions {
     };
 
     class EyeWashWater: EyeWash {
-        displayName = CSTRING(eyewash_display_water);
+        displayName = CSTRING(eyewash_display_water); 
         items[] = {
             "ACE_Canteen",
             "ACE_Canteen_Half",

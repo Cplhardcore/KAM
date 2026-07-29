@@ -41,7 +41,7 @@ if (IN_CRDC_ARRST(_unit)) then {
     _unit setVariable [QGVAR(arrestTime), _arrestTime + _deltaT, _syncValue];
     private _cprPerfusion = _unit getVariable [QGVAR(cprPerfusion), 100];
     _unit setVariable [QGVAR(cprPerfusion), ((_cprPerfusion - (_deltaT/6)) max 0), _syncValue];
-    if (alive (_unit getVariable [QACEGVAR(medical,CPR_provider), objNull])) then {
+    if ((alive (_unit getVariable [QACEGVAR(medical,CPR_provider), objNull])) && !((_unit getVariable [QEGVAR(circulation,CPRPaused), false]))) then {
         if (_actualHeartRate == 0) then { _syncValue = true };
         _actualHeartRate = random [95, 100, 110];
     } else {

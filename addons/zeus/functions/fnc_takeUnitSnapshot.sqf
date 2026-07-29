@@ -289,11 +289,11 @@ diag_log format [
     _reboa,
     _surgicalBlock
 ];
-private _traumaState      = _unit getVariable [QGVAR(traumaState), 0];
-private _skinPerfusion    = _unit getVariable [QGVAR(skinPerfusion), 0];
-private _shockState       = _unit getVariable [QGVAR(shockState), 0];
-private _oxygenDebt       = _unit getVariable [QGVAR(oxygenDebt), 0];
-private _sympatheticTone  = _unit getVariable [QGVAR(sympatheticTone), 0];
+private _traumaState      = _unit getVariable [QEGVAR(vitals,traumaState), 0];
+private _skinPerfusion    = _unit getVariable [QEGVAR(vitals,skinPerfusion), 0];
+private _shockState       = _unit getVariable [QEGVAR(vitals,shockState), 0];
+private _oxygenDebt       = _unit getVariable [QEGVAR(vitals,oxygenDebt), 0];
+private _sympatheticTone  = _unit getVariable [QEGVAR(vitals,sympatheticTone), 0];
 
 diag_log format [
     "[SHOCK] Trauma: %1 | SkinPerfusion: %2 | ShockState: %3 | OxygenDebt: %4 | SympatheticTone: %5",
@@ -304,18 +304,18 @@ diag_log format [
     _sympatheticTone
 ];
 
-private _externalPh       = _unit getVariable [QGVAR(externalPh), 0];
-private _lactate          = _unit getVariable [QGVAR(lactate), 1.2];
-private _microcirculation = _unit getVariable [QGVAR(microcirculation), 0];
-private _mitoFailure      = _unit getVariable [QGVAR(mitoFailure), 0];
-private _acidRepo         = _unit getVariable [QGVAR(acidRepo), 1.0];
+private _externalPh       = _unit getVariable [QEGVAR(pharma,externalPh), 0];
+private _lactate          = _unit getVariable [QEGVAR(vitals,lactate), 1.2];
+private _microcirculation = _unit getVariable [QEGVAR(vitals,microcirculation), 0];
+private _mitoFailure      = _unit getVariable [QEGVAR(vitals,mitoFailure), 0];
+private _acidRepo         = _unit getVariable [QEGVAR(vitals,acidRepo), 1.0];
 
-private _kidneyDamage     = _unit getVariable [QGVAR(kidneyDamage), 0];
-private _kidneyFail       = _unit getVariable [QGVAR(kidneyFail), false];
-private _kidneyArrest     = _unit getVariable [QGVAR(kidneyArrest), false];
-private _kidneyFailTimer  = _unit getVariable [QGVAR(kidneyFailTimer), 0];
+private _kidneyDamage     = _unit getVariable [QEGVAR(pharma,kidneyDamage), 0];
+private _kidneyFail       = _unit getVariable [QEGVAR(pharma,kidneyFail), false];
+private _kidneyArrest     = _unit getVariable [QEGVAR(pharma,kidneyArrest), false];
+private _kidneyFailTimer  = _unit getVariable [QEGVAR(pharma,kidneyFailTimer), 0];
 
-private _prevRenal        = _unit getVariable [QGVAR(prevRenalPhysio), [0,1.2,2.4,0]];
+private _prevRenal        = _unit getVariable [QEGVAR(pharma,prevRenalPhysio), [0,1.2,2.4,0]];
 
 diag_log format [
     "[RENAL] ExternalPh: %1 | Lactate: %2 | Micro: %3 | Mito: %4 | AcidRepo: %5 | KidneyDamage: %6 | KidneyFail: %7 | KidneyArrest: %8 | KidneyFailTimer: %9 | PrevRenal: %10",
@@ -331,16 +331,16 @@ diag_log format [
     _prevRenal
 ];
 
-private _serumCalcium     = _unit getVariable [QGVAR(serumCalcium), 0];
-private _effectiveCa      = _unit getVariable [QGVAR(effectiveCa), 2.4];
-private _externalCa       = _unit getVariable [QGVAR(externalCa), 0];
+private _serumCalcium     = _unit getVariable [QEGVAR(pharma,serumCalcium), 0];
+private _effectiveCa      = _unit getVariable [QEGVAR(pharma,effectiveCa), 2.4];
+private _externalCa       = _unit getVariable [QEGVAR(pharma,externalCa), 0];
 
-private _calciumDamage    = _unit getVariable [QGVAR(calciumDamage), 0];
-private _liverDamage      = _unit getVariable [QGVAR(liverDamage), 0];
-private _liverFail        = _unit getVariable [QGVAR(liverFail), false];
+private _calciumDamage    = _unit getVariable [QEGVAR(pharma,calciumDamage), 0];
+private _liverDamage      = _unit getVariable [QEGVAR(pharma,liverDamage), 0];
+private _liverFail        = _unit getVariable [QEGVAR(pharma,liverFail), false];
 
-private _lastArrhythmia   = _unit getVariable [QGVAR(lastArrhythmia), -1000];
-private _prevCalcium      = _unit getVariable [QGVAR(prevCalciumPhysio), [0,1.2,2.4,0]];
+private _lastArrhythmia   = _unit getVariable [QEGVAR(pharma,lastArrhythmia), -1000];
+private _prevCalcium      = _unit getVariable [QEGVAR(pharma,prevCalciumPhysio), [0,1.2,2.4,0]];
 
 diag_log format [
     "[CALCIUM] SerumCa: %1 | EffectiveCa: %2 | ExternalCa: %3 | CalciumDamage: %4 | LiverDamage: %5 | LiverFail: %6 | LastArrhythmia: %7 | PrevCalcium: %8",
@@ -354,21 +354,21 @@ diag_log format [
     _prevCalcium
 ];
 
-private _simpleMedical     = _unit getVariable [QGVAR(simpleMedical), false];
-private _respiratoryDepth  = _unit getVariable [QGVAR(respiratoryDepth), DEFAULT_RESPIRATORY_DEPTH];
-private _fatigueEnabled    = _unit getVariable [QGVAR(fatigueEnabled), false];
-private _currentWeight     = _unit getVariable [QGVAR(currentWeight), 0];
+private _simpleMedical     = _unit getVariable [QEGVAR(vitals,simpleMedical), false];
+private _respiratoryDepth  = _unit getVariable [QEGVAR(vitals,respiratoryDepth), DEFAULT_RESPIRATORY_DEPTH];
+private _fatigueEnabled    = _unit getVariable [QEGVAR(vitals,fatigueEnabled), false];
+private _currentWeight     = _unit getVariable [QEGVAR(vitals,currentWeight), 0];
 
-private _mapIntegral       = _unit getVariable [QGVAR(mapIntegral), 0];
-private _svMemory          = _unit getVariable [QGVAR(svMemory), 0.0810542];
-private _csCO2Memory       = _unit getVariable [QGVAR(csCO2Memory), 40];
+private _mapIntegral       = _unit getVariable [QEGVAR(vitals,mapIntegral), 0];
+private _svMemory          = _unit getVariable [QEGVAR(vitals,svMemory), 0.0810542];
+private _csCO2Memory       = _unit getVariable [QEGVAR(vitals,csCO2Memory), 40];
 
-private _breathingState    = _unit getVariable [QGVAR(breathingState), 0];
-private _biotTimer         = _unit getVariable [QGVAR(biotTimer), 0];
-private _biotState         = _unit getVariable [QGVAR(biotState), "breath"];
+private _breathingState    = _unit getVariable [QEGVAR(vitals,breathingState), 0];
+private _biotTimer         = _unit getVariable [QEGVAR(vitals,biotTimer), 0];
+private _biotState         = _unit getVariable [QEGVAR(vitals,biotState), "breath"];
 
-private _agonalTimer       = _unit getVariable [QGVAR(agonalTimer), 0];
-private _rrMemory          = _unit getVariable [QGVAR(rrMemory), 0];
+private _agonalTimer       = _unit getVariable [QEGVAR(vitals,agonalTimer), 0];
+private _rrMemory          = _unit getVariable [QEGVAR(vitals,rrMemory), 0];
 
 diag_log format [
     "[RESP/CORE] SimpleMedical: %1 | RespDepth: %2 | Fatigue: %3 | Weight: %4 | MAPIntegral: %5 | SV: %6 | CO2Memory: %7 | BreathingState: %8 | BiotTimer: %9 | BiotState: %10 | AgonalTimer: %11 | RRMemory: %12",
@@ -386,14 +386,14 @@ diag_log format [
     _rrMemory
 ];
 
-private _shockClass        = _unit getVariable [QGVAR(shockClass), 0];
-private _sympatheticTone   = _unit getVariable [QGVAR(sympatheticTone), 0];
-private _catecholamine     = _unit getVariable [QGVAR(catecholamine), 0];
+private _shockClass        = _unit getVariable [QEGVAR(vitals,shockClass), 0];
+private _sympatheticTone   = _unit getVariable [QEGVAR(vitals,sympatheticTone), 0];
+private _catecholamine     = _unit getVariable [QEGVAR(vitals,catecholamine), 0];
 
-private _traumaState       = _unit getVariable [QGVAR(traumaState), 0];
-private _oxygenDebt        = _unit getVariable [QGVAR(oxygenDebt), 0];
-private _shockState        = _unit getVariable [QGVAR(shockState), 0];
-private _skinPerfusion     = _unit getVariable [QGVAR(skinPerfusion), 1];
+private _traumaState       = _unit getVariable [QEGVAR(vitals,traumaState), 0];
+private _oxygenDebt        = _unit getVariable [QEGVAR(vitals,oxygenDebt), 0];
+private _shockState        = _unit getVariable [QEGVAR(vitals,shockState), 0];
+private _skinPerfusion     = _unit getVariable [QEGVAR(vitals,skinPerfusion), 1];
 
 diag_log format [
     "[SHOCK/AUTO] ShockClass: %1 | SympatheticTone: %2 | Catecholamine: %3 | Trauma: %4 | OxygenDebt: %5 | ShockState: %6 | SkinPerfusion: %7",
@@ -406,14 +406,14 @@ diag_log format [
     _skinPerfusion
 ];
 
-private _ataxicRate    = _unit getVariable [QGVAR(ataxicRate), 0];
-private _ataxicDepth   = _unit getVariable [QGVAR(ataxicDepth), 0];
-private _ataxicTimer   = _unit getVariable [QGVAR(ataxicTimer), 0];
+private _ataxicRate    = _unit getVariable [QEGVAR(vitals,ataxicRate), 0];
+private _ataxicDepth   = _unit getVariable [QEGVAR(vitals,ataxicDepth), 0];
+private _ataxicTimer   = _unit getVariable [QEGVAR(vitals,ataxicTimer), 0];
 
-private _respFatigue   = _unit getVariable [QGVAR(respFatigue), 0];
-private _pao2_prev     = _unit getVariable [QGVAR(pao2_prev), 90];
+private _respFatigue   = _unit getVariable [QEGVAR(vitals,respFatigue), 0];
+private _pao2_prev     = _unit getVariable [QEGVAR(vitals,pao2_prev), 90];
 
-private _lastUDE       = _unit getVariable [QGVAR(lastTimeUDEUpdated), 0];
+private _lastUDE       = _unit getVariable [QEGVAR(vitals,lastTimeUDEUpdated), 0];
 
 diag_log format [
     "[RESP DYSFUNC] AtaxicRate: %1 | AtaxicDepth: %2 | AtaxicTimer: %3 | RespFatigue: %4 | PaO2_prev: %5 | LastUDE: %6",
@@ -425,12 +425,12 @@ diag_log format [
     _lastUDE
 ];
 
-private _CMR  = _unit getVariable [QGVAR(CMR), 100];
-private _CBF  = _unit getVariable [QGVAR(CBF), 800];
-private _CVR  = _unit getVariable [QGVAR(CVR), 0.1];
-private _ICP  = _unit getVariable [QGVAR(ICP), 15];
-private _CPR  = _unit getVariable [QGVAR(CPR), 100];
-private _rO2  = _unit getVariable [QGVAR(rO2), 80];
+private _CMR  = _unit getVariable [QEGVAR(brain,CMR), 100];
+private _CBF  = _unit getVariable [QEGVAR(brain,CBF), 800];
+private _CVR  = _unit getVariable [QEGVAR(brain,CVR), 0.1];
+private _ICP  = _unit getVariable [QEGVAR(brain,ICP), 15];
+private _CPR  = _unit getVariable [QEGVAR(brain,CPR), 100];
+private _rO2  = _unit getVariable [QEGVAR(brain,rO2), 80];
 
 diag_log format [
     "[CNS] CMR: %1 | CBF: %2 | CVR: %3 | ICP: %4 | CPR: %5 | rO2: %6",
@@ -442,16 +442,16 @@ diag_log format [
     _rO2
 ];
 
-private _necrosis           = _unit getVariable [QGVAR(necrosis), 0];
-private _deoxygenatedTicks  = _unit getVariable [QGVAR(deoxygenatedTicks), 0];
-private _reversibleDamage   = _unit getVariable [QGVAR(reversibleDamage), 0];
+private _necrosis           = _unit getVariable [QEGVAR(brain,necrosis), 0];
+private _deoxygenatedTicks  = _unit getVariable [QEGVAR(brain,deoxygenatedTicks), 0];
+private _reversibleDamage   = _unit getVariable [QEGVAR(brain,reversibleDamage), 0];
 
-private _mapHighTicks       = _unit getVariable [QGVAR(mapHighTicks), 0];
-private _autoregFatigue     = _unit getVariable [QGVAR(autoregFatigue), 0];
+private _mapHighTicks       = _unit getVariable [QEGVAR(brain,mapHighTicks), 0];
+private _autoregFatigue     = _unit getVariable [QEGVAR(brain,autoregFatigue), 0];
 
-private _edema              = _unit getVariable [QGVAR(edema), 0];
-private _bleeding           = _unit getVariable [QGVAR(bleeding), 0];
-private _isSwelling         = _unit getVariable [QGVAR(isSwelling), false];
+private _edema              = _unit getVariable [QEGVAR(brain,edema), 0];
+private _bleeding           = _unit getVariable [QEGVAR(brain,bleeding), 0];
+private _isSwelling         = _unit getVariable [QEGVAR(brain,isSwelling), false];
 
 diag_log format [
     "[CNS DAMAGE] Necrosis: %1 | DeoxyTicks: %2 | Reversible: %3 | MAPHighTicks: %4 | AutoregFatigue: %5 | Edema: %6 | Bleeding: %7 | Swelling: %8",

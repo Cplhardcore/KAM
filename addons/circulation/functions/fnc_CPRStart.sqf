@@ -34,6 +34,17 @@ GVAR(CPRCancel_MouseID) = [0xF0, [false, false, false], {
     GVAR(CPRTarget) setVariable [QACEGVAR(medical,CPR_provider), objNull, true];
 }, "keydown", "", false, 0] call CBA_fnc_addKeyHandler;
 
+GVAR(CPRPause) = [0xF2, [false, false, false], {
+    private _paused = !(GVAR(CPRTarget) getVariable [QGVAR(CPRPaused), false]);
+    GVAR(CPRTarget) setVariable [QGVAR(CPRPaused), _paused, true];
+    if (_paused) then {
+        [LLSTRING(PausedCPR), 1.5, _medic] call ACEFUNC(common,displayTextStructured);
+         [_medic, "AinvPknlMstpSnonWnonDnon_medicEnd", 2] call ACEFUNC(common,doAnimation);
+    } else {
+        [LLSTRING(StartCPR), 1.5, _medic] call ACEFUNC(common,displayTextStructured);
+    }
+}, "keydown", "", false, 0] call CBA_fnc_addKeyHandler;
+
 GVAR(CPRDevice_Iterate) = [0xF1, [false, false, false], {
     private _deviceCode = GVAR(CPRTarget) getVariable [QGVAR(deviceCode), 0];
     _deviceCode = [(_deviceCode + 1), 1] select (_deviceCode == 2);
@@ -110,7 +121,7 @@ if (_notInVehicle) then {
 [{
     params ["_medic", "_patient", "_notInVehicle", "_CPRStartTime"];
 
-    [LLSTRING(StopCPR), LLSTRING(ChangeCPRDevice), ""] call ACEFUNC(interaction,showMouseHint);
+    [LLSTRING(StopCPR), LLSTRING(ChangeCPRDevice), LLSTRING(PauseCPR)] call ACEFUNC(interaction,showMouseHint);
     [LLSTRING(StartCPR), 1.5, _medic] call ACEFUNC(common,displayTextStructured);
 
     [{
@@ -142,6 +153,7 @@ if (_notInVehicle) then {
             [GVAR(CPRCancel_EscapeID), "keydown"] call CBA_fnc_removeKeyHandler;
             [GVAR(CPRCancel_MouseID), "keydown"] call CBA_fnc_removeKeyHandler;
             [GVAR(CPRDevice_Iterate), "keydown"] call CBA_fnc_removeKeyHandler;
+            [GVAR(CPRPause), "keydown"] call CBA_fnc_removeKeyHandler;
 
             if (_notInVehicle) then {
                 [_medic, "AinvPknlMstpSnonWnonDnon_medicEnd", 2] call ACEFUNC(common,doAnimation);
@@ -157,7 +169,7 @@ if (_notInVehicle) then {
             [LLSTRING(CancelCPR), 1.5, _medic] call ACEFUNC(common,displayTextStructured);
         };
 
-        if (loopCPR) then {
+        if (loopCPR && !(_patient getVariable [QGVAR(CPRPaused), false])) then {
             [QACEGVAR(common,switchMove), [_medic, "kat_CPR"]] call CBA_fnc_globalEvent;
             loopCPR = false;
 
@@ -182,7 +194,9 @@ if (_notInVehicle) then {
         if ((_patient getVariable [QACEGVAR(medical,CPR_provider), objNull]) isEqualTo objNull) exitWith {
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };
-        [_medic, _patient] call FUNC(cprSuccess);
+        if !(_patient getVariable [QGVAR(CPRPaused), false]) then {
+            [_medic, _patient] call FUNC(cprSuccess);
+        };
     }, 5, [_medic, _patient]] call CBA_fnc_addPerFrameHandler;
 }, [_medic, _patient], 7.5] call CBA_fnc_waitAndExecute;
 

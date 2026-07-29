@@ -23,7 +23,7 @@ params ["_unit", "_hrTargetAdjustment", "_deltaT", "_syncValue"];
 private _heartRate = GET_HEART_RATE(_unit);
 
 if IN_CRDC_ARRST(_unit) then {
-    if (alive (_unit getVariable [QACEGVAR(medical,CPR_provider), objNull])) then {
+    if ((alive (_unit getVariable [QACEGVAR(medical,CPR_provider), objNull])) && !((_unit getVariable [QEGVAR(circulation,CPRPaused), false]))) then {
         if (_heartRate == 0) then { _syncValue = true }; // always sync on large change
         _heartRate = random [90, 100, 120];
     } else {

@@ -280,8 +280,11 @@ class ACE_Medical_Treatment_Actions {
         medicRequired = 0;
         allowedSelections[] = {"Head","LeftArm","RightArm","Body","LeftLeg","RightLeg", "Chest", "UpperLeftArm", "UpperRightArm", "UpperLeftLeg", "UpperRightLeg", "Neck"};
         treatmentTime = 15;
-        items[] = {};
-        consumeItem = 0;
+        items[] = {
+            "ACE_Canteen",
+            "ACE_WaterBottle"
+        };
+        consumeItem = 1;
         condition = "true";
         callbackStart = "";
         callbackSuccess = QFUNC(washBody);

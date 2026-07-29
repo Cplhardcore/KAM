@@ -4421,5 +4421,11 @@
         <Key ID="STR_KAT_Circulation_LUCAS_Desc">
             <English>A portable mechanical CPR device</English>
         </Key>
+        <Key ID="STR_KAT_Circulation_PauseCPR">
+            <English>Pause CPR</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_PausedCPR">
+            <English>Paused CPR</English>
+        </Key>
     </Package>
 </Project>

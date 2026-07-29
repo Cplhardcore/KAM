@@ -19,46 +19,50 @@
 params ["_medic", "_patient"];
 
 [_medic, _patient] call ACEFUNC(medical_treatment,unloadUnit);
+[_medic, _patient, true] call ACEFUNC(common,claim);
 
-// From ace_dragging_fnc_startCarry
 
-// exempt from weight check if object has override variable set
-if (!GETVAR(_patient,ACEGVAR(dragging,ignoreWeightCarry),false) && {
-    private _weight = [_patient] call ACEFUNC(dragging,getWeight);
-    _weight > GETMVAR(ACE_maxWeightCarry,1E11)
-}) exitWith {
-    // exit if object weight is over global var value
-    [ACELLSTRING(dragging,UnableToDrag)] call ACEFUNC(common,displayTextStructured);
-};
+// Exempt from weight check if object has override variable set
+private _weight = 0;
 
 private _timer = CBA_missionTime;
 
-// add a primary weapon if the unit has none.
-if (primaryWeapon _medic isEqualTo "") then {
-    _medic addWeapon "ACE_FakePrimaryWeapon";
+// Handle objects vs. persons
+if (_patient isKindOf "CAManBase") then {
+    // Create clone for dead units
+    if (!alive _patient) then {
+        _patient = [_medic, _patient] call ACEFUNC(dragging,createClone);
+    };
+
+    private _primaryWeapon = primaryWeapon _medic;
+
+    // Add a primary weapon if the unit has none
+    if (_primaryWeapon == "") then {
+        _medic addWeapon "ACE_FakePrimaryWeapon";
+        _primaryWeapon = "ACE_FakePrimaryWeapon";
+    };
+
+    // Select primary, otherwise the carry animation actions don't work
+    _medic selectWeapon _primaryWeapon; // This turns off lasers/lights
+
+    // Move a bit closer and adjust direction when trying to pick up a person
+    [QACEGVAR(common,setDir), [_patient, getDir _medic + 180], _patient] call CBA_fnc_patientEvent;
+    _patient setPosASL (getPosASL _medic vectorAdd (vectorDir _medic));
 };
 
-// select primary, otherwise the drag animation actions don't work.
-_medic selectWeapon primaryWeapon _medic;
+[_medic, "blockThrow", QUOTE(ADDON), true] call ACEFUNC(common,statusEffect_set);
 
-// move a bit closer and adjust direction when trying to pick up a person
-_patient setDir (getDir _medic + 180);
-_patient setPosASL (getPosASL _medic vectorAdd (vectorDir _medic));
-[_medic, "blockThrow", "ACE_dragging", true] call ACEFUNC(common,statusEffect_set);
-
-// prevent multiple players from accessing the same object
-[_medic, _patient, true] call ACEFUNC(common,claim);
-
-// prevents draging and carrying at the same time
+// Prevents dragging and carrying at the same time
 _medic setVariable [QACEGVAR(dragging,isCarrying), true, true];
 
-// required for aborting animation
+// Required for aborting (animation & keybind)
 _medic setVariable [QACEGVAR(dragging,carriedObject), _patient, true];
-[ACEFUNC(dragging,startCarryPFH), 0.2, [_medic, _patient, _timer]] call CBA_fnc_addPerFrameHandler;
 
-// disable collisions by setting the physx mass to almost zero
+[_medic, _patient] call ACEFUNC(dragging,carryObject);
+// Disable collisions by setting the PhysX mass to almost zero
 private _mass = getMass _patient;
+
 if (_mass > 1) then {
     _patient setVariable [QACEGVAR(dragging,originalMass), _mass, true];
-    [QACEGVAR(common,setMass), [_patient, 1e-12]] call CBA_fnc_globalEvent; // force global sync
+    [QACEGVAR(common,setMass), [_patient, 1e-12]] call CBA_fnc_globalEvent; // Force global sync
 };
