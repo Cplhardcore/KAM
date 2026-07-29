@@ -47,7 +47,7 @@ switch (true) do {
     };
     default {};
 };
-if ((_unit getVariable [QEGVAR(circulation,capnographConnected), false])) then {
+if ((_patient getVariable [QEGVAR(circulation,capnographConnected), false])) then {
     [_medic, "kat_EMMA"] call ACEFUNC(common,addToInventory);
 };
 

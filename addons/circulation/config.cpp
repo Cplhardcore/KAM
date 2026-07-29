@@ -53,7 +53,8 @@ class CfgPatches {
             "kat_HypertonicSalineIV_250",
             "kat_HypertonicSalineIV_100",
             "kat_PlateletIV100",
-            "kat_Lucas"
+            "kat_Lucas",
+            "kat_EMMA"
         };
         magazines[] = { };
         requiredAddons[] = {

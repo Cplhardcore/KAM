@@ -51,4 +51,4 @@ switch (_AEDOrigin) do {
 
 if (_exit) exitWith {false};
 
-_condition && !(_patient getVariable [QGVAR(DefibrillatorPads_Connected), false]) && !(_patient getVariable [QEGVAR(airway,recovery), false]) && (objectParent _patient isEqualTo objectParent _medic) && (["",_patient] call ACEFUNC(medical_treatment,canCPR) || GVAR(AED_duringCpr) || ((alive (_patient getVariable [QACEGVAR(medical,CPR_provider), objNull])) && ((_unit getVariable [QEGVAR(circulation,CPRPaused), false]))));
+_condition && !(_patient getVariable [QGVAR(DefibrillatorPads_Connected), false]) && !(_patient getVariable [QEGVAR(airway,recovery), false]) && (objectParent _patient isEqualTo objectParent _medic) && (["",_patient] call ACEFUNC(medical_treatment,canCPR) || GVAR(AED_duringCpr) || ((alive (_patient getVariable [QACEGVAR(medical,CPR_provider), objNull])) && ((_patient getVariable [QEGVAR(circulation,CPRPaused), false]))));

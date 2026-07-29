@@ -33,7 +33,7 @@ if (!_isOccluded && !_isDamaged) then {
         case ((_patient getVariable [QGVAR(attachedLucasState), false])): {
             100 // fake heart rate because patient is dead and off state machine
         };
-        case ((alive (_patient getVariable [QACEGVAR(medical,CPR_provider), objNull])) && !((_unit getVariable [QEGVAR(circulation,CPRPaused), false]))): {
+        case ((alive (_patient getVariable [QACEGVAR(medical,CPR_provider), objNull])) && !((_patient getVariable [QEGVAR(circulation,CPRPaused), false]))): {
             random [100, 105, 95] // fake heart rate because patient is dead and off state machine
         };
         default { 0 };

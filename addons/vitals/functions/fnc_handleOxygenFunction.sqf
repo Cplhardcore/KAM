@@ -78,6 +78,7 @@ private _bvmDyssync = _unit getVariable [QGVAR(bvmDyssync), 0];
 private _sedation = _unit getVariable [QEGVAR(surgery,sedated), 0];
 private _cnsSuppression = (_unit getVariable [QEGVAR(pharma,cnsSuppression), 0]) min 0.8;
 private _isArrest = IN_CRDC_ARRST(_unit);
+private _respFailure = _unit getVariable [QGVAR(respFailure), RF_NONE];
 if (_do2 < 8) then {
     _anerobicPressure = _anerobicPressure + (linearConversion [8, 5, _do2, 0, 0.6, true]);
 };
@@ -515,6 +516,7 @@ switch (true) do {
                     6
                 ];
             };
+            
             switch (_respFailure) do {        
                 case RF_IMPENDING: {
                     _respiratoryDepth = _respiratoryDepth * 0.75;
@@ -561,6 +563,7 @@ switch (true) do {
                     _respDrive = 1;
                     _unit setVariable [QGVAR(breathingState), 9, true];
                 };
+                default {};
             };
             _actualVentilation = _patientVent max _bvmVentEffective;
             _unit setVariable [QGVAR(bvmDyssync), _dyssync, true];
@@ -573,7 +576,6 @@ switch (true) do {
         );
     };
 };
-private _respFailure = _unit getVariable [QGVAR(respFailure), RF_NONE];
 if (_respFatigue > 0.85 && (_unit getVariable [QEGVAR(pharma,acidRepo), 1]) < 0.25) then {
     _respFailure = RF_IMPENDING;
 };
