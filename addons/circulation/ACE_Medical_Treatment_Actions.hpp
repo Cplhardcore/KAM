@@ -342,4 +342,56 @@ class ACE_Medical_Treatment_Actions {
         animationPatientUnconscious = "AinjPpneMstpSnonWrflDnon_rolltoback";
         animationPatientUnconsciousExcludeOn[] = {"ainjppnemstpsnonwrfldnon", "kat_recoveryposition"};
     };
+    class AttachEMMA {
+        displayName = CSTRING(EMMA_Display);
+        displayNameProgress = ECSTRING(airway,action_placing);
+        category = "airway";
+        treatmentLocations = 0;
+        allowedSelections[] = {"Head", "Neck"};
+        allowSelfTreatment = 0;
+        medicRequired = QEGVAR(breathing,medLvl_EMMA);
+        treatmentTime = 4;
+        items[] = {"kat_EMMA"};
+        condition = QFUNC(canPlaceEMMA);
+        callbackSuccess = QFUNC(treatmentAdvanced_EMMA);
+        callbackFailure = "";
+        callbackProgress = "";
+        callbackCondition = "";
+        consumeItem = 1;
+        animationPatient = "";
+        animationPatientUnconscious = "AinjPpneMstpSnonWrflDnon_rolltoback";
+        animationPatientUnconsciousExcludeOn[] = {"ainjppnemstpsnonwrfldnon", "kat_recoveryposition"};
+        animationMedic = "AinvPknlMstpSlayWrflDnon_medicOther";
+        animationMedicProne = "AinvPpneMstpSlayW[wpn]Dnon_medicOther";
+        animationMedicSelf = "AinvPknlMstpSlayW[wpn]Dnon_medic";
+        animationMedicSelfProne = "AinvPpneMstpSlayW[wpn]Dnon_medic";
+        litter[] = {};
+        icon = QPATHTOF(ui\kat_capno.paa); // TODO update to nasal specific icon
+    };
+    class DetachEMMA {
+        displayName = CSTRING(RemoveEMMA_Display);
+        displayNameProgress = ECSTRING(airway,action_removing);
+        category = "airway";
+        treatmentLocations = 0;
+        allowedSelections[] = {"Head", "Neck"};
+        allowSelfTreatment = 0;
+        medicRequired = QEGVAR(breathing,medLvl_EMMA);
+        treatmentTime = 4;
+        items[] = {};
+        condition = QFUNC(canRemoveEMMA);
+        callbackSuccess = QFUNC(treatmentAdvanced_RemoveEMMA);
+        callbackFailure = "";
+        callbackProgress = "";
+        callbackCondition = "";
+        consumeItem = 0;
+        animationPatient = "";
+        animationPatientUnconscious = "AinjPpneMstpSnonWrflDnon_rolltoback";
+        animationPatientUnconsciousExcludeOn[] = {"ainjppnemstpsnonwrfldnon", "kat_recoveryposition"};
+        animationMedic = "AinvPknlMstpSlayWrflDnon_medicOther";
+        animationMedicProne = "AinvPpneMstpSlayW[wpn]Dnon_medicOther";
+        animationMedicSelf = "AinvPknlMstpSlayW[wpn]Dnon_medic";
+        animationMedicSelfProne = "AinvPpneMstpSlayW[wpn]Dnon_medic";
+        litter[] = {};
+        icon = QPATHTOF(ui\kat_capno.paa); // TODO update to nasal specific icon
+    };
 };

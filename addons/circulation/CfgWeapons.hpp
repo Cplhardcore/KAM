@@ -589,6 +589,16 @@ class CfgWeapons {
             mass = 2;
         };
     };
+    class kat_EMMA: ACE_ItemCore {
+        scope = 2;
+        author = "Cplhardcore";
+        displayName = CSTRING(EMMA_Capno);
+        picture = QPATHTOF(ui\kat_capno.paa);
+        ACE_isMedicalItem = 1;
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 5;
+        };
+    };
     KAT_bloodSample_ITEM(KAT_bloodSample,1);
     KAT_bloodSample_ITEM(KAT_bloodSample,2);
     KAT_bloodSample_ITEM(KAT_bloodSample,3);

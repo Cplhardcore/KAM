@@ -47,5 +47,8 @@ switch (true) do {
     };
     default {};
 };
+if ((_unit getVariable [QEGVAR(circulation,capnographConnected), false])) then {
+    [_medic, "kat_EMMA"] call ACEFUNC(common,addToInventory);
+};
 
 [QGVAR(removeAirwayItemLocal), [_medic, _patient, _item], _patient] call CBA_fnc_targetEvent;

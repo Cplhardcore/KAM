@@ -62,7 +62,75 @@ class RscTitles
             };
         };
     };
-
+    class CPR_EMMA
+    {
+        idd = 22836;
+        enableSimulation = 1;
+        movingEnable = 0;
+        fadeIn=0;
+        fadeOut=1;
+        duration = 10e10;
+        onLoad = "uiNamespace setVariable ['kat_capno', _this select 0];";
+        class controls
+        {
+            class KatCapnoIcon: RscPicture
+            {
+                idc = 22805;
+                text = "\x\kat\addons\circulation\UI\kat_capno.paa";
+                x = QUOTE(0.5 - (FRAME_W(25) / 2));
+                y = QUOTE(0.5 - (FRAME_H(45) / 2));
+                w = QUOTE(FRAME_W(30));
+                h = QUOTE(FRAME_H(30));
+            };
+            class KatCapnoETCO2: RscText
+            {
+                idc = 22806;
+                x = QUOTE(0.48 - (FRAME_W(1) / 2));
+                y = QUOTE(0.55 - (FRAME_H(25) / 2));
+                w = QUOTE(FRAME_W(5));
+                h = QUOTE(FRAME_H(5));
+                type = 0;
+                style = 0;
+                font = "RobotoCondensed";
+                sizeEx = QUOTE(KAT_GRID_H * 2.2 * (0.55 / (getResolution select 5)));
+                shadow = 0;
+                colorBackground[] = {0,0,0,0};
+                colorText[] = {0.8,0.8,0,1};
+                text = "ETCO2";
+            };
+            class KatCapnoETCO2Title: RscText
+            {
+                idc = 22807;
+                x = QUOTE(0.48 - (FRAME_W(1) / 2));
+                y = QUOTE(0.5 - (FRAME_H(25) / 2));
+                w = QUOTE(FRAME_W(5));
+                h = QUOTE(FRAME_H(5));
+                type = 0;
+                style = 0;
+                font = "RobotoCondensed";
+                sizeEx = QUOTE(KAT_GRID_H * 1.2 * (0.55 / (getResolution select 5)));
+                shadow = 0;
+                colorBackground[] = {0,0,0,0};
+                colorText[] = {0.8,0.8,0,1};
+                text = "ETCO2";
+            };
+            class KatCapnoRR: KatCapnoETCO2
+            {
+                idc = 22809;
+                x = QUOTE(0.5 + (FRAME_W(7) / 2));
+                sizeEx = QUOTE(KAT_GRID_H * 1.7 * (0.55 / (getResolution select 5)));
+                text = "BR";
+            };
+            class KatCapnoRRTitle: KatCapnoETCO2Title
+            {
+                idc = 22810;
+                x = QUOTE(0.5 + (FRAME_W(7) / 2));
+                y = QUOTE(0.5 - (FRAME_H(25) / 2));
+                sizeEx = QUOTE(KAT_GRID_H * 1.2 * (0.55 / (getResolution select 5)));
+                text = "BR";
+            };
+        };
+    };
     class CPR_AED_X
     {
         idd = IDC_AEDX_MONITOR_TITLE;

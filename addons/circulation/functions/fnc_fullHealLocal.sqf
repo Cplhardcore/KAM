@@ -53,4 +53,4 @@ _patient setVariable [QGVAR(heartRestart), false, true];
 _patient setVariable [QGVAR(AEDEffectiveness), 1, true];
 _patient setVariable [QGVAR(externalBloodLoss), 0, true];
 _patient setVariable [QGVAR(CPRPaused), false, true];
-
+_patient setVariable [QGVAR(capnographConnected), false, true];

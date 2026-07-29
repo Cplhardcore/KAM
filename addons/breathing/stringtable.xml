@@ -3625,5 +3625,8 @@
         <Key ID="STR_KAT_Breathing_BVMRate_gui">
             <English>BVM Rate: %1 Breaths/Min</English>
         </Key>
+        <Key ID="STR_KAT_Breathing_medLvl_EMMA">
+            <English>Medical Level to attach a EMMA</English>
+        </Key>
     </Package>
 </Project>

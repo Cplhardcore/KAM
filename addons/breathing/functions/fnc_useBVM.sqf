@@ -38,10 +38,13 @@ GVAR(BVMCancel_MouseID) = [0xF0, [false, false, false], {
 
 GVAR(CPRDevice_Iterate) = [0xF1, [false, false, false], {
     private _deviceCode = GVAR(BVMTarget) getVariable [QEGVAR(circulation,deviceCode), 0];
-    _deviceCode = [(_deviceCode + 1), 1] select (_deviceCode == 2);
-    private _deviceArray = [true,(GVAR(BVMTarget) getVariable [QGVAR(pulseoximeter), false]),((GVAR(BVMTarget) getVariable [QEGVAR(circulation,DefibrillatorPads_Connected),false] && ((GVAR(BVMTarget) getVariable [QEGVAR(circulation,Defibrillator_Provider),[-1,-1,-1]] select 2) isEqualTo 'kat_X_AED')) || (GVAR(BVMTarget) getVariable [QEGVAR(circulation,AED_X_VitalsMonitor_Connected),false]))];
+    _deviceCode = [(_deviceCode + 1), 1] select (_deviceCode == 3);
+    private _deviceArray = [true,
+            (GVAR(BVMTarget) getVariable [QGVAR(pulseoximeter), false]),
+            ((GVAR(BVMTarget) getVariable [QEGVAR(circulation,DefibrillatorPads_Connected),false] && ((GVAR(BVMTarget) getVariable [QEGVAR(circulation,Defibrillator_Provider),[-1,-1,-1]] select 2) isEqualTo 'kat_X_AED')) || (GVAR(BVMTarget) getVariable [QEGVAR(circulation,AED_X_VitalsMonitor_Connected),false])),
+            (GVAR(CPRTarget) getVariable [QEGVAR(circulation,capnographConnected),false])];
         while { !(_deviceArray select _deviceCode) } do {
-            _deviceCode = [0, (_deviceCode + 1)] select (_deviceCode < 2);
+            _deviceCode = [0, (_deviceCode + 1)] select (_deviceCode < 3);
         };
     GVAR(BVMTarget) setVariable [QEGVAR(circulation,deviceCode), _deviceCode, true];
     true
@@ -59,6 +62,9 @@ GVAR(BVMSpeedDown) = [0xF9, [false, false, false], {
     private _name = format [LLSTRING(BVMRate_gui), ((_rate - 1) max 5)];
     [_name, 1.5, _medic] call ACEFUNC(common,displayTextStructured);
 }, "keydown", "", false, 0] call CBA_fnc_addKeyHandler;
+GVAR(BVMDisplayActive) = false;
+GVAR(PulseOxDisplay) = false;
+GVAR(CapnographDisplay) = false;
 [{
     params ["_args", "_idPFH"];
     _args params ["_medic", "_patient"];
@@ -68,12 +74,26 @@ GVAR(BVMSpeedDown) = [0xF9, [false, false, false], {
     if !(_patient getVariable [QGVAR(BVMInUse), false]) exitWith {
         [_idPFH] call CBA_fnc_removePerFrameHandler;
         GVAR(BVMDisplayActive) = false;
-
+        GVAR(PulseOxDisplay) = false;
+        GVAR(CapnographDisplay) = false;
         "CPR_MONITOR" cutText ["", "PLAIN",0,true];
         _patient setVariable [QGVAR(deviceCode), 0, true];
     };
 
     switch (true) do {
+        case (_deviceCode == 3): {
+            if ((_patient getVariable [QEGVAR(circulation,capnographConnected), false])) then {
+                if !(GVAR(CapnographDisplay)) then {
+                    "CPR_MONITOR" cutText ["", "PLAIN",0,true];
+                    "CPR_MONITOR" cutRsc ["CPR_EMMA", "PLAIN", 0, true];
+                    GVAR(CapnographDisplay) = true;
+                    [_medic, GVAR(BVMTarget)] call EFUNC(circulation,Capnograph_ViewMonitor);
+                };
+            } else {
+                "CPR_MONITOR" cutText ["", "PLAIN",0,true];
+                GVAR(CapnographDisplay) = false;
+            };
+        };
         case (_deviceCode == 2): {
             if ((_patient getVariable [QEGVAR(circulation,DefibrillatorPads_Connected),false] && ((_patient getVariable [QEGVAR(circulation,Defibrillator_Provider),[-1,-1,-1]] select 2) isEqualTo 'kat_X_AED')) || (_patient getVariable [QEGVAR(circulation,AED_X_VitalsMonitor_Connected),false])) then {
                 if !(GVAR(BVMDisplayActive)) then {

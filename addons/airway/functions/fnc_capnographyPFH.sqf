@@ -19,7 +19,7 @@
  */
 params ["_unit"];
 
-private _airways = ["Larynxtubus", "IGEL", "ETT"];
+private _airways = ["Larynxtubus", "IGEL", "ETT", "Surgical_Airway"];
 private _monitor  = _unit getVariable [QEGVAR(breathing,etco2Monitor), []];
 private _hasCapno = (_airways findIf { _x in _monitor }) != -1;
 private _color = LLSTRING(capnographyWhite);
@@ -72,6 +72,9 @@ default {
 };
 };
 private _entry = format [LLSTRING(capnographyStatus), _color];
+if ((_unit getVariable [QEGVAR(circulation,capnographConnected), false])) then {
+    _entry = format [LLSTRING(capnographyEmma), (round _etco2), (round _breathing)];
+};
 _unit setVariable [QGVAR(capnoStatus), _entry, true];
 _unit setVariable [QGVAR(capnoColor), _rgb, true];
 [{

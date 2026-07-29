@@ -2419,5 +2419,8 @@
         <Key ID="STR_KAT_airway_AirwayETT_Failed">
             <English>Failed to place ETT</English>
         </Key>
+        <Key ID="STR_KAT_Airway_capnographyEmma">
+            <English>EMMA: ETCO2:%1, RR:%2</English>
+        </Key>
     </Package>
 </Project>

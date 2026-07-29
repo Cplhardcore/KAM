@@ -4427,5 +4427,14 @@
         <Key ID="STR_KAT_Circulation_PausedCPR">
             <English>Paused CPR</English>
         </Key>
+        <Key ID="STR_KAT_Circulation_EMMA_Display">
+            <English>Attach EMMA</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_EMMA_Capno">
+            <English>EMMA</English>
+        </Key>
+        <Key ID="STR_KAT_Circulation_RemoveEMMA_Display">
+            <English>Detach EMMA</English>
+        </Key>
     </Package>
 </Project>

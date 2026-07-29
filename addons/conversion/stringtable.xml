@@ -112,6 +112,5 @@
         <Key ID="STR_KAT_CONVERSION_useMedVehicle">
             <English>Use conversion medical vehicle as the respawn point</English>
         </Key>
-
     </Package>
 </Project>

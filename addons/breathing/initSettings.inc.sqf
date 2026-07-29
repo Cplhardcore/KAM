@@ -603,6 +603,15 @@
 ] call CBA_fnc_addSetting;
 
 [
+    QGVAR(medLvl_EMMA),
+    "LIST",
+    LLSTRING(medLvl_EMMA),
+    [CBA_SETTINGS_CAT, LSTRING(SubCategory_Items)],
+    [[0, 1, 2], ["STR_ACE_Medical_Treatment_Anyone", "STR_ACE_Medical_Treatment_Medics", "STR_ACE_Medical_Treatment_Doctors"], 2],
+    true
+] call CBA_fnc_addSetting;
+
+[
     QGVAR(medLvl_FingerThoracostomyTreatment),
     "LIST",
     LLSTRING(SETTING_FingerThoracostomyTreatment_medLvl),
