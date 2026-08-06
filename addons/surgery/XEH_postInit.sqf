@@ -15,3 +15,21 @@
 
 [QACEGVAR(medical_gui,updateInjuryListPart), LINKFUNC(gui_updateInjuryListPart)] call CBA_fnc_addEventHandler;
 [QACEGVAR(medical_treatment,fullHealLocalMod), LINKFUNC(fullHealLocal)] call CBA_fnc_addEventHandler;
+[QACEGVAR(medical,fracture), {
+    params ["_patient", "_part"];
+    private _fractureArray = _patient getVariable [QGVAR(fractures), [0,0,0,0,0,0,0,0,0,0,0,0]];
+    private _liveFracture = _fractureArray select _part;
+    if (random 100 <= GVAR(simpleChance)) then {
+        _liveFracture = 1;
+    } else {
+        if (random 100 <= GVAR(compoundChance)) then {
+            _liveFracture = 2;
+        } else {
+            _liveFracture = 3;
+        };
+    };
+    _fractureArray set [_part, _liveFracture];
+    _patient setVariable [QGVAR(fractures), _fractureArray, true];
+}] call CBA_fnc_addEventHandler;
+
+

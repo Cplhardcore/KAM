@@ -73,8 +73,6 @@ private _limbWrapStatus = _wrappedJointArray select _jointGroupIndex;
         case (((_level >= 1) && (_level < 3)) && (_isIced)): { localize LSTRING(JointInjury_IcedSprain) };
         case ((_level > 0) && (_level < 1)): { localize LSTRING(JointInjury_Strain) };
         case ((_level >= 1) && (_level < 3)): { localize LSTRING(JointInjury_Sprain) };
-        case (_level == 1): { localize LSTRING(JointInjury_InflamedStrain) };
-        case ((_level == 2)): { localize LSTRING(JointInjury_InflamedSprain) };
         default {""};
     };
     private _limbLabel = switch (true) do {

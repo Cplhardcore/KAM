@@ -49,7 +49,7 @@ if (
     _ketamineEffectiveness <= 0.8 &&
     _nalbuphineEffectiveness <= 0.8 &&
     _morphineEffectiveness <= 0.8 &&
-    (_localAnesthesia <= 0.8)
+    (_localAnesthesia <= 0.6)
 ) then {
     [_patient, [0.6, 0.7, 0.8] select (floor random 3)] call ACEFUNC(medical_status,adjustPainLevel);
 };
@@ -64,14 +64,15 @@ if (random 100 < GVAR(closedReductionFailChance)) exitWith {
     if (_delay > 15) then {
         _activeFracture set [_part, -3];
         _fractureArray set [_part, 0];
+        _patient setVariable [QGVAR(fractures), _fractureArray, true];
+        _patient setVariable [VAR_FRACTURES, _activeFracture, true];
         [{
             params ["_patient", "_activeFracture", "_part"];
             _activeFracture set [_part, 0];
             _patient setVariable [VAR_FRACTURES, _activeFracture, true];
             [_patient] call EFUNC(misc,updateDamageEffects);
         }, [_patient, _activeFracture, _part], _delay] call CBA_fnc_waitAndExecute;
-        _patient setVariable [QGVAR(fractures), _fractureArray, true];
-        _patient setVariable [VAR_FRACTURES, _activeFracture, true];
+        
 
         [_patient, true] call ACEFUNC(dragging,setCarryable);
         [_patient, true] call ACEFUNC(dragging,setDraggable);

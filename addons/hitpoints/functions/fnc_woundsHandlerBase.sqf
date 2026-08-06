@@ -239,7 +239,7 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
         diag_log format["%1, damage: %2, peneration: %3, bleeding: %4, pain: %5", _bodyPart, _woundDamage toFixed 2, _woundDamage > PENETRATION_THRESHOLD, _bleeding toFixed 3, _pain toFixed 3];
         systemChat format["%1, damage: %2, peneration: %3, bleeding: %4, pain: %5", _bodyPart, _woundDamage toFixed 2, _woundDamage > PENETRATION_THRESHOLD, _bleeding toFixed 3, _pain toFixed 3];
         #endif
-
+        private _fractures = GET_FRACTURES(_unit);
         switch (true) do {
             case (
                 _causeFracture
@@ -247,7 +247,8 @@ private _bodyPartVisParams = [_unit, false, false, false, false]; // params arra
                 && {_bodyPartNToAdd > 3}
                 && {_woundDamage > FRACTURE_DAMAGE_THRESHOLD}
                 && {random 1 < (_fractureMultiplier * ACEGVAR(medical,fractureChance))
-                && (_causeAdditionalInjuries)}
+                && (_causeAdditionalInjuries)
+                && ((_fractures select _bodyPartNToAdd) <= 0)}
             ): {
                 private _fractures = GET_FRACTURES(_unit);
                 _fractures set [_bodyPartNToAdd, 1];
