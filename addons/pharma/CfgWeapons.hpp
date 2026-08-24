@@ -128,8 +128,19 @@ class CfgWeapons {
         scope = 2;
         displayName = CSTRING(Atropine_Box_Display);
         picture = QPATHTOF(ui\icon_Atropine.paa);
-        model = "\A3\Structures_F_EPA\Items\Medical\Painkillers_F.p3d";
+        model = QACEPATHTOF(medical_treatment,data\atropine.p3d);
         descriptionShort = CSTRING(Atropine_DescShort);
+        ACE_isMedicalItem = 1;
+        class ItemInfo: CBA_MiscItem_ItemInfo {
+            mass = 0.5;
+        };
+    };
+    class kat_atnaa: ACE_ItemCore {
+        scope = 2;
+        displayName = "$STR_KAT_Chemical_atnaaItem";
+        picture = QPATHTOF(ui\icon_Atropine.paa);
+        model = QACEPATHTOF(medical_treatment,data\atropine.p3d);
+        descriptionShort = "$STR_KAT_Chemical_atnaaItem_desc";
         ACE_isMedicalItem = 1;
         class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 0.5;
